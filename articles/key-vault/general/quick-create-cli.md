@@ -9,30 +9,22 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3b9758d52c4be8e4d85c398f5ef1d0b3fae7e86
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d84f500560031322cff32005b537037dc897919e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87541805"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516765"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando di Azure
 
 Azure Key Vault è un servizio cloud che offre uno spazio di archiviazione protetto per [chiavi](../keys/index.yml), [segreti](../secrets/index.yml) e [certificati](../certificates/index.yml). Per altre informazioni sul servizio Key Vault, vedere [Informazioni su Azure Key Vault](overview.md). Per altre informazioni sugli elementi che è possibile archiviare in un insieme di credenziali delle chiavi, vedere [Informazioni su chiavi, segreti e certificati](about-keys-secrets-certificates.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Questa guida introduttiva mostra come creare un insieme di credenziali delle chiavi tramite l'[interfaccia della riga di comando di Azure](/cli/azure/). L'interfaccia della riga di comando di Azure consente di creare e gestire risorse di Azure usando comandi o script.  Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida di avvio rapido è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-Per accedere ad Azure usando l'interfaccia della riga di comando è possibile digitare:
-
-```azurecli
-az login
-```
-
-Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+ - Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

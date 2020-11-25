@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460683"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744239"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -25,7 +25,7 @@ Se sono presenti delle prenotazioni, non vengono più applicate dopo il trasferi
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Trasferire sottoscrizioni con contratto Enterprise a un partner CSP
 
-I partner con fatturazione diretta CSP certificati come [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) possono richiedere di trasferire le sottoscrizioni di Azure per i clienti che dispongono di un Contratto Enterprise diretto (EA). I trasferimenti di sottoscrizioni sono consentiti solo per i clienti che hanno accettato un Contratto del cliente Microsoft e hanno acquistato un piano Azure.
+I partner con fatturazione diretta CSP certificati come [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) possono richiedere di trasferire le sottoscrizioni di Azure per i clienti che dispongono di un Contratto Enterprise diretto (EA). I trasferimenti di sottoscrizioni sono consentiti solo per i clienti che hanno accettato un Contratto del cliente Microsoft e hanno acquistato un piano di Azure con il programma CSP.
 
 Quando la richiesta viene approvata, il CSP può fornire una fattura combinata ai clienti. Per altre informazioni sui DSN che trasferiscono le sottoscrizioni, vedere [Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure per l'account MPA](mpa-request-ownership.md).
 

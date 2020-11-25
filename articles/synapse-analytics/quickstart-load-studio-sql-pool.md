@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 05/06/2020
+ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a4740699d70601591645aa0d3183531a6687be6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660084"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Avvio rapido: Caricamento bulk con Synapse SQL
 
@@ -39,7 +39,8 @@ La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente i
 
 ### <a name="steps"></a>Passaggi
 
-1. Selezionare l'account di archiviazione e il file o la cartella da cui eseguire il caricamento nel pannello della posizione di archiviazione di origine: ![Selezionare la posizione di origine](./sql/media/bulk-load/bulk-load-source-location.png)
+1. Selezionare l'account di archiviazione e il file o la cartella da cui eseguire il caricamento nel pannello della posizione di archiviazione di origine. La procedura guidata tenterà automaticamente di rilevare i file Parquet. Se non è possibile confermare il tipo di file Parquet, per impostazione predefinita verrà usato il tipo di file CSV. 
+   ![Selezionare la posizione di origine](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Selezionare le impostazioni del formato di file, incluso l'account di archiviazione in cui scrivere le righe rifiutate (file di errori). Attualmente sono supportati solo i file CSV e Parquet.
 
@@ -47,9 +48,14 @@ La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente i
 
 3. Per configurare le impostazioni del formato di file, è possibile selezionare "Anteprima dati" per vedere come verrà analizzato il file dall'istruzione COPY. Selezionare "Anteprima dati" ogni volta che si cambia un'impostazione del formato di file per vedere come verrà analizzato il file dall'istruzione COPY con l'impostazione aggiornata: ![Anteprima dei dati](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
+> [!NOTE]  
+>
+> - La visualizzazione in anteprima dei dati con caratteri di terminazione del campo multipli non è supportata nella procedura guidata Caricamento bulk. Se vengono specificati caratteri di terminazione del campo multipli, la procedura guidata visualizza l'anteprima dei dati in una sola colonna. 
+> - La specifica di caratteri di terminazione del campo multipli è supportata nell'istruzione COPY, ma non nella procedura guidata Caricamento bulk, in cui viene generato un errore.
+
 4. Selezionare il pool SQL dedicato che si usa per il caricamento, specificando anche se il caricamento verrà eseguito per una cartella esistente o per una nuova: ![Selezione della posizione di destinazione](./sql/media/bulk-load/bulk-load-target-location.png)
 
-5. Selezionare "Configure column mapping" (Configura mapping di colonne) per assicurarsi di avere il mapping di colonne appropriato. Per le nuove tabelle, la configurazione del mapping di colonne è fondamentale per l'aggiornamento dei tipi di dati delle colonne di destinazione: ![Configurazione del mapping di colonne](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Selezionare "Configure column mapping" (Configura mapping di colonne) per assicurarsi di avere il mapping di colonne appropriato. Se l'opzione "Infer column names" (Deduci nomi colonne) è abilitata, i nomi delle colonne vengono rilevati automaticamente. Per le nuove tabelle, la configurazione del mapping di colonne è fondamentale per l'aggiornamento dei tipi di dati delle colonne di destinazione: ![Configurazione del mapping di colonne](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
 
 6. Selezionare "Apri script" per generare uno script T-SQL con l'istruzione COPY da caricare dal data lake: ![Apertura dello script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 

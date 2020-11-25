@@ -3,18 +3,18 @@ title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827580"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657313"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -126,7 +126,7 @@ Indipendentemente dai criteri, gli amministratori globali e gli agenti di ammini
 
 Per visualizzare e aggiornare il criterio, è necessario essere membri del gruppo **Agente amministratore**. Usare le informazioni seguenti per abilitare il criterio che consente ai clienti di visualizzare gli addebiti per l'utilizzo di Azure.
 
-Nel portale di Azure accedere al tenant partner e selezionare **Gestione dei costi e fatturazione**. Selezionare l'ambito di fatturazione rilevante nell'area Ambito di fatturazione e quindi selezionare **Clienti**. L'elenco dei clienti è associato all'account di fatturazione.
+Nel portale di Azure accedere al *tenant partner* e selezionare **Gestione dei costi e fatturazione**. Selezionare l'ambito di fatturazione rilevante nell'area Ambito di fatturazione e quindi selezionare **Clienti**. L'elenco dei clienti è associato all'account di fatturazione. *Se per errore si accede al tenant del cliente,l'elenco **Clienti** non viene visualizzato.*
 
 Nell'elenco dei clienti selezionare il cliente a cui si vuole consentire di visualizzare i costi.
 
@@ -188,7 +188,7 @@ I campi dati seguenti si trovano nei file dei dettagli dell'utilizzo e nelle API
 | costCenter | Centro di costo associato alla sottoscrizione. | N/D |
 | billingPeriodStartDate | Data di inizio del periodo di fatturazione, come indicato nella fattura. | N/D |
 | billingPeriodEndDate | Data di fine del periodo di fatturazione, come indicato nella fattura. | N/D |
-| servicePeriodStartDate | Data di inizio del periodo di valutazione in cui l'utilizzo del servizio è stato valutato per gli addebiti. I prezzi dei servizi di Azure sono determinati per il periodo di valutazione. | ChargeStartDate nel Centro per i partner. Data di inizio del ciclo di fatturazione, ad eccezione dei casi in cui vengono indicate le date relative ai dati di utilizzo non addebitati del ciclo di fatturazione precedente. L'ora è sempre l'inizio del giorno, 0:00. |
+| servicePeriodStartDate | Data di inizio del periodo di valutazione in cui l'utilizzo del servizio è stato valutato per gli addebiti. I prezzi dei servizi di Azure sono determinati per il periodo di valutazione. | ChargeStartDate nel Centro per i partner.  Data di inizio del ciclo di fatturazione, ad eccezione dei casi in cui vengono indicate le date relative ai dati di utilizzo non addebitati del ciclo di fatturazione precedente. L'ora è sempre l'inizio del giorno, 0:00. |
 | servicePeriodStartDate | Data di fine del periodo in cui l'utilizzo del servizio è stato valutato per gli addebiti. I prezzi dei servizi di Azure sono determinati in base al periodo di valutazione. | N/D |
 | Data | Per i dati sul consumo di Azure, visualizza la data relativa all'utilizzo valutato. Per l'istanza riservata, visualizza la data di acquisto. Per gli addebiti periodici e gli addebiti una tantum, ad esempio per Marketplace e supporto tecnico, viene visualizzata la data di acquisto. | N/D |
 | productID | Identificatore del prodotto che ha accumulato addebiti per consumo o acquisto. Si tratta della chiave concatenata di productID e SKuID, come indicato nel Centro per i partner. | ID del prodotto. |

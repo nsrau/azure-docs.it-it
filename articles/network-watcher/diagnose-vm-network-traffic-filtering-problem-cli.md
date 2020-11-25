@@ -18,22 +18,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a483bc6097c4dd76ed67e93e4313ad8c25cbc08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295958"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542355"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
 In questa guida introduttiva si apprende come distribuire una macchina virtuale e quindi controllare le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento di avvio rapido è necessario usare la versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo avere verificato la versione dell'interfaccia della riga di comando di Azure, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando di Azure di questo argomento di avvio rapido sono formattati per essere eseguiti in una shell Bash.
+- Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
+
+- I comandi dell'interfaccia della riga di comando di Azure di questo argomento di avvio rapido sono formattati per essere eseguiti in una shell Bash.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -134,7 +136,7 @@ az network nic list-effective-nsg \
 
 L'output restituito include il testo seguente per la regola **AllowInternetOutbound** che ha consentito l'accesso in uscita a www.bing.com in un passaggio precedente in [Usare la verifica del flusso IP](#use-ip-flow-verify):
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -175,7 +177,7 @@ Nell'output precedente il valore di **destinationAddressPrefix** è **Internet**
 
 Quando si esegue il comando `az network watcher test-ip-flow` per testare la comunicazione in uscita verso 172.131.0.100 in [Usare la verifica del flusso IP](#use-ip-flow-verify), l'output informa l'utente che la regola **DefaultOutboundDenyAll** ha negato la comunicazione. La regola **DefaultOutboundDenyAll** equivale alla regola **DenyAllOutBound** indicata nell'output seguente del comando `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +210,7 @@ La regola indica **0.0.0.0/0** come valore di **destinationAddressPrefix**. La r
 
 Quando si esegue il comando `az network watcher test-ip-flow` in [Usare la verifica del flusso IP](#use-ip-flow-verify) per testare le comunicazioni in ingresso da 172.131.0.100, l'output informa l'utente che la regola **DefaultInboundDenyAll** ha negato la comunicazione. La regola **DefaultInboundDenyAll** equivale alla regola **DenyAllInBound** indicata nell'output seguente del comando `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},

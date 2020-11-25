@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966322"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842618"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Importazione e creazione di immagini Linux in Azure
 
@@ -83,7 +83,7 @@ Le [raccolte immagini condivise](shared-image-galleries.md) sono consigliate per
 - Replica globale delle immagini.
 - Controllo delle versioni e raggruppamento delle immagini per la semplificazione della gestione.
 - Immagini a disponibilità elevata con archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. Le ZRS offrono una migliore resilienza nei confronti degli errori di zona.
-- Condivisione tra sottoscrizioni e persino tra tenant Active Directory, con il Controllo degli accessi in base al ruolo.
+- Condivisione tra sottoscrizioni e persino tra tenant Active Directory con il controllo degli accessi in base al ruolo di Azure.
 - Ridimensionamento delle distribuzioni con repliche delle immagini in ogni area.
 
 A livello generale, si crea una raccolta immagini condivise costituita da:

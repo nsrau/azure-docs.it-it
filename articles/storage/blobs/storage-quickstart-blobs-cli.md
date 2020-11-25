@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88520771"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660339"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
@@ -27,19 +27,9 @@ L'interfaccia della riga di comando di Azure è l'esperienza della riga di coman
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## <a name="install-the-azure-cli-locally"></a>Installare l'interfaccia della riga di comando di Azure in locale
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento di avvio rapido è necessario usare la versione 2.0.46 o successiva. Per determinare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario effettuare l'accesso e l'autenticazione. Se si usa Azure Cloud Shell, questo passaggio non è necessario. Per accedere all'interfaccia della riga di comando di Azure, eseguire `az login` e quindi l'autenticazione nella finestra del browser:
-
-```azurecli
-az login
-```
-
-Per altre informazioni sull'autenticazione con l'interfaccia della riga di comando di Azure, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="authorize-access-to-blob-storage"></a>Autorizzare l'accesso all'archiviazione BLOB
 

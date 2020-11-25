@@ -8,22 +8,22 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08324cc32abdf78cf6ff9ef2d04352eb44f709ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0156a1d7cea477a1725b60a5e1de229e76d2664c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974227"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517989"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Guida introduttiva: Creare e crittografare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare e crittografare una macchina virtuale Windows Server 2016.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento di avvio rapido è necessario usare la versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -48,7 +48,7 @@ az vm create \
 
 La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti. L'output di esempio seguente mostra che l'operazione di creazione della macchina virtuale ha avuto esito positivo.
 
-```
+```console
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -87,7 +87,7 @@ az vm encryption show --name MyVM -g MyResourceGroup
 
 Nell'output restituito verrà visualizzato quanto segue:
 
-```
+```console
 "EncryptionOperation": "EnableEncryption"
 ```
 

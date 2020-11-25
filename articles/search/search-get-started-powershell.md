@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 08/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9dd9de9dcb01e9be200e07e5925d8b856432b620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058506"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742379"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in PowerShell con le API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)]()
 > * [C#](./search-get-started-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 > * [Python](search-get-started-python.md)
 > * [Portale](search-get-started-portal.md)
 > 
@@ -38,7 +38,7 @@ Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguen
 
 + [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
-## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
+## <a name="copy-a-key-and-url"></a>Copiare una chiave e un URL
 
 Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
@@ -46,7 +46,7 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
+![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-rest/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 

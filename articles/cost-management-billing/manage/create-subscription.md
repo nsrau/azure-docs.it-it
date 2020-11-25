@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131956"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844694"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creare una sottoscrizione di Azure aggiuntiva
 
@@ -73,7 +73,11 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Creare una sottoscrizione di Azure aggiuntiva a livello di codice
 
-È anche possibile creare sottoscrizioni aggiuntive a livello di codice. Per altre informazioni, vedere [Creare sottoscrizioni di Azure a livello di codice](programmatically-create-subscription.md).
+È anche possibile creare sottoscrizioni aggiuntive a livello di codice. Per altre informazioni, vedere:
+
+- [Creare sottoscrizioni del contratto Enterprise a livello di codice con l'ultima API](programmatically-create-subscription-enterprise-agreement.md)
+- [Creare sottoscrizioni del Contratto del cliente Microsoft a livello di codice con l'ultima API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Creare sottoscrizioni del Contratto Microsoft Partner a livello di codice con l'ultima API](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

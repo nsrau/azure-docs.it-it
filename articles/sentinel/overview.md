@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889200"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654661"
 ---
 # <a name="what-is-azure-sentinel"></a>Che cos'è Azure Sentinel?
 
@@ -29,11 +29,11 @@ Microsoft Azure Sentinel è una soluzione di tipo **SIEM (Security Information a
 
 Azure Sentinel offre una vista a colpo d'occhio sull'azienda, alleviando il carico associato ad attacchi sempre più sofisticati, volume crescente degli avvisi e lunghi tempi di risoluzione.
 
-- **Raccoglie i dati su scala cloud** per tutti gli utenti, i dispositivi, le applicazioni e l'infrastruttura, in locale e in più cloud. 
+- **Raccoglie i dati su scala cloud** per tutti gli utenti, i dispositivi, le applicazioni e l'infrastruttura, in locale e in più cloud. 
 
-- **Rileva minacce precedentemente non individuate** e riduce al minimo i falsi positivi usando le sofisticate funzionalità di analisi e intelligence sulle minacce di Microsoft. 
+- **Rileva minacce precedentemente non individuate** e riduce al minimo i falsi positivi usando le sofisticate funzionalità di analisi e intelligence sulle minacce di Microsoft. 
 
-- **Analizza le minacce con l'intelligenza artificiale** e individua le attività sospette su larga scala, sfruttando i vantaggi di anni di esperienza di Microsoft a livello di cybersecurity. 
+- **Analizza le minacce con l'intelligenza artificiale** e individua le attività sospette su larga scala, sfruttando i vantaggi di anni di esperienza di Microsoft a livello di cybersecurity. 
 
 - **Risponde rapidamente agli eventi imprevisti** con orchestrazione e automazione integrate delle attività comuni.
 
@@ -51,7 +51,7 @@ Per eseguire l'onboarding Azure Sentinel, è necessario innanzitutto [connetters
 
 ## <a name="workbooks"></a>Workbooks
 
-Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile monitorare i dati usando l'integrazione di Azure Sentinel con Cartelle di lavoro di Monitoraggio di Azure, che consente di creare cartelle di lavoro personalizzate in modo versatile. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
+Dopo aver[connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile monitorare i dati usando l'integrazione di Azure Sentinel con Cartelle di lavoro di Monitoraggio di Azure, che consente di creare cartelle di lavoro personalizzate in modo versatile. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
 
 ![Dashboard](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -64,7 +64,7 @@ Per ridurre i risultati non significativi e minimizzare il numero di avvisi da e
 
 ## <a name="security-automation--orchestration"></a>Automazione e orchestrazione della sicurezza
 
-È possibile automatizzare le attività comuni e [semplificare l'orchestrazione della sicurezza con playbook](tutorial-respond-threats-playbook.md) che si integrano con i servizi di Azure e con gli strumenti esistenti. Basata su App per la logica di Azure, la soluzione di automazione e orchestrazione di Azure Sentinel fornisce un'architettura altamente estendibile, che rende possibile ridimensionare l'automazione man mano che emergono nuove tecnologie e minacce. Per compilare playbook con App per la logica di Azure, è possibile scegliere da una raccolta in costante crescita di playbook predefiniti. Questi includono [oltre 200 connettori](https://docs.microsoft.com/azure/connectors/apis-list) per servizi, ad esempio Funzioni di Azure. I connettori consentono di applicare qualsiasi logica personalizzata in codice, ServiceNow, Jira, Zendesk, richieste HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
+È possibile automatizzare le attività comuni e [semplificare l'orchestrazione della sicurezza con playbook](tutorial-respond-threats-playbook.md) che si integrano con i servizi di Azure e con gli strumenti esistenti. Basata su App per la logica di Azure, la soluzione di automazione e orchestrazione di Azure Sentinel fornisce un'architettura altamente estendibile, che rende possibile ridimensionare l'automazione man mano che emergono nuove tecnologie e minacce. Per compilare playbook con App per la logica di Azure, è possibile scegliere da una raccolta in costante crescita di playbook predefiniti. Questi includono [oltre 200 connettori](../connectors/apis-list.md) per servizi, ad esempio Funzioni di Azure. I connettori consentono di applicare qualsiasi logica personalizzata in codice, ServiceNow, Jira, Zendesk, richieste HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
 
 Ad esempio, se si usa il sistema di creazione dei ticket ServiceNow, è possibile usare gli strumenti forniti da App per la logica di Azure per automatizzare i flussi di lavoro e aprire un ticket in ServiceNow ogni volta che viene rilevato un evento specifico.
 

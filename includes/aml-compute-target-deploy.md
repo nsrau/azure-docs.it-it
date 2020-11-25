@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 11/02/2020
 ms.openlocfilehash: 31d00222da540751a1f95120bea00535b099403d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816554"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026526"
 ---
 La destinazione di calcolo usata per ospitare il modello influirà sul costo e sulla disponibilità dell'endpoint distribuito. Usare questa tabella per scegliere una destinazione di calcolo appropriata.
 

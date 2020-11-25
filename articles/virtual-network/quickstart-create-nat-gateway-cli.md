@@ -15,23 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4d034aefe59a661bfb0694feba36a669aa274ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054023"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007274"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 
 Questa esercitazione illustra come usare il servizio NAT di rete virtuale di Azure. Verrà creato un gateway NAT per fornire connettività in uscita per una macchina virtuale in Azure. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Per completare questa esercitazione, è possibile usare Azure Cloud Shell o eseguire i rispettivi comandi localmente.  Se è la prima volta che si usa Azure Cloud Shell, [accedere ora](https://shell.azure.com) per eseguire la configurazione iniziale.
-Se si sceglie di eseguire questi comandi localmente, è necessario installare l'interfaccia della riga di comando.  Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.71 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
-
+- Questo articolo richiede la versione 2.0.71 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

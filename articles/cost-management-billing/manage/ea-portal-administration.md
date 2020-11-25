@@ -3,18 +3,18 @@ title: Amministrazione di Azure EA Portal
 description: Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411040"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683646"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -135,28 +135,20 @@ Per confermare la proprietà dell'account:
    Lo stato dovrebbe cambiare da **In sospeso** a **Data di inizio/fine**. La data di inizio/fine corrisponde alla data in cui l'utente ha eseguito per la prima volta l'accesso a alla data di termine del contratto.
 1. Quando viene visualizzato il **messaggio di avviso**, il proprietario di un account deve selezionare **Continua** per attivare l'account quando accede per la prima volta ad Azure Enterprise Portal.
 
-## <a name="change-account-owner"></a>Cambiare il proprietario dell'account
+## <a name="change-azure-subscription-or-account-ownership"></a>Cambiare la proprietà dell'account o della sottoscrizione di Azure
 
-Gli amministratori dell'organizzazione possono usare Azure Enterprise Portal per trasferire la proprietà dell'account di sottoscrizione in una registrazione. L'azione sposta tutte le sottoscrizioni da un account utente di origine a un account utente di destinazione.
+Gli amministratori dell'organizzazione possono usare Azure Enterprise Portal per trasferire la proprietà dell'account di alcune o di tutte le sottoscrizioni in una registrazione.
 
-Per il trasferimento degli account tenere a mente queste importanti informazioni:
+Al termine del trasferimento della proprietà di un account o di una sottoscrizione, Microsoft aggiorna il proprietario dell'account.
 
-- È possibile eseguire questi trasferimenti:
-  - Da un account aziendale o dell'istituto di istruzione a un altro account aziendale o dell'istituto di istruzione.
-  - Da un account Microsoft a un account aziendale o dell'istituto di istruzione.
-  - Da un account Microsoft a un altro account Microsoft.
+Prima di eseguire il trasferimento della proprietà, è importante conoscere i criteri di controllo degli accessi in base al ruolo di Azure:
 
-    L'account di destinazione deve essere un account Azure commerciale valido per essere idoneo per il trasferimento. Per i nuovi account viene chiesto di creare un account Azure commerciale durante l'accesso ad Azure Enterprise Portal. Per gli account esistenti, è necessario creare prima una nuova sottoscrizione di Azure perché l'account sia idoneo.
-
-- Non è possibile eseguire un trasferimento da un account aziendale o dell'istituto di istruzione a un account Microsoft.
-
-- Al termine del trasferimento di una sottoscrizione, Microsoft aggiorna il proprietario dell'account.
-
-Informazioni sui criteri di controllo degli accessi in base al ruolo (RBAC):
-
-- Quando si eseguono trasferimenti di sottoscrizioni tra due ID organizzativi dello stesso tenant, i criteri di Controllo degli accessi in base al ruolo e i ruoli di amministratore del servizio e coamministratore esistenti vengono mantenuti.
-- Altri trasferimenti di sottoscrizioni generano la perdita dei criteri di controllo degli accessi in base al ruolo e delle assegnazioni di ruoli.
+- Quando si eseguono trasferimenti di proprietà di sottoscrizioni o account tra due ID organizzativi nello stesso tenant, i criteri di controllo degli accessi in base al ruolo di Azure e i ruoli di amministratore del servizio e coamministratore esistenti vengono mantenuti.
+- I trasferimenti di proprietà di sottoscrizioni o account fra tenant diversi generano la perdita dei criteri di controllo degli accessi in base al ruolo di Azure e delle assegnazioni di ruoli.
 - I criteri e i ruoli di amministratore non vengono trasferiti tra directory diverse. Gli amministratori del servizio vengono aggiornati nel proprietario dell'account di destinazione.
+- Per evitare la perdita dei criteri di controllo degli accessi in base al ruolo e delle assegnazioni di ruoli durante il trasferimento della proprietà di una sottoscrizione fra tenant, assicurarsi che la casella di controllo **Move the subscriptions to the recipient's Azure AD tenant** (Sposta le sottoscrizioni nel tenant di Azure AD del destinatario) rimanga **deselezionata**. In questo modo verranno mantenuti i servizi, i ruoli Controllo degli accessi in base al ruolo e i criteri nel tenant di Azure AD corrente e verrà trasferita solo la proprietà di fatturazione dell'account.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Immagine che mostra la casella di controllo per il trasferimento di sottoscrizioni al tenant Azure AD non selezionata" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Prima di cambiare il proprietario di un account:
 
@@ -168,26 +160,25 @@ Per trasferire la proprietà dell'account per tutte le sottoscrizioni:
 1. Accedere ad Azure Enterprise Portal.
 1. Nell'area di spostamento sinistra selezionare **Gestisci**.
 1. Selezionare la scheda **Account** e passare il puntatore del mouse su un account.
-1. Selezionare l'icona di modifica del proprietario dell'account sulla destra. L'icona raffigura una persona.
-1. Scegliere un account idoneo e selezionare **Avanti**.
+1. Selezionare l'icona di modifica del proprietario dell'account sulla destra. L'icona raffigura una persona.  
+    ![Immagine che mostra il simbolo di modifica del proprietario dell'account](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Scegliere l'account di destinazione in cui eseguire il trasferimento e quindi selezionare **Avanti**.
+1. Se si vuole trasferire la proprietà dell'account fra tenant di Azure AD diversi, selezionare la casella di controllo **Move the subscriptions to the recipient's Azure AD tenant** (Sposta le sottoscrizioni nel tenant di Azure AD del destinatario).  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Immagine che mostra la casella di controllo per il trasferimento di sottoscrizioni al tenant Azure AD selezionata" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confermare il trasferimento e selezionare **Invia**.
-
-![Immagine che mostra il simbolo di modifica del proprietario dell'account](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Per trasferire la proprietà dell'account per una sottoscrizione singola:
 
 1. Accedere ad Azure Enterprise Portal.
 1. Nell'area di spostamento sinistra selezionare **Gestisci**.
 1. Selezionare la scheda **Account** e passare il puntatore del mouse su un account.
-1. Selezionare l'icona di trasferimento sottoscrizioni a destra. L'icona raffigura una pagina.
-1. Scegliere una sottoscrizione idonea e selezionare **Avanti**.
+1. Selezionare l'icona di trasferimento sottoscrizioni a destra. L'icona raffigura una pagina.  
+    ![Immagine che mostra il simbolo del trasferimento di sottoscrizioni](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Scegliere l'account di destinazione in cui trasferire la sottoscrizione e quindi selezionare **Avanti**.
+1. Se si vuole trasferire la proprietà della sottoscrizione fra tenant di Azure AD diversi, selezionare la casella di controllo **Move the subscriptions to the recipient's Azure AD tenant** (Sposta le sottoscrizioni nel tenant di Azure AD del destinatario).  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Immagine che mostra la casella di controllo per il trasferimento di sottoscrizioni al tenant Azure AD selezionata" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confermare il trasferimento e selezionare **Invia**.
 
-![Immagine che mostra il simbolo del trasferimento di sottoscrizioni](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-Visualizzare in questo video la gestione utenti di Azure Enterprise Portal:
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Associare un account a un reparto
 

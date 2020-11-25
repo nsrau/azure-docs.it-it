@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257448"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659421"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
     - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
     - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
+### <a name="europe-or-uk"></a>[Europa o Regno Unito](#tab/in-europe-or-uk)
+
+Eseguire la procedura seguente se si restituisce il dispositivo in Europa o nel Regno Unito.
 
 1. Usare l'etichetta per la spedizione di ritorno con busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
     - Passare a **Panoramica > Scarica etichetta di spedizione** e scaricare un'etichetta di spedizione per reso.
     - Applicare l'etichetta sul dispositivo.
 
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
-3. Se i dischi vengono rispediti in Europa con DHL, richiedere un ritiro a DHL, visitando il sito Web e specificando il numero di lettera di vettura.
-4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.
-5. Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
+3. Passare al sito Web di DHL Express del paese o area geografica e selezionare **Pianificare il ritiro della spedizione di reso**. In **Richiedere la creazione di una lettera di vettura?** selezionare **No** > **La lettera di vettura DHL è già stata applicata su ogni singolo collo**.
+4. Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
 
 ### <a name="australia"></a>[Australia](#tab/in-australia)
 

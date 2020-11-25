@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422672"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579471"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
 Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
+## <a name="november-2020"></a>Novembre 2020
+
+|Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
+|------------------------------|----------|-------------|---------------|
+|[Crittografia delle chiavi gestita dal cliente su indicizzatori, origini dati e set di competenze](search-security-manage-encryption-keys.md) | Sicurezza | Questa aggiunta estende la crittografia gestita dal cliente all'intera gamma di risorse create e gestite da un servizio di ricerca. Tenere presente che il supporto delle chiavi gestite dal cliente aggiunge un ulteriore livello di crittografia alla crittografia di base eseguita e gestita da Microsoft. | Disponibile a livello generale con l'API REST versione 2020-06-30 |  
+
 ## <a name="september-2020"></a>Settembre 2020
 
 Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi usare le autorizzazioni di controllo degli accessi in base al ruolo di Azure per concedere all'identità le autorizzazioni di sola lettura per le origini dati di Azure. Se le regole IP non sono disponibili, è possibile scegliere la funzionalità di [eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md).
-
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |------------------------------|----------|-------------|---------------|

@@ -3,17 +3,17 @@ title: Novità di Desktop virtuale Windows - Azure
 description: Nuove funzionalità e aggiornamenti del prodotto per Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630015"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537391"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -25,6 +25,48 @@ Desktop virtuale Windows viene aggiornato regolarmente. Questo articolo include 
 - Correzioni di bug
 
 Questo articolo viene aggiornato ogni mese. Controllare spesso l'articolo per ottenere informazioni sui nuovi aggiornamenti.
+
+## <a name="october-2020"></a>Ottobre 2020
+
+Ecco cosa è cambiato in ottobre 2020:
+
+### <a name="improved-performance"></a>prestazioni migliorate
+
+- Sono state ottimizzate le prestazioni riducendo la latenza di connessione nelle aree geografiche di Azure seguenti:
+    - Svizzera
+    - Canada
+
+È ora possibile usare lo [strumento di valutazione dell'esperienza](https://azure.microsoft.com/services/virtual-desktop/assessment/) per stimare la qualità dell'esperienza utente in queste aree.
+
+### <a name="azure-government-cloud-availability"></a>Disponibilità del Cloud Azure per enti pubblici
+
+Il Cloud Azure per enti pubblici è ora disponibile a livello generale. Per altre informazioni, vedere il [post di blog](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Aggiornamenti a Desktop virtuale Windows nel portale di Azure
+
+Sono stati apportati alcuni aggiornamenti a Desktop virtuale Windows nel portale di Azure:
+
+- È stato corretto un errore resourceID che impediva agli utenti di aprire la scheda "Sessioni".
+- L'interfaccia utente della scheda "Host di sessione" è stata semplificata.
+- Sono state corrette le impostazioni "Valori predefiniti," "Usabilità"e "Ripristina impostazioni predefinite" nelle proprietà RDP.
+- Le funzioni "Rimuovi" ed "Elimina" sono state rese coerenti in tutte le schede.
+- Il portale ora convalida i nomi delle app nel flusso di lavoro "Aggiungi un'app".
+- È stato risolto un problema di disallineamento dei dati esportati dagli host di sessione nelle colonne.
+- È stato risolto un problema a causa del quale non era possibile recuperare le sessioni utente nel portale.
+- È stato risolto un problema di recupero dell'host di sessione che si verificava quando la macchina virtuale veniva creata in un gruppo di risorse diverso.
+- È stata aggiornata la scheda "Host di sessione" in modo da elencare sia le sessioni attive che quelle disconnesse.
+- La scheda "Applicazioni" ora ha più pagine.
+- È stato risolto un problema a causa del quale il testo "richiede la riga di comando" non veniva visualizzato correttamente nella scheda "Elenco applicazioni".
+- È stato risolto un problema a causa del quale non era possibile distribuire pool di host o macchine virtuali tramite il portale usando la versione in lingua tedesca della Raccolta immagini condivise.
+
+### <a name="client-updates-for-october-2020"></a>Aggiornamenti client di ottobre 2020
+
+Sono state rilasciate nuove versioni dei client. Per altre informazioni, vedere questi articoli:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+Per altre informazioni sugli altri client, vedere [Aggiornamenti client](#client-updates).
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -68,7 +110,7 @@ Ecco cosa è cambiato in agosto 2020:
 
 - Azure Advisor fa ora parte di Desktop virtuale Windows. Quando si accede a Desktop virtuale Windows tramite il portale di Azure, è possibile visualizzare i suggerimenti per l'ottimizzazione dell'ambiente di Desktop virtuale Windows. Altre informazioni su [Azure Advisor](azure-advisor.md).
 
-- L'interfaccia della riga di comando di Azure ora supporta Desktop virtuale Windows (`az desktopvirtualization`) per facilitare l'automazione delle distribuzioni di Desktop virtuale Windows. Per un elenco dei comandi dell'estensione, vedere [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest).
+- L'interfaccia della riga di comando di Azure ora supporta Desktop virtuale Windows (`az desktopvirtualization`) per facilitare l'automazione delle distribuzioni di Desktop virtuale Windows. Per un elenco dei comandi dell'estensione, vedere [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true).
 
 - I modelli di distribuzione sono stati aggiornati per renderli completamente compatibili con le interfacce di Azure Resource Manager e Desktop virtuale Windows. I modelli sono disponibili su [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -140,7 +182,7 @@ Sono stati aggiunti nuovi cmdlet di AzWvd al modulo Az di Azure PowerShell con q
 
 Per installare il modulo, seguire le istruzioni disponibili in [Configurare il modulo PowerShell per Desktop virtuale Windows](powershell-module.md).
 
-È anche possibile visualizzare un elenco dei comandi disponibili nelle [informazioni di riferimento su AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+È anche possibile visualizzare un elenco dei comandi disponibili nelle [informazioni di riferimento su AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 Per altre informazioni sulle nuove funzionalità, vedere il [post di blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

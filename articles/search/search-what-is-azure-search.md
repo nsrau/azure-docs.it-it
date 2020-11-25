@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f9a5197b982958fe0a0ff21c4b442142beb38882
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422468"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701083"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
@@ -28,7 +28,7 @@ A livello di architettura, un servizio di ricerca risiede tra gli archivi dati e
 
 I due carichi di lavoro primari di un servizio di ricerca sono *indicizzazione* e *query*.
 
-+ L'indicizzazione porta il testo nel servizio di ricerca e lo rende ricercabile. Internamente, il testo in ingresso viene elaborato in token e archiviato in indici invertiti per consentire analisi rapide. Durante l'indicizzazione si ha la possibilità di aggiungere *competenze cognitive* , quelle predefinite di Microsoft o le competenze personalizzate create dall'utente. L'analisi e le trasformazioni successive possono generare nuove informazioni e strutture che non esistevano in precedenza, risultando così particolarmente utili per molti scenari di ricerca e di data mining.
++ L'indicizzazione porta il testo nel servizio di ricerca e lo rende ricercabile. Internamente, il testo in ingresso viene elaborato in token e archiviato in indici invertiti per consentire analisi rapide. Durante l'indicizzazione si ha la possibilità di aggiungere *competenze cognitive*, quelle predefinite di Microsoft o le competenze personalizzate create dall'utente. L'analisi e le trasformazioni successive possono generare nuove informazioni e strutture che non esistevano in precedenza, risultando così particolarmente utili per molti scenari di ricerca e di data mining.
 
 + Dopo che l'indice è stato popolato con dati ricercabili, l'app client invia richieste di query a un servizio di ricerca e gestisce le risposte. Tutte le query vengono eseguite su un indice di ricerca creato dall'utente e di sua proprietà che viene archiviato nel servizio. Nell'app client l'esperienza di ricerca viene definita usando le API di Ricerca cognitiva di Azure e può includere l'ottimizzazione della pertinenza, il completamento automatico, la corrispondenza dei sinonimi, la corrispondenza fuzzy, i criteri di ricerca, il filtro e l'ordinamento.
 
@@ -80,7 +80,7 @@ Il modello pull esegue il pull dei dati dalle origini in Azure e li invia a un i
 
 Dopo avere compilato un indice, è possibile [eseguire query di ricerca](search-query-overview.md) nell'endpoint di servizio tramite semplici richieste HTTP con l'[API REST](/rest/api/searchservice/Search-Documents) o [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search).
 
-Per creare ed estendere una pagina Web che raccoglie l'input degli utenti e gestisce i risultati, vedere [Creare la prima app di ricerca](tutorial-csharp-create-first-app.md). Per eseguire query su un indice esistente, è anche possibile usare [Postman per le chiamate REST interattive](search-get-started-postman.md) oppure la funzionalità predefinita [Esplora ricerche](search-explorer.md) nel portale di Azure.
+Per creare ed estendere una pagina Web che raccoglie l'input degli utenti e gestisce i risultati, vedere [Creare la prima app di ricerca](tutorial-csharp-create-first-app.md). Per eseguire query su un indice esistente, è anche possibile usare [Postman o Visual Studio Code](search-get-started-rest.md) per le chiamate REST interattive oppure [Esplora ricerche](search-explorer.md) integrato nel portale di Azure.
 
 ## <a name="how-it-compares"></a>Confronto
 

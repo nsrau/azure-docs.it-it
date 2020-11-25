@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505071"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541012"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Avvio rapido: Creare un pool SQL dedicato (anteprima) con il portale di Azure
 
@@ -48,7 +48,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
 
     | Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
-    | **Nome del pool SQL** | Qualsiasi nome valido | Nome del pool SQL dedicato. |
+    | **Nome del pool SQL dedicato** | Qualsiasi nome valido | Nome del pool SQL dedicato. |
     | **Livello di prestazioni** | DW100c | Per questa guida di avvio rapido, impostare questa opzione sulle dimensioni minime per ridurre i costi |
 
   
@@ -73,7 +73,6 @@ Accedere al [portale di Azure](https://portal.azure.com/)
 
 8. Al termine del provisioning, tornando all'area di lavoro viene visualizzata una nuova voce per il pool SQL dedicato appena creato.
  ![Flusso di creazione del pool SQL - Provisioning delle risorse.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 Dopo la creazione, il pool SQL dedicato sarà disponibile nell'area di lavoro per il caricamento di dati, l'elaborazione di flussi, la lettura dal data lake e così via.

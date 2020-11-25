@@ -1,6 +1,6 @@
 ---
-title: Guida di avvio rapido per il caricamento di dati in un pool SQL con l'attività di copia
-description: Usare Azure Synapse Analytics per caricare dati in un pool SQL
+title: Guida di avvio rapido per il caricamento di dati in un pool SQL dedicato con l'attività di copia
+description: Usare l'attività di copia della pipeline in Azure Synapse Analytics per caricare dati in un pool SQL dedicato.
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 12b5530ccf154220b11f9d1286d629caf2209475
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280796"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94735246"
 ---
-# <a name="quickstart-load-data-into-sql-pool-using-copy-activity"></a>Avvio rapido: Caricare i dati in un pool SQL con l'attività di copia
+# <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>Avvio rapido: Caricare dati in un pool SQL dedicato con l'attività di copia
 
-Azure Synapse Analytics offre vari motori di analisi che consentono di inserire, trasformare, modellare e analizzare i dati. Un pool SQL offre funzionalità di calcolo e archiviazione basate su T-SQL. Dopo aver creato un pool SQL nell'area di lavoro di Synapse, è possibile caricare, modellare, elaborare e consegnare i dati per ottenere dati analitici in modo più rapido.
+Azure Synapse Analytics offre vari motori di analisi che consentono di inserire, trasformare, modellare e analizzare i dati. Un pool SQL dedicato offre funzionalità di calcolo e archiviazione basate su T-SQL. Dopo aver creato un pool SQL dedicato nell'area di lavoro di Synapse, è possibile caricare, modellare, elaborare e distribuire i dati per ottenere dati analitici in modo più rapido.
 
-Questo argomento di avvio rapido illustra come *caricare dati da Database SQL di Azure in Azure Synapse Analytics*. È possibile seguire una procedura simile a quella usata per copiare dati da altri tipi di archivi dati. Un flusso simile si applica anche alla copia di dati tra altre coppie di origine e sink.
+Questo argomento di avvio rapido illustra come *caricare dati da Database SQL di Azure in Azure Synapse Analytics*. È possibile seguire una procedura simile a quella usata per copiare dati da altri tipi di archivi dati. Questo flusso simile si applica anche alla copia di dati per altre origini e sink.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,13 +29,13 @@ Questo argomento di avvio rapido illustra come *caricare dati da Database SQL di
 * Area di lavoro di Azure Synapse: creare un'area di lavoro di Synapse usando il portale di Azure e seguendo le istruzioni in [Avvio rapido: Creare un'area di lavoro di Synapse](quickstart-create-workspace.md).
 * Database SQL di Azure: questa esercitazione copia i dati del set di dati di esempio di Adventure Works LT nel database SQL di Azure. È possibile creare questo database di esempio in Database SQL seguendo le istruzioni fornite in [Creare un database di esempio in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). È anche possibile usare altri archivi dati seguendo una procedura simile.
 * Account di archiviazione Azure: Archiviazione di Azure viene usato come area di *staging* nell'operazione di copia. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
-* Azure Synapse Analytics: si usa un pool SQL come archivio dati sink. Se non è disponibile un'istanza di Azure Synapse Analytics, vedere [Creare un pool SQL](quickstart-create-sql-pool-portal.md) per crearne una.
+* Azure Synapse Analytics: si usa un pool SQL dedicato come archivio dati sink. Se non è disponibile un'istanza di Azure Synapse Analytics, vedere [Creare un pool SQL dedicato](quickstart-create-sql-pool-portal.md) per crearne una.
 
 ### <a name="navigate-to-the-synapse-studio"></a>Passare a Synapse Studio
 
-Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse Studio in due modi:
+Dopo aver creato l'area di lavoro di Synapse, è possibile aprire Synapse Studio in due modi diversi:
 
-* Aprire l'area di lavoro di Synapse nel [portale di Azure](https://ms.portal.azure.com/#home). Nella parte superiore della sezione Panoramica selezionare **Avvia Synapse Studio**.
+* Aprire l'area di lavoro di Synapse nel [portale di Azure](https://ms.portal.azure.com/#home). Selezionare **Apri** nella scheda Apri Synapse Studio sotto Attività iniziali.
 * Aprire [Azure Synapse Analytics](https://web.azuresynapse.net/) e accedere all'area di lavoro.
 
 In questo argomento di avvio rapido viene usata come esempio l'area di lavoro denominata "adftest2020". Si verrà indirizzati automaticamente alla home page di Synapse Studio.
@@ -44,7 +44,7 @@ In questo argomento di avvio rapido viene usata come esempio l'area di lavoro de
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
-In Azure Synapse Analytics si usano i servizi collegati per definire le informazioni di connessione ad altri servizi. In questa sezione si creeranno due tipi di servizi collegati: Database SQL di Azure e Azure Data Lake Storage Gen2.
+In Azure Synapse Analytics si usano i servizi collegati per definire le informazioni di connessione ad altri servizi. In questa sezione si creeranno due tipi di servizi collegati: Azure SQL Database e Azure Data Lake Storage Gen2 (ADLS Gen2).
 
 1. Nella home page di Azure Synapse Studio selezionare la scheda **Gestisci** nel riquadro di spostamento sinistro.
 1. In Connessioni esterne selezionare Servizi collegati.
@@ -66,7 +66,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
  
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 
-Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da Database SQL di Azure in un pool SQL.
+Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da Database SQL di Azure in un pool SQL dedicato.
 
 1. Passare alla scheda **Integrazione**. Selezionare l'icona con il segno più accanto all'intestazione della pipeline e quindi selezionare Pipeline.
 
@@ -84,7 +84,7 @@ Una pipeline contiene il flusso logico per un'esecuzione di un set di attività.
    ![Configurare le proprietà del set di dati di origine](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
 1. Selezionare **OK** al termine.
 1. Selezionare l'attività di copia e passare alla scheda Sink. Selezionare **Nuovo** per creare un nuovo set di dati sink.
-1. Selezionare **Pool di Analisi SQL** come archivio dati e quindi selezionare **Continua**.
+1. Selezionare **Azure Synapse dedicated SQL pool** (Pool SQL dedicato di Azure Synapse) come archivio dati e quindi selezionare **Continua**.
 1. Nel riquadro **Imposta proprietà** selezionare il pool di Analisi SQL creato nel passaggio precedente. Se si sta scrivendo su una tabella esistente, selezionarla dall'elenco a discesa *Nome tabella*. Altrimenti selezionare "Modifica" e immettere il nome della nuova tabella. Selezionare **OK** al termine.
 1. Per le impostazioni del set di dati sink abilitare **Auto create table** (Crea tabella automaticamente) in Table option (Opzione tabella).
 
@@ -122,7 +122,7 @@ In questa sezione si attiverà manualmente la pipeline pubblicata nel passaggio 
    ![Dettagli dell'attività](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
 
 1. Per tornare alla visualizzazione delle esecuzioni di pipeline, selezionare il collegamento **Tutte le esecuzioni della pipeline** in alto. Selezionare **Aggiorna** per aggiornare l'elenco.
-1. Verificare che i dati siano scritti correttamente nel pool SQL.
+1. Verificare che i dati siano scritti correttamente nel pool SQL dedicato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

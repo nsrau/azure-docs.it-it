@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337747"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701756"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creare e usare OPENROWSET con il pool SQL serverless (anteprima) in Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -156,7 +156,7 @@ La clausola WITH consente di specificare le colonne da leggere nei file.
     > I nomi delle colonne nei file Parquet fanno distinzione tra maiuscole e minuscole. Se si specifica il nome della colonna con una combinazione di maiuscole e minuscole diversa rispetto al file Parquet, per tale colonna verranno restituiti i valori NULL.
 
 
-column_name = nome della colonna di output. Se specificato, questo nome sostituisce il nome della colonna nel file di origine.
+column_name = nome della colonna di output. Se specificato, questo nome sostituisce il nome della colonna nel file di origine e il nome della colonna specificato nel percorso JSON, se presente. Se json_path non è specificato, viene aggiunto automaticamente come '$.column_name'. Per verificare il comportamento, controllare l'argomento json_path.
 
 column_type = tipo di dati della colonna di output. Verrà eseguita la conversione implicita del tipo di dati.
 
@@ -170,6 +170,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = [espressione di percorso JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) per una colonna o una proprietà annidata. La [modalità percorso](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) predefinita è lax.
+
+> [!NOTE]
+> In modalità strict la query non riesce generando un errore se il percorso specificato non esiste. In modalità lax la query riesce e l'espressione del percorso JSON restituirà NULL.
 
 **\<bulk_options>**
 
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Specificare le colonne usando percorsi JSON
+
+L'esempio seguente mostra come usare le [espressioni di percorso JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) in una clausola WITH e illustra la differenza tra le modalità di percorso strict e lax: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

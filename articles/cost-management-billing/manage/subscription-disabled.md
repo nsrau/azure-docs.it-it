@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308963"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744426"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Riattivare una sottoscrizione di Azure disabilitata
 
@@ -54,6 +54,10 @@ Un amministratore account che abbia accidentalmente annullato una sottoscrizione
     ![Screenshot che mostra il collegamento di riattivazione nel riquadro destro](./media/subscription-disabled/reactivate-sub.png)
 
 Per altri tipi di sottoscrizione, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per riattivare la sottoscrizione.
+
+## <a name="after-reactivation"></a>Dopo la riattivazione
+
+Dopo la riattivazione della sottoscrizione, si potrebbe riscontrare un ritardo nella creazione o gestione delle risorse. Se questo ritardo supera i 30 minuti, contattare il [supporto per la fatturazione di Azure](https://go.microsoft.com/fwlink/?linkid=2083458) per assistenza. La maggior parte delle risorse di Azure riprende automaticamente l'esecuzione senza bisogno di alcun intervento. Tuttavia, è consigliabile controllare le risorse dei servizi di Azure ed eventualmente riavviare quelle la cui esecuzione non sia ripresa automaticamente.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

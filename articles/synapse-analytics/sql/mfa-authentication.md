@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a430bb41f88bfec1299d52d8237c9534b28acc5d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093379"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843299"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Usare l'autenticazione di AAD a più fattori con Synapse SQL (supporto di SSMS per MFA)
 
@@ -40,11 +40,11 @@ Sono disponibili anche due modelli di autenticazione non interattiva, che posson
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-Il metodo interattivo è quello che supporta anche Azure Multi-Factor Authentication (MFA):
+Il metodo interattivo è quello che supporta anche l'autenticazione a più fattori (MFA) di Azure AD:
 
 - `Active Directory - Universal with MFA`
 
-Azure MFA consente di salvaguardare l'accesso a dati e applicazioni soddisfacendo l'aspettativa dell'utente all'uso di un processo di accesso semplice. Offre funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui telefonata, SMS, smart card con pin o notifica tramite app per dispositivi mobili, in modo che ogni utente possa scegliere il metodo che preferisce. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
+Azure AD MFA consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui telefonata, SMS, smart card con pin o notifica tramite app per dispositivi mobili, in modo che ogni utente possa scegliere il metodo che preferisce. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
 
 Per una descrizione di Multi-Factor Authentication (autenticazione a più fattori), consultare [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

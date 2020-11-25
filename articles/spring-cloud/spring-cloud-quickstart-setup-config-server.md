@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0802f09cfb03f837fb7080620da776e79b37c9ed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337788"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845085"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Avvio rapido: Configurare il server di configurazione di Azure Spring Cloud
 
@@ -57,9 +57,19 @@ La procedura seguente configura il server di configurazione usando il portale di
 
 2. Nella sezione **Repository predefinito** impostare **URI** su "https://github.com/Azure-Samples/piggymetrics-config".
 
-3. Fare clic su **Applica** per salvare le modifiche.
+3. Fare clic su **Convalida**.
 
-    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Passare a Config Server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. Al termine della convalida, fare clic su **Applica** per salvare le modifiche.
+
+    ![Convalida di Config Server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. L'aggiornamento della configurazione può richiedere alcuni minuti.
+ 
+    ![Aggiornamento di Config Server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. Al termine della configurazione si dovrebbe ricevere una notifica.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 

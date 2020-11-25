@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dc725839d018c281dc784f5f83b256e62d70884d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411559"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635416"
 ---
 # <a name="azure-enterprise-transfers"></a>Trasferimenti di Azure Enterprise
 
@@ -98,9 +98,9 @@ Durante il trasferimento di un account o una registrazione non si verifica alcun
 
 Per trasferire una sottoscrizione Enterprise a una sottoscrizione individuale con pagamento in base al consumo è necessario creare una nuova richiesta di supporto in Azure Enterprise Portal. Per creare una richiesta di supporto selezionare **+ Nuova richiesta di supporto** nell'area **Guida e supporto tecnico**.
 
-## <a name="change-account-owner"></a>Cambiare il proprietario dell'account
+## <a name="change-azure-subscription-or-account-ownership"></a>Cambiare la proprietà dell'account o della sottoscrizione di Azure
 
-Azure EA Portal può trasferire le sottoscrizioni da un proprietario dell'account a un altro. Per altre informazioni, vedere [Modificare il proprietario dell'account](ea-portal-administration.md#change-account-owner).
+Azure EA Portal può trasferire le sottoscrizioni da un proprietario dell'account a un altro. Per altre informazioni, vedere [Cambiare la proprietà dell'account o della sottoscrizione di Azure](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## <a name="subscription-transfer-effects"></a>Effetti del trasferimento della sottoscrizione
 

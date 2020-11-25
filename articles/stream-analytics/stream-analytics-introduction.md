@@ -1,23 +1,23 @@
 ---
-title: Panoramica di Analisi di flusso di Azure
-description: Informazioni su Analisi di flusso, un servizio gestito che consente di analizzare in tempo reale i dati di streaming provenienti da Internet delle cose (IoT).
+title: Introduzione ad Analisi dei flussi di Azure
+description: Informazioni su Analisi di flusso di Azure, un servizio gestito che consente di analizzare in tempo reale i flussi dei dati provenienti da IoT.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperfq2
-ms.date: 11/03/2020
-ms.openlocfilehash: d81858db3f4d09b834a9199804a6f2631828496b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/12/2020
+ms.openlocfilehash: 0022e19e23b7808cd78da988fd3fdef2d537acf5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342233"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579437"
 ---
-# <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
+# <a name="welcome-to-azure-stream-analytics"></a>Introduzione ad Analisi di flusso di Azure
 
-Analisi di flusso di Azure è un complesso motore di elaborazione eventi e analisi in tempo reale progettato per analizzare ed elaborare contemporaneamente ingenti volumi di dati in streaming veloce da più origini. I modelli e le relazioni possono essere identificati nelle informazioni estratte da numerose origini di input tra cui dispositivi, sensori, clickstream, feed di social media e applicazioni. Questi modelli possono essere usati per attivare azioni e avviare flussi di lavoro, ad esempio la creazione di avvisi, l'invio di informazioni a uno strumento di creazione di report o l'archiviazione dei dati trasformati per un uso successivo. Inoltre, Analisi di flusso è disponibile nel runtime Azure IoT Edge, consentendo di elaborare dati nei dispositivi IoT. 
+Analisi di flusso di Azure è un complesso motore di elaborazione eventi e analisi in tempo reale progettato per analizzare ed elaborare contemporaneamente ingenti volumi di dati in streaming veloce da più origini. I modelli e le relazioni possono essere identificati nelle informazioni estratte da numerose origini di input tra cui dispositivi, sensori, clickstream, feed di social media e applicazioni. Questi modelli possono essere usati per attivare azioni e avviare flussi di lavoro, ad esempio la creazione di avvisi, l'invio di informazioni a uno strumento di creazione di report o l'archiviazione dei dati trasformati per un uso successivo. Inoltre, Analisi di flusso è disponibile nel runtime Azure IoT Edge, consentendo di elaborare dati nei dispositivi IoT.
 
 Gli scenari seguenti sono esempi di quando è possibile usare Analisi di flusso di Azure:
 
@@ -26,6 +26,11 @@ Gli scenari seguenti sono esempi di quando è possibile usare Analisi di flusso 
 * Analisi geospaziale per la gestione della flotta e veicoli senza conducente
 * Monitoraggio remoto e manutenzione predittiva di risorse di valore elevato
 * Analisi in tempo reale di dati di punti vendita per il controllo dell'inventario e il rilevamento anomalie
+
+È possibile provare Analisi di flusso di Azure con una sottoscrizione di Azure gratuita.
+
+> [!div class="nextstepaction"]
+> [Prova Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/)
 
 ## <a name="how-does-stream-analytics-work"></a>Funzionamento di Analisi di flusso
 
@@ -102,7 +107,7 @@ Analisi di flusso può elaborare milioni di eventi al secondo e può recapitare 
 
 In questo articolo è stata presentata una panoramica di Analisi di flusso di Azure. È ora possibile approfondire ulteriormente l'argomento e creare il primo processo di Analisi di flusso:
 
-* [Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md).
-* [Creare un processo di Analisi di flusso tramite Azure PowerShell](stream-analytics-quick-create-powershell.md).
-* [Creare un processo di Analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md).
-* [Creare un processo di Analisi di flusso con Visual Studio Code](quick-create-visual-studio-code.md).
+* [Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+* [Creare un processo di Analisi di flusso tramite Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Creare un processo di Analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Creare un processo di Analisi di flusso con Visual Studio Code](quick-create-visual-studio-code.md)

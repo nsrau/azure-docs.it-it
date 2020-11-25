@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043293"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844336"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creare sottoscrizioni di Azure a livello di codice con API in anteprima
 
-Questo articolo illustra come creare a livello di codice le sottoscrizioni di Azure usando l'API in anteprima meno recente. È stata rilasciata una [versione più recente dell'API](programmatically-create-subscription.md). È possibile usare le informazioni in questo articolo se non si vuole usare la versione più recente. Questo articolo contiene informazioni su come creare sottoscrizioni a livello di codice usando Azure Resource Manager.
+Questo articolo illustra come creare a livello di codice le sottoscrizioni di Azure usando l'API in anteprima meno recente. Questo articolo contiene informazioni su come creare sottoscrizioni a livello di codice usando Azure Resource Manager.
+
+Sono disponibili nuovi articoli relativi alla versione più recente dell'API per l'uso con diversi tipi di sottoscrizione con contratto Azure:
+
+- [Creare sottoscrizioni del contratto Enterprise a livello di codice con l'ultima API](programmatically-create-subscription-enterprise-agreement.md)
+- [Creare sottoscrizioni del Contratto del cliente Microsoft a livello di codice con l'ultima API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Creare sottoscrizioni del Contratto Microsoft Partner a livello di codice con l'ultima API](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+È tuttavia sempre possibile usare le informazioni in questo articolo se non si vuole usare la versione più recente dell'API.
 
 I clienti di Azure con un account di fatturazione per i tipi di contratto seguenti possono creare sottoscrizioni a livello di codice:
 
-- [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Contratto del cliente Microsoft](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Contratto Microsoft Partner](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Enterprise Agreement
+- Contratto del cliente Microsoft
+- Contratto Microsoft Partner
 
 Quando si crea una sottoscrizione di Azure a livello di codice, tale sottoscrizione è regolamentata dal contratto in base al quale l'utente ha ottenuto i servizi di Azure da Microsoft o da un rivenditore autorizzato. Per altre informazioni, vedere [Informazioni legali su Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
@@ -350,7 +358,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `billingProfileId`   | Sì      | string | ID del profilo di fatturazione a cui vengono fatturati gli addebiti della sottoscrizione.  |
@@ -519,7 +527,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `skuId` | Sì      | string | ID SKU del piano di Azure. Usare *0001* per le sottoscrizioni di tipo Piano di Microsoft Azure |

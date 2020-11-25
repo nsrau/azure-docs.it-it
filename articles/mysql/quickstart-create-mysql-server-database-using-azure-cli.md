@@ -1,46 +1,38 @@
 ---
 title: 'Guida introduttiva: Creare un server - Interfaccia della riga di comando di Azure - Database di Azure per MySQL'
 description: Questa guida di avvio rapido descrive come usare l'interfaccia della riga di comando di Azure per creare un database di Azure per il server MySQL in un gruppo di risorse di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0c43f1ea81bbc29817e6a2509c9967bf3b5782c9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 63768581da07566ac59b525ca0aefbd7b616e20e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337286"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635569"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Guida introduttiva: Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 
 > [!TIP]
 > Può essere opportuno usare il comando dell'interfaccia della riga di comando di Azure più semplice [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) (attualmente in anteprima). Provare l'[argomento di avvio rapido](./quickstart-create-server-up-azure-cli.md).
 
-Questa guida di avvio rapido descrive come usare i comandi dell'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) in [Azure Cloud Shell](https://shell.azure.com) per creare un server di Database di Azure per MySQL in cinque minuti. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Questa guida di avvio rapido descrive come usare i comandi dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in [Azure Cloud Shell](https://shell.azure.com) per creare un server di Database di Azure per MySQL in cinque minuti. 
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
-Per questo articolo è necessario eseguire in locale l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+ - Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Annotare la proprietà **id** che fa riferimento all' **ID sottoscrizione** per l'account Azure. 
+ - Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account). Annotare il valore **id** dall'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az-account-list).
 
-```azurecli-interactive
-az login
-```
-
-Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account). Annotare il valore **id** dall'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az-account-list).
-
-```azurecli
-az account set --subscription <subscription id>
-```
+   ```azurecli
+   az account set --subscription <subscription id>
+   ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creare un server Database di Azure per MySQL
 Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) usando il comando [az group create](/cli/azure/group) e quindi creare il server MySQL in questo gruppo di risorse. È necessario specificare un nome univoco. L'esempio seguente consente di creare un gruppo di risorse denominato `myresourcegroup` nell'area `westus`.
@@ -62,13 +54,13 @@ Ecco i dettagli per gli argomenti indicati:
 name | mydemoserver | Immettere un nome univoco per il server di Database di Azure per MySQL. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 63 caratteri.
 resource-group | myresourcegroup | Specificare il nome del gruppo di risorse di Azure.
 posizione | westus | Località di Azure per il server.
-admin-user | myadmin | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** '.
+admin-user | myadmin | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**'.
 admin-password | *password di protezione* | Password dell'utente amministratore. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
 sku-name|GP_Gen5_2|Immettere il nome del piano tariffario e della configurazione delle risorse di calcolo. Segue la convenzione {piano tariffario} _{generazione di calcolo}_ {Vcore} in sintassi abbreviata. Per altre informazioni, vedere i [piani tariffari](./concepts-pricing-tiers.md).
 
 >[!IMPORTANT] 
 >- La versione predefinita di MySQL nel server è 5.7. Sono attualmente disponibili anche le versioni 5.6 e 8.0.
->- Per visualizzare tutti gli argomenti per il comando **az mysql server create** , vedere questo [documento di riferimento](/cli/azure/mysql/server#az-mysql-server-create).
+>- Per visualizzare tutti gli argomenti per il comando **az mysql server create**, vedere questo [documento di riferimento](/cli/azure/mysql/server#az-mysql-server-create).
 >- SSL viene abilitato per impostazione predefinita nel server. Per altre informazioni su SSL, vedere [Configurare la connettività SSL](howto-configure-ssl.md)
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server 
@@ -91,7 +83,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin**.
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",

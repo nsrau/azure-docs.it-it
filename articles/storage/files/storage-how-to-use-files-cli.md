@@ -8,23 +8,23 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c569e65546853c4e9c8c460d29041e4bb829c09
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: dd07c09c4ed5be311bf5a485b9bff938c976a2f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564203"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659234"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con l'interfaccia della riga di comando di Azure
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con l'interfaccia della riga di comando di Azure. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB (Server Message Block) standard di settore, il protocollo NFS (Network File System) (anteprima) e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, per le procedure in questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire **az --version** per trovare la versione dell'interfaccia della riga di comando di Azure in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-Per impostazione predefinita, i comandi dell'interfaccia della riga di comando di Azure restituiscono codice JSON (JavaScript Object Notation). JSON è il formato standard per l'invio e la ricezione di messaggi dalle API REST. Per facilitare l'uso delle risposte JSON, alcuni esempi in questo articolo usano il parametro *query* nei comandi dell'interfaccia della riga di comando di Azure. Questo parametro usa il [linguaggio di query JMESPath](http://jmespath.org/) per analizzare il codice JSON. Per altre informazioni su come usare i risultati dei comandi dell'interfaccia della riga di comando di Azure seguendo il linguaggio di query JMESPath, vedere l'[esercitazione di JMESPath](http://jmespath.org/tutorial.html).
+- Per impostazione predefinita, i comandi dell'interfaccia della riga di comando di Azure restituiscono codice JSON (JavaScript Object Notation). JSON è il formato standard per l'invio e la ricezione di messaggi dalle API REST. Per facilitare l'uso delle risposte JSON, alcuni esempi in questo articolo usano il parametro *query* nei comandi dell'interfaccia della riga di comando di Azure. Questo parametro usa il [linguaggio di query JMESPath](http://jmespath.org/) per analizzare il codice JSON. Per altre informazioni su come usare i risultati dei comandi dell'interfaccia della riga di comando di Azure seguendo il linguaggio di query JMESPath, vedere l'[esercitazione di JMESPath](http://jmespath.org/tutorial.html).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Se non è già disponibile un gruppo di risorse di Azure, è possibile usare il comando [az group create](/cli/azure/group) per crearne uno. 
@@ -87,10 +87,10 @@ az storage share create \
     --output none
 ```
 
-I nomi delle condivisioni possono contenere solo lettere minuscole, numeri e trattini singoli (non possono però iniziare con un trattino). Per informazioni dettagliate su come denominare le condivisioni e i file, vedere [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Denominazione e riferimento a condivisioni, directory, file e metadati).
+I nomi delle condivisioni possono contenere solo lettere minuscole, numeri e trattini singoli (non possono però iniziare con un trattino). Per informazioni dettagliate su come denominare le condivisioni e i file, vedere [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Denominazione e riferimento a condivisioni, directory, file e metadati).
 
 ## <a name="use-your-azure-file-share"></a>Usare la condivisione file di Azure
-File di Azure offre due metodi per usare i file e le cartelle all'interno della condivisione file di Azure: il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore e il [protocollo REST di File](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+File di Azure offre due metodi per usare i file e le cartelle all'interno della condivisione file di Azure: il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard di settore e il [protocollo REST di File](/rest/api/storageservices/file-service-rest-api). 
 
 Per montare una condivisione file con SMB, vedere il documento riportato di seguito in base al sistema operativo in uso:
 - [Linux](storage-how-to-use-files-linux.md)
@@ -212,7 +212,7 @@ Un'altra attività utile che è possibile eseguire con una condivisione file di 
 
 - Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux.
 - Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS.
-- [Servizio Copia Shadow del volume](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows, come NTFS e ReFS.
+- [Servizio Copia Shadow del volume](/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows, come NTFS e ReFS.
  
 È possibile creare uno snapshot di condivisione con il comando [`az storage share snapshot`](/cli/azure/storage/share):
 

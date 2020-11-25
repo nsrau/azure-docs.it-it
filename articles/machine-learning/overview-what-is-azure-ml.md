@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Azure Machine Learning
-description: Panoramica di Azure Machine Learning, una soluzione integrata di data science end-to-end con cui i data scientist professionisti possono sviluppare, sperimentare e distribuire applicazioni per analisi avanzate su scala cloud.
+description: Azure Machine Learning è una soluzione di data science integrata che consente a data scientist e operatori di Machine Learning di modellare e distribuire applicazioni di Machine Learning nel cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4dcc1d755f4fe11dda69f84466d3e958ca981ddf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: af38f68a9709b21989ba787fb5b2c623e07dc440
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316294"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541284"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -111,10 +111,10 @@ Per iniziare a usare Azure Machine Learning, vedere [Passaggi successivi](#next-
 
 Azure Machine Learning interagisce con altri servizi nella piattaforma Azure e si integra anche con strumenti open source come Git e MLFlow.
 
-+ Destinazioni di calcolo come il __servizio Azure Kubernetes__ , __Istanze di Azure Container__ , __Azure Databricks__ , __Azure Data Lake Analytics__ e __Azure HDInsight__. Per altre informazioni sulle destinazioni di calcolo, vedere [Informazioni sulle destinazioni di calcolo](concept-compute-target.md).
++ Destinazioni di calcolo come il __servizio Azure Kubernetes__, __Istanze di Azure Container__, __Azure Databricks__, __Azure Data Lake Analytics__ e __Azure HDInsight__. Per altre informazioni sulle destinazioni di calcolo, vedere [Informazioni sulle destinazioni di calcolo](concept-compute-target.md).
 + __Griglia di eventi di Azure__. Per altre informazioni, vedere [Utilizzare eventi di Azure Machine Learning](./how-to-use-event-grid.md).
 + __Monitoraggio di Azure__. Per altre informazioni, vedere [Monitoraggio di Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Archivi dati come gli __account di archiviazione di Azure__ , __Azure Data Lake Storage__ , il __database SQL di Azure__ , __Database di Azure per PostgreSQL__ e i __set di dati aperti di Azure__. Per altre informazioni, vedere [Accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md) e [Creare set di dati con set di dati aperti di Azure](how-to-create-register-datasets.md).
++ Archivi dati come gli __account di archiviazione di Azure__, __Azure Data Lake Storage__, il __database SQL di Azure__, __Database di Azure per PostgreSQL__ e i __set di dati aperti di Azure__. Per altre informazioni, vedere [Accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md) e [Creare set di dati con set di dati aperti di Azure](how-to-create-register-datasets.md).
 + __Reti virtuali di Azure__. Per altre informazioni, vedere [Panoramica della privacy e dell'isolamento rete virtuale](how-to-network-security-overview.md).
 + __Azure Pipelines__. Per altre informazioni, vedere [Eseguire il training e la distribuzione di modelli di Machine Learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Log di repository Git__. Per altre informazioni, vedere [Integrazione di Git](concept-train-model-git-integration.md).
