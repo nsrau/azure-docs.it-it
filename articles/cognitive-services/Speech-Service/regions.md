@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749302"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972649"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
@@ -27,7 +27,7 @@ Il portale vocale per eseguire configurazioni personalizzate nell'esperienza voc
 Tenere presenti i punti seguenti quando si considerano le aree:
 
 * Se l'applicazione usa un [SDK di riconoscimento vocale](speech-sdk.md), è necessario specificare l'identificatore di area, ad esempio `westus` , quando si crea una configurazione di riconoscimento vocale.
-* Se l'applicazione usa una delle [API REST](rest-apis.md) del Servizio di riconoscimento vocale, l'area è parte dell'URI dell'endpoint usato quando si effettuano richieste.
+* Se l'applicazione usa una delle [API REST](./overview.md#reference-docs) del Servizio di riconoscimento vocale, l'area è parte dell'URI dell'endpoint usato quando si effettuano richieste.
 * Le chiavi create per un'area sono valide solo in quell'area. Se si prova a usarle con altre aree si verificheranno errori di autenticazione.
 
 ## <a name="speech-sdk"></a>Speech SDK
@@ -38,7 +38,7 @@ In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di string
 
 Il portale di personalizzazione vocale è disponibile qui: https://speech.microsoft.com
 
-Il servizio riconoscimento vocale è disponibile nelle aree geografiche per **riconoscimento vocale**, **sintesi**vocale e **traduzione**:
+Il servizio riconoscimento vocale è disponibile nelle aree geografiche per **riconoscimento vocale**, **sintesi** vocale e **traduzione**:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -59,11 +59,11 @@ Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono 
 | America del Nord | Stati Uniti orientali 2        | `eastus2`            |
 | America del Nord | Stati Uniti centro-meridionali | `southcentralus`     |
 | America del Nord | Stati Uniti centro-occidentali  | `westcentralus`      |
-| America del Nord | Stati Uniti Occidentali          | `westus`             |
+| America del Nord | Stati Uniti occidentali          | `westus`             |
 | America del Nord | West US 2        | `westus2`            |
 | America del Sud | Brasile meridionale     | `brazilsouth`        |
 
-Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizio Language Understanding (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizio Language Understanding (LUIS)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Assistenti vocali
 

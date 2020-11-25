@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746727"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972675"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Usare Java e JDBC con il database SQL di Azure
 
@@ -176,7 +176,7 @@ CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR
 
 Aggiungere quindi il codice Java che userà JDBC per archiviare e recuperare i dati dal database SQL di Azure.
 
-Creare un file *src/main/java/DemoApplication.java* , che contiene:
+Creare un file *src/main/java/DemoApplication.java*, che contiene:
 
 ```java
 package com.example.demo;
@@ -230,7 +230,7 @@ Questo codice Java verranno usati i file *application.properties* e *schema.sql*
 In questo file è possibile notare che i metodi di inserimento, lettura, aggiornamento ed eliminazione dei dati sono stati commentati. Il codice di tali metodi verranno scritti nella parte restante di questo articolo e sarà possibile rimuovere i commenti uno dopo l'altro.
 
 > [!NOTE]
-> Le credenziali del database sono archiviate nelle proprietà *user* e *password* del file *application.properties* . Queste credenziali vengono usate durante l'esecuzione di `DriverManager.getConnection(properties.getProperty("url"), properties);`, perché il file delle proprietà viene passato come argomento.
+> Le credenziali del database sono archiviate nelle proprietà *user* e *password* del file *application.properties*. Queste credenziali vengono usate durante l'esecuzione di `DriverManager.getConnection(properties.getProperty("url"), properties);`, perché il file delle proprietà viene passato come argomento.
 
 È ora possibile eseguire questa classe main con lo strumento preferito:
 
@@ -315,7 +315,7 @@ public class Todo {
 }
 ```
 
-Questa classe è un modello di dominio mappato alla tabella `todo` creata durante l'esecuzione dello script *schema.sql* .
+Questa classe è un modello di dominio mappato alla tabella `todo` creata durante l'esecuzione dello script *schema.sql*.
 
 ### <a name="insert-data-into-azure-sql-database"></a>Inserire i dati nel database SQL di Azure
 
