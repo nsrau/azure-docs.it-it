@@ -3,18 +3,17 @@ title: "Avvio rapido: Creare un'applicazione Azure IoT Central | Microsoft Docs"
 description: "Avvio rapido: Creare una nuova applicazione Azure IoT Central. Creare l'applicazione usando il piano tariffario gratuito o uno dei piani tariffari standard."
 author: viv-liu
 ms.author: viviali
-ms.date: 07/30/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987373"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992812"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Avvio rapido: Creare un'applicazione Azure IoT Central
 
@@ -43,11 +42,11 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
     ![Informazioni sulla fatturazione di Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Se nella pagina precedente si è scelto **App personalizzata**, si vedrà l'elenco a discesa **Modello di applicazione**. Nell'elenco a discesa potrebbero essere visualizzati anche altri modelli resi disponibili dall'organizzazione. 
+    > Se nella pagina precedente si è scelto **App personalizzata**, si vedrà l'elenco a discesa **Modello di applicazione**. Nell'elenco a discesa potrebbero essere visualizzati anche altri modelli resi disponibili dall'organizzazione.
 
     >[!IMPORTANT]
-    >Il modello **Applicazione personalizzata (legacy)** (V2) è stato ritirato in quanto tutte le funzionalità precedentemente disponibili in questo modello sono ora disponibili nel modello **Applicazione personalizzata** più recente (V3). 
-    
+    >Il modello **Applicazione personalizzata (legacy)** (V2) è stato ritirato in quanto tutte le funzionalità precedentemente disponibili in questo modello sono ora disponibili nel modello **Applicazione personalizzata** più recente (V3).
+
 1. Scegliere di creare questa applicazione usando il piano tariffario della versione di valutazione gratuita valida 7 giorni oppure uno dei piani tariffari standard:
 
     - Le applicazioni con il piano *gratuito* sono gratuite per sette giorni e supportano fino a cinque dispositivi. È possibile convertirle per l'uso di un piano tariffario standard in qualsiasi momento prima della scadenza.

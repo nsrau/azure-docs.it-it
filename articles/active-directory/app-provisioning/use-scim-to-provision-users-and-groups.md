@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616179"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695266"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Esercitazione: Creare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
 
@@ -154,6 +154,7 @@ Nell'ambito della [specifica del protocollo SCIM 2.0](http://www.simplecloud.inf
 * Supportare l'esecuzione di query su utenti o gruppi, come indicato nella [sezione 3.4.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Per impostazione predefinita, gli utenti vengono recuperati in base al valore di `id` e le query vengono eseguite in base a `username` e `externalId` per gli utenti e in base a `displayName` per i gruppi.  
 * Supportare query sugli utenti in base all'ID o al manager, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Supportare query sui gruppi in base all'ID e ai membri, come indicato nella sezione 3.4.2 del protocollo SCIM.  
+* Supportare il filtro [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) quando si eseguono query sulla risorsa del gruppo, come indicato nella sezione 3.4.2.5 del protocollo SCIM.
 * Accettare un singolo token di connessione per l'autenticazione e l'autorizzazione di Azure AD per l'applicazione.
 * Supportare l'eliminazione temporanea di un utente `active=false` e il ripristino dell'utente `active=true` (l'oggetto utente dovrà essere restituito in una richiesta, che sia attivo o meno). L'unica volta in cui l'utente non deve essere restituito è quando viene eliminato definitivamente dall'applicazione. 
 
@@ -766,7 +767,7 @@ Il progetto _Microsoft.SCIM_ è la libreria che definisce i componenti del servi
 
 ![Dettaglio: conversione di una richiesta in chiamate ai metodi del provider](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-Il progetto _Microsoft.SCIM.WebHostSample_ è un'applicazione Web ASP.NET Core di Visual Studio basata sul modello _Vuoto_. Questo consente di distribuire il codice di esempio come codice autonomo, ospitato in contenitori o in Internet Information Services. Viene implementata anche l'interfaccia _Microsoft.SCIM.IProvider_ , mantenendo le classi in memoria come archivio identità di esempio.
+Il progetto _Microsoft.SCIM.WebHostSample_ è un'applicazione Web ASP.NET Core di Visual Studio basata sul modello _Vuoto_. Questo consente di distribuire il codice di esempio come codice autonomo, ospitato in contenitori o in Internet Information Services. Viene implementata anche l'interfaccia _Microsoft.SCIM.IProvider_, mantenendo le classi in memoria come archivio identità di esempio.
 
 ```csharp
     public class Startup
@@ -809,7 +810,7 @@ Per altre informazioni su HTTPS in ASP.NET Core, usare il collegamento seguente:
 
 Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0. Qualsiasi servizio che riceve la richiesta deve autenticare l'autorità emittente come Azure Active Directory per il tenant di Azure Active Directory previsto.
 
-Nel token, l'autorità emittente è identificata da un'attestazione iss, ad esempio `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In questo esempio, l'indirizzo di base del valore attestazione, `https://sts.windows.net`, identifica Azure Active Directory come autorità emittente, mentre il segmento dell'indirizzo relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , è un identificatore univoco del tenant di Azure Active Directory per cui è stato rilasciato il token.
+Nel token, l'autorità emittente è identificata da un'attestazione iss, ad esempio `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In questo esempio, l'indirizzo di base del valore attestazione, `https://sts.windows.net`, identifica Azure Active Directory come autorità emittente, mentre il segmento dell'indirizzo relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, è un identificatore univoco del tenant di Azure Active Directory per cui è stato rilasciato il token.
 
 I destinatari del token saranno l'ID modello di applicazione per l'applicazione nella raccolta. Ogni applicazione registrata in un singolo tenant potrebbe ricevere la stessa attestazione `iss` con le richieste SCIM. L'ID modello di applicazione per tutte le app personalizzate è _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. Il token generato dal servizio di provisioning di Azure AD dovrà essere usato solo a scopo di test, non in ambienti di produzione.
 
@@ -1148,8 +1149,8 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 7. Nel campo **URL tenant** immettere l'URL dell'endpoint SCIM dell'applicazione. Esempio: `https://api.contoso.com/scim/`
 8. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, Azure AD include in ogni richiesta un token di connessione OAuth rilasciato da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD. 
    > [!NOTE]
-   > * *_Non_* _ è consigliabile lasciare vuoto questo campo e usare un token generato da Azure AD. Questa opzione è disponibile principalmente a scopo di test.
-9. Selezionare _ *Test connessione* * affinché Azure Active Directory tenti la connessione all'endpoint SCIM. Se il tentativo non riesce, verranno visualizzate le informazioni sull'errore.  
+   > **_Non_* _ è consigliabile lasciare vuoto questo campo e usare un token generato da Azure AD. Questa opzione è disponibile principalmente a scopo di test.
+9. Selezionare _ *Test connessione** affinché Azure Active Directory tenti la connessione all'endpoint SCIM. Se il tentativo non riesce, verranno visualizzate le informazioni sull'errore.  
 
     > [!NOTE]
     > **Test connessione** esegue query sull'endpoint SCIM per cercare un utente che non esiste usando un GUID casuale come proprietà corrispondente selezionata nella configurazione di Azure AD. La risposta corretta prevista è HTTP 200 OK con un messaggio ListResponse SCIM vuoto.

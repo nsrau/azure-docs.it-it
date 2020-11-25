@@ -1,23 +1,25 @@
 ---
 title: Esercitazione - Concedere l'accesso agli utenti e chiamare un'API protetta da un'app WebAssembly Blazor
 titleSuffix: Microsoft identity platform
-description: In questa esercitazione viene illustrato come concedere l'accesso agli utenti e chiamare un'API protetta usando Microsoft Identity Platform in un'app WebAssembly Blazor.
+description: In questa esercitazione viene illustrato come consentire agli utenti di accedere e chiamare un'API protetta usando Microsoft Identity Platform in un'app WebAssembly Blazor (WASM).
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f967b10d729c9c5486bbca9b643f48aaf558687c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221511"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628068"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Esercitazione: Concedere l'accesso agli utenti e chiamare un'API protetta da un'app WebAssembly Blazor
 
-[WebAssembly Blazor](/aspnet/core/blazor#blazor-webassembly) è un framework di app a pagina singola per la creazione di app Web lato client interattive con .NET. In questa esercitazione si creerà un'app che concede l'accesso agli utenti e recupera i dati di un'API protetta da un'app WebAssembly Blazor con [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
+WebAssembly Blazor (WASM) è un framework di app a pagina singola per la creazione di app Web lato client interattive con .NET. Questa esercitazione descrive come implementare l'autenticazione e recuperare i dati da Microsoft Graph in un'app Blazor WASM usando Microsoft Identity Platform e registrando l'app in Azure Active Directory (Azure AD).
+
+È anche disponibile un'esercitazione per [Blazor Server](tutorial-blazor-server.md). 
 
 In questa esercitazione si apprenderà come:
 
@@ -35,10 +37,10 @@ In questa esercitazione si apprenderà come:
 
 Ogni app che usa Azure Active Directory (Azure AD) per l'autenticazione deve essere registrata con Azure AD. Seguire le istruzioni incluse in [Registrare un'applicazione](quickstart-register-app.md) con le specifiche seguenti:
 
-- Per **Tipi di account supportati** selezionare **Account solo in questa directory dell'organizzazione** .
+- Per **Tipi di account supportati** selezionare **Account solo in questa directory dell'organizzazione**.
 - Lasciare **URI di reindirizzamento** impostato su **Web** e immettere `https://localhost:5001/authentication/login-callback`. La porta predefinita per un'app in esecuzione in Kestrel è la 5001. Se l'app è disponibile su una porta diversa, specificare il numero di porta invece di `5001`.
 
-Dopo la registrazione, in **Autenticazione** > **Concessione implicita** selezionare le caselle di controllo **Token di accesso** e **Token ID** , quindi selezionare il pulsante **Salva** .
+Dopo la registrazione, in **Autenticazione** > **Concessione implicita** selezionare le caselle di controllo **Token di accesso** e **Token ID**, quindi selezionare il pulsante **Salva**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Creare l'app usando l'interfaccia della riga di comando di .NET Core
 
@@ -82,11 +84,11 @@ A questo punto occorre aggiornare la registrazione e il codice dell'app per eseg
 
 Prima di tutto, aggiungere l'autorizzazione API `Mail.Read` alla registrazione dell'app in modo da indicare ad Azure AD che l'app richiederà l'accesso alla posta elettronica dell'utente.
 
-1. Nel portale di Azure selezionare l'app in **Registrazioni app** .
-1. In **Gestisci** selezionare **Autorizzazioni API** .
-1. Selezionare **Aggiungi un'autorizzazione** > **Microsoft Graph** .
-1. Selezionare **Autorizzazioni delegate** e quindi cercare e selezionare l'autorizzazione **Mail.Read** .
-1. Selezionare **Aggiungi autorizzazioni** .
+1. Nel portale di Azure selezionare l'app in **Registrazioni app**.
+1. In **Gestisci** selezionare **Autorizzazioni API**.
+1. Selezionare **Aggiungi un'autorizzazione** > **Microsoft Graph**.
+1. Selezionare **Autorizzazioni delegate** e quindi cercare e selezionare l'autorizzazione **Mail.Read**.
+1. Selezionare **Aggiungi autorizzazioni**.
 
 Aggiungere quindi il codice seguente al file con estensione *csproj* del progetto in **ItemGroup** netstandard2.1. Questo permetterà di creare l'HttpClient personalizzato nel passaggio successivo.
 
@@ -239,5 +241,5 @@ Dopo aver concesso il consenso, passare alla pagina "Recupera dati" per leggere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedure consigliate e raccomandazioni per Microsoft Identity Platform](./identity-platform-integration-checklist.md)
-- [Introduzione a Blazor basato su ASP.NET Core](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Procedure consigliate e raccomandazioni per Microsoft Identity Platform](./identity-platform-integration-checklist.md)

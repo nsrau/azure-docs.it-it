@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: f4d2a5e10db77e9ec9d06e3bcc73552bda280152
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe5279725a3d01001b44074eca8656e88d778cab
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323941"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968163"
 ---
 # <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Node.js per il servizio Device Provisioning in hub IoT
 
@@ -76,7 +76,7 @@ Questo articolo descrive le registrazioni singole.
     npm install
     ```
 
-3. Creare un certificato X.509 _foglia_ eseguendo lo script con il proprio _certificate-name_. Il nome comune del certificato foglia diventa l'[ID registrazione](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id), quindi usare solo caratteri alfanumerici minuscoli e trattini.
+3. Creare un certificato X.509 _foglia_ eseguendo lo script con il proprio _certificate-name_. Il nome comune del certificato foglia diventa l'[ID registrazione](./concepts-service.md#registration-id), quindi usare solo caratteri alfanumerici minuscoli e trattini.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -101,7 +101,7 @@ Questo articolo descrive le registrazioni singole.
 
 ## <a name="simulate-the-device"></a>Simulare il dispositivo
 
-[Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) offre un modo semplice per simulare un dispositivo. Per altre informazioni, vedere [Concetti relativi ai dispositivi](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+[Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) offre un modo semplice per simulare un dispositivo. Per altre informazioni, vedere [Concetti relativi ai dispositivi](./concepts-service.md).
 
 1. Nel portale di Azure selezionare il pannello **Panoramica** per il servizio Device Provisioning e prendere nota dei valori **_Endpoint dispositivo globale_** e **_Ambito ID_** .
 

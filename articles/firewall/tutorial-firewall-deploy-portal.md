@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069324"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658588"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -28,7 +28,7 @@ Il traffico di rete è sottoposto alle regole del firewall configurate quando si
 
 Per questa esercitazione, viene creata una singola rete virtuale semplificata con due subnet per facilitare la distribuzione.
 
-Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
+Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
 * **AzureFirewallSubnet**: in questa subnet si trova il firewall.
 * **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
@@ -105,7 +105,7 @@ Creare ora la macchina virtuale del carico di lavoro e inserirla nella subnet **
 3. Selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
 4. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Nome macchina virtuale     |**Srv-Work**|
@@ -132,9 +132,9 @@ Distribuire il firewall nella rete virtuale.
 3. Selezionare **Firewall**, quindi **Crea**.
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |Sottoscrizione     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selezionare la stessa località usata in precedenza|
@@ -226,8 +226,8 @@ Questa regola consente di connettere un desktop remoto alla macchina virtuale Sr
 5. In **Regole**, per **Nome**, digitare **rdp-nat**.
 6. In **Protocollo** selezionare **TCP**.
 7. In **Tipo di origine** selezionare **Indirizzo IP**.
-8. Per **Origine**, digitare **\*** .
-9. Per **Indirizzo di destinazione**, digitare l'indirizzo IP pubblico del firewall.
+8. Per **Origine**, digitare * *\** _.
+9. Per _*Indirizzo di destinazione**, digitare l'indirizzo IP pubblico del firewall.
 10. In **Porte di destinazione** digitare **3389**.
 11. Per **Indirizzo convertito** digitare l'indirizzo IP privato di **Srv-work**.
 12. Per **Porta tradotta** digitare **3389**.
@@ -272,4 +272,4 @@ A questo punto si è verificato che le regole del firewall funzionano:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./firewall-diagnostics.md)

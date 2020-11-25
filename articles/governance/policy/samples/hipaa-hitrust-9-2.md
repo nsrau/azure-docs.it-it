@@ -1,15 +1,15 @@
 ---
 title: Dettagli sulla conformità alle normative per HIPAA HITRUST 9.2
 description: Dettagli dell'iniziativa predefinita di conformità alle normative per HIPAA HITRUST 9.2. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 499ecccd6d9a98b69e9e36f72fbf87d65d242f6d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c177abaea8dd6d38814e39aef7cdfd63981a6856
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310641"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694260"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa predefinita di conformità alle normative per HIPAA HITRUST 9.2
 
@@ -86,7 +86,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-facilitates-information-sharing-by-enabling-authorized-users-to-determine-a-business-partners-access-when-discretion-is-allowed-as-defined-by-the-organization-and-by-employing-manual-processes-or-automated-mechanisms-to-assist-users-in-making-information-sharingcollaboration-decisions"></a>L'organizzazione facilita la condivisione di informazioni consentendo agli utenti autorizzati di determinare l'accesso di un partner aziendale quando è consentita la discrezionalità, come definito dall'organizzazione, e adottando processi manuali o meccanismi automatizzati per assistere gli utenti nelle decisioni riguardanti la condivisione di informazioni e la collaborazione.
 
-**ID**: 1149.01c2System.9 - 01.c **Proprietà**: Non applicabile
+**ID**: 1149.01c2System.9 - 01.c **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -94,7 +94,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-access-control-system-for-the-system-components-storing-processing-or-transmitting-covered-information-is-set-with-a-default-quotdeny-allquot-setting"></a>Il sistema di controllo di accesso per i componenti di sistema usati per l'archiviazione, l'elaborazione o la trasmissione di informazioni riservate è configurato con l'impostazione predefinita &quot;deny-all&quot;.
 
-**ID**: 1150.01c2System.10 - 01.c **Proprietà**: Non applicabile
+**ID**: 1150.01c2System.10 - 01.c **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -144,7 +144,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="remote-access-by-vendors-and-business-partners-eg-for-remote-maintenance-is-disableddeactivated-when-not-in-use"></a>L'accesso remoto da parte di fornitori e partner aziendali (ad esempio per la manutenzione remota) è disabilitato/disattivato quando non in uso.
 
-**ID**: 1117.01j1Organizational.23 - 01.j **Proprietà**: Non applicabile
+**ID**: 1117.01j1Organizational.23 - 01.j **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -160,7 +160,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="network-equipment-is-checked-for-unanticipated-dial-up-capabilities"></a>Le apparecchiature di rete vengono controllate per verificare la presenza di funzionalità non previste di connessioni remote.
 
-**ID**: 1119.01j2Organizational.3 - 01.j **Proprietà**: Non applicabile
+**ID**: 1119.01j2Organizational.3 - 01.j **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -176,7 +176,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="if-encryption-is-not-used-for-dial-up-connections-the-cio-or-hisher-designated-representative-provides-specific-written-authorization"></a>Se la crittografia non viene usata per le connessioni remote, il CIO o il suo rappresentante designato fornisce una specifica autorizzazione scritta.
 
-**ID**: 1173.01j1Organizational.6 - 01.j **Proprietà**: Non applicabile
+**ID**: 1173.01j1Organizational.6 - 01.j **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-protects-wireless-access-to-systems-containing-sensitive-information-by-authenticating-both-users-and-devices"></a>L'organizzazione protegge l'accesso wireless a sistemi contenenti informazioni sensibili tramite autenticazione di utenti e dispositivi.
 
-**ID**: 1174.01j1Organizational.7 - 01.j **Proprietà**: Non applicabile
+**ID**: 1174.01j1Organizational.7 - 01.j **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -200,7 +200,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-requires-a-callback-capability-with-re-authentication-to-verify-dial-up-connections-from-authorized-locations"></a>L'organizzazione richiede una funzionalità di callback con la ripetizione dell'autenticazione per verificare la presenza di connessioni remote provenienti da località autorizzate.
 
-**ID**: 1176.01j2Organizational.5 - 01.j **Proprietà**: Non applicabile
+**ID**: 1176.01j2Organizational.5 - 01.j **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="networks-are-segregated-from-production-level-networks-when-migrating-physical-servers-applications-or-data-to-virtualized-servers"></a>Le reti vengono separate dalle reti a livello di produzione quando si esegue la migrazione di server fisici, applicazioni o dati a server virtualizzati.
 
-**ID**: 0894.01m2Organizational.7 - 01.m **Proprietà**: Non applicabile
+**ID**: 0894.01m2Organizational.7 - 01.m **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="non-organizational-users-all-information-system-users-other-than-organizational-users-such-as-patients-customers-contractors-or-foreign-nationals-or-processes-acting-on-behalf-of-non-organizational-users-determined-to-need-access-to-information-residing-on-the-organizations-information-systems-are-uniquely-identified-and-authenticated"></a>Gli utenti esterni all'organizzazione (tutti gli utenti dei sistemi informativi diversi dagli utenti aziendali, ad esempio pazienti, clienti, terzisti o cittadini stranieri) o i processi che agiscono per conto di utenti esterni all'organizzazione, che hanno l'esigenza di accedere alle informazioni residenti nei sistemi informativi dell'organizzazione vengono identificati e autenticati in modo univoco.
 
-**ID**: 11110.01q1Organizational.6 - 01.q **Proprietà**: Non applicabile
+**ID**: 11110.01q1Organizational.6 - 01.q **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -483,7 +483,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-requires-that-electronic-signatures-unique-to-one-individual-cannot-be-reused-by-or-reassigned-to-anyone-else"></a>L'organizzazione richiede che le firme elettroniche, specifiche di un singolo utente, non possano essere riutilizzate o riassegnate a nessun altro.
 
-**ID**: 11208.01q1Organizational.8 - 01.q **Proprietà**: Non applicabile
+**ID**: 11208.01q1Organizational.8 - 01.q **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -491,7 +491,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="electronic-signatures-and-handwritten-signatures-executed-to-electronic-records-shall-be-linked-to-their-respective-electronic-records"></a>Le firme elettroniche e le firme a mano eseguite in record elettronici dovranno essere collegate ai rispettivi record elettronici.
 
-**ID**: 11210.01q2Organizational.10 - 01.q **Proprietà**: Non applicabile
+**ID**: 11210.01q2Organizational.10 - 01.q **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -499,7 +499,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="signed-electronic-records-shall-contain-information-associated-with-the-signing-in-human-readable-format"></a>I record elettronici firmati conterranno informazioni associate alla firma in formato leggibile.
 
-**ID**: 11211.01q2Organizational.11 - 01.q **Proprietà**: Non applicabile
+**ID**: 11211.01q2Organizational.11 - 01.q **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -541,7 +541,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="remote-access-connections-between-the-organization-and-external-parties-are-encrypted"></a>Le connessioni di accesso remoto tra l'organizzazione e le entità esterne sono crittografate.
 
-**ID**: 1402.05i1Organizational.45 - 05.i **Proprietà**: Non applicabile
+**ID**: 1402.05i1Organizational.45 - 05.i **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -591,7 +591,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="a-secure-audit-record-is-created-for-all-activities-on-the-system-create-read-update-delete-involving-covered-information"></a>Per tutte le attività svolte nel sistema (creazione, lettura, aggiornamento, eliminazione) riguardanti informazioni riservate viene creato un record di controllo sicuro.
 
-**ID**: 1202.09aa1System.1 - 09.aa **Proprietà**: Non applicabile
+**ID**: 1202.09aa1System.1 - 09.aa **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -658,7 +658,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="all-disclosures-of-covered-information-within-or-outside-of-the-organization-are-logged-including-type-of-disclosure-datetime-of-the-event-recipient-and-sender"></a>Vengono registrate tutte le divulgazioni di informazioni riservate all'interno o all'esterno dell'organizzazione, inclusi il tipo di divulgazione, la data/ora dell'evento, il destinatario e il mittente.
 
-**ID**: 1210.09aa3System.3 - 09.aa **Proprietà**: Non applicabile
+**ID**: 1210.09aa3System.3 - 09.aa **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -667,7 +667,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-verifies-every-ninety-90-days-for-each-extract-of-covered-information-recorded-that-the-data-is-erased-or-its-use-is-still-required"></a>Ogni novanta (90) giorni l'organizzazione verifica per ogni estratto registrato di informazioni riservate che i dati vengano cancellati o se il relativo uso è ancora necessario.
 
-**ID**: 1211.09aa3System.4 - 09.aa **Proprietà**: Non applicabile
+**ID**: 1211.09aa3System.4 - 09.aa **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -891,7 +891,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="when-the-backup-service-is-delivered-by-the-third-party-the-service-level-agreement-includes-the-detailed-protections-to-control-confidentiality-integrity-and-availability-of-the-backup-information"></a>Quando il servizio di backup viene fornito dalla terza parte, il contratto di servizio include le misure di protezione dettagliate per controllare la riservatezza, l'integrità e la disponibilità delle informazioni di backup.
 
-**ID**: 1620.09l1Organizational.8 - 09.l **Proprietà**: Non applicabile
+**ID**: 1620.09l1Organizational.8 - 09.l **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -915,7 +915,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="covered-information-is-backed-up-in-an-encrypted-format-to-ensure-confidentiality"></a>Le informazioni riservate vengono sottoposte a backup in formato crittografato per garantirne la riservatezza.
 
-**ID**: 1623.09l2Organizational.4 - 09.l **Proprietà**: Non applicabile
+**ID**: 1623.09l2Organizational.4 - 09.l **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -939,7 +939,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-ensures-a-current-retrievable-copy-of-covered-information-is-available-before-movement-of-servers"></a>L'organizzazione garantisce la disponibilità di una copia aggiornata e recuperabile delle informazioni riservate prima dello spostamento dei server.
 
-**ID**: 1626.09l3Organizational.5 - 09.l **Proprietà**: Non applicabile
+**ID**: 1626.09l3Organizational.5 - 09.l **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -955,7 +955,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="workforce-members-roles-and-responsibilities-in-the-data-backup-process-are-identified-and-communicated-to-the-workforce-in-particular-bring-your-own-device-byod-users-are-required-to-perform-backups-of-organizational-andor-client-data-on-their-devices"></a>I ruoli e le responsabilità dei membri della forza lavoro nel processo di backup dei dati vengono identificati e comunicati alla forza lavoro; in particolare gli utenti in modalità BYOD (Bring Your Own Device) sono tenuti a eseguire i backup dei dati dell'organizzazione e/o dei clienti nei loro dispositivi.
 
-**ID**: 1699.09l1Organizational.10 - 09.l **Proprietà**: Non applicabile
+**ID**: 1699.09l1Organizational.10 - 09.l **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1009,7 +1009,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-builds-a-firewall-configuration-that-restricts-connections-between-un-trusted-networks-and-any-system-components-in-the-covered-information-environment-and-any-changes-to-the-firewall-configuration-are-updated-in-the-network-diagram"></a>L'organizzazione crea una configurazione del firewall che limita le connessioni tra le reti non attendibili e i componenti di sistema nell'ambiente delle informazioni riservate; tutte le modifiche apportate alla configurazione del firewall vengono aggiornate nel diagramma di rete.
 
-**ID**: 0863.09m2Organizational.910 - 09.m **Proprietà**: Non applicabile
+**ID**: 0863.09m2Organizational.910 - 09.m **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1017,7 +1017,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="usage-restrictions-and-implementation-guidance-are-formally-defined-for-voip-including-the-authorization-and-monitoring-of-the-service"></a>Le restrizioni sull'utilizzo e le indicazioni per l'implementazione sono formalmente definite per VoIP, tra cui l'autorizzazione e il monitoraggio del servizio.
 
-**ID**: 0864.09m2Organizational.12 - 09.m **Proprietà**: Non applicabile
+**ID**: 0864.09m2Organizational.12 - 09.m **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1025,7 +1025,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-i-authorizes-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-through-the-use-of-interconnection-security-agreements-or-other-formal-agreement-ii-documents-each-connection-the-interface-characteristics-security-requirements-and-the-nature-of-the-information-communicated-iii-employs-a-deny-all-permit-by-exception-policy-for-allowing-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-and-iv-applies-a-default-deny-rule-that-drops-all-traffic-via-host-based-firewalls-or-port-filtering-tools-on-its-endpoints-workstations-servers-etc-except-those-services-and-ports-that-are-explicitly-allowed"></a>L'organizzazione (i) autorizza le connessioni tra il sistema informativo e altri sistemi informativi esterni all'organizzazione tramite l'uso di accordi per la sicurezza delle interconnessioni o altri contratti formali; (ii) documenta ogni connessione, le caratteristiche dell'interfaccia, i requisiti di sicurezza e la natura delle informazioni comunicate; (iii) applica un criterio deny-all, permit-by-exception per consentire le connessioni tra il sistema informativo e altri sistemi informativi esterni all'organizzazione; (iv) applica una regola default-deny che elimina tutto il traffico tramite firewall basati su host o strumenti di filtro delle porte nei propri endpoint (workstation, server e così via), ad eccezione dei servizi e delle porte esplicitamente consentiti.
 
-**ID**: 0865.09m2Organizational.13 - 09.m **Proprietà**: Non applicabile
+**ID**: 0865.09m2Organizational.13 - 09.m **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="wireless-access-points-are-placed-in-secure-areas-and-shut-down-when-not-in-use-eg-nights-weekends"></a>I punti di accesso wireless sono situati in aree sicure e vengono arrestati quando non sono in uso, ad esempio di notte e nei weekend.
 
-**ID**: 0867.09m3Organizational.17 - 09.m **Proprietà**: Non applicabile
+**ID**: 0867.09m3Organizational.17 - 09.m **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1049,7 +1049,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-builds-a-firewall-configuration-to-restrict-inbound-and-outbound-traffic-to-that-which-is-necessary-for-the-covered-data-environment"></a>L'organizzazione crea una configurazione del firewall per limitare il traffico in ingresso e in uscita a quello necessario per l'ambiente dei dati riservati.
 
-**ID**: 0868.09m3Organizational.18 - 09.m **Proprietà**: Non applicabile
+**ID**: 0868.09m3Organizational.18 - 09.m **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1108,7 +1108,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-reviews-and-updates-the-interconnection-security-agreements-on-an-ongoing-basis-verifying-enforcement-of-security-requirements"></a>L'organizzazione esamina e aggiorna regolarmente gli accordi per la sicurezza delle interconnessioni verificando che siano applicati i requisiti di sicurezza.
 
-**ID**: 0885.09n2Organizational.3 - 09.n **Proprietà**: Non applicabile
+**ID**: 0885.09n2Organizational.3 - 09.n **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1132,7 +1132,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-contract-with-the-externaloutsourced-service-provider-includes-the-specification-that-the-service-provider-is-responsible-for-the-protection-of-covered-information-shared"></a>Il contratto con i provider di servizi esterni/in outsourcing include la specifica che il provider di servizi è responsabile della protezione delle informazioni riservate condivise.
 
-**ID**: 0888.09n2Organizational.6 - 09.n **Proprietà**: Non applicabile
+**ID**: 0888.09n2Organizational.6 - 09.n **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1142,7 +1142,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-based-on-the-data-classification-level-registers-media-including-laptops-prior-to-use-places-reasonable-restrictions-on-how-such-media-be-used-and-provides-an-appropriate-level-of-physical-and-logical-protection-including-encryption-for-media-containing-covered-information-until-properly-destroyed-or-sanitized"></a>L'organizzazione, in base al livello di classificazione dei dati, registra i supporti (compresi i computer portatili) prima dell'utilizzo, impone restrizioni ragionevoli sulla modalità di utilizzo dei supporti e fornisce un livello appropriato di protezione fisica e logica (inclusa la crittografia) per i supporti contenenti le informazioni pertinenti fino a quando non vengono eliminati definitivamente o purificati in modo appropriato.
 
-**ID**: 0301.09o1Organizational.123 - 09.o **Proprietà**: Non applicabile
+**ID**: 0301.09o1Organizational.123 - 09.o **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1150,7 +1150,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>L'organizzazione protegge e controlla i supporti contenenti informazioni sensibili durante il trasporto al di fuori delle aree controllate.
 
-**ID**: 0302.09o2Organizational.1 - 09.o **Proprietà**: Non applicabile
+**ID**: 0302.09o2Organizational.1 - 09.o **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1158,7 +1158,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="digital-and-non-digital-media-requiring-restricted-use-and-the-specific-safeguards-used-to-restrict-their-use-are-identified"></a>Vengono identificati i supporti digitali e non digitali che richiedono l'uso con restrizioni e le specifiche misure di salvaguardia adottate per limitarne l'uso.
 
-**ID**: 0303.09o2Organizational.2 - 09.o **Proprietà**: Non applicabile
+**ID**: 0303.09o2Organizational.2 - 09.o **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1166,7 +1166,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-restricts-the-use-of-writable-removable-media-and-personally-owned-removable-media-in-organizational-systems"></a>L'organizzazione limita l'uso di supporti rimovibili scrivibili e di supporti rimovibili di proprietà personale nei sistemi aziendali.
 
-**ID**: 0304.09o3Organizational.1 - 09.o **Proprietà**: Non applicabile
+**ID**: 0304.09o3Organizational.1 - 09.o **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1234,7 +1234,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-limits-the-use-of-organization-controlled-portable-storage-media-by-authorized-individuals-on-external-information-systems"></a>L'organizzazione limita l'uso di supporti di archiviazione portatili controllati dall'organizzazione da parte di singoli utenti autorizzati in sistemi informatici esterni.
 
-**ID**: 0915.09s2Organizational.2 - 09.s **Proprietà**: Non applicabile
+**ID**: 0915.09s2Organizational.2 - 09.s **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1242,7 +1242,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-information-system-prohibits-remote-activation-of-collaborative-computing-devices-and-provides-an-explicit-indication-of-use-to-users-physically-present-at-the-devices"></a>Il sistema informativo impedisce l'attivazione remota di dispositivi di elaborazione collaborativi e fornisce un'indicazione esplicita sull'uso agli utenti fisicamente presenti presso i dispositivi.
 
-**ID**: 0916.09s2Organizational.4 - 09.s **Proprietà**: Non applicabile
+**ID**: 0916.09s2Organizational.4 - 09.s **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1268,7 +1268,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="data-involved-in-electronic-commerce-and-online-transactions-is-checked-to-determine-if-it-contains-covered-information"></a>I dati convolti in transazioni online e di e-commerce vengono controllati per determinare se contengono informazioni riservate.
 
-**ID**: 0943.09y1Organizational.1 - 09.y **Proprietà**: Non applicabile
+**ID**: 0943.09y1Organizational.1 - 09.y **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1276,7 +1276,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="protocols-used-to-communicate-between-all-involved-parties-are-secured-using-cryptographic-techniques-eg-ssl"></a>I protocolli usati per le comunicazioni tra tutte le parti coinvolte sono protetti con tecniche crittografiche, ad esempio SSL.
 
-**ID**: 0945.09y1Organizational.3 - 09.y **Proprietà**: Non applicabile
+**ID**: 0945.09y1Organizational.3 - 09.y **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-requires-the-use-of-encryption-between-and-the-use-of-electronic-signatures-by-each-of-the-parties-involved-in-the-transaction"></a>L'organizzazione richiede l'uso della crittografia e l'uso di firme elettroniche a tutte le parti coinvolte nella transazione.
 
-**ID**: 0946.09y2Organizational.14 - 09.y **Proprietà**: Non applicabile
+**ID**: 0946.09y2Organizational.14 - 09.y **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1292,7 +1292,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-organization-ensures-the-storage-of-the-transaction-details-are-located-outside-of-any-publicly-accessible-environments-eg-on-a-storage-platform-existing-on-the-organizations-intranet-and-not-retained-and-exposed-on-a-storage-medium-directly-accessible-from-the-internet"></a>L'organizzazione garantisce che i dati delle transazioni vengono archiviati all'esterno di qualsiasi ambiente accessibile pubblicamente (ad esempio in una piattaforma di archiviazione esistente nella Intranet dell'organizzazione) e non vengono mantenuti ed esposti in un supporto di archiviazione direttamente accessibile da Internet.
 
-**ID**: 0947.09y2Organizational.2 - 09.y **Proprietà**: Non applicabile
+**ID**: 0947.09y2Organizational.2 - 09.y **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1300,7 +1300,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="where-a-trusted-authority-is-used-eg-for-the-purposes-of-issuing-and-maintaining-digital-signatures-andor-digital-certificates-security-is-integrated-and-embedded-throughout-the-entire-end-to-end-certificatesignature-management-process"></a>Quando si usa un'autorità attendibile (ad esempio allo scopo di emettere e mantenere firme digitali e/o certificati digitali), la sicurezza è integrata e incorporata nell'intero processo end-to-end di gestione di certificati/firme.
 
-**ID**: 0948.09y2Organizational.3 - 09.y **Proprietà**: Non applicabile
+**ID**: 0948.09y2Organizational.3 - 09.y **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1308,7 +1308,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="the-protocols-used-for-communications-are-enhanced-to-address-any-new-vulnerability-and-the-updated-versions-of-the-protocols-are-adopted-as-soon-as-possible"></a>I protocolli usati per le comunicazioni sono ottimizzati per affrontare qualsiasi nuova vulnerabilità e le versioni aggiornate dei protocolli vengono adottate quanto prima possibile.
 
-**ID**: 0949.09y2Organizational.5 - 09.y **Proprietà**: Non applicabile
+**ID**: 0949.09y2Organizational.5 - 09.y **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1392,7 +1392,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="where-development-is-outsourced-change-control-procedures-to-address-security-are-included-in-the-contracts-and-specifically-require-the-developer-to-track-security-flaws-and-flaw-resolution-within-the-system-component-or-service-and-report-findings-to-organization-defined-personnel-or-roles"></a>Quando lo sviluppo è affidato in outsourcing, le procedure di controllo modifiche per risolvere i problemi di sicurezza sono incluse nei contratti e richiedono in modo specifico che lo sviluppatore tenga traccia dei difetti di sicurezza e della relativa correzione all'interno del sistema, del componente o del servizio e segnali i risultati al personale o ai ruoli definiti dall'organizzazione.
 
-**ID**: 0640.10k2Organizational.1012 - 10.k **Proprietà**: Non applicabile
+**ID**: 0640.10k2Organizational.1012 - 10.k **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1442,7 +1442,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |[È consigliabile correggere le vulnerabilità nelle configurazioni della sicurezza dei contenitori](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Verifica le vulnerabilità nella configurazione della sicurezza nei computer in cui è installato Docker e le visualizza come raccomandazioni nel Centro sicurezza di Azure. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |I server che non soddisfano la baseline configurata verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Controlla le vulnerabilità del sistema operativo nei set di scalabilità di macchine virtuali per proteggerli da attacchi. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Le vulnerabilità dei database SQL devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Consente di monitorare i consigli e i risultati dell'analisi della valutazione della vulnerabilità per informazioni su come correggere le vulnerabilità del database. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Le vulnerabilità dei database SQL devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Consente di monitorare i consigli e i risultati dell'analisi della valutazione della vulnerabilità per informazioni su come correggere le vulnerabilità del database. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Monitora le vulnerabilità rilevate dalla soluzione Valutazione della vulnerabilità e le macchine virtuali senza una soluzione Valutazione della vulnerabilità nel Centro sicurezza di Azure che invierà i consigli corrispondenti. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 |[La valutazione della vulnerabilità deve essere abilitata nell'istanza gestita di SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Controlla ogni istanza gestita di SQL in cui non sono abilitate analisi di valutazione della vulnerabilità ricorrenti. La valutazione della vulnerabilità consente di individuare, monitorare e risolvere le potenziali vulnerabilità del database. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[È consigliabile abilitare la valutazione della vulnerabilità nei server SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Controlla i server di Azure SQL in cui non sono abilitate analisi di valutazione della vulnerabilità ricorrenti. La valutazione della vulnerabilità consente di individuare, monitorare e risolvere le potenziali vulnerabilità del database. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
@@ -1502,7 +1502,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le vulnerabilità dei database SQL devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Consente di monitorare i consigli e i risultati dell'analisi della valutazione della vulnerabilità per informazioni su come correggere le vulnerabilità del database. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Le vulnerabilità dei database SQL devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Consente di monitorare i consigli e i risultati dell'analisi della valutazione della vulnerabilità per informazioni su come correggere le vulnerabilità del database. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ### <a name="vulnerability-scanning-tools-include-the-capability-to-readily-update-the-information-system-vulnerabilities-scanned"></a>Gli strumenti di analisi delle vulnerabilità includono la possibilità di aggiornare prontamente le vulnerabilità del sistema informativo analizzate.
 
@@ -1544,7 +1544,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Gli oggetti Key Vault devono essere recuperabili](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Questo criterio controlla se gli oggetti insieme di credenziali delle chiavi non sono recuperabili. La funzionalità di eliminazione temporanea permette di conservare in modo efficace le risorse per un periodo di conservazione specificato (90 giorni) anche dopo un'operazione di eliminazione, pur facendo sembrare che l'oggetto sia stato eliminato. Quando la funzionalità di protezione dall'eliminazione è attivata, non è possibile ripulire un insieme di credenziali o un oggetto in stato eliminato fino al termine del periodo di conservazione di 90 giorni. Questi insiemi di credenziali e oggetti possono ancora essere recuperati, assicurando ai clienti il rispetto dei criteri di conservazione. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Nell'insieme di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |L'eliminazione dolosa di un insieme di credenziali delle chiavi può causare la perdita permanente di dati. Un utente malintenzionato interno all'organizzazione potrebbe in teoria essere in grado di accedere agli insiemi di credenziali delle chiavi per eliminarli e rimuoverli definitivamente. La protezione da rimozione definitiva consente di rispondere a questi tipi di attacco imponendo un periodo di conservazione obbligatorio per gli insiemi di credenziali delle chiavi eliminati temporaneamente. Nessuno all'interno dell'organizzazione né Microsoft sarà in grado di rimuovere definitivamente gli insiemi di credenziali delle chiavi durante il periodo di conservazione associato all'eliminazione temporanea. |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>L'analisi dell'impatto aziendale viene usata per valutare le conseguenze di situazioni di emergenza, problemi di sicurezza, perdita del servizio e disponibilità del servizio.
 

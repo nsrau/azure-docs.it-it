@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cffe2ef77f2b832c55ef17823163cd6580f31504
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d4fdef6406bfa2e64456f14778cc136735070656
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944225"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886641"
 ---
 # <a name="build-a-trusted-authentication-service-using-azure-functions"></a>Creare un servizio di autenticazione attendibile con Funzioni di Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "90944225"
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. È possibile trovare altre informazioni sulla [pulizia delle risorse di Servizi di comunicazione di Azure](../quickstarts/create-communication-resource.md#clean-up-resources) e sulla [pulizia delle risorse di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?#clean-up-resources).
+Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. È possibile trovare altre informazioni sulla [pulizia delle risorse di Servizi di comunicazione di Azure](../quickstarts/create-communication-resource.md#clean-up-resources) e sulla [pulizia delle risorse di Funzioni di Azure](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

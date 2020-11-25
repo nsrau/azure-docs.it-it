@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018612"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874101"
 ---
 # <a name="what-is-azure-ad-connect"></a>Cos'è Azure AD Connect?
 
@@ -59,7 +59,7 @@ Vantaggi chiave e procedure consigliate:
 |-----|-----|
 |Sicurezza avanzata|[Tendenze del blocco Extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Report sugli accessi non riusciti](how-to-connect-health-adfs-risky-ip.md)</br>[Conformità alla privacy](reference-connect-health-user-privacy.md)|
 |Avvisi su [tutti i problemi critici del file system distribuito di Azure](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configurazione e disponibilità del server</br>[Prestazioni e connettività](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenzione regolare|
-|Semplicità di distribuzione e gestione|[Installazione dell'agente rapida](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Aggiornamento automatico alla versione più recente dell'agente</br>Dati disponibili nel portale entro pochi minuti|
+|Semplicità di distribuzione e gestione|[Installazione dell'agente rapida](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Aggiornamento automatico alla versione più recente dell'agente</br>Dati disponibili nel portale entro pochi minuti|
 [Metriche di utilizzo](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) avanzate|Utilizzo delle applicazioni principali</br>Percorsi di rete e connessione TCP</br>Richieste di token per ogni server|
 |Miglioramento dell'esperienza utente|Modalità dashboard dal portale di Azure</br>[Avvisi tramite messaggi di posta elettronica](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

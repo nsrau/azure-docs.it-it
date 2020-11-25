@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7c5aa7e5189b4c89636fdb38e8fd365208148900
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb6f9f598ef68911a9017dde504a032672dc55a3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094643"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966582"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
 
@@ -78,9 +78,9 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
             ```
 
         5. Quando richiesto, è facoltativamente possibile immettere un _nome comune_ per i certificati.
-        6. Lo strumento genera in locale un **certificato client** , la **chiave privata del certificato client** e il **certificato radice**.
-        7. Copiare il **certificato radice** , incluse le righe **_-----BEGIN CERTIFICATE-----_** ed **_-----END CERTIFICATE-----_** . 
-        8. Assegnare il valore del **certificato radice** al parametro **PUBLIC_KEY_CERTIFICATE_STRING** , come illustrato sotto:
+        6. Lo strumento genera in locale un **certificato client**, la **chiave privata del certificato client** e il **certificato radice**.
+        7. Copiare il **certificato radice**, incluse le righe **_-----BEGIN CERTIFICATE-----_** ed **_-----END CERTIFICATE-----_** . 
+        8. Assegnare il valore del **certificato radice** al parametro **PUBLIC_KEY_CERTIFICATE_STRING**, come illustrato sotto:
 
             ```Java
             private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -109,14 +109,14 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
                 ```
             2. Assegnare un nome descrittivo al parametro *DEVICE_ID* e mantenere per *PROVISIONING_STATUS* il valore predefinito *ENABLED*. 
 
-        - OPPURE, se si sceglie di non configurare il servizio di provisioning, assicurarsi di impostare come commento o eliminare le istruzioni seguenti nel file _ServiceEnrollmentGroupSample.java_ :
+        - OPPURE, se si sceglie di non configurare il servizio di provisioning, assicurarsi di impostare come commento o eliminare le istruzioni seguenti nel file _ServiceEnrollmentGroupSample.java_:
 
             ```Java
             enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
             enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
             ```
 
-    4. Esaminare il codice di esempio, che crea, aggiorna, esegue query ed elimina la registrazione di un gruppo per i dispositivi X.509. Per verificare che la registrazione sia stata eseguita correttamente nel portale, impostare temporaneamente come commento le righe di codice seguenti alla fine del file _ServiceEnrollmentGroupSample.java_ :
+    4. Esaminare il codice di esempio, che crea, aggiorna, esegue query ed elimina la registrazione di un gruppo per i dispositivi X.509. Per verificare che la registrazione sia stata eseguita correttamente nel portale, impostare temporaneamente come commento le righe di codice seguenti alla fine del file _ServiceEnrollmentGroupSample.java_:
 
         ```Java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -165,7 +165,7 @@ Questa procedura usa un gruppo di registrazioni. Nella sezione successiva viene 
 
 Per registrare un solo dispositivo X.509, modificare il codice di esempio della *registrazione singola* usato in [Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK](quick-enroll-device-tpm-java.md#javasample) (Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT usando Java Service SDK), come segue:
 
-1. Copiare il *nome comune* del certificato client X.509 negli Appunti. Per usare lo strumento _generatore di certificati X.509_ , come illustrato nella [sezione del codice di esempio precedente](#javasample), immettere un _nome comune_ per il certificato o usare quello predefinito **microsoftriotcore**. Usare questo **nome comune** come valore per la variabile *REGISTRATION_ID*. 
+1. Copiare il *nome comune* del certificato client X.509 negli Appunti. Per usare lo strumento _generatore di certificati X.509_, come illustrato nella [sezione del codice di esempio precedente](#javasample), immettere un _nome comune_ per il certificato o usare quello predefinito **microsoftriotcore**. Usare questo **nome comune** come valore per la variabile *REGISTRATION_ID*. 
 
     ```Java
     // Use common name of your X.509 client certificate
@@ -195,7 +195,7 @@ Per registrare un solo dispositivo X.509, modificare il codice di esempio della 
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Salvare, compilare ed eseguire il file di esempio della *registrazione singola* , seguendo i passaggi illustrati nella sezione [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample) (Compilare ed eseguire il codice di esempio per la registrazione singola).
+4. Salvare, compilare ed eseguire il file di esempio della *registrazione singola*, seguendo i passaggi illustrati nella sezione [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample) (Compilare ed eseguire il codice di esempio per la registrazione singola).
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

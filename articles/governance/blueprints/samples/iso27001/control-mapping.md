@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto ISO 27001
 description: Mapping dei controlli dell'esempio di progetto ISO 27001. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c1c20ae8b740ce019441dbee880f883947af160
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420234"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842499"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto ISO 27001
 
@@ -84,7 +84,7 @@ Il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-ac
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedure di accesso sicure
 
-Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Azure Multi-Factor Authentication offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
+Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Azure Multi-Factor Authentication offre ulteriore sicurezza richiedendo una seconda forma di autenticazione per un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione

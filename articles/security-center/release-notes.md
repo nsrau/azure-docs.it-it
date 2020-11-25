@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 79dcc645ecff00b3189dc90dcf34e042a78ed318
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636121"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949327"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -445,7 +445,7 @@ Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessar
 Le aree seguenti dei messaggi di posta elettronica correlati agli avvisi di sicurezza sono state migliorate: 
 
 - Aggiunta della possibilità di inviare notifiche tramite posta elettronica sugli avvisi per tutti i livelli di gravità
-- Aggiunta della possibilità di inviare notifiche agli utenti con ruoli Controllo degli accessi in base al ruolo diversi nella sottoscrizione
+- Aggiunta la possibilità di inviare notifiche agli utenti con ruoli di Azure diversi nella sottoscrizione
 - Notifiche proattive per i proprietari delle sottoscrizioni per impostazione predefinita in caso di avvisi a gravità alta, con probabilità elevata di essere violazioni effettive
 - Rimozione del campo relativo al numero di telefono dalla pagina di configurazione delle notifiche tramite posta elettronica
 

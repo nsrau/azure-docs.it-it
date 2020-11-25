@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790713"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917937"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita di SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Nel diagramma seguente vengono descritte le funzionalità principali di Istanza 
 
 ![Funzionalità principali](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Istanza gestita di SQL di Azure è stato pensato per i clienti che vogliono eseguire la migrazione di un numero elevato di app da un ambiente locale o IaaS creato personalmente oppure da un ambiente fornito da un ISV a un ambiente cloud PaaS completamente gestito, con il minor numero possibile di operazioni di migrazione. Usando il [Servizio Migrazione del database di Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) completamente automatizzato, i clienti possono trasferire l'istanza di SQL Server esistente in Istanza gestita di SQL, il che garantisce la compatibilità con SQL Server e il completo isolamento delle istanze dei clienti grazie al supporto delle reti virtuali native.  Con Software Assurance è possibile scambiare le licenze esistenti con tariffe scontate per Istanza gestita di SQL usando il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Istanza gestita di SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata.
+Istanza gestita di SQL di Azure è stato pensato per i clienti che vogliono eseguire la migrazione di un numero elevato di app da un ambiente locale o IaaS creato personalmente oppure da un ambiente fornito da un ISV a un ambiente cloud PaaS completamente gestito, con il minor numero possibile di operazioni di migrazione. Usando il [Servizio Migrazione del database di Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) completamente automatizzato, i clienti possono trasferire l'istanza di SQL Server esistente in Istanza gestita di SQL, il che garantisce la compatibilità con SQL Server e il completo isolamento delle istanze dei clienti grazie al supporto delle reti virtuali native. Per altre informazioni sulle opzioni e gli strumenti disponibili per la migrazione, vedere [Panoramica della migrazione: da SQL Server a Istanza gestita di SQL di Azure](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Con Software Assurance è possibile scambiare le licenze esistenti con tariffe scontate per Istanza gestita di SQL usando il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Istanza gestita di SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata.
 
 ## <a name="key-features-and-capabilities"></a>Funzionalità e le caratteristiche chiave
 
@@ -49,7 +49,7 @@ Istanza gestita di SQL combina le migliori funzionalità disponibili sia nel dat
 |Ambiente isolato ([integrazione della rete virtuale](connectivity-architecture-overview.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità server (account di accesso) di Azure AD</a>  <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
 
 > [!IMPORTANT]
-> Istanza gestita di SQL di Azure è certificato rispetto a diversi standard di conformità. Per altre informazioni, vedere le [offerte di conformità di Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), dove è possibile trovare l'elenco più recente di certificazioni di conformità di Istanza gestita di SQL di Azure, nella sezione relativa al **database SQL** .
+> Istanza gestita di SQL di Azure è certificato rispetto a diversi standard di conformità. Per altre informazioni, vedere le [offerte di conformità di Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), dove è possibile trovare l'elenco più recente di certificazioni di conformità di Istanza gestita di SQL di Azure, nella sezione relativa al **database SQL**.
 
 Nella tabella seguente sono elencate le principali funzionalità di Istanza gestita di SQL:
 
@@ -85,8 +85,8 @@ Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [
 
 L'istanza gestita di SQL è disponibile in due livelli di servizio:
 
-- **Utilizzo generico** : progettato per applicazioni con prestazioni tipiche e requisiti di latenza di I/O comuni.
-- **Business Critical** : progettato per applicazioni con requisiti di latenza di I/O bassa e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
+- **Utilizzo generico**: progettato per applicazioni con prestazioni tipiche e requisiti di latenza di I/O comuni.
+- **Business Critical**: progettato per applicazioni con requisiti di latenza di I/O bassa e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
 
 Entrambi i livelli di servizio garantiscono una disponibilità del 99,99% e consentono di selezionare le dimensioni di archiviazione e capacità di calcolo in modo indipendente. Per altre informazioni sull'architettura di disponibilità elevata di Istanza gestita di SQL di Azure, vedere [Disponibilità elevata e Istanza gestita di SQL di Azure](../database/high-availability-sla.md).
 
@@ -156,9 +156,9 @@ La migrazione di un database crittografato in Istanza gestita di SQL è supporta
 
 ## <a name="azure-active-directory-integration"></a>Integrazione di Azure Active Directory
 
-Istanza gestita di SQL supporta i tradizionali account di accesso del motore di database di SQL server e gli account di accesso integrati con Azure AD. Le entità server (account di accesso) di Azure AD ( **anteprima pubblica** ) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure AD come entità principali reali con ambito nell'istanza, in grado di eseguire qualsiasi operazione a livello di istanza, comprese le query tra database all'interno della stessa istanza gestita.
+Istanza gestita di SQL supporta i tradizionali account di accesso del motore di database di SQL server e gli account di accesso integrati con Azure AD. Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure AD come entità principali reali con ambito nell'istanza, in grado di eseguire qualsiasi operazione a livello di istanza, comprese le query tra database all'interno della stessa istanza gestita.
 
-È stata introdotta una nuova sintassi per creare le entità server (account di accesso) di Azure AD, ovvero **FROM EXTERNAL PROVIDER** . Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e consultare l'articolo [Effettuare il provisioning di un amministratore di Azure Active Directory per Istanza gestita di SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+È stata introdotta una nuova sintassi per creare le entità server (account di accesso) di Azure AD, ovvero **FROM EXTERNAL PROVIDER**. Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e consultare l'articolo [Effettuare il provisioning di un amministratore di Azure Active Directory per Istanza gestita di SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 
@@ -168,10 +168,10 @@ Istanza gestita di SQL consente di gestire a livello centralizzato le identità 
 
 Per autenticazione di Istanza gestita di SQL si intende il modo in cui l'utente dimostra la propria identità durante la connessione al database. Istanza gestita di SQL supporta due tipi di autenticazione:  
 
-- **Autenticazione SQL** :
+- **Autenticazione SQL**:
 
   Questo metodo di autenticazione usa nome utente e password.
-- **Autenticazione di Azure Active Directory** :
+- **Autenticazione di Azure Active Directory**:
 
   Questo metodo di autenticazione usa identità gestite da Azure Active Directory ed è supportato per domini gestiti e integrati. [Quando possibile](/sql/relational-databases/security/choose-an-authentication-mode), usare l'autenticazione di Active Directory (sicurezza integrata).
 
@@ -181,14 +181,14 @@ Per autorizzazione si intendono le operazioni che l'utente può eseguire in un d
 
 ## <a name="database-migration"></a>Migrazione del database
 
-Il servizio Istanza gestita di SQL è destinato a scenari utente con migrazione di massa di database da implementazioni di database locali o IaaS. Istanza gestita di SQL supporta diverse opzioni di migrazione di database:
+Il servizio Istanza gestita di SQL è destinato a scenari utente con migrazione di massa di database da implementazioni di database locali o IaaS. Istanza gestita di SQL supporta diverse opzioni per la migrazione dei database descritte nelle guide alla migrazione. Per altre informazioni, vedere [Panoramica della migrazione: da SQL Server a Istanza gestita di SQL di Azure](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).
 
 ### <a name="backup-and-restore"></a>Backup e ripristino  
 
 L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in un BLOB di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current).
 
 - Per una guida di avvio rapido su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a managed instance](restore-sample-database-quickstart.md) (Ripristinare un file di backup in un'istanza gestita). Questo argomento di avvio rapido mostra che è necessario caricare un file di backup in un archivio BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
-- Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
+- Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md#backup-and-restore).
 
 > [!IMPORTANT]
 > I backup da un'istanza gestita possono essere ripristinati solo in un'altra istanza gestita. Non possono essere ripristinati in un'istanza di SQL Server o nel database SQL di Azure.

@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a061cf493fba99c518448acd9c4bf4bd5949eb98
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843278"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831829"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse con due set di credenziali di autenticazione
 
@@ -67,8 +67,6 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Creare e distribuire la funzione di rotazione delle chiavi degli account di archiviazione
-> [!IMPORTANT]
-> Il modello seguente richiede che Key Vault, l'account di archiviazione di Azure e la funzione di Azure si trovino nello stesso gruppo di risorse
 
 Successivamente, creare un'app per le funzioni con un'identità gestita dal sistema, oltre ad altri componenti necessari, e distribuire le funzioni di rotazione delle chiavi degli account di archiviazione
 
@@ -85,13 +83,15 @@ Le funzioni di rotazione dell'app per le funzioni richiedono i componenti e la c
    [![Immagine che mostra il pulsante "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. Nell'elenco **Gruppo di risorse** selezionare **akvrotation**.
-1. In **Nome account di archiviazione** digitare il nome dell'account di archiviazione con le chiavi di accesso da ruotare
-1. In **Nome dell'insieme di credenziali delle chiavi** digitare il nome dell'insieme di credenziali delle chiavi
-1. In **Nome dell'app per le funzioni** digitare il nome dell'app per le funzioni
-1. In **Nome del segreto** digitare il nome del segreto in cui verranno archiviate le chiavi di accesso
-1. In **URL del repository** digitare la posizione in GitHub del codice della funzione ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )
+1. In **Storage Account RG** (Gruppo di risorse dell'account di archiviazione) immettere il nome del gruppo di risorse in cui è presente l'account di archiviazione. Mantenere il valore predefinito **[resourceGroup().name]** se l'account di archiviazione esiste già nello stesso gruppo di risorse in cui si distribuisce la funzione di rotazione delle chiavi.
+1. In **Nome dell'account di archiviazione** immettere il nome dell'account di archiviazione con le chiavi di accesso da ruotare.
+1. In **Key Vault RG** (Gruppo di risorse dell'insieme di credenziali delle chiavi) immettere il nome del gruppo di risorse in cui è presente l'insieme di credenziali delle chiavi. Mantenere il valore predefinito **[resourceGroup().name]** se l'insieme di credenziali delle chiavi esiste già nello stesso gruppo di risorse in cui si distribuisce la funzione di rotazione delle chiavi.
+1. In **Nome dell'insieme di credenziali delle chiavi** immettere il nome dell'insieme di credenziali delle chiavi.
+1. In **Nome dell'app per le funzioni** immettere il nome dell'app per le funzioni.
+1. In **Nome del segreto** immettere il nome del segreto in cui verranno archiviate le chiavi di accesso.
+1. In **URL del repository** immettere la posizione in GitHub del codice della funzione ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** ).
 1. Selezionare **Rivedi+Crea**.
-1. Selezionare **Crea**
+1. Selezionare **Create** (Crea).
 
    ![Esaminare e creare il primo account di archiviazione](../media/secrets/rotation-dual/dual-rotation-2.png)
 

@@ -11,16 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5af55c16ae17b30d2079b332c236c325f3bed4df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 25c5e6445bb5d673db1cfb755f320302a9e9c5b5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613272"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561863"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
-Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (WPF) di Windows che potrà consentire l'accesso ad account personali, aziendali e dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+In questa guida di avvio rapido si scarica e si esegue un esempio di codice di un'applicazione desktop Windows .NET (WPF) che consente agli utenti di accedere e ottenere un token di accesso per chiamare l'API Microsoft Graph. 
+
+Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Prerequisiti
@@ -70,7 +72,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Eseguire il progetto con Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Scaricare il codice di esempio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

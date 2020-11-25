@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322054"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023191"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
@@ -71,7 +71,7 @@ Sono supportati i sistemi operativi seguenti, quindi assicurarsi di avere le [li
 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 
-* Un'istanza di [Azure Active Directory](/azure/active-directory/).
+* Un'istanza di [Azure Active Directory](../active-directory/index.yml).
 * Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. È possibile eseguirne la configurazione con Azure AD Connect (per organizzazioni ibride) o Azure AD Domain Services (per organizzazioni ibride o cloud).
   * Un'istanza di Windows Server AD sincronizzata con Azure Active Directory. L'utente è originato da Windows Server AD e la VM di Desktop virtuale Windows è aggiunta al dominio di Windows Server AD.
   * Un'istanza di Windows Server AD sincronizzata con Azure Active Directory. L'utente è originato da Windows Server AD e la VM di Desktop virtuale Windows è aggiunta al dominio di Azure AD Domain Services.
@@ -85,7 +85,7 @@ Requisiti degli utenti per la connessione a Desktop virtuale Windows:
 
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
-* [Aggiunte a un dominio standard](../active-directory-domain-services/active-directory-ds-comparison.md) oppure [aggiunte ad AD ibrido](../active-directory/devices/hybrid-azuread-join-plan.md). Le macchine virtuali non possono essere aggiunte ad Azure AD.
+* [Aggiunte a un dominio standard](../active-directory-domain-services/compare-identity-solutions.md) oppure [aggiunte ad AD ibrido](../active-directory/devices/hybrid-azuread-join-plan.md). Le macchine virtuali non possono essere aggiunte ad Azure AD.
 * In esecuzione su una delle [immagini del sistema operativo supportate](#supported-virtual-machine-os-images) seguenti.
 
 >[!NOTE]
@@ -101,7 +101,7 @@ Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 * Il flusso del traffico di rete può avvenire al di fuori dei confini del paese o dell'area geografica quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
 * Per ottimizzare le prestazioni della rete, si consiglia di collocare le macchine virtuali dell'host della sessione nella stessa area di Azure del servizio di gestione.
 
-È possibile visualizzare una tipica configurazione dell'architettura di Desktop virtuale Windows per le aziende nella [documentazione dell'architettura](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+È possibile visualizzare una tipica configurazione dell'architettura di Desktop virtuale Windows per le aziende nella [documentazione dell'architettura](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Client Desktop remoto supportati
 

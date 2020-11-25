@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335248"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594233"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione Web Node con il flusso di codice di autorizzazione
 
-In questo argomento di avvio rapido viene eseguito un esempio di codice che illustra in che modo un'applicazione Web Node.js può consentire l'accesso agli utenti con account personali, account aziendali e account dell'istituto di istruzione tramite il flusso di codice di autorizzazione. L'esempio di codice illustra anche come ottenere un token di accesso per chiamare un'API Web, in questo caso l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+In questa guida di avvio rapido si scarica e si esegue un esempio di codice di un'app Web Node.js che consente agli utenti di accedere usando il flusso di codice di autorizzazione. L'esempio di codice dimostra anche come ottenere un token di accesso per chiamare l'API Microsoft Graph. 
+
+Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 Questo argomento di avvio rapido usa Microsoft Authentication Library per Node.js (MSAL Node) con il flusso di codice di autorizzazione.
 
@@ -65,8 +67,8 @@ Questo argomento di avvio rapido usa Microsoft Authentication Library per Node.j
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-node-app"></a>Passaggio 3: Configurare l'app Node
 >
-> Estrarre il progetto e aprire la cartella *ms-identity-node-main* , quindi aprire il file *index.js*.
-> Impostare `clientID`con l' **ID applicazione (client)** .
+> Estrarre il progetto e aprire la cartella *ms-identity-node-main*, quindi aprire il file *index.js*.
+> Impostare `clientID`con l'**ID applicazione (client)** .
 > Impostare `clientSecret` con il **valore** di **Segreto client**.
 >
 >```javascript
@@ -92,7 +94,7 @@ Questo argomento di avvio rapido usa Microsoft Authentication Library per Node.j
 >
 > Modificare i valori nella sezione `config` come descritto di seguito:
 >
-> - `Enter_the_Application_Id_Here` è l' **ID applicazione (client)** per l'applicazione registrata.
+> - `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
 > - `Enter_the_Client_Secret_Here` è il **valore** di **Segreto client** per l'applicazione registrata.
 >
 > Il valore `authority` predefinito rappresenta il cloud di Azure principale (globale):

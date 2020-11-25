@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b3505f8bf31c2e700ce1cc57e106c33a13e0aa9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737175"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579505"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
 
@@ -77,9 +77,11 @@ Usare `az keyvault set-policy` per concedere all'app l'accesso appropriato in Ke
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> Usare `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` per rimuovere l'accesso per l'app dopo la disabilitazione dell'identità gestita assegnata dal sistema.
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Creare un'app Spring Boot di esempio con Spring Boot Starter
-Questa app avrà le autorizzazioni per ottenere i segreti da Azure Key Vault. Usare l'utilità di avvio: [Spring Boot Starter per i segreti di Azure Key Vault](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  Azure Key Vault viene aggiunto come istanza di Spring **PropertySource** .  È possibile accedere facilmente ai segreti archiviati in Azure Key Vault e usarli come qualsiasi proprietà di configurazione esternalizzata, come le proprietà dei file. 
+Questa app avrà le autorizzazioni per ottenere i segreti da Azure Key Vault. Usare l'utilità di avvio: [Spring Boot Starter per i segreti di Azure Key Vault](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  Azure Key Vault viene aggiunto come istanza di Spring **PropertySource**.  È possibile accedere facilmente ai segreti archiviati in Azure Key Vault e usarli come qualsiasi proprietà di configurazione esternalizzata, come le proprietà dei file. 
 
 1. Generare un progetto di esempio da start.spring.io con Azure Key Vault Spring Starter. 
     ```azurecli
@@ -184,7 +186,7 @@ La libreria client dei segreti di Azure Key Vault consente di archiviare e contr
     vim src/main/resources/application.properties
     ```
 
-    Per usare l'identità gestita per le app di Azure Spring Cloud, aggiungere proprietà con il contenuto seguente a *src/main/resources/application.properties* .
+    Per usare l'identità gestita per le app di Azure Spring Cloud, aggiungere proprietà con il contenuto seguente a *src/main/resources/application.properties*.
 
     ```
     azure.keyvault.enabled=true

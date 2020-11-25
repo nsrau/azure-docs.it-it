@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216658"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533192"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript con il flusso del codice di autorizzazione
 
-In questa guida introduttiva viene eseguito un esempio di codice che illustra in che modo un'applicazione a pagina singola JavaScript può consentire l'accesso agli utenti con account personali, account aziendali e account dell'istituto di istruzione tramite il flusso del codice di autorizzazione. L'esempio di codice illustra anche come ottenere un token di accesso per chiamare un'API Web, in questo caso l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+In questa guida di avvio rapido si scarica e si esegue un esempio di codice di un'applicazione a pagina singola JavaScript che consente agli utenti di accedere e chiamare Microsoft Graph usando il flusso del codice di autorizzazione. L'esempio di codice dimostra come ottenere un token di accesso per chiamare l'API Microsoft Graph o qualsiasi API Web. 
+
+Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di autorizzazione. Per una guida introduttiva simile che usi MSAL.js 1.0 con il flusso implicito, vedere [Guida introduttiva: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript](./quickstart-v2-javascript.md).
 

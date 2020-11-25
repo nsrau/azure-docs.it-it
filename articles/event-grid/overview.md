@@ -3,12 +3,12 @@ title: Informazioni su Griglia di eventi di Azure
 description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
 ms.topic: overview
 ms.date: 09/24/2020
-ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326500"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576683"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -78,7 +78,7 @@ Ecco alcune delle principali funzionalità di Griglia di eventi di Azure:
 * **Fan-out**: consente di sottoscrivere più endpoint allo stesso evento per inviare copie dell'evento a tutte le posizioni necessarie.
 * **Affidabilità**: consente di ripetere i tentativi per 24 ore con backoff esponenziale per assicurarsi che gli eventi vengano recapitati.
 * **Pagamento per evento** consente di pagare solo in base all'uso di Griglia di eventi.
-* **Velocità effettiva elevata**: consente di creare carichi di lavoro con volumi elevati in Griglia di eventi con il supporto per milioni di eventi al secondo.
+* **Velocità effettiva elevata**: consente di creare carichi di lavoro con volumi elevati in Griglia di eventi.
 * **Eventi predefiniti**: consentono di essere operativi rapidamente con gli eventi predefiniti a livello di risorse.
 * **Eventi personalizzati**: consentono di usare la Griglia di eventi per instradare, filtrare e recapitare in modo affidabile gli eventi personalizzati nell'app.
 

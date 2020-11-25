@@ -4,12 +4,12 @@ description: In questo argomento di avvio rapido si usa l'interfaccia della riga
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236993"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920662"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Avvio rapido: Creare un gruppo di gestione con l'interfaccia della riga di comando di Azure
 
@@ -29,7 +29,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 ### <a name="create-in-the-azure-cli"></a>Creazione nell'interfaccia della riga di comando di Azure
 
-Per l'interfaccia della riga di comando di Azure, usare il comando [az account management-group create](/cli/azure/account/management-group#az-account-management-group-create) per creare un nuovo gruppo di gestione. In questo esempio il valore di **name** del gruppo di gestione è _Contoso_.
+Per l'interfaccia della riga di comando di Azure, usare il comando [az account management-group create](/cli/azure/account/management-group#az_account_management_group_create) per creare un nuovo gruppo di gestione. In questo esempio il valore di **name** del gruppo di gestione è _Contoso_.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere il gruppo di gestione creato in precedenza, usare il comando [az account management-group delete](/cli/azure/account/management-group#az-account-management-group-delete):
+Per rimuovere il gruppo di gestione creato in precedenza, usare il comando [az account management-group delete](/cli/azure/account/management-group#az_account_management_group_delete):
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

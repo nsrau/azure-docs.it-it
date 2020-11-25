@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di una tabella con il portale di Azure
-description: In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure ad Archiviazione BLOB di Azure.
+description: In questa esercitazione si crea un'istanza di Azure Data Factory con una pipeline che carica i dati differenziali di una tabella di Database SQL di Azure in archiviazione BLOB di Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 6dba148f0cde81905bc66f7750ff5e04edc948aa
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320915"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566393"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da Database SQL di Azure ad Archiviazione BLOB di Azure con il portale di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione viene creata una data factory di Azure con una pipeline che carica dati delta da una tabella di Database SQL di Azure in Archiviazione BLOB di Azure.
+In questa esercitazione si crea un'istanza di Azure Data Factory con una pipeline che carica i dati differenziali di una tabella di Database SQL di Azure in archiviazione BLOB di Azure.
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -153,20 +153,20 @@ END
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**:
+2. Nel menu sinistro selezionare **Crea una risorsa** > **Integrazione** > **Data factory**:
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. Nella pagina **Nuova data factory** immettere **ADFIncCopyTutorialDF** per **Nome**.
 
-   Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato un punto esclamativo rosso con l'errore seguente, modificare il nome della data factory, ad esempio nomeutenteADFIncCopyTutorialDF, e riprovare. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
+   Il nome dell'istanza di Azure Data Factory deve essere **univoco globale**. Se viene visualizzato un punto esclamativo rosso con l'errore seguente, modificare il nome della data factory, ad esempio nomeutenteADFIncCopyTutorialDF, e riprovare. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
 
     *Il nome della data factory "ADFIncCopyTutorialDF" non è disponibile*
 4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 5. Per il **gruppo di risorse**, eseguire una di queste operazioni:
 
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
+      - Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+      - Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.   
          
         Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 6. Selezionare **V2** per **version**.

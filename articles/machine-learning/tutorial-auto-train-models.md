@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358610"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886329"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
 
@@ -39,7 +39,9 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 * Completare l'[esercitazione relativa all'installazione](tutorial-1st-experiment-sdk-setup.md) se non si ha già un'area di lavoro di Azure Machine Learning o una macchina virtuale per notebook.
 * Al termine dell'esercitazione sull'installazione, aprire il notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* usando lo stesso server notebook.
 
-Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole eseguirla nel proprio [ambiente locale](how-to-configure-environment.md#local). Eseguire `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` per ottenere i pacchetti necessari.
+Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole eseguirla nel proprio [ambiente locale](how-to-configure-environment.md#local). Per ottenere i pacchetti richiesti: 
+* [Installare il client `automl` completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Eseguire `pip install azureml-opendatasets azureml-widgets` per ottenere i pacchetti necessari.
 
 ## <a name="download-and-prepare-data"></a>Scaricare e preparare i dati
 

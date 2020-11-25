@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287059"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888981"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -38,6 +38,9 @@ Identificare l'area in cui si vuole distribuire la soluzione Azure VMware.  Per 
 ## <a name="resource-name"></a>Nome risorsa
 
 Definire il nome della risorsa da usare durante la distribuzione.  Il nome della risorsa è un nome descrittivo usato per il cloud privato della soluzione Azure VMware.
+
+>[!IMPORTANT]
+>Il nome deve essere composto da un massimo di 40 caratteri. Se supera questo limite, non sarà possibile creare indirizzi IP pubblici da usare con il cloud privato. 
 
 ## <a name="size-hosts"></a>Host dimensioni
 
@@ -89,14 +92,6 @@ Occorre ricordare che:
 
 - Se si prevede di estendere le reti da locale, tali reti devono connettersi a un [commutatore distribuito di vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) nell'ambiente VMware locale.  
 - Se la rete o le reti da estendere si trovano in un [commutatore standard di vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), non sarà possibile estenderle.
-
-## <a name="expressroute-global-reach-peering-network"></a>Rete di peering di Copertura globale ExpressRoute
-
-Identificare un blocco di indirizzi di rete CIDR `/29`, necessario per il peering di Copertura globale ExpressRoute. Occorre ricordare che eventuali segmenti IP creati devono essere univoci nella soluzione Azure VMware e nel footprint locale. Gli IP in questo segmento vengono usati a ogni estremità della connessione di Copertura globale ExpressRoute per connettere il circuito ExpressRoute della soluzione Azure VMware con il circuito ExpressRoute locale. 
-
-**Esempio:** 10.1.0.0/29
-
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificazione - Rete di peering di Copertura globale ExpressRoute" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rete virtuale di Azure da collegare alla soluzione Azure VMware
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072119"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888726"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Gestione degli eventi in Servizi di comunicazione di Azure
 
@@ -22,13 +22,13 @@ ms.locfileid: "92072119"
 
 L'integrazione tra Servizi di comunicazione di Azure e [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) consente di inviare notifiche degli eventi in tempo reale in modo affidabile, scalabile e sicuro. Lo scopo di questo articolo è aiutare a configurare le applicazioni per l'ascolto degli eventi di Servizi di comunicazione. Ad esempio, potrebbe essere utile aggiornare un database, creare un elemento di lavoro e recapitare una notifica push ogni volta che viene ricevuto un messaggio SMS da un numero di telefono associato alla risorsa di Servizi di comunicazione.
 
-Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi offre supporto incorporato per alcuni servizi di Azure, ad esempio [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [App per la logica di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi offre supporto incorporato per alcuni servizi di Azure, ad esempio [Funzioni di Azure](../../azure-functions/functions-overview.md) e [App per la logica di Azure](../../azure-functions/functions-overview.md). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagramma che mostra il modello di eventi di Griglia di eventi di Azure.":::
 
 ## <a name="events-types"></a>Tipi di evento
 
-Griglia di eventi usa le [sottoscrizioni di eventi](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. 
+Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. 
 
 Servizi di comunicazione di Azure genera i tipi di evento seguenti:
 
@@ -50,7 +50,7 @@ Servizi di comunicazione di Azure genera i tipi di evento seguenti:
 
 ## <a name="event-subjects"></a>Oggetti dell'evento
 
-Il campo `subject` di tutti gli eventi di Servizi di comunicazione identifica l'utente, il numero di telefono o l'entità di destinazione dell'evento. I prefissi comuni vengono usati per consentire le semplici operazioni illustrate in [Filtro di Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-filtering).
+Il campo `subject` di tutti gli eventi di Servizi di comunicazione identifica l'utente, il numero di telefono o l'entità di destinazione dell'evento. I prefissi comuni vengono usati per consentire le semplici operazioni illustrate in [Filtro di Griglia di eventi](../../event-grid/event-filtering.md).
 
 | Prefisso dell'oggetto                              | Entità del servizio di comunicazione |
 | ------------------------------------------- | ---------------------------- |
@@ -351,6 +351,6 @@ Questa sezione contiene un esempio che illustra l'aspetto dei dati per ogni even
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](https://docs.microsoft.com/azure/event-grid/overview)
-* Per un'introduzione ai concetti relativi a Griglia di eventi di Azure, vedere [Concetti in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/concepts)
-* Per un'introduzione agli argomenti di sistema di Griglia di eventi di Azure, vedere [Argomenti di sistema in Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](../../event-grid/overview.md)
+* Per un'introduzione ai concetti relativi a Griglia di eventi di Azure, vedere [Concetti in Griglia di eventi](../../event-grid/concepts.md)
+* Per un'introduzione agli argomenti di sistema di Griglia di eventi di Azure, vedere [Argomenti di sistema in Griglia di eventi di Azure](../../event-grid/system-topics.md)

@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743489"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591717"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java
 
-Questo argomento di avvio rapido descrive come integrare un'app Web Java con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph.
+In questa guida di avvio rapido si scarica e si esegue un esempio di codice di un'applicazione Web Java che consente agli utenti di accedere e chiamare l'API Microsoft Graph. Possono accedere all'applicazione gli utenti di qualsiasi organizzazione Azure Active Directory (Azure AD).
 
-Al termine dell'avvio rapido, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda e organizzazione che usa Azure Active Directory. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -99,7 +99,7 @@ Ecco i prerequisiti per eseguire questo esempio:
 >   ```
 >   Inserire il file dell'archivio chiavi generato nella cartella "resources".
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Scaricare il codice di esempio](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

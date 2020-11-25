@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677412"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888573"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introduzione al banner della chat di gruppo di esempio
 
@@ -36,7 +36,7 @@ In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell
 
 ## <a name="overview"></a>Panoramica
 
-Nell'esempio sono presenti sia un'applicazione lato client che un'applicazione lato server. L' **applicazione lato client** è un'applicazione Web React/Redux che usa il framework dell'interfaccia utente Fluent di Microsoft. Questa applicazione invia richieste a un' **applicazione lato server** ASP.NET Core che consente all'applicazione lato client di connettersi ad Azure. 
+Nell'esempio sono presenti sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework dell'interfaccia utente Fluent di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core che consente all'applicazione lato client di connettersi ad Azure. 
 
 L'esempio ha l'aspetto seguente:
 
@@ -52,9 +52,9 @@ Dopo aver configurato il nome visualizzato e l'emoji, è possibile partecipare a
 
 Componenti della schermata principale della chat:
 
-- **Area di chat principale** : si tratta dell'esperienza principale di chat, dove gli utenti possono inviare e ricevere messaggi. Per inviare messaggi, è possibile usare l'area di input e premere Invio (oppure il pulsante Invia). I messaggi di chat ricevuti vengono suddivisi in categorie in base al mittente con il nome e l'emoji corretti. Nell'area della chat vengono visualizzati due tipi di notifiche: 1) notifiche di digitazione quando un utente sta digitando un messaggio e 2) notifiche di invio e lettura dei messaggi.
-- **Intestazione** : qui l'utente visualizza il titolo del thread di chat, i controlli per l'attivazione/disattivazione delle barre laterali dei partecipanti e delle impostazioni e il pulsante per uscire dalla sessione di chat.
-- **Barra laterale** : qui sono visualizzate le informazioni sui partecipanti e le impostazioni quando vengono attivate tramite i controlli nell'intestazione. Nella barra laterale dei partecipanti è possibile visualizzare un elenco dei partecipanti alla chat e un collegamento per invitare i partecipanti alla sessione di chat. Tramite la barra laterale delle impostazioni è possibile configurare il titolo del thread della chat. 
+- **Area di chat principale**: si tratta dell'esperienza principale di chat, dove gli utenti possono inviare e ricevere messaggi. Per inviare messaggi, è possibile usare l'area di input e premere Invio (oppure il pulsante Invia). I messaggi di chat ricevuti vengono suddivisi in categorie in base al mittente con il nome e l'emoji corretti. Nell'area della chat vengono visualizzati due tipi di notifiche: 1) notifiche di digitazione quando un utente sta digitando un messaggio e 2) notifiche di invio e lettura dei messaggi.
+- **Intestazione**: qui l'utente visualizza il titolo del thread di chat, i controlli per l'attivazione/disattivazione delle barre laterali dei partecipanti e delle impostazioni e il pulsante per uscire dalla sessione di chat.
+- **Barra laterale**: qui sono visualizzate le informazioni sui partecipanti e le impostazioni quando vengono attivate tramite i controlli nell'intestazione. Nella barra laterale dei partecipanti è possibile visualizzare un elenco dei partecipanti alla chat e un collegamento per invitare i partecipanti alla sessione di chat. Tramite la barra laterale delle impostazioni è possibile configurare il titolo del thread della chat. 
 
 Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi da seguire per configurare l'esempio.
 
@@ -118,4 +118,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Redux](https://redux.js.org/) - Gestione dello stato lato client
 - [FluentUI](https://aka.ms/fluent-ui) - Libreria dell'interfaccia utente di Microsoft
 - [React](https://reactjs.org/) - Libreria per la compilazione di interfacce utente
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework per la compilazione di applicazioni Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework per la compilazione di applicazioni Web

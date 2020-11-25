@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c5c41b98d52a4b8182fb162c3bfa9a08c0df5e15
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b72d083216b7cd0ae7a588bfd721d8981829bfc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171848"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844368"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizzare i dati con Power BI
 
@@ -37,13 +37,9 @@ A partire dai dati di NYC Taxi, sono stati creati set di dati aggregati in due t
 ### <a name="link-your-azure-synapse-workspace-to-your-new-power-bi-workspace"></a>Collegare l'area di lavoro di Azure Synapse alla nuova area di lavoro di Power BI
 
 1. In Synapse Studio passare a **Gestisci** > **Servizi collegati**.
-1. Selezionare **Nuovo** > **Connetti a Power BI** e impostare questi campi:
-
-    |Impostazione | Valore consigliato | 
-    |---|---|
-    |**Nome**|**NYCTaxiWorkspace1**|
-    |**Nome area di lavoro**|**NYCTaxiWorkspace1**|
-
+1. Selezionare **Nuovo** > **Connetti a Power BI**
+1. Impostare **Nome** su **NYCTaxiWorkspace1**
+1. Impostare **Nome dell'area di lavoro** su **NYCTaxiWorkspace1**
 1. Selezionare **Crea**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-azure-synapse-workspace"></a>Creare un set di dati di Power BI che usa i dati dell'area di lavoro di Azure Synapse
@@ -86,11 +82,7 @@ A partire dai dati di NYC Taxi, sono stati creati set di dati aggregati in due t
     * In **NYCTaxiWorkspace1** > **Report di Power BI**, un nuovo report denominato **PassengerAnalysis**.
 1. Selezionare il report **PassengerAnalysis**. Il report verrà aperto e sarà possibile modificarlo direttamente all'interno di Synapse Studio.
 
-## <a name="monitor-activities"></a>Monitorare le attività
 
-1. In Synapse Studio passare all'hub **Monitor** (Monitoraggio).
-1. In questa posizione è possibile visualizzare una cronologia di tutte le attività che si verificano nell'area di lavoro e quelle attualmente attive.
-1. Esaminare **Esecuzioni pipeline**, **Applicazioni Apache Spark** e **Richieste SQL** per visualizzare le attività eseguite nell'area di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

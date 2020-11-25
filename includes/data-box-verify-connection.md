@@ -4,27 +4,27 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 8a09a52db40f4f52219bce3e703e275b0f310c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10feccb53b28181d260e7738ab99bdc2e3c9340c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180814"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553168"
 ---
 Completare i passaggi seguenti per connettere l'account di archiviazione e verificare la connessione.
 
 1. In Storage Explorer aprire la finestra di dialogo **Connect to Azure storage**(Connetti ad Archiviazione di Azure). Nella finestra di dialogo **Connect to Azure Storage** (Connetti ad Archiviazione di Azure) selezionare **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione).
 
-    ![Dashboard di Data Box](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
+    ![Screenshot che mostra la finestra di dialogo di dialogo Connetti ad Archiviazione di Azure con l'opzione Usa nome e chiave dell'account di archiviazione selezionata.](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
 
 2. Incollare i valori di **Nome account** e **Chiave account** (valore di key1 dalla pagina **Connetti e copia** dell'interfaccia utente Web locale). Per Dominio endpoint archiviazione selezionare **Altro (specificare sotto)** e quindi specificare l'endpoint di servizio BLOB, come mostrato di seguito. Selezionare l'opzione **Use HTTP** (Usa HTTP) solo per il trasferimento tramite *HTTP*. Se si usa *HTTPS*, lasciare deselezionata l'opzione. Selezionare **Avanti**.
 
-    ![Dashboard di Data Box](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
+    ![Screenshot che mostra la finestra di dialogo Connetti con nome e chiave con i valori immessi.](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
 
 3. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni immesse. Selezionare **Connetti**.
 
-    ![Dashboard di Data Box](media/data-box-verify-connection/data-box-connect-via-rest-12.png)
+    ![Screenshot che mostra la finestra di dialogo Riepilogo connessione con l'opzione Connetti selezionata.](media/data-box-verify-connection/data-box-connect-via-rest-12.png)
 
 4. L'account aggiunto viene visualizzato nel riquadro sinistro di Storage Explorer con (Esterno, Altro) aggiunto al nome. Per visualizzare il contenitore, fare clic su **Blob Containers** (Contenitori BLOB).
 
-    ![Dashboard di Data Box](media/data-box-verify-connection/data-box-connect-via-rest-17.png)
+    ![Screenshot che mostra il menu Explorer con l'opzione Contenitori BLOB selezionata.](media/data-box-verify-connection/data-box-connect-via-rest-17.png)

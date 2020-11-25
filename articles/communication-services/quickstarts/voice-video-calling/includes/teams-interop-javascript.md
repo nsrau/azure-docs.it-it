@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574559"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915510"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un'[app per le chiamate di Servizi di comunicazione](../getting-started-with-calling.md) funzionante.
-- Una [distribuzione di Teams](https://docs.microsoft.com/deployoffice/teams-install).
+- Una [distribuzione di Teams](/deployoffice/teams-install).
 
 ## <a name="enable-teams-interoperability"></a>Abilitare l'interoperabilità di Teams
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Ottenere il contesto della riunione
 
-Il contesto di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+Il contesto di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 È anche possibile ottenere le informazioni necessarie sulla riunione dall'URL **Partecipa alla riunione** nell'invito.
 
@@ -115,4 +115,3 @@ Aprire il browser e passare a http://localhost:8080/. Dovrebbe essere visualizza
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot dell'applicazione JavaScript completata.":::
 
 Inserire il contesto di Teams nella casella di testo e premere il pulsante *Partecipa alla riunione di Teams* per partecipare alla riunione di Teams dall'interno dell'applicazione di Servizi di comunicazione.
-

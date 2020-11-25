@@ -1,6 +1,6 @@
 ---
-title: Creare data factory di Azure con .NET SDK
-description: Creare una pipeline e una data factory di Azure usando .NET SDK per copiare i dati da una posizione di archiviazione BLOB di Azure a un'altra posizione.
+title: Creare un'istanza di Azure Data Factory con .NET SDK
+description: Creare un'istanza di Azure Data Factory e una pipeline usando .NET SDK per copiare i dati da una posizione di archiviazione BLOB di Azure a un'altra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d564b96807574dd7a275d6959aea085ad16e9e2e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322870"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565943"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Guida introduttiva: Creare una data factory e una pipeline con .NET SDK
 
@@ -28,7 +28,7 @@ ms.locfileid: "91322870"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questa guida introduttiva descrive come usare .NET SDK per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](tutorial-transform-data-spark-portal.md).
+Questa guida di avvio rapido descrive come usare .NET SDK per creare un'istanza di Azure Data Factory. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).

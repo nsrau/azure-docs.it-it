@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 28d912153b52580727e0fb5086e0a7ae55e8b545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824394"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560928"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
-Questa guida di avvio rapido usa un esempio di codice per illustrare un'applicazione della piattaforma UWP (Universal Windows Platform) che consente l'accesso agli utenti con account personali o aziendali e di istituti di istruzione, ottiene un token di accesso e chiama l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+In questa guida di avvio rapido si scarica e si esegue un esempio di codice di un'applicazione della piattaforma UWP (Universal Windows Platform) che consente agli utenti di accedere e ottenere un token di accesso per chiamare l'API Microsoft Graph. 
+
+Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Prerequisiti

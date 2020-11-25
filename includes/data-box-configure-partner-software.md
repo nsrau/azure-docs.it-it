@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1390a32abfe9ccf31002fc569936d39e4e5428
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180813"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553094"
 ---
 Configurare il software di terze parti per stabilire la connessione al client. Per connettersi al software di terze parti, sono in genere necessarie le informazioni seguenti (possono variare) raccolte dalla pagina **Connetti e copia** dell'interfaccia utente Web locale nel passaggio precedente:
 
@@ -23,8 +23,8 @@ Se questa è la prima volta che si usa Storage Explorer, è necessario completar
 
 1. Dalla barra dei comandi superiore passare a **Modifica > Target Azure Stack** (Azure Stack di destinazione).
 
-    ![Dashboard di Data Box](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
+    ![Screenshot che mostra l'opzione Target Azure Stack selezionata nel menu Edit.](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
 
 2. Riavviare Storage Explorer per rendere effettive le modifiche.
 
-    ![Dashboard di Data Box](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![Screenshot che mostra il pulsante Riavvia ora.](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

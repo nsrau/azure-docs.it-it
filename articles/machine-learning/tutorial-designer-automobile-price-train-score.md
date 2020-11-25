@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Stimare i prezzi delle automobili con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando un'interfaccia basata su trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
+description: Eseguire il training di un modello di Machine Learning per prevedere i prezzi delle automobili tramite regressione lineare. Questa esercitazione è la prima di una serie in due parti.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404919"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555269"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
 
@@ -221,7 +221,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
     > [!IMPORTANT]
     > Assicurarsi che la porta di output sinistra di **Split Data** (Dividi i dati) si connetta a **Train Model** (Training modello). La porta sinistra contiene il set di training. La porta destra contiene il set di test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot della configurazione corretta del modulo Train Model. Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model.":::
 
 1. Selezionare il modulo **Train Model**.
 
@@ -236,7 +236,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     La pipeline dovrebbe avere un aspetto simile al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.":::
 
 ### <a name="add-the-score-model-module"></a>Aggiungere il modulo Score Model (Punteggio modello)
 
@@ -256,7 +256,7 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
     La pipeline finale avrà un aspetto analogo al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot della configurazione corretta della pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
@@ -285,7 +285,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot della visualizzazione di output con la colonna Scored Label evidenziata":::
 
 ### <a name="evaluate-models"></a>Valutare i modelli
 

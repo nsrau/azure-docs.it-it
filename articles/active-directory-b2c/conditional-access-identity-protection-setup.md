@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309777"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949769"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurare Identity Protection e l'accesso condizionale in Azure AD B2C
 
@@ -26,7 +26,7 @@ Identity Protection offre il rilevamento di rischi continuo per il tenant di Azu
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Il tenant di Azure AD B2C deve essere [collegato a una sottoscrizione di Azure AD](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Azure AD B2C Premium P2 è necessario per usare l'accesso condizionale basato su rischi utente e di accesso. Se necessario, [modificare il piano tariffario di Azure AD B2C in Premium P2](https://aka.ms/exid-pricing-tier). 
+- Azure AD B2C Premium P2 è necessario per usare l'accesso condizionale basato su rischi utente e di accesso. Se necessario, [modificare il piano tariffario di Azure AD B2C in Premium P2](./billing.md). 
 - Per gestire Identity Protection e l'accesso condizionale nel tenant B2C, è necessario un account a cui è assegnato il ruolo di amministratore globale o di amministratore della sicurezza.
 - Per usare queste funzionalità nel tenant, è prima necessario passare al piano tariffario Premium P2 di Azure AD B2C.
 
@@ -54,7 +54,7 @@ Per Azure AD B2C sono attualmente supportati i rilevamenti di rischi seguenti:
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C** .
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 
 1. In **Sicurezza** selezionare **Utenti a rischio (anteprima)** .
 
@@ -74,9 +74,9 @@ Per aggiungere un criterio di accesso condizionale basato su rilevamenti di risc
 
 2. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 
-3. Nel portale di Azure cercare e selezionare **Azure Active Directory** .
+3. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
-4. Selezionare **Proprietà** e quindi **Gestisci le impostazioni predefinite per la sicurezza** .
+4. Selezionare **Proprietà** e quindi **Gestisci le impostazioni predefinite per la sicurezza**.
 
    ![Disabilitare le impostazioni predefinite per la sicurezza](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
@@ -90,9 +90,9 @@ Per aggiungere un criterio di accesso condizionale basato su rilevamenti di risc
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C** .
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 
-1. In **Sicurezza** selezionare **Accesso condizionale (anteprima)** . Viene visualizzata la pagina **Criteri di accesso condizionale** . 
+1. In **Sicurezza** selezionare **Accesso condizionale (anteprima)** . Viene visualizzata la pagina **Criteri di accesso condizionale**. 
 
 1. Selezionare **Nuovo criterio** e seguire la documentazione relativa all'accesso condizionale di Azure AD per creare un nuovo criterio. Di seguito è riportato un esempio:
 
@@ -107,12 +107,12 @@ Per aggiungere un criterio di accesso condizionale basato su rilevamenti di risc
    
    - Per **Utenti e gruppi** selezionare l'utente di test. Non selezionare **Tutti gli utenti** altrimenti l'accesso verrà bloccato anche per il proprio account.
    - Per **Applicazioni cloud o azioni** scegliere **Selezionare le app** e quindi scegliere l'applicazione relying party.
-   - Per Condizioni selezionare **Rischio di accesso** e i livelli di rischio **Elevato** , **Medio** e **Basso** .
-   - Per **Concedi** scegliere **Blocca l'accesso** .
+   - Per Condizioni selezionare **Rischio di accesso** e i livelli di rischio **Elevato**, **Medio** e **Basso**.
+   - Per **Concedi** scegliere **Blocca l'accesso**.
 
       ![Scegliere Blocca l'accesso](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
-1. Per abilitare il criterio di accesso condizionale di test, selezionare **Crea** .
+1. Per abilitare il criterio di accesso condizionale di test, selezionare **Crea**.
 
 1. Per simulare un accesso a rischio, usare [Tor Browser](https://www.torproject.org/download/). 
 
@@ -128,18 +128,18 @@ Per esaminare il risultato di un evento di accesso condizionale:
 
 2. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 
-3. Nel portale di Azure cercare e selezionare **Azure AD B2C** .
+3. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 
-4. In **Attività** selezionare **Log di controllo** .
+4. In **Attività** selezionare **Log di controllo**.
 
-5. Filtrare il log di controllo impostando **Categoria** su **B2C** e **Tipo di risorsa attività** su **IdentityProtection** . Selezionare quindi **Applica** .
+5. Filtrare il log di controllo impostando **Categoria** su **B2C** e **Tipo di risorsa attività** su **IdentityProtection**. Selezionare quindi **Applica**.
 
 6. Esaminare l'attività di controllo per un massimo di 7 giorni. Sono inclusi i tipi di attività seguenti:
 
-   - **Valutazione dei criteri di accesso condizionale** : questa voce del log di controllo indica che durante un'autenticazione è stata eseguita una valutazione di accesso condizionale.
-   - **Correzione degli utenti** : questa voce indica che la concessione o i requisiti di un criterio di accesso condizionale sono stati soddisfatti dall'utente finale e che questa attività è stata segnalata al motore di rischio per ridurre il rischio o mitigarlo per l'utente.
+   - **Valutazione dei criteri di accesso condizionale**: questa voce del log di controllo indica che durante un'autenticazione è stata eseguita una valutazione di accesso condizionale.
+   - **Correzione degli utenti**: questa voce indica che la concessione o i requisiti di un criterio di accesso condizionale sono stati soddisfatti dall'utente finale e che questa attività è stata segnalata al motore di rischio per ridurre il rischio o mitigarlo per l'utente.
 
-7. Selezionare una voce del log per la **valutazione dei criteri di accesso condizionale** nell'elenco per aprire la pagina **Dettagli attività: log di controllo** , che mostra gli identificatori dei log di controllo, unitamente a queste informazioni nella sezione **Altri dettagli** :
+7. Selezionare una voce del log per la **valutazione dei criteri di accesso condizionale** nell'elenco per aprire la pagina **Dettagli attività: log di controllo**, che mostra gli identificatori dei log di controllo, unitamente a queste informazioni nella sezione **Altri dettagli**:
 
    - ConditionalAccessResult: concessione richiesta dalla valutazione dei criteri condizionali.
    - AppliedPolicies: elenco di tutti i criteri di accesso condizionale in cui sono state soddisfatte le condizioni e i criteri sono attivati.

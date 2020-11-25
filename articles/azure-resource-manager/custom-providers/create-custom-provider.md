@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85368108"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888862"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Avvio rapido: Creare un provider personalizzato e distribuire le risorse personalizzate
 
@@ -23,8 +23,11 @@ Questa guida di avvio rapido descrive come creare un provider di risorse e distr
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-- Con i comandi [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) è richiesta un'estensione. Per altre informazioni, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
-- Gli esempi dell'interfaccia della riga di comando di Azure usano `az rest` per richieste `REST`. Per altre informazioni, vedere [az rest](/cli/azure/reference-index#az-rest).
+Preparare l'ambiente per l'interfaccia della riga di comando di Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Gli esempi dell'interfaccia della riga di comando di Azure usano `az rest` per richieste `REST`. Per altre informazioni, vedere [az rest](/cli/azure/reference-index#az-rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -33,8 +36,6 @@ Questa guida di avvio rapido descrive come creare un provider di risorse e distr
 - Dopo aver installato **ARMClient**, è possibile visualizzare le informazioni sull'utilizzo da un prompt dei comandi di PowerShell digitando: `armclient.exe`. In alternativa, passare al [wiki di ARMClient](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Distribuire un provider personalizzato
 

@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944768"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886115"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/dotnet/).
 - La versione più recente della [libreria client .NET Core](https://dotnet.microsoft.com/download/dotnet-core) per il sistema operativo in uso.
-- Ottenere la versione più recente della [libreria client Identity per .NET](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet).
+- Ottenere la versione più recente della [libreria client Identity per .NET](/dotnet/api/azure.identity?view=azure-dotnet).
 - Ottenere la versione più recente della [libreria client di gestione per .NET](../../concepts/sdk-options.md).
 
 ## <a name="installing-the-client-library"></a>Installazione della libreria client
@@ -44,13 +44,13 @@ Per comunicare con Servizi di comunicazione di Azure, è prima necessario esegui
 
 ### <a name="option-1-managed-identity"></a>Opzione 1: Identità gestita
 
-Se il codice è in esecuzione come servizio in Azure, il modo più semplice per eseguire l'autenticazione consiste nell'acquisire un'identità gestita da Azure. Vedere altre informazioni sulle [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Se il codice è in esecuzione come servizio in Azure, il modo più semplice per eseguire l'autenticazione consiste nell'acquisire un'identità gestita da Azure. Vedere altre informazioni sulle [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-[Servizi di Azure che supportano le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[Servizi di Azure che supportano le identità gestite](../../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-[Come usare le identità gestite nel servizio app e in Funzioni di Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Come usare le identità gestite nel servizio app e in Funzioni di Azure](../../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-#### <a name="system-assigned-managed-identity"></a>[Identità gestita assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+#### <a name="system-assigned-managed-identity"></a>[Identità gestita assegnata dal sistema](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
 ```csharp
 using Azure.Identity;
@@ -62,7 +62,7 @@ var subscriptionId = "AZURE_SUBSCRIPTION_ID";
 var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
 ```
 
-#### <a name="user-assigned-managed-identity"></a>[Identità gestita assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity)
+#### <a name="user-assigned-managed-identity"></a>[Identità gestita assegnata dall'utente](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity)
 
 Il parametro ClientID dell'identità gestita creata devono essere passato a `ManagedIdentityCredential` in modo esplicito.
 
@@ -79,7 +79,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### <a name="option-2-service-principal"></a>Opzione 2: Entità servizio
 
-Invece di usare un'identità gestita, è possibile eseguire l'autenticazione in Azure usando un'entità servizio gestita in prima persona. Per altre informazioni, vedere la documentazione relativa a [creazione e gestione di un'entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Invece di usare un'identità gestita, è possibile eseguire l'autenticazione in Azure usando un'entità servizio gestita in prima persona. Per altre informazioni, vedere la documentazione relativa a [creazione e gestione di un'entità servizio in Azure Active Directory](../../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Dopo aver creato l'entità servizio, è necessario raccogliere dal portale di Azure le informazioni seguenti relative all'entità:
 
@@ -121,7 +121,7 @@ Dopo che è stata eseguita l'autenticazione, è possibile usare il client di ges
 
 Per ognuno degli esempi seguenti, verranno assegnate risorse di Servizi di comunicazione a un gruppo di risorse esistente.
 
-Se è necessario creare un gruppo di risorse, è possibile farlo usando il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) o la [libreria client di Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Se è necessario creare un gruppo di risorse, è possibile farlo usando il [portale di Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md) o la [libreria client di Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Creare e gestire una risorsa di Servizi di comunicazione
 

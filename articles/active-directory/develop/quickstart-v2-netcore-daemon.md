@@ -13,16 +13,18 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d50a953c9593c9ae78889be336697686e59d965f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896515"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592737"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph usando l'identità dell'app console
 
-In questo argomento di avvio rapido verrà illustrato come scrivere un'applicazione .NET Core che può ottenere un token di accesso usando l'identità dell'app e quindi chiamare l'API Microsoft Graph per visualizzare un [elenco di utenti](/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+In questa guida di avvio rapido si scarica e si esegue un esempio di codice che illustra come un'applicazione console .NET Core può ottenere un token di accesso per chiamare l'API Microsoft Graph e visualizzare un [elenco di utenti](/graph/api/user-list) nella directory. L'esempio di codice dimostra anche come è possibile eseguire un processo o un servizio di Windows con un'identità dell'applicazione invece che con un'identità dell'utente. 
+
+Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +40,7 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
 > 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
-> 1. Immettere un nome per l'applicazione e fare clic su **Registra** .
+> 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio
@@ -50,14 +52,14 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
 > 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori immettendo **Registrazioni app** nella barra di ricerca del portale di Azure.
-> 1. Selezionare **Nuova registrazione** .
+> 1. Selezionare **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 > 1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato dagli utenti dell'app, ad esempio `Daemon-console`, quindi sezionare **Registra** per creare l'applicazione.
-> 1. Dopo la registrazione, selezionare il menu **Certificati e segreti** .
-> 1. In **Segreti client** selezionare **+ Nuovo segreto client** . Assegnargli un nome e selezionare **Aggiungi** . Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice e non verrà più visualizzato nel portale.
-> 1. Selezionare ora il menu **Autorizzazioni API** , selezionare il pulsante **+ Aggiungi un'autorizzazione** , selezionare **Microsoft Graph** .
-> 1. Selezionare **Autorizzazioni applicazione** .
-> 1. Nel nodo **Utente** selezionare **User.Read.All** , quindi selezionare **Aggiungi autorizzazioni**
+> 1. Dopo la registrazione, selezionare il menu **Certificati e segreti**.
+> 1. In **Segreti client** selezionare **+ Nuovo segreto client**. Assegnargli un nome e selezionare **Aggiungi**. Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice e non verrà più visualizzato nel portale.
+> 1. Selezionare ora il menu **Autorizzazioni API**, selezionare il pulsante **+ Aggiungi un'autorizzazione**, selezionare **Microsoft Graph**.
+> 1. Selezionare **Autorizzazioni applicazione**.
+> 1. Nel nodo **Utente** selezionare **User.Read.All**, quindi selezionare **Aggiungi autorizzazioni**
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Scaricare e configurare l'app della guida introduttiva
@@ -90,7 +92,7 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 >
-> 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples** .
+> 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
 > 1. Aprire la soluzione **1-Call-MSGraph\daemon-console.sln** in Visual Studio (facoltativo).
 > 1. Modificare **appsettings.json** e sostituire i valori dei campi `ClientId`, `Tenant` e `ClientSecret` con il codice seguente:
 >
@@ -100,13 +102,13 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 >    "ClientSecret": "Enter_the_Client_Secret_Here"
 >    ```
 >   Dove:
->   - `Enter_the_Application_Id_Here` è l' **ID applicazione (client)** per l'applicazione registrata.
->   - `Enter_the_Tenant_Id_Here`: sostituire questo valore con l' **ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>   - `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
+>   - `Enter_the_Tenant_Id_Here`: sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
 >   - `Enter_the_Client_Secret_Here`: sostituire questo valore con il segreto client creato nel passaggio 1.
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , passare alla pagina **Panoramica** dell'app nel portale di Azure. Per generare una nuova chiave, passare alla pagina **Certificati e segreti** .
+> > Per trovare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , passare alla pagina **Panoramica** dell'app nel portale di Azure. Per generare una nuova chiave, passare alla pagina **Certificati e segreti**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Passaggio 3: Consenso dell'amministratore
@@ -114,12 +116,12 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Passaggio 4: Consenso dell'amministratore
 
-Se si prova a eseguire l'applicazione a questo punto, si riceverà l'errore *HTTP 403 - Accesso negato* : `Insufficient privileges to complete the operation`. Questo errore si verifica perché le *autorizzazioni solo per app* richiedono il consenso amministratore. È quindi necessario che un amministratore globale della directory conceda il consenso all'applicazione. Selezionare una delle opzioni seguenti in base al ruolo:
+Se si prova a eseguire l'applicazione a questo punto, si riceverà l'errore *HTTP 403 - Accesso negato*: `Insufficient privileges to complete the operation`. Questo errore si verifica perché le *autorizzazioni solo per app* richiedono il consenso amministratore. È quindi necessario che un amministratore globale della directory conceda il consenso all'applicazione. Selezionare una delle opzioni seguenti in base al ruolo:
 
 ##### <a name="global-tenant-administrator"></a>Amministratore del tenant globale
 
 > [!div renderon="docs"]
-> Se si è un amministratore tenant globale, passare a **Applicazioni aziendali** , fare clic sulla registrazione dell'app, quindi scegliere **"Autorizzazioni"** nella sezione Sicurezza del riquadro di spostamento sinistro. Fare clic sul pulsante **Concedi consenso amministratore per {nome tenant}** , dove {nome tenant} è il nome della directory.
+> Se si è un amministratore tenant globale, passare a **Applicazioni aziendali**, fare clic sulla registrazione dell'app, quindi scegliere **"Autorizzazioni"** nella sezione Sicurezza del riquadro di spostamento sinistro. Fare clic sul pulsante **Concedi consenso amministratore per {nome tenant}** , dove {nome tenant} è il nome della directory.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Gli amministratori globali devono passare alla pagina **Autorizzazioni API** e selezionare **Concedi consenso amministratore per Immettere_il_nome_tenant_qui**
@@ -136,8 +138,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Dove:
->> * `Enter_the_Tenant_Id_Here`: sostituire questo valore con l' **ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` è l' **ID applicazione (client)** per l'applicazione registrata.
+>> * `Enter_the_Tenant_Id_Here`: sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
 
 > [!NOTE]
 > Dopo aver concesso il consenso all'app usando l'URL precedente, potrebbe essere visualizzato l'errore *'AADSTS50011: No reply address is registered for the application'* (AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione). Ciò accade perché questa applicazione e l'URL non hanno un URI di reindirizzamento. Ignorare l'errore.
