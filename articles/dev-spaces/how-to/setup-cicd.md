@@ -9,11 +9,11 @@ manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960389"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017781"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -78,7 +78,7 @@ Per creare una pipeline da questo file:
 1. Nella pagina principale del progetto DevOps passare a pipeline > compilazioni.
 1. Selezionare l'opzione per creare una **nuova** pipeline di compilazione.
 1. Selezionare **GitHub** come origine, autorizzare con l'account github, se necessario, e selezionare il ramo _azds_updates_ dalla versione con fork del repository dell'applicazione di esempio _dev-Spaces_ .
-1. Selezionare **configurazione come codice**o **YAML**come modello.
+1. Selezionare **configurazione come codice** o **YAML** come modello.
 1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Passare alla scheda **variabili** .
 1. Aggiungere manualmente _dockerId_ come variabile, corrispondente al nome utente dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account) (indicato nei prerequisiti dell'articolo).
@@ -120,7 +120,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Aggiornare il valore di **DevSpacesHostSuffix** da **UPDATE_ME** al suffisso host. Il suffisso host viene visualizzato quando è stato eseguito il `azds show-context` comando precedente.
 1. Fare clic su **Salva** nell'angolo in alto a destra e quindi su **OK**.
 1. Fare clic su **+ Versione** (accanto al pulsante Salva) e quindi su **Crea una versione**.
-1. In **artefatti**verificare che sia selezionata l'ultima compilazione dalla pipeline di compilazione.
+1. In **artefatti** verificare che sia selezionata l'ultima compilazione dalla pipeline di compilazione.
 1. Fare clic su **Crea**.
 
 Inizierà ora un processo di rilascio automatizzato, che distribuirà i grafici *mywebapi* e *webfrontend* nel cluster di Kubernetes nello spazio principale _dev_. È possibile monitorare lo stato di avanzamento della versione sul portale Web di Azure DevOps:

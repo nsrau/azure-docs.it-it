@@ -10,11 +10,11 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 7fc878e0c9e099b201264c1c3981c603668214d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318382"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017764"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere una griglia personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
 
@@ -30,7 +30,7 @@ La griglia di esempio in questo articolo visualizza i dati del servizio la cui a
 Per completare i passaggi in questa guida pratica, è necessario che nel computer di sviluppo locale sia installato il software seguente:
 
 - [Git](https://git-scm.com/downloads)
-- [Node.JS](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

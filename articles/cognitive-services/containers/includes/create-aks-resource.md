@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87298870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017865"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Creare una risorsa cluster del servizio Kubernetes di Azure
 
@@ -42,7 +42,7 @@ ms.locfileid: "87298870"
     |Routing di applicazioni HTTP|No|
     |Configurazione della rete|Basic|
 
-1. Nella scheda **Integrations (integrazioni** ) assicurarsi che il **monitoraggio dei contenitori** sia impostato su **abilitato**e lasciare **log Analytics area di lavoro** come valore predefinito.
+1. Nella scheda **Integrations (integrazioni** ) assicurarsi che il **monitoraggio dei contenitori** sia impostato su **abilitato** e lasciare **log Analytics area di lavoro** come valore predefinito.
 1. Nella scheda **tag** lasciare vuote le coppie nome/valore per il momento.
 1. Selezionare **revisione e creazione**.
 1. Al termine della convalida, selezionare **Crea**.

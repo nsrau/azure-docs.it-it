@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 27c78566877f27e80ae5ae27c5250f228c7ae676
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017868"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Distribuire il contenitore Estrazione frasi chiave in un cluster AKS
 
@@ -49,7 +49,7 @@ ms.locfileid: "91779659"
     code .
     ```
 
-1. All'interno dell'editor di testo creare un nuovo file denominato *chiave phrase. YAML*e incollare il codice YAML seguente. Assicurarsi di sostituire `billing/value` e `apikey/value` con le proprie informazioni.
+1. All'interno dell'editor di testo creare un nuovo file denominato *chiave phrase. YAML* e incollare il codice YAML seguente. Assicurarsi di sostituire `billing/value` e `apikey/value` con le proprie informazioni.
 
     ```yaml
     apiVersion: apps/v1beta1
