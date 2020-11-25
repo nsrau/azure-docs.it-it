@@ -8,11 +8,11 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
 ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491495"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006507"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -40,7 +40,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 
 | No. | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
-|  | Elenco stato (opzione elenco) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altre opzioni di elenco (ad esempio, *Acquista adesso* ). | 
+|  | Elenco stato (opzione elenco) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altre opzioni di elenco (ad esempio, *Acquista adesso*). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisiti delle applicazioni SaaS
@@ -48,7 +48,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | No. | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
 | 1 | Titolo dell'offerta |<ul><li>Deve contenere solo lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. Il titolo non può essere modificato dopo la pubblicazione.</li><li>Descrive la soluzione offerta.</li><li>Corrisponde alla promozione online della soluzione nel sito Web del partner. | Contiene parole chiave di ricerca. |
-| 2 | Informazioni tecniche: Configurazione |<ul><li>Per le app SaaS (Software as a Service), scegliere se si vuole solo presentare l'app o consentire ai clienti di acquistarla tramite Azure.</li><li>• Selezionare il testo che si vuole visualizzare sul pulsante di acquisizione dell'offerta: *Gratuito* , *Versione di prova gratuita* o *Desidero essere contattato*.</li><li>Nella finestra popup selezionare un solo prodotto applicabile se l'app utilizza la tecnologia: Cortana Intelligence, Modelli di soluzioni di Power BI o Power Apps. |  |
+| 2 | Informazioni tecniche: Configurazione |<ul><li>Per le app SaaS (Software as a Service), scegliere se si vuole solo presentare l'app o consentire ai clienti di acquistarla tramite Azure.</li><li>• Selezionare il testo che si vuole visualizzare sul pulsante di acquisizione dell'offerta: *Gratuito*, *Versione di prova gratuita* o *Desidero essere contattato*.</li><li>Nella finestra popup selezionare un solo prodotto applicabile se l'app utilizza la tecnologia: Cortana Intelligence, Modelli di soluzioni di Power BI o Power Apps. |  |
 | 3 | Test drive | Selezionare *Yes* o *No* | Il cliente può immediatamente capire quali sono i passaggi successivi: <ol><li>Provare la versione di valutazione.</li><li>Acquistare subito.</li><li>Mettersi in contatto tramite e-mail o telefonicamente per un appuntamento per un modello di verifica, una valutazione o un briefing.</li></ol> |
 | 4 | Dettagli archivio online: riepilogo offerta | Viene visualizzato nella pagina di ricerca dell'app e contiene un massimo di 100 caratteri. | |
 | 5 | Dettagli negozio online: settori | Settori (max 2): selezionare i settori ai quali l'app è più allineata e applicabile. | |

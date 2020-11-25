@@ -6,20 +6,28 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254413"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006789"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gestire le righe degli errori di troncamento SQL in Data Factory flussi di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uno scenario comune in Data Factory quando si usa il mapping di flussi di dati consiste nel scrivere i dati trasformati in un database nel database SQL di Azure. In questo scenario, è possibile che venga troncata una condizione di errore comune che è necessario prevenire rispetto a. Attenersi alla seguente procedura per fornire la registrazione di colonne che non rientrano in una colonna di stringhe di destinazione, consentendo al flusso di dati di continuare in questi scenari.
+Uno scenario comune in Data Factory quando si usa il mapping di flussi di dati consiste nel scrivere i dati trasformati in un database nel database SQL di Azure. In questo scenario, è possibile che venga troncata una condizione di errore comune che è necessario prevenire rispetto a.
+
+Esistono due metodi principali per gestire normalmente gli errori durante la scrittura dei dati nel sink di database nei flussi di dati ADF:
+
+* Impostare la [gestione delle righe con errori](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) di sink su "continua in caso di errore" durante l'elaborazione dei dati del database. Si tratta di un metodo catch-all automatizzato che non richiede la logica personalizzata nel flusso di dati.
+* In alternativa, attenersi alla procedura seguente per fornire la registrazione delle colonne che non rientrano in una colonna di stringhe di destinazione, consentendo il proseguimento del flusso di dati.
+
+> [!NOTE]
+> Quando si Abilita la gestione automatica delle righe con errori, invece del metodo riportato di seguito per la scrittura della logica di gestione degli errori, si verifica una lieve riduzione delle prestazioni e un passaggio aggiuntivo eseguito da ADF per eseguire un'operazione a 2 fasi per intercettare gli errori.
 
 ## <a name="scenario"></a>Scenario
 
@@ -49,6 +57,10 @@ Questo video illustra un esempio di impostazione della logica di gestione delle 
 4. Il flusso di dati completato è riportato di seguito. È ora possibile suddividere le righe di errore per evitare gli errori di troncamento SQL e inserire le voci in un file di log. Nel frattempo, le righe con esito positivo possono continuare a scrivere nel database di destinazione.
 
     ![flusso di dati completo](media/data-flow/error2.png)
+
+5. Se si sceglie l'opzione di gestione delle righe con errori nella trasformazione sink e si imposta "righe errore di output", ADF genererà automaticamente un output del file CSV dei dati della riga insieme ai messaggi di errore segnalati dal driver. Non è necessario aggiungere manualmente tale logica al flusso di dati con l'opzione alternativa. Con questa opzione si verifica una lieve riduzione delle prestazioni, in modo che ADF possa implementare una metodologia a 2 fasi per intercettare gli errori e registrarli.
+
+    ![completare il flusso di dati con righe di errore](media/data-flow/error-row-3.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,11 +4,11 @@ description: Questo articolo fornisce informazioni su come configurare la propri
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843214"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006133"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -400,7 +400,7 @@ Come procedura consigliata, abilitare sempre i log, come illustrato nella sezion
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
 
-| Azione | Codice errore | Stato risultante dei dati |
+| Azione | Codice di errore | Stato risultante dei dati |
 | ------ | ---------- | ----------------------- | 
 | Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessible |
 | Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessible |

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75644631"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006048"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Come aggiungere parametri ai file di configurazione in Service Fabric
 
@@ -20,7 +20,7 @@ Questo articolo illustra come aggiungere parametri a un file di configurazione i
 
 In questo esempio si esegue l'override di un valore di configurazione definendo parametri nella distribuzione dell'applicazione.
 
-1. Aprire il file * \<MyService>\PackageRoot\Config\Settings.xml* nel progetto di servizio.
+1. Aprire il file *\<MyService>\PackageRoot\Config\Settings.xml* nel progetto di servizio.
 1. Impostare un nome e un valore di un parametro di configurazione, ad esempio una dimensione della cache pari a 25, aggiungendo il codice XML seguente:
 
    ```xml
@@ -30,7 +30,7 @@ In questo esempio si esegue l'override di un valore di configurazione definendo 
    ```
 
 1. Salvare e chiudere il file.
-1. Aprire il file di * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
+1. Aprire il file di *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
 1. Nel file ApplicationManifest.xml dichiarare un parametro e il valore predefinito nell'elemento `Parameters`.  È consigliabile assegnare al parametro un nome che includa quello del servizio, ad esempio "MyService".
 
    ```xml

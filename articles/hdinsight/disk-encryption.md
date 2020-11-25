@@ -9,11 +9,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005657"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Crittografia doppia di Azure HDInsight per dati inattivi
 
@@ -121,7 +121,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 #### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Durante la creazione del cluster, specificare l' **identificatore di chiave** completo, inclusa la versione della chiave. Ad esempio, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4` È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+Durante la creazione del cluster, specificare l' **identificatore di chiave** completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
 
 ![Crea nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
 

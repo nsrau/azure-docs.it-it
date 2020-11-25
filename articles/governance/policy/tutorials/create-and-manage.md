@@ -4,11 +4,11 @@ description: In questa esercitazione vengono usati i criteri per applicare gli s
 ms.date: 10/05/2020
 ms.topic: tutorial
 ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005436"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
@@ -36,11 +36,11 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure. Un'assegnazione è un criterio che è stato assegnato per l'implementazione in un ambito specifico.
 
-   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Screenshot della selezione del nodo Assegnazioni dalla pagina di panoramica dei criteri." border="false":::
 
 1. Selezionare **Assegna criterio** nella parte superiore della pagina **Criteri - Assegnazioni**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot della selezione del pulsante 'Assegna criterio' nella pagina Assegnazioni." border="false":::
 
 1. Nella scheda **Informazioni di base** della pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri
    Selezionare quindi **Seleziona** nella parte inferiore della pagina **Ambito**.
@@ -54,7 +54,7 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 1. Selezionare **Eredita un tag dal gruppo di risorse se mancante**. Se non lo si trova immediatamente, digitare **eredita un tag** nella casella di ricerca e quindi premere INVIO o selezionare un punto all'esterno della casella di ricerca.
    Selezionare **Seleziona** nella parte inferiore della pagina **Definizioni disponibili** dopo aver individuato e selezionato la definizione del criterio.
 
-   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca.":::
+   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot del filtro di ricerca durante la selezione di una definizione di criteri.":::
 
 1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. Per questo esempio, lasciare _Eredita un tag dal gruppo di risorse se mancante_. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.
 
@@ -82,7 +82,7 @@ Dopo avere assegnato una definizione predefinita del criterio, è possibile eseg
 
 1. Selezionare **Definizioni** in **Creazione** sul lato sinistro della pagina Criteri di Azure.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot della pagina Definizioni nel gruppo Creazione." border="false":::
 
 1. Selezionare **+ Definizione criteri** nella parte superiore della pagina. Questo pulsante apre la pagina **Definizione criteri**.
 
@@ -342,11 +342,11 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Selezionare **Definizioni** in **Creazione** sul lato sinistro della pagina Criteri di Azure.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca.":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot della pagina Definizioni nel gruppo Creazione.":::
 
 1. Selezionare **+ Definizione dell'iniziativa** nella parte superiore della pagina per aprire la procedura guidata **Definizione dell'iniziativa**.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Screenshot della pagina Definizione dell'iniziativa e delle proprietà da impostare.":::
 
 1. Usare i puntini di sospensione accanto a **Località dell'iniziativa** per selezionare un gruppo di gestione o una sottoscrizione in cui archiviare la definizione. Se l'ambito della pagina precedente era un singolo gruppo di gestione o una sottoscrizione, il campo **Località dell'iniziativa** viene compilato automaticamente.
 
@@ -375,11 +375,30 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
    Dopo aver selezionato ogni definizione di criteri dall'elenco, selezionare **Aggiungi** in fondo all'elenco.
    Poiché la definizione di criteri _Aggiungi o sostituisci un tag nelle risorse_ è stata aggiunta due volte, ogni sua istanza ottiene un _ID di riferimento_ diverso.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." o "Usa parametro dell'iniziativa". Se è selezionato "Imposta valore", il relativo valore viene immesso in _Valori_. Se il parametro nella definizione dei criteri ha un elenco di valori consentiti, la casella di immissione è un selettore a discesa. Se è selezionato "Usa parametro dell'iniziativa", è disponibile un selettore a discesa con i nomi dei parametri dell'iniziativa creati nella scheda **Initiative Parameters** (Parametri dell'iniziativa).
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot delle definizioni di criteri selezionate con l'ID di riferimento e il gruppo corrispondenti nella pagina Definizione dell'iniziativa.":::
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." nelle risorse nell'ambito dell'assegnazione.
+   > [!NOTE]
+   > Le definizioni di criteri selezionate possono essere aggiunte a gruppi selezionando una o più definizioni aggiunte e quindi selezionando **Aggiungi i criteri selezionati a un gruppo**. Il gruppo deve essere già esistente e può essere creato nella scheda **Gruppi** della procedura guidata.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca.":::
+1. Selezionare **Avanti** nella parte inferiore della pagina o la scheda **Gruppi** nella parte superiore della procedura guidata. È possibile aggiungere nuovi gruppi da questa scheda. Per questa esercitazione non verrà aggiunto alcun gruppo.
+
+1. Selezionare **Avanti** nella parte inferiore della pagina o la scheda **Initiative parameters** (Parametri dell'iniziativa) nella parte superiore della procedura guidata. Se si vuole aggiungere un parametro all'iniziativa per passarlo a una o più definizioni di criteri incluse, occorre definirlo qui e quindi usarlo nella scheda **Parametri dei criteri**. Per questa esercitazione non verrà aggiunto alcun parametro dell'iniziativa.
+
+   > [!NOTE]
+   > Dopo averli salvati in una definizione di iniziativa, non è più possibile eliminare i parametri dell'iniziativa dall'iniziativa stessa. Se un parametro dell'iniziativa non serve più, rimuoverlo in modo che non possa essere usato dai parametri di definizione dei criteri.
+
+1. Selezionare **Avanti** nella parte inferiore della pagina o la scheda **Parametri dei criteri** nella parte superiore della procedura guidata.
+
+1. Le definizioni dei criteri aggiunte all'iniziativa che contengono parametri vengono visualizzate in una griglia. Il _tipo di valore_ può essere "Valore predefinito", "Imposta valore" o "Usa parametro dell'iniziativa". Se è selezionato "Imposta valore", il relativo valore viene immesso in _Valori_. Se il parametro nella definizione dei criteri ha un elenco di valori consentiti, la casella di immissione è un selettore a discesa. Se è selezionato "Usa parametro dell'iniziativa", è disponibile un selettore a discesa con i nomi dei parametri dell'iniziativa creati nella scheda **Initiative Parameters** (Parametri dell'iniziativa).
+
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot delle opzioni per i valori consentiti per il parametro della definizione Località consentite nella scheda Parametri dei criteri della pagina Definizione dell'iniziativa.":::
+
+   > [!NOTE]
+   > Nel caso di alcuni parametri `strongType`, l'elenco di valori non può essere determinato automaticamente. In questi casi vengono visualizzati i puntini di sospensione a destra della riga del parametro. Selezionarli per aprire la pagina "Ambito del parametro (&lt;nome parametro&gt;)". In questa pagina selezionare la sottoscrizione da usare per fornire le opzioni dei valori. Questo ambito del parametro viene usato solo durante la creazione della definizione dell'iniziativa e non ha alcun impatto sulla valutazione dei criteri o sull'ambito dell'iniziativa quando viene assegnata.
+
+   Impostare il _tipo di valore_ di "Località consentite" su "Imposta valore" e selezionare "Stati Uniti orientali 2" dall'elenco a discesa. Per le due istanze della definizione di criteri _Aggiungi o sostituisci un tag nelle risorse_ impostare i parametri di **Nome del tag** su "Env" e "CostCenter" e i parametri di **Valore del tag** su "Test" e "Lab" come illustrato di seguito. Lasciare l'impostazione "Valore predefinito" per gli altri parametri. Usando la stessa definizione due volte nell'iniziativa ma con parametri diversi, questa configurazione aggiunge o sostituisce un tag "Env" con il valore "Test" e un tag "CostCenter" con il valore "Lab" nelle risorse nell'ambito dell'assegnazione.
+
+   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Screenshot delle opzioni immesse per i valori consentiti per il parametro della definizione Località consentite e i valori dei tag dei parametri nella scheda Parametri dei criteri della pagina Definizione dell'iniziativa.":::
 
 1. Selezionare **Rivedi e crea** nella parte inferiore della pagina o nella parte superiore della procedura guidata.
 
@@ -432,11 +451,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Individuare la definizione dell'iniziativa **Get Secure** creata in precedenza e selezionarla. Selezionare **Assegna** nella parte superiore della pagina per aprire la pagina **Proteggi: Assegna iniziativa**.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot del pulsante 'Assegna' nella pagina di definizione dell'iniziativa." border="false":::
 
    È anche possibile fare clic con il pulsante destro del mouse sulla riga selezionata o selezionare i puntini di sospensione alla fine della riga per visualizzare un menu di scelta rapida. Quindi selezionare **Assegna**.
 
-   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot del menu di scelta rapida per un'iniziativa da cui scegliere la funzionalità Assegna." border="false":::
 
 1. Compilare la pagina **Proteggi: Assegna iniziativa** immettendo le informazioni di esempio seguenti. È possibile usare informazioni personalizzate.
 
@@ -463,11 +482,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Individuare l'iniziativa **Get Secure**. È probabile che sia ancora nello _Stato di conformità_ o **Non avviato**.
    Selezionare l'iniziativa per ottenere i dettagli completi dell'assegnazione.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Screenshot della pagina di conformità dell'iniziativa che mostra le valutazioni dell'assegnazione nello stato Non avviato." border="false":::
 
 1. Dopo aver completato l'assegnazione dell'iniziativa, la pagina di conformità viene aggiornata con lo _Stato di conformità_**Conforme**.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Screenshot della pagina di conformità dell'iniziativa che mostra le valutazioni dell'assegnazione nello stato Conforme." border="false":::
 
 1. Selezionando un qualsiasi criterio nella pagina di conformità dell'iniziativa verrà visualizzata la pagina dei dettagli di conformità il criterio corrispondente. Questa pagina fornisce i dettagli a livello di risorse per la conformità.
 
@@ -480,11 +499,11 @@ Dopo aver assegnato un'iniziativa dei criteri per richiedere una località speci
 
 Le distribuzioni impedite da un criterio o un'iniziativa assegnata possono essere visualizzate nel gruppo di risorse di destinazione della distribuzione: Selezionare **Distribuzioni** sul lato sinistro della pagina e quindi selezionare il **Nome distribuzione** della distribuzione non riuscita. La risorsa che è stata negata verrà elencata con lo stato _Non consentito_. Per determinare il criterio o l'iniziativa e l'assegnazione che ha negato la risorsa, selezionare **Operazione non riuscita. Fare clic qui per altri dettagli ->** nella pagina Panoramica della distribuzione. Sul lato destro della pagina si aprirà una finestra con le informazioni sull'errore. Nei **Dettagli errore** sono indicati gli identificatori univoci globali degli oggetti di criterio correlati.
 
-:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot di una distribuzione non riuscita che è stata negata da un'assegnazione di criteri." border="false":::
 
 Nella pagina Criteri di Azure: Selezionare **Conformità** sul lato sinistro della pagina e quindi selezionare l'iniziativa dei criteri **Get Secure**. In questa pagina si rileva un aumento del numero di effetti **Nega** per le risorse bloccate. Nella scheda **Eventi** sono disponibili informazioni dettagliate su chi ha tentato di creare o distribuire la risorsa negata dalla definizione dei criteri.
 
-:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Screenshot della scheda Eventi e dei dettagli degli eventi basati su criteri nella pagina di conformità dell'iniziativa." border="false":::
 
 In questo esempio, Trent Baker, uno degli specialisti della virtualizzazione Senior di Contoso, stava eseguendo il lavoro richiesto. È necessario concedere a Trent un'eccezione a questa assegnazione. È stato creato un nuovo gruppo di risorse **LocationsExcluded** e verrà ora concessa un'eccezione a questa assegnazione di criteri.
 
@@ -496,7 +515,7 @@ In questo esempio, Trent Baker, uno degli specialisti della virtualizzazione Sen
 
 1. Impostare l'**Esclusione** selezionando i puntini di sospensione e quindi il gruppo di risorse da escludere, ossia _LocationsExcluded_ in questo esempio. Selezionare **Aggiungi all'ambito selezionato** quindi selezionare **Salva**.
 
-   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Screenshot della ricerca di Criteri nella barra di ricerca." border="false":::
+   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Screenshot dell'opzione Esclusioni nella pagina di assegnazione dell'iniziativa in cui aggiungere un gruppo di risorse escluso all'assegnazione dei criteri." border="false":::
 
    > [!NOTE]
    > A seconda della definizione dei criteri e del relativo effetto, l'esclusione potrebbe anche essere concessa a risorse specifiche all'interno di un gruppo di risorse entro l'ambito dell'assegnazione. Poiché in questa esercitazione è stato usato l'effetto **Nega**, non avrebbe senso impostare l'esclusione su una risorsa specifica già esistente.

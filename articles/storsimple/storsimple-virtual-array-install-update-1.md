@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: d05395f97aded0b57780f898e9cba6ddca491f95
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534093"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005819"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.0 nell'array virtuale StorSimple
 
@@ -73,7 +73,7 @@ Se l'array virtuale esegue l'aggiornamento 0.6, eseguire i passaggi seguenti per
 
 3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero dell'hotfix da scaricare riportato nella Knowledge Base (KB). Immettere **4047203** per l'aggiornamento 1.0 e quindi fare clic su **Cerca**.
    
-    Verrà visualizzato l'elenco degli aggiornamenti rapidi, tra cui l' **aggiornamento 1.0 per l'array virtuale StorSimple**.
+    Verrà visualizzato l'elenco degli aggiornamenti rapidi, tra cui l'**aggiornamento 1.0 per l'array virtuale StorSimple**.
    
     ![Cercare nel catalogo](./media/storsimple-virtual-array-install-update-1/download1.png)
 
@@ -104,7 +104,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
    
     ![Screenshot mostra l'aggiornamento software selezionato dal menu manutenzione.](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. In **Percorso del file di aggiornamento** , immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![Screenshot mostra la versione corrente del software e la casella di testo percorso file di aggiornamento nella pagina di aggiornamento software.](./media/storsimple-virtual-array-install-update-1/update2m.png)
 
@@ -119,7 +119,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
 5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10296** per l'aggiornamento 1.0.
    
    > [!NOTE]
-   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10296** , mentre il portale di Azure indica **10.0.10296.0** per la stessa versione.
+   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10296**, mentre il portale di Azure indica **10.0.10296.0** per la stessa versione.
    
     ![Screenshot mostra la pagina di aggiornamento software con la versione del software corrente.](./media/storsimple-virtual-array-install-update-1/update6m.png)
 

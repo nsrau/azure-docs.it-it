@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
 ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006611"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
@@ -56,7 +56,7 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 
     ![Passare a Volumi](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Nella finestra Crea un volume fare clic su **Crea**e fornire informazioni per i campi seguenti nella scheda nozioni di base:   
+2.  Nella finestra Crea un volume fare clic su **Crea** e fornire informazioni per i campi seguenti nella scheda nozioni di base:   
     * **Nome del volume**      
         Specificare il nome per il volume che si sta creando.   
 

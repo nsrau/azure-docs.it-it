@@ -10,11 +10,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078624"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006099"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gestire app per la logica nella portale di Azure
 
@@ -96,7 +96,7 @@ La disabilitazione dell'app per la logica influiscono sulle istanze del flusso d
 
 1. Nella portale di Azure [individuare e aprire l'app per la logica](#find-logic-app).
 
-1. Scegliere **Panoramica**dal menu dell'app per la logica. Scegliere una delle opzioni seguenti:
+1. Scegliere **Panoramica** dal menu dell'app per la logica. Scegliere una delle opzioni seguenti:
 
    * Sulla barra degli strumenti selezionare **Disabilita**.
 
@@ -156,7 +156,7 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Nella portale di Azure [individuare e aprire l'app per la logica](#find-logic-app).
 
-1. Scegliere **Panoramica**dal menu dell'app per la logica. Sulla barra degli strumenti dell'app per la logica selezionare **Elimina**.
+1. Scegliere **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti dell'app per la logica selezionare **Elimina**.
 
    ![Screenshot della barra degli strumenti dell'app per la logica, che mostra il pulsante Elimina selezionato.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
 
@@ -194,7 +194,7 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Nella portale di Azure [individuare l'app per la logica che si vuole gestire](#find-logic-app).
 
-1. Nel menu dell'app per la logica, in **strumenti di sviluppo**selezionare **versioni**.
+1. Nel menu dell'app per la logica, in **strumenti di sviluppo** selezionare **versioni**.
 
    ![Screenshot dell'app per la logica in portale di Azure, che mostra la selezione della pagina versioni in strumenti di sviluppo.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
@@ -210,11 +210,11 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Nella cronologia delle versioni dell'app per la logica [trovare e selezionare la versione che si vuole alzare di](#find-version-history)livello.
 
-1. Nella pagina Cronologia **versione** selezionare **alza**di livello.
+1. Nella pagina Cronologia **versione** selezionare **alza** di livello.
 
    ![Screenshot della cronologia delle versioni dell'app per la logica, che mostra il pulsante per alzare di livello una versione precedente.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
-1. Nella pagina **progettazione app** per la logica visualizzata modificare la versione che si sta innalzando di livello in base alle esigenze. È possibile passare dalla modalità **progettazione** a quella **visualizzazione codice** e viceversa. È anche possibile aggiornare **parametri**, **modelli**e **connettori**.
+1. Nella pagina **progettazione app** per la logica visualizzata modificare la versione che si sta innalzando di livello in base alle esigenze. È possibile passare dalla modalità **progettazione** a quella **visualizzazione codice** e viceversa. È anche possibile aggiornare **parametri**, **modelli** e **connettori**.
 
    ![Screenshot della finestra di progettazione di app per la logica, che mostra il pulsante per promuovere una versione precedente di un'app per la logica.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 

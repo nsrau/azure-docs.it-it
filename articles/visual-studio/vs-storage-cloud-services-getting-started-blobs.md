@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 670aef4f6f866788ef7a1a4502de242e765f5cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89e0d6873ebfd8f8396c36185730c57a66af0dd9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017652"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007036"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione BLOB di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Panoramica
-Questo articolo descrive come iniziare a usare l'archiviazione BLOB di Azure dopo aver creato o fatto riferimento a un account di archiviazione di Azure usando la finestra di dialogo di Visual Studio per l' **aggiunta dei servizi connessi** in un progetto di servizi cloud di Visual Studio. Vi mostreremo come accedere e creare contenitori di BLOB e come eseguire attività comuni quali caricare, elencare e scaricare BLOB. Gli esempi sono scritti in C \# e usano la [libreria Client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Questo articolo descrive come iniziare a usare l'archiviazione BLOB di Azure dopo aver creato o fatto riferimento a un account di archiviazione di Azure usando la finestra di dialogo di Visual Studio per l' **aggiunta dei servizi connessi** in un progetto di servizi cloud di Visual Studio. Vi mostreremo come accedere e creare contenitori di BLOB e come eseguire attività comuni quali caricare, elencare e scaricare BLOB. Gli esempi sono scritti in C \# e usano la [libreria Client di archiviazione di Microsoft Azure per .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento.
 
 I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato una risorsa di archiviazione, è possibile creare uno o più contenitori nello spazio di archiviazione. Ad esempio, in una risorsa di archiviazione denominata "Raccoglitore" è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB.
 
-* Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * Per informazioni generali sull'Archiviazione di Azure, vedere [la documentazione relativa all'archiviazione](https://azure.microsoft.com/documentation/services/storage/).
 * Per informazioni generali sui servizi cloud di Azure, vedere [la documentazione sui servizi cloud](https://azure.microsoft.com/documentation/services/cloud-services/).
 * Per altre informazioni sulla programmazione delle applicazioni ASP.NET, vedere [ASP.NET](https://www.asp.net).
@@ -73,7 +73,7 @@ Per accedere ai BLOB a livello di codice nei progetti di servizio cloud, è nece
 
 ## <a name="create-a-container-in-code"></a>Creazione di un contenitore nel codice
 > [!NOTE]
-> Alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) . Il codice nell'esempio seguente presuppone che si stiano usando metodi di programmazione asincroni.
+> Alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](/previous-versions/hh191443(v=vs.140)) . Il codice nell'esempio seguente presuppone che si stiano usando metodi di programmazione asincroni.
 > 
 > 
 
@@ -114,7 +114,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 ```
 
 ## <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
-Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un oggetto **IListBlobItem**restituito, è necessario eseguirne il cast a un oggetto **CloudBlockBlob**, **CloudPageBlob**o **CloudBlobDirectory** . Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento nel contenitore **photos** :
+Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast a un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory** . Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento nel contenitore **photos** :
 
 ```csharp
 // Loop over items within the container and output the length and URI.
@@ -165,7 +165,7 @@ Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/
 ```
 
 
-Facoltativamente, è possibile impostare il parametro **UseFlatBlobListing** del metodo **ListBlobs**su **true**. In questo modo tutti i BLOB verranno restituiti come **CloudBlockBlob**, indipendentemente dalla directory. Ecco la chiamata a **ListBlobs**:
+Facoltativamente, è possibile impostare il parametro **UseFlatBlobListing** del metodo **ListBlobs** su **true**. In questo modo tutti i BLOB verranno restituiti come **CloudBlockBlob**, indipendentemente dalla directory. Ecco la chiamata a **ListBlobs**:
 
 ```csharp
 // Loop over items within the container and output the length and URI.
@@ -188,7 +188,7 @@ Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/
 Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 ```
 
-Per altre informazioni, vedere [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
+Per altre informazioni, vedere [CloudBlobContainer.ListBlobs](/rest/api/storageservices/List-Blobs).
 
 ## <a name="download-blobs"></a>Scaricare BLOB
 Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo **DownloadToStream** . Nell'esempio seguente il metodo **DownloadToStream** viene utilizzato per trasferire il contenuto del BLOB a un oggetto stream che è quindi possibile rendere persistente in un file locale.
@@ -270,4 +270,3 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-

@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005929"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![Diagramma che illustra i passaggi necessari per distribuire un array virtuale. La prima parte del terzo passaggio è denominata configurata come file server ed è evidenziata.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     ![Screenshot della pagina tutte le risorse della portale di Azure. Viene evidenziato un servizio Device Manager.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Nell'elenco filtrato selezionare il servizio Gestione dispositivi StorSimple e quindi passare a **Gestione > Dispositivi**. Nel pannello **Dispositivi** verificare che il dispositivo sia connesso correttamente al servizio controllando che lo stato sia **Pronto per la configurazione**.
     
-    ![Distribuire](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Distribuisci](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Passaggio 2: Configurare il dispositivo come file server
 Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/) per completare l'installazione richiesta del dispositivo.

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005546"
 ---
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
 1. Nel menu del portale di Azure selezionare **Tutti i servizi**. Nell'elenco delle risorse digitare **Account di archiviazione**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Account di archiviazione**.
 1. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 1. Nella scheda **Informazioni di base** selezionare la sottoscrizione in cui creare l'account di archiviazione.
-1. Nel campo **Gruppo di risorse** selezionare il gruppo di risorse desiderato o crearne uno nuovo.  Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+1. Nel campo **Gruppo di risorse** selezionare il gruppo di risorse desiderato o crearne uno nuovo.  Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/management/overview.md).
 1. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
 1. Selezionare la località per l'account di archiviazione o usare la località predefinita.
 1. Selezionare un livello di prestazioni. Il livello predefinito è *Standard*.

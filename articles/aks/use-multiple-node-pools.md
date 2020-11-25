@@ -5,15 +5,15 @@ services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900084"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006934"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster nel servizio Azure Kubernetes (AKS)
 
-In Azure Kubernetes Service (AKS) i nodi della stessa configurazione sono raggruppati in pool di *nodi* . Questi pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. Il numero iniziale di nodi e la relativa dimensione (SKU) viene definito quando si crea un cluster AKS, che crea un [pool di nodi di sistema][use-system-pool]. Per supportare applicazioni con esigenze di calcolo o di archiviazione diverse, è possibile creare *pool di nodi utente* aggiuntivi. I pool di nodi di sistema servono lo scopo principale di ospitare i pod di sistema critici, ad esempio CoreDNS e tunnelfront. I pool di nodi utente servono lo scopo principale di ospitare i pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si vuole avere un solo pool nel cluster AKS. I pool di nodi utente sono i punti in cui inserire i pod specifici dell'applicazione. Usare, ad esempio, questi pool di nodi utente aggiuntivi per fornire GPU per applicazioni a elevato utilizzo di calcolo o per l'accesso a un'archiviazione SSD a prestazioni elevate.
+In Azure Kubernetes Service (AKS) i nodi della stessa configurazione sono raggruppati in pool di *nodi*. Questi pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. Il numero iniziale di nodi e la relativa dimensione (SKU) viene definito quando si crea un cluster AKS, che crea un [pool di nodi di sistema][use-system-pool]. Per supportare applicazioni con esigenze di calcolo o di archiviazione diverse, è possibile creare *pool di nodi utente* aggiuntivi. I pool di nodi di sistema servono lo scopo principale di ospitare i pod di sistema critici, ad esempio CoreDNS e tunnelfront. I pool di nodi utente servono lo scopo principale di ospitare i pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si vuole avere un solo pool nel cluster AKS. I pool di nodi utente sono i punti in cui inserire i pod specifici dell'applicazione. Usare, ad esempio, questi pool di nodi utente aggiuntivi per fornire GPU per applicazioni a elevato utilizzo di calcolo o per l'accesso a un'archiviazione SSD a prestazioni elevate.
 
 > [!NOTE]
 > Questa funzionalità consente un maggiore controllo sulla creazione e la gestione di più pool di nodi. Di conseguenza, per create/Update/Delete sono necessari comandi distinti. In precedenza le operazioni `az aks create` del cluster tramite o `az aks update` USAVANO l'API managedCluster ed erano l'unica opzione per modificare il piano di controllo e un pool a nodo singolo. Questa funzionalità espone un set di operazioni separato per i pool di agenti tramite l'API agentPool e richiede l'uso del `az aks nodepool` set di comandi per eseguire operazioni in un singolo pool di nodi.
@@ -93,7 +93,7 @@ Per visualizzare lo stato dei pool di nodi, usare il comando [AZ AKS node pool l
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-L'output di esempio seguente mostra che *mynodepool* è stato creato correttamente con tre nodi nel pool di nodi. Quando il cluster AKS è stato creato nel passaggio precedente, è stato creato un *nodepool1* predefinito con un numero di nodi pari a *2* .
+L'output di esempio seguente mostra che *mynodepool* è stato creato correttamente con tre nodi nel pool di nodi. Quando il cluster AKS è stato creato nel passaggio precedente, è stato creato un *nodepool1* predefinito con un numero di nodi pari a *2*.
 
 ```output
 [
@@ -161,7 +161,7 @@ Poiché in questo esempio sono presenti due pool di nodi, è necessario usare [A
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Aggiornare il *mynodepool* . Usare il comando [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
+Aggiornare il *mynodepool*. Usare il comando [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è in stato di *aggiornamento* per *KUBERNETES_VERSION* :
+Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è in stato di *aggiornamento* per *KUBERNETES_VERSION*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Aggiornare un piano di controllo cluster con più pool di nodi
 
 > [!NOTE]
-> Kubernetes usa lo schema di controllo delle versioni [semantico](https://semver.org/) standard. Il numero di versione è espresso come *x. y. z* , dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6* , 1 è la versione principale, 12 è la versione secondaria e 6 è la versione patch. La versione Kubernetes del piano di controllo e il pool di nodi iniziale vengono impostati durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo.
+> Kubernetes usa lo schema di controllo delle versioni [semantico](https://semver.org/) standard. Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione patch. La versione Kubernetes del piano di controllo e il pool di nodi iniziale vengono impostati durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo.
 
 Un cluster AKS ha due oggetti risorsa cluster con le versioni Kubernetes associate.
 
@@ -249,7 +249,7 @@ Con la necessità di modificare il carico di lavoro dell'applicazione, potrebbe 
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Per ridimensionare il numero di nodi in un pool di nodi, usare il comando [AZ AKS node pool scale][az-aks-nodepool-scale] . L'esempio seguente ridimensiona il numero di nodi in *mynodepool* a *5* :
+Per ridimensionare il numero di nodi in un pool di nodi, usare il comando [AZ AKS node pool scale][az-aks-nodepool-scale] . L'esempio seguente ridimensiona il numero di nodi in *mynodepool* a *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -510,7 +510,7 @@ Events:
   Normal  Started    4m40s  kubelet             Started container
 ```
 
-Solo i pod a cui è applicata questa tolleranza possono essere pianificati nei nodi di *taintnp* . Qualsiasi altro Pod verrà pianificato nel pool di nodi *nodepool1* . Se si creano pool di nodi aggiuntivi, è possibile usare ulteriori macchie e tolleranze per limitare i pod che possono essere pianificati in tali risorse del nodo.
+Solo i pod a cui è applicata questa tolleranza possono essere pianificati nei nodi di *taintnp*. Qualsiasi altro Pod verrà pianificato nel pool di nodi *nodepool1* . Se si creano pool di nodi aggiuntivi, è possibile usare ulteriori macchie e tolleranze per limitare i pod che possono essere pianificati in tali risorse del nodo.
 
 ### <a name="setting-nodepool-labels"></a>Impostazione delle etichette nodepool
 
@@ -577,7 +577,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> È anche possibile usare il `--tags` parametro quando si usa il comando [AZ AKS nodepool Update][az-aks-nodepool-update] e durante la creazione del cluster. Durante la creazione del cluster, il `--tags` parametro applica il tag al pool di nodi iniziale creato con il cluster. Tutti i nomi di tag devono rispettare le limitazioni nei [tag use per organizzare le risorse di Azure][tag-limitation]. L'aggiornamento di un pool di nodi con il `--tags` parametro aggiorna tutti i valori di tag esistenti e aggiunge eventuali nuovi tag. Se, ad esempio, nel pool di nodi sono presenti *Dept = it* e *CostCenter = 9999* per i tag e l'aggiornamento è stato eseguito con *Team = Dev* e *CostCenter = 111* per i tag, nodepool avrebbe *Dept = it* , *CostCenter = 111* e *Team = Dev* per i tag.
+> È anche possibile usare il `--tags` parametro quando si usa il comando [AZ AKS nodepool Update][az-aks-nodepool-update] e durante la creazione del cluster. Durante la creazione del cluster, il `--tags` parametro applica il tag al pool di nodi iniziale creato con il cluster. Tutti i nomi di tag devono rispettare le limitazioni nei [tag use per organizzare le risorse di Azure][tag-limitation]. L'aggiornamento di un pool di nodi con il `--tags` parametro aggiorna tutti i valori di tag esistenti e aggiunge eventuali nuovi tag. Se, ad esempio, nel pool di nodi sono presenti *Dept = it* e *CostCenter = 9999* per i tag e l'aggiornamento è stato eseguito con *Team = Dev* e *CostCenter = 111* per i tag, nodepool avrebbe *Dept = it*, *CostCenter = 111* e *Team = Dev* per i tag.
 
 L'output di esempio seguente del comando [AZ AKS nodepool list][az-aks-nodepool-list] Mostra che *tagnodepool* sta *creando* nodi con il *tag* specificato:
 
@@ -613,8 +613,8 @@ Quando si usa un modello di Azure Resource Manager per creare e risorse gestite,
 Creare un modello, ad esempio `aks-agentpools.json` , e incollare il manifesto di esempio seguente. Questo modello di esempio configura le impostazioni seguenti:
 
 * Aggiorna il pool di nodi *Linux* denominato *myagentpool* per eseguire tre nodi.
-* Imposta i nodi nel pool di nodi per eseguire Kubernetes versione *1.15.7* .
-* Definisce le dimensioni del nodo come *Standard_DS2_v2* .
+* Imposta i nodi nel pool di nodi per eseguire Kubernetes versione *1.15.7*.
+* Definisce le dimensioni del nodo come *Standard_DS2_v2*.
 
 Modificare questi valori come necessario per aggiornare, aggiungere o eliminare i pool di nodi in base alle esigenze:
 
@@ -774,7 +774,7 @@ az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodep
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 In questo articolo è stato creato un cluster AKS che include nodi basati su GPU. Per ridurre i costi non necessari, è consigliabile eliminare il *gpunodepool* o l'intero cluster AKS.
 

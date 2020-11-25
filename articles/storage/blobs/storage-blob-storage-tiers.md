@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 771b48c36a409654a1d1586590811c81e5c2340a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086755"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007325"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad accesso sporadico e archivio
 
@@ -55,7 +55,7 @@ Il livello di accesso sporadico presenta costi di archiviazione più bassi e cos
 
 - Set di dati di backup e ripristino di emergenza a breve termine.
 - Contenuto multimediale meno recente ormai visualizzato non spesso, ma che deve essere immediatamente disponibile quando vi si accede.
-- Set di dati di grandi dimensioni da archiviare a costi contenuti mentre vengono raccolti altri dati per l'elaborazione successiva, *ad esempio* , archiviazione a lungo termine di dati scientifici, dati di telemetria non elaborati di un impianto di produzione.
+- Set di dati di grandi dimensioni da archiviare a costi contenuti mentre vengono raccolti altri dati per l'elaborazione successiva, *ad esempio*, archiviazione a lungo termine di dati scientifici, dati di telemetria non elaborati di un impianto di produzione.
 
 ## <a name="archive-access-tier"></a>Livello di accesso archivio
 
@@ -74,7 +74,7 @@ Gli scenari di utilizzo di esempio per il livello di accesso dell'archivio inclu
 
 ## <a name="account-level-tiering"></a>Suddivisione in livelli a livello di account
 
-I BLOB in tutti e tre i livelli di accesso possono coesistere nello stesso account. Qualsiasi BLOB a cui non è assegnato un livello in modo esplicito deduce il livello dall'impostazione del livello di accesso dell'account. Se il livello di accesso deriva dall'account, viene visualizzata la proprietà del BLOB **dedotto del livello di accesso** impostato su "true" e la proprietà BLOB **livello di accesso** corrisponde al livello dell'account. Nella portale di Azure la proprietà del _livello di accesso dedotto_ viene visualizzata con il livello di accesso BLOB come **attivo (dedotto)** o sporadico **(dedotto)** .
+I BLOB in tutti e tre i livelli di accesso possono coesistere nello stesso account. Qualsiasi BLOB a cui non è assegnato un livello in modo esplicito deduce il livello dall'impostazione del livello di accesso dell'account. Se il livello di accesso deriva dall'account, viene visualizzata la proprietà del BLOB **dedotto del livello di accesso** impostato su "true" e la proprietà BLOB **livello di accesso** corrisponde al livello dell'account. Nella portale di Azure la proprietà del _livello di accesso dedotto_ viene visualizzata con il livello di accesso BLOB come **attivo (dedotto)** o sporadico **(dedotto)**.
 
 La modifica del livello di accesso dell'account si applica a tutti gli oggetti _dedotti del livello di accesso_ archiviati nell'account che non dispongono di un set di livelli esplicito. Se si attiva o disattiva il livello account da accesso frequente a sporadico, verranno addebitate le operazioni di scrittura (per 10.000) per tutti i BLOB senza un livello di impostazione solo per gli account GPv2. Non sono previsti addebiti per questa modifica negli account di archiviazione BLOB. Verranno addebitate le operazioni di lettura (per 10.000) e il recupero dati (per GB) se si passa da accesso sporadico ad accesso frequente in account di archiviazione BLOB o GPv2.
 
@@ -112,7 +112,7 @@ Quando un BLOB viene spostato in un livello più caldo (archivio->sporadico, >ad
 
 Qualsiasi BLOB spostato nel livello di accesso sporadico (solo account GPv2) è soggetto a un periodo di eliminazione anticipata di 30 giorni. Qualsiasi BLOB spostato nel livello archivio è soggetto a un periodo di eliminazione anticipata di archiviazione di 180 giorni. Questo addebito è ripartito proporzionalmente. Se, ad esempio, un BLOB viene spostato in archivio e quindi eliminato o spostato al livello di accesso frequente dopo 45 giorni, viene addebitata una tariffa per eliminazione anticipata equivalente a 135 (180 meno 45) giorni di archiviazione del BLOB nell'archivio.
 
-Se non sono state apportate modifiche al livello di accesso, è possibile calcolare l'eliminazione anticipata usando la proprietà BLOB, **Last-modified** . In caso contrario, è possibile usare quando il livello di accesso è stato modificato l'ultima volta in un ambiente sporadico o archiviato visualizzando la proprietà BLOB: **Access-Tier-Change-Time** . Per altre informazioni sulle proprietà di BLOB, vedere l'articolo relativo all'operazione [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
+Se non sono state apportate modifiche al livello di accesso, è possibile calcolare l'eliminazione anticipata usando la proprietà BLOB, **Last-modified**. In caso contrario, è possibile usare quando il livello di accesso è stato modificato l'ultima volta in un ambiente sporadico o archiviato visualizzando la proprietà BLOB: **Access-Tier-Change-Time**. Per altre informazioni sulle proprietà di BLOB, vedere l'articolo relativo all'operazione [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparing-block-blob-storage-options"></a>Confronto tra le opzioni di archiviazione BLOB in blocchi
 
@@ -146,7 +146,7 @@ In questa sezione vengono illustrati gli scenari seguenti usando il portale di A
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel portale di Azure cercare e selezionare **Tutte le risorse** .
+1. Nel portale di Azure cercare e selezionare **Tutte le risorse**.
 
 1. Selezionare l'account di archiviazione.
 
@@ -174,17 +174,17 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel portale di Azure cercare e selezionare **Tutte le risorse** .
+1. Nel portale di Azure cercare e selezionare **Tutte le risorse**.
 
 1. Selezionare l'account di archiviazione.
 
 1. Selezionare il contenitore e quindi il BLOB.
 
-1. In **proprietà BLOB** selezionare **Modifica livello** .
+1. In **proprietà BLOB** selezionare **Modifica livello**.
 
-1. Selezionare il **livello di accesso** ad accesso frequente, **ad** accesso sporadico o **Archivio** . Se il BLOB è attualmente in archivio e si vuole riattivarlo a un livello online, è anche possibile selezionare una priorità di reidratazione **standard** o **High** .
+1. Selezionare il **livello di accesso** ad accesso frequente, **ad** accesso sporadico o **Archivio** . Se il BLOB è attualmente in archivio e si vuole riattivarlo a un livello online, è anche possibile selezionare una priorità di reidratazione **standard** o **High**.
 
-1. Nella parte inferiore selezionare **Salva** .
+1. Nella parte inferiore selezionare **Salva**.
 
 ![Modificare il livello BLOB in portale di Azure](media/storage-tiers/blob-access-tier.png)
 
@@ -213,12 +213,12 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 Tutti gli account di archiviazione usano un modello di determinazione dei prezzi per l'archiviazione BLOB in blocchi in base al livello di ogni BLOB. Tenere presenti le considerazioni seguenti sulla fatturazione:
 
-- **Costi di archiviazione** : oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
-- **Costi di accesso ai dati** : i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nel livello di accesso ad accesso sporadico e archivio, viene addebitato un costo di accesso ai dati per Gigabyte per le letture.
-- **Costi delle transazioni** : è previsto un addebito per transazione per tutti i livelli che aumenta man mano che il livello diventa più interessante.
-- **Costi di trasferimento dati con la replica geografica** : si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
-- **Costi di trasferimento dati in uscita** : i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
-- **Modifica del livello di accesso** : la modifica del livello di accesso dell'account comporterà un addebito per la modifica del livello per i BLOB derivati dal _livello di accesso_ archiviati nell'account che non hanno un set di livelli esplicito. Per informazioni sulla modifica del livello di accesso per un singolo BLOB, vedere [fatturazione a livelli a livello di BLOB](#blob-level-tiering-billing).
+- **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
+- **Costi di accesso ai dati**: i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nel livello di accesso ad accesso sporadico e archivio, viene addebitato un costo di accesso ai dati per Gigabyte per le letture.
+- **Costi delle transazioni**: è previsto un addebito per transazione per tutti i livelli che aumenta man mano che il livello diventa più interessante.
+- **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
+- **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
+- **Modifica del livello di accesso**: la modifica del livello di accesso dell'account comporterà un addebito per la modifica del livello per i BLOB derivati dal _livello di accesso_ archiviati nell'account che non hanno un set di livelli esplicito. Per informazioni sulla modifica del livello di accesso per un singolo BLOB, vedere [fatturazione a livelli a livello di BLOB](#blob-level-tiering-billing).
 
     Per modificare il livello di accesso per un BLOB quando è abilitato il controllo delle versioni o se il BLOB contiene snapshot, può comportare addebiti aggiuntivi. Per ulteriori informazioni su come viene addebitata la fatturazione quando il controllo delle versioni dei BLOB è abilitato e si modifica in modo esplicito il livello di un BLOB, vedere [prezzi e fatturazione](versioning-overview.md#pricing-and-billing) nella documentazione per il controllo delle versioni dei BLOB. Per altre informazioni su come viene addebitata la fatturazione quando un BLOB contiene snapshot e si modifica in modo esplicito il livello del BLOB, vedere [prezzi e fatturazione](snapshots-overview.md#pricing-and-billing) nella documentazione per gli snapshot BLOB.
 
@@ -239,7 +239,7 @@ Sì. L'attributo livello di **accesso** impostato a livello di account è il liv
 
 **È possibile modificare il livello di accesso predefinito dell'account di archiviazione BLOB o GPv2?**
 
-Sì, è possibile modificare il livello di account predefinito impostando l'attributo **livello di accesso** nell'account di archiviazione. La modifica del livello dell'account si applica a tutti gli oggetti archiviati nell'account che non dispongono di un set di livelli esplicito, ad esempio **Hot (dedotto)** o **cool (dedotto** ). L'attivazione/disattivazione del livello di account da frequente a sporadico comporta operazioni di scrittura (per 10.000) per tutti i BLOB senza un livello di impostazione solo per gli account GPv2 e l'attivazione/disattivazione da sporadico a frequente comporta sia le operazioni di lettura (per 10.000) che i costi di recupero dati (per GB) per tutti i BLOB negli account GPv2
+Sì, è possibile modificare il livello di account predefinito impostando l'attributo **livello di accesso** nell'account di archiviazione. La modifica del livello dell'account si applica a tutti gli oggetti archiviati nell'account che non dispongono di un set di livelli esplicito, ad esempio **Hot (dedotto)** o **cool (dedotto**). L'attivazione/disattivazione del livello di account da frequente a sporadico comporta operazioni di scrittura (per 10.000) per tutti i BLOB senza un livello di impostazione solo per gli account GPv2 e l'attivazione/disattivazione da sporadico a frequente comporta sia le operazioni di lettura (per 10.000) che i costi di recupero dati (per GB) per tutti i BLOB negli account GPv2
 
 **È possibile impostare il livello di accesso dell'account predefinito per l'archiviazione?**
 
@@ -291,6 +291,6 @@ Valutazione di accesso frequente, ad accesso sporadico e archivio negli account 
 - [Gestire il ciclo di vita dell'archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
 - [Informazioni sulla reidratazione dei dati BLOB dal livello archivio](storage-blob-rehydration.md)
 - [Determinare se le prestazioni Premium potrebbero trarre vantaggio dall'app](storage-blob-performance-tiers.md)
-- [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](../common/storage-enable-and-view-metrics.md)
+- [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](./monitor-blob-storage.md)
 - [Controllare i prezzi di accesso frequente, ad accesso sporadico e archivio nell'archiviazione BLOB e negli account GPv2 per area](https://azure.microsoft.com/pricing/details/storage/)
 - [Verificare i prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/)

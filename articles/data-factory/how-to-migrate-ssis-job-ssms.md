@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: 5566717387f6da375129a0e70c9ad825198d66b7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634607"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005708"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Eseguire la migrazione di processi SQL Server Agent ad ADF con SSMS
 
@@ -35,7 +35,7 @@ In generale, per i processi di SQL Agent selezionati con i tipi di passaggio di 
 |---------|---------|---------|
 |Processo di SQL Agent|pipeline     |Nome della pipeline *per \<job name>* cui verrà generato il. <br> <br> I processi di Agent predefiniti non sono applicabili: <li> Processo di manutenzione del server SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |Passaggio del processo SSIS|Attività Esegui pacchetto SSIS|<li> Il nome dell'attività sarà \<step name> . <li> Verrà eseguita la migrazione dell'account proxy utilizzato nel passaggio del processo come autenticazione di Windows per questa attività. <li> Le *Opzioni di esecuzione eccetto l'* uso del runtime a *32 bit* definito nel passaggio del processo verranno ignorate durante la migrazione. <li> La *Verifica* definita nel passaggio del processo verrà ignorata nella migrazione.|
-|schedule      |trigger pianifica        |Nome del trigger di pianificazione che verrà *generato per \<schedule name>* . <br> <br> Le opzioni seguenti nella pianificazione del processo di SQL Agent verranno ignorate durante la migrazione: <li> Intervallo di secondo livello. <li> *Avvia automaticamente all'avvio di SQL Server Agent* <li> *Avvia quando la CPU risulta inattiva* <li> giorno della *settimana e* *giorno festivo*<time zone> <br> Di seguito sono riportate le differenze dopo la migrazione della pianificazione del processo di SQL Agent al trigger di pianificazione di ADF: <li> L'esecuzione successiva del trigger di pianificazione di ADF è indipendente dallo stato di esecuzione dell'esecuzione avviata dall'attività precedente. <li> La configurazione della ricorrenza del trigger di pianificazione di ADF è diversa dalla frequenza giornaliera nel processo di SQL Agent.|
+|schedule      |trigger pianifica        |Nome del trigger di pianificazione che verrà *generato per \<schedule name>*. <br> <br> Le opzioni seguenti nella pianificazione del processo di SQL Agent verranno ignorate durante la migrazione: <li> Intervallo di secondo livello. <li> *Avvia automaticamente all'avvio di SQL Server Agent* <li> *Avvia quando la CPU risulta inattiva* <li> giorno della *settimana e* *giorno festivo*<time zone> <br> Di seguito sono riportate le differenze dopo la migrazione della pianificazione del processo di SQL Agent al trigger di pianificazione di ADF: <li> L'esecuzione successiva del trigger di pianificazione di ADF è indipendente dallo stato di esecuzione dell'esecuzione avviata dall'attività precedente. <li> La configurazione della ricorrenza del trigger di pianificazione di ADF è diversa dalla frequenza giornaliera nel processo di SQL Agent.|
 
 - generare modelli di Azure Resource Manager (ARM) nella cartella di output locale e distribuirli in data factory manualmente o in un secondo momento. Per ulteriori informazioni sui modelli di Gestione risorse ADF, vedere [tipi di risorse Microsoft. DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
@@ -45,7 +45,7 @@ La funzionalità descritta in questo articolo richiede SQL Server Management Stu
 
 ## <a name="migrate-ssis-jobs-to-adf"></a>Eseguire la migrazione di processi SSIS ad ADF
 
-1. In Esplora oggetti di SSMS selezionare SQL Server Agent, selezionare processi, quindi fare clic con il pulsante destro del mouse e scegliere **Esegui migrazione di processi SSIS ad ADF** .
+1. In Esplora oggetti di SSMS selezionare SQL Server Agent, selezionare processi, quindi fare clic con il pulsante destro del mouse e scegliere **Esegui migrazione di processi SSIS ad ADF**.
 ![Screenshot mostra SQL Server Management Studio Esplora oggetti, in cui è possibile selezionare i processi, quindi eseguire la migrazione dei processi S i a D F.](media/how-to-migrate-ssis-job-ssms/menu.png)
 
 1. Accedere ad Azure, selezionare sottoscrizione di Azure, Data Factory e Integration Runtime. Archiviazione di Azure è facoltativa, che viene usata nel passaggio mapping percorso pacchetto se i processi SSIS da migrare hanno pacchetti di file System SSIS.
@@ -53,26 +53,26 @@ La funzionalità descritta in questo articolo richiede SQL Server Management Stu
 
 1. Eseguire il mapping dei percorsi dei pacchetti SSIS e dei file di configurazione nei processi SSIS ai percorsi di destinazione a cui possono accedere le pipeline migrate. In questo passaggio di mapping è possibile:
 
-    1. Selezionare una cartella di origine e quindi **Aggiungi mapping** .
+    1. Selezionare una cartella di origine e quindi **Aggiungi mapping**.
     1. Aggiornare il percorso della cartella di origine. I percorsi validi sono percorsi di cartelle o percorsi di cartelle padre dei pacchetti.
     1. Aggiornare il percorso della cartella di destinazione. Il valore predefinito è il percorso relativo dell'account di archiviazione predefinito, selezionato nel passaggio 1.
-    1. Elimina un mapping selezionato tramite **Elimina mapping** .
+    1. Elimina un mapping selezionato tramite **Elimina mapping**.
 ![Screenshot mostra la pagina del pacchetto e dei percorsi di configurazione della mappa S i, in cui è possibile aggiungere il mapping. ](media/how-to-migrate-ssis-job-ssms/step2.png)
  ![ Screenshot mostra la pagina del pacchetto e dei percorsi di configurazione della mappa S i, in cui è possibile aggiornare i percorsi della cartella di origine e di destinazione.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Selezionare i processi applicabili da migrare e configurare le impostazioni relative all' *attività del pacchetto SSIS eseguita* corrispondente.
 
-    - *Impostazione predefinita* , si applica a tutti i passaggi selezionati per impostazione predefinita. Per ulteriori informazioni su ogni proprietà, vedere la *scheda Impostazioni* per l' [attività Esegui pacchetto SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando il percorso del pacchetto è *file System (pacchetto)* .
+    - *Impostazione predefinita*, si applica a tutti i passaggi selezionati per impostazione predefinita. Per ulteriori informazioni su ogni proprietà, vedere la *scheda Impostazioni* per l' [attività Esegui pacchetto SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando il percorso del pacchetto è *file System (pacchetto)*.
     ![Screenshot mostra la pagina Select s I S processi, in cui è possibile configurare le impostazioni dell'attività del pacchetto SSIS eseguita corrispondente.](media/how-to-migrate-ssis-job-ssms/step3-1.png)
-    - *Impostazione del passaggio* , configurare l'impostazione per un passaggio selezionato.
+    - *Impostazione del passaggio*, configurare l'impostazione per un passaggio selezionato.
         
-        **Applica impostazione predefinita** : è selezionata l'opzione predefinita. Deselezionare questa opzione per configurare solo il passaggio selezionato.  
-        Per ulteriori informazioni su altre proprietà, vedere la *scheda Impostazioni* per l' [attività Esegui pacchetto SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando il percorso del pacchetto è *file System (pacchetto)* .
+        **Applica impostazione predefinita**: è selezionata l'opzione predefinita. Deselezionare questa opzione per configurare solo il passaggio selezionato.  
+        Per ulteriori informazioni su altre proprietà, vedere la *scheda Impostazioni* per l' [attività Esegui pacchetto SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando il percorso del pacchetto è *file System (pacchetto)*.
     ![Screenshot mostra la pagina Select s I i processi in cui è possibile applicare le impostazioni predefinite.](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Generare e distribuire il modello ARM.
     1. Selezionare o immettere il percorso di output per i modelli ARM delle pipeline di ADF migrate. La cartella verrà creata automaticamente se non esiste.
-    2. Selezionare l'opzione **per distribuire i modelli ARM nel data factory** :
+    2. Selezionare l'opzione **per distribuire i modelli ARM nel data factory**:
         - Il valore predefinito è deselezionato. È possibile distribuire manualmente i modelli ARM generati in un secondo momento.
         - Selezionare questa selezione per distribuire i modelli ARM generati direttamente data factory.
     ![Screenshot mostra la pagina Configura migrazione, in cui è possibile selezionare o inserire il percorso di output per i modelli ARM delle pipeline di ADF migrate e selezionare l'opzione Distribuisci modelli ARM nel data factory.](media/how-to-migrate-ssis-job-ssms/step4.png)

@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006524"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -57,7 +57,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
-6. In **Aggiungi**, digitare un **nome** per il contratto. In **Tipo di contratto**selezionare **EDIFACT**. Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto.
+6. In **Aggiungi**, digitare un **nome** per il contratto. In **Tipo di contratto** selezionare **EDIFACT**. Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto.
 
    ![Fornire i dettagli relativi al contratto](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 

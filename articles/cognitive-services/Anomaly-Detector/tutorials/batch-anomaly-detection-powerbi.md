@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006201"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -112,7 +112,7 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
  in results
 ```
 
-Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro** , quindi fare clic su **Richiama**.
+Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro**, quindi fare clic su **Richiama**.
 
 ![Immagine della funzione Richiama](../media/tutorials/invoke-function-screenshot.png)
 
@@ -137,7 +137,7 @@ Quindi fare clic su **Chiudi e applica** nella scheda **Home** della barra multi
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualizzare la risposta dell'API Rilevamento anomalie
 
-Nella schermata principale di Power BI iniziare a usare le query create in precedenza per visualizzare i dati. Prima di tutto selezionare **Grafico a linee** in **Visualizzazioni**. Quindi aggiungere il timestamp della funzione richiamata all' **Asse** del grafico a linee. Fare clic su di esso con il pulsante destro del mouse e scegliere **Timestamp**.
+Nella schermata principale di Power BI iniziare a usare le query create in precedenza per visualizzare i dati. Prima di tutto selezionare **Grafico a linee** in **Visualizzazioni**. Quindi aggiungere il timestamp della funzione richiamata all'**Asse** del grafico a linee. Fare clic su di esso con il pulsante destro del mouse e scegliere **Timestamp**.
 
 ![Fare clic con il pulsante destro del mouse sul valore Timestamp](../media/tutorials/timestamp-right-click.png)
 
@@ -156,7 +156,7 @@ Dopo aver aggiunto i campi, fare clic sul grafico e ridimensionarlo per mostrare
 
 ### <a name="display-anomaly-data-points"></a>Visualizzare i punti dati delle anomalie
 
-Sul lato destro della finestra di Power BI, sotto il riquadro **CAMPI** , fare clic con il pulsante destro del mouse su **Value** sotto la query **Richiamata funzione** e scegliere **Nuova misura rapida** .
+Sul lato destro della finestra di Power BI, sotto il riquadro **CAMPI**, fare clic con il pulsante destro del mouse su **Value** sotto la query **Richiamata funzione** e scegliere **Nuova misura rapida** .
 
 ![Immagine della nuova schermata di misura rapida](../media/tutorials/new-quick-measure.png)
 

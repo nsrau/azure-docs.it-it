@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
 ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741616"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007155"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 
@@ -49,9 +49,9 @@ File necessari per distribuire questa applicazione (Hue):
 
 1. immettere il nome del cluster in cui installare l'applicazione. Deve essere un cluster esistente.
 
-1. Selezionare la casella di controllo per accetto **i termini e le condizioni indicati in precedenza** .
+1. Selezionare la casella di controllo per accetto **i termini e le condizioni indicati in precedenza**.
 
-1. Selezionare **Acquisto** .
+1. Selezionare **Acquisto**.
 
 È possibile visualizzare lo stato dell'installazione dal riquadro aggiunto al dashboard del portale e dalla notifica del portale facendo clic sull'icona a forma di campana nella parte superiore del portale.  Sono necessari circa 10 minuti per installare l'applicazione.
 
@@ -128,7 +128,7 @@ Se l'installazione di un'applicazione non è riuscita, è possibile visualizzare
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il cluster in cui è stata installata l'applicazione.
 1. Scegliere **applicazioni** dal menu **Impostazioni** .
-1. Fare clic con il pulsante destro del mouse sull'applicazione che si desidera rimuovere, quindi scegliere **Elimina** .
+1. Fare clic con il pulsante destro del mouse sull'applicazione che si desidera rimuovere, quindi scegliere **Elimina**.
 1. Selezionare **Sì** per confermare.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

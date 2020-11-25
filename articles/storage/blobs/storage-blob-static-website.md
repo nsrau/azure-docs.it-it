@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: b9eb65311951706863c3b18c5fc91bae8c41c7dc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892694"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007342"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
-È possibile gestire contenuto statico (file di immagine, HTML, CSS e JavaScript) direttamente da un contenitore di archiviazione denominato *$web*. L'hosting del contenuto in Archiviazione di Azure consente di usare architetture serverless che includono [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi di piattaforma distribuita come servizio (PaaS). L'hosting di siti web statici di archiviazione di Azure è un'ottima opzione nei casi in cui non è necessario un server Web per il rendering del contenuto.
+È possibile gestire contenuto statico (file di immagine, HTML, CSS e JavaScript) direttamente da un contenitore di archiviazione denominato *$web*. L'hosting del contenuto in Archiviazione di Azure consente di usare architetture serverless che includono [Funzioni di Azure](../../azure-functions/functions-overview.md) e altri servizi di piattaforma distribuita come servizio (PaaS). L'hosting di siti web statici di archiviazione di Azure è un'ottima opzione nei casi in cui non è necessario un server Web per il rendering del contenuto.
 
 App [Web statiche del servizio app](https://azure.microsoft.com/services/app-service/static/) è un'ottima alternativa all'hosting di siti web statici di archiviazione di Azure ed è anche appropriata nei casi in cui non è necessario un server Web per il rendering del contenuto. App Web statiche del servizio app offre un flusso di lavoro di integrazione continua e recapito continuo completamente gestito dall'origine GitHub alla distribuzione globale.
 
@@ -60,7 +60,7 @@ Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL
 Se il server restituisce un errore 404 e non è stato specificato un documento di errore quando è stato abilitato il sito Web, all'utente viene restituita una pagina 404 predefinita.
 
 > [!NOTE]
-> Il [supporto per la condivisione di risorse tra le origini (CORS) per archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) non è supportato con il sito Web statico.
+> Il [supporto per la condivisione di risorse tra le origini (CORS) per archiviazione di Azure](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) non è supportato con il sito Web statico.
 
 ### <a name="regional-codes"></a>Codici internazionali
 
@@ -103,13 +103,13 @@ Se l'account di archiviazione è configurato per [richiedere il trasferimento si
 
 ## <a name="adding-http-headers"></a>Aggiunta di intestazioni HTTP
 
-Non è possibile configurare le intestazioni come parte della funzionalità dei siti Web statici. Tuttavia, è possibile usare Rete CDN di Azure per aggiungere intestazioni e accodare (o sovrascrivere) valori di intestazione. Vedere [Informazioni di riferimento sul motore regole standard per la rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+Non è possibile configurare le intestazioni come parte della funzionalità dei siti Web statici. Tuttavia, è possibile usare Rete CDN di Azure per aggiungere intestazioni e accodare (o sovrascrivere) valori di intestazione. Vedere [Informazioni di riferimento sul motore regole standard per la rete CDN di Azure](../../cdn/cdn-standard-rules-engine-reference.md).
 
-Per usare intestazioni al fine di controllare la memorizzazione nella cache, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+Per usare intestazioni al fine di controllare la memorizzazione nella cache, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole](../../cdn/cdn-caching-rules.md).
 
 ## <a name="multi-region-website-hosting"></a>Hosting di siti Web in più aree
 
-Se si prevede di ospitare un sito Web in più aree geografiche, è consigliabile usare una rete per la [distribuzione di contenuti](https://docs.microsoft.com/azure/cdn/) per la memorizzazione nella cache a livello di area. Usare lo [sportello anteriore di Azure](https://docs.microsoft.com/azure/frontdoor/) se si vuole gestire contenuti diversi in ogni area. Fornisce anche funzionalità di failover. [Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/) non è consigliato se si prevede di usare un dominio personalizzato. Possono verificarsi problemi a causa del modo in cui archiviazione di Azure verifica i nomi di dominio personalizzati.
+Se si prevede di ospitare un sito Web in più aree geografiche, è consigliabile usare una rete per la [distribuzione di contenuti](../../cdn/index.yml) per la memorizzazione nella cache a livello di area. Usare lo [sportello anteriore di Azure](../../frontdoor/index.yml) se si vuole gestire contenuti diversi in ogni area. Fornisce anche funzionalità di failover. [Gestione traffico di Azure](../../traffic-manager/index.yml) non è consigliato se si prevede di usare un dominio personalizzato. Possono verificarsi problemi a causa del modo in cui archiviazione di Azure verifica i nomi di dominio personalizzati.
 
 
 ## <a name="pricing"></a>Prezzi
@@ -126,7 +126,7 @@ Per abilitare le metriche nelle pagine dei siti Web statici, vedere [Abilitare l
 
 * [Hosting di un sito Web statico in Archiviazione di Azure](storage-blob-static-website-how-to.md)
 * [Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md)
-* [Funzioni di Azure](/azure/azure-functions/functions-overview)
-* [Servizio app di Azure](/azure/app-service/overview)
-* [Compilare la prima app Web serverless](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Funzioni di Azure](../../azure-functions/functions-overview.md)
+* [Servizio app di Azure](../../app-service/overview.md)
+* [Compilare la prima app Web serverless](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Esercitazione: Ospitare un dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md)

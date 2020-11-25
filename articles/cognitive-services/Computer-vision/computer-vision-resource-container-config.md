@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677180"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006874"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurare i contenitori Docker di lettura OCR
 
@@ -31,7 +31,7 @@ ms.locfileid: "92677180"
 
 Il contenitore include anche le seguenti impostazioni di configurazione specifiche del contenitore:
 
-|Obbligatoria|Impostazione|Scopo|
+|Necessario|Impostazione|Scopo|
 |--|--|--|
 |No|ReadEngineConfig:ResultExpirationPeriod| solo contenitori v 2.0. Periodo di scadenza del risultato in ore. L'impostazione predefinita è 48 ore. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Se, ad esempio `resultExpirationPeriod=1` , il sistema cancella il risultato del riconoscimento 1 ora dopo il processo. Se `resultExpirationPeriod=0` , il sistema cancella il risultato del riconoscimento dopo che il risultato è stato recuperato.|
 |No|Cache: Redis| solo contenitori v 2.0. Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
@@ -62,7 +62,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere il `vision/v1.0` routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Obbligatoria| Nome | Tipo di dati | Descrizione |
+|Necessario| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -99,10 +99,10 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`.  Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](computer-vision-how-to-install-containers.md#stop-the-container).
 
-* **Carattere di continuazione di riga** : i comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\` , come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
+* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\` , come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
 * **Ordine** degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
-Sostituire { _nome_argomento_ } con i propri valori:
+Sostituire {_nome_argomento_} con i propri valori:
 
 | Segnaposto | Valore | Formato o esempio |
 |-------------|-------|---|
@@ -120,13 +120,13 @@ Sostituire { _nome_argomento_ } con i propri valori:
 Gli esempi di Docker seguenti sono per il contenitore di lettura.
 
 
-# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
 ### <a name="basic-example"></a>Esempio di base
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +137,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

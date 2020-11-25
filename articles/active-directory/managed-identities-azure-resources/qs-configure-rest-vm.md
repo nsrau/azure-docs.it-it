@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006252"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 
@@ -323,7 +323,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
 4. Creare un'identità gestita assegnata dall'utente usando le istruzioni disponibili qui: [Creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-5. Creare una macchina virtuale usando CURL per chiamare l'endpoint REST di Azure Resource Manager. L'esempio seguente crea una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* , con un'identità gestita assegnata dall'utente `ID1`, come indicato nel corpo della richiesta dal valore `"identity":{"type":"UserAssigned"}`. Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
+5. Creare una macchina virtuale usando CURL per chiamare l'endpoint REST di Azure Resource Manager. L'esempio seguente crea una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*, con un'identità gestita assegnata dall'utente `ID1`, come indicato nel corpo della richiesta dal valore `"identity":{"type":"UserAssigned"}`. Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
  
    **VERSIONE API 01/06/2018**
 

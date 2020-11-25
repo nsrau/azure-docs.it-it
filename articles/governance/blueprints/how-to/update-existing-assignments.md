@@ -4,11 +4,11 @@ description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione 
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651383"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007189"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -32,11 +32,11 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot della pagina assegnazione progetto con il pulsante ' assegnazione aggiornamento ' evidenziato." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot di un'assegnazione di progetto aggiornata che mostra la modalità di blocco modificata." border="false":::
 
 1. Esplorare i dettagli relativi ad altre **operazioni di assegnazione** usando l'elenco a discesa. La tabella di **risorse gestite** viene aggiornata dall'operazione di assegnazione selezionata.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot della pagina assegnazione progetto con il pulsante ' assegnazione aggiornamento ' evidenziato." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot di un'assegnazione di progetto aggiornata che mostra le operazioni di assegnazione e il relativo stato." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 

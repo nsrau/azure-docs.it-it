@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543237"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005368"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -65,7 +65,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
   
-1. Nel menu in alto selezionare **+ Crea una risorsa** .
+1. Nel menu in alto selezionare **+ Crea una risorsa**.
 
     ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
@@ -73,22 +73,22 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
-    | Campo | valore |
+    | Campo | Valore |
     | --- | --- |
     |Subscription |Selezionare la sottoscrizione appropriata.|
-    |Gruppo di risorse |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
-    |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy** .|
+    |Resource group |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
+    |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
     |Region | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
-    |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta** . |
-    |Immagine | Uscire da **Ubuntu Server 18,04 LTS** . |
-    |Tipo di autenticazione | __Password__ o __chiave pubblica SSH__ : il metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, perché sono più sicure. In questo esempio viene utilizzata la **password** .  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
-    |Nome utente |Immettere il nome utente dell'amministratore della macchina virtuale.  In questo esempio viene usato **sshuser** .|
-    |Password o chiave pubblica SSH | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione** .  Immettere il valore appropriato.|
-    |Porte in ingresso pubbliche|Selezionare **Consenti porte selezionate** . Selezionare quindi **SSH (22)** nell'elenco a discesa **selezionare le porte in ingresso** .|
+    |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta**. |
+    |Immagine | Uscire da **Ubuntu Server 18,04 LTS**. |
+    |Tipo di autenticazione | __Password__ o __chiave pubblica SSH__: il metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, perché sono più sicure. In questo esempio viene utilizzata la **password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Nome utente |Immettere il nome utente dell'amministratore della macchina virtuale.  In questo esempio viene usato **sshuser**.|
+    |Password o chiave pubblica SSH | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione**.  Immettere il valore appropriato.|
+    |Porte in ingresso pubbliche|Selezionare **Consenti porte selezionate**. Selezionare quindi **SSH (22)** nell'elenco a discesa **selezionare le porte in ingresso** .|
 
     ![Configurazione di base della macchina virtuale](./media/connect-on-premises-network/virtual-machine-basics.png)
 
-    Per le altre voci lasciare i valori predefiniti e quindi selezionare la scheda **Rete** .
+    Per le altre voci lasciare i valori predefiniti e quindi selezionare la scheda **Rete**.
 
 4. Nella scheda **Rete** immettere le informazioni seguenti:
 
@@ -100,7 +100,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
     ![Impostazioni della rete virtuale HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Per le altre voci lasciare i valori predefiniti e quindi selezionare la scheda **Rivedi e crea** .
+    Per le altre voci lasciare i valori predefiniti e quindi selezionare la scheda **Rivedi e crea**.
 
 5. Nella scheda **Rivedi e crea** selezionare **Crea** per creare la macchina virtuale.
 
@@ -108,7 +108,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzione riuscita** con un pulsante **Vai a risorsa** .  Selezionare **Vai alla risorsa** per accedere alla nuova macchina virtuale.  Nella visualizzazione predefinita della nuova macchina virtuale seguire questa procedura per identificare gli indirizzi IP associati:
 
-1. In **Impostazioni** selezionare **Proprietà** .
+1. In **Impostazioni** selezionare **Proprietà**.
 
 2. Prendere nota dei valori specificati per **ETICHETTA INDIRIZZO IP PUBBLICO/NOME DNS** e **INDIRIZZO IP PRIVATO** per usarli in seguito.
 
@@ -116,7 +116,7 @@ Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzi
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installare e configurare Bind (software DNS)
 
-1. Usare SSH per connettersi all' __indirizzo IP pubblico__ della macchina virtuale. Sostituire `sshuser` con l'account utente SSH specificato durante la creazione della macchina virtuale. L'esempio seguente consente la connessione a una macchina virtuale all'indirizzo 40.68.254.142:
+1. Usare SSH per connettersi all'__indirizzo IP pubblico__ della macchina virtuale. Sostituire `sshuser` con l'account utente SSH specificato durante la creazione della macchina virtuale. L'esempio seguente consente la connessione a una macchina virtuale all'indirizzo 40.68.254.142:
 
     ```bash
     ssh sshuser@40.68.254.142
@@ -168,7 +168,7 @@ Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzi
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Per salvare il file, usare __CTRL+X__ , __Y__ e quindi __INVIO__ .
+    Per salvare il file, usare __CTRL+X__, __Y__ e quindi __INVIO__.
 
 4. Dalla sessione SSH usare il comando seguente:
 
@@ -203,7 +203,7 @@ Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzi
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Per salvare il file, usare __CTRL+X__ , __Y__ e quindi __INVIO__ .
+    Per salvare il file, usare __CTRL+X__, __Y__ e quindi __INVIO__.
 
 6. Per avviare Bind, usare il comando seguente:
 
@@ -221,7 +221,7 @@ Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzi
     > [!IMPORTANT]  
     > Sostituire `dns.mynetwork.net` con il nome di dominio completo (FQDN) di una risorsa nella rete locale.
     >
-    > Sostituire `10.0.0.4` con l' __indirizzo IP interno__ del server DNS personalizzato nella rete virtuale.
+    > Sostituire `10.0.0.4` con l'__indirizzo IP interno__ del server DNS personalizzato nella rete virtuale.
 
     La risposta visualizzata sarà simile al testo seguente:
 
@@ -238,15 +238,15 @@ Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzi
 
 Per configurare la rete virtuale per usare il server DNS personalizzato invece del resolver ricorsivo di Azure, seguire questa procedura nel [portale di Azure](https://portal.azure.com):
 
-1. Dal menu a sinistra passare a **tutti i servizi**  >  **rete**  >  **reti virtuali** .
+1. Dal menu a sinistra passare a **tutti i servizi**  >  **rete**  >  **reti virtuali**.
 
 2. Selezionare la rete virtuale dall'elenco, che aprirà la visualizzazione predefinita per la rete virtuale.  
 
-3. Nella visualizzazione predefinita, in **Impostazioni** , selezionare **Server DNS** .  
+3. Nella visualizzazione predefinita, in **Impostazioni**, selezionare **Server DNS**.  
 
 4. Selezionare __Personalizzato__ e in **INDIRIZZO IP PRIVATO** immettere il valore del server DNS personalizzato.
 
-5. Selezionare __Salva__ .  <br />  
+5. Selezionare __Salva__.  <br />  
 
     ![Impostare il server DNS personalizzato per la rete](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -254,11 +254,11 @@ Per configurare la rete virtuale per usare il server DNS personalizzato invece d
 
 Nella sezione precedente è stato configurato il server DNS personalizzato per inoltrare le richieste al server DNS locale. È quindi necessario configurare il server DNS locale per inoltrare le richieste al server DNS personalizzato.
 
-Per i passaggi specifici su come configurare il server DNS, vedere la documentazione per il prodotto server DNS. Cercare i passaggi su come configurare un __server d'inoltro condizionale__ .
+Per i passaggi specifici su come configurare il server DNS, vedere la documentazione per il prodotto server DNS. Cercare i passaggi su come configurare un __server d'inoltro condizionale__.
 
 L'inoltro condizionale consente di inoltrare solo le richieste per un suffisso DNS specifico. In questo caso, è necessario configurare un server d'inoltro per il suffisso DNS della rete virtuale. Le richieste per questo suffisso devono essere inoltrate all'indirizzo IP del server DNS personalizzato. 
 
-Il testo seguente è un esempio di una configurazione di server d'inoltro condizionale per il software DNS **Bind** :
+Il testo seguente è un esempio di una configurazione di server d'inoltro condizionale per il software DNS **Bind**:
 
 ```DNS Zone file
 zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
@@ -267,7 +267,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-Per informazioni sull'uso di DNS in **Windows Server 2016** , vedere [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone).
+Per informazioni sull'uso di DNS in **Windows Server 2016**, vedere [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone).
 
 Dopo aver configurato il server DNS locale, è possibile usare `nslookup` dalla rete locale per verificare che sia possibile risolvere i nomi nella rete virtuale. Vedere l'esempio seguente: 
 
@@ -288,8 +288,8 @@ Questo esempio usa il server DNS locale in 196.168.0.4 per risolvere il nome del
 
 2. Per gli indirizzi IP identificati nel passaggio 1, consentire il traffico in ingresso da tali indirizzi.
 
-   * Se si usa __NSG__ : consente il traffico in __ingresso__ sulla porta __443__ per gli indirizzi IP.
-   * Se si usa __UdR__ : impostare il tipo di __hop successivo__ della route su __Internet__ per gli indirizzi IP.
+   * Se si usa __NSG__: consente il traffico in __ingresso__ sulla porta __443__ per gli indirizzi IP.
+   * Se si usa __UdR__: impostare il tipo di __hop successivo__ della route su __Internet__ per gli indirizzi IP.
 
 Per un esempio di utilizzo di Azure PowerShell o dell'interfaccia della riga di comando di Azure per creare gruppi NSG, vedere il documento [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 

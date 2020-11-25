@@ -11,11 +11,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784355"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005547"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -106,7 +106,7 @@ N/D
 
 Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente. Questo articolo illustra come creare un nuovo gruppo di risorse.
 
-Un account di archiviazione **per utilizzo generico v2** consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. I passaggi descritti di seguito consentono di creare un account di archiviazione per utilizzo generico V2, ma i passaggi per creare qualsiasi tipo di account di archiviazione sono simili. Per altre informazioni sui tipi di account di archiviazione e su altre impostazioni dell'account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
+Un account di archiviazione per **utilizzo generico V2** fornisce l'accesso a tutti i servizi di archiviazione di Azure: BLOB, file, code, tabelle e dischi. La procedura descritta qui crea un account di archiviazione per utilizzo generico v2, ma i passaggi per creare qualsiasi tipo di account di archiviazione sono simili. Per altre informazioni sui tipi di account di archiviazione e su altre impostazioni dell'account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -199,7 +199,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 
 # <a name="template"></a>[Modello](#tab/template)
 
-È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello di Gestione risorse per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **prova** per aprire il Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla** .
+È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello di Gestione risorse per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **prova** per aprire il Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -236,7 +236,7 @@ L'eliminazione di un account di archiviazione consente di eliminare l'intero acc
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Elimina** .
+1. Fare clic su **Elimina**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

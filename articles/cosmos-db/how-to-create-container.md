@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101562"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006849"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Creare un contenitore nell'API Azure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,13 +31,13 @@ Questo articolo illustra le diverse modalità di creazione di un contenitore in 
 
 1. [Creare un nuovo account Azure Cosmos](create-sql-api-dotnet.md#create-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuovo contenitore** . Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuovo contenitore**. Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID contenitore.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK** .
+   * Selezionare **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato":::
 

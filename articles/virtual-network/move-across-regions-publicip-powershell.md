@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ms.openlocfilehash: 4f72c22ee26375e025af7b3a391fdd45187e7041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006269"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Spostare la configurazione dell’IP pubblico di Azure in un'altra area usando Azure PowerShell
 
@@ -118,7 +118,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
     ```
 8. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
 
-    * **SKU**: è possibile modificare il parametro SKU dell'indirizzo IP pubblico nella configurazione da standard a basic o da basic a standard modificando la proprietà s**sku** > **name** nel file **\<resource-group-name>.json**:
+    * **SKU**: è possibile modificare il parametro SKU dell'indirizzo IP pubblico nella configurazione da standard a basic o da basic a standard modificando la proprietà s **sku** > **name** nel file **\<resource-group-name>.json**:
 
          ```json
             "resources": [

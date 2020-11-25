@@ -9,11 +9,11 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132722"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005980"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
@@ -75,7 +75,7 @@ Considerare l'effetto delle caratteristiche descritte di seguito.
 
 * **Dati demografici degli utenti**: funzionalità relative al sesso, al sesso, all'età, alla razza, alla religione: queste funzionalità potrebbero non essere consentite in determinate applicazioni per motivi normativi e potrebbe non essere etico personalizzarle in quanto la personalizzazione propagherà generalizzazioni e distorsioni. Un esempio di questa diffusione di pregiudizi è un'offerta di lavoro per ingegneri che non viene visualizzata a destinatari anziani o in base al genere.
 * **Informazioni sulle impostazioni locali**: in molte posizioni del mondo, le informazioni sulla posizione, ad esempio un codice postale, un CAP o un nome di quartiere, possono essere strettamente correlate al reddito, alla razza e alla religione.
-* **Percezione dell'equità da**parte dell'utente: anche nei casi in cui l'applicazione sta prendendo decisioni valide, considerare gli effetti degli utenti che percepiscono che il contenuto visualizzato nell'applicazione cambia in un modo apparentemente correlato alle funzionalità che sarebbero discriminatorie.
+* **Percezione dell'equità da** parte dell'utente: anche nei casi in cui l'applicazione sta prendendo decisioni valide, considerare gli effetti degli utenti che percepiscono che il contenuto visualizzato nell'applicazione cambia in un modo apparentemente correlato alle funzionalità che sarebbero discriminatorie.
 * **Distorsione indesiderata nelle funzionalità**: esistono tipi di distorsioni che possono essere introdotte usando funzionalità che influiscono solo su un subset della popolazione. È necessario prestare particolare attenzione se le caratteristiche vengono generate modo algoritmico, ad esempio quando si usa l'analisi di immagini per estrarre gli elementi di un'immagine o l'analisi del testo per individuare le entità in un testo. Conoscere le funzionalità dei servizi usati per creare queste caratteristiche.
 
 Quando si scelgono le caratteristiche da inviare in contesti e azioni a Personalizza esperienze, applicare le procedure seguenti:

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005385"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -313,9 +313,9 @@ Azure Resource Manager consente di assegnare tag personalizzati a risorse singol
 
 * Nel portale
 * Nel modello di Azure Resource Manager
-* Uso dell'API REST
+* Utilizzo dell'API REST
 * Con l'interfaccia della riga di comando di Azure
-* Utilizzo di PowerShell
+* Uso di PowerShell
 
 È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../azure-resource-manager/management/tag-resources.md).
 

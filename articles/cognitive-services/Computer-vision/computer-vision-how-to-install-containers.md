@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: locale, OCR, Docker, contenitore
-ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b89d02107365872471f1dd5a7df07902b08f2031
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539012"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006908"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
 
@@ -27,12 +27,12 @@ I contenitori consentono di eseguire le API di Visione artificiale nell'ambiente
 
 Il contenitore OCR *Read* consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](concept-recognizing-text.md#read-api).
 
-## <a name="read-31-container"></a>Lettura del contenitore 3,1
+## <a name="read-32-preview-container"></a>Leggere 3,2-contenitore di anteprima
 
 > [!NOTE]
 > Il contenitore Read 3,0-Preview è stato deprecato. 
 
-Il contenitore Read 3,1-Preview fornisce:
+Il contenitore Read 3,2-Preview fornisce:
 * Nuovi modelli per una maggiore accuratezza.
 * Supporto per più lingue nello stesso documento
 * Supporto per: olandese, inglese, francese, tedesco, italiano, portoghese e spagnolo.
@@ -54,9 +54,9 @@ Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica**|
+|Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="request-approval-to-run-the-container"></a>Richiedi l'approvazione per eseguire il contenitore
 
@@ -92,16 +92,16 @@ Sono disponibili le immagini del contenitore per la lettura.
 | Contenitore | Container Registry/repository/nome dell'immagine |
 |-----------|------------|
 | Leggi 2,0-Anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| Leggi 3,2-anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
 
 Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore.
 
 ### <a name="docker-pull-for-the-read-container"></a>Pull Docker per il contenitore di lettura
 
-# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
 ```
 
 # <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
@@ -127,11 +127,11 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
 
-# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -169,9 +169,9 @@ Sono disponibili altri [esempi](./computer-vision-resource-container-config.md#e
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
-Se è necessaria una velocità effettiva più elevata, ad esempio durante l'elaborazione di file a più pagine, è consigliabile distribuire più contenitori [in un cluster Kubernetes](deploy-computer-vision-on-premises.md)usando [archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create) e la [coda di Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+Se è necessaria una velocità effettiva più elevata, ad esempio durante l'elaborazione di file a più pagine, è consigliabile distribuire più contenitori [in un cluster Kubernetes](deploy-computer-vision-on-premises.md)usando [archiviazione di Azure](../../storage/common/storage-account-create.md) e la [coda di Azure](../../storage/queues/storage-queues-introduction.md).
 
-Se si usa archiviazione di Azure per archiviare le immagini per l'elaborazione, è possibile creare una [stringa di connessione](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) da usare quando si chiama il contenitore.
+Se si usa archiviazione di Azure per archiviare le immagini per l'elaborazione, è possibile creare una [stringa di connessione](../../storage/common/storage-configure-connection-string.md) da usare quando si chiama il contenitore.
 
 Per trovare la stringa di connessione:
 
@@ -189,9 +189,9 @@ Per trovare la stringa di connessione:
 
 Il contenitore fornisce le API dell'endpoint di stima della query basata su REST. 
 
-# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
-Usare l'host `http://localhost:5000` per le API del contenitore. È possibile visualizzare il percorso di spavalderia in: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
+Usare l'host `http://localhost:5000` per le API del contenitore. È possibile visualizzare il percorso di spavalderia in: `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json` .
 
 # <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
 
@@ -202,9 +202,9 @@ Usare l'host `http://localhost:5000` per le API del contenitore. È possibile vi
 ### <a name="asynchronous-read"></a>Lettura asincrona
 
 
-# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
-È possibile usare le `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` operazioni e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un oggetto `operationId` che viene usato come identificatore per la richiesta HTTP Get.
+È possibile usare le `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operazioni e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un oggetto `operationId` che viene usato come identificatore per la richiesta HTTP Get.
 
 
 Dall'interfaccia utente di spavalderia selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **try it out**  >  **Choose file**. In questo esempio si userà l'immagine seguente:
@@ -216,7 +216,7 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 ```http
  content-length: 0
  date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.1/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ operation-location: http://localhost:5000/vision/v3.2/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
 
@@ -228,7 +228,7 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
   "createdDateTime": "2020-09-02T10:30:14Z",
   "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
   "analyzeResult": {
-    "version": "3.1.0",
+    "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
@@ -344,15 +344,15 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 ---
 
 > [!IMPORTANT]
-> Se si distribuiscono più contenitori di lettura dietro un servizio di bilanciamento del carico, ad esempio in Docker Compose o Kubernetes, è necessario disporre di una cache esterna. Poiché il contenitore di elaborazione e il contenitore di richieste GET potrebbero non essere uguali, una cache esterna archivia i risultati e li condivide tra i contenitori. Per informazioni dettagliate sulle impostazioni della cache, vedere [configurare visione artificiale contenitori Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> Se si distribuiscono più contenitori di lettura dietro un servizio di bilanciamento del carico, ad esempio in Docker Compose o Kubernetes, è necessario disporre di una cache esterna. Poiché il contenitore di elaborazione e il contenitore di richieste GET potrebbero non essere uguali, una cache esterna archivia i risultati e li condivide tra i contenitori. Per informazioni dettagliate sulle impostazioni della cache, vedere [configurare visione artificiale contenitori Docker](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Lettura sincrona
 
 Per leggere in modo sincrono un'immagine, è possibile usare l'operazione seguente. 
 
-# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
-`POST /vision/v3.1/read/syncAnalyze` 
+`POST /vision/v3.2/read/syncAnalyze` 
 
 # <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
 
