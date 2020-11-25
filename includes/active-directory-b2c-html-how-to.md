@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376727"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990885"
 ---
 ## <a name="use-custom-page-content"></a>USA contenuto pagina personalizzata
 
@@ -46,7 +46,7 @@ Invece di creare il contenuto della pagina personalizzata da zero, è possibile 
 
 Nella tabella seguente sono elencati i contenuti di pagina predefiniti forniti da Azure AD B2C. Scaricare i file e usarli come punto di partenza per la creazione di pagine personalizzate.
 
-| Pagina predefinita | Description | ID definizione del contenuto<br/>(solo criteri personalizzati) |
+| Pagina predefinita | Descrizione | ID definizione del contenuto<br/>(solo criteri personalizzati) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Pagina autocertificata**. Usare questo file come contenuto di pagina personalizzata per una pagina di iscrizione dell'account di social networking, una pagina di iscrizione dell'account locale, una pagina di accesso dell'account locale, la reimpostazione della password e altro ancora. Il modulo può contenere diversi controlli di input, ad esempio una casella per l'immissione di testo e una per l'immissione della password, un pulsante di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. | API *. localaccountsignin*, *API. localaccountsignin*, *API. localaccountpasswordreset*, *API. selfasserted* |
@@ -56,7 +56,7 @@ Nella tabella seguente sono elencati i contenuti di pagina predefiniti forniti d
 
 ## <a name="hosting-the-page-content"></a>Hosting del contenuto della pagina
 
-Quando si usano i propri file HTML e CSS per personalizzare l'interfaccia utente, ospitare il contenuto dell'interfaccia utente in qualsiasi endpoint HTTPS disponibile pubblicamente che supporti CORS. Ad esempio, [archiviazione BLOB di Azure](../articles/storage/blobs/storage-blobs-introduction.md), [Servizi app Azure](/azure/app-service/), server Web, CDNs, AWS S3 o sistemi di condivisione di file.
+Quando si usano i propri file HTML e CSS per personalizzare l'interfaccia utente, ospitare il contenuto dell'interfaccia utente in qualsiasi endpoint HTTPS disponibile pubblicamente che supporti CORS. Ad esempio, [archiviazione BLOB di Azure](../articles/storage/blobs/storage-blobs-introduction.md), [Servizi app Azure](../articles/app-service/index.yml), server Web, CDNs, AWS S3 o sistemi di condivisione di file.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Linee guida per l'utilizzo del contenuto della pagina personalizzata
 
@@ -132,10 +132,10 @@ Per ospitare il contenuto HTML nell'archivio BLOB, seguire questa procedura:
 
 Per creare un contenitore pubblico nell'archivio BLOB, seguire questa procedura:
 
-1. In **servizio BLOB** scegliere **BLOB**dal menu a sinistra.
+1. In **servizio BLOB** scegliere **BLOB** dal menu a sinistra.
 1. Selezionare **+ contenitore**.
-1. Per **nome**immettere *radice*. Il nome può essere un nome a scelta, ad esempio *Contoso*, ma in questo esempio viene usata la *radice* per semplicità.
-1. Per **livello di accesso pubblico**selezionare **BLOB**e quindi **OK**.
+1. Per **nome** immettere *radice*. Il nome può essere un nome a scelta, ad esempio *Contoso*, ma in questo esempio viene usata la *radice* per semplicità.
+1. Per **livello di accesso pubblico** selezionare **BLOB** e quindi **OK**.
 1. Selezionare **radice** per aprire il nuovo contenitore.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 caricare i file di contenuto della pagina personalizzati
