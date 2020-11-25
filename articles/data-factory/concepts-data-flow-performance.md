@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637871"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022361"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -87,6 +87,12 @@ Se si dispone di una conoscenza corretta della cardinalità dei dati, il partizi
 > [!TIP]
 > L'impostazione manuale dello schema di partizionamento consente di rimescolare i dati e di sfalsare i vantaggi di Spark Optimizer. Una procedura consigliata consiste nel non impostare manualmente il partizionamento, a meno che non sia necessario.
 
+## <a name="logging-level"></a>Livello di registrazione
+
+Se non è necessaria l'esecuzione di ogni pipeline delle attività del flusso di dati per registrare completamente tutti i log di telemetria dettagliati, è possibile impostare facoltativamente il livello di registrazione su "Basic" o "None". Quando si eseguono i flussi di dati in modalità "verbose" (impostazione predefinita), si richiede ad ADF di registrare completamente l'attività a ogni singolo livello di partizione durante la trasformazione dei dati. Questa operazione può rivelarsi costosa, quindi l'abilitazione dettagliata solo quando la risoluzione dei problemi può migliorare le prestazioni complessive della pipeline e del flusso di dati. La modalità "Basic" registrerà solo le durate della trasformazione mentre "None" fornirà solo un riepilogo delle durate.
+
+![Livello di registrazione](media/data-flow/logging.png "Impostare il livello di registrazione")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Ottimizzazione del Azure Integration Runtime
 
 I flussi di dati vengono eseguiti in cluster Spark che vengono attivati in fase di esecuzione. La configurazione per il cluster usato viene definita nel runtime di integrazione (IR) dell'attività. Quando si definisce il runtime di integrazione, è necessario tenere presenti tre considerazioni sulle prestazioni: tipo di cluster, dimensioni del cluster e durata (TTL).
@@ -155,7 +161,7 @@ Il database SQL di Azure dispone di un'opzione di partizionamento univoca denomi
 
 #### <a name="isolation-level"></a>Livello di isolamento
 
-Il livello di isolamento della lettura in un sistema di origine SQL di Azure ha un effetto sulle prestazioni. La scelta di ' Read uncommitted ' fornirà le prestazioni più veloci e impedirà i blocchi del database. Per altre informazioni sui livelli di isolamento SQL, vedere [informazioni sui livelli di isolamento](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+Il livello di isolamento della lettura in un sistema di origine SQL di Azure ha un effetto sulle prestazioni. La scelta di ' Read uncommitted ' fornirà le prestazioni più veloci e impedirà i blocchi del database. Per altre informazioni sui livelli di isolamento SQL, vedere [informazioni sui livelli di isolamento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Leggi con query
 
@@ -163,7 +169,7 @@ Il livello di isolamento della lettura in un sistema di origine SQL di Azure ha 
 
 ### <a name="azure-synapse-analytics-sources"></a>Origini di Azure sinapsi Analytics
 
-Quando si usa Azure sinapsi Analytics, un'impostazione denominata **Abilita staging** esiste nelle opzioni di origine. Ciò consente ad ADF di leggere da sinapsi usando la modalità [polibase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), che migliora notevolmente le prestazioni di lettura. Per abilitare la polibase è necessario specificare un archivio BLOB di Azure o Azure Data Lake Storage percorso di gestione temporanea Gen2 nelle impostazioni dell'attività flusso di dati.
+Quando si usa Azure sinapsi Analytics, un'impostazione denominata **Abilita staging** esiste nelle opzioni di origine. Ciò consente ad ADF di leggere da sinapsi usando ```Polybase``` , che migliora notevolmente le prestazioni di lettura. ```Polybase```Per abilitare è necessario specificare un archivio BLOB di Azure o Azure Data Lake storage percorso di gestione temporanea Gen2 nelle impostazioni dell'attività flusso di dati.
 
 ![Abilitare lo staging](media/data-flow/enable-staging.png "Abilitare lo staging")
 
@@ -183,6 +189,10 @@ Quando i flussi di dati scrivono in sink, qualsiasi partizionamento personalizza
 
 Con il database SQL di Azure, il partizionamento predefinito dovrebbe funzionare nella maggior parte dei casi. È possibile che il sink disponga di un numero eccessivo di partizioni per la gestione del database SQL. Se si esegue questa operazione, ridurre il numero di partizioni restituite dal sink del database SQL.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Effetti della gestione delle righe con errori alle prestazioni
+
+Quando si Abilita la gestione delle righe con errori ("continua in caso di errore") nella trasformazione sink, ADF eseguirà un passaggio aggiuntivo prima di scrivere le righe compatibili nella tabella di destinazione. Questo passaggio aggiuntivo avrà una lieve riduzione delle prestazioni che può essere compreso nell'intervallo del 5% aggiunto per questo passaggio, anche se si imposta l'opzione su anche con le righe incompatibili in un file di log.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Disabilitazione di indici tramite uno script SQL
 
 La disabilitazione degli indici prima del caricamento in un database SQL può migliorare significativamente le prestazioni di scrittura nella tabella. Eseguire il comando seguente prima di scrivere nel sink SQL.
@@ -198,7 +208,7 @@ Queste operazioni possono essere eseguite in modo nativo usando gli script pre e
 ![Disabilita indici](media/data-flow/disable-indexes-sql.png "Disabilita indici")
 
 > [!WARNING]
-> Quando si disabilitano gli indici, il flusso di dati acquisisce effettivamente il controllo di un database e non è probabile che le query abbiano esito positivo in questo momento. Di conseguenza, molti processi ETL vengono attivati a metà della notte per evitare questo conflitto. Per ulteriori informazioni, vedere la pagina relativa ai [vincoli di disabilitazione degli indici](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> Quando si disabilitano gli indici, il flusso di dati acquisisce effettivamente il controllo di un database e non è probabile che le query abbiano esito positivo in questo momento. Di conseguenza, molti processi ETL vengono attivati a metà della notte per evitare questo conflitto. Per ulteriori informazioni, vedere la pagina relativa ai [vincoli di disabilitazione degli indici](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### <a name="scaling-up-your-database"></a>Scalabilità verticale del database
 
@@ -226,7 +236,7 @@ Se si seleziona l'opzione **predefinita** , il più veloce viene scritto. Ogni p
 
 Impostando un **modello** di denominazione, ogni file di partizione viene rinominato in un nome più descrittivo. Questa operazione si verifica dopo la scrittura ed è leggermente più lenta rispetto alla scelta del valore predefinito. Per partizione è possibile assegnare manualmente un nome a ogni singola partizione.
 
-Se una colonna corrisponde a come si desidera restituire i dati, è possibile selezionare **come dati nella colonna** . In questo modo i dati vengono rimescolati e le prestazioni possono avere un effetto se le colonne non sono distribuite in modo uniforme.
+Se una colonna corrisponde a come si desidera restituire i dati, è possibile selezionare **come dati nella colonna**. In questo modo i dati vengono rimescolati e le prestazioni possono avere un effetto se le colonne non sono distribuite in modo uniforme.
 
 L' **output in un singolo file** combina tutti i dati in una singola partizione. Ciò comporta tempi di scrittura lunghi, soprattutto per set di impostazioni di grandi dimensioni. Il team di Azure Data Factory consiglia vivamente di **non** scegliere questa opzione a meno che non esista un motivo aziendale esplicito.
 
@@ -240,14 +250,13 @@ Quando si scrive in CosmosDB, la modifica della velocità effettiva e delle dime
 
 **Budget della velocità effettiva di scrittura:** Usare un valore inferiore al numero totale di ur al minuto. Se si dispone di un flusso di dati con un numero elevato di partizioni Spark, l'impostazione di una velocità effettiva del budget consentirà un maggiore equilibrio tra le partizioni.
 
-
 ## <a name="optimizing-transformations"></a>Ottimizzazione delle trasformazioni
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Ottimizzazione di join, EXISTS e ricerche
 
 #### <a name="broadcasting"></a>Broadcasting
 
-Nelle trasformazioni join, ricerche ed EXISTS, se uno o entrambi i flussi di dati sono sufficientemente piccoli da adattarsi alla memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione** . Il broadcast è quando si inviano frame di dati di piccole dimensioni a tutti i nodi del cluster. Questo consente al motore Spark di eseguire un join senza rimischiare i dati nel flusso di grandi dimensioni. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato di un join. Se si ha familiarità con i dati in arrivo e si sa che un flusso sarà significativamente più piccolo dell'altro, è possibile selezionare broadcast **fisso** . Il broadcast fisso forza la trasmissione del flusso selezionato da Spark. 
+Nelle trasformazioni join, ricerche ed EXISTS, se uno o entrambi i flussi di dati sono sufficientemente piccoli da adattarsi alla memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Il broadcast è quando si inviano frame di dati di piccole dimensioni a tutti i nodi del cluster. Questo consente al motore Spark di eseguire un join senza rimischiare i dati nel flusso di grandi dimensioni. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato di un join. Se si ha familiarità con i dati in arrivo e si sa che un flusso sarà significativamente più piccolo dell'altro, è possibile selezionare broadcast **fisso** . Il broadcast fisso forza la trasmissione del flusso selezionato da Spark. 
 
 Se la dimensione dei dati trasmessi è troppo grande per il nodo Spark, è possibile che si verifichi un errore di memoria insufficiente. Per evitare errori di memoria insufficiente, usare cluster con ottimizzazione per la **memoria** . Se si verificano timeout di trasmissione durante le esecuzioni del flusso di dati, è possibile disattivare l'ottimizzazione della trasmissione. Questa operazione comporterà tuttavia un'esecuzione dei flussi di dati più lenta.
 
