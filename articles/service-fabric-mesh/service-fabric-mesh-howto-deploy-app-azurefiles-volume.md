@@ -7,11 +7,11 @@ ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
 ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748203"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007393"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 
 
@@ -76,8 +76,8 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 È anche possibile trovare questi valori nel [portale di Azure](https://portal.azure.com):
 * `<storageAccountName>` - In **Account di archiviazione** il nome dell'account di archiviazione usato per creare la condivisione file.
-* `<storageAccountKey>` - Selezionare il proprio account di archiviazione in **Account di archiviazione** , quindi selezionare **Chiavi di accesso** e usare il valore in **key1** .
-* `<fileShareName>` - Selezionare il proprio account di archiviazione in **Account di archiviazione** e quindi selezionare **File** . Il nome da usare è il nome della condivisione file creata.
+* `<storageAccountKey>` - Selezionare il proprio account di archiviazione in **Account di archiviazione**, quindi selezionare **Chiavi di accesso** e usare il valore in **key1**.
+* `<fileShareName>` - Selezionare il proprio account di archiviazione in **Account di archiviazione** e quindi selezionare **File**. Il nome da usare è il nome della condivisione file creata.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Dichiarare una risorsa di volume e aggiornare la risorsa di servizio (JSON)
 

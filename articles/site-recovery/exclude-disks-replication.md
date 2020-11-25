@@ -4,11 +4,11 @@ description: Come escludere dischi dalla replica in Azure con Azure Site Recover
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008260"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Escludere dischi dal ripristino di emergenza
 
@@ -56,13 +56,13 @@ Esempi di varianza dei dati che sono candidati rilevanti per l'esclusione includ
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Esempio 1: Escludere il disco del tempdb di SQL Server
 
-Esaminiamo ora come gestire l'esclusione e il failover dei dischi per un'origine SQL Server Windows VM - **SalesDB***, per cui si desidera escludere il file tempdb. 
+Si osservi come gestire l'esclusione, il failover e il failover del disco per un'origine SQL Server Windows VM- **SalesDB** _, per cui si vuole escludere tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 
 Nella macchina virtuale Windows di origine SalesDB sono presenti questi dischi.
 
-**Nome del disco** | **Disco del SO guest** | **Lettera di unità** | **Tipo di dati del disco**
+_ *Nome disco** | **Disco del SO guest** | **Lettera di unità** | **Tipo di dati del disco**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Disco del sistema operativo.
 DB-Disk1| Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente

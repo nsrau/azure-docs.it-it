@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320425"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007410"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
@@ -55,7 +55,7 @@ I dati relativi alle corse dei taxi di NYC sono pari a circa 20 GB di file CSV c
 La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai campi: medallion, hack\_licence e pickup\_datetime.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Esempi di attività di stima
-Verranno formulati tre problemi di stima, basati su *tip\_amount* , vale a dire:
+Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
 * Classificazione binaria: prevedere se è stata pagata o meno una mancia per una corsa, ovvero se un *\_ importo di tip* maggiore di $0 è un esempio positivo, mentre un *Suggerimento \_ di* $0 è un esempio negativo.
 * Classificazione multiclasse: consente di prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
@@ -133,7 +133,7 @@ Le prestazioni di caricamento/trasferimento di grandi quantità di dati in un da
      
        ![Impostazioni predefinite del database SQL][15]  
 5. Per creare un nuovo database e un set di filegroup in cui conservare le tabelle partizionate, aprire lo script di esempio **create\_db\_default.sql**. Mediante questo script verranno creati un nuovo database denominato **TaxiNYC** e 12 filegroup nel percorso dei dati predefinito. In ogni gruppo sarà presente un mese di dati trip\_data e trip\_fare. Se lo si desidera, modificare il nome del database. Fare clic su **Esegui** per eseguire lo script.
-6. Successivamente, creare due tabelle delle partizioni, una per trip\_data e l'altra per trip\_fare. Aprire lo script di esempio **create\_partitioned\_table.sql** , in modo da eseguire le seguenti operazioni:
+6. Successivamente, creare due tabelle delle partizioni, una per trip\_data e l'altra per trip\_fare. Aprire lo script di esempio **create\_partitioned\_table.sql**, in modo da eseguire le seguenti operazioni:
    
    * Creare una funzione di partizione per suddividere i dati per mese.
    * Creare uno schema di partizione per eseguire il mapping dei dati di ciascun mese a un filegroup diverso.
@@ -144,7 +144,7 @@ Le prestazioni di caricamento/trasferimento di grandi quantità di dati in un da
    
    * **bcp\_parallel\_generic.ps1** è uno script generico per l'importazione in blocco in parallelo dei dati in una tabella. Modificare lo script per impostare le variabili di input e di destinazione come indicato nelle righe di commento dello script.
    * **bcp\_parallel\_nyctaxi.ps1** è una versione preconfigurata dello script generico e può essere usata per caricare entrambe le tabelle per i dati Corse dei taxi di NYC.  
-8. Fare clic con il pulsante destro del mouse sul nome dello script **bcp\_parallel\_nyctaxi.ps1** e fare clic su **Modifica** per aprirlo in PowerShell. Esaminare le variabili preimpostate e modificarle in base al nome di database selezionato, alla cartella dei dati di input, alla cartella del log di destinazione e ai percorsi dei file di formato di esempio **nyctaxi_trip.xml** e **nyctaxi\_fare.xml** (forniti nella cartella **Script di esempio** ).
+8. Fare clic con il pulsante destro del mouse sul nome dello script **bcp\_parallel\_nyctaxi.ps1** e fare clic su **Modifica** per aprirlo in PowerShell. Esaminare le variabili preimpostate e modificarle in base al nome di database selezionato, alla cartella dei dati di input, alla cartella del log di destinazione e ai percorsi dei file di formato di esempio **nyctaxi_trip.xml** e **nyctaxi\_fare.xml** (forniti nella cartella **Script di esempio**).
    
     ![Importazione in blocco dei dati][16]
    
@@ -258,10 +258,10 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Progettazione di funzionalità nelle query SQL
-Le query di esplorazione per la generazione delle etichette e la conversione geografica possono inoltre essere utilizzate per generare etichette/funzionalità se si rimuove la parte relativa al conteggio. Ulteriori esempi SQL di progettazione di funzionalità vengono forniti nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb) . È più efficiente eseguire le query di generazione delle funzionalità sul set di dati completo o su un subset elevato usando query SQL che vengono eseguite direttamente nell'istanza del database SQL Server. Le query possono essere eseguite in **SQL Server Management Studio** , ipython notebook o in qualsiasi altro strumento o ambiente di sviluppo in grado di accedere al database in locale o in remoto.
+Le query di esplorazione per la generazione delle etichette e la conversione geografica possono inoltre essere utilizzate per generare etichette/funzionalità se si rimuove la parte relativa al conteggio. Ulteriori esempi SQL di progettazione di funzionalità vengono forniti nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb) . È più efficiente eseguire le query di generazione delle funzionalità sul set di dati completo o su un subset elevato usando query SQL che vengono eseguite direttamente nell'istanza del database SQL Server. Le query possono essere eseguite in **SQL Server Management Studio**, ipython notebook o in qualsiasi altro strumento o ambiente di sviluppo in grado di accedere al database in locale o in remoto.
 
 #### <a name="preparing-data-for-model-building"></a>Preparazione dei dati per la creazione di modelli
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare** , generare un'etichetta di classificazione binaria **tipped** , un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. Questa query può essere copiata e incollata direttamente nel modulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] per l'inserimento diretto dei dati dall'istanza di database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. Questa query può essere copiata e incollata direttamente nel modulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] per l'inserimento diretto dei dati dall'istanza di database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -437,7 +437,7 @@ Quando si preparano i dati per la creazione di modelli in [Azure Machine Learnin
 In questa sezione verrà creata una nuova tabella che conterrà i dati campionati e progettati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Creazione di una tabella di esempio e popolamento con l'1% delle tabelle unite. Innanzitutto eliminare la tabella, se presente.
-In questa sezione, saranno unite le tabelle **nyctaxi\_trip** e **nyctaxi\_fare** , verrà estratto un campione casuale dell'1% e i dati campionati verranno salvati definitivamente in una nuova tabella denominata **nyctaxi\_one\_percent** :
+In questa sezione, saranno unite le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, verrà estratto un campione casuale dell'1% e i dati campionati verranno salvati definitivamente in una nuova tabella denominata **nyctaxi\_one\_percent**:
 
 ```sql
 cursor = conn.cursor()
@@ -661,7 +661,7 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 ![Formazione di Azure Machine Learning][10]
 
 > [!IMPORTANT]
-> Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell' **escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class** , **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
+> Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 > 
 > Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
 > 
@@ -675,7 +675,7 @@ Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti oper
 1. Creare un esperimento di assegnazione di punteggio.
 2. Distribuire il servizio web.
 
-Per creare un esperimento di assegnazione dei punteggi da un esperimento di training **completato** , fare clic su **CREATE SCORING EXPERIMENT** (CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGI) nella barra delle azioni inferiore.
+Per creare un esperimento di assegnazione dei punteggi da un esperimento di training **completato**, fare clic su **CREATE SCORING EXPERIMENT** (CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGI) nella barra delle azioni inferiore.
 
 ![Valutazione di Azure][18]
 

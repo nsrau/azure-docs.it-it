@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
 ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420989"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008193"
 ---
 ## <a name="publish-the-project-to-azure"></a>Pubblicare il progetto in Azure
 
@@ -25,15 +25,15 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
 1. Quando richiesto, immettere le informazioni seguenti:
 
-    - **Selezionare la cartella** : scegliere una cartella dall'area di lavoro o selezionarne una che contenga l'app per le funzioni. Questa opzione non verrà visualizzata se è già stata aperta un'app per le funzioni valida.
+    - **Selezionare la cartella**: scegliere una cartella dall'area di lavoro o selezionarne una che contenga l'app per le funzioni. Questa opzione non verrà visualizzata se è già stata aperta un'app per le funzioni valida.
 
-    - **Selezionare la sottoscrizione** : scegliere la sottoscrizione da usare. Questa opzione non è visibile se è disponibile una sola sottoscrizione.
+    - **Selezionare la sottoscrizione**: scegliere la sottoscrizione da usare. Questa opzione non è visibile se è disponibile una sola sottoscrizione.
 
-    - **Selezionare l'app per le funzioni in Azure** : Scegliere `- Create new Function App`. Non scegliere l'opzione `Advanced`, che non è illustrata in questo articolo.
+    - **Selezionare l'app per le funzioni in Azure**: Scegliere `- Create new Function App`. Non scegliere l'opzione `Advanced`, che non è illustrata in questo articolo.
       
-    - **Immettere un nome univoco a livello globale per l'app per le funzioni** : digitare un nome valido in un percorso URL. Il nome digitato viene convalidato per assicurarsi che sia univoco in Funzioni di Azure.
+    - **Immettere un nome univoco a livello globale per l'app per le funzioni**: digitare un nome valido in un percorso URL. Il nome digitato viene convalidato per assicurarsi che sia univoco in Funzioni di Azure.
     
-    - **Selezionare una località per le nuove risorse** :  per prestazioni ottimali, scegliere un' [area](https://azure.microsoft.com/regions/) vicina. 
+    - **Selezionare una località per le nuove risorse**:  per prestazioni ottimali, scegliere un'[area](https://azure.microsoft.com/regions/) vicina. 
     
 1.  Al termine, nella sottoscrizione vengono create le risorse di Azure seguenti con i nomi basati sul nome dell'app per le funzioni:
     

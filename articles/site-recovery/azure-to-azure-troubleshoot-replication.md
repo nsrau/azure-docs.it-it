@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130408"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007359"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Risolvere i problemi di replica in Azure VM Recovery
 
@@ -35,7 +35,7 @@ Si noterà che la **frequenza di modifica dei dati dell'evento supera i limiti s
 
 Se si seleziona l'evento, si dovrebbero vedere le informazioni esatte del disco:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery pagina che mostra una frequenza di modifica dei dati elevata troppo elevata.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Pagina che mostra i dettagli dell'evento della frequenza di modifica dei dati.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 
@@ -56,7 +56,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 
 Azure Site Recovery presenta limiti per la frequenza di modifica dei dati, a seconda del tipo di disco. Per verificare se il problema è ricorrente o temporaneo, individuare la frequenza di modifica dei dati della macchina virtuale interessata. Andare alla macchina virtuale di origine, trovare le metriche in **Monitoraggio**, quindi aggiungere le metriche, come mostra questo screenshot:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery pagina che mostra una frequenza di modifica dei dati elevata troppo elevata.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Pagina in cui viene illustrato il processo in tre passaggi per l'individuazione della frequenza di modifica dei dati.":::
 
 1. Selezionare **Aggiungi metrica** e aggiungere **Byte scritti su disco/sec per un disco del sistema operativo** e **Byte scritti su disco/sec per un disco dati**.
 1. Monitorare il picco come mostrato nello screenshot.
