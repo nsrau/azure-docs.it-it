@@ -12,11 +12,11 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
 ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992833"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -100,7 +100,7 @@ Successivamente, verrà creato un modello di Azure Resource Manager che concede 
    | Campo   | Definizione |
    |---------|------------|
    | Subscription |  Selezionare la directory che contiene la sottoscrizione di Azure in cui è stato creato il gruppo di risorse *Azure-ad-B2C-monitor* . |
-   | Area| Selezionare l'area in cui verrà distribuita la risorsa.  | 
+   | Region| Selezionare l'area in cui verrà distribuita la risorsa.  | 
    | Nome dell'offerta msp| Nome che descrive questa definizione. Ad esempio, *Azure ad B2C monitoraggio*.  |
    | Descrizione dell'offerta msp| Breve descrizione dell'offerta. Ad esempio, *Abilita monitoraggio di Azure in Azure ad B2C*.|
    | Gestito dall'ID tenant| **ID tenant** del tenant di Azure ad B2C (noto anche come ID directory). |

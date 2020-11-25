@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316759"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993375"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Creare una cartella in cui archiviare l'applicazione.  Da una console con gli st
 npm init
 ```
 
-Verrà quindi visualizzata una serie di domande per inizializzare il progetto.  Come **punto di ingresso**questa esercitazione usa *app.js*.  È possibile visualizzare le altre scelte nell'esempio seguente.
+Verrà quindi visualizzata una serie di domande per inizializzare il progetto.  Come **punto di ingresso** questa esercitazione usa *app.js*.  È possibile visualizzare le altre scelte nell'esempio seguente.
 
 ![Output NPM iniziale](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -124,7 +124,7 @@ Aprire *app.js* nell'editor e scrivere la struttura di base del programma.
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Assicurarsi di sostituire gli elementi tra ** &lt; parentesi &gt; angolari** con le informazioni corrette.  Sostituire `<redirect URI>`con l'URI di reindirizzamento immesso al momento della registrazione dell'applicazione in Azure AD.
+    Assicurarsi di sostituire gli elementi tra **&lt; parentesi &gt; angolari** con le informazioni corrette.  Sostituire `<redirect URI>`con l'URI di reindirizzamento immesso al momento della registrazione dell'applicazione in Azure AD.
 4. L'applicazione console Node.js necessita di alcuni parametri della riga di comando.  Verificare che venga passato almeno un parametro.
    
    ```javascript

@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994010"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -35,7 +35,7 @@ Quando si configura per la prima volta il provisioning automatico, la sezione **
 
 Al termine di un ciclo di provisioning, nella sezione **statistiche per data** vengono visualizzati i numeri cumulativi di utenti e gruppi di cui è stato effettuato il provisioning in data, insieme alla data di completamento e alla durata dell'ultimo ciclo. L' **ID attività** identifica in modo univoco il ciclo di provisioning più recente. L' **ID del processo** è un identificatore univoco per il processo di provisioning ed è specifico dell'app nel tenant.
 
-Lo stato di avanzamento del provisioning può essere visualizzato nella portale di Azure, nella scheda ** &gt; &gt; \[ \] &gt; provisioning del nome dell'applicazione Azure Active Directory app aziendali** .
+Lo stato di avanzamento del provisioning può essere visualizzato nella portale di Azure, nella scheda **&gt; &gt; \[ \] &gt; provisioning del nome dell'applicazione Azure Active Directory app aziendali** .
 
 ![Indicatore di stato della pagina di provisioning](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -77,7 +77,7 @@ La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di pro
 | Sincronizza tutti gli utenti in Azure AD|  < 1.000  | < 30 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti in Azure AD | 1.000 - 10.000  | 43 - 86 minuti | < 30 minuti |
 
-Per l' **utente e i gruppi assegnati alla sincronizzazione**della configurazione, è possibile usare le formule seguenti per determinare il tempo di **ciclo iniziale** minimo e massimo previsto:
+Per l' **utente e i gruppi assegnati alla sincronizzazione** della configurazione, è possibile usare le formule seguenti per determinare il tempo di **ciclo iniziale** minimo e massimo previsto:
 
 - Min minutes = 0,01 x [numero di utenti, gruppi e membri di gruppo assegnati]
 - Minuti massimi = 0,08 x [numero di utenti, gruppi e membri di gruppo assegnati]

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80656226"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993175"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentare la sicurezza per le chiamate alle API personalizzate da app per la logica di Azure
 
@@ -179,7 +179,7 @@ Dopo aver ottenuto l'ID client e l'ID tenant, includerli come risorsa secondaria
 
 Per implementare automaticamente un'app Web vuota e un'app per la logica con l'autenticazione di Azure Active Directory, [visualizzare il modello completo qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) oppure fare clic su **Distribuzione in Azure** qui:
 
-[![Distribuisci in Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Distribuzione in Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Compilare la sezione Autorizzazione nell'app per la logica
 
@@ -203,7 +203,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione codice, passa
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
 | clientId | Sì | GUID per il client che richiede l'accesso, che è l'ID client dall'identità di applicazione per l'app per la logica | 
 | secret | Sì | La chiave o la password dall'identità di applicazione per il client che richiede il token di accesso | 
-| type | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
+| tipo | Sì | Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 |||| 
 
 Ad esempio:
@@ -250,7 +250,7 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 
 | Proprietà | Obbligatoria | Descrizione |
 | -------- | -------- | ----------- |
-| `type` | Sì | Il tipo di autenticazione. Per i certificati client TLS/SSL, il valore deve essere `ClientCertificate` . |
+| `type` | Sì | Tipo di autenticazione. Per i certificati client TLS/SSL, il valore deve essere `ClientCertificate` . |
 | `password` | No | La password per accedere al certificato client (file PFX) |
 | `pfx` | Sì | Contenuti del certificato client con codifica Base64 (file PFX) |
 ||||

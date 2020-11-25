@@ -4,11 +4,11 @@ description: Informazioni su come visualizzare tutti i lab in un account lab ed 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443486"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993619"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Gestire i lab in un account lab
 Questo articolo illustra come un proprietario o un amministratore dell'account lab può visualizzare tutti i lab in un account lab ed eliminare un lab nell'account lab. 

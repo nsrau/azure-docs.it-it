@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82612334"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992941"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Creare e gestire i contratti tra partner commerciali in App per la logica di Azure
 
@@ -45,7 +45,7 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
 
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-1. In **account di integrazione**selezionare l'account di integrazione in cui si vuole creare il contratto.
+1. In **account di integrazione** selezionare l'account di integrazione in cui si vuole creare il contratto.
 
    ![Selezionare l'account di integrazione in cui si vuole creare il contratto.](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
@@ -60,7 +60,7 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome** | Sì | <*nome contratto*> | Nome del contratto |
-   | **Tipo di contratto** | Sì | **AS2**, **X12**o **EDIFACT** | Tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto del file deve corrispondere al tipo di contratto. | |  
+   | **Tipo di contratto** | Sì | **AS2**, **X12** o **EDIFACT** | Tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto del file deve corrispondere al tipo di contratto. | |  
    | **Host Partner (Partner host)** | Sì | <*nome-partner-host*> | Il partner host rappresenta l'organizzazione che specifica il contratto |
    | **Host Identity (Identità host)** | Sì | <*host-partner-Identifier*> | Identificatore del partner host |
    | **Guest Partner (Partner guest)** | Sì | <*nome-partner-Guest*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
@@ -77,17 +77,17 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
    >
    > Se questi valori cambiano per il partner, assicurarsi di aggiornare anche il contratto.
 
-1. Al termine della creazione del contratto, nella pagina **Aggiungi** scegliere **OK**e tornare all'account di integrazione.
+1. Al termine della creazione del contratto, nella pagina **Aggiungi** scegliere **OK** e tornare all'account di integrazione.
 
    Nell'elenco dei **contratti** viene ora visualizzato il nuovo contratto.
 
 ## <a name="edit-agreements"></a>Modificare i contratti
 
-1. Nel [portale di Azure](https://portal.azure.com)scegliere **tutti i servizi**dal menu principale di Azure.
+1. Nel [portale di Azure](https://portal.azure.com)scegliere **tutti i servizi** dal menu principale di Azure.
 
 1. Nella casella di ricerca immettere "Integration" come filtro. Nei risultati selezionare questa risorsa: account di **integrazione**
 
-1. In **account di integrazione**selezionare l'account di integrazione che contiene il contratto che si desidera modificare.
+1. In **account di integrazione** selezionare l'account di integrazione che contiene il contratto che si desidera modificare.
 
 1. Nel riquadro di destra, in **componenti**, scegliere il riquadro **contratti** .
 
@@ -97,11 +97,11 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
 
 ## <a name="delete-agreements"></a>Elimina contratti
 
-1. Nel [portale di Azure](https://portal.azure.com)scegliere **tutti i servizi**dal menu principale di Azure.
+1. Nel [portale di Azure](https://portal.azure.com)scegliere **tutti i servizi** dal menu principale di Azure.
 
 1. Nella casella di ricerca immettere "Integration" come filtro. Nei risultati selezionare questa risorsa: account di **integrazione**
 
-1. In **account di integrazione**selezionare l'account di integrazione che contiene il contratto che si desidera eliminare.
+1. In **account di integrazione** selezionare l'account di integrazione che contiene il contratto che si desidera eliminare.
 
 1. Nel riquadro di destra, in **componenti**, scegliere il riquadro **contratti** .
 

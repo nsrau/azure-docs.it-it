@@ -4,11 +4,11 @@ description: Aggiungere indicatori della distribuzione o della build ai grafici 
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758184"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993721"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -49,7 +49,7 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
    > [!NOTE]
    > L'attività di annotazione versione supporta attualmente solo gli agenti basati su Windows. non verrà eseguito in Linux, macOS o altri tipi di agenti.
    
-1. In **ID applicazione**incollare l'ID Application Insights copiato dalla scheda **accesso API** .
+1. In **ID applicazione** incollare l'ID Application Insights copiato dalla scheda **accesso API** .
    
    ![Incollare l'ID Application Insights](./media/annotations/4-paste-app-id.png)
    
@@ -57,13 +57,13 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
    
    ![Nella scheda accesso all'API selezionare Crea chiave API.](./media/annotations/5-create-api-key.png)
    
-1. Nella finestra **Crea chiave API** Digitare una descrizione, selezionare **Scrivi annotazioni**e quindi selezionare **Genera chiave**. Copiare la nuova chiave.
+1. Nella finestra **Crea chiave API** Digitare una descrizione, selezionare **Scrivi annotazioni** e quindi selezionare **Genera chiave**. Copiare la nuova chiave.
    
    ![Nella finestra Crea chiave API digitare una descrizione, selezionare Scrivi annotazioni e quindi selezionare Genera chiave.](./media/annotations/6-create-api-key.png)
    
 1. Nella finestra modello di rilascio, nella scheda **variabili** selezionare **Aggiungi** per creare una definizione di variabile per la nuova chiave API.
 
-1. In **nome**immettere `ApiKey` e in **valore**incollare la chiave API copiata dalla scheda **accesso API** .
+1. In **nome** immettere `ApiKey` e in **valore** incollare la chiave API copiata dalla scheda **accesso API** .
    
    ![Nella scheda variabili di Azure DevOps selezionare Aggiungi, denominare la variabile ApiKey e incollare la chiave API in valore.](./media/annotations/7-paste-api-key.png)
    

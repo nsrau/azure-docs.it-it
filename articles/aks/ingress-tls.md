@@ -6,11 +6,11 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 5032880ddc5d23f824adec28aee85c652bad29d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129661"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993160"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
 
@@ -38,15 +38,15 @@ Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di coman
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 
-Per creare il controller di ingresso, usare il `helm` comando per installare *nginx-ingress* . Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
+Per creare il controller di ingresso, usare il `helm` comando per installare *nginx-ingress*. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server non devono eseguire il controller di ingresso. Un selettore di nodo viene specificato con il parametro `--set nodeSelector` per indicare all'utilità di pianificazione Kubernetes di eseguire il controller di ingresso NGINX in un nodo basato su Linux.
 
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic* . Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze.
 
 > [!TIP]
-> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for* . Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
+> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
 
 ```console
 # Create a namespace for your ingress resources
@@ -265,7 +265,7 @@ Entrambe le applicazioni sono in esecuzione nel cluster Kubernetes. Tuttavia, so
 Nell'esempio seguente, il traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN* viene indirizzato al servizio *AKS-HelloWorld* . Traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* viene indirizzato al servizio *AKS-HelloWorld-Two* . Traffico verso *Hello-World-ingress. MY_CUSTOM_DOMAIN/routing statico* viene indirizzato al servizio denominato *AKS-HelloWorld* per gli asset statici.
 
 > [!NOTE]
-> Se è stato configurato un FQDN per l'indirizzo IP del controller di ingresso anziché un dominio personalizzato, usare il nome di dominio completo anziché *Hello-World-ingress. MY_CUSTOM_DOMAIN* . Se, ad esempio, il nome di dominio completo è *demo-AKS-ingress.eastus.cloudapp.Azure.com* , sostituire *Hello-World-ingress. MY_CUSTOM_DOMAIN* con *demo-AKS-ingress.eastus.cloudapp.Azure.com* in `hello-world-ingress.yaml` .
+> Se è stato configurato un FQDN per l'indirizzo IP del controller di ingresso anziché un dominio personalizzato, usare il nome di dominio completo anziché *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Se, ad esempio, il nome di dominio completo è *demo-AKS-ingress.eastus.cloudapp.Azure.com*, sostituire *Hello-World-ingress. MY_CUSTOM_DOMAIN* con *demo-AKS-ingress.eastus.cloudapp.Azure.com* in `hello-world-ingress.yaml` .
 
 Creare un file denominato `hello-world-ingress.yaml` usando l'esempio YAML. Aggiornare gli elementi *hosts* e *host* in base al nome DNS creato in un passaggio precedente.
 
@@ -335,7 +335,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 Successivamente, è necessario creare una risorsa certificato. La risorsa certificato definisce il certificato X.509 desiderato. Per ulteriori informazioni, vedere [certificati Cert-Manager][cert-manager-certificates]. Cert-Manager ha creato automaticamente un oggetto certificato per l'utente tramite il traffico in ingresso-shim, che viene distribuito automaticamente con Cert-Manager da v 0.2.2. Per altre informazioni, consultare la [documentazione su ingress-shim][ingress-shim].
 
-Per verificare che il certificato sia stato creato correttamente, usare il `kubectl get certificate --namespace ingress-basic` comando e verificare che *Ready* sia *true* , operazione che può richiedere alcuni minuti.
+Per verificare che il certificato sia stato creato correttamente, usare il `kubectl get certificate --namespace ingress-basic` comando e verificare che *Ready* sia *true*, operazione che può richiedere alcuni minuti.
 
 ```
 $ kubectl get certificate --namespace ingress-basic
@@ -348,7 +348,7 @@ tls-secret   True    tls-secret   11m
 
 Aprire un Web browser per *Hello-World-ingress. MY_CUSTOM_DOMAIN* del controller di ingresso Kubernetes. Si noti che si è reindirizzati per l'uso di HTTPS e il certificato è attendibile e l'applicazione demo viene visualizzata nel Web browser. Aggiungere il percorso */Hello-World-Two* e notare che viene visualizzata la seconda applicazione demo con il titolo personalizzato.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Questo articolo ha usato Helm per installare i componenti di ingresso, i certificati e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 
@@ -368,7 +368,7 @@ In alternativa, un approccio più granulare consiste nell'eliminare le singole r
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Elencare le versioni Helm con il `helm list` comando. Cercare i grafici denominati *nginx* e *Cert-Manager* , come illustrato nell'output di esempio seguente:
+Elencare le versioni Helm con il `helm list` comando. Cercare i grafici denominati *nginx* e *Cert-Manager*, come illustrato nell'output di esempio seguente:
 
 ```
 $ helm list --namespace ingress-basic

@@ -13,11 +13,11 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ab61fb57f98f62f2e8e5ca697bb5ef8301cada2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838502"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994197"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
 
@@ -87,7 +87,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, è possibile utilizzare l'attributo percorso ADS.  La parte "LDAP:// \<server\> /" del percorso viene automaticamente rimossa, lasciando solo il nome distinto dell'oggetto. |
 | Nome contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
 | Nome gruppo di sicurezza |Immettere il nome dell'attributo che contiene il nome in un record gruppo di sicurezza.  Il valore di questo attributo viene visualizzato nell'elenco Gruppo di sicurezza durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. |
-| Username |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
+| Nome utente |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
 | Nome |Immettere il nome dell'attributo che contiene il nome in un record utente.  Il valore predefinito è givenName. |
 | Cognome |Immettere il nome dell'attributo che contiene il cognome in un record utente.  Il valore predefinito è sn. |
 | Indirizzo di posta elettronica |Immettere il nome dell'attributo che contiene l'indirizzo e-mail in un record utente.  L'indirizzo di posta elettronica viene usato per inviare all'utente messaggi di benvenuto e di aggiornamento.  Il valore predefinito è mail. |

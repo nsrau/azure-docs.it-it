@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108100"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994112"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -33,7 +33,7 @@ Nella portale di Azure, nella pagina **Panoramica** dell'account verranno visual
 
 Per visualizzare tutte le metriche dell'account batch nel portale di Azure:
 
-1. Nella portale di Azure selezionare tutti i **Servizi**  >  **account batch**e quindi selezionare il nome dell'account batch.
+1. Nella portale di Azure selezionare tutti i **Servizi**  >  **account batch** e quindi selezionare il nome dell'account batch.
 2. In **Monitoraggio** selezionare **Metrica**.
 3. Selezionare **Aggiungi metrica** , quindi scegliere una metrica dall'elenco a discesa.
 4. Selezionare un'opzione di **aggregazione** per la metrica. Per le metriche basate su conteggi (ad esempio "conteggio dei core dedicati" o "numero di nodi con priorità bassa"), usare l'aggregazione **media** . Per le metriche basate su eventi, ad esempio "eventi di completamento ridimensionamento pool", usare l'aggregazione **count**.
@@ -62,8 +62,8 @@ Ad esempio, è possibile configurare un avviso sulle metriche quando il numero d
 Per configurare un avviso per la metrica nel portale di Azure:
 
 1. Selezionare **Tutti i servizi** > **Account Batch** e quindi selezionare il nome dell'account Batch.
-2. In **monitoraggio**selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
-3. Fare clic su **Seleziona condizione**, quindi scegliere una metrica. Confermare i valori per **periodo del grafico**, **tipo di soglia**, **operatore**e tipo di **aggregazione**e immettere un **valore soglia**. Al termine selezionare **Done** (Fine).
+2. In **monitoraggio** selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
+3. Fare clic su **Seleziona condizione**, quindi scegliere una metrica. Confermare i valori per **periodo del grafico**, **tipo di soglia**, **operatore** e tipo di **aggregazione** e immettere un **valore soglia**. Al termine selezionare **Done** (Fine).
 4. Aggiungere un gruppo di azioni per l'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
 5. Nella sezione **Dettagli regola di avviso** immettere un nome e una **Descrizione** della **regola di avviso** e selezionare il livello di **gravità**
 6. Selezionare **Crea regola di avviso**.
@@ -97,12 +97,12 @@ In alternativa, è possibile:
 
 Per creare una nuova impostazione di diagnostica nella portale di Azure, attenersi alla procedura riportata di seguito.
 
-1. Nella portale di Azure selezionare tutti i **Servizi**  >  **account batch**e quindi selezionare il nome dell'account batch.
+1. Nella portale di Azure selezionare tutti i **Servizi**  >  **account batch** e quindi selezionare il nome dell'account batch.
 2. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
-3. In **impostazioni di diagnostica**selezionare **Aggiungi impostazione di diagnostica**.
+3. In **impostazioni di diagnostica** selezionare **Aggiungi impostazione di diagnostica**.
 4. Immettere un nome per l'impostazione.
-5. Selezionare una destinazione: **inviare a log Analytics**, **archiviare in un account di archiviazione**o **trasmettere a un hub eventi**. Se si seleziona un account di archiviazione, è possibile impostare facoltativamente un criterio di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
-6. Selezionare **ServiceLog**, **AllMetrics**o entrambi.
+5. Selezionare una destinazione: **inviare a log Analytics**, **archiviare in un account di archiviazione** o **trasmettere a un hub eventi**. Se si seleziona un account di archiviazione, è possibile impostare facoltativamente un criterio di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
+6. Selezionare **ServiceLog**, **AllMetrics** o entrambi.
 7. Selezionare **Save (Salva** ) per creare l'impostazione di diagnostica.
 
 È anche possibile [abilitare la raccolta tramite monitoraggio di Azure nel portale di Azure](../azure-monitor/platform/diagnostic-settings.md) per configurare le impostazioni di diagnostica, usando un [modello di Gestione risorse](../azure-monitor/samples/resource-manager-diagnostic-settings.md)o con Azure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Panoramica dei log della piattaforma Azure](../azure-monitor/platform/platform-logs-overview.md).
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Esempio:
+Ad esempio:
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/

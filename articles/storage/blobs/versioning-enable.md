@@ -10,12 +10,12 @@ ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64ab86836989030c36ad2e8ad054c364b382af0b
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248017"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993746"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Abilitare e gestire il controllo delle versioni dei BLOB
 
@@ -90,4 +90,4 @@ L'esempio di codice seguente mostra come elencare la versione dei BLOB con la li
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Controllo delle versioni dei BLOB](versioning-overview.md)
-- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](soft-delete-overview.md)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](./soft-delete-blob-overview.md)

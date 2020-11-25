@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235809"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993993"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -74,9 +74,9 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 7. Definire una clausola selezionando un'origine **Nome attributo**, un **Operatore** e un **Valore dell'attributo** da confrontare. Sono supportati gli operatori seguenti:
 
-   a. **È uguale**a. La clausola restituisce "true" se l'attributo valutato corrisponde esattamente al valore della stringa di input (con distinzione tra maiuscole e minuscole).
+   a. **È uguale** a. La clausola restituisce "true" se l'attributo valutato corrisponde esattamente al valore della stringa di input (con distinzione tra maiuscole e minuscole).
 
-   b. **è**diverso da. La clausola restituisce "true" se l'attributo valutato non corrisponde al valore della stringa di input (con distinzione tra maiuscole e minuscole).
+   b. **è** diverso da. La clausola restituisce "true" se l'attributo valutato non corrisponde al valore della stringa di input (con distinzione tra maiuscole e minuscole).
 
    c. **IS TRUE** (È VERO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano true.
 

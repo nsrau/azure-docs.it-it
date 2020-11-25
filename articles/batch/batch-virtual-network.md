@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86142761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993423"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -35,7 +35,7 @@ Per consentire ai nodi di calcolo di comunicare in modo sicuro con altre macchin
 
 ## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Creare un pool con un VNet nel portale di Azure
 
-Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un pool di Batch con tale rete. Seguire questa procedura per creare un pool dal portale di Azure: 
+Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un pool di Batch con tale rete. Seguire questa procedura per creare un pool dal portale di Azure: 
 
 1. Passare all'account Batch nel portale di Azure. Questo account deve trovarsi nella stessa area e nella stessa sottoscrizione del gruppo di risorse contenente la rete virtuale che si desidera usare.
 2. Nella finestra **Impostazioni** a sinistra scegliere la voce di menu **Pool**.
@@ -66,5 +66,5 @@ Quando si aggiunge una UDR, definire la route per ogni prefisso dell'indirizzo I
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md) come pool, nodi, processi e attività.
 - Informazioni su come [creare una route definita dall'utente nel portale di Azure](../virtual-network/tutorial-create-route-table-portal.md).

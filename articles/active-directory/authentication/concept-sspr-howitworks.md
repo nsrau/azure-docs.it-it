@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994265"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -182,7 +182,7 @@ Si consideri lo scenario di esempio seguente:
 
 * nell'ambiente sono presenti quattro amministratori.
 * L'amministratore *A* Reimposta la password usando sspr.
-* Gli amministratori *B*, *C*e *D* ricevono un messaggio di posta elettronica per avvisarli della reimpostazione della password.
+* Gli amministratori *B*, *C* e *D* ricevono un messaggio di posta elettronica per avvisarli della reimpostazione della password.
 
 ## <a name="on-premises-integration"></a>Integrazione locale
 

@@ -12,11 +12,11 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994044"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integrazione dell'app Twilio Verify con Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ I componenti seguenti costituiscono la soluzione Twilio:
 
 6. Trovare il profilo tecnico dell'API REST di Twilio **personalizzato-SMS-registra**. Aggiornare  `ServiceURL`   con il AccountSid Twilio e il numero da al numero di telefono acquistato.
 
-7. Trovare i profili tecnici dell'API REST di Twilio, **TwilioRestAPI-Verify-Step1**   e **TwilioRestAPI-Verify-2**e aggiornare  `ServiceURL`   con il Twilio AccountSid.
+7. Trovare i profili tecnici dell'API REST di Twilio, **TwilioRestAPI-Verify-Step1**   e **TwilioRestAPI-Verify-2** e aggiornare  `ServiceURL`   con il Twilio AccountSid.
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Integrazione con Azure AD B2C
 
@@ -102,11 +102,11 @@ Aggiungere i file dei criteri a Azure AD B2C:
 
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 
-4. Passare a **Azure ad B2C**le chiavi dei criteri del Framework dell'esperienza di  >  **identità**  >  **Policy Keys**.
+4. Passare a **Azure ad B2C** le chiavi dei criteri del Framework dell'esperienza di  >  **identità**  >  **Policy Keys**.
 
-5. Aggiungere una nuova chiave con il nome **B2cRestTwilioClientId**. Selezionare **manuale**e specificare il valore di Twilio AccountSid.
+5. Aggiungere una nuova chiave con il nome **B2cRestTwilioClientId**. Selezionare **manuale** e specificare il valore di Twilio AccountSid.
 
-6. Aggiungere una nuova chiave con il nome **B2cRestTwilioClientSecret**. Selezionare **manuale**e specificare il valore del token di autenticazione Twilio.
+6. Aggiungere una nuova chiave con il nome **B2cRestTwilioClientSecret**. Selezionare **manuale** e specificare il valore del token di autenticazione Twilio.
 
 7. Caricare tutti i file di criteri nel tenant.
 

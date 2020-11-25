@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116232"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994358"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -247,7 +247,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed esaminare la risposta per eseguire il debug del criterio. Costruire una chiamata come nell'esempio con le informazioni seguenti come corpo della richiesta POST:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Sostituire `<tenant-name>` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
@@ -269,7 +269,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 La richiesta POST effettiva è simile all'esempio seguente:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Una risposta con esito positivo con l'accesso offline è simile all'esempio segu
 
 Costruire una chiamata POST come l'esempio seguente. Usare le informazioni riportate nella tabella seguente come corpo della richiesta:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Sostituire `<tenant-name>` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
