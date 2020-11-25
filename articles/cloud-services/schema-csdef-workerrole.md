@@ -14,11 +14,11 @@ caps.latest.revision: 55
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534372"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005164"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schema WorkerRole di definizione di Servizi cloud di Azure
 Il ruolo di lavoro di Azure è un ruolo utile per lo sviluppo generalizzato e può eseguire l'elaborazione in background per un ruolo Web.
@@ -152,7 +152,7 @@ La tabella seguente descrive gli attributi dell'elemento `WorkerRole`.
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
 |name|string|Obbligatorio. Nome del ruolo di lavoro. Il nome del ruolo deve essere univoco.|
-|enableNativeCodeExecution|boolean|Facoltativa. Il valore predefinito è `true`. L'esecuzione del codice nativo e l'attendibilità totale sono abilitate per impostazione predefinita. Impostare questo attributo su `false` per disabilitare l'esecuzione del codice nativo per il ruolo di lavoro e usare invece l'attendibilità parziale di Azure.|
+|enableNativeCodeExecution|boolean|facoltativo. Il valore predefinito è `true`. L'esecuzione del codice nativo e l'attendibilità totale sono abilitate per impostazione predefinita. Impostare questo attributo su `false` per disabilitare l'esecuzione del codice nativo per il ruolo di lavoro e usare invece l'attendibilità parziale di Azure.|
 |vmsize|string|Facoltativa. Impostare questo valore per modificare le dimensioni della macchina virtuale assegnata a questo ruolo. Il valore predefinito è `Small`. Per un elenco delle possibili dimensioni delle macchine virtuali e dei relativi attributi, vedere [Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).|
 
 ##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings
@@ -183,8 +183,8 @@ La tabella seguente descrive gli attributi dell'elemento `LocalStorage`.
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
 |name|string|Obbligatorio. Nome univoco per l'archivio locale.|
-|cleanOnRoleRecycle|boolean|Facoltativa. Indica se l'archivio locale deve essere pulito quando il ruolo viene riavviato. Il valore predefinito è `true`.|
-|sizeInMb|int|Facoltativa. Quantità desiderata di spazio di archiviazione da allocare per l'archivio locale, in MB. Se non specificato, lo spazio di archiviazione predefinito allocato è 100 MB. La quantità minima di spazio di archiviazione che può essere allocato è 1 MB.<br /><br /> Le dimensioni massime delle risorse locali dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).|
+|cleanOnRoleRecycle|boolean|facoltativo. Indica se l'archivio locale deve essere pulito quando il ruolo viene riavviato. Il valore predefinito è `true`.|
+|sizeInMb|INT|facoltativo. Quantità desiderata di spazio di archiviazione da allocare per l'archivio locale, in MB. Se non specificato, lo spazio di archiviazione predefinito allocato è 100 MB. La quantità minima di spazio di archiviazione che può essere allocato è 1 MB.<br /><br /> Le dimensioni massime delle risorse locali dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).|
 
 Il nome della directory allocata alla risorsa di archiviazione locale corrisponde al valore specificato per l'attributo name.
 
@@ -209,8 +209,8 @@ La tabella seguente descrive gli attributi dell'elemento `InputEndpoint`.
 |protocol|string|Obbligatorio. Protocollo di trasporto per l'endpoint esterno. Per un ruolo di lavoro, i possibili valori sono `HTTP`, `HTTPS`, `UDP` o `TCP`.|
 |port|INT|Obbligatorio. Porta per l'endpoint esterno. È possibile specificare qualsiasi numero di porta scelto, ma i numeri di porta specificati per ogni ruolo nel servizio devono essere univoci.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 |certificato|string|Obbligatorio per un endpoint HTTPS. Nome di un certificato definito da un elemento `Certificate`.|
-|localPort|int|Facoltativa. Specifica una porta usata per le connessioni interne nell'endpoint. L'attributo `localPort` esegue il mapping della porta esterna nell'endpoint a una porta interna in un ruolo. È utile negli scenari in cui un ruolo deve comunicare con un componente interno su una porta diversa da quella esposta esternamente.<br /><br /> Se non specificato, il valore di `localPort` è lo stesso dell'attributo `port`. Impostare il valore di `localPort` su "*" per assegnare automaticamente una porta non allocata individuabile usando l'API di runtime.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `localPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|
-|ignoreRoleInstanceStatus|boolean|Facoltativa. Quando il valore di questo attributo è impostato su `true`, lo stato di un servizio viene ignorato e l'endpoint non verrà rimosso dal servizio di bilanciamento del carico. Impostare questo valore su `true` è utile per il eseguire il debug delle istanze occupate di un servizio. Il valore predefinito è `false`. **Nota:** un endpoint può continuare a ricevere traffico anche quando il ruolo non è pronto.|
+|localPort|INT|facoltativo. Specifica una porta usata per le connessioni interne nell'endpoint. L'attributo `localPort` esegue il mapping della porta esterna nell'endpoint a una porta interna in un ruolo. È utile negli scenari in cui un ruolo deve comunicare con un componente interno su una porta diversa da quella esposta esternamente.<br /><br /> Se non specificato, il valore di `localPort` è lo stesso dell'attributo `port`. Impostare il valore di `localPort` su "*" per assegnare automaticamente una porta non allocata individuabile usando l'API di runtime.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `localPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|
+|ignoreRoleInstanceStatus|boolean|facoltativo. Quando il valore di questo attributo è impostato su `true`, lo stato di un servizio viene ignorato e l'endpoint non verrà rimosso dal servizio di bilanciamento del carico. Impostare questo valore su `true` è utile per il eseguire il debug delle istanze occupate di un servizio. Il valore predefinito è `false`. **Nota:** un endpoint può continuare a ricevere traffico anche quando il ruolo non è pronto.|
 |loadBalancerProbe|string|Facoltativa. Nome del probe di bilanciamento del carico associato all'endpoint di input. Per altre informazioni, vedere [Schema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|
 
 ##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a> InternalEndpoint
@@ -222,7 +222,7 @@ La tabella seguente descrive gli attributi dell'elemento `InternalEndpoint`.
 | --------- | ---- | ----------- |
 |name|string|Obbligatorio. Nome univoco per l'endpoint interno.|
 |protocol|string|Obbligatorio. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `HTTP`, `TCP`, `UDP` o `ANY`.<br /><br /> Il valore `ANY` specifica che sono consentiti tutti i protocolli e tutte le porte.|
-|port|INT|Facoltativa. Porta usata per le connessioni interne con bilanciamento del carico nell'endpoint. Un endpoint con bilanciamento del carico usa due porte. la porta usata per l'indirizzo IP pubblico e la porta usata per l'indirizzo IP privato, che in genere sono impostate sullo stesso valore, ma è possibile scegliere di usare porte diverse.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `Port` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|
+|port|INT|facoltativo. Porta usata per le connessioni interne con bilanciamento del carico nell'endpoint. Un endpoint con bilanciamento del carico usa due porte. la porta usata per l'indirizzo IP pubblico e la porta usata per l'indirizzo IP privato, che in genere sono impostate sullo stesso valore, ma è possibile scegliere di usare porte diverse.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `Port` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|
 
 ##  <a name="instanceinputendpoint"></a><a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
 L'elemento `InstanceInputEndpoint` descrive un endpoint di input dell'istanza per un ruolo di lavoro. Un endpoint di input dell'istanza viene associato a un'istanza del ruolo specifica usando il port forwarding nel servizio di bilanciamento del carico. Per ogni endpoint di input dell'istanza viene eseguito il mapping a una porta specifica compresa in un intervallo di porte possibili. Questo è l'elemento padre dell'elemento `AllocatePublicPortFrom`.
@@ -234,7 +234,7 @@ La tabella seguente descrive gli attributi dell'elemento `InstanceInputEndpoint`
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
 |name|string|Obbligatorio. Nome univoco per l'endpoint.|
-|localPort|int|Obbligatorio. Specifica la porta interna su cui tutte le istanze del ruolo saranno in ascolto per ricevere il traffico in ingresso inoltrato dal servizio di bilanciamento del carico. I possibili valori sono compresi tra 1 e 65535 inclusi.|
+|localPort|INT|Obbligatorio. Specifica la porta interna su cui tutte le istanze del ruolo saranno in ascolto per ricevere il traffico in ingresso inoltrato dal servizio di bilanciamento del carico. I possibili valori sono compresi tra 1 e 65535 inclusi.|
 |protocol|string|Obbligatorio. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `udp` o `tcp`. Usare `tcp` per il traffico basato su http/https.|
 
 ##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
@@ -265,7 +265,7 @@ La tabella seguente descrive gli attributi dell'elemento `FixedPortRange`.
 
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
-|Min|int|Obbligatorio. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
+|min|INT|Obbligatorio. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 |max|string|Obbligatorio. Numero di porta massimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|
 
 ##  <a name="certificates"></a><a name="Certificates"></a> Certificati
@@ -349,7 +349,7 @@ La tabella seguente descrive gli attributi dell'elemento `NetFxEntryPoint`.
 
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
-|assemblyName|string|Obbligatorio. Percorso e nome file dell'assembly contenente il punto di ingresso. Il percorso è relativo alla cartella ** \\ %ROLEROOT%\Approot** (non specificare ** \\ %ROLEROOT%\Approot** in `commandLine` , si presuppone). **%ROLEROOT%** è una variabile di ambiente gestita da Azure e rappresenta la posizione della cartella radice per il ruolo. La cartella ** \\ %ROLEROOT%\Approot** rappresenta la cartella dell'applicazione per il ruolo.|
+|assemblyName|string|Obbligatorio. Percorso e nome file dell'assembly contenente il punto di ingresso. Il percorso è relativo alla cartella **\\ %ROLEROOT%\Approot** (non specificare **\\ %ROLEROOT%\Approot** in `commandLine` , si presuppone). **%ROLEROOT%** è una variabile di ambiente gestita da Azure e rappresenta la posizione della cartella radice per il ruolo. La cartella **\\ %ROLEROOT%\Approot** rappresenta la cartella dell'applicazione per il ruolo.|
 |targetFrameworkVersion|string|Obbligatorio. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio: `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a> ProgramEntryPoint
@@ -372,7 +372,7 @@ La tabella seguente descrive l'attributo dell'elemento `Startup`.
 
 | Attributo | Type | Descrizione |
 | --------- | ---- | ----------- |
-|priority|int|Solo per uso interno.|
+|priority|INT|Solo per uso interno.|
 
 ##  <a name="task"></a><a name="Task"></a> Attività
 L'elemento `Task` specifica l'attività di avvio eseguita quando il ruolo viene avviato. Le attività di avvio possono essere usate per eseguire attività che preparano il ruolo a eseguire tali componenti software di installazione o altre applicazioni. Le attività vengono eseguite nell'ordine in cui sono visualizzate nel blocco dell'elemento `Startup`.

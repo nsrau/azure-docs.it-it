@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005028"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gestire un database di Azure per il server MariaDB usando il portale di Azure
 Questo articolo illustra come gestire il database di Azure per i server MariaDB. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
@@ -30,9 +30,9 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 È possibile eseguire la scalabilità da per utilizzo generico a con ottimizzazione per la memoria e viceversa. La modifica da e verso il livello Basic dopo la creazione del server non è supportata. 
 
-1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario** , che si trova nella sezione **Impostazioni** .
+1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario**, che si trova nella sezione **Impostazioni** .
 
-2. Selezionare **per utilizzo generico** o con ottimizzazione per la **memoria** , a seconda di ciò che si sta ridimensionando. 
+2. Selezionare **per utilizzo generico** o con ottimizzazione per la **memoria**, a seconda di ciò che si sta ridimensionando. 
 
     ![Screenshot mostra i portale di Azure con il piano tariffario selezionato e il valore di ottimizzato per la memoria selezionato.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
@@ -44,7 +44,7 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 ### <a name="scale-vcores-up-or-down"></a>Ridimensionare vcore
 
-1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario** , che si trova nella sezione **Impostazioni** .
+1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario**, che si trova nella sezione **Impostazioni** .
 
 2. Modificare l'impostazione di **vCore** spostando il dispositivo di scorrimento sul valore desiderato.
 
@@ -58,7 +58,7 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 ### <a name="scale-storage-up"></a>Ridimensionare l'archiviazione
 
-1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario** , che si trova nella sezione **Impostazioni** .
+1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario**, che si trova nella sezione **Impostazioni** .
 
 2. Modificare l'impostazione di **archiviazione** spostando il dispositivo di scorrimento fino al valore desiderato.
 

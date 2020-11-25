@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
 ms.openlocfilehash: cee9544dbc2deecafa67d73d3bdea804937c1d7a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356298"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005113"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Esercitazione: Configurare Atlassian Cloud per il provisioning utenti automatico
 

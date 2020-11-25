@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004943"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
 L'endpoint di servizio della rete virtuale (VNet) offre connettività sicura e diretta ai servizi di Azure tramite un percorso ottimizzato tramite la rete backbone di Azure. Gli endpoint consentono di associare le risorse critiche dei servizi di Azure solo alle proprie reti virtuali. Gli endpoint di servizio consentono agli indirizzi IP privati in VNet di raggiungere l'endpoint di un servizio di Azure senza la necessità di un indirizzo IP pubblico nella VNet.
 
-Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *Microsoft. \* * Resource è racchiuso tra parentesi. Abilitare questa risorsa dal lato subnet durante la configurazione degli endpoint di servizio per il servizio:
+Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *Microsoft. \** Resource è racchiuso tra parentesi. Abilitare questa risorsa dal lato subnet durante la configurazione degli endpoint di servizio per il servizio:
 
 **Disponibile a livello generale**
 
@@ -52,7 +52,7 @@ Per le notifiche più aggiornate, vedere la pagina [aggiornamenti della rete vir
 
 Gli endpoint di servizio offrono i vantaggi seguenti:
 
-- **Sicurezza migliorata per le risorse dei servizi di Azure: gli spazi degli**indirizzi privati VNet possono sovrapporsi. Non è possibile usare spazi sovrapposti per identificare in modo univoco il traffico originato dal VNet. Gli endpoint di servizio offrono la possibilità di proteggere le risorse dei servizi di Azure nella rete virtuale estendendo l'identità VNet al servizio. Una volta abilitati gli endpoint di servizio nella rete virtuale, è possibile aggiungere una regola della rete virtuale per proteggere le risorse dei servizi di Azure nella rete virtuale. L'aggiunta della regola offre una maggiore sicurezza rimuovendo completamente l'accesso Internet pubblico alle risorse e consentendo il traffico solo dalla rete virtuale.
+- **Sicurezza migliorata per le risorse dei servizi di Azure: gli spazi degli** indirizzi privati VNet possono sovrapporsi. Non è possibile usare spazi sovrapposti per identificare in modo univoco il traffico originato dal VNet. Gli endpoint di servizio offrono la possibilità di proteggere le risorse dei servizi di Azure nella rete virtuale estendendo l'identità VNet al servizio. Una volta abilitati gli endpoint di servizio nella rete virtuale, è possibile aggiungere una regola della rete virtuale per proteggere le risorse dei servizi di Azure nella rete virtuale. L'aggiunta della regola offre una maggiore sicurezza rimuovendo completamente l'accesso Internet pubblico alle risorse e consentendo il traffico solo dalla rete virtuale.
 - **Routing ottimale per il traffico del servizio di Azure dalla rete virtuale**: attualmente, le route nella rete virtuale che forzano il traffico Internet verso le appliance locali e/o virtuali forzano anche il traffico del servizio di Azure ad adottare la stessa route del traffico Internet. Gli endpoint di servizio forniscono il routing ottimale per il traffico di Azure. 
 
   Gli endpoint instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Mantenendo il traffico nella rete backbone di Azure è possibile continuare a monitorare e verificare il traffico Internet in uscita dalle reti virtuali, tramite il tunneling forzato, senza conseguenze per il traffico del servizio. Per altre informazioni sulle route definite dall'utente e sul tunneling forzato, vedere [routing del traffico di rete virtuale di Azure](virtual-networks-udr-overview.md).
@@ -77,7 +77,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
   Per impostazione predefinita, le risorse del servizio di Azure protette per le reti virtuali non sono raggiungibili da reti locali. Se si vuole consentire il traffico dall'ambiente locale, è necessario autorizzare anche gli indirizzi IP pubblici (generalmente NAT) dall'ambiente locale o da ExpressRoute. È possibile aggiungere questi indirizzi IP tramite la configurazione del firewall IP per le risorse dei servizi di Azure.
 
-  ExpressRoute: se si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il peering pubblico o il peering Microsoft dalla propria sede, è necessario identificare gli indirizzi IP NAT che si sta usando. Per il peering pubblico, ogni circuito ExpressRoute usa due indirizzi IP NAT, per impostazione predefinita, applicato al traffico del servizio di Azure quando il traffico entra nel backbone di rete Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT sono forniti dal cliente o forniti dal provider di servizi.Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse.Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Per altre informazioni su NAT per il peering pubblico e Microsoft ExpressRoute, vedere [requisiti NAT di ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: se si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il peering pubblico o il peering Microsoft dalla propria sede, è necessario identificare gli indirizzi IP NAT che si sta usando. Per il peering pubblico, ogni circuito ExpressRoute usa due indirizzi IP NAT, per impostazione predefinita, applicato al traffico del servizio di Azure quando il traffico entra nel backbone di rete Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT sono forniti dal cliente o forniti dal provider di servizi. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Per altre informazioni su NAT per il peering pubblico e Microsoft ExpressRoute, vedere [requisiti NAT di ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Associazione di servizi di Azure a reti virtuali](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 

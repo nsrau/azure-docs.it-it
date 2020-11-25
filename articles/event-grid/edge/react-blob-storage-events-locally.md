@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87462021"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005062"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Esercitazione: rispondere agli eventi di archiviazione BLOB in IoT Edge (anteprima)
 Questo articolo illustra come distribuire il servizio di archiviazione BLOB di Azure nel modulo Internet, che fungerebbe da server di pubblicazione di griglia di eventi per inviare gli eventi durante la creazione e l'eliminazione di BLOB in griglia di eventi.  
@@ -344,9 +344,9 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | requestId | string | ID richiesta generato dal servizio per l'operazione dell'API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
 | eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
 | contentType | string | Il tipo di contenuto specificato per il BLOB. |
-| contentLength | numero intero | La dimensione del BLOB in byte. |
+| contentLength | integer | La dimensione del BLOB in byte. |
 | blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
-| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
+| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: *\<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\>*. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: *\<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\>*. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

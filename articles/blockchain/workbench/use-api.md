@@ -5,11 +5,11 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003067"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004841"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso dell'API REST di Azure blockchain Workbench Preview
 
@@ -24,7 +24,7 @@ L'API REST di Azure blockchain Workbench Preview fornisce a sviluppatori e Infor
 1. Scegliere il nome del gruppo di risorse blockchain Workbench distribuito.
 1. Selezionare l'intestazione di colonna **TIPO** per ordinare l'elenco in ordine alfabetico in base al tipo.
 1. Sono presenti due risorse di tipo **Servizio app**. Selezionare la risorsa di tipo **servizio app** *con* il suffisso "-API".
-1. Nella **Panoramica**del servizio app, copiare il valore dell' **URL** , che rappresenta l'URL dell'endpoint API per il Workbench blockchain distribuito.
+1. Nella **Panoramica** del servizio app, copiare il valore dell' **URL** , che rappresenta l'URL dell'endpoint API per il Workbench blockchain distribuito.
 
     ![URL dell'endpoint dell'API del servizio app](media/use-api/app-service-api.png)
 

@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220576"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005207"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Come creare un ambiente del servizio app (versione 1) 
 
@@ -36,7 +36,7 @@ L'ambiente del servizio app è un'opzione di servizio Premium del servizio app d
 Quando si sceglie una rete virtuale e si specifica una subnet, assicurarsi che le dimensioni siano sufficienti per supportare la crescita futura. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Creazione di un ambiente del servizio app (versione 1)
-Per creare un ambiente del servizio app (versione 1), è possibile cercare ***App Service Environment v1*** (Ambiente del servizio app - versione 1) in Azure Marketplace oppure passare a **Crea una risorsa** -> **Web e dispositivi mobili** -> **Ambiente del servizio app**. Per creare un ambiente del servizio app (versione 1):
+Per creare un ambiente del servizio app V1, è possibile eseguire una ricerca in Azure Marketplace per ***ambiente del servizio app V1** _ oppure passare a _ *Crea una risorsa**-> **Web e dispositivi mobili**  ->  **ambiente del servizio app**. Per creare un ambiente del servizio app (versione 1):
 
 1. Specificare il nome dell'ambiente del servizio app. Il nome specificato per l'ambiente del servizio app verrà usato per le app create nell'ambiente stesso. Se il nome dell'ambiente del servizio app è appsvcenvdemo, il nome del sottodominio sarà *appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome dell'ambiente del servizio app non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome. Se si usa un servizio di bilanciamento del carico interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio, ma viene dichiarato in modo esplicito durante la creazione dell'ambiente.
    

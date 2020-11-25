@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 05d260de726c62c130a58938c2a2c9fa2440a96d
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004722"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Eseguire il Deployment Planner per il ripristino di emergenza di VMware
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Port|(Facoltativo) Numero di porta per la connessione all'host vCenter/ESXi. La porta predefinita è 443.|
 |-Protocol| (Facoltativo) Specificare il protocollo 'http' o 'https' per la connessione a vCenter. Il protocollo predefinito è https.|
 | -StorageAccountName | (Facoltativo) Nome dell'account di archiviazione usato per determinare la velocità effettiva ottenibile per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per calcolare la velocità effettiva. L'account di archiviazione deve essere di tipo Utilizzo generico v1 (GPv1). |
-| -StorageAccountKey | (Facoltativo) Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > < *nome account di archiviazione* > > Impostazioni > Chiavi di accesso > Key1. |
+| -StorageAccountKey | (Facoltativo) Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > <*nome account di archiviazione*> > Impostazioni > Chiavi di accesso > Key1. |
 | -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US Government o Azure Cina 21Vianet. |
 
 
@@ -96,7 +96,7 @@ Durante la profilatura è possibile passare il nome e la chiave di un account di
 
 È possibile eseguire più istanze dello strumento per diversi set di VM. Assicurarsi che i nomi delle VM non siano ripetuti nei set di profilatura. Se, ad esempio, sono state profilate dieci VM (da VM1 a VM10) e dopo alcuni giorni si vogliono profilare altre cinque VM (da VM11 a VM15), è possibile eseguire lo strumento da un'altra console della riga di comando per il secondo set di VM (da VM11 a VM15). Verificare che le VM del secondo set non abbiano nomi uguali a quelli della prima istanza di profilatura oppure usare una directory di output diversa per la seconda esecuzione. Se vengono usate due istanze dello strumento per profilare le stesse VM usando la stessa directory di output, il report generato sarà errato.
 
-Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config* .
+Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -165,16 +165,16 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 |-Protocol|(Facoltativo) Specificare il protocollo 'http' o 'https' per la connessione a vCenter. Il protocollo predefinito è https.|
 | -DesiredRPO | (Facoltativo) Obiettivo del punto di ripristino desiderato, in minuti. Il valore predefinito è 15 minuti.|
 | -Bandwidth | Larghezza di banda in Mbps. Il parametro viene usato per calcolare il valore RPO ottenibile per la larghezza di banda specificata. |
-| -StartDate | (Facoltativo) Data e ora di inizio in MM-GG-AAAA:HH:MM, in formato 24 ore. *StartDate* deve essere specificato con *EndDate* . Quando StartDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
-| -EndDate | (Facoltativo) Data e ora di fine in MM-GG-AAAA:HH:MM, in formato 24 ore. *EndDate* deve essere specificato con *StartDate* . Quando EndDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
+| -StartDate | (Facoltativo) Data e ora di inizio in MM-GG-AAAA:HH:MM, in formato 24 ore. *StartDate* deve essere specificato con *EndDate*. Quando StartDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
+| -EndDate | (Facoltativo) Data e ora di fine in MM-GG-AAAA:HH:MM, in formato 24 ore. *EndDate* deve essere specificato con *StartDate*. Quando EndDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -GrowthFactor | (Facoltativo) Fattore di crescita, espresso come percentuale. Il valore predefinito è 30%. |
 | -UseManagedDisks | (Facoltativo) UseManagedDisks: Yes/No. Il valore predefinito è Yes. Il numero di macchine virtuali che possono essere inserite in un singolo account di archiviazione viene calcolato a seconda che il failover e il failover di test delle macchine virtuali vengano eseguiti su un disco gestito anziché su un disco non gestito. |
-|-SubscriptionId |(Facoltativo) GUID della sottoscrizione. Si noti che questo parametro è necessario per generare un report di stima dei costi con i prezzi più recenti in base alla sottoscrizione, all'offerta associata alla sottoscrizione e alla specifica area di destinazione di Azure nella **valuta indicata** .|
+|-SubscriptionId |(Facoltativo) GUID della sottoscrizione. Si noti che questo parametro è necessario per generare un report di stima dei costi con i prezzi più recenti in base alla sottoscrizione, all'offerta associata alla sottoscrizione e alla specifica area di destinazione di Azure nella **valuta indicata**.|
 |-TargetRegion|(Facoltativo) Area di Azure di destinazione per la replica. Azure ha costi diversi per ogni area, quindi usare questo parametro per generare report per la specifica area di destinazione di Azure.<br>Il valore predefinito è WestUS2 o l'ultima area di destinazione usata.<br>Vedere l'elenco delle [aree di destinazione supportate](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Facoltativo) Offerta associata alla sottoscrizione. Il valore predefinito è MS-AZR-0003P (pagamento in base al consumo).|
 |-Currency|(Facoltativo) Valuta usata per visualizzare il costo nel report generato. Il valore predefinito è Dollaro USA ($) o l'ultima valuta usata.<br>Vedere l'elenco delle [valute supportate](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config* .
+Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -269,7 +269,7 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 |-Virtualization|Specificare il tipo di virtualizzazione (VMware o Hyper-V).|
 | -Directory | (Facoltativo) UNC o percorso della directory locale in cui vengono archiviati i dati profilati, ovvero i file generati durante la profilatura. Questi dati sono necessari per la generazione di report. Se non viene specificato un nome di directory, viene usata la directory "ProfiledData". |
 | -StorageAccountName | Nome dell'account di archiviazione usato per determinare la larghezza di banda utilizzata per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per determinare la larghezza di banda utilizzata. L'account di archiviazione deve essere un account per utilizzo generico versione 1 (GPv1).|
-| -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > < *nome account di archiviazione* > > Impostazioni > Chiavi di accesso > Key1 oppure una chiave di accesso primaria per un account di archiviazione classico. |
+| -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > <*nome account di archiviazione*> > Impostazioni > Chiavi di accesso > Key1 oppure una chiave di accesso primaria per un account di archiviazione classico. |
 | -VMListFile | File contenente l'elenco di VM da profilare per calcolare la larghezza di banda utilizzata. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. I nomi delle VM specificati nel file devono corrispondere ai nomi nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US Government o Azure Cina 21Vianet. |
 

@@ -4,11 +4,11 @@ description: Informazioni su come usare i webhook per attivare eventi specifici 
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253395"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004484"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook di Registro Azure Container
 

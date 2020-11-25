@@ -10,11 +10,11 @@ ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004705"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Elenco di controllo di prestazioni e scalabilità di Archiviazione tabelle
 
@@ -273,10 +273,10 @@ Le transazioni batch sono note come transazioni dei gruppi di entità in Archivi
 
 #### <a name="upsert"></a>Upsert
 
-Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi di **Upsert** , entrambi più efficaci di una tradizionale operazione di **inserimento** e **aggiornamento** :  
+Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi di **Upsert**, entrambi più efficaci di una tradizionale operazione di **inserimento** e **aggiornamento**:  
 
-- **InsertOrMerge** : Usare questa operazione quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi del fatto che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
-- **InsertOrReplace** : Usare questa operazione quando si vuole caricare un'entità completamente nuova, ma non si è certi del fatto che l'entità esista già. Usare questa operazione se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
+- **InsertOrMerge**: Usare questa operazione quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi del fatto che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
+- **InsertOrReplace**: Usare questa operazione quando si vuole caricare un'entità completamente nuova, ma non si è certi del fatto che l'entità esista già. Usare questa operazione se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Archiviazione di serie di dati in una singola entità
 

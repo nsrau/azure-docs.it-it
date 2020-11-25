@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025834"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004874"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -81,6 +81,16 @@ Ogni fase di trasformazione include il tempo totale necessario per completare la
 
 Quando si seleziona un'icona di trasformazione del sink nella mappa, il pannello scorrevole a destra indicherà un ulteriore punto dati denominato "tempo di elaborazione post" nella parte inferiore. Questa è la quantità di tempo impiegato per l'esecuzione del processo nel cluster Spark *dopo che* i dati sono stati caricati, trasformati e scritti. Questa volta può includere la chiusura dei pool di connessioni, l'arresto del driver, l'eliminazione di file, l'Unione di file e così via. Quando si eseguono azioni nel flusso, ad esempio "spostare file" e "output in un singolo file", è probabile che venga visualizzato un aumento del valore del tempo di elaborazione successivo.
   
+## <a name="error-rows"></a>Righe di errore
+
+L'abilitazione della gestione delle righe con errori nel sink del flusso di dati verrà riflessa nell'output di monitoraggio. Quando si imposta il sink su "segnala esito positivo in caso di errore", l'output di monitoraggio visualizzerà il numero di righe con esito positivo e negativo quando si fa clic sul nodo monitoraggio sink.
+
+![Screenshot che mostra le righe di errore.](media/data-flow/error-row-2.png "Monitoraggio righe errori riuscito")
+
+Quando si seleziona "Segnala errore in caso di errore", lo stesso output verrà visualizzato solo nel testo di output di monitoraggio attività. Questo perché l'attività flusso di dati restituirà un errore per l'esecuzione e la visualizzazione di monitoraggio dettagliata non sarà disponibile.
+
+![Screenshot mostra le righe di errore nell'attività.](media/data-flow/error-rows-4.png "Errore di monitoraggio righe errore")
+
 ## <a name="monitor-icons"></a>Icona di monitoraggio
 
 Questa icona indica che i dati della trasformazione sono già stati memorizzati nella cache del cluster e di conseguenza le tempistiche e il percorso di esecuzione sono già stati presi in considerazione:

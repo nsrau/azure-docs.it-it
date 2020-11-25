@@ -15,11 +15,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38992c15c23216aa81cda566a333d8e45f90b17e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369846"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004688"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attivare i ruoli di Azure AD in PIM
 
@@ -48,7 +48,7 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
 1. Aprire **Azure ad Privileged Identity Management**. Per informazioni su come aggiungere il riquadro Privileged Identity Management al dashboard, vedere iniziare a [usare Privileged Identity Management](pim-getting-started.md).
 
-1. Selezionare **ruoli personali**e quindi selezionare **Azure ad ruoli** per visualizzare un elenco dei ruoli Azure ad idonei.
+1. Selezionare **ruoli personali** e quindi selezionare **Azure ad ruoli** per visualizzare un elenco dei ruoli Azure ad idonei.
 
     ![Pagina ruoli personali che mostra i ruoli che è possibile attivare](./media/pim-how-to-activate-role/my-roles.png)
 

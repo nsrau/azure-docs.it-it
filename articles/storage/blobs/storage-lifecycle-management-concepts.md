@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579312"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005283"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure
 
@@ -39,7 +39,7 @@ Si consideri uno scenario in cui i dati ottengono un accesso frequente durante l
 
 La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree di Azure per gli account per utilizzo generico V2 (GPv2), gli account di archiviazione BLOB, gli account di archiviazione BLOB in blocchi Premium e gli account di Azure Data Lake Storage Gen2. Nella portale di Azure è possibile aggiornare un account di per utilizzo generico esistente (utilizzo generico V1) a un account GPv2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
-La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il costo normale dell'operazione per le chiamate all'API del [livello BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . L'operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
+La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il costo normale dell'operazione per le chiamate all'API del [livello BLOB](/rest/api/storageservices/set-blob-tier) . L'operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Aggiungere o rimuovere un criterio
 
@@ -47,13 +47,13 @@ La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene add
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
+* [API REST](/rest/api/storagerp/managementpolicies)
 
 Un criterio può essere letto o scritto completamente. Gli aggiornamenti parziali non sono supportati. 
 
 > [!NOTE]
-> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste fornendo eccezioni per i servizi Microsoft attendibili. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste fornendo eccezioni per i servizi Microsoft attendibili. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](../common/storage-network-security.md#exceptions).
 
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.
 
@@ -74,7 +74,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Selezionare la scheda **visualizzazione elenco** .
 
-1. Selezionare **Aggiungi una regola** e assegnare un nome alla regola nel modulo **Dettagli** . È anche possibile impostare l' **ambito della regola** , il **tipo di BLOB** e i valori dei **sottotipi di BLOB** . Nell'esempio seguente viene impostato l'ambito per filtrare i BLOB. In questo modo viene aggiunta la scheda **set di filtri** .
+1. Selezionare **Aggiungi una regola** e assegnare un nome alla regola nel modulo **Dettagli** . È anche possibile impostare l' **ambito della regola**, il **tipo di BLOB** e i valori dei **sottotipi di BLOB** . Nell'esempio seguente viene impostato l'ambito per filtrare i BLOB. In questo modo viene aggiunta la scheda **set di filtri** .
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gestione del ciclo di vita aggiungere una pagina Dettagli regola in portale di Azure":::
 
@@ -215,7 +215,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 ---
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -247,10 +247,10 @@ Ogni regola all'interno del criterio presenta diversi parametri:
 
 | Nome parametro | Tipo di parametro | Note | Necessario |
 |----------------|----------------|-------|----------|
-| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | Vero |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | Vero |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | True |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
 
 ## <a name="rules"></a>Regole
 
@@ -322,7 +322,7 @@ I filtri includono:
 | blobIndexMatch | Matrice di valori del dizionario costituito da condizioni di chiave e valore del tag di indice BLOB da confrontare. Ogni regola può definire fino a 10 condizioni di tag di indice BLOB. Se ad esempio si desidera trovare la corrispondenza di tutti i BLOB con `Project = Contoso` in `https://myaccount.blob.core.windows.net/` per una regola, blobIndexMatch è `{"name": "Project","op": "==","value": "Contoso"}` . | Se non si definisce blobIndexMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione. | No |
 
 > [!NOTE]
-> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Canada centrale** , **Canada orientale** , **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
+> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Canada centrale**, **Canada orientale**, **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Azioni della regola
 
@@ -332,10 +332,10 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 | Azione                      | BLOB di base                                  | Snapshot      | Versione
 |-----------------------------|--------------------------------------------|---------------|---------------|
-| tierToCool                  | Supportato per `blockBlob`                  | Funzionalità supportata     | Funzionalità supportata     |
-| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportato | Non supportato |
-| tierToArchive               | Supportato per `blockBlob`                  | Funzionalità supportata     | Supportato     |
-| eliminare                      | Supportato per `blockBlob` e `appendBlob` | Funzionalità supportata     | Funzionalità supportata     |
+| tierToCool                  | Supportato per `blockBlob`                  | Supportato     | Supportato     |
+| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportate | Non supportate |
+| tierToArchive               | Supportato per `blockBlob`                  | Supportato     | Supportato     |
+| eliminare                      | Supportato per `blockBlob` e `appendBlob` | Supportato     | Supportato     |
 
 >[!NOTE]
 >Se nello stesso BLOB è stata definita più di un'azione, la gestione del ciclo di vita applica al BLOB l'azione meno costosa. Ad esempio, l'azione `delete` è meno costosa dell'azione `tierToArchive`. L'azione `tierToArchive` è meno costosa dell'azione `tierToCool`.
@@ -348,7 +348,7 @@ Le condizioni di esecuzione sono basate sull'età. I BLOB di base usano l'ora de
 | daysAfterCreationGreaterThan       | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni di versione BLOB e snapshot BLOB                         |
 | daysAfterLastAccessTimeGreaterThan | Valore intero che indica il tempo trascorso in giorni | anteprima Condizione per le azioni BLOB di base quando è abilitata l'ora dell'ultimo accesso |
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Gli esempi seguenti illustrano come affrontare scenari comuni relativi alle regole dei criteri del ciclo di vita.
 
@@ -450,7 +450,7 @@ Ogni ultimo aggiornamento del tempo di accesso è considerato un' [altra operazi
 Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati subito dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
 
 > [!NOTE] 
-> È consigliabile caricare i BLOB direttamente nel livello Archivio per essere più efficienti. È possibile usare l'intestazione x-MS-Access-Tier per [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con REST versione 2018-11-09 e più recente o le librerie client di archiviazione BLOB più recenti. 
+> È consigliabile caricare i BLOB direttamente nel livello Archivio per essere più efficienti. È possibile usare l'intestazione x-MS-Access-Tier per [PutBlob](/rest/api/storageservices/put-blob) o [PutBlockList](/rest/api/storageservices/put-block-list) con REST versione 2018-11-09 e più recente o le librerie client di archiviazione BLOB più recenti. 
 
 ```json
 {
@@ -592,7 +592,7 @@ Quando un BLOB viene spostato da un livello di accesso a un altro, l'ora dell'Ul
 
 Informazioni su come recuperare i dati dopo l'eliminazione accidentale:
 
-- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../blobs/storage-blob-soft-delete.md)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](./soft-delete-blob-overview.md)
 
 Informazioni su come gestire e trovare i dati con l'indice BLOB:
 

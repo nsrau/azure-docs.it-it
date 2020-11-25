@@ -2,13 +2,13 @@
 title: Funzioni di modello-numeric
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677917"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96004535"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funzioni numeriche per i modelli ARM
 
@@ -25,15 +25,17 @@ Gestione risorse fornisce le funzioni seguenti per l'utilizzo di numeri interi n
 * [mul](#mul)
 * [sub](#sub)
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="add"></a>add
 
 `add(operand1, operand2)`
 
-Restituisce la somma dei due numeri interi forniti.
+Restituisce la somma dei due numeri interi forniti. La `add` funzione non è supportata in bicipite. In `+` alternativa, usare l'operatore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 |operand1 |Sì |INT |Il primo numero da aggiungere. |
 |operand2 |Sì |INT |Il secondo numero da aggiungere. |
@@ -46,36 +48,49 @@ Un intero che contiene la somma dei parametri.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) seguente aggiunge due parametri.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 5,
-            "metadata": {
-                "description": "First integer to add"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Second integer to add"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 5,
+      "metadata": {
+        "description": "First integer to add"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "addResult": {
-            "type": "int",
-            "value": "[add(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to add"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "addResult": {
+      "type": "int",
+      "value": "[add(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 5
+param second int = 3
+
+output addResult int = first + second
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -91,7 +106,7 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |INT |Il numero da aggiungere al valore di iterazione in base zero. |
@@ -113,36 +128,45 @@ Per ulteriori informazioni sull'utilizzo di Copy, vedere:
 
 L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageCount": {
-            "type": "int",
-            "defaultValue": 2
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": "[parameters('storageCount')]"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": "[parameters('storageCount')]"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> Cicli e `copyIndex` non sono ancora implementati in bicipite.  Vedere [cicli](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+
+---
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -152,11 +176,11 @@ Un intero che rappresenta l'indice corrente dell'iterazione.
 
 `div(operand1, operand2)`
 
-Restituisce la divisione Integer dei due numeri interi forniti.
+Restituisce la divisione Integer dei due numeri interi forniti. La `div` funzione non è supportata in bicipite. In `/` alternativa, usare l'operatore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere. Non può essere 0. |
@@ -169,36 +193,49 @@ Un intero che rappresenta la divisione.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) seguente mostra come dividere un parametro per un altro parametro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 8,
-            "metadata": {
-                "description": "Integer being divided"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer used to divide"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 8,
+      "metadata": {
+        "description": "Integer being divided"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "divResult": {
-            "type": "int",
-            "value": "[div(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "divResult": {
+      "type": "int",
+      "value": "[div(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 8
+param second int = 3
+
+output addResult int = first / second
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -210,11 +247,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 `float(arg1)`
 
-Converte il valore in un numero a virgola mobile. Usare questa funzione solo quando si passano parametri personalizzati a un'applicazione, ad esempio un'app per la logica.
+Converte il valore in un numero a virgola mobile. Usare questa funzione solo quando si passano parametri personalizzati a un'applicazione, ad esempio un'app per la logica. La `float` funzione non è supportata in Becip.  Vedere [supportare tipi numerici diversi da numeri interi a 32 bit](https://github.com/Azure/bicep/issues/486).
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -226,19 +263,28 @@ Un numero a virgola mobile.
 
 L'esempio seguente illustra come usare float per passare parametri a un'app per la logica:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "type": "Microsoft.Logic/workflows",
-    "properties": {
-        ...
-        "parameters": {
-            "custom1": {
-                "value": "[float('3.0')]"
-            },
-            "custom2": {
-                "value": "[float(3)]"
-            },
+  "type": "Microsoft.Logic/workflows",
+  "properties": {
+    ...
+    "parameters": {
+      "custom1": {
+        "value": "[float('3.0')]"
+      },
+      "custom2": {
+        "value": "[float(3)]"
+      },
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> La `float` funzione non è supportata in bicipite.  Vedere [supportare tipi numerici diversi da numeri interi a 32 bit](https://github.com/Azure/bicep/issues/486).
+
+---
 
 ## <a name="int"></a>INT
 
@@ -248,7 +294,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o numero intero |Il valore da convertire in numero intero. |
 
@@ -260,26 +306,38 @@ Un intero del valore convertito.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) seguente converte il valore del parametro fornito dall'utente in intero.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToConvert": {
-            "type": "string",
-            "defaultValue": "4"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "intResult": {
-            "type": "int",
-            "value": "[int(parameters('stringToConvert'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "4"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "intResult": {
+      "type": "int",
+      "value": "[int(parameters('stringToConvert'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToConvert string = '4'
+
+output inResult int = int(stringToConvert)
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -295,7 +353,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -307,29 +365,48 @@ Un intero che rappresenta il valore massimo dalla raccolta.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) seguente mostra come usare la funzione max con una matrice e un elenco di numeri interi:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[max(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[max(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutPut int = max(arrayToTest)
+output intOutput int = max(0,3,2,5,4)
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -346,7 +423,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -358,29 +435,48 @@ un intero che rappresenta il valore minimo dalla raccolta.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) seguente mostra come usare la funzione min con una matrice e un elenco di numeri interi:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutPut int = min(arrayToTest)
+output intOutput int = min(0,3,2,5,4)
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -393,11 +489,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 `mod(operand1, operand2)`
 
-Restituisce la parte rimanente della divisione Integer usando i due numeri interi forniti.
+Restituisce la parte rimanente della divisione Integer usando i due numeri interi forniti. La `mod` funzione non è supportata in bicipite. In `%` alternativa, usare l'operatore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere, non può essere 0. |
@@ -410,36 +506,49 @@ Un intero che rappresenta il resto.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) seguente restituisce il resto della divisione di un parametro per un altro parametro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "Integer being divided"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer used to divide"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer being divided"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "modResult": {
-            "type": "int",
-            "value": "[mod(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "modResult": {
+      "type": "int",
+      "value": "[mod(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 7
+param second int = 3
+
+output modResult int = first % second
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -451,11 +560,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 `mul(operand1, operand2)`
 
-Restituisce la moltiplicazione dei due numeri interi forniti.
+Restituisce la moltiplicazione dei due numeri interi forniti. La `mul` funzione non è supportata in bicipite. In `*` alternativa, usare l'operatore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il primo numero da moltiplicare. |
 | operand2 |Sì |INT |Il secondo numero da moltiplicare. |
@@ -468,36 +577,49 @@ Un intero che rappresenta la moltiplicazione.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) seguente mostra come moltiplicare un parametro per un altro parametro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 5,
-            "metadata": {
-                "description": "First integer to multiply"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Second integer to multiply"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 5,
+      "metadata": {
+        "description": "First integer to multiply"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "mulResult": {
-            "type": "int",
-            "value": "[mul(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to multiply"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "mulResult": {
+      "type": "int",
+      "value": "[mul(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 5
+param second int = 3
+
+output mulResult int = first * second
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
@@ -509,11 +631,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 `sub(operand1, operand2)`
 
-Restituisce la sottrazione dei due numeri interi forniti.
+Restituisce la sottrazione dei due numeri interi forniti. La `sub` funzione non è supportata in bicipite. In `-` alternativa, usare l'operatore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da cui sottrarre. |
 | operand2 |Sì |INT |Il numero sottratto. |
@@ -526,36 +648,49 @@ Un intero che rappresenta la sottrazione.
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) seguente mostra come sottrarre un parametro da un altro parametro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "Integer subtracted from"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer to subtract"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer subtracted from"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "subResult": {
-            "type": "int",
-            "value": "[sub(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer to subtract"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "subResult": {
+      "type": "int",
+      "value": "[sub(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 7
+param second int = 3
+
+output subResult int = first - second
+```
+
+---
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 

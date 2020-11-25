@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668599"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004994"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Connettersi a Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
 
@@ -46,7 +46,7 @@ Da Data Object Explorer (Esplora oggetti dati) è possibile connettersi direttam
 
 1. Selezionare l'icona **+** accanto a **Data** (Dati).
 1. Selezionare **Connect to external data** (Connetti a dati esterni).
-1. Selezionare l'API a cui ci si vuole connettere, ad esempio l' **API SQL** o l' **API per MongoDB**.
+1. Selezionare l'API a cui ci si vuole connettere, ad esempio l'**API SQL** o l'**API per MongoDB**.
 1. Selezionare **Continua**.
 1. Assegnare un nome descrittivo al servizio collegato. Il nome verrà visualizzato in Data Object Explorer (Esplora oggetti dati) e verrà usato dai runtime di Azure Synapse per connettersi al database e ai contenitori.
 1. Selezionare il **nome dell'account Azure Cosmos DB** e il **nome del database**.
@@ -55,11 +55,11 @@ Da Data Object Explorer (Esplora oggetti dati) è possibile connettersi direttam
 
 I database Azure Cosmos DB sono visualizzati nella scheda **Collegato** nella sezione **Azure Cosmos DB**. Con Azure Cosmos DB è possibile distinguere un contenitore abilitato per HTAP da un contenitore solo OLTP tramite le icone seguenti:
 
-**Contenitore solo OLTP** :
+**Contenitore solo OLTP**:
 
 ![Visualizzazione che mostra l'icona del contenitore OLTP.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-**Contenitore abilitato per HTAP** :
+**Contenitore abilitato per HTAP**:
 
 ![Visualizzazione che mostra l'icona del contenitore HTAP.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 

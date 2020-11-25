@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708179"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004960"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creare, modificare o eliminare i criteri degli endpoint di servizio usando il portale di Azure
 
 I criteri degli endpoint di servizio consentono di filtrare il traffico della rete virtuale a specifiche risorse di Azure, tramite gli endpoint di servizio. Se non si ha familiarità con i criteri degli endpoint di servizio, vedere [Panoramica dei criteri degli endpoint di servizio](virtual-network-service-endpoint-policies-overview.md) per altre informazioni.
 
- In questa esercitazione verranno illustrate le procedure per:
+ In questa esercitazione viene illustrato come:
 
 > [!div class="checklist"]
 > * Creare un criterio di endpoint di servizio
@@ -99,7 +99,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 - Prima di poter associare un criterio a una subnet, è necessario creare una rete virtuale e una subnet. Per informazioni, vedere l'articolo [creare una rete virtuale](./quick-create-portal.md) .
 
-- Dopo aver configurato la rete virtuale e la subnet, è necessario configurare gli endpoint del servizio rete virtuale per archiviazione di Azure. Nel pannello rete virtuale selezionare **endpoint servizio**e nel riquadro successivo selezionare **Microsoft. storage** e in **subnet** selezionare la VNet o la subnet desiderata
+- Dopo aver configurato la rete virtuale e la subnet, è necessario configurare gli endpoint del servizio rete virtuale per archiviazione di Azure. Nel pannello rete virtuale selezionare **endpoint servizio** e nel riquadro successivo selezionare **Microsoft. storage** e in **subnet** selezionare la VNet o la subnet desiderata
 
 - A questo punto, è possibile scegliere di selezionare i criteri dell'endpoint di servizio dall'elenco a discesa nel riquadro precedente se sono già stati creati i criteri dell'endpoint di servizio prima di configurare l'endpoint di servizio per la subnet, come illustrato di seguito.
 

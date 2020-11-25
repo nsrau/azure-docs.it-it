@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326053"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004909"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -87,7 +87,7 @@ Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
 Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di destinazione nel gruppo di gestione e associare l'account a un profilo RunAs predefinito in modo che i flussi di lavoro vengano eseguiti usando le credenziali.  
 
 1. In **Run As Configuration** (Configurazione RunAs), **Account** fare doppio clic sull'account creato in precedenza nel riquadro dei risultati.
-2. Nella scheda **Distribuzione** fare clic su **Aggiungi**per la casella **Computer selezionati** e aggiungere il server di gestione in cui distribuire l'account.  Fare due volte clic su **OK** per salvare le modifiche.
+2. Nella scheda **Distribuzione** fare clic su **Aggiungi** per la casella **Computer selezionati** e aggiungere il server di gestione in cui distribuire l'account.  Fare due volte clic su **OK** per salvare le modifiche.
 3. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profili**.
 4. Cercare il profilo *SCOM Assessment*.
 5. Il nome del profilo deve essere: *Microsoft controllo integrità di System Center Operations Manager profilo RunAs*.

@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077082"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004297"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Avvio rapido: Usare la cache di Azure per Redis in .NET Core
 
@@ -76,13 +76,13 @@ Eseguire il comando seguente per ripristinare i pacchetti:
 dotnet restore
 ```
 
-Nella finestra di comando eseguire il comando seguente per archiviare un nuovo segreto denominato *CacheConnection* , dopo aver sostituito i segnaposto (incluse le parentesi angolari) per il nome della cache e la chiave di accesso primaria:
+Nella finestra di comando eseguire il comando seguente per archiviare un nuovo segreto denominato *CacheConnection*, dopo aver sostituito i segnaposto (incluse le parentesi angolari) per il nome della cache e la chiave di accesso primaria:
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
 ```
 
-Aggiungere l'istruzione `using` seguente al file *Program.cs* :
+Aggiungere l'istruzione `using` seguente al file *Program.cs*:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -107,7 +107,7 @@ private static void InitializeConfiguration()
 
 In questa sezione, si configurerà l'applicazione console per usare il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) per .NET.
 
-Nella finestra di comando eseguire il comando seguente nella directory del progetto *Redistest* :
+Nella finestra di comando eseguire il comando seguente nella directory del progetto *Redistest*:
 
 ```
 dotnet add package StackExchange.Redis
@@ -118,7 +118,7 @@ Una volta completata l'installazione, il client della cache *StackExchange.Redis
 
 ## <a name="connect-to-the-cache"></a>Connettersi alla cache
 
-Aggiungere l'istruzione `using` seguente al file *Program.cs* :
+Aggiungere l'istruzione `using` seguente al file *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -228,13 +228,13 @@ Eseguire il comando seguente per aggiungere il pacchetto *Newtonsoft.json* all'a
 dotnet add package Newtonsoft.json
 ```
 
-Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs* :
+Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Aggiungere la definizione di classe `Employee` seguente a *Program.cs* :
+Aggiungere la definizione di classe `Employee` seguente a *Program.cs*:
 
 ```csharp
 class Employee
