@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279262"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973423"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
 > [!NOTE]
@@ -94,7 +94,7 @@ Attività iniziali:
 * Aggiornare al livello Windows 2012 R2 lo schema della foresta in cui si trovano i dispositivi in modo che siano presenti l'oggetto dispositivo e gli attributi associati.
 * Se l'installazione guidata è già in esecuzione, non verranno rilevate tutte le modifiche. In questo caso, completare l'installazione guidata ed eseguirla nuovamente.
 * Assicurarsi che l'account specificato nello script di inizializzazione sia effettivamente l'utente corretto usato da Active Directory Connector. A questo scopo, seguire questa procedura:
-  * Avviare **Servizio di sincronizzazione**dal menu Start.
+  * Avviare **Servizio di sincronizzazione** dal menu Start.
   * Aprire la scheda **Connettori** .
   * Trovare il connettore con il tipo Servizi di dominio di Active Directory e selezionarlo.
   * In **Azioni** selezionare **Proprietà**.

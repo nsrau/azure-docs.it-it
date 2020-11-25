@@ -17,11 +17,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458033"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973219"
 ---
 # <a name="risky-ip-report-public-preview"></a>Report IP rischioso (anteprima pubblica)
 AD FS clienti possono esporre gli endpoint di autenticazione tramite password a Internet per fornire ai servizi di autenticazione per gli utenti finali l'accesso ad applicazioni SaaS, ad esempio Microsoft 365. In questo caso, un attore malintenzionato potrebbe eseguire tentativi di accesso nel sistema AD FS per indovinare la password di un utente finale e ottenere l'accesso alle risorse dell'applicazione. A partire da AD FS in Windows Server 2012 R2, AD FS offre la funzionalità di blocco account Extranet per impedire questi tipi di attacchi. Se si usa una versione precedente, è consigliabile eseguire l'aggiornamento del sistema AD FS a Windows Server 2016. <br />

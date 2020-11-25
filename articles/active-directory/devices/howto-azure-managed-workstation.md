@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365817"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974086"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuire una workstation protetta gestita da Azure
 
@@ -29,13 +29,13 @@ Selezionare un profilo prima di distribuire la soluzione. È possibile utilizzar
 > [!NOTE]
 > Applicare i profili in base alle esigenze. È possibile passare a un altro profilo assegnando il Microsoft Intune.
 
-| Profilo | Basso | Avanzato | Alto | Specializzata | Protetto | Isolato |
+| Profilo | Basso | Avanzato | Alta | Specializzata | Protetto | Isolato |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Utente in Azure AD | Sì | Sì | Sì | Sì | Sì | Sì |
 | Gestione di Intune | Sì | Sì | Sì | Sì | Sì | Sì |
 | Azure AD dispositivo registrato | Sì |  |  |  |  | |   |
 | Dispositivo-Azure AD aggiunto |   | Sì | Sì | Sì | Sì | Sì |
-| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato | ND |
+| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato | N/D |
 | L'hardware soddisfa gli standard di Windows 10 protetti |   | Sì | Sì | Sì | Sì | Sì |
 | Microsoft Defender ATP abilitato |   | Sì  | Sì | Sì | Sì | Sì |
 | Rimozione dei diritti di amministratore |   |   | Sì  | Sì | Sì | Sì |
@@ -65,13 +65,13 @@ Richiedere l'autenticazione a più fattori, almeno per gli amministratori. Veder
 
 1. Dalla portale di Azure individuare **Azure Active Directory**  >  **utenti**  >  **nuovo utente**.
 1. Creare l'amministratore del dispositivo attenendosi alla procedura descritta nell' [esercitazione creare un utente](/Intune/quickstart-create-user).
-1. Digitare:
+1. Immettere:
 
    * **Nome** : amministratore workstation sicuro
    * **Nome utente** - `secure-ws-admin@identityitpro.com`
    * **Ruolo**  -  della directory **Amministratore con limitazioni** e selezionare il ruolo di **amministratore di Intune** .
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 Si creeranno quindi due gruppi: utenti workstation e dispositivi workstation.
 
@@ -86,14 +86,14 @@ Dalla portale di Azure individuare **Azure Active Directory**  >  **gruppi**  > 
 
 1. Aggiungere l'utente amministratore della workstation protetta: `secure-ws-admin@identityitpro.com`
 1. È possibile aggiungere altri utenti che gestiranno le workstation protette.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Per il gruppo dispositivi workstation, immettere:
 
    * **Tipo di gruppo** -sicurezza
    * **Nome gruppo** -workstation sicure
    * **Tipo di appartenenza** : assegnato
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ### <a name="azure-ad-device-configuration"></a>Configurazione del dispositivo Azure AD
 
@@ -102,7 +102,7 @@ Dalla portale di Azure individuare **Azure Active Directory**  >  **gruppi**  > 
 Configurare l'impostazione dei dispositivi in Active Directory per consentire al gruppo di sicurezza amministrativo di aggiungere dispositivi al dominio. Per configurare questa impostazione dalla portale di Azure:
 
 1. Passare ad **Azure Active Directory** > **Dispositivi** > **Impostazioni dei dispositivi**.
-1. Scegliere **selezionato** in **utenti può aggiungere dispositivi a Azure ad**e quindi selezionare il gruppo "utenti workstation protetti".
+1. Scegliere **selezionato** in **utenti può aggiungere dispositivi a Azure ad** e quindi selezionare il gruppo "utenti workstation protetti".
 
 #### <a name="removal-of-local-admin-rights"></a>Rimozione dei diritti di amministratore locale
 
@@ -143,7 +143,7 @@ Per assicurarsi che i dispositivi siano completamente configurati prima dell'uso
 
 Dal **portale di Azure**:
 
-1. Passare a **Microsoft Intune**registrazione del dispositivo registrazione di  >  **Device enrollment**  >  **Windows**  >  **pagina stato**  >  **Default**  >  **Impostazioni**predefinite.
+1. Passare a **Microsoft Intune** registrazione del dispositivo registrazione di  >  **Device enrollment**  >  **Windows**  >  **pagina stato**  >  **Default**  >  **Impostazioni** predefinite.
 1. Impostare **Mostra stato installazione profilo applicazione** su **Sì**.
 1. Impostare l' **uso del dispositivo a blocchi finché tutte le app e i profili non vengono installati** su **Sì**.
 
@@ -154,7 +154,7 @@ Dopo aver creato un gruppo di dispositivi, è necessario creare un profilo di di
 In Intune nel portale di Azure:
 
 1. Selezionare **registrazione del dispositivo registrazione**  >  **Windows**  >  **profili di distribuzione**  >  **Crea profilo**.
-1. Digitare:
+1. Immettere:
 
    * Nome: **profilo di distribuzione della workstation sicuro**.
    * Descrizione: **distribuzione di workstation protette**.
@@ -171,7 +171,7 @@ In Intune nel portale di Azure:
    * Selezionare un tag di ambito se ne è stato preconfigurato uno.
 
 1. Selezionare **Avanti**.
-1. Scegliere **assegnazioni**  >  **assegna a**  >  **gruppi selezionati**. In **Seleziona gruppi da includere**scegliere **workstation sicure**.
+1. Scegliere **assegnazioni**  >  **assegna a**  >  **gruppi selezionati**. In **Seleziona gruppi da includere** scegliere **workstation sicure**.
 1. Selezionare **Avanti**.
 1. Selezionare **Crea** per creare il profilo. Il profilo di distribuzione di AutoPilot è ora disponibile per l'assegnazione ai dispositivi.
 
@@ -186,7 +186,7 @@ Questa guida consiglia di creare un nuovo anello di aggiornamento e modificare l
 Nel portale di Azure:
 
 1. Passare a **Microsoft Intune**  >  **aggiornamenti software**  >  **anelli di aggiornamento di Windows 10**.
-1. Digitare:
+1. Immettere:
 
    * Nome- **aggiornamenti della workstation gestita da Azure**
    * Canale di manutenzione- **Windows Insider-Fast**
@@ -200,7 +200,7 @@ Nel portale di Azure:
    * Promemoria riavvio attivato per Snooze (giorni)- **3**
    * Imposta la scadenza per i riavvii in sospeso (giorni)- **3**
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Nella scheda **assegnazioni** aggiungere il gruppo **workstation sicure** .
 
 Per ulteriori informazioni sui criteri di Windows Update, vedere [policy CSP-Update](/windows/client-management/mdm/policy-csp-update).
@@ -227,7 +227,7 @@ Per altre informazioni, vedere [Windows Defender Advanced Threat Protection](/Wi
 
 ### <a name="finish-workstation-profile-hardening"></a>Completa protezione avanzata profili workstation
 
-Per completare correttamente la protezione avanzata della soluzione, scaricare ed eseguire lo script appropriato. Trovare i collegamenti di download per il **livello di profilo**desiderato:
+Per completare correttamente la protezione avanzata della soluzione, scaricare ed eseguire lo script appropriato. Trovare i collegamenti di download per il **livello di profilo** desiderato:
 
 | Profilo | Percorso download | Nome file |
 | --- | --- | --- |
@@ -242,8 +242,8 @@ Per completare correttamente la protezione avanzata della soluzione, scaricare e
 
 Una volta eseguito correttamente lo script, è possibile effettuare aggiornamenti a profili e criteri in Intune. Gli script per i profili avanzati e protetti creano i criteri e i profili per l'utente, ma è necessario assegnare il criterio al gruppo di dispositivi per le **workstation sicure** .
 
-* Qui è possibile trovare i profili di configurazione dei dispositivi di Intune creati dagli script: **portale di Azure**  >  **Microsoft Intune**i profili di  >  **configurazione del dispositivo**  >  **Profiles**.
-* Qui è possibile trovare i criteri di conformità dei dispositivi di Intune creati dagli script: **portale di Azure**  >  **Microsoft Intune**i criteri di  >  **conformità dei dispositivi**  >  **Policies**.
+* Qui è possibile trovare i profili di configurazione dei dispositivi di Intune creati dagli script: **portale di Azure**  >  **Microsoft Intune** i profili di  >  **configurazione del dispositivo**  >  **Profiles**.
+* Qui è possibile trovare i criteri di conformità dei dispositivi di Intune creati dagli script: **portale di Azure**  >  **Microsoft Intune** i criteri di  >  **conformità dei dispositivi**  >  **Policies**.
 
 Per esaminare le modifiche apportate dagli script, è possibile esportare i profili. In questo modo è possibile determinare ulteriori finalizzazione che potrebbero essere richieste come indicato nella documentazione di [Seccon](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
@@ -251,7 +251,7 @@ Eseguire lo script di esportazione dei dati `DeviceConfiguration_Export.ps1` di 
 
 ## <a name="additional-configurations-and-hardening-to-consider"></a>Configurazioni aggiuntive e protezione avanzata da considerare
 
-Seguendo le istruzioni riportate in questo articolo, è stata distribuita una workstation protetta. È tuttavia necessario considerare anche controlli aggiuntivi. Esempio:
+Seguendo le istruzioni riportate in questo articolo, è stata distribuita una workstation protetta. È tuttavia necessario considerare anche controlli aggiuntivi. Ad esempio:
 
 * limitare l'accesso ai browser alternativi
 * Consenti HTTP in uscita
@@ -287,13 +287,13 @@ In alcune situazioni, le applicazioni come il browser Google Chrome sono necessa
 
 1. Scaricare il bundle Chrome del programma di installazione offline [per Windows 64 bit](https://cloud.google.com/chrome-enterprise/browser/download/).
 1. Estrarre i file e prendere nota del percorso del `GoogleChromeStandaloneEnterprise64.msi` file.
-1. Nella **portale di Azure** passare a **Microsoft Intune**app  >  **client**app  >  **Apps**  >  **Aggiungi**.
-1. In **tipo di app**scegliere **line-of-business**.
-1. In **file pacchetto app**selezionare il `GoogleChromeStandaloneEnterprise64.msi` file dal percorso estratto e selezionare **OK**.
-1. In **informazioni sull'app**specificare una descrizione e un server di pubblicazione. Selezionare **OK**.
+1. Nella **portale di Azure** passare a **Microsoft Intune** app  >  **client** app  >  **Apps**  >  **Aggiungi**.
+1. In **tipo di app** scegliere **line-of-business**.
+1. In **file pacchetto app** selezionare il `GoogleChromeStandaloneEnterprise64.msi` file dal percorso estratto e selezionare **OK**.
+1. In **informazioni sull'app** specificare una descrizione e un server di pubblicazione. Selezionare **OK**.
 1. Selezionare **Aggiungi**.
 1. Nella scheda **assegnazioni** selezionare **disponibile per i dispositivi registrati** in **tipo di assegnazione**.
-1. In **gruppi inclusi**aggiungere il gruppo **workstation sicure** .
+1. In **gruppi inclusi** aggiungere il gruppo **workstation sicure** .
 1. Selezionare **OK** e quindi **Salva**.
 
 Per altre informazioni sulla configurazione delle impostazioni di Chrome, vedere [gestire il browser Chrome con Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
@@ -342,9 +342,9 @@ Lo script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scrip
 1. Selezionare **Configura**.
    1. Impostare **Esegui questo script utilizzando le credenziali di accesso su** **Sì**.
    1. Selezionare **OK**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Selezionare **assegnazioni**  >  **selezionare gruppi**.
-   1. Aggiungere le **workstation protette**del gruppo di sicurezza.
+   1. Aggiungere le **workstation protette** del gruppo di sicurezza.
    1. Selezionare **Salva**.
 
 ## <a name="enroll-and-validate-your-first-device"></a>Registrare e convalidare il primo dispositivo
@@ -360,10 +360,10 @@ Lo script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scrip
      > Lo script richiede diritti elevati. Viene eseguito come signed remoto. Il `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned` comando consente di eseguire correttamente lo script.
 
    * È possibile raccogliere queste informazioni eseguendo l'accesso a un dispositivo Windows 10 versione 1809 o superiore. Anche il rivenditore hardware può fornire queste informazioni.
-1. Nella **portale di Azure**passare a Microsoft Intune registrazione **Microsoft Intune**  >  **Device enrollment**  >  dispositivi dispositivi di**registrazione Windows**  >  **-Gestisci dispositivi Windows Autopilot**.
+1. Nella **portale di Azure** passare a Microsoft Intune registrazione **Microsoft Intune**  >  **Device enrollment**  >  dispositivi dispositivi di **registrazione Windows**  >  **-Gestisci dispositivi Windows Autopilot**.
 1. Selezionare **Importa** e scegliere il file CSV.
 1. Aggiungere il dispositivo al gruppo di sicurezza **workstation sicure** .
-1. Sul dispositivo Windows 10 che si desidera configurare, passare a **impostazioni di Windows**  >  **Aggiorna &**  >  **ripristino**di sicurezza.
+1. Sul dispositivo Windows 10 che si desidera configurare, passare a **impostazioni di Windows**  >  **Aggiorna &**  >  **ripristino** di sicurezza.
    1. Scegliere **Introduzione** in **Reimposta il PC**.
    1. Seguire le istruzioni per reimpostare e riconfigurare il dispositivo con il profilo e i criteri di conformità configurati.
 
@@ -385,9 +385,9 @@ Il monitoraggio della distribuzione della workstation protetta può essere esegu
 
 Il monitoraggio sentinella richiede la configurazione di connettori per le origini dati, ad esempio Azure AD.
 
-1. Nella **portale di Azure**passare ad **Azure Sentinel (anteprima)** > selezionare **Aggiungi**
+1. Nella **portale di Azure** passare ad **Azure Sentinel (anteprima)** > selezionare **Aggiungi**
 1. Nella pagina **scegliere un'area di lavoro da aggiungere ad Azure Sentinel** selezionare **Crea una nuova area di lavoro**
-1. Digitare:
+1. Immettere:
    * **Area di lavoro di log Analytics** -"monitoraggio della workstation sicura"
    * **Sottoscrizione** : selezionare la sottoscrizione attiva
    * **Gruppo di risorse** : selezionare la * * creazione di un nuovo * * > protezione RG della workstation > **OK**
@@ -397,7 +397,7 @@ Il monitoraggio sentinella richiede la configurazione di connettori per le origi
 
 Successivamente, si connetteranno le origini dati della workstation protetta disponibili al monitoraggio.
 
-1. Nel **portale di Azure**passare all'area di **lavoro di Azure Sentinel** > selezionare **sicurezza workstation monitoraggio** area di lavoro
+1. Nel **portale di Azure** passare all'area di **lavoro di Azure Sentinel** > selezionare **sicurezza workstation monitoraggio** area di lavoro
 1. Selezionare **i connettori dati**
 1. Scegliere **Azure Active Directory** > pagina apri connettore > dopo aver esaminato il prerequisito. Passare a Configuration (configurazione) e selezionare **Connect (Connetti** ) per i log di accesso Azure ad, nonché Azure ad log di controllo.
 1. Scegliere **attività di Azure** > > pagina Apri connettore dopo aver esaminato il prerequisito. Passare a configurare i log attività di Azure > selezionare la sottoscrizione > selezionare **Connetti**
@@ -429,16 +429,16 @@ Distribuire l'agente MMA con lo script di PowerShell per Intune
 1. Selezionare **Configura**.
    1. Impostare **Esegui questo script utilizzando le credenziali di accesso su** **Sì**.
    1. Selezionare **OK**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Selezionare **assegnazioni**  >  **selezionare gruppi**.
-   1. Aggiungere le **workstation protette**del gruppo di sicurezza.
+   1. Aggiungere le **workstation protette** del gruppo di sicurezza.
    1. Selezionare **Salva**.
 
 Successivamente, è necessario configurare Log Analytics per ricevere i nuovi log
-1. Nella **portale di Azure**passare all'area di **lavoro log Analytics** > selezionare-"monitoraggio workstation sicuro".
+1. Nella **portale di Azure** passare all'area di **lavoro log Analytics** > selezionare-"monitoraggio workstation sicuro".
 1. Selezionare **Impostazioni avanzate**  >  **dati**  >  **log eventi di Windows**
 1. In **Raccogli eventi dai log eventi seguenti** 
-1. Digitare:
+1. Immettere:
    * ' Microsoft-Windows-AppLocker/EXE e DLL ' > deselezionare **le informazioni**
    * ' Microsoft-Windows-AppLocker/MSI e script ' > deselezionare **le informazioni**
    * ' Microsoft-Windows-AppLocker/Packaged App-Deployment ' > deselezionare **le informazioni**

@@ -8,11 +8,11 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974664"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -167,7 +167,7 @@ Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotne
 >| Tomcat. Sessions. rifiutato | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Conteggio | Conteggio attivo sessione Tomcat |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Avvio rapido: Monitoraggio di app Azure Spring Cloud con log, metriche e traccia](spring-cloud-quickstart-logs-metrics-tracing.md)
 

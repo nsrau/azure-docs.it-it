@@ -14,15 +14,15 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370866"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973899"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
 
-Ogni nuovo tenant Azure AD dispone di un nome di dominio iniziale, * \<domainname> . onmicrosoft.com*. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione. L'aggiunta di nomi di dominio personalizzati consente di creare nomi utente familiari agli utenti, ad esempio *alain \@ contoso.com*.
+Ogni nuovo tenant Azure AD dispone di un nome di dominio iniziale, *\<domainname> . onmicrosoft.com*. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione. L'aggiunta di nomi di dominio personalizzati consente di creare nomi utente familiari agli utenti, ad esempio *alain \@ contoso.com*.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -54,12 +54,12 @@ Dopo aver creato la directory, è possibile aggiungere il nome di dominio person
 
     ![Pagina nomi di dominio personalizzati con Aggiungi dominio personalizzato visualizzato](media/add-custom-domain/add-custom-domain.png)
 
-1. In **nome dominio personalizzato**immettere il nuovo nome dell'organizzazione, in questo esempio *contoso.com*. Selezionare **Aggiungi dominio**.
+1. In **nome dominio personalizzato** immettere il nuovo nome dell'organizzazione, in questo esempio *contoso.com*. Selezionare **Aggiungi dominio**.
 
     ![Pagina nomi di dominio personalizzati, con la pagina Aggiungi dominio personalizzato](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Per il corretto funzionamento di questo, è necessario includere *. com*, *.NET*o qualsiasi altra estensione di primo livello.
+    >Per il corretto funzionamento di questo, è necessario includere *. com*, *.NET* o qualsiasi altra estensione di primo livello.
 
     Viene aggiunto il dominio non verificato. Viene visualizzata la pagina **contoso.com** che mostra le informazioni DNS. Salvare queste informazioni. Sarà necessario in un secondo momento per creare un record TXT per configurare DNS.
 
@@ -84,7 +84,7 @@ Per verificare il nome di dominio personalizzato, attenersi alla procedura segue
 
 1. Cercare e selezionare *Azure Active Directory* da qualsiasi pagina, quindi selezionare **nomi di dominio personalizzati**.
 
-1. In **nomi di dominio personalizzati**selezionare il nome di dominio personalizzato. In questo esempio, selezionare **contoso.com**.
+1. In **nomi di dominio personalizzati** selezionare il nome di dominio personalizzato. In questo esempio, selezionare **contoso.com**.
 
     ![Pagina Fabrikam - Nomi di dominio personalizzati, con contoso evidenziato](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 

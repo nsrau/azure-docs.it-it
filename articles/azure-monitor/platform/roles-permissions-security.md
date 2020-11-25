@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84ae5f6adfe2a02f62b5d4b1e776d8b5ac1d731b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533275"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95975352"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
 
@@ -68,7 +68,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 > 
 
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Monitoraggio delle autorizzazioni e dei ruoli personalizzati di Azure
-Se i ruoli predefiniti precedenti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato di Azure](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
+Se i ruoli predefiniti precedenti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato di Azure](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le descrizioni delle operazioni comuni di Azure RBAC per monitoraggio di Azure.
 
 | Operazione | Descrizione |
 | --- | --- |
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 A questo punto è possibile fornire il token all'entità che ha bisogno di leggere da quell'account di archiviazione; tale token può elencare e leggere da tutti i BLOB nell'account di archiviazione.
 
-In alternativa, se è necessario verificare l'autorizzazione con il Controllo degli accessi in base al ruolo, è possibile concedere a tale entità l'autorizzazione Microsoft.Storage/storageAccounts/listkeys/action su quel particolare account di archiviazione. Questo è necessario per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per l'archiviazione in un account di archiviazione. Ad esempio, è possibile creare il ruolo personalizzato di Azure seguente per un utente o un'applicazione che deve leggere solo da un account di archiviazione:
+In alternativa, se è necessario controllare questa autorizzazione con il controllo degli accessi in base al ruolo di Azure, è possibile concedere a tale entità l'autorizzazione Microsoft. storage/storageAccounts/listkeys/Action per quel particolare account di archiviazione. Questo è necessario per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per l'archiviazione in un account di archiviazione. Ad esempio, è possibile creare il ruolo personalizzato di Azure seguente per un utente o un'applicazione che deve leggere solo da un account di archiviazione:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Un modello simile può essere seguito con gli hub eventi, tuttavia è innanzitutto necessario creare una regola di autorizzazione di ascolto dedicata. Se si desidera concedere l'accesso a un'applicazione che ha bisogno solo di ascoltare gli hub eventi relativi al monitoraggio, procedere come segue:
 
 1. Creare un criterio di accesso condiviso negli hub eventi creati per trasmettere i dati di monitoraggio solo con attestazioni di ascolto. Questa operazione può essere eseguita nel portale. Ad esempio, è possibile chiamarlo "monitoringReadOnly". Se possibile, si dovrà fornire la chiave direttamente al consumatore e ignorare il passaggio successivo.
-2. Se il consumatore deve essere in grado di ottenere la chiave ad hoc, concedere all'utente l'azione ListKeys per l'hub eventi. Questo è necessario anche per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per trasmettere agli hub eventi. Ad esempio, è possibile creare una regola nel Controllo degli accessi in base al ruolo:
+2. Se il consumatore deve essere in grado di ottenere la chiave ad hoc, concedere all'utente l'azione ListKeys per l'hub eventi. Questo è necessario anche per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per trasmettere agli hub eventi. Ad esempio, è possibile creare una regola RBAC di Azure:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -187,6 +187,6 @@ I dati di monitoraggio vengono spesso scritti in un account di archiviazione. È
 Per altre informazioni, vedere [Sicurezza di rete di Archiviazione di Azure](../../storage/common/storage-network-security.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Controllo degli accessi in base al ruolo e autorizzazioni in Resource Manager](../../role-based-access-control/overview.md)
+* [Informazioni su controllo degli accessi in base al ruolo e autorizzazioni Gestione risorse di Azure](../../role-based-access-control/overview.md)
 * [Panoramica sul monitoraggio in Azure](../overview.md)
 

@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
 ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365851"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974154"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -179,7 +179,7 @@ L'accesso dell'utente nell'app consente di identificarne l'organizzazione di app
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Richiedere le autorizzazioni da un amministratore di directory
 
-Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'organizzazione, è possibile reindirizzare l'utente all'endpoint di *consenso dell'amministratore*di Microsoft Identity Platform.
+Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'organizzazione, è possibile reindirizzare l'utente all'endpoint di *consenso dell'amministratore* di Microsoft Identity Platform.
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -195,11 +195,11 @@ https://graph.microsoft.com/mail.send
 
 | Parametro        | Condizione        | Descrizione                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
-| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
+| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
-| `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Richiesto        | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using [`/.default`](#the-default-scope) ) o dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). Se sono necessarie le autorizzazioni dell'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  |
+| `state` | Implementazione consigliata | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+|`scope`        | Necessario        | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using [`/.default`](#the-default-scope) ) o dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). Se sono necessarie le autorizzazioni dell'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  |
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel `scope` parametro.  Se è stato usato un valore statico ( `/.default` ), funzionerà come l'endpoint di consenso dell'amministratore della versione 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie per l'app.
@@ -304,7 +304,7 @@ Questa operazione produce una schermata di consenso per tutte le autorizzazioni 
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flusso di concessione delle credenziali client e/.default
 
-Un altro uso di `./default` è quando si richiedono le autorizzazioni o i *ruoli*dell'applicazione in un'applicazione non interattiva come un'app daemon che usa il flusso di concessione delle [credenziali client](v2-oauth2-client-creds-grant-flow.md) per chiamare un'API Web.
+Un altro uso di `./default` è quando si richiedono le autorizzazioni o i *ruoli* dell'applicazione in un'applicazione non interattiva come un'app daemon che usa il flusso di concessione delle [credenziali client](v2-oauth2-client-creds-grant-flow.md) per chiamare un'API Web.
 
 Per creare le autorizzazioni dell'applicazione (ruoli) per un'API Web, vedere [procedura: aggiungere i ruoli dell'app nell'applicazione](howto-add-app-roles-in-azure-ad-apps.md).
 

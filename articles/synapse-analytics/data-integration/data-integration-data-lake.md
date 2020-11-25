@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309342"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974460"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Inserire i dati in Azure Data Lake Storage Gen2 
 
@@ -22,8 +22,8 @@ Questo articolo illustra come inserire dati da una posizione a un'altra in un ac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure** : se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure** : usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
+* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -31,7 +31,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 
 1. Aprire l'interfaccia utente di Azure Synapse Analytics e passare alla scheda **Gestisci**.
 1. In **Connessioni esterne** selezionare **Servizi collegati**.
-1. Per aggiungere un servizio collegato, selezionare **nuovo**.
+1. Per aggiungere un servizio collegato, selezionare **Nuovo**.
 1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
 1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Selezionare Test connessione per verificare che le credenziali siano corrette. 
 1. Selezionare **Create** (Crea) al termine.
@@ -57,7 +57,7 @@ Dopo aver completato la configurazione della pipeline, è possibile eseguire il 
 
 1. Per eseguire il debug della pipeline, selezionare **Debug** sulla barra degli strumenti. Lo stato dell'esecuzione della pipeline verrà visualizzato nella scheda **Output** nella parte inferiore della finestra. 
 1. Quando è possibile eseguire correttamente la pipeline, nella barra degli strumenti superiore selezionare **Pubblica tutto**. Questa azione pubblica le entità create (set di dati e pipeline) create nel servizio Synapse Analytics.
-1. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. Per visualizzare i messaggi di notifica, selezionare il pulsante a campana nella parte superiore destra. 
+1. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. Per visualizzare i messaggi di notifica, selezionare il pulsante a forma di campana in alto a destra. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Attivare e monitorare la pipeline
