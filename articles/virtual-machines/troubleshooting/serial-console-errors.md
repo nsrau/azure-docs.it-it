@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526436"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022837"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Errori comuni nella console seriale di Azure
 Nella console seriale di Azure è presente un set di errori noti. Si tratta di un elenco di questi errori e dei relativi passaggi di mitigazione.
@@ -36,7 +36,7 @@ Non si hanno le autorizzazioni necessarie per usare questa macchina virtuale con
 L'account di archiviazione '' usato per la diagnostica di avvio in questa macchina virtuale non è stato trovato. Verificare che la diagnostica di avvio sia abilitata per questa macchina virtuale, che l'account di archiviazione non sia stato eliminato e di avere accesso a questo account di archiviazione. | Verificare che non sia stato eliminato l'account di archiviazione della diagnostica di avvio per la macchina virtuale o il set di scalabilità di macchine virtuali
 La connessione della console seriale alla macchina virtuale ha rilevato un errore:' richiesta non valida ' (400) | Questo problema può verificarsi se l'URI della diagnostica di avvio non è corretto. Ad esempio, è stato usato "http://" anziché "https://". L'URI di diagnostica di avvio può essere corretto con questo comando: `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
 Non si dispone delle autorizzazioni necessarie per scrivere nell'account di archiviazione della diagnostica di avvio per questa macchina virtuale. Assicurarsi di avere almeno le autorizzazioni di collaboratore per le macchine virtuali | Console seriale l'accesso richiede l'accesso a livello di collaboratore nell'account di archiviazione della diagnostica di avvio. Per ulteriori informazioni, vedere la [pagina Panoramica](serial-console-overview.md).
-Non è possibile determinare il gruppo di risorse per l'account di archiviazione della diagnostica di avvio * &lt; STORAGEACCOUNTNAME &gt; *. Verificare che la diagnostica di avvio sia abilitata per questa VM e di avere accesso a questo account di archiviazione. | Console seriale l'accesso richiede l'accesso a livello di collaboratore nell'account di archiviazione della diagnostica di avvio. Per ulteriori informazioni, vedere la [pagina Panoramica](serial-console-overview.md).
+Non è possibile determinare il gruppo di risorse per l'account di archiviazione della diagnostica di avvio *&lt; STORAGEACCOUNTNAME &gt;*. Verificare che la diagnostica di avvio sia abilitata per questa VM e di avere accesso a questo account di archiviazione. | Console seriale l'accesso richiede l'accesso a livello di collaboratore nell'account di archiviazione della diagnostica di avvio. Per ulteriori informazioni, vedere la [pagina Panoramica](serial-console-overview.md).
 Il provisioning per questa macchina virtuale non è stato ancora completato. Assicurarsi che la macchina virtuale sia completamente distribuita e ripetere la connessione alla console seriale. | È ancora possibile eseguire il provisioning della macchina virtuale o del set di scalabilità di macchine virtuali. Attendere del tempo e riprovare.
 Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario aggiungere l'accesso al firewall a `*.console.azure.com` . Un approccio più dettagliato ma più lungo consiste nel consentire l'accesso del firewall agli [intervalli IP del data center Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), che cambiano abbastanza regolarmente.
 Console seriale non funziona con un account di archiviazione usando Azure Data Lake Storage Gen2 con spazi dei nomi gerarchici. | Si tratta di un problema noto con gli spazi dei nomi gerarchici. Per attenuare, verificare che l'account di archiviazione della diagnostica di avvio della macchina virtuale non venga creato con Azure Data Lake Storage Gen2. Questa opzione può essere impostata solo al momento della creazione dell'account di archiviazione. Potrebbe essere necessario creare un account di archiviazione di diagnostica di avvio separato senza Azure Data Lake Storage Gen2 abilitato per attenuare questo problema.

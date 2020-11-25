@@ -14,11 +14,11 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 85acd8e26ca10730638332047a37d281358d205f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526555"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022888"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione con il riavvio o il ridimensionamento di una VM Windows esistente in Azure
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.
@@ -38,10 +38,10 @@ Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazi
 ### <a name="cause"></a>Causa
 La richiesta di avvio della VM arrestata deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non ha spazio disponibile per soddisfare la richiesta.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 * Arrestare tutte le VM nel set di disponibilità e quindi riavviare ogni VM.
   
-  1. Fare clic su **gruppi**di risorse  >  *il gruppo*di risorse  >  **risorse**il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della*macchina virtuale*  >  **Stop**.
+  1. Fare clic su **gruppi** di risorse  >  *il gruppo* di risorse  >  **risorse** il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della *macchina virtuale*  >  **Stop**.
   2. Dopo l'arresto di tutte le VM, selezionare le VM arrestate e fare clic su Avvia.
 * Ripetere la richiesta di riavvio in un secondo momento.
 
@@ -51,13 +51,13 @@ Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di al
 ### <a name="cause"></a>Causa
 La richiesta di ridimensionamento della VM deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non supporta le dimensioni della VM richieste.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
   
   1. Arrestare tutte le VM nel set di disponibilità.
      
-     * Fare clic su **gruppi**di risorse  >  *il gruppo*di risorse  >  **risorse**il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della*macchina virtuale*  >  **Stop**.
+     * Fare clic su **gruppi** di risorse  >  *il gruppo* di risorse  >  **risorse** il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della *macchina virtuale*  >  **Stop**.
   2. Dopo l'arresto di tutte le VM, ridimensionare la VM desiderata impostando una dimensione maggiore.
   3. Selezionare la VM ridimensionata e fare clic su **Avvia**, quindi avviare ognuna delle VM arrestate.
 

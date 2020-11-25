@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269302"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023058"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare Funzioni di Azure da App per la logica di Azure
 
@@ -147,7 +147,7 @@ Tuttavia, prima di poter creare qualsiasi funzione di Azure, è necessario avere
 
 1. Nella casella **Corpo della richiesta**, specificare l'input della funzione, che deve essere formattato in JSON (JavaScript Object Notation).
 
-   Questo input descrive il*contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. In questo esempio viene specificato che il payload di contesto contiene una proprietà denominata `content` con valore del token **Da** estratto dal trigger di posta elettronica.
+   Questo input descrive il *contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. In questo esempio viene specificato che il payload di contesto contiene una proprietà denominata `content` con valore del token **Da** estratto dal trigger di posta elettronica.
 
    ![Esempio di "Corpo della richiesta" - payload dell'oggetto contesto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -181,7 +181,7 @@ Per chiamare funzioni di Azure esistenti dalle proprie app per la logica, è pos
 
 1. Nella casella **Corpo della richiesta**, specificare l'input della funzione, che deve essere formattato in JSON (JavaScript Object Notation).
 
-   Questo input descrive il*contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. In questo esempio viene specificato che il payload di contesto contiene una proprietà denominata `content` con valore del token **Da** estratto dal trigger di posta elettronica.
+   Questo input descrive il *contesto di ambiente* o il messaggio che l'app per la logica invia alla funzione. Quando si fa clic nel campo **Corpo della richiesta**, viene visualizzato l'elenco del contenuto dinamico per consentire la selezione dei token per gli output disponibili dai passaggi precedenti. In questo esempio viene specificato che il payload di contesto contiene una proprietà denominata `content` con valore del token **Da** estratto dal trigger di posta elettronica.
 
    ![Esempio di "Corpo della richiesta" - payload dell'oggetto contesto](./media/logic-apps-azure-functions/function-request-body-example.png)
 

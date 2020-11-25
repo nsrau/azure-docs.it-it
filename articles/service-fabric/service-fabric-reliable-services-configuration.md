@@ -7,11 +7,11 @@ ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023585"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
 Esistono due set di impostazioni di configurazione per i servizi Reliable Services. Un set è globale per tutti i servizi Reliable Services del cluster, mentre l'altro è specifico per un particolare servizio Reliable Services.

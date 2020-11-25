@@ -3,12 +3,12 @@ title: Code e argomenti del bus di servizio come gestori per gli eventi di Grigl
 description: Descrive come usare code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629506"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96024215"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è il **bus di servizio di Azure**. 
@@ -50,18 +50,8 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="message-properties"></a>Proprietà del messaggio
-Se si usa un **argomento o una coda del bus di servizio** come gestore eventi per gli eventi da griglia di eventi, queste sono le proprietà ricevute nelle intestazioni del messaggio: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nome proprietà | Descrizione |
-| ------------- | ----------- | 
-| aeg-subscription-name | Nome della sottoscrizione dell'evento. |
-| aeg-delivery-count | <p>Numero di tentativi effettuati per l'evento.</p> <p>Esempio: "1"</p> |
-| aeg-event-type | <p>Tipo dell'evento.</p><p> Esempio: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>Versione dei metadati dell'evento.</p> <p>Esempio: "1".</p><p> Per lo **schema di eventi di Griglia di eventi**, questa proprietà rappresenta la versione dei metadati e per lo **schema di eventi cloud** rappresenta la **versione della specifica**. </p>|
-| aeg-data-version | <p>Versione dei dati dell'evento.</p><p>Esempio: "1".</p><p>Per lo **schema di eventi di Griglia di eventi**, questa proprietà rappresenta la versione dei dati e per lo **schema di eventi cloud** non è applicabile.</p> |
-
-## <a name="message-headers"></a>Intestazioni del messaggio
 Quando si invia un evento a una coda o a un argomento del bus di servizio come messaggio negoziato, il `messageid` del messaggio negoziato è un ID sistema interno.
 
 L'ID sistema interno per il messaggio verrà mantenuto durante il recapito dell'evento, in modo che sia possibile evitare recapiti duplicati attivando il **rilevamento dei duplicati** sull'entità del bus di servizio. È consigliabile abilitare la durata del rilevamento dei duplicati per l'entità del bus di servizio in modo che corrisponda alla durata (TTL) dell'evento o alla durata massima dei tentativi, a seconda di quale è maggiore.

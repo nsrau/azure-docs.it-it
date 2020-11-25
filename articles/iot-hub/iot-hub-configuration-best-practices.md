@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024130"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedure consigliate per la configurazione di dispositivi in una soluzione IoT
 
@@ -78,7 +78,7 @@ Di seguito sono presentate le procedure consigliate per gli operatori di soluzio
 
 * **Organizzare i dispositivi per la gestione**: la soluzione IoT deve definire o consentire la creazione di anelli di qualità o altri set di dispositivi in base alle varie strategie di distribuzione, ad esempio canary. I set di dispositivi verranno usati per implementare le modifiche di configurazione ed eseguire altre operazioni di gestione dei dispositivi su larga scala.
 
-* **Eseguire modifiche di configurazione tramite un'implementazione graduale**: un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala.L'operatore deve usare l'interfaccia della soluzione per creare una [configurazione automatica dei dispositivi](./iot-hub-automatic-device-management.md) e la condizione di destinazione deve essere assegnata a un set iniziale di dispositivi, ad esempio un gruppo canary. L'operatore deve quindi convalidare la modifica della configurazione nel set iniziale di dispositivi.
+* **Eseguire modifiche di configurazione tramite un'implementazione graduale**: un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala.  L'operatore deve usare l'interfaccia della soluzione per creare una [configurazione automatica dei dispositivi](./iot-hub-automatic-device-management.md) e la condizione di destinazione deve essere assegnata a un set iniziale di dispositivi, ad esempio un gruppo canary. L'operatore deve quindi convalidare la modifica della configurazione nel set iniziale di dispositivi.
 
    Al termine della convalida, l'operatore aggiornerà la configurazione automatica dei dispositivi in modo da includere un set di dispositivi più ampio. L'operatore deve inoltre impostare la priorità per la configurazione in modo che sia superiore alle altre configurazioni attualmente assegnate a tali dispositivi. L'implementazione può essere monitorata tramite le metriche definite dalla configurazione automatica dei dispositivi.
 

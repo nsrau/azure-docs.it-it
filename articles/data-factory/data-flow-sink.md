@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832501"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023007"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -107,6 +107,10 @@ Per impostazione predefinita, i dati vengono scritti in più sink in un ordine n
 ## <a name="error-row-handling"></a>Gestione delle righe con errori
 
 Quando si scrive nei database, alcune righe di dati potrebbero non riuscire a causa di vincoli impostati dalla destinazione. Per impostazione predefinita, l'esecuzione di un flusso di dati avrà esito negativo al primo errore ottenuto. In alcuni connettori è possibile scegliere di **continuare in** caso di errore che consente il completamento del flusso di dati anche se le singole righe contengono errori. Attualmente questa funzionalità è disponibile solo nel database SQL di Azure. Per altre informazioni, vedere [gestione delle righe con errori nel database SQL di Azure](connector-azure-sql-database.md#error-row-handling).
+
+Di seguito è riportata un'esercitazione video sull'utilizzo automatico della gestione delle righe con errori di database nella trasformazione del sink.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## <a name="data-preview-in-sink"></a>Anteprima dati in sink
 

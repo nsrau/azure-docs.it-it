@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535247"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022752"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tag del servizio NSG per Azure HDInsight
 
@@ -26,7 +26,7 @@ Se si vuole usare un'area specifica e il tag di servizio non è ancora documenta
 
 Sono disponibili due opzioni per l'uso dei tag di servizio nei gruppi di sicurezza di rete:
 
-- **Usa un singolo tag del servizio HDInsight globale** : questa opzione consente di aprire la rete virtuale a tutti gli indirizzi IP usati dal servizio HDInsight per monitorare i cluster in tutte le aree. Questa opzione è il metodo più semplice, ma potrebbe non essere appropriata se si hanno requisiti di sicurezza restrittivi.
+- **Usa un singolo tag del servizio HDInsight globale**: questa opzione consente di aprire la rete virtuale a tutti gli indirizzi IP usati dal servizio HDInsight per monitorare i cluster in tutte le aree. Questa opzione è il metodo più semplice, ma potrebbe non essere appropriata se si hanno requisiti di sicurezza restrittivi.
 
 - **Usare più tag di servizio a livello** di area: questa opzione consente di aprire la rete virtuale solo per gli indirizzi IP usati da HDInsight in tale area specifica. Tuttavia, se si usano più aree, è necessario aggiungere più tag di servizio alla rete virtuale.
 
@@ -36,11 +36,11 @@ Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDIn
 
 1. Dal [portale di Azure](https://portal.azure.com/)selezionare il gruppo di sicurezza di rete.
 
-1. In **Impostazioni** selezionare **regole di sicurezza in ingresso** e quindi selezionare **+ Aggiungi** .
+1. In **Impostazioni** selezionare **regole di sicurezza in ingresso** e quindi selezionare **+ Aggiungi**.
 
-1. Dall'elenco a discesa **origine** selezionare **tag servizio** .
+1. Dall'elenco a discesa **origine** selezionare **tag servizio**.
 
-1. Dall'elenco a discesa **tag servizio di origine** selezionare **HDInsight** .
+1. Dall'elenco a discesa **tag servizio di origine** selezionare **HDInsight**.
 
     ![Aggiungere un tag di servizio dal portale di Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 

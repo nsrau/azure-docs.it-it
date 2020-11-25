@@ -4,11 +4,11 @@ description: Informazioni su come usare l'estensione di criteri di Azure per Vis
 ms.date: 10/20/2020
 ms.topic: how-to
 ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022429"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -64,13 +64,13 @@ Per valutare le risorse e gli alias di ricerca, è necessario connettersi all'ac
 
      Dall'estensione criteri di Azure selezionare **Accedi ad Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot della Visual Studio Code e dell'icona dell'estensione criteri di Azure." border="false":::
 
    - Riquadro comandi
 
-     Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: Sign in (accedi**).
+     Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi** e immettere **Azure: Sign in (accedi**).
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot delle opzioni di accesso al cloud di Azure per Visual Studio Code dal riquadro comandi." border="false":::
 
 1. Seguire le istruzioni di accesso per accedere ad Azure. Dopo la connessione, il nome dell'account Azure viene visualizzato sulla barra di stato nella parte inferiore della finestra di Visual Studio Code.
 
@@ -82,11 +82,11 @@ Quando si accede per la prima volta, solo le risorse e i criteri di sottoscrizio
 
    - Tavolozza comandi: 
 
-     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Azure: selezionare sottoscrizioni**.
+     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi** e immettere **Azure: selezionare sottoscrizioni**.
 
    - Piè di pagina della finestra
 
-     Nel piè di pagina della finestra nella parte inferiore della schermata selezionare il segmento che corrisponde ad **Azure: \<your account\> **.
+     Nel piè di pagina della finestra nella parte inferiore della schermata selezionare il segmento che corrisponde ad **Azure: \<your account\>**.
 
 1. Utilizzare la casella filtro per trovare rapidamente le sottoscrizioni in base al nome. Quindi, selezionare o rimuovere il controllo da ogni sottoscrizione per impostare le sottoscrizioni visualizzate dall'estensione criteri di Azure. Al termine dell'aggiunta o della rimozione delle sottoscrizioni da visualizzare, selezionare **OK**.
 
@@ -111,7 +111,7 @@ I clienti con centinaia o migliaia di risorse in una singola sottoscrizione poss
 
    - Tavolozza comandi:
 
-     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **risorse: Cerca risorse**.
+     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi** e immettere **risorse: Cerca risorse**.
 
 1. Se per la visualizzazione è selezionata più di una sottoscrizione, usare il filtro per selezionare la sottoscrizione in cui eseguire la ricerca.
 
@@ -125,7 +125,7 @@ Quando si seleziona una risorsa, tramite l'interfaccia di ricerca o selezionando
 
 Una volta aperta una risorsa, il puntatore del mouse sul nome o sul valore della proprietà Gestione risorse Visualizza l'alias di criteri di Azure, se disponibile. In questo esempio, la risorsa è un `Microsoft.Compute/virtualMachines` tipo di risorsa e la proprietà **Properties. StorageProfile. imageReference. offer** viene posizionata sopra. Il passaggio del mouse Mostra gli alias corrispondenti.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot dell'estensione di criteri di Azure per Visual Studio Code il passaggio del mouse su una proprietà per visualizzare i nomi degli alias." border="false":::
 
 > [!NOTE]
 > L'estensione VS Code espone solo le proprietà della modalità Resource Manager e non visualizza nessuna proprietà della modalità [Provider di risorse](../concepts/definition-structure.md#mode).
@@ -142,7 +142,7 @@ L'estensione criteri di Azure elenca i tipi di criteri e le assegnazioni di crit
 
    - Tavolozza comandi:
 
-     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **criteri: Cerca criteri**.
+     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi** e immettere **criteri: Cerca criteri**.
 
 1. Se per la visualizzazione è selezionata più di una sottoscrizione, usare il filtro per selezionare la sottoscrizione in cui eseguire la ricerca.
 
@@ -199,7 +199,7 @@ I risultati della valutazione forniscono informazioni sulla definizione dei crit
 
 ## <a name="sign-out"></a>Disconnetti
 
-Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
+Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi** e quindi immettere **Azure: disconnettersi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023806"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -60,7 +60,7 @@ Apache Spark è un framework open source di elaborazione parallela che supporta 
 
 Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di Azure con Spark installato e configurato. Per creare un cluster Spark in HDInsight, sono sufficienti circa 10 minuti. Archiviare i dati da elaborare in Archiviazione Blob di Azure. Per informazioni sull'uso di Archiviazione Blob di Azure con un cluster, vedere [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark** , vedere [Panoramica: Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
+Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Panoramica: Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -101,14 +101,14 @@ R Services (In-Database) offre una piattaforma per lo sviluppo e la distribuzion
 
 R Services (In-database) supporta il linguaggio R open source grazie a un set completo di strumenti e tecnologie di SQL Server, in grado di offrire prestazioni, sicurezza, affidabilità e gestibilità migliori. È possibile distribuire soluzioni R con strumenti semplici e familiari. Le applicazioni di produzione possono chiamare il runtime di R e recuperare stime e oggetti visivi tramite Transact-SQL. È anche possibile usare le librerie ScaleR per migliorare la scalabilità e le prestazioni delle soluzioni R. Per altre informazioni, vedere [R Services per SQL Server](/sql/advanced-analytics/r/sql-server-r-services).
 
-Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R** , vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Per gli **sviluppatori SQL** , vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
+Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R**, vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Per gli **sviluppatori SQL**, vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Appendice: strumenti per configurare progetti di data science
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installare Git Credential Manager in Windows
 
-Se si segue il progetto TDSP in **Windows** , è necessario installare **Git Credential Manager (GCM)** per comunicare con i repository Git. Per installare GCM, è necessario installare prima **Chocolaty**. Per installare Chocolaty e GCM, eseguire questi comandi in Windows PowerShell come **amministratore** :  
+Se si segue il progetto TDSP in **Windows**, è necessario installare **Git Credential Manager (GCM)** per comunicare con i repository Git. Per installare GCM, è necessario installare prima **Chocolaty**. Per installare Chocolaty e GCM, eseguire questi comandi in Windows PowerShell come **amministratore**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex

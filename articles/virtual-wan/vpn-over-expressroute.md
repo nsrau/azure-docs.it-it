@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079055"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023526"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Crittografia ExpressRoute: IPsec su ExpressRoute per la rete WAN virtuale
 
@@ -76,7 +76,7 @@ La risorsa del sito è identica a quella dei siti VPN non ExpressRoute per una r
 >
 
 1. Passare al portale di Azure nel browser. 
-1. Selezionare l'hub creato. Nella pagina Hub WAN virtuale selezionare **siti VPN**in **connettività**.
+1. Selezionare l'hub creato. Nella pagina Hub WAN virtuale selezionare **siti VPN** in **connettività**.
 1. Nella pagina **siti VPN** selezionare **+ Crea sito**.
 1. Nella pagina **Crea sito** compilare i campi seguenti:
    * **Sottoscrizione**: verificare la sottoscrizione.
@@ -95,7 +95,7 @@ La risorsa del sito è identica a quella dei siti VPN non ExpressRoute per una r
 
    Se BGP è abilitato, verrà applicato a tutte le connessioni create per il sito in Azure. La configurazione di BGP in una rete WAN virtuale equivale alla configurazione di BGP in un gateway VPN di Azure. 
    
-   L'indirizzo peer BGP locale *non deve* corrispondere all'indirizzo IP della VPN al dispositivo o allo spazio di indirizzi della rete virtuale del sito VPN. Usare un indirizzo IP diverso nel dispositivo VPN per il peer BGP. Può trattarsi di un indirizzo assegnato all'interfaccia di loopback nel dispositivo. Tuttavia, non *può* essere un APIPA (169,254.* x*. *x*). Specificare questo indirizzo nel gateway di rete locale corrispondente che rappresenta il percorso. Per i prerequisiti di BGP, vedere [Informazioni su BGP con i gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   L'indirizzo peer BGP locale *non deve* corrispondere all'indirizzo IP della VPN al dispositivo o allo spazio di indirizzi della rete virtuale del sito VPN. Usare un indirizzo IP diverso nel dispositivo VPN per il peer BGP. Può trattarsi di un indirizzo assegnato all'interfaccia di loopback nel dispositivo. Tuttavia, non *può* essere un APIPA (169,254.*x*. *x*). Specificare questo indirizzo nel gateway di rete locale corrispondente che rappresenta il percorso. Per i prerequisiti di BGP, vedere [Informazioni su BGP con i gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Selezionare **Avanti: rivedere + crea >** per controllare i valori delle impostazioni e creare il sito VPN. Se è stata selezionata l'opzione **Hub** per la connessione, verrà stabilita la connessione tra la rete locale e il gateway VPN Hub.
 
@@ -105,16 +105,16 @@ Dopo aver creato il sito VPN e aver effettuato la connessione all'hub, attenersi
 
 1. Tornare alla pagina delle risorse WAN virtuale e selezionare la risorsa Hub. In alternativa, passare dal sito VPN all'hub connesso.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN su ExpressRoute":::
-1. In **connettività**selezionare **VPN (da sito a sito)**.
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Selezionare un hub":::
+1. In **connettività** selezionare **VPN (da sito a sito)**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN su ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Selezionare VPN (da sito a sito)":::
 1. Selezionare i puntini di sospensione (**...**) nel sito VPN su ExpressRoute e selezionare **Modifica connessione VPN a questo hub**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN su ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Immettere il menu di configurazione":::
 1. Per **Usa indirizzo IP privato di Azure**, selezionare **Sì**. L'impostazione configura il gateway VPN dell'hub per l'uso di indirizzi IP privati all'interno dell'intervallo di indirizzi Hub sul gateway per questa connessione, invece degli indirizzi IP pubblici. In questo modo, il traffico proveniente dalla rete locale attraversa i percorsi di peering privati ExpressRoute invece di usare la rete Internet pubblica per questa connessione VPN. Lo screenshot seguente mostra l'impostazione:
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN su ExpressRoute" border="false":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Impostazione per l'utilizzo di un indirizzo IP privato per la connessione VPN" border="false":::
 1. Selezionare **Salva**.
 
 Dopo aver salvato le modifiche, il gateway VPN dell'hub userà gli indirizzi IP privati nel gateway VPN per stabilire le connessioni IPsec/IKE con il dispositivo VPN locale su ExpressRoute.
@@ -234,7 +234,7 @@ Se sono necessarie istruzioni per configurare il dispositivo, è possibile usare
 
 Creare una connessione per monitorare la comunicazione tra una macchina virtuale (VM) di Azure e un sito remoto. Per informazioni su come configurare un monitoraggio della connessione, vedere [Monitorare la comunicazione di rete](~/articles/network-watcher/connection-monitor.md). Il campo di origine è l'IP della macchina virtuale in Azure e l'indirizzo IP di destinazione è l'IP del sito.
 
-## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. pulire le risorse
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. Pulire le risorse
 
 Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Eseguire il comando PowerShell seguente e sostituire `myResourceGroup` con il nome del gruppo di risorse:
 

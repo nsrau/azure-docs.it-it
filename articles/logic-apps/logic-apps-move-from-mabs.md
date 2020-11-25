@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023653"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione di app e soluzioni da servizi BizTalk in app per la logica di Azure
 
@@ -87,7 +87,7 @@ Dopo aver convertito i dati in ingresso in XML, o se il messaggio ricevuto era i
 
 In Servizi BizTalk, la fase di trasformazione converte un formato di messaggi basato su XML in un altro. Questa operazione viene eseguita applicando una mappa tramite il mapping basato su TRFM. In App per la logica il processo è simile. L'azione Trasforma esegue una mappa dall'account di integrazione. La differenza principale è che le mappe di App per la logica sono in formato XSLT. Il formato XSLT implica la possibilità di riutilizzare i file XSLT esistenti, incluse le mappe create per BizTalk Server che contengono i functoid. 
 
-### <a name="routing-rules"></a>Regole di routing
+### <a name="routing-rules"></a>Regole di gestione
 
 Servizi BizTalk effettua una scelta di routing relativamente all'endpoint o al connettore per l'invio di messaggi o dati in ingresso. La possibilità di scegliere da endpoint preconfigurati viene garantita tramite l'opzione del filtro di routing:
 

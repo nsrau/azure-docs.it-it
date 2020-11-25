@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 6c0604e306333567628b4c71629699a718f02369
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638262"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022463"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 
@@ -64,7 +64,7 @@ Tenere presente i seguenti punti **importanti** sul servizio collegato HDInsight
 * Il cluster HDInsight su richiesta verrà creato nella sottoscrizione di Azure. È possibile visualizzare il cluster nel portale di Azure quando questo è attivo e in esecuzione. 
 * I log per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword definiti nella definizione del servizio collegato vengono usati per accedere al cluster per la risoluzione approfondita dei problemi durante il ciclo di vita del cluster. 
 * Viene addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
-* Si può usare un' **azione script** con il servizio collegato Azure HDInsight su richiesta.  
+* Si può usare un'**azione script** con il servizio collegato Azure HDInsight su richiesta.  
 
 > [!IMPORTANT]
 > Richiede in genere almeno **20 minuti** per il provisioning di un cluster HDInsight di Azure su richiesta.
@@ -106,7 +106,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 ```
 
 > [!IMPORTANT]
-> Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON ( **linkedServiceName** ). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo ( **timeToLive** ) che viene eliminato al termine dell'elaborazione. 
+> Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione. 
 >
 > Man mano che vengono eseguite le attività, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -114,7 +114,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 
 | Proprietà                     | Descrizione                              | Obbligatoria |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | La proprietà type deve essere impostata su **HDInsightOnDemand** . | Sì      |
+| type                         | La proprietà type deve essere impostata su **HDInsightOnDemand**. | Sì      |
 | clusterSize                  | Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Per altre informazioni vedere [Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sì      |
 | linkedServiceName            | Servizio collegato Archiviazione di Azure che il cluster su richiesta deve usare per l'archiviazione e l'elaborazione dei dati. Il cluster HDInsight viene creato nella stessa area dell'account di Archiviazione di Azure. Azure HDInsight applica un limite al numero totale di core che è possibile usare in ogni area di Azure supportata. Assicurarsi di avere sufficienti quote di core in tale area di Azure per soddisfare il clusterSize necessario. Per altre informazioni vedere [Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Non è attualmente possibile creare un cluster HDInsight su richiesta che usa Azure Data Lake Storage (Gen 2) come risorsa di archiviazione. Per archiviare i dati dei risultati dell'elaborazione di HDInsight in un'istanza di Azure Data Lake Storage (Gen 2), usare un'attività di copia per copiare i dati dall'Archiviazione BLOB di Azure in Azure Data Lake Storage (Gen 2). </p> | Sì      |
 | clusterResourceGroup         | In questo gruppo di risorse viene creato il cluster di HDInsight. | Sì      |
@@ -299,12 +299,12 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 ### <a name="properties"></a>Proprietà
 | Proprietà          | Descrizione                                                  | Obbligatoria |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| type              | La proprietà type deve essere impostata su **HDInsight** .            | Sì      |
+| type              | La proprietà type deve essere impostata su **HDInsight**.            | Sì      |
 | clusterUri        | L'URI del cluster HDInsight.                            | Sì      |
 | username          | Specifica il nome dell'utente da utilizzare per connettersi a un cluster HDInsight esistente. | Sì      |
 | password          | Specifica la password per l'account utente.                       | Sì      |
 | linkedServiceName | Nome del servizio collegato all'archiviazione di Azure che fa riferimento all'archiviazione BLOB di Azure usata dal cluster HDInsight. <p>Non è attualmente possibile specificare un servizio collegato di Azure Data Lake Storage (Gen 2) per questa proprietà. Se il cluster HDInsight dispone di accesso a Data Lake Storage, è possibile accedere ai dati in Azure Data Lake Storage (Gen 2) da script Hive/Pig. </p> | Sì      |
-| isEspEnabled      | Specificare " *true* " se il cluster HDInsight è abilitato per [Enterprise Security Package](../hdinsight/domain-joined/apache-domain-joined-architecture.md). L'impostazione predefinita è " *false* ". | No       |
+| isEspEnabled      | Specificare "*true*" se il cluster HDInsight è abilitato per [Enterprise Security Package](../hdinsight/domain-joined/apache-domain-joined-architecture.md). L'impostazione predefinita è "*false*". | No       |
 | connectVia        | Il runtime di integrazione da usare per inviare le attività a questo servizio collegato. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. <br />Per un cluster HDInsight abilitato per Enterprise Security Package (ESP), usare un runtime di integrazione self-hosted che comunichi con il cluster oppure distribuirlo all'interno della stessa Rete virtuale del cluster HDInsight ESP. | No       |
 
 > [!IMPORTANT]
@@ -359,10 +359,10 @@ Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Bat
 ### <a name="properties"></a>Proprietà
 | Proprietà          | Descrizione                              | Obbligatoria |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | La proprietà type deve essere impostata su **AzureBatch** . | Sì      |
+| type              | La proprietà type deve essere impostata su **AzureBatch**. | Sì      |
 | accountName       | Nome dell'account Azure Batch.         | Sì      |
 | accessKey         | Chiave di accesso per l'account Azure Batch.  | Sì      |
-| batchUri          | URL di indirizzamento al proprio account di Azure Batch, nel formato https:// *batchaccountname.region* .batch.azure.com. | Sì      |
+| batchUri          | URL di indirizzamento al proprio account di Azure Batch, nel formato https://*batchaccountname.region*.batch.azure.com. | Sì      |
 | poolName          | Nome del pool di macchine virtuali.    | Sì      |
 | linkedServiceName | Nome dello spazio di archiviazione del servizio collegato Azure associato al servizio collegato Azure Batch. Questo servizio collegato viene usato per organizzare i file necessari per eseguire l'attività. | Sì      |
 | connectVia        | Il runtime di integrazione da usare per inviare le attività a questo servizio collegato. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No       |
@@ -395,7 +395,7 @@ Si crea un servizio collegato Azure Machine Learning Studio (classico) per regis
 ### <a name="properties"></a>Proprietà
 | Proprietà               | Descrizione                              | Obbligatoria                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                   | La proprietà type deve essere impostata su: **AzureML** . | Sì                                      |
+| Type                   | La proprietà type deve essere impostata su: **AzureML**. | Sì                                      |
 | mlEndpoint             | L’URL del batch punteggio.                   | Sì                                      |
 | apiKey                 | Modello dell'area di lavoro pubblicato di API.     | Sì                                      |
 | updateResourceEndpoint | URL della risorsa di aggiornamento per un endpoint del servizio Web Azure Machine Learning Studio (classico) usato per aggiornare il servizio Web predittivo con il file di modello sottoposto a training | No                                       |
@@ -439,7 +439,7 @@ Si crea un servizio collegato di Azure Machine Learning per collegare un'area di
 ### <a name="properties"></a>Proprietà
 | Proprietà               | Descrizione                              | Obbligatoria                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                   | La proprietà type deve essere impostata su: **AzureMLService** . | Sì                                      |
+| Type                   | La proprietà type deve essere impostata su: **AzureMLService**. | Sì                                      |
 | subscriptionId         | ID sottoscrizione di Azure              | Sì                                      |
 | resourceGroupName      | name | Sì                                      |
 | mlWorkspaceName        | Nome delle aree di lavoro di Azure Machine Learning | Sì  |
@@ -482,7 +482,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 | Proprietà             | Descrizione                              | Obbligatoria                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics** . | Sì                                      |
+| type                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Sì                                      |
 | accountName          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
 | dataLakeAnalyticsUri | URI di Azure Data Lake Analytics.           | No                                       |
 | subscriptionId       | ID sottoscrizione di Azure                    | No                                       |
@@ -497,7 +497,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 ## <a name="azure-databricks-linked-service"></a>Servizio collegato Azure Databricks
 È possibile creare un **servizio collegato Azure Databricks** per registrare l'area di lavoro di Databricks che si userà per eseguire i carichi di lavoro di Databricks (notebook, jar, python). 
 > [!IMPORTANT]
-> I servizi collegati Databricks supportano [pool di istanze](https://aka.ms/instance-pools). 
+> I servizi collegati databricks supportano i [pool di istanze](https://aka.ms/instance-pools) & autenticazione dell'identità gestita assegnata dal sistema.
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Esempio - Uso di un nuovo cluster dei processi in Databricks
 
@@ -545,9 +545,10 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 | Proprietà             | Descrizione                              | Obbligatoria                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Nome del servizio collegato               | Sì   |
-| type                 | La proprietà type deve essere impostata su: **Azure Databricks** . | Sì                                      |
+| type                 | La proprietà type deve essere impostata su: **Azure Databricks**. | Sì                                      |
 | dominio               | Specificare l'area di Azure in base all'area dell'area di lavoro di Databricks. Esempio: https://eastus.azuredatabricks.net | Sì                                 |
-| accessToken          | Il token di accesso è obbligatorio per l'autenticazione del data factory con Azure Databricks. Deve essere generato dall'area di lavoro di Databricks. Per una procedura più dettagliata per trovare il token di accesso, fare clic [qui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sì                                       |
+| accessToken          | Il token di accesso è obbligatorio per l'autenticazione del data factory con Azure Databricks. Deve essere generato dall'area di lavoro di Databricks. Per una procedura più dettagliata per trovare il token di accesso, fare clic [qui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | No                                       |
+| Identità del servizio gestita          | Usare l'identità gestita di Data Factory (assegnata dal sistema) per eseguire l'autenticazione a Azure Databricks. Non è necessario un token di accesso quando si usa l'autenticazione ' MSI '  | No                                       |
 | existingClusterId    | ID cluster di un cluster esistente in cui eseguire tutti i processi. Dovrebbe essere un cluster interattivo già creato. Se il cluster smette di rispondere, potrebbe essere necessario riavviarlo manualmente. Databricks suggerisce di eseguire i processi su nuovi cluster per una maggiore affidabilità. È possibile trovare l'ID cluster di un cluster interattivo nell'area di lavoro di Databricks -> Cluster -> Interactive Cluster Name (Nome cluster interattivo) -> Configurazione -> Tag. [Altri dettagli](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
 | instancePoolId    | ID pool di istanze di un pool esistente nell'area di lavoro di Databricks.  | No  |
 | newClusterVersion    | Versione Spark del cluster. Crea un cluster dei processi in Databricks. | No  |
@@ -571,13 +572,13 @@ Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di sto
 
 ## <a name="azure-function-linked-service"></a>Servizio collegato della funzione di Azure
 
-Si crea un servizio collegato di Funzioni di Azure e lo si usa con l'[attività Funzioni di Azure](control-flow-azure-function-activity.md) per eseguire funzioni di Azure in una pipeline di Data Factory. Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Tenere presente che [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)*non* è un `JObject`.) Qualsiasi tipo restituito diverso da `JObject` ha esito negativo e genera l'errore utente *il contenuto della risposta non è un JObject valido* .
+Si crea un servizio collegato di Funzioni di Azure e lo si usa con l'[attività Funzioni di Azure](control-flow-azure-function-activity.md) per eseguire funzioni di Azure in una pipeline di Data Factory. Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Tenere presente che [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)*non* è un `JObject`.) Qualsiasi tipo restituito diverso da `JObject` ha esito negativo e genera l'errore utente *il contenuto della risposta non è un JObject valido*.
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
 | type   | La proprietà type deve essere impostata su: **AzureFunction** | sì |
 | function app url | URL dell'app per le funzioni di Azure. Il formato è `https://<accountname>.azurewebsites.net`. Questo URL è il valore presente nella sezione **URL** quando si visualizza l'app per le funzioni nel portale di Azure  | sì |
-| function key | Chiave di accesso per la funzione di Azure. Fare clic sulla sezione **Gestisci** per la funzione corrispondente e copiare il **tasto funzione** o la **chiave host** . Per altre informazioni, vedere: [Trigger e associazioni HTTP di Funzioni di Azure](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sì |
+| function key | Chiave di accesso per la funzione di Azure. Fare clic sulla sezione **Gestisci** per la funzione corrispondente e copiare il **tasto funzione** o la **chiave host**. Per altre informazioni, vedere: [Trigger e associazioni HTTP di Funzioni di Azure](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sì |
 |   |   |   |
 
 ## <a name="next-steps"></a>Passaggi successivi

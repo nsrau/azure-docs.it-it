@@ -12,11 +12,11 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517887"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022480"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
@@ -48,7 +48,7 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
    ![Funzioni distribuite con il modello](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger* , a seconda che si vogliano modificare la data e l'ora dell'aumento o della riduzione delle prestazioni. Nel menu a discesa selezionare Integrazione.
+2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger*, a seconda che si vogliano modificare la data e l'ora dell'aumento o della riduzione delle prestazioni. Nel menu a discesa selezionare Integrazione.
 
    ![Selezionare Integrazione per la funzione](./media/manage-compute-with-azure-functions/select-integrate.png)
 
@@ -70,7 +70,7 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
 1. Passare al servizio app per le funzioni. Se il modello è stato distribuito con i valori predefiniti, il servizio sarà denominato *DWOperations*. Dopo aver aperto l'app per le funzioni, si noterà che nel servizio app per le funzioni sono distribuite cinque funzioni.
 
-2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger* , a seconda che si voglia modificare il valore di calcolo per l'aumento o per la riduzione delle prestazioni. Quando si selezionano le funzioni, nel riquadro dovrebbe essere visualizzato il file *index.js*.
+2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger*, a seconda che si voglia modificare il valore di calcolo per l'aumento o per la riduzione delle prestazioni. Quando si selezionano le funzioni, nel riquadro dovrebbe essere visualizzato il file *index.js*.
 
    ![Modificare il livello di calcolo del trigger della funzione](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -99,7 +99,7 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
 
    ![Screenshot che mostra il menu "app per le funzioni" con l'icona "più" accanto a "Functions" selezionato.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. In lingua selezionare *JavaScript* , quindi selezionare *TimerTrigger*.
+2. In lingua selezionare *JavaScript*, quindi selezionare *TimerTrigger*.
 
    ![Creare una nuova funzione](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 

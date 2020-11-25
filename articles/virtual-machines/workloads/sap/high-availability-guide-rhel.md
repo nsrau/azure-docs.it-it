@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
 ms.openlocfilehash: 496b78de869cc213af6b79b3e72016bba3da1266
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967432"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022446"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 

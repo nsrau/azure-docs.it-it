@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c4cbbc437b633232ea65dd202b7531a1a5ac2c58
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629309"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96022590"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
 
@@ -26,17 +26,17 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 |Protocolli di accesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Sistema operativo supportato     |Kernel Linux versione 4.3 +         |Windows 2008 R2 +, versione kernel Linux 4.11 +         |
 |[Livelli disponibili](storage-files-planning.md#storage-tiers)     |Archiviazione Premium         |Archiviazione Premium, ottimizzato per le transazioni, accesso frequente, ad accesso sporadico         |
-|[Ridondanza](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
+|[Ridondanza](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentication     |Solo autenticazione basata su host        |Autenticazione basata sull'identità, autenticazione basata sull'utente         |
 |Autorizzazioni     |Autorizzazioni di tipo UNIX         |Autorizzazioni di tipo NTFS         |
 |Semantica del file System     |Conforme a POSIX         |Non conforme a POSIX         |
 |Maiuscole/minuscole     |Fa distinzione tra maiuscole e minuscole.         |Senza distinzione maiuscole/minuscole         |
-|Supporto per collegamenti reali     |Funzionalità supportata         |Non supportato         |
-|Supporto di collegamenti simbolici     |Funzionalità supportata         |Non supportato         |
-|Eliminazione o modifica di file aperti     |Funzionalità supportata         |Non supportato         |
-|Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Funzionalità supportata         |
-|Elenco sicuro IP pubblico | Non supportato | Funzionalità supportata|
-|Interoperabilità del protocollo| Non supportato | Filerest|
+|Supporto per collegamenti reali     |Supportato         |Non supportate         |
+|Supporto di collegamenti simbolici     |Supportato         |Non supportate         |
+|Eliminazione o modifica di file aperti     |Supportato         |Non supportate         |
+|Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Supportato         |
+|Elenco sicuro IP pubblico | Non supportate | Supportato|
+|Interoperabilità del protocollo| Non supportate | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Condivisioni NFS (anteprima)
 

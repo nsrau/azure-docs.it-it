@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 05719d9633429c4b8ee6fee79833f594c94ab23d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 867cdc97ff91d5932230b733dee4d7660d499c39
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025894"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Per completare la configurazione minima del dispositivo StorSimple
 
@@ -20,11 +20,11 @@ ms.locfileid: "93375935"
 
      ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
 
-2. Nel pannello **Configurare il dispositivo** :
+2. Nel pannello **Configurare il dispositivo**:
    
    1. Fornire un **nome descrittivo** per il dispositivo. Il nome predefinito del dispositivo riflette informazioni quali il modello di dispositivo e il numero di serie. È possibile assegnare un nome descrittivo di un massimo di 64 caratteri per gestire il dispositivo.
    2. Impostare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il dispositivo usa questo fuso orario per tutte le operazioni pianificate.
-   3. In **IMPOSTAZIONI DI DATA 0** :
+   3. In **IMPOSTAZIONI DI DATA 0**:
 
        1. L'interfaccia di rete DATA 0 viene visualizzata come abilitata con le impostazioni di rete (IP, subnet, gateway) configurate tramite l'installazione guidata. DATA 0 viene abilitata automaticamente anche per il cloud e iSCSI.
 
@@ -41,4 +41,4 @@ ms.locfileid: "93375935"
     ![Interfacce di rete per la configurazione minima del dispositivo StorSimple 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
-[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+[Test]: /previous-versions/windows/powershell-scripting/dn715782(v=wps.630)

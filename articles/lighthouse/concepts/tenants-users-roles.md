@@ -4,11 +4,11 @@ description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043040"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023943"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Tenant, utenti e ruoli negli scenari di Azure Lighthouse
 
@@ -18,7 +18,7 @@ Un *tenant* è un'istanza dedicata e attendibile di Azure AD. Un tenant di Azure
 
 Per ottenere questa proiezione logica *, è necessario* caricare in Azure Lighthouse una sottoscrizione, o uno o più gruppi di risorse all'interno di una sottoscrizione, nel tenant del cliente. Questo processo di onboarding può essere eseguito [tramite modelli di Azure Resource Manager](../how-to/onboard-customer.md) o [pubblicando un'offerta pubblica o privata in Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Indipendentemente dal metodo di onboarding scelto, sarà necessario definire le *autorizzazioni* . Ogni autorizzazione specifica un account utente nel tenant di gestione che avrà accesso alle risorse delegate e un ruolo predefinito che imposta le autorizzazioni di cui ognuno di tali utenti disporrà per queste risorse.
+Indipendentemente dal metodo di onboarding scelto, sarà necessario definire le *autorizzazioni*. Ogni autorizzazione specifica un account utente nel tenant di gestione che avrà accesso alle risorse delegate e un ruolo predefinito che imposta le autorizzazioni di cui ognuno di tali utenti disporrà per queste risorse.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Procedure consigliate per la definizione di utenti e ruoli
 
@@ -30,7 +30,7 @@ Quando si creano le autorizzazioni, è consigliabile attenersi alle procedure co
 - Assicurarsi che tutti gli utenti che devono [visualizzare la pagina Clienti personali nel portale di Azure](../how-to/view-manage-customers.md) dispongano del ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) o di un altro ruolo predefinito che include l'accesso in lettura.
 
 > [!IMPORTANT]
-> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza** . Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="role-support-for-azure-lighthouse"></a>Supporto dei ruoli per Azure Lighthouse
 

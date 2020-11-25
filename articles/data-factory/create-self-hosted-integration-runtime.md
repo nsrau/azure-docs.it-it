@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/25/2020
+ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331725"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023355"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -64,9 +64,9 @@ Usare la procedura seguente per creare un runtime di integrazione self-hosted us
 
    ![Creare un runtime di integrazione](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Nella pagina di **installazione di Integration Runtime** selezionare **Azure, self-hosted** e quindi selezionare **continue (continua** ). 
+1. Nella pagina di **installazione di Integration Runtime** selezionare **Azure, self-hosted** e quindi selezionare **continue (continua**). 
 
-1. Nella pagina seguente selezionare **self-hosted** per creare un Self-Hosted IR e quindi selezionare continue ( **continua** ).
+1. Nella pagina seguente selezionare **self-hosted** per creare un Self-Hosted IR e quindi selezionare continue ( **continua**).
    ![Creare un selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Immettere un nome per il runtime di integrazione e selezionare **Crea**.
@@ -150,7 +150,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 - Usare un runtime di integrazione self-hosted per supportare l'integrazione dei dati all'interno di una rete virtuale di Azure.
 - Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per connettere il servizio all'origine dati.
 - Usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud in una macchina virtuale di infrastruttura distribuita come servizio (IaaS) di Azure.
-- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per ovviare a questo problema, sono disponibili due opzioni: archiviare le credenziali/i valori del segreto in un Azure Key Vault o disabilitare la crittografia conforme a FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
+- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per ovviare a questo problema, sono disponibili due opzioni: archiviare le credenziali/i valori del segreto in un Azure Key Vault o disabilitare la crittografia conforme a FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se si usa il [runtime di integrazione self-hosted come proxy per il runtime di integrazione SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), la crittografia conforme a FIPS può essere abilitata e verrà usata quando si trasferiscono i dati da locale ad archiviazione BLOB di Azure come area di gestione temporanea.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -185,7 +185,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Installare e registrare un runtime di integrazione self-hosted dall'area download Microsoft
 
 1. Accedere alla [pagina di download di Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Selezionare **download** , selezionare la versione a 64 bit e fare clic su **Avanti**. La versione a 32 bit non è supportata.
+1. Selezionare **download**, selezionare la versione a 64 bit e fare clic su **Avanti**. La versione a 32 bit non è supportata.
 1. Eseguire direttamente il file di identità gestita oppure salvarlo sul disco rigido ed eseguirlo.
 1. Nella finestra **iniziale** selezionare una lingua e fare clic su **Avanti**.
 1. Accettare le condizioni di licenza software Microsoft e quindi selezionare **Avanti**.
@@ -239,7 +239,7 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere la comunicazion
 
 - Deve essere un certificato X509 v3 pubblicamente attendibile. Si consiglia di usare i certificati emessi da un'autorità di certificazione (CA) del partner pubblico.
 - Ogni nodo del runtime di integrazione deve considerare attendibile questo certificato.
-- Non è consigliabile usare i certificati di nome alternativo del soggetto (SAN) perché viene usato solo l'ultimo elemento SAN. Tutti gli altri elementi SAN vengono ignorati. Se, ad esempio, si dispone di un certificato SAN le cui SANs sono **node1.Domain.contoso.com** e **node2.Domain.contoso.com** , è possibile utilizzare questo certificato solo in un computer il cui nome di dominio completo (FQDN) è **node2.Domain.contoso.com**.
+- Non è consigliabile usare i certificati di nome alternativo del soggetto (SAN) perché viene usato solo l'ultimo elemento SAN. Tutti gli altri elementi SAN vengono ignorati. Se, ad esempio, si dispone di un certificato SAN le cui SANs sono **node1.Domain.contoso.com** e **node2.Domain.contoso.com**, è possibile utilizzare questo certificato solo in un computer il cui nome di dominio completo (FQDN) è **node2.Domain.contoso.com**.
 - Il certificato può usare qualsiasi dimensione della chiave supportata da Windows Server 2012 R2 per i certificati TLS/SSL.
 - I certificati che usano chiavi CNG non sono supportati.  
 
@@ -264,8 +264,8 @@ Per visualizzare un'introduzione e una dimostrazione di questa funzionalità, gu
 
 ### <a name="terminology"></a>Terminologia
 
-- **IR condiviso** : un runtime di integrazione self-hosted originale che viene eseguito in un'infrastruttura fisica.  
-- **IR collegato** : un IR che fa riferimento a un altro IR condiviso. Il runtime di integrazione collegato è un IR logico e usa l'infrastruttura di un altro runtime di integrazione self-hosted condiviso.
+- **IR condiviso**: un runtime di integrazione self-hosted originale che viene eseguito in un'infrastruttura fisica.  
+- **IR collegato**: un IR che fa riferimento a un altro IR condiviso. Il runtime di integrazione collegato è un IR logico e usa l'infrastruttura di un altro runtime di integrazione self-hosted condiviso.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Metodi per condividere un runtime di integrazione self-hosted
 
@@ -351,9 +351,9 @@ Quando è configurato, il runtime di integrazione self-hosted usa il server prox
 
 Sono disponibili tre opzioni di configurazione:
 
-- **Non usare il proxy** : il runtime di integrazione self-hosted non usa in modo esplicito alcun proxy per connettersi ai servizi cloud.
-- **Usa il proxy di sistema** : il runtime di integrazione self-hosted usa l'impostazione del proxy configurata in diahost.exe.config e diawp.exe.config. Se questi file non specificano alcuna configurazione proxy, il runtime di integrazione self-hosted si connette al servizio cloud direttamente senza passare attraverso un proxy.
-- **Usa proxy personalizzato** : configurare l'impostazione proxy HTTP da usare per il runtime di integrazione self-hosted, anziché usare le configurazioni in diahost.exe.config e diawp.exe.config. I valori di **Indirizzo** e **porta** sono obbligatori. I valori di **nome utente** e **password** sono facoltativi, a seconda dell'impostazione di autenticazione del proxy. Tutte le impostazioni vengono crittografate con Windows DPAPI nel runtime di integrazione self-hosted e archiviate localmente nel computer.
+- **Non usare il proxy**: il runtime di integrazione self-hosted non usa in modo esplicito alcun proxy per connettersi ai servizi cloud.
+- **Usa il proxy di sistema**: il runtime di integrazione self-hosted usa l'impostazione del proxy configurata in diahost.exe.config e diawp.exe.config. Se questi file non specificano alcuna configurazione proxy, il runtime di integrazione self-hosted si connette al servizio cloud direttamente senza passare attraverso un proxy.
+- **Usa proxy personalizzato**: configurare l'impostazione proxy HTTP da usare per il runtime di integrazione self-hosted, anziché usare le configurazioni in diahost.exe.config e diawp.exe.config. I valori di **Indirizzo** e **porta** sono obbligatori. I valori di **nome utente** e **password** sono facoltativi, a seconda dell'impostazione di autenticazione del proxy. Tutte le impostazioni vengono crittografate con Windows DPAPI nel runtime di integrazione self-hosted e archiviate localmente nel computer.
 
 Il servizio host di Integration Runtime viene riavviato automaticamente dopo avere salvato le impostazioni proxy aggiornate.
 
@@ -416,7 +416,7 @@ Se si seleziona l'opzione **Usa proxy di sistema** per il proxy http, il runtime
 Se vengono visualizzati messaggi di errore simili a quelli riportati di seguito, il motivo probabile è la configurazione non corretta del firewall o del server proxy. Tale configurazione impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per verificare che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.
 
 * Quando si tenta di registrare il runtime di integrazione self-hosted, viene visualizzato il messaggio di errore seguente: "Impossibile registrare il nodo Integration Runtime. Verificare che la chiave di autenticazione sia valida e che il servizio host del servizio di integrazione sia in esecuzione nel computer. "
-* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i registri eventi di Windows, in **Visualizzatore eventi**  >  **registri applicazioni e servizi**  >  **Microsoft Integration Runtime** , vengono visualizzati messaggi di errore simili ai seguenti:
+* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i registri eventi di Windows, in **Visualizzatore eventi**  >  **registri applicazioni e servizi**  >  **Microsoft Integration Runtime**, vengono visualizzati messaggi di errore simili ai seguenti:
 
     ```
     Unable to connect to the remote server

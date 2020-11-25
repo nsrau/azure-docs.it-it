@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
 ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339289"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023466"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Avvio rapido: Distribuire l'API di Azure per FHIR con il portale di Azure
 
@@ -41,7 +41,7 @@ Selezionare **crea** per creare un nuovo account API di Azure per FHIR:
 
 ## <a name="enter-account-details"></a>Immettere i dettagli dell'account
 
-Selezionare un gruppo di risorse esistente o crearne uno nuovo, scegliere un nome per l'account, infine fare clic su **Rivedi e crea** :
+Selezionare un gruppo di risorse esistente o crearne uno nuovo, scegliere un nome per l'account, infine fare clic su **Rivedi e crea**:
 
 :::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Dettagli nuova API per i servizi sanitari":::
 
@@ -63,7 +63,7 @@ Per verificare l'avvenuto provisioning del nuovo account API FHIR, recuperare un
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il gruppo di risorse, l'API di Azure per FHIR e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse contenente l'API di Azure per FHIR, selezionare **Elimina gruppo di risorse** , quindi confermare il nome del gruppo di risorse da eliminare.
+Quando non servono più, è possibile eliminare il gruppo di risorse, l'API di Azure per FHIR e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse contenente l'API di Azure per FHIR, selezionare **Elimina gruppo di risorse**, quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

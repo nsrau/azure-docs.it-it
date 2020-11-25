@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288988"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022667"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -24,7 +24,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 Seguire questa procedura in Ambari per creare una nuova coda YARN e bilanciare l'allocazione delle capacità tra tutte le code.
 
-In questo esempio è stata modificata la capacità dal 50% al 25% per due code esistenti ( **predefinita** e **thriftsvr** ), in modo da consentire alla nuova coda (Spark) di avere una capacità del 50%.
+In questo esempio è stata modificata la capacità dal 50% al 25% per due code esistenti (**predefinita** e **thriftsvr**), in modo da consentire alla nuova coda (Spark) di avere una capacità del 50%.
 
 | Coda | Capacità | Capacità massima |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ In questo esempio è stata modificata la capacità dal 50% al 25% per due code e
 2. Selezionare la coda **predefinita**.
 
     ![Apache Ambari YARN selezionare coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. Per la coda **predefinita** , modificare la **capacità** dal 50% al 25%. Per la coda **thriftsvr** , impostare la **capacità** sul 25%.
+3. Per la coda **predefinita**, modificare la **capacità** dal 50% al 25%. Per la coda **thriftsvr**, impostare la **capacità** sul 25%.
 
     ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Per creare una nuova coda, fare clic su **Aggiungi coda**.
@@ -74,7 +74,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
     yarn top
     ```
 
-    Gli ID sono elencati nella colonna **APPLICATIONID** , di cui è necessario scaricare i log **APPLICATIONID**.
+    Gli ID sono elencati nella colonna **APPLICATIONID**, di cui è necessario scaricare i log **APPLICATIONID**.
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -129,7 +129,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 
     Verrà creato un file di log denominato containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Altre letture
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Letture aggiuntive
 
 - [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Concetti e applicazioni di Apache Hadoop YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

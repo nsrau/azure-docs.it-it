@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742051"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022735"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione BLOB di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -207,7 +207,7 @@ Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se vie
 
 1. Aprire la soluzione in Visual Studio.
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SASExample** e scegliere **Proprietà** .
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SASExample** e scegliere **Proprietà**.
 
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
 
@@ -353,27 +353,27 @@ Se si dispone di un cluster esistente, è possibile aggiungere la firma di acces
 
 1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è `https://YOURCLUSTERNAME.azurehdinsight.net`. Quando richiesto, eseguire l'autenticazione al cluster con il nome amministratore (admin) e la password usati durante la creazione del cluster.
 
-1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site** .
+1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site**.
 
-1. Espandere la sezione **core personalizzato-sito** , scorrere fino alla fine e quindi selezionare **Aggiungi proprietà...** . Usare i valori seguenti per **Key** e **value** :
+1. Espandere la sezione **core personalizzato-sito** , scorrere fino alla fine e quindi selezionare **Aggiungi proprietà...**. Usare i valori seguenti per **Key** e **value**:
 
-    * **Chiave** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Value** : la firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
+    * **Chiave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Value**: la firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
 
     Sostituire `CONTAINERNAME` con il nome del contenitore usato con l'applicazione C# o SAS. Sostituire `STORAGEACCOUNTNAME` con il nome dell'account di archiviazione usato.
 
     Selezionare **Aggiungi** per salvare la chiave e il valore
 
-1. Selezionare il pulsante **Salva** per salvare le modifiche apportate alla configurazione. Quando richiesto, aggiungere una descrizione della modifica (ad esempio "aggiunta di accesso alla risorsa di archiviazione SAS"), quindi selezionare **Salva** .
+1. Selezionare il pulsante **Salva** per salvare le modifiche apportate alla configurazione. Quando richiesto, aggiungere una descrizione della modifica (ad esempio "aggiunta di accesso alla risorsa di archiviazione SAS"), quindi selezionare **Salva**.
 
     Selezionare **OK** quando le modifiche sono state completate.
 
    > [!IMPORTANT]  
    > Perché le modifiche siano effettive, è necessario riavviare diversi servizi.
 
-1. Verrà visualizzato un elenco a discesa di **riavvio** . Selezionare **Restart all affected** dall'elenco a discesa, quindi __confermare restart all__ .
+1. Verrà visualizzato un elenco a discesa di **riavvio** . Selezionare **Restart all affected** dall'elenco a discesa, quindi __confermare restart all__.
 
-    Ripetere questo processo per **MapReduce2** e **Yarn** .
+    Ripetere questo processo per **MapReduce2** e **Yarn**.
 
 1. Dopo il riavvio di questi servizi, selezionarli uno alla volta e disabilitare la modalità di manutenzione dall'elenco a discesa **Service Actions** (Azioni servizio).
 
@@ -411,7 +411,7 @@ Usare la procedura seguente per verificare che sia possibile leggere ed elencare
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Il file verrà scaricato in un file locale denominato **testfile.txt** .
+    Il file verrà scaricato in un file locale denominato **testfile.txt**.
 
 5. Usare il comando seguente per caricare il file locale in un nuovo file denominato **testupload.txt** nella risorsa di archiviazione della firma di accesso condiviso:
 

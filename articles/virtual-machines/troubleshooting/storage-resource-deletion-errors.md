@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651634"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022871"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione
 
@@ -60,7 +60,7 @@ Dopo avere completato questi passaggi, riprovare a eliminare l'account di archiv
 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Scenario 2: eliminazione di un contenitore - identificare tutti i BLOB all'interno del contenitore collegati alle macchine virtuali
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Scegliere **Tutte le risorse** dal menu Hub. Passare all'account di archiviazione, in **servizio BLOB** selezionare **contenitori**e individuare il contenitore da eliminare.
+2. Scegliere **Tutte le risorse** dal menu Hub. Passare all'account di archiviazione, in **servizio BLOB** selezionare **contenitori** e individuare il contenitore da eliminare.
 3. Fare clic per aprire il contenitore e visualizzare l'elenco di BLOB in esso contenuti. Identificare tutti i BLOB con Tipo BLOB = **BLOB di pagine** e Stato lease = **Con lease** da questo elenco. Seguire lo Scenario 1 per identificare la macchina virtuale associata a ognuno di questi BLOB.
 
     ![Schermata del portale, con evidenziati i BLOB dell'account di archiviazione e lo "Stato lease" con "Con lease"](./media/troubleshoot-vhds/utd-disks-sm.png)

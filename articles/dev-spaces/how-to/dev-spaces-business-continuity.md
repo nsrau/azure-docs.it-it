@@ -9,11 +9,11 @@ description: Informazioni su come usare Azure Dev Spaces e i servizi Kubernetes 
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 824eb1e65e7da5736080e47509aa163a868d8ec9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023330"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
 

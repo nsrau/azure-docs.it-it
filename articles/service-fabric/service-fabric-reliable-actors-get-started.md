@@ -7,11 +7,11 @@ ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023619"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introduzione a Reliable Actors
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ Creare una semplice applicazione console per chiamare il servizio attore.
     > [!NOTE]
     > Un'applicazione console non è il tipo di app che in genere si usa come client in Service Fabric, ma è un esempio utile per il debug e il testing con il cluster Service Fabric locale.
 
-3. L'applicazione console deve essere un'applicazione a 64 bit per garantire la compatibilità con il progetto interfaccia e le altre dipendenze.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ActorClient** e quindi scegliere **Proprietà**.  Nella scheda **Build**impostare **Piattaforma di destinazione** su **x64**.
+3. L'applicazione console deve essere un'applicazione a 64 bit per garantire la compatibilità con il progetto interfaccia e le altre dipendenze.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ActorClient** e quindi scegliere **Proprietà**.  Nella scheda **Build** impostare **Piattaforma di destinazione** su **x64**.
     
     ![Proprietà di compilazione][8]
 

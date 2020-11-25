@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: c63160d7514dccb0d2a9c2879db6d3fd614e1a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68ce927c05f7179cca0aa2833460b9550f0a82d2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646390"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025871"
 ---
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
@@ -27,6 +27,6 @@ Una macchina virtuale di Azure può essere associata a una o più interfacce di 
 * Fungere da appliance virtuale di rete, ad esempio un firewall o un servizio di bilanciamento del carico.
 * Aggiungere qualsiasi indirizzo IP per qualsiasi scheda di interfaccia di rete a un pool back-end di Azure Load Balancer. In passato, era possibile aggiungere a un pool di back-end solo gli indirizzi IP primari per la scheda di interfaccia di rete primaria. Per altre informazioni su come bilanciare il carico di più configurazioni IP, leggere l'articolo [Load balancing multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Bilanciamento del carico di più configurazioni IP).
 
-Ogni scheda di interfaccia di rete collegata a una macchina virtuale dispone di una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato statico o dinamico. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Una risorsa indirizzo IP pubblico dispone di un indirizzo IP dinamico o statico pubblico assegnato. Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [indirizzi IP in Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
+Ogni scheda di interfaccia di rete collegata a una macchina virtuale dispone di una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato statico o dinamico. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Una risorsa indirizzo IP pubblico dispone di un indirizzo IP dinamico o statico pubblico assegnato. Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [indirizzi IP in Azure](../articles/virtual-network/public-ip-addresses.md). 
 
 Sono previsti limiti per il numero di indirizzi IP privati che possono essere assegnati a una scheda di rete e per il numero di indirizzi IP pubblici che possono essere usati in una sottoscrizione di Azure. Per informazioni dettagliate, vedere l'articolo [Limiti di Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).

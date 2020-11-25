@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023075"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -27,8 +27,8 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight** . Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
-* **Un client SSH** . Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
+* **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Per l' `wasb://` archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 * **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il tipo di account di archiviazione `BlobStorage` .
 * facoltativo.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](/powershell/azure/new-azureps-module-az) sia installato.
@@ -300,8 +300,8 @@ Si può usare uno script di Python come funzione definita dall'utente da Pig tra
 
 Per specificare l'interprete Python, usare `register` quando si fa riferimento allo script di Python. Negli esempi seguenti gli script vengono registrati con Pig come `myfuncs`:
 
-* **Per usare Jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Per usare C Python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Per usare Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Per usare C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Quando si usa Jython, il percorso del file di pig_jython può essere un percorso locale o un percorso WASBS://. Tuttavia, quando si usa C Python, è necessario fare riferimento un file nel file system locale del nodo che si usa per inviare il processo Pig.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 Nell'esempio Pig Latin l' `LINE` input viene definito come CharArray perché non esiste alcuno schema coerente per l'input. Con lo script Python i dati vengono trasformati in uno schema coerente per l'output.
 
-1. L'istruzione `@outputSchema` definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati** , ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
+1. L'istruzione `@outputSchema` definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati**, ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
 
    * date - data di creazione della voce del log
    * time - ora di creazione della voce del log

@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022922"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Proteggere un servizio collegato con collegamenti privati
 
@@ -22,8 +22,8 @@ Questo articolo illustra come proteggere un servizio collegato in sinapsi con un
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure** : se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure** : usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) per informazioni su come crearne uno. Verificare che l'account di archiviazione disponga del filtro IP di sinapsi Studio per accedervi e che si consentano solo le **reti selezionate** per accedere all'account di archiviazione. L'impostazione sotto il pannello **firewall e reti virtuali** dovrebbe essere simile all'immagine seguente.
+* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) per informazioni su come crearne uno. Verificare che l'account di archiviazione disponga del filtro IP di sinapsi Studio per accedervi e che si consentano solo le **reti selezionate** per accedere all'account di archiviazione. L'impostazione sotto il pannello **firewall e reti virtuali** dovrebbe essere simile all'immagine seguente.
 
 ![Account di archiviazione protetto](./media/secure-storage-account.png)
 
@@ -33,7 +33,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 
 1. Aprire Azure sinapsi studio e passare alla scheda **Gestisci** .
 1. In **Connessioni esterne** selezionare **Servizi collegati**.
-1. Per aggiungere un servizio collegato, selezionare **nuovo**.
+1. Per aggiungere un servizio collegato, selezionare **Nuovo**.
 1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
 1. Assicurarsi di abilitare **Interactive Authoring** (Creazione interattiva). L'abilitazione potrebbe richiedere circa 1 minuto. 
 1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Selezionare Test connessione per verificare che le credenziali siano corrette.

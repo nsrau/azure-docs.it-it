@@ -2,14 +2,14 @@
 title: Ricevere eventi dalla griglia di eventi di Azure in un endpoint HTTP
 description: Viene descritto come convalidare un endpoint HTTP, quindi ricevere e deserializzare gli eventi dalla griglia di eventi di Azure
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326474"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023720"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
 
@@ -140,9 +140,11 @@ Testare la funzione di risposta della convalida incollando l'evento di esempio n
 }]
 ```
 
-Quando si fa clic su Run (Esegui), l'Output deve essere 200 OK e `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` nel corpo:
+Quando si fa clic su Run (Esegui), l'Output deve essere 200 OK e `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` nel corpo:
 
-![risposta di convalida](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Richiesta di convalida":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Output di convalida":::
 
 ## <a name="handle-blob-storage-events"></a>Gestire gli eventi di archiviazione BLOB
 
@@ -394,6 +396,8 @@ Infine verificare che la funzione possa ora gestire il tipo di evento personaliz
 ```
 
 È anche possibile testare questa funzionalità in tempo reale [inviando un evento personalizzato con CURL dal portale](./custom-event-quickstart-portal.md) o [registrando un argomento personalizzato](./post-to-custom-topic.md) usando qualsiasi servizio o applicazione in grado di REGISTRARE un endpoint, ad esempio [Postman](https://www.getpostman.com/). Creare un argomento personalizzato e una sottoscrizione di eventi con l'endpoint impostato come URL della funzione.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

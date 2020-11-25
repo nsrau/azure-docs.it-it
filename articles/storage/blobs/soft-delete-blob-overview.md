@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230110"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022378"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
 L'eliminazione temporanea per i BLOB impedisce la modifica o l'eliminazione accidentale o errata dei dati. Quando l'eliminazione temporanea per i BLOB è abilitata per un account di archiviazione, i BLOB, le versioni BLOB e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro un periodo di conservazione specificato.
 
-Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, Microsoft consiglia di abilitare l'eliminazione temporanea. Per ulteriori informazioni sull'abilitazione dell'eliminazione temporanea, vedere [Enable and Manage soft delete for Blobs](soft-delete-enable.md).
+Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, Microsoft consiglia di abilitare l'eliminazione temporanea. Per ulteriori informazioni sull'abilitazione dell'eliminazione temporanea, vedere [Enable and Manage soft delete for Blobs](./soft-delete-blob-enable.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -52,7 +52,7 @@ Se si disabilita l'eliminazione temporanea, è possibile continuare ad accedere 
 
 L'eliminazione temporanea consente di mantenere i dati in molti casi in cui gli oggetti vengono eliminati o sovrascritti.
 
-Quando un BLOB viene sovrascritto con **Put Blob**, **Put Block List**o **Copy Blob**, viene generata automaticamente una versione o uno snapshot dello stato del BLOB prima dell'operazione di scrittura. Questo oggetto è invisibile, a meno che non vengano elencati in modo esplicito gli oggetti eliminati temporaneamente. Vedere la sezione [Ripristino](#recovery) per informazioni su come elencare gli oggetti eliminati temporaneamente.
+Quando un BLOB viene sovrascritto con **Put Blob**, **Put Block List** o **Copy Blob**, viene generata automaticamente una versione o uno snapshot dello stato del BLOB prima dell'operazione di scrittura. Questo oggetto è invisibile, a meno che non vengano elencati in modo esplicito gli oggetti eliminati temporaneamente. Vedere la sezione [Ripristino](#recovery) per informazioni su come elencare gli oggetti eliminati temporaneamente.
 
 ![Diagramma che illustra come vengono archiviati gli snapshot dei BLOB quando vengono sovrascritti usando Put Blob, Put Block List o copy BLOB.](media/soft-delete-blob-overview/storage-blob-soft-delete-overwrite.png)
 
@@ -88,7 +88,7 @@ La tabella seguente illustra il comportamento previsto quando l'eliminazione tem
 | [Elimina](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Put Blob](/rest/api/storageservices/put-blob) | BLOB in blocchi, di Accodamento e di pagine | Crea un nuovo BLOB o sostituisce un BLOB esistente all'interno di un contenitore | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
-| [Delete Blob](/rest/api/storageservices/delete-blob) | BLOB in blocchi, di Accodamento e di pagine | Contrassegna un BLOB o uno snapshot di BLOB per l'eliminazione. Il BLOB o lo snapshot verrà eliminato in seguito durante la Garbage Collection | Se usata per eliminare uno snapshot di BLOB, tale snapshot viene contrassegnato come eliminato temporaneamente. Se usata per eliminare un BLOB, tale BLOB viene contrassegnato come eliminato temporaneamente. |
+| [Elimina BLOB](/rest/api/storageservices/delete-blob) | BLOB in blocchi, di Accodamento e di pagine | Contrassegna un BLOB o uno snapshot di BLOB per l'eliminazione. Il BLOB o lo snapshot verrà eliminato in seguito durante la Garbage Collection | Se usata per eliminare uno snapshot di BLOB, tale snapshot viene contrassegnato come eliminato temporaneamente. Se usata per eliminare un BLOB, tale BLOB viene contrassegnato come eliminato temporaneamente. |
 | [Copy Blob](/rest/api/storageservices/copy-blob) | BLOB in blocchi, di Accodamento e di pagine | Copia un BLOB di origine in un BLOB di destinazione nello stesso account di archiviazione o in un altro account di archiviazione. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
 | [Put Block](/rest/api/storageservices/put-block) | BLOB in blocchi | Crea un nuovo blocco di cui eseguire il commit come parte di un BLOB in blocchi. | Se utilizzato per eseguire il commit di un blocco in un BLOB attivo, non viene apportata alcuna modifica. In caso di commit di un blocco in un BLOB eliminato temporaneamente, viene creato un nuovo BLOB e generato automaticamente uno snapshot per acquisire lo stato del BLOB eliminato temporaneamente. |
 | [Put Block List](/rest/api/storageservices/put-block-list) | BLOB in blocchi | Esegue il commit di un BLOB specificando il set di ID dei blocchi che compongono il BLOB in blocchi. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza se e solo se si tratta di un BLOB in blocchi. Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
@@ -149,7 +149,7 @@ Vedere la sezione [Passaggi successivi](#next-steps) per un puntatore all'applic
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
-Tutti i dati eliminati temporaneamente vengono fatturati alla stessa tariffa dei dati attivi. Non si incorre in alcun addebito per i dati che vengono eliminati definitivamente al termine del periodo di conservazione configurato. Per informazioni approfondite sugli snapshot e sul modo in cui aumentano i costi, vedere [informazioni su come gli snapshot accumulano i costi](storage-blob-snapshots.md).
+Tutti i dati eliminati temporaneamente vengono fatturati alla stessa tariffa dei dati attivi. Non si incorre in alcun addebito per i dati che vengono eliminati definitivamente al termine del periodo di conservazione configurato. Per informazioni approfondite sugli snapshot e sul modo in cui aumentano i costi, vedere [informazioni su come gli snapshot accumulano i costi](./snapshots-overview.md).
 
 Non verrà addebitato alcun costo per le transazioni relative alla generazione automatica di snapshot. Verranno addebitate le transazioni di **annullamento dell'eliminazione dei BLOB** alla tariffa per le operazioni di scrittura.
 
@@ -183,7 +183,7 @@ Sì, ma prima è necessario chiamare Undelete sul BLOB.
 
 ### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>L'eliminazione temporanea è disponibile per i dischi delle macchine virtuali?  
 
-L'eliminazione temporanea è disponibile per i dischi non gestiti sia Premium che standard, ovvero i BLOB di pagine sotto le quinte. L'eliminazione temporanea consente solo di ripristinare i dati eliminati da **Elimina BLOB**, **Put Blob**, **Put Block List**e **Copy Blob** Operation. I dati sovrascritti tramite una chiamata a **Put Page** non sono recuperabili.
+L'eliminazione temporanea è disponibile per i dischi non gestiti sia Premium che standard, ovvero i BLOB di pagine sotto le quinte. L'eliminazione temporanea consente solo di ripristinare i dati eliminati da **Elimina BLOB**, **Put Blob**, **Put Block List** e **Copy Blob** Operation. I dati sovrascritti tramite una chiamata a **Put Page** non sono recuperabili.
 
 Una macchina virtuale di Azure scrive in un disco non gestito usando le chiamate a **Put Page**, quindi l'uso dell'eliminazione temporanea per annullare le Scritture in un disco non gestito da una macchina virtuale di Azure non è uno scenario supportato.
 
@@ -193,5 +193,5 @@ Una macchina virtuale di Azure scrive in un disco non gestito usando le chiamate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare l'eliminazione temporanea per i BLOB](soft-delete-enable.md)
+- [Abilitare l'eliminazione temporanea per i BLOB](./soft-delete-blob-enable.md)
 - [Controllo delle versioni dei BLOB](versioning-overview.md)

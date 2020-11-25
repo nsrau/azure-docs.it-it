@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: a04ce77c7e81a3a73b87eaf5790b383dece35d86
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022718"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming su larga scala in HDInsight
 
 Le soluzioni Big Data in tempo reale agiscono sui dati in movimento. In genere, questi dati hanno il maggior valore al momento dell'arrivo. Se il flusso di dati in ingresso diventa più grande delle dimensioni gestibili in quel momento, potrebbe risultare necessario limitare le risorse. Un cluster HDInsight offre in alternativa funzioni di scalabilità verticale, consentendo di soddisfare le esigenze della soluzione con l'aggiunta di nodi su richiesta.
 
-In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso* , tecnica nota anche come *accodamento degli eventi* , eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi* , come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
+In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso*, tecnica nota anche come *accodamento degli eventi*, eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi*, come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
 
 ![Modelli di flusso di Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 

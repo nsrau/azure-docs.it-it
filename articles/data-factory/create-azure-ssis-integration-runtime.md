@@ -12,11 +12,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593757"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023432"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 
@@ -112,9 +112,9 @@ Nella pagina **Impostazioni generali** di **Integration runtime setup** (Configu
 
    ![Impostazioni generali](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-   1. Per **Nome** , immettere il nome del runtime di integrazione.
+   1. Per **Nome**, immettere il nome del runtime di integrazione.
 
-   2. Per **Descrizione** , immettere la descrizione del runtime di integrazione.
+   2. Per **Descrizione**, immettere la descrizione del runtime di integrazione.
 
    3. Per **Località** selezionare la località del runtime di integrazione. Vengono visualizzate solo le località supportate. È consigliabile selezionare la stessa località del server di database che ospiterà SSISDB.
 
@@ -122,11 +122,11 @@ Nella pagina **Impostazioni generali** di **Integration runtime setup** (Configu
    > [!NOTE]
    > Se è necessario l' [isolamento del calcolo](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), selezionare le dimensioni del nodo **Standard_E64i_v3** . Questa dimensione del nodo rappresenta le macchine virtuali isolate che utilizzano l'intero host fisico e forniscono il livello di isolamento necessario richiesto da determinati carichi di lavoro, ad esempio i carichi di lavoro IL5 (Department Level 5) degli Stati Uniti.
    
-   5. Per **Numero nodo** , selezionare il numero di nodi nel cluster del runtime di integrazione. Vengono visualizzati solo i numeri dei nodi supportati. Selezionare un cluster di grandi dimensioni con molti nodi (aumento del numero di istanze) se si prevede di eseguire numerosi pacchetti in parallelo.
+   5. Per **Numero nodo**, selezionare il numero di nodi nel cluster del runtime di integrazione. Vengono visualizzati solo i numeri dei nodi supportati. Selezionare un cluster di grandi dimensioni con molti nodi (aumento del numero di istanze) se si prevede di eseguire numerosi pacchetti in parallelo.
 
    6. Per **Edition/License** (Edizione/licenza), selezionare l'edizione di SQL Server per il runtime di integrazione: Standard o Enterprise. Selezionare Enterprise se si prevede di usare funzionalità avanzate nel runtime di integrazione.
 
-   7. Per **Risparmio sui costi** , selezionare l'opzione Vantaggio Azure Hybrid per il runtime di integrazione: **Sì** o **No**. Selezionare **Sì** se si vuole usare la propria licenza di SQL Server con Software Assurance per trarre vantaggio dai risparmi sui costi con Hybrid Use.
+   7. Per **Risparmio sui costi**, selezionare l'opzione Vantaggio Azure Hybrid per il runtime di integrazione: **Sì** o **No**. Selezionare **Sì** se si vuole usare la propria licenza di SQL Server con Software Assurance per trarre vantaggio dai risparmi sui costi con Hybrid Use.
 
    8. Selezionare **Avanti**.
 
@@ -146,7 +146,7 @@ Se si seleziona la casella di controllo, sarà necessario completare la procedur
    
    1. Per **Sottoscrizione** selezionare la sottoscrizione di Azure contenente il server di database che ospiterà SSISDB. 
 
-   1. Per **Località** , selezionare la stessa località del server di database che ospiterà SSISDB. È consigliabile selezionare la stessa località del runtime di integrazione.
+   1. Per **Località**, selezionare la stessa località del server di database che ospiterà SSISDB. È consigliabile selezionare la stessa località del runtime di integrazione.
 
    1. Per **Catalog Database Server Endpoint** (Endpoint server di database del catalogo), selezionare l'endpoint del server di database che ospiterà SSISDB. 
    
@@ -158,9 +158,9 @@ Se si seleziona la casella di controllo, sarà necessario completare la procedur
 
       Se si seleziona la casella di controllo, sarà necessario aggiungere l'identità gestita per la data factory nel gruppo di Azure AD con autorizzazioni di accesso al server di database. Per altre informazioni, vedere [Creare un'istanza di Azure-SSIS IR con l'autenticazione di Azure AD]().
    
-   1. Per **Nome utente amministratore** , immettere il nome utente di autenticazione SQL per il server di database in cui ospitare SSISDB. 
+   1. Per **Nome utente amministratore**, immettere il nome utente di autenticazione SQL per il server di database in cui ospitare SSISDB. 
 
-   1. Per **Password amministratore** , immettere la password di autenticazione SQL per il server di database in cui ospitare SSISDB. 
+   1. Per **Password amministratore**, immettere la password di autenticazione SQL per il server di database in cui ospitare SSISDB. 
 
    1. Per **Catalog Database Service Tier** (Livello di servizio del database di catalogo) selezionare il livello di servizio per il server di database in cui ospitare SSISDB. Selezionare il livello Basic, Standard o Premium oppure il nome di un pool elastico.
 
@@ -186,7 +186,7 @@ Nel riquadro **Add package store** (Aggiungi archivio pacchetti) completare la p
    1. Per **Package store linked service** (Servizio collegato archivio pacchetti) selezionare il servizio collegato esistente che archivia le informazioni di accesso per il file system/File di Azure/Istanza gestita di SQL di Azure in cui i pacchetti sono distribuiti o crearne uno nuovo selezionando **Nuovo**. Nel riquadro **New linked service** (Nuovo servizio collegato) completare la procedura seguente.
    
       > [!NOTE]
-      > È possibile usare i servizi collegati **Archiviazione file di Azure** o **File system** per accedere a File di Azure. Se si usa il servizio collegato **Archiviazione file di Azure** , l'archivio pacchetti Azure-SSIS IR supporta attualmente solo il metodo di autenticazione **di base** (non **basata sulla chiave dell'account** né **basata sull'URI della firma di accesso condiviso** ). Per usare l'autenticazione **di base** nel servizio collegato **Archiviazione file di Azure** , è possibile accodare `?feature.upgradeAzureFileStorage=false` all'URL del portale ADF nel browser. In alternativa, è possibile usare il servizio collegato **File system** per accedere a File di Azure. 
+      > È possibile usare i servizi collegati **Archiviazione file di Azure** o **File system** per accedere a File di Azure. Se si usa il servizio collegato **Archiviazione file di Azure**, l'archivio pacchetti Azure-SSIS IR supporta attualmente solo il metodo di autenticazione **di base** (non **basata sulla chiave dell'account** né **basata sull'URI della firma di accesso condiviso**). Per usare l'autenticazione **di base** nel servizio collegato **Archiviazione file di Azure**, è possibile accodare `?feature.upgradeAzureFileStorage=false` all'URL del portale ADF nel browser. In alternativa, è possibile usare il servizio collegato **File system** per accedere a File di Azure. 
 
       ![Impostazioni di distribuzione per i servizi collegati](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -194,37 +194,37 @@ Nel riquadro **Add package store** (Aggiungi archivio pacchetti) completare la p
          
       1. Per **Descrizione** immettere la descrizione del servizio collegato. 
          
-      1. Per **Tipo** selezionare **Archiviazione file di Azure** , **Istanza gestita di SQL di Azure** o **File system**.
+      1. Per **Tipo** selezionare **Archiviazione file di Azure**, **Istanza gestita di SQL di Azure** o **File system**.
 
       1. È possibile ignorare **Connect via integration runtime** (Connetti tramite runtime di integrazione), dal momento che per recuperare le informazioni di accesso per gli archivi pacchetti si usa sempre Azure-SSIS IR.
 
-      1. Se si seleziona **Archiviazione file di Azure** , completare la procedura seguente. 
+      1. Se si seleziona **Archiviazione file di Azure**, completare la procedura seguente. 
 
-         1. Per **Account selection method** (Metodo di selezione account) selezionare **From Azure subscription** (Dalla sottoscrizione di Azure) o **Immetti manualmente**.
+         1. Per **Account selection method**(Metodo di selezione account) selezionare **From Azure subscription** (Dalla sottoscrizione di Azure) o **Immetti manualmente**.
          
-         1. Se si seleziona **From Azure subscription** (Dalla sottoscrizione di Azure), selezionare la **Sottoscrizione di Azure** , il **Nome dell'account di archiviazione** e la **Condivisione file** pertinenti.
+         1. Se si seleziona **From Azure subscription**(Dalla sottoscrizione di Azure), selezionare la **Sottoscrizione di Azure**, il **Nome dell'account di archiviazione** e la **Condivisione file** pertinenti.
             
-         1. Se si seleziona **Immetti manualmente** , immettere `\\<storage account name>.file.core.windows.net\<file share name>` per **Host** , `Azure\<storage account name>` per **Nome utente** e `<storage account key>` per **Password** o selezionare l' **Azure Key Vault** in cui queste informazioni sono archiviate come segreto.
+         1. Se si seleziona **Immetti manualmente**, immettere `\\<storage account name>.file.core.windows.net\<file share name>` per **Host**, `Azure\<storage account name>` per **Nome utente** e `<storage account key>` per **Password** o selezionare l'**Azure Key Vault** in cui queste informazioni sono archiviate come segreto.
 
-      1. Se si seleziona **Istanza gestita di SQL di Azure** , completare la procedura seguente. 
+      1. Se si seleziona **Istanza gestita di SQL di Azure**, completare la procedura seguente. 
 
-         1. Selezionare **Stringa di connessione** per immetterla manualmente oppure l' **Azure Key Vault** in cui è archiviata come segreto.
+         1. Selezionare **Stringa di connessione** per immetterla manualmente oppure l'**Azure Key Vault** in cui è archiviata come segreto.
          
-         1. Se si seleziona **Stringa di connessione** , completare la procedura seguente. 
+         1. Se si seleziona **Stringa di connessione**, completare la procedura seguente. 
 
             1. Per **Nome di dominio completo** immettere rispettivamente `<server name>.<dns prefix>.database.windows.net` o `<server name>.public.<dns prefix>.database.windows.net,3342` come endpoint privato o pubblico, rispettivamente, dell'istanza gestita di SQL di Azure. Se si immette l'endpoint privato, **Verifica connessione** non è applicabile, perché l'interfaccia utente di Azure Data Factory non è in grado di raggiungerlo.
 
             1. Per **Nome database** immettere `msdb`.
                
-            1. Per **Tipo di autenticazione** selezionare **Autenticazione SQL** , **identità gestita** o **Entità servizio**.
+            1. Per **Tipo di autenticazione** selezionare **Autenticazione SQL**, **identità gestita** o **Entità servizio**.
 
-            1. Se si seleziona **Autenticazione SQL** immettere il **Nome utente** e la **Password** pertinenti o selezionare l' **Azure Key Vault** in cui tali informazioni sono archiviate come segreto.
+            1. Se si seleziona **Autenticazione SQL** immettere il **Nome utente** e la **Password** pertinenti o selezionare l'**Azure Key Vault** in cui tali informazioni sono archiviate come segreto.
 
-            1. Se si seleziona **Identità gestita** , concedere all'identità gestita di Azure Data Factory l'accesso all'Istanza gestita di SQL di Azure.
+            1. Se si seleziona **Identità gestita**, concedere all'identità gestita di Azure Data Factory l'accesso all'Istanza gestita di SQL di Azure.
 
-            1. Se si seleziona **Entità servizio** , immettere **ID entità servizio** e **Chiave dell'entità servizio** pertinenti o selezionare l' **Azure Key Vault** in cui queste informazioni sono archiviate come segreto.
+            1. Se si seleziona **Entità servizio**, immettere **ID entità servizio** e **Chiave dell'entità servizio** pertinenti o selezionare l'**Azure Key Vault** in cui queste informazioni sono archiviate come segreto.
 
-      1. Se si seleziona **File system** , immettere il percorso UNC della cartella in cui sono distribuiti i pacchetti per **Host** e il **Nome utente** e la **Password** pertinenti o selezionare l' **Azure Key Vault** in cui tali informazioni sono archiviate come segreto.
+      1. Se si seleziona **File system**, immettere il percorso UNC della cartella in cui sono distribuiti i pacchetti per **Host** e il **Nome utente** e la **Password** pertinenti o selezionare l'**Azure Key Vault** in cui tali informazioni sono archiviate come segreto.
 
       1. Selezionare **Verifica connessione** se applicabile e, in caso di esito positivo, selezionare **Crea**.
 
@@ -246,9 +246,9 @@ Nella pagina **Impostazioni avanzate** di **Integration runtime setup** (Configu
 
       ![Impostazioni avanzate per le installazioni personalizzate](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
    
-      1. Per l'URI di firma di accesso condiviso del **contenitore di installazione personalizzata** , immettere l'URI SAS del contenitore in cui vengono archiviati gli script e i file associati per le configurazioni personalizzate standard.
+      1. Per l'URI di firma di accesso condiviso del **contenitore di installazione personalizzata**, immettere l'URI SAS del contenitore in cui vengono archiviati gli script e i file associati per le configurazioni personalizzate standard.
 
-      1. Per l' **installazione personalizzata rapida** , **selezionare nuovo** per aprire il pannello **Aggiungi installazione personalizzata rapida** , quindi selezionare tutti i tipi nel menu a discesa **tipo di installazione personalizzata Express** , ad esempio eseguire il **comando cmdkey** , **aggiungere la variabile di ambiente** , **installare il componente concesso in licenza** e così via.
+      1. Per l' **installazione personalizzata rapida**, **selezionare nuovo** per aprire il pannello **Aggiungi installazione personalizzata rapida** , quindi selezionare tutti i tipi nel menu a discesa **tipo di installazione personalizzata Express** , ad esempio eseguire il **comando cmdkey**, **aggiungere la variabile di ambiente**, **installare il componente concesso in licenza** e così via.
 
          Se si seleziona installa il tipo di **componente con licenza** , è possibile selezionare tutti i componenti integrati dai partner ISV nel menu a discesa **nome componente** e, se necessario, immettere il codice Product Key License/caricare il file di licenza del prodotto acquistato da essi nella casella file di licenza del **codice** di licenza / **License file** .
   
@@ -286,7 +286,7 @@ Nella pagina **Impostazioni avanzate** di **Integration runtime setup** (Configu
 
       ![Impostazioni avanzate con un runtime di integrazione self-hosted](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
-      1. Per **Integration runtime indipendenti** , selezionare il runtime di integrazione self-hosted esistente come proxy per Azure-SSIS IR.
+      1. Per **Integration runtime indipendenti**, selezionare il runtime di integrazione self-hosted esistente come proxy per Azure-SSIS IR.
 
       1. Per **servizio collegato archiviazione di staging** selezionare il servizio collegato di archiviazione BLOB di Azure esistente o crearne uno nuovo per la gestione temporanea.
 
@@ -305,7 +305,7 @@ Nella sezione **Riepilogo** esaminare tutte le impostazioni di provisioning, agg
 
 #### <a name="connections-pane"></a>Riquadro Connessioni
 
-Nel riquadro **Connessioni** dell'hub **Gestione** , passare alla pagina **Integration runtimes** (Runtime di integrazione) e selezionare **Aggiorna**. 
+Nel riquadro **Connessioni** dell'hub **Gestione**, passare alla pagina **Integration runtimes** (Runtime di integrazione) e selezionare **Aggiorna**. 
 
    ![Riquadro Connessioni](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 

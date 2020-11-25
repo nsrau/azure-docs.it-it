@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535400"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022769"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -128,9 +128,9 @@ Per evitare che i processi in esecuzione abbiano esito negativo durante un'opera
 Per visualizzare un elenco dei processi in sospeso e in esecuzione, è possibile usare l' **interfaccia utente** di Yarn gestione risorse, seguendo questa procedura:
 
 1. Selezionare il proprio cluster nel [portale di Azure](https://portal.azure.com/).  Il cluster viene aperto in una nuova pagina del portale.
-2. Dalla visualizzazione principale passare a **cluster Dashboards**  >  **Ambari Home** . Immettere le credenziali del cluster.
+2. Dalla visualizzazione principale passare a **cluster Dashboards**  >  **Ambari Home**. Immettere le credenziali del cluster.
 3. Dall'interfaccia utente di Ambariri selezionare **Yarn** nell'elenco dei servizi nel menu a sinistra.  
-4. Dalla pagina YARN selezionare **collegamenti rapidi** e passare il puntatore del mouse sul nodo head attivo, quindi selezionare **Gestione risorse interfaccia utente** .
+4. Dalla pagina YARN selezionare **collegamenti rapidi** e passare il puntatore del mouse sul nodo head attivo, quindi selezionare **Gestione risorse interfaccia utente**.
 
     ![Collegamenti rapidi di Apache Ambari Gestione risorse interfaccia utente](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
@@ -146,7 +146,7 @@ Per terminare manualmente l'applicazione in esecuzione, eseguire il comando segu
 yarn application -kill <application_id>
 ```
 
-ad esempio:
+Ad esempio:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

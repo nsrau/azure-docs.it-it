@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022939"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
 ## <a name="overview"></a>Panoramica
@@ -91,7 +91,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
    
     ![Configurare le colonne](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Colonna risultati | Description |
+   | Colonna risultati | Descrizione |
    |:--- |:--- |
    |  Nome |La colonna **Nome** contiene la lettera di unità assegnata a ogni volume individuato. |
    |  Dispositivo |La **colonna** dispositivo contiene l'indirizzo IP del dispositivo connesso al computer. |
