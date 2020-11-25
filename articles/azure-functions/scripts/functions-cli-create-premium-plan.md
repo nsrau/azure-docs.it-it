@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 70a5a29a251590580ac787efe8460caf07598898
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714dd8d886f567bcdf07c93803662ef4b2c635f3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498277"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565163"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Creare un'app per le funzioni in un piano Premium - Interfaccia della riga di comando di Azure
 
@@ -18,9 +18,9 @@ Questo script di esempio di Funzioni di Azure crea un'app per le funzioni che è
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+ - Questa esercitazione richiede la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -36,7 +36,7 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di Archiviazione di Azure. |
 | [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Crea un piano Premium in uno [SKU specifico](../functions-premium-plan.md#available-instance-skus). |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel piano di servizio app. |

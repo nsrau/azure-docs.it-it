@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: efb00d35d2b12e6b6a577483257debf4e797c0a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a47548fb1f94ac7fe9b561e798b010fa9176e9e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934039"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566300"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Guida introduttiva: Creare un hub eventi usando l'interfaccia della riga di comando di Azure
 
@@ -18,22 +18,15 @@ Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di in
 
 In questa guida introduttiva viene creato un hub eventi usando l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
-Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito][] prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per controllare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="set-the-subscription-context"></a>Impostare il contesto della sottoscrizione
 
 I passaggi seguenti non sono necessari se si eseguono i comandi in Cloud Shell. Se si esegue l'interfaccia della riga di comando in locale, eseguire la procedura seguente per accedere ad Azure e impostare la sottoscrizione corrente:
-
-Eseguire questo comando per accedere ad Azure:
-
-```azurecli-interactive
-az login
-```
 
 Impostare il contesto della sottoscrizione corrente. Sostituire `MyAzureSub` con il nome della sottoscrizione di Azure che si desidera usare:
 
@@ -79,7 +72,7 @@ In questo articolo è stato creato un gruppo di risorse, uno spazio dei nomi Hub
 - [C (solo invio)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (solo ricezione)](event-hubs-storm-getstarted-receive.md)
 
-[Creare un account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

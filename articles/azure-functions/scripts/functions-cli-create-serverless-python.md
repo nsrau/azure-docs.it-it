@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: bbc302194d4dc1922344138e057b456b63c18bbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21c8476bd76a591b7bd7ba7cae41e3c64d06b329
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848112"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565104"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Creare un'app per le funzioni Python serverless con l'interfaccia della riga di comando di Azure
 
@@ -21,9 +21,9 @@ Questo script di esempio di Funzioni di Azure crea un'app per le funzioni che è
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+ - Questa esercitazione richiede la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -40,7 +40,7 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 | Comando | Note |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creare un account di Archiviazione di Azure. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di Archiviazione di Azure. |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creare un'app per le funzioni. |
 
 ## <a name="next-steps"></a>Passaggi successivi

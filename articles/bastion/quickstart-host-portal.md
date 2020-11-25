@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 325f39b695d80c14ed7097d071380b937458546c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150432"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021487"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Avvio rapido: Connettersi a una VM in modo sicuro tramite un browser e un indirizzo IP privato
 
@@ -69,35 +69,35 @@ Quando si crea questa configurazione, è possibile usare i valori di esempio seg
 È possibile configurare un host bastion in vari modi diversi. Nei passaggi seguenti si creerà un host bastion nel portale di Azure direttamente dalla macchina virtuale. Quando si crea un host da una macchina virtuale, le varie impostazioni verranno popolate automaticamente in base alla macchina virtuale e/o alla rete virtuale.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare alla macchina virtuale a cui connettersi e selezionare **Connetti** .
+1. Passare alla macchina virtuale a cui connettersi e selezionare **Connetti**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-settings.png" alt-text="impostazioni della macchina virtuale" lightbox="./media/quickstart-host-portal/vm-settings.png":::
-1. Nell'elenco a discesa selezionare **Bastion** .
-1. Nella pagina **TestVM | Connetti** selezionare **Usa Bastion** .
+1. Nell'elenco a discesa selezionare **Bastion**.
+1. Nella pagina **TestVM | Connetti** selezionare **Usa Bastion**.
 
-   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="impostazioni della macchina virtuale" border="false":::
+   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Selezionare Bastion" border="false":::
 
 1. Nella pagina **Bastion** compilare i campi delle impostazioni seguenti:
 
-   * **Nome** : nome dell'host bastion.
-   * **Subnet** : corrisponde allo spazio indirizzi della rete virtuale in cui verrà distribuita la risorsa Bastion. È necessario creare la subnet con il nome **AzureBastionSubnet** . Usare una subnet con dimensioni di almeno /27 o superiori (/27, /26, /25 e così via).
-   * Selezionare **Gestisci configurazione subnet** .
-1. Nella pagina **Subnet** selezionare **+Subnet** .
+   * **Nome**: nome dell'host bastion.
+   * **Subnet**: corrisponde allo spazio indirizzi della rete virtuale in cui verrà distribuita la risorsa Bastion. È necessario creare la subnet con il nome **AzureBastionSubnet**. Usare una subnet con dimensioni di almeno /27 o superiori (/27, /26, /25 e così via).
+   * Selezionare **Gestisci configurazione subnet**.
+1. Nella pagina **Subnet** selezionare **+Subnet**.
 
-   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="impostazioni della macchina virtuale":::
+   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="+ Subnet":::
     
-1. Nella pagina **Aggiungi** subnet digitare **AzureBastionSubnet** per **Nome** .
+1. Nella pagina **Aggiungi** subnet digitare **AzureBastionSubnet** per **Nome**.
    * Per l'intervallo di indirizzi della subnet, scegliere un indirizzo incluso nello spazio indirizzi della rete virtuale.
    * Non modificare altre impostazioni. Selezionare **OK** per accettare e salvare le modifiche della subnet.
 
-   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="impostazioni della macchina virtuale":::
+   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="Aggiungi subnet":::
 1. Fare clic sul pulsante Indietro del browser per tornare nella pagina **Bastion** e continuare a specificare valori.
-   * **Indirizzo IP pubblico** : lasciare **Crea nuovo** .
-   * **Nome indirizzo IP pubblico** : nome della risorsa indirizzo IP pubblico.
-   * **Assegnazione** : l'impostazione predefinita è Statico. Non è possibile usare un'assegnazione dinamica per Azure Bastion.
-   * **Gruppo di risorse** : lo stesso gruppo di risorse della VM.
+   * **Indirizzo IP pubblico**: lasciare **Crea nuovo**.
+   * **Nome indirizzo IP pubblico**: nome della risorsa indirizzo IP pubblico.
+   * **Assegnazione**: l'impostazione predefinita è Statico. Non è possibile usare un'assegnazione dinamica per Azure Bastion.
+   * **Gruppo di risorse**: lo stesso gruppo di risorse della VM.
 
-   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="impostazioni della macchina virtuale":::
+   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="Creare l'host bastion":::
 1. Selezionare **Crea** per creare l'host bastion. Azure convalida le impostazioni e quindi crea l'host. Per la creazione e la distribuzione dell'host e delle relative risorse sono necessari circa 5 minuti.
 
 ## <a name="connect"></a><a name="connect"></a>Connettersi
@@ -106,10 +106,10 @@ Al termine della distribuzione della risorsa Bastion nella rete virtuale, la sch
 
 1. Digitare il nome utente e la password per la macchina virtuale. Selezionare **Connect** (Connetti).
 
-   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="impostazioni della macchina virtuale":::
+   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Screenshot che mostra la finestra di dialogo Connetti per la connessione tramite Azure Bastion.":::
 1. La connessione RDP a questa macchina virtuale verrà aperta direttamente nel portale di Azure (tramite HTML5) usando la porta 443 e il servizio Bastion.
 
-   :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="impostazioni della macchina virtuale":::
+   :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Connessione RDP":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -117,9 +117,9 @@ Quando la rete virtuale e le macchine virtuali non sono più necessarie, rimuove
 
 1. Immettere il nome del gruppo di risorse nella casella **Cerca** nella parte superiore del portale e selezionarlo nei risultati della ricerca.
 
-1. Selezionare **Elimina gruppo di risorse** .
+1. Selezionare **Elimina gruppo di risorse**.
 
-1. Immettere il nome del gruppo di risorse in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina** .
+1. Immettere il nome del gruppo di risorse in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

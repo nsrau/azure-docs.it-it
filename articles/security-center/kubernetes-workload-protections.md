@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030850"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -47,23 +47,32 @@ Il Centro sicurezza offre altre funzionalità di sicurezza del contenitore se si
 
 Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili quando è stato installato il **componente aggiuntivo criteri di Azure per Kubernetes**.
 
-1. Per configurare le indicazioni, è prima necessario installare il componente aggiuntivo:
+### <a name="step-1-deploy-the-add-on"></a>Passaggio 1: distribuire il componente aggiuntivo
 
-    1. Dalla pagina raccomandazioni, cercare la raccomandazione denominata **componente aggiuntivo criteri di Azure per Kubernetes deve essere installata e abilitata nei cluster**.
+Per configurare le raccomandazioni, installare il  **componente aggiuntivo criteri di Azure per Kubernetes**. 
+
+- È possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando il provisioning automatico per il componente aggiuntivo è impostato su "on", l'estensione è abilitata per impostazione predefinita in tutti i cluster esistenti e futuri (che soddisfano i requisiti di installazione del componente aggiuntivo).
+
+- Per distribuire manualmente il componente aggiuntivo:
+
+    1. Dalla pagina raccomandazioni cercare la raccomandazione "il **componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster**". 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
 
         > [!TIP]
         > La raccomandazione è inclusa in cinque diversi controlli di sicurezza e non è importante selezionare il passaggio successivo.
 
-    1. Da uno dei controlli di sicurezza **, selezionare la** raccomandazione per visualizzare le risorse in cui è possibile installare il componente aggiuntivo e selezionare Correggi. 
+    1. Da uno dei controlli di sicurezza, selezionare la raccomandazione per visualizzare le risorse in cui è possibile installare il componente aggiuntivo.
+    1. Selezionare il cluster pertinente e **correggere**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Pagina dei dettagli delle raccomandazioni per * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
+
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Passaggio 2: visualizzare e configurare il bundle di 13 raccomandazioni
 
 1. Circa 30 minuti dopo che l'installazione del componente aggiuntivo è stata completata, il Centro sicurezza Mostra lo stato di integrità dei cluster per le seguenti raccomandazioni, ciascuna nel controllo di sicurezza pertinente, come illustrato:
 
     > [!TIP]
-    > Alcune raccomandazioni includono parametri che devono essere personalizzati tramite criteri di Azure per usarli in modo efficace. Ad esempio, per trarre vantaggio dalla raccomandazione le **Immagini del contenitore devono essere distribuite solo da registri attendibili** , sarà necessario definire i registri attendibili.
+    > Alcune raccomandazioni includono parametri che devono essere personalizzati tramite criteri di Azure per usarli in modo efficace. Ad esempio, per trarre vantaggio dalla raccomandazione le **Immagini del contenitore devono essere distribuite solo da registri attendibili**, sarà necessario definire i registri attendibili.
     > 
     > Se non si immettono i parametri necessari per le raccomandazioni che richiedono la configurazione, i carichi di lavoro verranno visualizzati come non integri.
 
@@ -79,9 +88,10 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
     | L'utilizzo dei montaggi dei volumi HostPath dei pod deve essere limitato a un elenco noto    | Gestire l'accesso e le autorizzazioni            | **Sì**                |
     | I contenitori devono essere in ascolto solo sulle porte consentite                              | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
     | I servizi devono essere in ascolto solo sulle porte consentite                                | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | L'utilizzo della rete host e delle porte deve essere limitato                     | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | L'utilizzo della rete host e delle porte deve essere limitato                     | Limita l'accesso non autorizzato alla rete     | **Sì**                |
     | La sovrascrittura o la disabilitazione del profilo AppArmor dei contenitori deve essere limitata | Correggere le configurazioni di sicurezza        | **Sì**                |
     | Le immagini del contenitore devono essere distribuite solo da registri attendibili            | Correggere le vulnerabilità                | **Sì**                |
+    |||
 
 
 1. Per le raccomandazioni con i parametri devono essere personalizzati, impostare i parametri:
@@ -97,7 +107,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
 1. Per applicare una qualsiasi delle raccomandazioni, 
 
-    1. Aprire la pagina dei dettagli delle raccomandazioni e selezionare **Nega** :
+    1. Aprire la pagina dei dettagli delle raccomandazioni e selezionare **Nega**:
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opzione Deny per il parametro di criteri di Azure":::
 

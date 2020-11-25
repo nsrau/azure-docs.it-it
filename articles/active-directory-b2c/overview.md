@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396536"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953951"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ WoodGrove Groceries offre diverse opzioni di accesso in base al rapporto che i c
 
 * I clienti **privati** possono iscriversi o accedere con account personali, ad esempio con un provider di identità di social network o un indirizzo di posta elettronica e una password.
 * I clienti **aziendali** possono iscriversi o accedere con le proprie credenziali aziendali.
-* I **partner** e i fornitori sono singole persone che forniscono al negozio di alimentari i prodotti da vendere. L'identità del partner viene fornita da [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* I **partner** e i fornitori sono singole persone che forniscono al negozio di alimentari i prodotti da vendere. L'identità del partner viene fornita da [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Pagine di accesso per clienti privati (B2C), aziende (B2C) e partner (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -111,7 +111,7 @@ Questo criterio offre all'utente la possibilità di usare le proprie credenziali
 
 Il collegamento **Sign in with your supplier account** (Accedi con l'account fornitore) usa la funzionalità di collaborazione di Azure Active Directory B2B. Azure AD B2B è un set di funzionalità di Azure Active Directory per la gestione delle identità dei partner. Queste identità possono essere federate da Azure Active Directory per l'accesso alle applicazioni protette da Azure AD B2C.
 
-Per altre informazioni su Azure AD B2B, vedere [Che cos'è l'accesso utente guest in Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
+Per altre informazioni su Azure AD B2B, vedere [Che cos'è l'accesso utente guest in Azure Active Directory B2B?](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

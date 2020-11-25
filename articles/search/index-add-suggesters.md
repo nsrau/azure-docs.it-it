@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013582"
+ms.locfileid: "96030782"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
-In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un costrutto del **Suggerimento** aggiunto a un [indice di ricerca](search-what-is-an-index.md). Un suggerimento supporta due esperienze: *completamento automatico*, che completa un input parziale per una query di termini interi, e *suggerimenti* che invitano clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
+In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un *Suggerimento*. Un suggerimento è una struttura di dati interna costituita da una raccolta di campi. I campi vengono sottoposti a token aggiuntivi, generando sequenze di prefisso per supportare le corrispondenze in termini parziali.
+
+Se, ad esempio, un suggeritore include un campo City, verranno create combinazioni di prefisso derivanti di "Sea", "Seat", "Seatt" e "Seattl" per il termine "Seattle". I prefissi vengono archiviati in indici invertiti, uno per ogni campo specificato in una raccolta di campi del suggerimento.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Esperienza typeahead in ricerca cognitiva
+
+Un suggerimento supporta due esperienze: *completamento automatico*, che completa un input parziale per una query di termini interi, e *suggerimenti* che invitano clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
 
 La schermata seguente illustra come [creare la prima app in C#](tutorial-csharp-type-ahead-and-suggestions.md) . Il completamento automatico prevede un termine potenziale, terminando "TW" con "in". I suggerimenti sono i risultati della ricerca minima, dove un campo come il nome dell'hotel rappresenta un documento di ricerca di un hotel corrispondente dall'indice. Per i suggerimenti, è possibile esporre qualsiasi campo che fornisca informazioni descrittive.
 
@@ -31,10 +37,6 @@ La schermata seguente illustra come [creare la prima app in C#](tutorial-csharp-
 + Chiamare una query abilitata per il suggerimento, sotto forma di richiesta di suggerimento o di completamento automatico, usando una delle [API elencate di seguito](#how-to-use-a-suggester).
 
 Il supporto per la ricerca in base al tipo è abilitato per ogni singolo campo per i campi stringa. È possibile implementare entrambi i comportamenti typeahead all'interno della stessa soluzione di ricerca se si vuole un'esperienza simile a quella indicata nella schermata. Entrambe le richieste sono destinate alla raccolta *Documents* di un indice specifico e le risposte vengono restituite dopo che un utente ha fornito almeno una stringa di input di tre caratteri.
-
-## <a name="what-is-a-suggester"></a>Che cos'è un suggerimento?
-
-Un suggerimento è una struttura di dati interna che supporta i comportamenti di ricerca in base al tipo, archiviando i prefissi per la corrispondenza in query parziali. Come per i termini in formato token, i prefissi vengono archiviati in indici invertiti, uno per ogni campo specificato in una raccolta di campi del suggerimento.
 
 ## <a name="how-to-create-a-suggester"></a>Come creare un suggerimento
 

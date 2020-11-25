@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965375"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. Consente di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
@@ -81,7 +81,7 @@ Il servizio Device Provisioning include molte funzionalità che lo rendono una s
 
 * Supporto dell'**attestazione protetta** sia per le entità basate sul certificato X.509 che per quelle basate sul modulo TPM.
 * **Elenco di registrazione** contenente il record completo dei dispositivi/gruppi di dispositivi che con il tempo potrebbero registrarsi. L'elenco di registrazione contiene le informazioni sulla configurazione desiderata del dispositivo registrato e può essere aggiornato in qualsiasi momento.
-* **Più criteri di allocazione** per controllare la modalità con cui il servizio Device Provisioning assegna i dispositivi agli hub IoT per supportare gli scenari del cliente: latenza più bassa, distribuzione ponderata in modo uniforme (impostazione predefinita) e configurazione statica tramite elenco di registrazione. La latenza viene determinata con lo stesso metodo di [Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
+* **Più criteri di allocazione** per controllare la modalità con cui il servizio Device Provisioning assegna i dispositivi agli hub IoT per supportare gli scenari del cliente: latenza più bassa, distribuzione ponderata in modo uniforme (impostazione predefinita) e configurazione statica tramite elenco di registrazione. La latenza viene determinata con lo stesso metodo di [Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md#performance).
 * **Monitoraggio e registrazione diagnostica** per assicurarsi che tutto funzioni correttamente.
 * **Supporto di più hub** per consentire al servizio Device Provisioning di assegnare dispositivi a più hub IoT. Il servizio Device Provisioning può dialogare con gli hub tramite più sottoscrizioni di Azure.
 * **Supporto tra aree** per consentire al servizio Device Provisioning di assegnare i dispositivi a hub IoT in altre aree.
@@ -119,7 +119,7 @@ Per altre informazioni sui limiti di quota:
 * [Limiti del servizio di sottoscrizione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componenti di Azure correlati
-Il servizio Device Provisioning automatizza il provisioning dei dispositivi con l'hub IoT di Azure. Altre informazioni sull'[hub IoT](https://docs.microsoft.com/azure/iot-hub/).
+Il servizio Device Provisioning automatizza il provisioning dei dispositivi con l'hub IoT di Azure. Altre informazioni sull'[hub IoT](../iot-hub/index.yml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo questa panoramica del provisioning dei dispositivi IoT in Azure, il passaggio successivo consiste nel provare uno scenario di IoT end-to-end.

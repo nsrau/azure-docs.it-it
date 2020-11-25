@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cb1a0819902d2dfa27718ccfe39b175959a16c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963840"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837890"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Esercitazione: Configurare password personalizzate escluse per password di protezione di Azure Active Directory
 
@@ -124,4 +124,4 @@ In questa esercitazione sono stati abilitati e configurati elenchi di password d
 > * Testare le modifiche della password con una password vietata
 
 > [!div class="nextstepaction"]
-> [Abilitare il servizio Azure Multi-Factor Authentication basato sui rischi](./tutorial-enable-azure-mfa.md)
+> [Abilitare il servizio Azure AD Multi-Factor Authentication basato sui rischi](./tutorial-enable-azure-mfa.md)

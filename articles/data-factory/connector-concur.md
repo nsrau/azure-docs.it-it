@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 6699178e514f4d25666305f3251e8eaf9d28e6dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417452"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030799"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiare dati da Concur tramite Azure Data Factory (anteprima)
 
@@ -36,8 +36,6 @@ Questo connettore d'accordo è supportato per le attività seguenti:
 
 È possibile copiare dati da Concur in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
-
 > [!NOTE]
 > L'account partner non è attualmente supportato.
 
@@ -54,14 +52,53 @@ Per il servizio collegato di Concur sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Concur** | Sì |
-| clientId | ID client dell'applicazione fornito dal servizio di gestione delle app Concur.  | Sì |
-| username | Nome utente usato per accedere al servizio Concur.  | Sì |
+| connectionProperties | Gruppo di proprietà che definisce la modalità di connessione a. | Sì |
+| **_In `connectionProperties` :_* _ | | |
+| authenticationType | I valori consentiti sono `OAuth_2.0_Bearer` e `OAuth_2.0` (legacy). L'opzione di autenticazione OAuth 2,0 funziona con l'API d'accordo precedente, che è stata deprecata a partire dal feb 2017. | Sì |
+| host | Endpoint del server d'accordo, ad esempio `implementation.concursolutions.com` .  | Sì |
+| baseUrl | URL di base dell'URL di autorizzazione dell'accordo. | Sì per `OAuth_2.0_Bearer` l'autenticazione |
+| clientId | ID client dell'applicazione fornito da assicurano la gestione delle app.  | Sì |
+| clientSecret | Segreto client corrispondente all'ID client. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì per `OAuth_2.0_Bearer` l'autenticazione |
+| username | Nome utente usato per accedere al servizio d'accordo. | Sì |
 | password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 
-**Esempio:**
+*Esempio:**
+
+```json
+{ 
+    "name": "ConcurLinkedService", 
+    "properties": {
+        "type": "Concur",
+        "typeProperties": {
+            "connectionProperties": {
+                "host":"<host e.g. implementation.concursolutions.com>",
+                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
+                "authenticationType": "OAuth_2.0_Bearer",
+                "clientId": "<client id>",
+                "clientSecret": {
+                    "type": "SecureString",
+                    "value": "<client secret>"
+                },
+                "username": "fakeUserName",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+} 
+```
+
+**Esempio (legacy):**
+
+Si noti che di seguito è riportato un modello di servizio collegato legacy senza `connectionProperties` e con `OAuth_2.0` l'autenticazione di.
 
 ```json
 {

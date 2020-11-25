@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: c7db48a1df61472de8676192f267493232139b6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980576"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030816"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,7 +52,7 @@ Se si prevede di usare Azure Cosmos DB in modalità senza server, è necessario 
 | Eseguire una query | 10 UR | Costo medio per una query che sfrutta appieno l' [indicizzazione](index-overview.md) e restituisce 100 risultati o meno |
 
 > [!IMPORTANT] 
-> Prestare attenzione alle note della tabella precedente. Per una stima più accurata dei costi effettivi delle operazioni, è possibile usare l' [emulatore di Azure Cosmos](local-emulator.md) e [misurare il costo esatto delle UR delle operazioni](find-request-unit-charge.md). Sebbene l'emulatore di Azure Cosmos non supporti senza server, viene segnalato un addebito standard delle unità richiesta per le operazioni di database e può essere usato per questa stima.
+> Prestare attenzione alle note della tabella precedente. Per una stima più accurata dei costi effettivi delle operazioni, è possibile usare l' [emulatore Azure Cosmos DB](local-emulator.md) e [misurare il costo esatto delle UR delle operazioni](find-request-unit-charge.md). Sebbene l'emulatore di Azure Cosmos DB non supporti senza server, viene segnalato un addebito standard delle unità richiesta per le operazioni di database e può essere utilizzato per la stima.
 
 Una volta calcolato il numero totale di unità richiesta e GB di spazio di archiviazione che si utilizzeranno più di un mese, la formula seguente restituirà la stima dei costi: **([numero di unità richiesta]/1 milione * $0,25) + ([GB di archiviazione] * $0,25)**.
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762043"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886023"
 ---
 # <a name="chat-concepts"></a>Concetti sulle chat
 
@@ -120,7 +120,7 @@ La segnalazione in tempo reale consente agli utenti di chattare in tempo reale. 
 
 ## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Uso di Servizi cognitivi con la libreria client Chat per abilitare le funzionalità intelligenti
 
-È possibile usare le [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/) con la libreria client Chat per aggiungere funzionalità intelligenti alle applicazioni. Ad esempio, è possibile:
+È possibile usare le [API Servizi cognitivi di Azure](../../../cognitive-services/index.yml) con la libreria client Chat per aggiungere funzionalità intelligenti alle applicazioni. Ad esempio, è possibile:
 
 - Consentire agli utenti di chattare in lingue diverse. 
 - Consentire a un agente di supporto di classificare in ordine di priorità i ticket rilevando un sentiment negativo in relazione a un problema di un cliente.
@@ -128,9 +128,9 @@ La segnalazione in tempo reale consente agli utenti di chattare in tempo reale. 
 
 A questo scopo è possibile impostare il servizio attendibile come membro di un thread di chat. Si supponga di voler abilitare il servizio di traduzione. Questo servizio dovrà restare in ascolto dei messaggi scambiati da altri membri [1], chiamare le API Servizi cognitivi per tradurre il contenuto nella lingua desiderata [2,3] e inviare il risultato tradotto come messaggio nel thread di chat [4]. 
 
-In questo modo la cronologia dei messaggi conterrà sia i messaggi originali che quelli tradotti. Nell'applicazione client è possibile aggiungere la logica per visualizzare il messaggio originale o quello tradotto. Per informazioni su come usare le API Servizi cognitivi per tradurre testo in lingue diverse, vedere [questa guida di avvio rapido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator). 
+In questo modo la cronologia dei messaggi conterrà sia i messaggi originali che quelli tradotti. Nell'applicazione client è possibile aggiungere la logica per visualizzare il messaggio originale o quello tradotto. Per informazioni su come usare le API Servizi cognitivi per tradurre testo in lingue diverse, vedere [questa guida di avvio rapido](../../../cognitive-services/translator/quickstart-translator.md). 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramma che illustra l'architettura della chat di Servizi di comunicazione.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramma che mostra l'interazione tra Servizi cognitivi e Servizi di comunicazione.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

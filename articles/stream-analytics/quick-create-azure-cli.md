@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646628"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874730"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con l'interfaccia della riga di comando di Azure
 
@@ -155,7 +155,7 @@ Nel computer locale creare un file denominato `serialization.json` e aggiungere 
 Eseguire quindi il cmdlet `az stream-analytics input create`. Assicurarsi di sostituire il valore della variabile `datasource` con il percorso in cui è stato archiviato il file JSON di definizione dell'input del processo e il valore della variabile `serialization` con il percorso in cui è stato archiviato il file JSON di serializzazione.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -191,7 +191,7 @@ Nel computer locale creare un file denominato `datasink.json` e aggiungere i dat
 Eseguire quindi il cmdlet `az stream-analytics output`. Assicurarsi di sostituire il valore della variabile `datasource` con il percorso in cui è stato archiviato il file JSON di definizione dell'output del processo e il valore della variabile `serialization` con il percorso in cui è stato archiviato il file JSON di serializzazione.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -206,7 +206,7 @@ Aggiungere una trasformazione al processo tramite il cmdlet [az stream-analytics
 Eseguire il cmdlet `az stream-analytics transformation create`.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -230,7 +230,7 @@ Avviare il processo usando il cmdlet [az stream-analytics job start](/cli/azure/
 Dopo aver eseguito il cmdlet seguente, verrà restituito `True` come output se il processo viene avviato. Nel contenitore di archiviazione viene creata una cartella di output con i dati trasformati.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime

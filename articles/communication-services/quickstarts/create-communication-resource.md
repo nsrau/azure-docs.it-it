@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667504"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886106"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Avvio rapido: Creare e gestire le risorse di Servizi di comunicazione
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile effettuare il provisioning delle risorse di Servizi di comunicazione tramite il portale di Azure o con la libreria client di gestione .NET. La libreria client di gestione consente di creare, configurare, aggiornare ed eliminare la risorsa e le interfacce con [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili nelle librerie client sono presenti nel portale di Azure. 
+Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile effettuare il provisioning delle risorse di Servizi di comunicazione tramite il portale di Azure o con la libreria client di gestione .NET. La libreria client di gestione consente di creare, configurare, aggiornare ed eliminare la risorsa e le interfacce con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili nelle librerie client sono presenti nel portale di Azure. 
 
 > [!WARNING]
 > Si noti che durante l'anteprima pubblica la disponibilità di Servizi di comunicazione è limitata all'area geografica degli Stati Uniti. Si noti anche che durante l'anteprima pubblica non è possibile trasferire le risorse di comunicazione a una sottoscrizione diversa.
@@ -47,8 +47,8 @@ Dopo aver eseguito l'accesso alla risorsa di Servizi di comunicazione, seleziona
 Le librerie client di Servizi di comunicazione usano le stringhe di connessione per autorizzare le richieste effettuate a Servizi di comunicazione. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
 
 * Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config**. Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
-* Un'applicazione in esecuzione in un'istanza di Servizio app di Azure può archiviare la stringa di connessione nelle [impostazioni dell'applicazione di Servizio app](https://docs.microsoft.com/azure/app-service/configure-common). Aggiungere la stringa di connessione alla sezione **Stringhe di connessione** della scheda Impostazioni applicazione nel portale.
-* È possibile archiviare la stringa di connessione in [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* Un'applicazione in esecuzione in un'istanza di Servizio app di Azure può archiviare la stringa di connessione nelle [impostazioni dell'applicazione di Servizio app](../../app-service/configure-common.md). Aggiungere la stringa di connessione alla sezione **Stringhe di connessione** della scheda Impostazioni applicazione nel portale.
+* È possibile archiviare la stringa di connessione in [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
 * Se l'applicazione viene eseguita localmente, potrebbe essere opportuno archiviare la stringa di connessione in una variabile di ambiente.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Archiviare la stringa di connessione in una variabile di ambiente

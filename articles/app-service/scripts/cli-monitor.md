@@ -9,22 +9,22 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b44196d62b964e46f5b9dda9076e265c1c819723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 995ca98a21e5ec392182bb48932765cca35acf3a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88960463"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562458"
 ---
-# <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Monitorare un'app del servizio app con i log del server Web usando l'interfaccia della riga di comando di Azure
+# <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorare un'app del servizio app con i log del server Web usando l'interfaccia della riga di comando di Azure
 
 Questo script di esempio crea un gruppo di risorse, un piano di servizio app e un'app, nonché configura l'app per abilitare i log del server Web. Scarica quindi i file di log per visionarli.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+ - Questa esercitazione richiede la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="sample-script"></a>Script di esempio
 

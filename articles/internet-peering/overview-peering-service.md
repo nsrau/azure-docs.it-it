@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
-ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 717a8c87c6a1c22d3f75cd4e3054bfdf0c4b5f9a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849383"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023446"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Confronto tra peering Internet e Servizio di peering
 
@@ -53,5 +53,5 @@ Per le domande frequenti, vedere [Domande frequenti sul servizio di peering](ser
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sui vantaggi del [servizio di peering](https://docs.microsoft.com/azure/peering-service/) per il clienti.
+* Altre informazioni sui vantaggi del [servizio di peering](../peering-service/index.yml) per il clienti.
 * Informazioni sui passaggi per abilitare il peering diretto per il servizio di peering con la [procedura dettagliata per i partner del servizio di peering](walkthrough-peering-service-all.md).
