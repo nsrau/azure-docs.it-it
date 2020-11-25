@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097329"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010317"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network** . I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
+Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
 
 I tecnici e gli sviluppatori si chiederanno probabilmente come vengono archiviati e interconnessi i dati in queste reti. Come sviluppatori, è anche possibile aver ricevuto richieste per creare o progettare un nuovo social network per un mercato di nicchia specifico. La domanda più importante di tutte è: come vengono archiviati tutti questi dati?
 
@@ -172,7 +172,7 @@ Si prendano ad esempio le informazioni relative a un utente:
 
 Esaminando queste informazioni è possibile distinguere rapidamente quelle più o meno critiche, creando così dei "gradini":
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagramma che illustra un modello relazionale relativo" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagramma di un modello a gradini" border="false":::
 
 Il gradino più piccolo è detto UserChunk, l'informazione minima che identifica un utente, e viene usato per la duplicazione dei dati. Riducendo le dimensioni dei dati duplicati alle sole informazioni "visualizzate", si riduce il rischio di aggiornamenti troppo estesi.
 
@@ -239,9 +239,9 @@ Un'altra opzione disponibile consiste nell'usare [Servizi cognitivi di Azure](ht
 
 ## <a name="a-planet-scale-social-experience"></a>Un'esperienza social su scala globale
 
-C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità** . Quando si progetta un'architettura, ogni componente deve poter essere ridimensionato in modo autonomo. Potrebbe diventare necessario elaborare più dati o ottenere una copertura geografica più ampia. Per fortuna, entrambe le attività sono un' **esperienza chiavi in mano** con Cosmos DB.
+C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità**. Quando si progetta un'architettura, ogni componente deve poter essere ridimensionato in modo autonomo. Potrebbe diventare necessario elaborare più dati o ottenere una copertura geografica più ampia. Per fortuna, entrambe le attività sono un'**esperienza chiavi in mano** con Cosmos DB.
 
-Cosmos DB supporta il partizionamento dinamico per impostazione predefinita. e crea automaticamente partizioni in base a una determinata **chiave di partizione** , definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB supporta il partizionamento dinamico per impostazione predefinita. e crea automaticamente partizioni in base a una determinata **chiave di partizione**, definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
 
 Per un'esperienza social, è necessario allineare la strategia di partizionamento al modo in cui si eseguono query e scrittura. È consigliabile, ad esempio, leggere all'interno della stessa partizione ed evitare "aree sensibili" diffondendo le Scritture in più partizioni. Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), per categoria di contenuto, per area geografica o per utente. Tutto dipende da come verranno eseguite le query sui dati e visualizzati i dati nell'esperienza social.
 
@@ -249,7 +249,7 @@ Cosmos DB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.
 
 Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le letture e le scritture saranno più frequenti man mano che cresce la base utenti. La base utenti inizierà a creare e a leggere più contenuto. Pertanto, la possibilità di **aumentare le unità richieste** è fondamentale. Aumentare le unità richieste è facile. È possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](/rest/api/cosmos-db/replace-an-offer).
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Diagramma che illustra un modello relazionale relativo":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Aumento delle prestazioni e definizione di una chiave di partizione":::
 
 Cosa accade se la piattaforma ha sempre più successo? Si supponga che gli utenti di un'area geografica, un paese o un continente diverso notino la piattaforma e inizino a usarla. È senz'altro una buona notizia,
 
@@ -259,13 +259,13 @@ Cosmos DB consente di [replicare i dati a livello globale](../cosmos-db/tutorial
 
 Quando si replicano i dati a livello globale, è necessario assicurarsi che i client possano sfruttarli. Se si usa un front-end Web o si accede alle API da client mobili, è possibile distribuire [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/) e clonare il Servizio app di Azure in tutte le aree desiderate, usando una configurazione delle prestazioni per supportare la copertura globale estesa. Quando i client accedono al front-end o alle API, verranno indirizzati al servizio app più vicino, che a sua volta si connetterà alla replica di Cosmos DB locale.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Diagramma che illustra un modello relazionale relativo" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Aggiunta della copertura globale alla piattaforma social" border="false":::
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Questo articolo mette in luce alcune alternative per la creazione di social network interamente in Azure con servizi a costo contenuto. Viene promosso l'uso di una soluzione di archiviazione e distribuzione dei dati su più livelli detta "a gradini".
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagramma che illustra un modello relazionale relativo" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagramma di interazione tra servizi di Azure per il social networking" border="false":::
 
 La verità è che non esiste un'unica soluzione infallibile per questo tipo di scenari. Si tratta della sinergia creata dalla combinazione di servizi eccezionali che ci permettono di creare esperienze eccezionali: la velocità e la libertà di Azure Cosmos DB per offrire un'ottima applicazione Social, l'intelligence dietro una soluzione di ricerca di prima classe come Azure ricerca cognitiva, la flessibilità dei servizi di app Azure per ospitare applicazioni indipendenti dal linguaggio, ma potenti processi in background e l'archiviazione di Azure espandibile e il database SQL di Azure per l'archiviazione di grandi quantità di dati e la potenza analitica del computer di Azure Impara a creare informazioni e intelligence in grado di fornire commenti e suggerimenti ai tuoi processi e contribuire a fornire i contenuti appropriati agli utenti appropriati.
 

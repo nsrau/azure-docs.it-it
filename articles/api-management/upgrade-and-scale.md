@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078307"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96010215"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -45,9 +45,9 @@ Per eseguire i passaggi in questo articolo è necessario:
 
 ## <a name="upgrade-and-scale"></a>Aggiornare e ridimensionare  
 
-È possibile scegliere tra quattro livelli: **Developer**, **Basic**,  **standard**e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
+È possibile scegliere tra quattro livelli: **Developer**, **Basic**,  **standard** e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
 
-**Basic**, **standard**e **Premium** sono livelli di produzione con contratto di contratto e possono essere ridimensionati. Il livello **Basic** è il livello più economico con un contratto di contratto e può essere scalato fino a due unità. il livello **standard** può essere ridotto a un massimo di quattro unità. Al livello **Premium** è possibile aggiungere un numero qualsiasi di unità.
+**Basic**, **standard** e **Premium** sono livelli di produzione con contratto di contratto e possono essere ridimensionati. Il livello **Basic** è il livello più economico con un contratto di contratto e può essere scalato fino a due unità. il livello **standard** può essere ridotto a un massimo di quattro unità. Al livello **Premium** è possibile aggiungere un numero qualsiasi di unità.
 
 Il livello **Premium** consente di distribuire un'unica istanza di Gestione API di Azure in un numero qualsiasi di aree di Azure. Nel momento in cui viene creato un servizio Gestione API di Azure, l'istanza contiene una sola unità e si trova in un'unica area di Azure. L'area iniziale viene designata come area **primaria**. È possibile aggiungere facilmente altre aree. Quando si aggiunge un'area, si specifica il numero di unità da allocare. È ad esempio possibile allocare una sola unità nell'area **primaria** e cinque unità in altre aree. È possibile personalizzare il numero di unità in base al traffico di ogni area. Per altre informazioni, vedere [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md).
 
@@ -78,6 +78,10 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo di inattività durante il ridimensionamento
 Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
+
+## <a name="compute-isolation"></a>Isolamento del calcolo
+Se i requisiti di sicurezza includono l' [isolamento di calcolo](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), è possibile usare il piano tariffario **isolato** . Questo livello garantisce che le risorse di calcolo di un'istanza del servizio gestione API utilizzino l'intero host fisico e forniscano il livello di isolamento necessario per supportare, ad esempio, i carichi di lavoro IL5 (Department of Defense Impact Level 5) degli Stati Uniti. Per ottenere l'accesso al livello isolato, [creare un ticket di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547844"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010113"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -109,9 +109,9 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
     |Resource group|creare un nuovo gruppo di risorse usato per il cluster.|
     |Location|Selezionare una posizione per il gruppo di risorse.|
     |Cluster Name|immettere un nome per il nuovo cluster da creare.|
-    |Nome utente dell'account di accesso del cluster|immettere il nome utente HTTP di Hadoop.  Il nome predefinito è **admin** .|
+    |Nome utente dell'account di accesso del cluster|immettere il nome utente HTTP di Hadoop.  Il nome predefinito è **admin**.|
     |Password di accesso al cluster|immettere la password utente HTTP di Hadoop.|
-    |Nome utente SSH|immettere il nome utente SSH. Il nome predefinito è **sshuser** .|
+    |Nome utente SSH|immettere il nome utente SSH. Il nome predefinito è **sshuser**.|
     |Password SSH|immettere la password utente SSH.|
     |Installa azione script|per eseguire le procedure descritte nell'articolo mantenere il valore predefinito.|
 
@@ -133,7 +133,7 @@ Il nodo perimetrale viene visualizzato come un'applicazione nel portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Aprire il cluster HDInsight con un nodo perimetrale.
-3. Selezionare **Applicazioni** . Verrà visualizzato il nodo perimetrale.  Il nome predefinito è **new-edgenode** .
+3. Selezionare **Applicazioni**. Verrà visualizzato il nodo perimetrale.  Il nome predefinito è **new-edgenode**.
 4. Selezionare il nodo perimetrale. Verrà visualizzato l'endpoint SSH.
 
 **Usare Hive nel nodo perimetrale**
@@ -158,8 +158,8 @@ Il nodo perimetrale viene visualizzato come un'applicazione nel portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Aprire il cluster HDInsight con un nodo perimetrale.
-3. Selezionare **Applicazioni** . Verrà visualizzato un elenco di nodi perimetrali.  
-4. Fare clic con il pulsante destro del mouse sul nodo perimetrale che si vuole eliminare e quindi selezionare **Elimina** .
+3. Selezionare **Applicazioni**. Verrà visualizzato un elenco di nodi perimetrali.  
+4. Fare clic con il pulsante destro del mouse sul nodo perimetrale che si vuole eliminare e quindi selezionare **Elimina**.
 5. Selezionare **Sì** per confermare.
 
 ## <a name="next-steps"></a>Passaggi successivi

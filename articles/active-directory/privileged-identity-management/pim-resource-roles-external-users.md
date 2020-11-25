@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365528"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010640"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Invitare gli utenti guest e assegnare i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -157,7 +157,7 @@ Se si è un utente esterno, è necessario accettare l'invito come guest nell'org
 
     ![Risorse di Azure-pagina di controllo delle risorse che elenca l'ora, il richiedente e l'azione](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Per visualizzare l'attività per il Guest, selezionare **Azure Active Directory**  >  **Users**  >  *nome Guest*degli utenti.
+1. Per visualizzare l'attività per il Guest, selezionare **Azure Active Directory**  >  **Users**  >  *nome Guest* degli utenti.
 
 1. Selezionare **log di controllo** per visualizzare i log di controllo per l'organizzazione. Se necessario, è possibile specificare i filtri.
 

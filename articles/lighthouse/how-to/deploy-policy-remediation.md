@@ -4,11 +4,11 @@ description: Per distribuire i criteri che usano un'attività di monitoraggio e 
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163255"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010096"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 
@@ -19,9 +19,9 @@ ms.locfileid: "88163255"
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creare un utente che può assegnare ruoli a un'identità gestita nel tenant del cliente
 
-Quando si carica un cliente in Azure Lighthouse, si usa un [modello di Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) insieme a un file di parametri che definisce gli utenti, i gruppi di utenti e le entità servizio nel tenant di gestione che saranno in grado di accedere alle risorse delegate nel tenant del cliente. Nel file dei parametri, a ognuno di questi utenti (**principalId **) viene assegnato un ruolo [predefinito](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) che definisce il livello di accesso.
+Quando si carica un cliente in Azure Lighthouse, si usa un [modello di Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) insieme a un file di parametri che definisce gli utenti, i gruppi di utenti e le entità servizio nel tenant di gestione che saranno in grado di accedere alle risorse delegate nel tenant del cliente. Nel file dei parametri, a ognuno di questi utenti (**principalId**) viene assegnato un ruolo [predefinito](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) che definisce il livello di accesso.
 
-Per consentire a un **principalId ** di creare un'identità gestita nel tenant del cliente, è necessario impostare il relativo **roleDefinitionId** su **Amministratore accessi utente**. Anche se questo ruolo non è generalmente supportato, può essere usato in questo scenario specifico, consentendo agli utenti con questa autorizzazione di assegnare uno o più ruoli predefiniti specifici alle identità gestite. Questi ruoli sono definiti nella proprietà **delegatedRoleDefinitionIds**. È possibile includere qualsiasi ruolo predefinito, ad eccezione del Proprietario o Amministratore Accesso utenti.
+Per consentire a un **principalId** di creare un'identità gestita nel tenant del cliente, è necessario impostare il relativo **roleDefinitionId** su **Amministratore accessi utente**. Anche se questo ruolo non è generalmente supportato, può essere usato in questo scenario specifico, consentendo agli utenti con questa autorizzazione di assegnare uno o più ruoli predefiniti specifici alle identità gestite. Questi ruoli sono definiti nella proprietà **delegatedRoleDefinitionIds**. È possibile includere qualsiasi ruolo predefinito, ad eccezione del Proprietario o Amministratore Accesso utenti.
 
 Dopo aver eseguito l'onboarding del cliente, il **principalId** creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle identità gestite nel tenant del cliente. Tuttavia, nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà assegnata a questo cliente.
 

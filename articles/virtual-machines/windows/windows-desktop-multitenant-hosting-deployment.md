@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279026"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010250"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Come distribuire Windows 10 in Azure con Multitenant Hosting Rights 
 Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Desktop Access per utente (licenze di sottoscrizione utente o licenze di sottoscrizione utente per i componenti aggiuntivi) Multitenant Hosting Rights per Windows 10 consente di trasferire le licenze di Windows 10 nel cloud ed eseguire macchine virtuali di Windows 10 in Azure senza sostenere i costi di un'altra licenza. Per altre informazioni vedere la pagina relativa all'[hosting multi-tenant per Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

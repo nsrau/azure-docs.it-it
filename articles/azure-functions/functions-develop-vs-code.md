@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167900"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010517"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare Funzioni di Azure con Visual Studio Code
 
@@ -60,7 +60,7 @@ Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengo
 
 L'estensione Functions consente di creare un progetto di app per le funzioni, insieme alla prima funzione. Nei passaggi seguenti viene illustrato come creare una funzione attivata tramite HTTP in un nuovo progetto di funzioni. Il [trigger http](functions-bindings-http-webhook.md) è il modello di trigger di funzione più semplice da illustrare.
 
-1. Da **Azure: funzioni**selezionare l'icona **Crea funzione** :
+1. Da **Azure: funzioni** selezionare l'icona **Crea funzione** :
 
     ![Creare una funzione](./media/functions-develop-vs-code/create-function.png)
 
@@ -191,7 +191,7 @@ Di seguito sono riportate alcune richieste di esempio per definire una nuova ass
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
-| **Il nome usato per identificare questo binding nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
+| **Nome usato per identificare questa associazione nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
 | **La coda a cui verrà inviato il messaggio** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
 | **Selezionare l'impostazione da "local.settings.json"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L' `AzureWebJobsStorage` impostazione contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
 
@@ -311,7 +311,7 @@ Questa sezione usa l' [estensione di archiviazione di Azure per Visual Studio Co
 
 Per impostare la stringa di connessione dell'account di archiviazione:
 
-1. In Visual Studio aprire **Cloud Explorer**, espandere **account di archiviazione**account di  >  **archiviazione**e quindi selezionare **Proprietà** e copiare il valore della **stringa di connessione primaria** .
+1. In Visual Studio aprire **Cloud Explorer**, espandere **account di archiviazione** account di  >  **archiviazione** e quindi selezionare **Proprietà** e copiare il valore della **stringa di connessione primaria** .
 
 2. Nel progetto aprire il file local.settings.json e impostare il valore della chiave **AzureWebJobsStorage** sulla stringa di connessione copiata.
 
@@ -396,7 +396,7 @@ Per altre informazioni sul monitoraggio con Application Insights, vedere [monito
 
 Per impostazione predefinita, tutti i progetti C# vengono creati come [progetti della libreria di classi compilata in c#](functions-dotnet-class-library.md). Se invece si preferisce usare i progetti script C#, è necessario selezionare lo script C# come lingua predefinita nelle impostazioni dell'estensione funzioni di Azure:
 
-1. Selezionare **File**  >  **Preferenze**file  >  **Impostazioni**.
+1. Selezionare **File**  >  **Preferenze** file  >  **Impostazioni**.
 
 1. Passare a **User Settings**  >  **Extensions**  >  **funzioni di Azure**.
 

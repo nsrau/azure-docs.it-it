@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 08/19/2020
 ms.custom: include file
 ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504009"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010380"
 ---
 1. Nel menu del portale di Azure o dalla **pagina Home** selezionare **Crea una risorsa**.
 
@@ -26,7 +26,7 @@ ms.locfileid: "94504009"
     |Impostazione|valore|Descrizione |
     |---|---|---|
     |Subscription|Nome sottoscrizione|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos. |
-    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo** , quindi immettere un nome univoco per il nuovo gruppo di risorse. |
+    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo**, quindi immettere un nome univoco per il nuovo gruppo di risorse. |
     |Nome account|Un nome univoco|Immettere un nome per identificare l'account Azure Cosmos. Dato che al nome specificato viene aggiunto *documents.azure.com* per creare l'URI, usare un nome univoco.<br><br>Il nome può contenere solo lettere minuscole, numeri e il segno meno (-). Deve avere una lunghezza compresa tra 3 e 44 caratteri.|
     |API|Il tipo di account da creare|Selezionare **Core (SQL)** per creare un database di documenti e una query con la sintassi SQL. <br><br>L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API: Core (SQL) e MongoDB per dati dei documenti, Gremlin per i dati dei grafici, Tabelle di Azure e Cassandra. Attualmente, è necessario creare un account separato per ogni API. |
     |Modalità di capacità|Provisioning velocità effettiva o Serverless|Selezionare **Provisioning velocità effettiva** per creare un account in modalità [Provisioning velocità effettiva](../articles/cosmos-db/set-throughput.md). Selezionare **Serverless** per creare un account in modalità [Serverless](../articles/cosmos-db/serverless.md).|
@@ -38,7 +38,7 @@ ms.locfileid: "94504009"
     > È possibile avere fino a un account Azure Cosmos DB del livello gratuito per ogni sottoscrizione di Azure ed è necessario acconsentire esplicitamente durante la creazione dell'account. Se l'opzione per l'applicazione dello sconto per il livello gratuito non è visualizzata, un altro account nella sottoscrizione è già stato abilitato per il livello gratuito.
    
     > [!NOTE]
-    > Le opzioni seguenti non sono disponibili se si seleziona **Serverless** come **modalità di capacità** :
+    > Le opzioni seguenti non sono disponibili se si seleziona **Serverless** come **modalità di capacità**:
     > - Applica sconto per il livello gratuito
     > - Ridondanza geografica
     > - Scritture in più aree

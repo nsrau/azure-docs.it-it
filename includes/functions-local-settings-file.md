@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: ca8d8edd334d89e03624793a35c49971ba8161ec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94884851"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010483"
 ---
 ## <a name="local-settings-file"></a>File di impostazioni locali
 
@@ -46,7 +46,7 @@ Queste impostazioni sono supportate quando si eseguono progetti in locale:
 | **`LocalHttpPort`** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questa impostazione. |
 | **`CORS`** | Definisce le origini consentite per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Le origini sono elencate in un elenco delimitato dalla virgola senza spazi. È supportato il valore del carattere jolly (\*) che consente le richieste di qualsiasi origine. |
 | **`CORSCredentials`** |  Quando è impostata su `true`, consente le richieste `withCredentials`. |
-| **`ConnectionStrings`** | Raccolta. Non usare questa raccolta per le stringhe di connessione usate per le associazioni di funzione. Questa raccolta viene usata solo dai framework che in genere ottengono le stringhe di connessione dalla sezione `ConnectionStrings` di un file di configurazione, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere questi valori in modo esplicito alla raccolta `Connection strings` delle impostazioni dell'app per le funzioni. Se si crea una connessione [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice di funzione, è consigliabile archiviare il valore della stringa di connessione insieme alle altre connessioni in **Impostazione applicazione** nel portale. |
+| **`ConnectionStrings`** | Raccolta. Non usare questa raccolta per le stringhe di connessione usate per le associazioni di funzione. Questa raccolta viene usata solo dai framework che in genere ottengono le stringhe di connessione dalla sezione `ConnectionStrings` di un file di configurazione, ad esempio [Entity Framework](/ef/ef6/). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](/dotnet/api/system.data.sqlclient). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere questi valori in modo esplicito alla raccolta `Connection strings` delle impostazioni dell'app per le funzioni. Se si crea una connessione [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) nel codice di funzione, è consigliabile archiviare il valore della stringa di connessione insieme alle altre connessioni in **Impostazione applicazione** nel portale. |
 
 Le impostazioni dell'applicazione seguenti possono essere incluse nella matrice **`Values`** durante l'esecuzione in locale:
 

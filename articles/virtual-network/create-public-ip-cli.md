@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 3e6e060f4af2addba66ed02e82d76dd520375f25
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 76af225b6f93e0a47799234e3e2b430344f68787
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516408"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009994"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Guida introduttiva: creare un indirizzo IP pubblico usando l'interfaccia della riga di comando
 
@@ -37,6 +37,9 @@ Creare un gruppo di risorse con il comando [AZ Group create](https://docs.micros
     --name myResourceGroup \
     --location eastus2
 ```
+
+## <a name="create-public-ip"></a>Crea IP pubblico
+
 ---
 # <a name="standard-sku---using-zones"></a>[**SKU standard-uso di zone**](#tab/option-create-public-ip-standard-zones)
 
@@ -56,7 +59,7 @@ Usare il comando [AZ Network Public-IP create](https://docs.microsoft.com/cli/az
 > Per le versioni dell'API precedenti alla 2020-08-01, eseguire il comando precedente senza specificare un parametro di zona per creare un indirizzo IP con ridondanza della zona. 
 >
 
-Per creare un indirizzo IP pubblico di zona standard in Zona 2 denominato **myStandardZonalPublicIP** in **myResourceGroup** , usare il comando seguente:
+Per creare un indirizzo IP pubblico di zona standard in Zona 2 denominato **myStandardZonalPublicIP** in **myResourceGroup**, usare il comando seguente:
 
 ```azurecli-interactive
   az network public-ip create \

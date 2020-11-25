@@ -4,11 +4,11 @@ description: Questo articolo illustra come individuare e risolvere i problemi co
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890361"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010589"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
 
@@ -23,9 +23,9 @@ Durante il processo di onboarding o di aggiornamento, viene effettuato un tentat
 È anche possibile concedere manualmente questo ruolo dal portale di Azure attenendosi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **Kubernetes** . Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Azure Kubernetes** .
+2. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **Kubernetes**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Azure Kubernetes**.
 3. Nell'elenco dei cluster Kubernetes selezionarne uno dall'elenco.
-2. Nel menu a sinistra fare clic su **controllo di accesso (IAM)** .
+2. Nel menu a sinistra fare clic su **controllo di accesso (IAM)**.
 3. Selezionare **+ Aggiungi** per aggiungere un'assegnazione di ruolo e selezionare il ruolo **server di pubblicazione metriche di monitoraggio** e nella casella di **selezione** digitare **AKS** per filtrare i risultati solo nelle entità servizio del cluster definite nella sottoscrizione. Selezionare quello nell'elenco specifico del cluster.
 4. Selezionare **Salva** per completare l'assegnazione del ruolo.
 
@@ -112,7 +112,7 @@ Il monitoraggio di Azure per i contenitori dell'agente di contenitori usa l'endp
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Il cluster Kubernetes non Azure non viene visualizzato in monitoraggio di Azure per i contenitori
 
-Per visualizzare il cluster non Azure Kubernetes in monitoraggio di Azure per i contenitori, è necessario l'accesso in lettura nell'area di lavoro Log Analytics che supporta questa informazione e nella risorsa della soluzione contenitore Insights **ContainerInsights ( *area di lavoro* )** .
+Per visualizzare il cluster non Azure Kubernetes in monitoraggio di Azure per i contenitori, è necessario l'accesso in lettura nell'area di lavoro Log Analytics che supporta questa informazione e nella risorsa della soluzione contenitore Insights **ContainerInsights (*area di lavoro*)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76748970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010700"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
 

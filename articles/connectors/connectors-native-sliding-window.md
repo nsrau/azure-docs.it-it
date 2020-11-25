@@ -7,11 +7,11 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322101"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010419"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Pianificare ed eseguire attività per dati contigui usando il trigger finestra temporale scorrevole in app per la logica di Azure
 
@@ -48,7 +48,7 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
    ![Impostare intervallo e frequenza](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
+   | Proprietà | Nome JSON | Obbligatoria | Tipo | Descrizione |
    |----------|----------|-----------|------|-------------|
    | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi <br>-Settimana: 1-71 settimane <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
    | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
@@ -58,7 +58,7 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
    Per altre opzioni di ricorrenza, aprire l'elenco **Aggiungi nuovo parametro** . Tutte le opzioni selezionate vengono visualizzate nel trigger dopo la selezione.
 
-   | Proprietà | Obbligatoria | Nome JSON | Type | Descrizione |
+   | Proprietà | Obbligatoria | Nome JSON | Tipo | Descrizione |
    |----------|----------|-----------|------|-------------|
    | **Ritardo** | No | delay | string | Durata per ritardare ogni ricorrenza utilizzando la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Fuso orario** | No | timeZone | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
@@ -69,7 +69,7 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
 ## <a name="workflow-definition---sliding-window"></a>Definizione del flusso di lavoro-finestra temporale scorrevole
 
-Nella definizione del flusso di lavoro sottostante dell'app per la logica, che usa JSON, è possibile visualizzare la definizione del trigger della finestra temporale scorrevole con le opzioni selezionate. Per visualizzare questa definizione, scegliere **visualizzazione codice**sulla barra degli strumenti della finestra di progettazione. Per tornare alla finestra di progettazione, scegliere sulla barra degli strumenti della finestra di progettazione, **finestra**di progettazione.
+Nella definizione del flusso di lavoro sottostante dell'app per la logica, che usa JSON, è possibile visualizzare la definizione del trigger della finestra temporale scorrevole con le opzioni selezionate. Per visualizzare questa definizione, scegliere **visualizzazione codice** sulla barra degli strumenti della finestra di progettazione. Per tornare alla finestra di progettazione, scegliere sulla barra degli strumenti della finestra di progettazione, **finestra** di progettazione.
 
 Questo esempio illustra come una definizione di trigger della finestra temporale scorrevole potrebbe apparire in una definizione del flusso di lavoro sottostante in cui il ritardo per ogni ricorrenza è di cinque secondi per una ricorrenza oraria:
 

@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576445"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010181"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurare le restrizioni di accesso al servizio app Azure
 
@@ -40,7 +40,7 @@ Per aggiungere una regola di restrizione di accesso all'app, seguire questa proc
 
 1. Nel riquadro sinistro selezionare **rete**.
 
-1. Nel riquadro **rete** , in **restrizioni di accesso** , selezionare **configura restrizioni di accesso**.
+1. Nel riquadro **rete** , in **restrizioni di accesso**, selezionare **configura restrizioni di accesso**.
 
    ![Screenshot del riquadro Opzioni di rete del servizio app nel portale di Azure.](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -65,14 +65,14 @@ Quando si crea una regola nel riquadro **Aggiungi restrizione IP** , procedere c
 1. Facoltativamente, immettere un nome e una descrizione per la regola.  
 1. Nell'elenco a discesa **tipo** selezionare il tipo di regola.  
 1. Nella casella **priorità** immettere un valore di priorità.  
-1. Negli elenchi a discesa **sottoscrizione** , **rete virtuale** e **subnet** selezionare gli elementi a cui si vuole limitare l'accesso.  
+1. Negli elenchi a discesa **sottoscrizione**, **rete virtuale** e **subnet** selezionare gli elementi a cui si vuole limitare l'accesso.  
 
 ### <a name="set-an-ip-address-based-rule"></a>Impostare una regola basata sull'indirizzo IP
 
 Attenersi alla procedura descritta nella sezione precedente, ma con la variante seguente:
 * Per il passaggio 3, nell'elenco a discesa **tipo** selezionare **IPv4** o **IPv6**. 
 
-Specificare l'indirizzo IP nella notazione CIDR (Classy Inter-Domain routing) per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo, è possibile usare qualcosa come *1.2.3.4/32* , in cui i primi quattro ottetti rappresentano l'indirizzo IP e */32* è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, vedere [Routing Inter-Domain di classi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Specificare l'indirizzo IP nella notazione CIDR (Classy Inter-Domain routing) per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo, è possibile usare qualcosa come *1.2.3.4/32*, in cui i primi quattro ottetti rappresentano l'indirizzo IP e */32* è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, vedere [Routing Inter-Domain di classi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="use-service-endpoints"></a>Usare endpoint di servizio
 
@@ -112,7 +112,7 @@ Con gli endpoint di servizio è possibile configurare l'app con gateway applicaz
 
 ### <a name="delete-a-rule"></a>Eliminare una regola
 
-Per eliminare una regola, nella pagina **restrizioni di accesso** selezionare i puntini di sospensione ( **...** ) accanto alla regola che si desidera eliminare, quindi selezionare **Rimuovi**.
+Per eliminare una regola, nella pagina **restrizioni di accesso** selezionare i puntini di sospensione (**...**) accanto alla regola che si desidera eliminare, quindi selezionare **Rimuovi**.
 
 ![Screenshot della pagina "restrizioni di accesso", che mostra i puntini di sospensione "Rimuovi" accanto alla regola di restrizione dell'accesso da eliminare.](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -153,7 +153,7 @@ Oltre a essere in grado di controllare l'accesso all'app, è possibile limitare 
 
 * Usare un'operazione di inserimento dell' [API REST di Azure](/rest/api/azure/) nella configurazione dell'app in Azure Resource Manager. Il percorso di queste informazioni in Azure Resource Manager è:
 
-  management.azure.com/subscriptions/ **subscription ID** /resourceGroups/ **resource groups** /providers/Microsoft.Web/sites/ **web app name** /config/web?api-version=2018-02-01
+  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
 
 * Usare un modello ARM. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
 

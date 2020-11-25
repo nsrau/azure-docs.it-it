@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658554"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010062"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -76,7 +76,7 @@ Ai criteri di conservazione si applicano i limiti seguenti:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Consenti Scritture BLOB di Accodamento protette
 
-I BLOB di Accodamento sono costituiti da blocchi di dati e ottimizzati per le operazioni di Accodamento dei dati richieste dagli scenari di controllo e registrazione. Per impostazione predefinita, i BLOB di accodamento consentono solo l'aggiunta di nuovi blocchi alla fine del BLOB. Indipendentemente dall'immutabilità, la modifica o l'eliminazione di blocchi esistenti in un BLOB di Accodamento non è sostanzialmente consentita. Per ulteriori informazioni sui BLOB di Accodamento, vedere [informazioni sui BLOB di Accodamento](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+I BLOB di Accodamento sono costituiti da blocchi di dati e ottimizzati per le operazioni di Accodamento dei dati richieste dagli scenari di controllo e registrazione. Per impostazione predefinita, i BLOB di accodamento consentono solo l'aggiunta di nuovi blocchi alla fine del BLOB. Indipendentemente dall'immutabilità, la modifica o l'eliminazione di blocchi esistenti in un BLOB di Accodamento non è sostanzialmente consentita. Per ulteriori informazioni sui BLOB di Accodamento, vedere [informazioni sui BLOB di Accodamento](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Solo i criteri di conservazione basati sul tempo hanno un' `allowProtectedAppendWrites` impostazione che consente di scrivere nuovi blocchi in un BLOB di Accodamento mantenendo la protezione e la conformità dell'immutabilità. Se questa impostazione è abilitata, è possibile creare un BLOB di Accodamento direttamente nel contenitore protetto da criteri e continuare ad aggiungere nuovi blocchi di dati alla fine dei BLOB di Accodamento esistenti usando l'API *AppendBlock* . È possibile aggiungere solo nuovi blocchi ed eventuali blocchi esistenti non possono essere modificati o eliminati. Viene comunque applicata la protezione dell'immutabilità del periodo di conservazione, impedendo l'eliminazione del BLOB di Accodamento finché non è trascorso il periodo di conservazione effettivo. L'abilitazione di questa impostazione non influisce sul comportamento di immutabilità di BLOB in blocchi o BLOB di pagine.
 
@@ -103,20 +103,20 @@ I limiti seguenti si applicano alle note legali:
 
 ## <a name="scenarios"></a>Scenari
 
-La tabella seguente illustra i tipi di operazioni di archiviazione BLOB disabilitate per i diversi scenari non modificabili. Per altre informazioni, vedere la documentazione dell' [API REST del servizio BLOB di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
+La tabella seguente illustra i tipi di operazioni di archiviazione BLOB disabilitate per i diversi scenari non modificabili. Per altre informazioni, vedere la documentazione dell' [API REST del servizio BLOB di Azure](/rest/api/storageservices/blob-service-rest-api) .
 
 | Scenario | Stato BLOB | Operazioni BLOB negate | Protezione di contenitori e account |
 |--|--|--|--|
 | L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari | Non modificabile: protetto da eliminazione e scrittura | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, eliminare il contenitore, eliminare il BLOB, impostare i metadati dei BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale e il blocco<sup>2</sup> | Eliminazione del contenitore negata; Eliminazione dell'account di archiviazione negata |
 | L'intervallo di conservazione effettivo sul BLOB è scaduto e non è impostata alcuna esenzione legale | Solo protetto da scrittura (le operazioni di eliminazione sono consentite) | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, impostare i metadati del BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale, il blocco<sup>2</sup> | L'eliminazione del contenitore è stata negata se nel contenitore protetto esiste almeno un BLOB; Eliminazione dell'account di archiviazione negata solo per i criteri basati sul tempo *bloccati* |
-| Nessun criterio WORM applicato (nessuna conservazione basata sul tempo e nessun tag di tenuta legale) | Modificabile | Nessuno | Nessuno |
+| Nessun criterio WORM applicato (nessuna conservazione basata sul tempo e nessun tag di tenuta legale) | Modificabile | nessuno | nessuno |
 
 <sup>1</sup> il servizio BLOB consente a queste operazioni di creare un nuovo BLOB una sola volta. Non sono consentite tutte le operazioni di sovrascrittura successive in un percorso BLOB esistente in un contenitore non modificabile.
 
 <sup>2</sup> il blocco Append è consentito solo per i criteri di conservazione basati sul tempo con la `allowProtectedAppendWrites` proprietà abilitata. Per ulteriori informazioni, vedere la sezione [Consenti le scritture di Accodamento BLOB protetti](#allow-protected-append-blobs-writes) .
 
 > [!IMPORTANT]
-> Alcuni carichi di lavoro, ad esempio il [backup SQL nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), creano un BLOB e quindi lo aggiungono. Se il contenitore dispone di un criterio di conservazione attivo basato sul tempo o di una tenuta legale, questo modello avrà esito negativo.
+> Alcuni carichi di lavoro, ad esempio il [backup SQL nell'URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), creano un BLOB e quindi lo aggiungono. Se il contenitore dispone di un criterio di conservazione attivo basato sul tempo o di una tenuta legale, questo modello avrà esito negativo.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -170,11 +170,11 @@ Sì. Quando un criterio di conservazione basato sul tempo viene creato per la pr
 
 **È possibile usare l'eliminazione temporanea insieme ai criteri BLOB non modificabili?**
 
-Sì, se i requisiti di conformità consentono l'abilitazione dell'eliminazione temporanea. L' [eliminazione temporanea per l'archiviazione BLOB di Azure](storage-blob-soft-delete.md) si applica a tutti i contenitori in un account di archiviazione indipendentemente da un criterio di conservazione legale o basato sul tempo. È consigliabile abilitare l'eliminazione temporanea per una protezione aggiuntiva prima di applicare e confermare eventuali criteri WORM non modificabili.
+Sì, se i requisiti di conformità consentono l'abilitazione dell'eliminazione temporanea. L' [eliminazione temporanea per l'archiviazione BLOB di Azure](./soft-delete-blob-overview.md) si applica a tutti i contenitori in un account di archiviazione indipendentemente da un criterio di conservazione legale o basato sul tempo. È consigliabile abilitare l'eliminazione temporanea per una protezione aggiuntiva prima di applicare e confermare eventuali criteri WORM non modificabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](storage-blob-immutability-policies-manage.md)
 - [Impostare regole per eseguire automaticamente il livello ed eliminare i dati BLOB con la gestione del ciclo di vita](storage-lifecycle-management-concepts.md)
-- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../blobs/storage-blob-soft-delete.md)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](./soft-delete-blob-overview.md)
 - [Proteggere sottoscrizioni, gruppi di risorse e risorse con Azure Resource Manager blocchi](../../azure-resource-manager/management/lock-resources.md).
