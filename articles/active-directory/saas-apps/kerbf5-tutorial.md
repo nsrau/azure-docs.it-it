@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459102"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009161"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -143,13 +143,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<YourCustomFQDN>.f5.com/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<YourCustomFQDN>.f5.com/`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YourCustomFQDN>.f5.com/`
 
@@ -168,7 +168,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -299,7 +299,7 @@ Per specificare i controller di dominio e le credenziali per Access Policy Manag
 
    * Specificare i **controller di dominio** nel pool digitando l'indirizzo IP e il nome host di ognuno e quindi facendo clic sul pulsante **Add** (Aggiungi).
 
-   * Per monitorare lo stato del server AAA, è possibile selezionare un monitoraggio dello stato. In questo caso è appropriato solo il monitoraggio **gateway_icmp** , che può essere selezionato nell'elenco **Server Pool Monitor** (Monitoraggio pool di server).
+   * Per monitorare lo stato del server AAA, è possibile selezionare un monitoraggio dello stato. In questo caso è appropriato solo il monitoraggio **gateway_icmp**, che può essere selezionato nell'elenco **Server Pool Monitor** (Monitoraggio pool di server).
 
 8. Nel campo **Admin Name** (Nome amministratore) digitare un nome con distinzione tra maiuscole e minuscole per un amministratore che dispone delle autorizzazioni amministrative di Active Directory. APM usa le informazioni contenute nei campi **Admin Name** (Nome amministratore) e **Admin Password** (Password amministratore) per la query AD. Se Active Directory è configurato per le query anonime, non è necessario specificare alcun nome di amministratore. In caso contrario, APM necessita di un account con privilegi sufficienti per eseguire il binding a un server Active Directory, recuperare informazioni sui gruppi di utenti e recuperare i criteri password di Active Directory per supportare la funzionalità correlata alle password. APM deve recuperare i criteri password, ad esempio, se si seleziona l'opzione Prompt user to change password before expiration (Richiedi all'utente di modificare la password prima della scadenza) in un'azione di query di Active Directory. Se non si specificano le informazioni sull'account amministratore in questa configurazione, APM usa l'account utente per recuperare le informazioni. Questo approccio funziona se l'account utente dispone di privilegi sufficienti.
 

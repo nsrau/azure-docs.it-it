@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008396"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Trend Micro Web Security (TMWS)
 
@@ -116,7 +116,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nella casella **Nome** immettere `B.Simon`.  
-   1. Nella casella **Nome utente** immettere * *_nomeutente_@* dominioaziendale *.* estensione***. Ad esempio: `B.Simon@contoso.com`.
+   1. Nella casella **Nome utente** immettere **_nomeutente_@* dominioaziendale *.* estensione***. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
 
@@ -126,7 +126,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Trend Micro Web Security (TMWS)** .
-1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi** :
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**:
 
    ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
@@ -144,7 +144,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In **Gestione** selezionare **Registrazioni app** e quindi fare clic sulla nuova applicazione aziendale in **Tutte le applicazioni**.
 
-1. In **Gestisci** , selezionare **Certificati e segreti**.
+1. In **Gestisci**, selezionare **Certificati e segreti**.
 
 1. Nell'area **Segreti client** selezionare **Nuovo segreto client**.
 
@@ -169,7 +169,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Selezionare **Panoramica**. 
 
-1. Prendere nota dell' **ID applicazione (client)** e dell' **ID directory (tenant)** visualizzati nel riquadro destro perché successivamente sarà necessario immetterli in TMWS. È anche possibile selezionare **Nomi di dominio personalizzati** in **Azure Active Directory > Gestisci** e prendere nota del nome di dominio visualizzato nel riquadro destro.
+1. Prendere nota dell'**ID applicazione (client)** e dell'**ID directory (tenant)** visualizzati nel riquadro destro perché successivamente sarà necessario immetterli in TMWS. È anche possibile selezionare **Nomi di dominio personalizzati** in **Azure Active Directory > Gestisci** e prendere nota del nome di dominio visualizzato nel riquadro destro.
 
 ## <a name="configure-tmws-sso"></a>Configurare l'accesso SSO di TMWS
 
@@ -224,7 +224,7 @@ Dopo aver configurato il servizio Azure AD e aver specificato Azure AD come meto
 
 1. Visitare qualsiasi sito Web Internet. TMWS reindirizzerà l'utente al portale TMWS di tipo Captive.
 
-1. Specificare un account Active Directory (formato: *dominio*\\*nomeaccountSAM* o *nomeaccountSAM*@*dominio* ), indirizzo di posta elettronica o UPN e quindi selezionare **Log On** (Accedi). TMWS reindirizza l'utente alla finestra di accesso di Azure AD.
+1. Specificare un account Active Directory (formato: *dominio*\\*nomeaccountSAM* o *nomeaccountSAM*@*dominio*), indirizzo di posta elettronica o UPN e quindi selezionare **Log On** (Accedi). TMWS reindirizza l'utente alla finestra di accesso di Azure AD.
 
 1. Nella finestra di accesso di Azure AD immettere le credenziali dell'account Azure AD. Ora dovrebbe essere stato effettuato l'accesso TMWS.
 

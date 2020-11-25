@@ -7,15 +7,15 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
 ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364259"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009773"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
-Quando si è pronti per automatizzare la creazione e la distribuzione dell'app per la logica, è possibile espandere la definizione del flusso di lavoro sottostante dell'app per la logica in un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Questo modello definisce l'infrastruttura, le risorse, i parametri e altre informazioni per il provisioning e la distribuzione dell'app per la logica. Definendo i parametri per i valori che variano in base alla distribuzione, nota anche come *parametrizzazione* , è possibile distribuire ripetutamente e in modo coerente le app per la logica in base alle diverse esigenze di distribuzione.
+Quando si è pronti per automatizzare la creazione e la distribuzione dell'app per la logica, è possibile espandere la definizione del flusso di lavoro sottostante dell'app per la logica in un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Questo modello definisce l'infrastruttura, le risorse, i parametri e altre informazioni per il provisioning e la distribuzione dell'app per la logica. Definendo i parametri per i valori che variano in base alla distribuzione, nota anche come *parametrizzazione*, è possibile distribuire ripetutamente e in modo coerente le app per la logica in base alle diverse esigenze di distribuzione.
 
 Se ad esempio si esegue la distribuzione in ambienti per sviluppo, test e produzione, è probabile che si usino stringhe di connessione diverse per ogni ambiente. È possibile dichiarare parametri di modello che accettano stringhe di connessione diverse e quindi archiviare tali stringhe in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato. In questo modo, è possibile modificare tali valori senza dover aggiornare e ridistribuire il modello. Per gli scenari in cui sono presenti valori di parametro sensibili o che devono essere protetti, ad esempio password e segreti, è possibile archiviare tali valori in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fare in modo che il file di parametri recuperi tali valori. Tuttavia, in questi scenari è necessario eseguire nuovamente la distribuzione per recuperare i valori correnti.
 
@@ -328,7 +328,7 @@ La [definizione di risorsa del flusso di lavoro dell'app per la logica in un mod
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatoria | Type | Descrizione |
+| Attributo | Obbligatoria | Tipo | Descrizione |
 |-----------|----------|------|-------------|
 | `state` | Sì | string | Lo stato dell'app per la logica in fase di distribuzione `Enabled` , dove indica che l'app per la logica è Live e `Disabled` indica che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l' `Disabled` opzione. |
 | `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l' `id` attributo, che specifica l'ID dell'account di integrazione. |
@@ -1047,7 +1047,7 @@ Per ulteriori informazioni sull'utilizzo delle entità servizio, vedere gli argo
 
 ## <a name="references-to-parameters"></a>Riferimenti a parametri
 
-Per fare riferimento ai parametri di modello, è possibile usare espressioni di modello con [funzioni modello](../azure-resource-manager/templates/template-functions.md), che vengono valutate in fase di distribuzione. Le espressioni modello utilizzano le parentesi quadre ( **[]** ):
+Per fare riferimento ai parametri di modello, è possibile usare espressioni di modello con [funzioni modello](../azure-resource-manager/templates/template-functions.md), che vengono valutate in fase di distribuzione. Le espressioni modello utilizzano le parentesi quadre (**[]**):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

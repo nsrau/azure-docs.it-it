@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008974"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
 È possibile connettere l'ambiente Microsoft endpoint Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
@@ -81,7 +81,7 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 
     1. Specificare un **Nome** per l'oggetto in Configuration Manager.
     2. Specificare un parametro facoltativo **Descrizione** per identificare il servizio.
-    3. Selezionare il **connettore OMS**per i servizi di Azure.
+    3. Selezionare il **connettore OMS** per i servizi di Azure.
 
     >[!NOTE]
     >OMS è ora definito Log Analytics che è una funzionalità di monitoraggio di Azure.
@@ -108,7 +108,7 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 
     8. Selezionare **Verifica** e a destra i risultati dovrebbero essere visualizzati **correttamente**.
 
-8. Nella pagina **configurazione** esaminare le informazioni per verificare che i campi **sottoscrizioni Azure**, **gruppo di risorse di Azure**e area di lavoro di **Operations Management Suite** siano già popolati indicando che l'applicazione Azure ad dispone di autorizzazioni sufficienti nel gruppo di risorse. Se i campi sono vuoti, significa che l'applicazione non dispone dei diritti necessari. Selezionare le raccolte di dispositivi da raccogliere e trasmettere all'area di lavoro, quindi selezionare **Aggiungi**.
+8. Nella pagina **configurazione** esaminare le informazioni per verificare che i campi **sottoscrizioni Azure**, **gruppo di risorse di Azure** e area di lavoro di **Operations Management Suite** siano già popolati indicando che l'applicazione Azure ad dispone di autorizzazioni sufficienti nel gruppo di risorse. Se i campi sono vuoti, significa che l'applicazione non dispone dei diritti necessari. Selezionare le raccolte di dispositivi da raccogliere e trasmettere all'area di lavoro, quindi selezionare **Aggiungi**.
 
 9. Esaminare le opzioni nella pagina **Conferma impostazioni** e selezionare **Avanti** per iniziare a creare e configurare la connessione.
 

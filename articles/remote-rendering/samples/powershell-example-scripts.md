@@ -7,11 +7,11 @@ ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009756"
 ---
 # <a name="example-powershell-scripts"></a>Script di Azure PowerShell di esempio
 
@@ -26,7 +26,7 @@ Il [repository di esempi di Rendering remoto di Azure](https://github.com/Azure/
 > Per interagire con il servizio, è anche disponibile uno [strumento dell'interfaccia utente denominato ARRT](azure-remote-rendering-asset-tool.md), che rappresenta un'alternativa pratica all'uso degli script. ![Strumento per gli asset di Rendering remoto di Azure](./media/azure-remote-rendering-asset-tool.png "Screenshot dello strumento per gli asset di Rendering remoto di Azure")
 
 > [!CAUTION]
-> La chiamata di funzioni API REST troppo frequente causerà la limitazione del server e la restituzione di un errore. In questo caso, l'ID del codice di errore HTTP è 429 ("troppe richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive** .
+> La chiamata di funzioni API REST troppo frequente causerà la limitazione del server e la restituzione di un errore. In questo caso, l'ID del codice di errore HTTP è 429 ("troppe richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -93,14 +93,14 @@ Per `region` vedere l'[elenco di aree disponibili](../reference/regions.md).
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Questa struttura deve essere completata se si vuole eseguire **RenderingSession.ps1** :
+Questa struttura deve essere completata se si vuole eseguire **RenderingSession.ps1**:
 
 - **vmSize:** selezionare le dimensioni della macchina virtuale, [*Standard*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md). Arrestare le sessioni di rendering quando non sono più necessarie.
 - **maxLeaseTime:** la durata desiderata del lease della VM. Verrà arrestata alla scadenza del lease. La durata del lease può essere prolungata in seguito (vedere più avanti).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
 
-Questa struttura deve essere completata se si vuole eseguire **Conversion.ps1** .
+Questa struttura deve essere completata se si vuole eseguire **Conversion.ps1**.
 
 Per i dettagli, vedere [Preparare un account di archiviazione di Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
@@ -119,21 +119,21 @@ Utilizzo normale con un file arrconfig.json completamente compilato:
 .\RenderingSession.ps1
 ```
 
-Lo script chiamerà l'[API REST di gestione della sessione](../how-tos/session-rest-api.md) per avviare una macchina virtuale di rendering con le impostazioni specificate. Se l'operazione riesce, verrà recuperato il valore di *sessionId* . Verrà quindi eseguito il polling delle proprietà della sessione fino a quando la sessione non è pronta o si verifica un errore.
+Lo script chiamerà l'[API REST di gestione della sessione](../how-tos/session-rest-api.md) per avviare una macchina virtuale di rendering con le impostazioni specificate. Se l'operazione riesce, verrà recuperato il valore di *sessionId*. Verrà quindi eseguito il polling delle proprietà della sessione fino a quando la sessione non è pronta o si verifica un errore.
 
-Per usare un file di **configurazione alternativo** :
+Per usare un file di **configurazione alternativo**:
 
 ```PowerShell
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-È possibile eseguire l' **override di singole impostazioni** del file di configurazione:
+È possibile eseguire l'**override di singole impostazioni** del file di configurazione:
 
 ```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-Per limitarsi ad **avviare una sessione senza polling** , è possibile usare:
+Per limitarsi ad **avviare una sessione senza polling**, è possibile usare:
 
 ```PowerShell
 .\RenderingSession.ps1 -CreateSession
@@ -219,13 +219,13 @@ In tal modo, si verificheranno i seguenti eventi:
 
 ### <a name="additional-command-line-options"></a>Altre opzioni della riga di comando
 
-Per usare un file di **configurazione alternativo** :
+Per usare un file di **configurazione alternativo**:
 
 ```PowerShell
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Per limitarsi ad **avviare la conversione del modello senza polling** , è possibile usare:
+Per limitarsi ad **avviare la conversione del modello senza polling**, è possibile usare:
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
@@ -262,7 +262,7 @@ Caricare solo i dati dal percorso LocalAssetDirectoryPath specificato.
 .\Conversion.ps1 -Upload
 ```
 
-Avviare solo il processo di conversione di un modello già caricato nell'archiviazione BLOB (senza eseguire il caricamento, né il polling dello stato di conversione). Lo script restituisce *conversionId* .
+Avviare solo il processo di conversione di un modello già caricato nell'archiviazione BLOB (senza eseguire il caricamento, né il polling dello stato di conversione). Lo script restituisce *conversionId*.
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset

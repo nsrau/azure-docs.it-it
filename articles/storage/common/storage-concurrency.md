@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783964"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008906"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Archiviazione di Azure include anche il supporto per le intestazioni condizionali, ad esempio **If-Modified-Since** , **If-Unmodified-Since** , **If-None-Match** e le combinazioni di tali intestazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+Archiviazione di Azure include anche il supporto per le intestazioni condizionali, ad esempio **If-Modified-Since**, **If-Unmodified-Since**, **If-None-Match** e le combinazioni di tali intestazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 Nella tabella seguente sono riepilogate le operazioni contenitore che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.
 
@@ -130,7 +130,7 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 
 Per bloccare un BLOB per l'uso esclusivo, acquisire un [lease](/rest/api/storageservices/Lease-Blob) su di esso. Quando si acquisisce un lease, si specifica un periodo di tempo per il lease. Il periodo di tempo è compreso tra 15 e 60 secondi o infinito, che equivale a un blocco esclusivo. Rinnovare un lease finito per estenderlo. Rilasciare un lease al termine dell'operazione. L'archiviazione BLOB rilascia automaticamente i lease finiti alla scadenza.
 
-I lease consentono di supportare diverse strategie di sincronizzazione. Le strategie includono *scrittura/lettura condivisa* , *scrittura esclusiva/lettura esclusiva* e *scrittura condivisa/lettura esclusiva* . Quando esiste un lease, l'archiviazione di Azure impone Scritture esclusive (operazioni Put, set ed Delete), garantendo tuttavia che l'esclusività per le operazioni di lettura richieda allo sviluppatore di garantire che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease generano letture condivise.
+I lease consentono di supportare diverse strategie di sincronizzazione. Le strategie includono *scrittura/lettura condivisa*, *scrittura esclusiva/lettura esclusiva* e *scrittura condivisa/lettura esclusiva*. Quando esiste un lease, l'archiviazione di Azure impone Scritture esclusive (operazioni Put, set ed Delete), garantendo tuttavia che l'esclusività per le operazioni di lettura richieda allo sviluppatore di garantire che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease generano letture condivise.
 
 Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease esclusivo per 30 secondi su un BLOB, all'aggiornamento del contenuto del BLOB e al successivo rilascio del lease. Se è già presente un lease valido sul BLOB quando si prova ad acquisire un nuovo lease, il servizio BLOB restituisce un risultato di stato "HTTP (409) Conflict". Il frammento seguente usa un oggetto **AccessCondition** per incapsulare le informazioni relative al lease quando effettua una richiesta per aggiornare il BLOB nel servizio di archiviazione.  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -184,7 +184,7 @@ Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pes
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Concorrenza pessimistica per i contenitori
 
-I lease sui contenitori consentono di supportare le stesse strategie di sincronizzazione dei BLOB ( *scrittura esclusiva/lettura condivisa* , *scrittura esclusiva/lettura esclusiva* e *scrittura condivisa/lettura esclusiva* ). Tuttavia, a differenza dei BLOB il servizio di archiviazione impone solo l'esclusività sulle operazioni di eliminazione. Per eliminare un contenitore con un lease attivo, un client deve includere l'ID lease attivo con la richiesta di eliminazione. Tutte le altre operazioni contenitore hanno esito positivo su un contenitore con lease senza includere l'ID lease, nel qual caso sono operazioni condivise. Se è richiesta l'esclusività di un'operazione di aggiornamento (Put o Set) o di lettura, gli sviluppatori devono garantire che tutti i client usino un ID lease e che un solo client alla volta abbia un ID lease valido.
+I lease sui contenitori consentono di supportare le stesse strategie di sincronizzazione dei BLOB (*scrittura esclusiva/lettura condivisa*, *scrittura esclusiva/lettura esclusiva* e *scrittura condivisa/lettura esclusiva*). Tuttavia, a differenza dei BLOB il servizio di archiviazione impone solo l'esclusività sulle operazioni di eliminazione. Per eliminare un contenitore con un lease attivo, un client deve includere l'ID lease attivo con la richiesta di eliminazione. Tutte le altre operazioni contenitore hanno esito positivo su un contenitore con lease senza includere l'ID lease, nel qual caso sono operazioni condivise. Se è richiesta l'esclusività di un'operazione di aggiornamento (Put o Set) o di lettura, gli sviluppatori devono garantire che tutti i client usino un ID lease e che un solo client alla volta abbia un ID lease valido.
 
 Le operazioni contenitore seguenti possono usare i lease per gestire la concorrenza pessimistica:
 

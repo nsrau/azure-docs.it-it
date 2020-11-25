@@ -14,11 +14,11 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008685"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurare e personalizzare le attività di compilazione
 
@@ -95,20 +95,20 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 ![Configurazione dell'attività di compilazione di Credential scanner](./media/security-tools/3-taskdetails.png)
 
 Le opzioni disponibili includono:
-  - **Nome visualizzato** : nome dell'attività DevOps di Azure. Il valore predefinito è eseguire Credential scanner
-  - **Versione principale dello strumento** : i valori disponibili includono **CredScan V2** , **CredScan V1**. Si consiglia ai clienti di usare la versione **CredScan V2** .
-  - **Formato di output** : i valori disponibili includono **TSV** , **CSV** , **Sarif** e **PREfast**.
-  - **Versione dello strumento** : è consigliabile selezionare **più recente**.
-  - **Cartella di analisi** : la cartella del repository da analizzare.
-  - **Tipo di file Searchers** : opzioni per l'individuazione del file di ricerca utilizzato per l'analisi.
-  - **File di eliminazione** : un file [JSON](https://json.org/) può impedire problemi nel log di output. Per ulteriori informazioni sugli scenari di eliminazione, vedere la sezione Domande frequenti di questo articolo.
-  - **Output dettagliato** : spiegazione automatica.
-  - **Dimensioni batch** : numero di thread simultanei utilizzati per eseguire lo scanner delle credenziali. Il valore predefinito è 20. I valori possibili sono compresi tra 1 e 2.147.483.647.
-  - **Match timeout** : periodo di tempo, in secondi, per il tentativo di ricerca di una corrispondenza di ricerca prima di abbandonare il controllo.
+  - **Nome visualizzato**: nome dell'attività DevOps di Azure. Il valore predefinito è eseguire Credential scanner
+  - **Versione principale dello strumento**: i valori disponibili includono **CredScan V2**, **CredScan V1**. Si consiglia ai clienti di usare la versione **CredScan V2** .
+  - **Formato di output**: i valori disponibili includono **TSV**, **CSV**, **Sarif** e **PREfast**.
+  - **Versione dello strumento**: è consigliabile selezionare **più recente**.
+  - **Cartella di analisi**: la cartella del repository da analizzare.
+  - **Tipo di file Searchers**: opzioni per l'individuazione del file di ricerca utilizzato per l'analisi.
+  - **File di eliminazione**: un file [JSON](https://json.org/) può impedire problemi nel log di output. Per ulteriori informazioni sugli scenari di eliminazione, vedere la sezione Domande frequenti di questo articolo.
+  - **Output dettagliato**: spiegazione automatica.
+  - **Dimensioni batch**: numero di thread simultanei utilizzati per eseguire lo scanner delle credenziali. Il valore predefinito è 20. I valori possibili sono compresi tra 1 e 2.147.483.647.
+  - **Match timeout**: periodo di tempo, in secondi, per il tentativo di ricerca di una corrispondenza di ricerca prima di abbandonare il controllo.
   - **Dimensioni del buffer di lettura** per l'analisi dei file: dimensioni in byte del buffer usato durante la lettura del contenuto. Il valore predefinito è 524.288.  
   - Numero **massimo di byte letti** dall'analisi dei file: il numero massimo di byte da leggere da un file durante l'analisi del contenuto. Il valore predefinito è 104.857.600.
-  - **Opzioni**  >  di controllo **Esegui questa attività** : specifica quando verrà eseguita l'attività. Selezionare **condizioni personalizzate** per specificare condizioni più complesse.
-  - **Versione** : la versione dell'attività di compilazione all'interno di Azure DevOps. Questa opzione non viene usata di frequente.
+  - **Opzioni**  >  di controllo **Esegui questa attività**: specifica quando verrà eseguita l'attività. Selezionare **condizioni personalizzate** per specificare condizioni più complesse.
+  - **Versione**: la versione dell'attività di compilazione all'interno di Azure DevOps. Questa opzione non viene usata di frequente.
 
 Per informazioni sulla configurazione YAML per questa attività, vedere le [Opzioni YAML dello scanner di credenziali](yaml-configuration.md#credential-scanner-task)
 
@@ -124,10 +124,10 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere l'elen
 
 Le opzioni disponibili includono:
 
-- **RuleSet** : i valori sono **SDL required** , **SDL consigliato** o un set di regole personalizzato.
-- **Versione degli analizzatori** : è consigliabile selezionare **più recente**.
-- **File di eliminazione avvisi del compilatore** : un file di testo con un elenco di ID avvisi che vengono eliminati.
-- **Opzioni**  >  di controllo **Esegui questa attività** : specifica quando verrà eseguita l'attività. Scegliere **condizioni personalizzate** per specificare condizioni più complesse.
+- **RuleSet**: i valori sono **SDL required**, **SDL consigliato** o un set di regole personalizzato.
+- **Versione degli analizzatori**: è consigliabile selezionare **più recente**.
+- **File di eliminazione avvisi del compilatore**: un file di testo con un elenco di ID avvisi che vengono eliminati.
+- **Opzioni**  >  di controllo **Esegui questa attività**: specifica quando verrà eseguita l'attività. Scegliere **condizioni personalizzate** per specificare condizioni più complesse.
 
 > [!NOTE]
 >
@@ -164,9 +164,9 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 
 ![Configurazione dell'attività di compilazione dei log di analisi della sicurezza di pubblicazione](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Nome artefatto** : qualsiasi identificatore di stringa.
-- **Tipo di artefatto** : a seconda della selezione, è possibile pubblicare i log nel Azure DevOps server o in un file condiviso accessibile all'agente di compilazione.
-- **Strumenti** : è possibile scegliere di mantenere i log per strumenti specifici oppure è possibile selezionare **tutti gli strumenti** per mantenere tutti i log.
+- **Nome artefatto**: qualsiasi identificatore di stringa.
+- **Tipo di artefatto**: a seconda della selezione, è possibile pubblicare i log nel Azure DevOps server o in un file condiviso accessibile all'agente di compilazione.
+- **Strumenti**: è possibile scegliere di mantenere i log per strumenti specifici oppure è possibile selezionare **tutti gli strumenti** per mantenere tutti i log.
 
 Per informazioni sulla configurazione YAML per questa attività, vedere la pagina relativa alla [pubblicazione dei registri di sicurezza opzioni YAML](yaml-configuration.md#publish-security-analysis-logs-task)
 
@@ -176,10 +176,10 @@ Per informazioni dettagliate sulla configurazione dei report di sicurezza, veder
 
 ![Configurazione dell'attività di compilazione report di sicurezza](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Report** : selezionare uno dei formati della **console pipeline** , del **file TSV** e del **file HTML** . Viene creato un file di report per ogni formato selezionato.
-- **Strumenti** : selezionare gli strumenti nella definizione di compilazione per cui si desidera un riepilogo dei problemi rilevati. Per ogni strumento selezionato, potrebbe essere disponibile un'opzione che consente di scegliere se visualizzare solo gli errori o visualizzare errori e avvisi nel report di riepilogo.
-- **Opzioni avanzate** : se non sono presenti registri per uno degli strumenti selezionati, è possibile scegliere di registrare un avviso o un errore. Se si registra un errore, l'attività ha esito negativo.
-- **Cartella logs di base** : è possibile personalizzare la cartella dei log di base in cui devono essere trovati i log. Questa opzione, tuttavia, non viene in genere usata.
+- **Report**: selezionare uno dei formati della **console pipeline**, del **file TSV** e del **file HTML** . Viene creato un file di report per ogni formato selezionato.
+- **Strumenti**: selezionare gli strumenti nella definizione di compilazione per cui si desidera un riepilogo dei problemi rilevati. Per ogni strumento selezionato, potrebbe essere disponibile un'opzione che consente di scegliere se visualizzare solo gli errori o visualizzare errori e avvisi nel report di riepilogo.
+- **Opzioni avanzate**: se non sono presenti registri per uno degli strumenti selezionati, è possibile scegliere di registrare un avviso o un errore. Se si registra un errore, l'attività ha esito negativo.
+- **Cartella logs di base**: è possibile personalizzare la cartella dei log di base in cui devono essere trovati i log. Questa opzione, tuttavia, non viene in genere usata.
 
 Per informazioni sulla configurazione YAML per questa attività, vedere il [report di sicurezza opzioni YAML](yaml-configuration.md#security-report-task)
 
@@ -189,9 +189,9 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 
 ![Configurazione dell'attività di compilazione post-analisi](./media/security-tools/a-post-analysis600.png)
 
-- **Strumenti** : selezionare gli strumenti nella definizione di compilazione per cui si vuole inserire un'operazione di compilazione in modo condizionale. Per ogni strumento selezionato, potrebbe essere disponibile un'opzione che consente di scegliere se si desidera interrompere solo gli errori o gli errori e gli avvisi.
-- **Report** : è possibile scrivere facoltativamente i risultati che causano l'interruzioni di compilazione. I risultati vengono scritti nella finestra della console di Azure DevOps e nel file di log.
-- **Opzioni avanzate** : se non sono presenti registri per uno degli strumenti selezionati, è possibile scegliere di registrare un avviso o un errore. Se si registra un errore, l'attività ha esito negativo.
+- **Strumenti**: selezionare gli strumenti nella definizione di compilazione per cui si vuole inserire un'operazione di compilazione in modo condizionale. Per ogni strumento selezionato, potrebbe essere disponibile un'opzione che consente di scegliere se si desidera interrompere solo gli errori o gli errori e gli avvisi.
+- **Report**: è possibile scrivere facoltativamente i risultati che causano l'interruzioni di compilazione. I risultati vengono scritti nella finestra della console di Azure DevOps e nel file di log.
+- **Opzioni avanzate**: se non sono presenti registri per uno degli strumenti selezionati, è possibile scegliere di registrare un avviso o un errore. Se si registra un errore, l'attività ha esito negativo.
 
 Per informazioni sulla configurazione YAML per questa attività, vedere le [Opzioni YAML di post-analisi](yaml-configuration.md#post-analysis-task)
 

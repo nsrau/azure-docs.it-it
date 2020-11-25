@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184619"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009705"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi relativi all'estensione della macchina virtuale di Azure
 
@@ -45,7 +45,7 @@ Codice errore: "151099"
 
 Questo errore può verificarsi se l'agente guest di Azure nella macchina virtuale non è nello stato pronto.
 
-È possibile controllare lo stato dell'agente guest di Azure nella [portale di Azure](https://portal.azure.com/). Passare alla macchina virtuale che si sta tentando di proteggere e controllare lo stato **VM**in  >  **Impostazioni**VM  >  **Proprietà**  >  **stato agente**. Nella maggior parte dei casi, lo stato dell'agente è pronto dopo il riavvio della macchina virtuale. Tuttavia, se non è possibile riavviare il computer o se il problema persiste, completare i passaggi seguenti per la risoluzione dei problemi:
+È possibile controllare lo stato dell'agente guest di Azure nella [portale di Azure](https://portal.azure.com/). Passare alla macchina virtuale che si sta tentando di proteggere e controllare lo stato **VM** in  >  **Impostazioni** VM  >  **Proprietà**  >  **stato agente**. Nella maggior parte dei casi, lo stato dell'agente è pronto dopo il riavvio della macchina virtuale. Tuttavia, se non è possibile riavviare il computer o se il problema persiste, completare i passaggi seguenti per la risoluzione dei problemi:
 
 - [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [L'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)

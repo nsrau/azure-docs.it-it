@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74083961"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008482"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurare un server di elaborazione in Azure per il failback
 
@@ -28,14 +28,14 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuire un server di elaborazione in Azure
 
-1. Nell'insieme di credenziali > **Site Recovery infrastruttura** >  **Gestisci**  >  **server di configurazione**selezionare il server di configurazione.
+1. Nell'insieme di credenziali > **Site Recovery infrastruttura** >  **Gestisci**  >  **server di configurazione** selezionare il server di configurazione.
 2. Nella pagina del server fare clic su **+ Server di elaborazione**
 3. Nella pagina **Aggiungere il server di elaborazione** selezionare di distribuire il server di elaborazione in Azure.
 4. Specificare le impostazioni di Azure, tra cui la sottoscrizione usata per il failover, un gruppo di risorse, l'area di Azure usata per il failover e la rete virtuale in cui si trovano le macchine virtuali di Azure. Se si usano più reti di Azure, è necessario un server di elaborazione in ciascuna di esse.
 
    ![Elemento della raccolta per l'aggiunta del server di elaborazione](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. In **Nome server**, **Nome utente**e **Password** specificare un nome per il server di elaborazione e le credenziali a cui verranno assegnate le autorizzazioni di amministrazione sul server.
+4. In **Nome server**, **Nome utente** e **Password** specificare un nome per il server di elaborazione e le credenziali a cui verranno assegnate le autorizzazioni di amministrazione sul server.
 5. Specificare un account di archiviazione da usare per i dischi della macchina virtuale del server, la subnet in cui la macchina virtuale del server di elaborazione sarà disponibile e l'indirizzo IP del server che verrà assegnato all'avvio della macchina virtuale.
 6. Fare clic sul pulsante **OK** per avviare la distribuzione della macchina virtuale del server di elaborazione. Il server di elaborazione verrà distribuito in Standard_A8_v2 SKU. Assicurarsi che lo SKU della macchina virtuale sia disponibile per la sottoscrizione.
 

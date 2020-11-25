@@ -7,11 +7,11 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661198"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009255"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -72,11 +72,11 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
    ![Trovare "Gateway dati locale"](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
-1. In **gateway dati locali**selezionare **Aggiungi**.
+1. In **gateway dati locali** selezionare **Aggiungi**.
 
    ![Aggiungere una nuova risorsa di Azure per il gateway dati](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
-1. In **Crea gateway di connessione**fornire queste informazioni per la risorsa del gateway. Al termine, selezionare **Crea**.
+1. In **Crea gateway di connessione** fornire queste informazioni per la risorsa del gateway. Al termine, selezionare **Crea**.
 
    | Proprietà | Descrizione |
    |----------|-------------|
@@ -103,7 +103,7 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
 1. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale).
 
-1. Nell'elenco **sottoscrizioni** in **gateway**selezionare la sottoscrizione di Azure con la risorsa del gateway desiderata.
+1. Nell'elenco **sottoscrizioni** in **gateway** selezionare la sottoscrizione di Azure con la risorsa del gateway desiderata.
 
    Se si dispone dell'accesso alla sottoscrizione, è possibile scegliere tra diverse sottoscrizioni di Azure associate a una risorsa del gateway diversa. L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure.
 
@@ -139,8 +139,8 @@ Per aggiornare le impostazioni per una connessione gateway, è possibile modific
 
 Per trovare tutte le connessioni API associate alla sottoscrizione di Azure:
 
-* Dal menu portale di Azure selezionare **tutti i servizi**  >  **Web**  >  **connessioni API**Web.
-* In alternativa, scegliere **tutte le risorse**dal menu portale di Azure. Impostare il filtro dei **tipi** su **connessione API**.
+* Dal menu portale di Azure selezionare **tutti i servizi**  >  **Web**  >  **connessioni API** Web.
+* In alternativa, scegliere **tutte le risorse** dal menu portale di Azure. Impostare il filtro dei **tipi** su **connessione API**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -148,7 +148,7 @@ Per trovare tutte le connessioni API associate alla sottoscrizione di Azure:
 
 Per creare una risorsa del gateway diversa, collegare l'installazione del gateway a una risorsa del gateway diversa oppure rimuovere la risorsa del gateway, è possibile eliminare la risorsa del gateway senza influire sull'installazione del gateway.
 
-1. Dal menu portale di Azure selezionare tutte le **risorse**oppure cercare e selezionare **tutte le risorse** da qualsiasi pagina. Individuare e selezionare la risorsa del gateway.
+1. Dal menu portale di Azure selezionare tutte le **risorse** oppure cercare e selezionare **tutte le risorse** da qualsiasi pagina. Individuare e selezionare la risorsa del gateway.
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 

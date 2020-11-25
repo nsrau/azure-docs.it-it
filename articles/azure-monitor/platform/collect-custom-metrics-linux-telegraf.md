@@ -8,11 +8,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008991"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -43,8 +43,8 @@ Creare una nuova VM Linux:
 1. Selezionare **Ubuntu 16.04 LTS** e fare clic su **Crea**. 
 1. Specificare un nome di macchina virtuale come **MyTelegrafVM**.  
 1. Lasciare il tipo di disco come **SSD**. Specificare quindi un **nome utente**, ad esempio **azureuser**. 
-1. In **tipo di autenticazione**selezionare **password**. Quindi immettere una password da usare in un secondo momento per la connessione SSH in questa macchina virtuale. 
-1. Scegliere di **creare un nuovo gruppo di risorse**. Specificare quindi un nome, ad esempio **myResourceGroup**. Scegliere la **località**. Quindi scegliere **OK**. 
+1. In **tipo di autenticazione** selezionare **password**. Quindi immettere una password da usare in un secondo momento per la connessione SSH in questa macchina virtuale. 
+1. Scegliere di **creare un nuovo gruppo di risorse**. Specificare quindi un nome, ad esempio **myResourceGroup**. Scegliere la **località**. Selezionare **OK**. 
 
     ![Creare una VM Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -68,7 +68,7 @@ Creare una connessione SSH con la macchina virtuale. Selezionare il pulsante **C
 
 ![Pagina di panoramica della VM Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione con nome DNS sulla porta 22. In **login using VM local account**viene visualizzato un comando Connection. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH: 
+Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione con nome DNS sulla porta 22. In **login using VM local account** viene visualizzato un comando Connection. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -131,7 +131,7 @@ Nella procedura dettagliata precedente vengono fornite informazioni su come conf
 
 Inoltre, questa procedura dettagliata ha consentito di usare l'agente Telegraf per generare metriche sulla macchina virtuale in cui è distribuito l'agente. L'agente Telegraf può essere usato anche come agente di raccolta e servizio di inoltro di metriche per altre risorse. Per informazioni su come configurare l'agente per la generazione di metriche per altre risorse di Azure, vedere [Azure Monitor Custom Metric Output for Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md) (Output di metriche personalizzate di Monitoraggio di Azure per Telegraf).  
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+## <a name="clean-up-resources"></a>Pulizia delle risorse 
 
 Quando non servono più è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale e selezionare **Elimina**. Confermare quindi il nome del gruppo di risorse da eliminare. 
 

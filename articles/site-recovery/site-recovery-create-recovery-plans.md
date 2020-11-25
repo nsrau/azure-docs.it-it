@@ -4,11 +4,11 @@ description: Informazioni su come creare e personalizzare piani per il ripristin
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485330"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009722"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creare e personalizzare piani di ripristino
 
@@ -46,7 +46,7 @@ Questo articolo descrive come creare e personalizzare un piano di ripristino per
 
 1. In **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano > **Personalizza**. Per impostazione predefinita, dopo la creazione di un piano, tutti i computer aggiunti a un piano dopo la creazione di questo vengono inseriti nel Gruppo 1 predefinito.
 2. Fare clic su **+Gruppo**. Per impostazione predefinita, a un nuovo gruppo viene assegnato il numero di sequenza corrispondente nella procedura di creazione. È possibile avere fino a sette gruppi.
-3. Selezionare il computer da spostare nel nuovo gruppo, fare clic su **Modifica gruppo**e quindi selezionare il nuovo gruppo. In alternativa, fare doppio clic sul nome del gruppo > **Elemento protetto** e aggiungere computer al gruppo. Un gruppo di computer o di replica può appartenere a un solo gruppo in un piano di ripristino.
+3. Selezionare il computer da spostare nel nuovo gruppo, fare clic su **Modifica gruppo** e quindi selezionare il nuovo gruppo. In alternativa, fare doppio clic sul nome del gruppo > **Elemento protetto** e aggiungere computer al gruppo. Un gruppo di computer o di replica può appartenere a un solo gruppo in un piano di ripristino.
 
 
 ## <a name="add-a-script-or-manual-action"></a>Aggiungere uno script o un'azione manuale

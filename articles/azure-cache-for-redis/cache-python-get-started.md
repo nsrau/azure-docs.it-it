@@ -12,11 +12,11 @@ ms.custom:
 - devx-track-python
 ms.date: 11/05/2019
 ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099437"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008872"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Avvio rapido: Usare la cache di Azure per Redis in Python
 
@@ -34,7 +34,7 @@ In questo articolo si incorpora Cache di Azure per Redis in un'app Python per ac
 
 ## <a name="install-redis-py"></a>Installare redis-py
 
-[Redis py](https://github.com/andymccurdy/redis-py) è un'interfaccia di Python per Cache Redis di Azure. Usare lo strumento per i pacchetti Python, *pip* , per installare il pacchetto *redis-py* da un prompt dei comandi. 
+[Redis py](https://github.com/andymccurdy/redis-py) è un'interfaccia di Python per Cache Redis di Azure. Usare lo strumento per i pacchetti Python, *pip*, per installare il pacchetto *redis-py* da un prompt dei comandi. 
 
 Nell'esempio seguente è stato usato *pip3* per Python 3 per installare *redis-py* in Windows 10 da un prompt dei comandi dell'amministratore.
 

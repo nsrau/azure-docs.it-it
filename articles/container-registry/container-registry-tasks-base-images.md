@@ -4,11 +4,11 @@ description: Informazioni sulle immagini di base per le immagini del contenitore
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009824"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informazioni sugli aggiornamenti delle immagini di base per le attività ACR
 
@@ -16,7 +16,7 @@ Questo articolo fornisce informazioni generali sugli aggiornamenti dell'immagine
 
 ## <a name="what-are-base-images"></a>Che cosa sono le immagini di base?
 
-Dockerfile che definiscono la maggior parte delle immagini del contenitore specificano un'immagine padre da cui si basa l'immagine, spesso definita *immagine di base* . Le immagini di base contengono in genere il sistema operativo, ad esempio [Alpine Linux][base-alpine] o [Windows Server Nano][base-windows], su cui vengono applicati i restanti livelli del contenitore. Questi possono includere anche framework applicazioni come [Node.js][base-node] o [.NET Core][base-dotnet]. Queste immagini di base sono in genere basate su immagini upstream pubbliche. Diverse immagini di applicazioni possono condividere un'immagine di base comune.
+Dockerfile che definiscono la maggior parte delle immagini del contenitore specificano un'immagine padre da cui si basa l'immagine, spesso definita *immagine di base*. Le immagini di base contengono in genere il sistema operativo, ad esempio [Alpine Linux][base-alpine] o [Windows Server Nano][base-windows], su cui vengono applicati i restanti livelli del contenitore. Questi possono includere anche framework applicazioni come [Node.js][base-node] o [.NET Core][base-dotnet]. Queste immagini di base sono in genere basate su immagini upstream pubbliche. Diverse immagini di applicazioni possono condividere un'immagine di base comune.
 
 Un'immagine di base viene spesso aggiornata dal gestore delle immagini per includere nuove funzionalità o nuovi miglioramenti del sistema operativo o del framework. Un'altra comune causa di aggiornamento dell'immagine di base è costituita dalle patch di sicurezza. Quando si verificano questi aggiornamenti upstream, è necessario aggiornare anche le immagini di base per includere la correzione critica. È quindi necessario anche ricompilare ogni immagine di applicazione per includere gli aggiornamenti upstream ora inclusi nell'immagine di base.
 
@@ -52,7 +52,7 @@ Il tempo che intercorre tra l'aggiornamento di un'immagine di base e l'attivazio
 
 ## <a name="additional-considerations"></a>Altre considerazioni
 
-* **Immagini di base per le immagini dell'applicazione** : attualmente, un'attività ACR tiene traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione ( *Runtime* ). Non tiene traccia degli aggiornamenti delle immagini di base per le immagini intermedie ( *buildtime* ) usate in Dockerfile in più fasi.  
+* **Immagini di base per le immagini dell'applicazione** : attualmente, un'attività ACR tiene traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione (*Runtime*). Non tiene traccia degli aggiornamenti delle immagini di base per le immagini intermedie (*buildtime*) usate in Dockerfile in più fasi.  
 
 * **Abilitata per impostazione predefinita** : quando si crea un'attività ACR con il comando [AZ ACR task create][az-acr-task-create] , per impostazione predefinita l'attività è *abilitata* per il trigger da un aggiornamento dell'immagine di base. Ciò significa che la proprietà `base-image-trigger-enabled` è impostata su True. Se si vuole disabilitare questo comportamento in un'attività, aggiornare la proprietà impostandola su False. Eseguire ad esempio il comando [az acr task update][az-acr-task-update] seguente:
 
@@ -60,7 +60,7 @@ Il tempo che intercorre tra l'aggiornamento di un'immagine di base e l'attivazio
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Trigger per tenere traccia delle dipendenze** : per consentire a un'attività ACR di determinare e tenere traccia delle dipendenze di un'immagine del contenitore, tra cui l'immagine di base, è necessario innanzitutto attivare l'attività per compilare l'immagine almeno **una volta** . Attivare ad esempio l'attività manualmente usando il comando [az acr task run][az-acr-task-run].
+* **Trigger per tenere traccia delle dipendenze** : per consentire a un'attività ACR di determinare e tenere traccia delle dipendenze di un'immagine del contenitore, tra cui l'immagine di base, è necessario innanzitutto attivare l'attività per compilare l'immagine almeno **una volta**. Attivare ad esempio l'attività manualmente usando il comando [az acr task run][az-acr-task-run].
 
 * **Tag stabile per l'immagine di base** : per attivare un'attività nell'aggiornamento di un'immagine di base, è necessario che l'immagine di base disponga di un tag *stabile* , ad esempio `node:9-alpine` . Questo tag è tipico per un'immagine di base che viene aggiornata con le patch di sistema operativo e framework all'ultima versione stabile. Se l'immagine di base viene aggiornata con un nuovo tag di versione, l'attività non viene attivata. Per altre informazioni sull'uso di tag per le immagini, vedere le [procedure consigliate](container-registry-image-tag-version.md). 
 

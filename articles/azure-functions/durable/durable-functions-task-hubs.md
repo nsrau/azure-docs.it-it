@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 26234039c77601bc1d29beeebd3fcb8461d6d6c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432706"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009518"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
@@ -159,7 +159,7 @@ I nomi degli hub attività devono iniziare con una lettera e contenere solo lett
 
 | Versione durevole dell'estensione | Nome dell'hub attività predefinito |
 | - | - |
-| 2.x | Quando viene distribuito in Azure, il nome dell'hub attività viene derivato dal nome dell' _app_per le funzioni. Quando viene eseguito all'esterno di Azure, il nome dell'hub attività predefinito è `TestHubName` . |
+| 2.x | Quando viene distribuito in Azure, il nome dell'hub attività viene derivato dal nome dell' _app_ per le funzioni. Quando viene eseguito all'esterno di Azure, il nome dell'hub attività predefinito è `TestHubName` . |
 | 1.x | Il nome predefinito dell'hub attività per tutti gli ambienti è `DurableFunctionsHub` . |
 
 Per ulteriori informazioni sulle differenze tra le versioni delle estensioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .

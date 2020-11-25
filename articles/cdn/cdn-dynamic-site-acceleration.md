@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778864"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008362"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accelerazione sito dinamico tramite la rete CDN di Azure
 
@@ -30,9 +30,9 @@ Le funzionalità standard della rete per la distribuzione di contenuti (CDN) inc
 La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint. L'accelerazione sito dinamico da Microsoft viene offerta tramite il [servizio front door di Azure](../frontdoor/front-door-overview.md).
 
 > [!Important]
-> Per i profili di **rete CDN di Azure con tecnologia Akamai** , è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
+> Per i profili di **rete CDN di Azure con tecnologia Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
 >   
-> Per i profili di **rete CDN di Azure con tecnologia Verizon** , non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
+> Per i profili di **rete CDN di Azure con tecnologia Verizon**, non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
 
 ## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configurazione di un endpoint di rete CDN per accelerare la distribuzione di file dinamici
 
@@ -40,21 +40,21 @@ Per configurare un endpoint di rete CDN in modo da ottimizzare la distribuzione 
 
 **Per configurare un endpoint di rete CDN per l'ottimizzazione Accelerazione sito dinamico tramite il portale di Azure:**
 
-1. Nella pagina **Profilo rete CDN** selezionare **Endpoint** .
+1. Nella pagina **Profilo rete CDN** selezionare **Endpoint**.
 
    ![Aggiungere un nuovo endpoint di rete CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
-   Verrà visualizzato il riquadro **Aggiungi un endpoint** .
+   Verrà visualizzato il riquadro **Aggiungi un endpoint**.
 
-2. In **Ottimizzato per** selezionare **Accelerazione sito dinamico** .
+2. In **Ottimizzato per** selezionare **Accelerazione sito dinamico**.
 
     ![Creare un nuovo endpoint di rete CDN con Accelerazione sito dinamico](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
 3. Per **Percorso probe** immettere il percorso valido di un file.
 
-    Il percorso probe è una caratteristica specifica della funzionalità Accelerazione sito dinamico e ai fini della creazione è necessario un percorso valido. La funzionalità Accelerazione sito dinamico usa un piccolo file di *percorso probe* , incluso nel server di origine per ottimizzare le configurazioni di routing di rete per la rete CDN. Per il file del percorso probe è possibile scaricare e caricare il file di esempio nel proprio sito oppure usare un asset esistente nell'origine che sia all'incirca di 10 KB.
+    Il percorso probe è una caratteristica specifica della funzionalità Accelerazione sito dinamico e ai fini della creazione è necessario un percorso valido. La funzionalità Accelerazione sito dinamico usa un piccolo file di *percorso probe*, incluso nel server di origine per ottimizzare le configurazioni di routing di rete per la rete CDN. Per il file del percorso probe è possibile scaricare e caricare il file di esempio nel proprio sito oppure usare un asset esistente nell'origine che sia all'incirca di 10 KB.
 
-4. Immettere le altre opzioni necessarie per l'endpoint (per altre informazioni, vedere [Creare un nuovo endpoint della rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), quindi selezionare **Aggiungi** .
+4. Immettere le altre opzioni necessarie per l'endpoint (per altre informazioni, vedere [Creare un nuovo endpoint della rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), quindi selezionare **Aggiungi**.
 
    Una volta creato l'endpoint di rete CDN, questo applica le ottimizzazioni basate su Accelerazione sito dinamico per tutti i file che soddisfano determinati criteri. 
 
@@ -65,9 +65,9 @@ Per configurare un endpoint di rete CDN in modo da ottimizzare la distribuzione 
 
 2. Selezionare **Ottimizzazione** nel riquadro sinistro. 
 
-   Viene visualizzata la pagina **Ottimizzazione** .
+   Viene visualizzata la pagina **Ottimizzazione**.
 
-3. In **Ottimizzato per** selezionare **Accelerazione sito dinamico** , quindi selezionare **Salva** .
+3. In **Ottimizzato per** selezionare **Accelerazione sito dinamico**, quindi selezionare **Salva**.
 
 > [!Note]
 > Alla funzionalità Accelerazione sito dinamico si applicano costi aggiuntivi. Per altre informazioni, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
@@ -153,15 +153,15 @@ Con la funzionalità Accelerazione sito dinamico, la memorizzazione nella cache 
 
 Se il sito Web include una combinazione di asset statici e dinamici, è preferibile adottare un approccio ibrido per ottenere prestazioni ottimali. 
 
-Per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai** , è possibile attivare la memorizzazione nella cache per specifici endpoint con Accelerazione sito dinamico usando [regole di memorizzazione nella cache](cdn-caching-rules.md).
+Per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**, è possibile attivare la memorizzazione nella cache per specifici endpoint con Accelerazione sito dinamico usando [regole di memorizzazione nella cache](cdn-caching-rules.md).
 
 Per accedere alle regole di memorizzazione nella cache:
 
-1. Nella pagina **Profilo CDN** , in Impostazioni, selezionare **Regole di memorizzazione nella cache** .  
+1. Nella pagina **Profilo CDN**, in Impostazioni, selezionare **Regole di memorizzazione nella cache**.  
     
     ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
-    Viene visualizzata la pagina **Regole di memorizzazione nella cache** .
+    Viene visualizzata la pagina **Regole di memorizzazione nella cache**.
 
 2. Creare una regola globale o personalizzata per attivare la memorizzazione nella cache per l'endpoint con Accelerazione sito dinamico. 
 
@@ -169,13 +169,13 @@ Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è possibi
 
 Per accedere al motore regole:
     
-1. Nella pagina **Profilo rete CDN** selezionare **Gestisci** .  
+1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.  
     
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Si aprirà il portale di gestione della rete CDN.
 
-2. Nel portale di gestione della rete CDN selezionare **ADN** e quindi **Motore regole** . 
+2. Nel portale di gestione della rete CDN selezionare **ADN** e quindi **Motore regole**. 
 
     ![Motore regole per Accelerazione sito dinamico](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 

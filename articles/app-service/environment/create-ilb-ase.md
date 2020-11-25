@@ -8,11 +8,11 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503522"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009552"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -96,7 +96,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>Funzioni, processi Web e ambiente del servizio app ILB 
 
-In un ambiente del servizio app ILB sono supportati sia i processi Web che Funzioni, ma per poterli usare dal portale è necessario avere l'accesso di rete al sito SCM.  Il browser deve quindi trovarsi in un host incluso nella rete virtuale o connesso a essa. Se l'ambiente del servizio app ILB ha un nome di dominio che non termina con *appserviceenvironment.net* , sarà necessario impostare il browser in modo che consideri attendibile il certificato HTTPS usato dal sito SCM.
+In un ambiente del servizio app ILB sono supportati sia i processi Web che Funzioni, ma per poterli usare dal portale è necessario avere l'accesso di rete al sito SCM.  Il browser deve quindi trovarsi in un host incluso nella rete virtuale o connesso a essa. Se l'ambiente del servizio app ILB ha un nome di dominio che non termina con *appserviceenvironment.net*, sarà necessario impostare il browser in modo che consideri attendibile il certificato HTTPS usato dal sito SCM.
 
 ## <a name="dns-configuration"></a>Configurazione del DNS 
 
@@ -129,7 +129,7 @@ Il nome del sito di gestione controllo servizi consente di passare alla console 
 
 I sistemi di integrazione continua basati su Internet, come GitHub e Azure DevOps, continueranno a funzionare con un ambiente del servizio app ILB se l'agente di compilazione è accessibile da Internet e si trova nella stessa rete dell'ambiente del servizio app ILB. Quindi, nel caso di Azure DevOps, se l'agente di compilazione viene creato nella stessa rete virtuale dell'ambiente del servizio app ILB (anche se la subnet è diversa), potrà eseguire il pull del codice dal GIT di Azure DevOps e distribuirlo nell'ambiente del servizio app ILB. Se non si vuole creare il proprio agente di compilazione, è necessario usare un sistema di integrazione continua che adotta un modello pull, ad esempio Dropbox.
 
-Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, che può essere visualizzato nel profilo di pubblicazione dell'app e nel pannello del portale dell'app (in **Panoramica** > **Informazioni di base** e anche in **Proprietà** ). Se si ha un ambiente del servizio app ILB con il suffisso di dominio *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* e un'app denominata *mytest* , usare *mytest.&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* per il servizio FTP e *mytest.scm.contoso.net* per la distribuzione Web.
+Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, che può essere visualizzato nel profilo di pubblicazione dell'app e nel pannello del portale dell'app (in **Panoramica** > **Informazioni di base** e anche in **Proprietà**). Se si ha un ambiente del servizio app ILB con il suffisso di dominio *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* e un'app denominata *mytest*, usare *mytest.&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* per il servizio FTP e *mytest.scm.contoso.net* per la distribuzione Web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configurare un ambiente del servizio app ILB con un dispositivo WAF ##
 

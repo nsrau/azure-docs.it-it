@@ -4,11 +4,11 @@ description: Questo articolo descrive alcuni problemi comuni relativi all'aggior
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377923"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009348"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Risolvere i problemi relativi agli aggiornamenti delle applicazioni
 
@@ -80,7 +80,7 @@ In questo esempio l'aggiornamento non è riuscito nel dominio di aggiornamento *
 
 Se il valore di *UpgradePhase* è *PreUpgradeSafetyCheck*, si sono verificati problemi durante la preparazione del dominio di aggiornamento prima dell'esecuzione. I problemi più comuni in questo caso sono errori di servizi nella chiusura o nell'abbassamento di livello da percorsi di codice primari.
 
-Il valore corrente di **UpgradeState** è *RollingBackCompleted*, pertanto l'aggiornamento originale deve essere stato eseguito con la proprietà **FailureAction** impostata per il rollback ed è stato eseguito automaticamente il rollback dell'aggiornamento al momento dell'errore. Se l'aggiornamento originale fosse stato eseguito con la proprietà **FailureAction**impostata per l'azione manuale, si sarebbe attivato lo stato di sospensione dell'aggiornamento per consentire il debug attivo dell'applicazione.
+Il valore corrente di **UpgradeState** è *RollingBackCompleted*, pertanto l'aggiornamento originale deve essere stato eseguito con la proprietà **FailureAction** impostata per il rollback ed è stato eseguito automaticamente il rollback dell'aggiornamento al momento dell'errore. Se l'aggiornamento originale fosse stato eseguito con la proprietà **FailureAction** impostata per l'azione manuale, si sarebbe attivato lo stato di sospensione dell'aggiornamento per consentire il debug attivo dell'applicazione.
 
 In rari casi, il campo **UpgradeDomainProgressAtFailure** può essere vuoto se l'aggiornamento complessivo raggiunge il timeout proprio mentre il sistema completa tutte le operazioni per il dominio di aggiornamento corrente. In questo caso, provare ad aumentare i valori dei parametri **UpgradeTimeout** e **UpgradeDomainTimeout** e a eseguire di nuovo l'aggiornamento.
 
@@ -148,7 +148,7 @@ L'aggiornamento è stato sospeso contestualmente all'errore grazie all'impostazi
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Eseguire il ripristino da un aggiornamento sospeso
 
-Con la proprietà **FailureAction**impostata per il rollback, non è necessario alcun ripristino in quanto l'aggiornamento esegue automaticamente il rollback in caso di errore. Con una proprietà **FailureAction**impostata per l'azione manuale invece sono disponibili diverse opzioni di ripristino:
+Con la proprietà **FailureAction** impostata per il rollback, non è necessario alcun ripristino in quanto l'aggiornamento esegue automaticamente il rollback in caso di errore. Con una proprietà **FailureAction** impostata per l'azione manuale invece sono disponibili diverse opzioni di ripristino:
 
 1.  attivare un rollback
 2. Procedere manualmente con il resto dell'aggiornamento

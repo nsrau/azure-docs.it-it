@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 5c7686d8501baf17a63a5317f0d136adb6ac7812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "69014665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009196"
 ---
 Usare il forum di [suggerimenti degli utenti](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) per fornire commenti e suggerimenti su come migliorare Servizi multimediali di Azure. È anche possibile passare direttamente a una delle categorie seguenti:
 

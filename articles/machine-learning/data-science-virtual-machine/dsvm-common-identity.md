@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324788"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009229"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurare un'identità comune in un Data Science Virtual Machine
 
@@ -49,7 +49,7 @@ Active Directory Domain Services semplifica la gestione delle identità, fornend
     
    1. Copiare o comunque annotare la password generata in modo da poterla fornire all'utente al termine del processo.
     
-   1. Facoltativamente, è possibile aprire e immettere le informazioni in **Profilo** , **Gruppi** o **Ruolo della directory** per l'utente. 
+   1. Facoltativamente, è possibile aprire e immettere le informazioni in **Profilo**, **Gruppi** o **Ruolo della directory** per l'utente. 
     
    1. In **utente** selezionare **Crea**.
     

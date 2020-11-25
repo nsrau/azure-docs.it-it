@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093001"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009501"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come eseguire Durable Functions come processi Web
 
@@ -21,13 +21,13 @@ Nella versione 3. x di webjobs SDK, l'host è un'implementazione di `IHost` e ne
 
 L'esempio di concatenamento Durable Functions è disponibile in una versione di webjobs SDK 2. x: scaricare o clonare il [repository Durable Functions](https://github.com/azure/azure-functions-durable-extension/)ed estrarre il ramo *V1* e passare alla cartella *Samples \\ webjobssdk \\ Concatenation* .
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si abbia familiarità con le nozioni di base relative a WebJobs SDK, allo sviluppo della libreria di classi C# per Funzioni di Azure e a Funzioni durevoli. Per un'introduzione a questi argomenti, vedere le risorse seguenti:
 
 * [Introduzione a WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
 * [Creare la prima funzione con Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Durable Functions](durable-functions-sequence.md)
+* [Funzioni permanenti](durable-functions-sequence.md)
 
 Per seguire la procedura descritta in questo articolo:
 
