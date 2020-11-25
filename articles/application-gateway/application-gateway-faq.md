@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397791"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975633"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -249,7 +249,7 @@ Tuttavia, se si vuole usare il gateway applicazione v2 con solo IP privato, è p
 2. Non creare listener per l'indirizzo IP front-end pubblico. Il gateway applicazione non sarà in ascolto di alcun traffico sull'indirizzo IP pubblico se non viene creato alcun listener.
 3. Creare e associare un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md) per la subnet del gateway applicazione con la configurazione seguente in ordine di priorità:
     
-    a. Consentire il traffico dall'origine come tag di servizio **GatewayManager** , la destinazione come **Any** e la porta di destinazione come **65200-65535**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) tramite l'autenticazione del certificato. Le entità esterne, inclusi gli amministratori utenti del gateway, non possono avviare modifiche sugli endpoint senza certificati appropriati
+    a. Consentire il traffico dall'origine come tag di servizio **GatewayManager**, la destinazione come **Any** e la porta di destinazione come **65200-65535**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) tramite l'autenticazione del certificato. Le entità esterne, inclusi gli amministratori utenti del gateway, non possono avviare modifiche sugli endpoint senza certificati appropriati
     
     b. Consentire il traffico dall'origine come tag di servizio **GatewayManager** e la destinazione e la porta di destinazione come **Any**
     
@@ -434,9 +434,9 @@ No, il componente aggiuntivo AGIC è un servizio gestito che significa che Micro
 
 Il gateway applicazione offre tre log: 
 
-* **ApplicationGatewayAccessLog** : il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono IP del chiamante, URL richiesto, latenza della risposta, codice restituito e byte in ingresso e in uscita. Il log contiene un record per ogni gateway applicazione.
-* **ApplicationGatewayPerformanceLog** : il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali gestite, il numero di richieste non riuscite e il numero di istanze back-end integre e non integre.
-* **ApplicationGatewayFirewallLog** : per i gateway applicazione configurati con WAF, il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
+* **ApplicationGatewayAccessLog**: il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono IP del chiamante, URL richiesto, latenza della risposta, codice restituito e byte in ingresso e in uscita. Il log contiene un record per ogni gateway applicazione.
+* **ApplicationGatewayPerformanceLog**: il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali gestite, il numero di richieste non riuscite e il numero di istanze back-end integre e non integre.
+* **ApplicationGatewayFirewallLog**: per i gateway applicazione configurati con WAF, il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
 
 Tutti i log vengono raccolti ogni 60 secondi. Per altre informazioni, vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
 

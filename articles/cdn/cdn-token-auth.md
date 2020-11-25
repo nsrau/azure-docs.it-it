@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
 ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778010"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978039"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
 
@@ -81,8 +81,8 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
    2. Immettere una chiave di crittografia univoca nella casella **Primary Key** (Chiave primaria) e, facoltativamente, immettere una chiave di backup nella casella **Backup Key** (Chiave di backup).
 
    3. Selezionare la versione minima di crittografia per ogni chiave nel relativo elenco **Minimum Encryption Version** (Versione minima di crittografia) e quindi selezionare **Update** (Aggiorna):
-      - **V2** : indica che la chiave può essere usata per generare token di versione 2.0 e 3.0. Usare questa opzione solo se si esegue una transizione da una chiave di crittografia legacy versione 2.0 a una chiave di versione 3.0.
-      - **V3** : (impostazione consigliata) indica che la chiave può essere usata solo per generare token di versione 3.0.
+      - **V2**: indica che la chiave può essere usata per generare token di versione 2.0 e 3.0. Usare questa opzione solo se si esegue una transizione da una chiave di crittografia legacy versione 2.0 a una chiave di versione 3.0.
+      - **V3**: (impostazione consigliata) indica che la chiave può essere usata solo per generare token di versione 3.0.
 
       ![Chiave di configurazione per l'autenticazione basata su token di rete CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -158,7 +158,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
    5. Dopo aver immesso i valori dei parametri di crittografia, selezionare una chiave da crittografare (se sono state create una chiave primaria e una chiave di backup) dall'elenco **Key To Encrypt** (Chiave da crittografare).
     
-   6. Selezionare un elemento dall'elenco delle **versioni di crittografia** : **V2** per la versione 2 o **V3** per la versione 3 (opzione consigliata). 
+   6. Selezionare un elemento dall'elenco delle **versioni di crittografia**: **V2** per la versione 2 o **V3** per la versione 3 (opzione consigliata). 
 
    7. Selezionare **Encrypt** (Crittografa) per generare il token.
 
@@ -168,16 +168,16 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
       I parametri del token decrittografato vengono visualizzati nella casella **Original Parameters** (Parametri originali).
 
-   9. Facoltativamente, è possibile personalizzare il tipo di codice di risposta restituito quando viene negata una richiesta. Selezionare **Abilitato** , quindi selezionare il codice di risposta dall'elenco **Codice di risposta** . Il **Nome intestazione** viene impostato automaticamente su **Posizione** . Selezionare **Save** (Salva) per implementare il nuovo codice di risposta. Per alcuni codici di risposta è anche necessario immettere l'URL della pagina di errore nella casella **Valore intestazione** . Il codice di risposta **403** (Forbidden (Non consentito)) è selezionato per impostazione predefinita. 
+   9. Facoltativamente, è possibile personalizzare il tipo di codice di risposta restituito quando viene negata una richiesta. Selezionare **Abilitato**, quindi selezionare il codice di risposta dall'elenco **Codice di risposta**. Il **Nome intestazione** viene impostato automaticamente su **Posizione**. Selezionare **Save** (Salva) per implementare il nuovo codice di risposta. Per alcuni codici di risposta è anche necessario immettere l'URL della pagina di errore nella casella **Valore intestazione**. Il codice di risposta **403** (Forbidden (Non consentito)) è selezionato per impostazione predefinita. 
 
 3. In **HTTP Large** (HTTP grande) selezionare **Rules Engine** (Motore regole di business). Il motore di regole di business consente di definire i percorsi per applicare la funzionalità, abilitare la funzionalità di autenticazione basata su token e altre funzionalità correlate all'autenticazione basata su token. Per altre informazioni, vedere [Informazioni di riferimento sul motore regole](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Selezionare una regola esistente o crearne una nuova per definire l'asset o il percorso per il quale applicare l'autenticazione basata su token. 
-   2. Per abilitare l'autenticazione basata su token in una regola, selezionare **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** (Autenticazione basata su token) dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato** . Selezionare **Update** (Aggiorna) se si aggiorna una regola o su **Add** (Aggiungi) se si crea una regola.
+   2. Per abilitare l'autenticazione basata su token in una regola, selezionare **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** (Autenticazione basata su token) dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**. Selezionare **Update** (Aggiorna) se si aggiorna una regola o su **Add** (Aggiungi) se si crea una regola.
         
       ![Esempio di abilitazione dell'autenticazione basata su token nel motore di regole di business della rete CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. Nel motore di regole di business è anche possibile abilitare altre funzionalità correlate all'autenticazione basata su token. Per abilitare le funzionalità seguenti, selezionarle dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato** .
+4. Nel motore di regole di business è anche possibile abilitare altre funzionalità correlate all'autenticazione basata su token. Per abilitare le funzionalità seguenti, selezionarle dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**.
     
    - **[Token Auth Denial Code](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** (Codice negazione autenticazione token): determina il tipo di risposta restituita all'utente quando viene negata una richiesta. Le regole impostate qui sostituiscono il codice di risposta impostato nella sezione **Custom Denial Handling** (Gestione negazione personalizzata) della pagina di autenticazione basata su token.
 

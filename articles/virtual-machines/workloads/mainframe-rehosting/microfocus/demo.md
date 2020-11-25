@@ -7,11 +7,11 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95976194"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurare la microfocus CICS BankDemo per Micro Focus Enterprise Developer 4,0 in Azure
 
@@ -50,7 +50,7 @@ Dopo aver installato Enterprise Developer 4,0 nella macchina virtuale, è necess
     - Strumenti e script di gestione IIS
     - Servizio Gestione IIS
 
-4. Selezionare **servizi World Wide Web**e selezionare le opzioni seguenti:
+4. Selezionare **servizi World Wide Web** e selezionare le opzioni seguenti:
 
      Funzionalità di sviluppo di applicazioni:
     - Estendibilità .NET
@@ -63,12 +63,12 @@ Dopo aver installato Enterprise Developer 4,0 nella macchina virtuale, è necess
 
 5. Selezionare il **servizio Attivazione processo Windows** e tutti i relativi elementi figlio.
 
-6. Per le **funzionalità**di, controllare **Microsoft .NET Framework 3.5.1**e selezionare le opzioni seguenti:
+6. Per le **funzionalità** di, controllare **Microsoft .NET Framework 3.5.1** e selezionare le opzioni seguenti:
 
     - Attivazione HTTP Windows Communication Foundation
     - Windows Communication Foundation attivazione non HTTP
 
-7. Per le **funzionalità**di, controllare **Microsoft .NET Framework 4,6**e selezionare le opzioni seguenti:
+7. Per le **funzionalità** di, controllare **Microsoft .NET Framework 4,6** e selezionare le opzioni seguenti:
 
    - Attivazione named pipe
    - Attivazione TCP
@@ -78,7 +78,7 @@ Dopo aver installato Enterprise Developer 4,0 nella macchina virtuale, è necess
 
 8. Dopo aver selezionato tutte le opzioni, fare clic su **Avanti** per installare.
 
-9. Dopo le funzionalità di Windows, passare a **Pannello di controllo \> sistema e \> strumenti di amministrazione sicurezza**e selezionare **Servizi**. Scorrere verso il basso e verificare che i servizi seguenti siano in esecuzione e impostati su **automatico**:
+9. Dopo le funzionalità di Windows, passare a **Pannello di controllo \> sistema e \> strumenti di amministrazione sicurezza** e selezionare **Servizi**. Scorrere verso il basso e verificare che i servizi seguenti siano in esecuzione e impostati su **automatico**:
 
     - **NetTcpPortSharing**
     - **Adattatore listener Net.Pipe**
@@ -132,7 +132,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
 1. Aprire Visual Studio e accedere.
 
-2. Nell'opzione di menu **file** selezionare **Apri progetto/soluzione**, passare a **C: \\ utenti \\ public \\ Documents \\ Micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ DotNet \\ BankDemo**e selezionare il file **sln** .
+2. Nell'opzione di menu **file** selezionare **Apri progetto/soluzione**, passare a **C: \\ utenti \\ public \\ Documents \\ Micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ DotNet \\ BankDemo** e selezionare il file **sln** .
 
 3. Esaminare gli oggetti. I programmi COBOL sono visualizzati in Esplora soluzioni con l'estensione CBL insieme a quaderni (CPY) e JCL.
 
@@ -141,7 +141,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
     > [!NOTE]
     > Il progetto BankDemo USA HCOSS (opzione di compatibilità host per SQL Server), che non viene usato per questa demo.
 
-5. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto **BankDemo2** e selezionare **Compila**.
+5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **BankDemo2** e selezionare **Compila**.
 
     > [!NOTE]
     > La compilazione a livello di soluzione genera errori, perché HCOSS non è stato configurato.
@@ -189,7 +189,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
 ## <a name="create-xa-resource-definitions"></a>Creare definizioni di risorse XA
 
-1. Nel riquadro sinistro dell'interfaccia utente di **amministrazione di Enterprise Server per .NET** espandere **sistema**e quindi le **definizioni delle risorse XA**. Questa impostazione definisce il modo in cui l'area interagisce con Enterprise Server e i database dell'applicazione.
+1. Nel riquadro sinistro dell'interfaccia utente di **amministrazione di Enterprise Server per .NET** espandere **sistema** e quindi le **definizioni delle risorse XA**. Questa impostazione definisce il modo in cui l'area interagisce con Enterprise Server e i database dell'applicazione.
 
 2. Fare clic con il pulsante destro del mouse su **definizioni di risorse XA** e scegliere **Aggiungi istanza server**.
 
@@ -201,7 +201,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 
      ![Schermata nuova definizione risorsa XA database](media/09-demo-xa.png)
 
-6. Fare clic sui puntini di sospensione (**..**.) per visualizzare la creazione guidata stringa di connessione. Per **nome server**Digitare **(local) \\ SQLEXPRESS**. Per **accesso**selezionare **autenticazione di Windows**. Per nome database digitare **BANKDEMO**
+6. Fare clic sui puntini di sospensione (**..**.) per visualizzare la creazione guidata stringa di connessione. Per **nome server** Digitare **(local) \\ SQLEXPRESS**. Per **accesso** selezionare **autenticazione di Windows**. Per nome database digitare **BANKDEMO**
 
      ![Schermata Modifica stringa di connessione](media/10-demo-string.png)
 
@@ -212,7 +212,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
 > [!NOTE]
 > Il primo passaggio è importante: è necessario impostare l'area per usare la definizione di risorsa XA appena creata.
 
-1. Passare all' **area CICS BANDEMO** nel **contenitore Regions**e quindi selezionare **Edit Region startup file** dal riquadro **Actions** . Scorrere verso il basso fino alle proprietà SQL e immettere **bankdemo** per il **nome della risorsa XA**oppure usare i puntini di sospensione per selezionarlo.
+1. Passare all' **area CICS BANDEMO** nel **contenitore Regions** e quindi selezionare **Edit Region startup file** dal riquadro **Actions** . Scorrere verso il basso fino alle proprietà SQL e immettere **bankdemo** per il **nome della risorsa XA** oppure usare i puntini di sospensione per selezionarlo.
 
 2. Fare clic sull'icona **Salva** per salvare le modifiche.
 
@@ -234,13 +234,13 @@ Creare un listener per le sessioni TN3270 che accedono all'applicazione BankDemo
 
 3. Si notino le due aree definite in precedenza (ESDEMO e JCLDEMO).
 
-4. Per creare una nuova area per BANKDEMO, fare clic con il pulsante destro del mouse su **Regions**e scegliere **Aggiungi area**.
+4. Per creare una nuova area per BANKDEMO, fare clic con il pulsante destro del mouse su **Regions** e scegliere **Aggiungi area**.
 
 5. Selezionare **area BANKDEMO**.
 
 6. Per aggiungere un canale TN3270, fare clic con il pulsante destro del mouse su **BANKDEMO Region** e scegliere **Aggiungi canale**.
 
-7. Per **nome**immettere **TN3270**. Per **porta**immettere **9024**. L'applicazione ESDEMO usa la porta 9230, quindi è necessario usare una porta diversa.
+7. Per **nome** immettere **TN3270**. Per **porta** immettere **9024**. L'applicazione ESDEMO usa la porta 9230, quindi è necessario usare una porta diversa.
 
 8. Per salvare il file, fare clic sull'icona **Salva** o scegliere **file** \> **Salva**.
 

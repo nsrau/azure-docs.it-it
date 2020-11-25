@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318352"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975574"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -51,7 +51,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
     - Asia sud-orientale
     - Giappone orientale
     - Regno Unito meridionale
-    - Central India
+    - India centrale
     - Canada centrale
     - West US 2
 
@@ -115,7 +115,7 @@ Dopo aver completato i passaggi seguenti per l'integrazione con monitoraggio di 
 1. Nella console di Operations Manager selezionare l'area di lavoro **Amministrazione** .
 1. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 1. Fare clic sul collegamento **Registrazione a Operations Management Suite** .
-1. Nella pagina**Caricamento guidato di Operations Management Suite: Autenticazione**, immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e fare clic su **Accedi**.
+1. Nella pagina **Caricamento guidato di Operations Management Suite: Autenticazione**, immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e fare clic su **Accedi**.
 
    >[!NOTE]
    >Il nome di Operations Management Suite è stato ritirato.
@@ -136,7 +136,7 @@ Dopo aver configurato l'integrazione con l'area di lavoro Log Analytics, viene s
 1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Amministrazione**.
 1. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 1. Fare clic sul collegamento **Aggiungi computer/gruppo** nell'intestazione Azioni sul lato destro del riquadro.
-1. Nella finestra di dialogo **Ricerca computer** è possibile cercare i computer o i gruppi monitorati da Operations Manager. Selezionare i computer o i gruppi che includono il server di gestione di Operations Manager da caricare in monitoraggio di Azure, fare clic su **Aggiungi**e quindi su **OK**.
+1. Nella finestra di dialogo **Ricerca computer** è possibile cercare i computer o i gruppi monitorati da Operations Manager. Selezionare i computer o i gruppi che includono il server di gestione di Operations Manager da caricare in monitoraggio di Azure, fare clic su **Aggiungi** e quindi su **OK**.
 
 È possibile visualizzare i computer e i gruppi configurati per raccogliere dati dal nodo Computer gestiti in Operations Management Suite nell'area di lavoro **Amministrazione** della console operatore. Da qui è possibile aggiungere o rimuovere i computer e i gruppi in base alle esigenze.
 
