@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/13/2020
-ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128152"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019161"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app di domotica predefinita
 
@@ -120,7 +120,7 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
     |`verbose=true`|
     |`show-all-intents=true`|
 
-3. Nella barra degli indirizzi del browser andare alla fine dell'URL e immettere `turn off the living room light` per il valore di _query_ , quindi premere INVIO.
+3. Nella barra degli indirizzi del browser andare alla fine dell'URL e immettere `turn off the living room light` per il valore di _query_, quindi premere INVIO.
 
     ```json
     {
@@ -223,4 +223,4 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
 È possibile chiamare l'endpoint dal codice:
 
 > [!div class="nextstepaction"]
-> [Chiamare un endpoint LUIS tramite codice](luis-get-started-cs-get-intent.md)
+> [Chiamare un endpoint LUIS tramite codice](./luis-get-started-get-intent-from-rest.md)

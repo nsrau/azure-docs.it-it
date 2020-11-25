@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc27c73fbf9e827ce9a95c8aaaddc82ffb0aec53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86226431"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097630"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Creare un bot connesso al [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Creare un bot connesso al [canale Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
   > [!NOTE]
@@ -272,4 +272,3 @@ Dopo aver avviato l'applicazione e la relativa attività, fare clic sul pulsante
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [footer](./footer.md)]
-

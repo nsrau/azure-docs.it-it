@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136178"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096571"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -18,7 +18,7 @@ Prima di iniziare:
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md)
-> * Creare un bot connesso al [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Creare un bot connesso al [canale Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 >
   > [!NOTE]
@@ -108,7 +108,7 @@ Sostituire i valori `YOUR_SUBSCRIPTION_KEY` e `YOUR_BOT_REGION` con i valori eff
    > Consultare [l'elenco delle aree supportate per gli assistenti vocali](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e assicurarsi che le risorse vengano distribuite in una di queste aree.
 
    > [!NOTE]
-   > Per informazioni sulla configurazione del bot, vedere la documentazione di Bot Framework relativa al [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Per informazioni sulla configurazione del bot, vedere la documentazione di Bot Framework relativa al [canale Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Spiegazione del codice
 Per creare un oggetto di configurazione vocale sono necessarie la chiave e l'area della sottoscrizione di Voce. L'oggetto di configurazione è necessario per creare un'istanza di un oggetto riconoscimento vocale.

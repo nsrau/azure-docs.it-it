@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 0fae0172467bb4499c2710c49553d9134a32fa9b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c9ed54f11cade20af67a1c9bfe948b03e9d7b0d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135621"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097484"
 ---
-In questa Guida introduttiva, si apprenderà come usare Speech Devices SDK per Windows per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md). Per la trascrizione conversazione è supportato solo [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Per altri tipi di riconoscimento vocale sono supportati gruppi di microfoni lineari che forniscono una geometria per gruppi di microfoni.
+In questa Guida introduttiva, si apprenderà come usare Speech Devices SDK per Windows per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription.md). Per la trascrizione conversazione è supportato solo [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Per altri tipi di riconoscimento vocale sono supportati gruppi di microfoni lineari che forniscono una geometria per gruppi di microfoni.
 
 L'applicazione è compilata con il pacchetto Speech SDK ed Eclipse Java IDE (v4) in Windows a 64 bit. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
-Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../get-started.md) con una risorsa del servizio Voce.
+Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../overview.md#try-the-speech-service-for-free) con una risorsa del servizio Voce.
 
 Il codice sorgente dell'[applicazione di esempio](https://aka.ms/sdsdk-download-JRE) è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -29,20 +29,20 @@ Questa guida introduttiva richiede:
 * [Ambiente IDE Java Eclipse](https://www.eclipse.org/downloads/)
 * Solo [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Microsoft Visual C++ Redistributable Package](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](../get-started.md).
+* Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](../overview.md#try-the-speech-service-for-free).
 * Scaricare la versione più recente di [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) per Java ed estrarre il file zip nella directory di lavoro.
    > [!NOTE]
    > Questo argomento di avvio rapido presuppone che l'app venga estratta in C:\SDSDK\JRE-Sample-Release
 
 La trascrizione conversazione è attualmente disponibile solo per "en-US" e "zh-CN", nelle aree geografiche "centralus" e "eastasia". È necessario avere una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione conversazione.
 
-Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizio LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Per altre informazioni su LUIS e sul riconoscimento delle finalità, vedere [Riconoscere le finalità voce con LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Un [modello LUIS di esempio](https://aka.ms/sdsdk-luis) è disponibile per questa app.
+Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizio LUIS (Language Understanding)](../../luis/luis-how-to-azure-subscription.md). Per altre informazioni su LUIS e sul riconoscimento delle finalità, vedere [Riconoscere le finalità voce con LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md). Un [modello LUIS di esempio](https://aka.ms/sdsdk-luis) è disponibile per questa app.
 
 ## <a name="create-and-configure-the-project"></a>Creare e configurare il progetto
 
 1. Avviare Eclipse.
 
-1. Nell’ **utilità di avvio di Eclipse** , nel campo **Area di lavoro** , inserire il nome di una nuova directory dell’area di lavoro. Selezionare quindi **Avvio**.
+1. Nell’**utilità di avvio di Eclipse**, nel campo **Area di lavoro**, inserire il nome di una nuova directory dell’area di lavoro. Selezionare quindi **Avvio**.
 
    ![Screenshot che mostra l'utilità di avvio di Eclipse in cui immettere il nome della directory dell'area di lavoro.](../media/speech-devices-sdk/eclipse-launcher.png)
 
@@ -54,7 +54,7 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
 
    ![Screenshot della procedura guidata Nuovo progetto Java.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. In **Esplora pacchetti** , fare clic con il pulsante destro del mouse sul progetto. Selezionare **Configura** > **Converti in progetto Maven** dal menu di scelta rapida. Selezionare **Fine**.
+1. In **Esplora pacchetti**, fare clic con il pulsante destro del mouse sul progetto. Selezionare **Configura** > **Converti in progetto Maven** dal menu di scelta rapida. Selezionare **Fine**.
 
    ![Screenshot di Esplora pacchetti](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -108,7 +108,7 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
 1. La parola chiave predefinita è "Computer". È anche possibile provare una delle altre parole chiave disponibili, come "Machine" o "Assistant". I file di risorse per queste parole chiave alternative sono disponibili nella cartella keyword di Speech Devices SDK. `C:\SDSDK\JRE-Sample-Release\keyword\Computer`, ad esempio, contiene i file usati per la parola chiave "Computer".
 
     > [!TIP]
-    > È anche possibile [creare una parola chiave personalizzata](../speech-devices-sdk-create-kws.md).
+    > È anche possibile [creare una parola chiave personalizzata](../custom-keyword-basics.md).
 
     Per usare una nuova parola chiave, aggiornare la riga seguente in `FunctionsList.java` e copiare la parola chiave nell'app. Ad esempio, per usare la parola chiave 'Machine' del pacchetto di parole chiave `machine.zip`:
 
@@ -129,13 +129,13 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
 
    ![Screenshot di un'applicazione di esempio di Speech Devices SDK e opzioni.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Provare la nuova **demo di Trascrizione conversazione**. Avviare la trascrizione con **Avvia** > **sessione**. Per impostazione predefinita, ogni utente è un guest. Se però si hanno le firme vocali dei partecipanti, è possibile inserirle in un file `participants.properties` nella cartella del progetto **target/classes**. Per generare la firma vocale, vedere [Trascrivere le conversazioni (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Provare la nuova **demo di Trascrizione conversazione**. Avviare la trascrizione con **Avvia** > **sessione**. Per impostazione predefinita, ogni utente è un guest. Se però si hanno le firme vocali dei partecipanti, è possibile inserirle in un file `participants.properties` nella cartella del progetto **target/classes**. Per generare la firma vocale, vedere [Trascrivere le conversazioni (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Screenshot di un'applicazione demo di trascrizione conversazione.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Creare ed eseguire un'applicazione autonoma
 
-1. In **Esplora pacchetti** , fare clic con il pulsante destro del mouse sul progetto. Scegliere **Esporta**.
+1. In **Esplora pacchetti**, fare clic con il pulsante destro del mouse sul progetto. Scegliere **Esporta**.
 
 1. Verrà visualizzata la finestra **Esporta**. Espandere **Java** e selezionare **Runnable JAR file** (File JAR eseguibile) e quindi selezionare **Avanti**.
 

@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a7301fd878eb65e4c1dd540275611bcf9348afc
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365500"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241744"
 ---
 # <a name="what-is-custom-translator"></a>Informazioni su Custom Translator
 
-[Custom Translator](https://portal.customtranslator.azure.ai) è una funzionalità del servizio Microsoft Translator, che consente alle agenzie di traduzione, agli sviluppatori di app e ai provider di servizi linguistici di creare sistemi di traduzione automatica neurale (NMT). I sistemi di traduzione personalizzata si integrano senza problemi nelle applicazioni, nei flussi di lavoro e nei siti Web esistenti. [Custom Translator](https://portal.customtranslator.azure.ai/) offre funzionalità simili a quelle offerte da [Microsoft Translator Hub](https://hub.microsofttranslator.com/) per la traduzione automatica statistica (SMT, Statistical Machine Translation), ma in esclusiva per i sistemi di traduzione automatica neurale (NMT, Neural Machine Translation).
+[Custom Translator](https://portal.customtranslator.azure.ai) è una funzionalità del servizio Microsoft Translator, che consente alle agenzie di traduzione, agli sviluppatori di app e ai provider di servizi linguistici di creare sistemi di traduzione automatica neurale (NMT). I sistemi di traduzione personalizzata si integrano senza problemi nelle applicazioni, nei flussi di lavoro e nei siti Web esistenti.
 
 I sistemi di traduzione basati su [Custom Translator](https://portal.customtranslator.azure.ai) sono disponibili tramite la stessa, [sicura](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)[API Traduzione testuale V3](../reference/v3-0-translate.md?tabs=curl) di Microsoft Translator basata sul cloud e a prestazioni e scalabilità elevate che supporta miliardi di traduzioni ogni giorno.
 

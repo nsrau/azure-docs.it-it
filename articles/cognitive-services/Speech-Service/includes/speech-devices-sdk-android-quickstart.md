@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c341ba20ece26e15255faf086e5bd2904fbaa797
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136174"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095875"
 ---
-In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md).
+In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription.md).
 
-Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../get-started.md) con una risorsa del servizio Voce.
+Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../overview.md#try-the-speech-service-for-free) con una risorsa del servizio Voce.
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -24,18 +24,18 @@ Prima di iniziare a usare Speech Devices SDK, è necessario:
 
 - Seguire le istruzioni fornite nel [kit di sviluppo](../get-speech-devices-sdk.md) per accendere il dispositivo.
 
-- Scaricare la versione più recente di [Speech Devices SDK](https://aka.ms/sdsdk-download) ed estrarre il file ZIP nella directory di lavoro.
+- Scaricare la versione più recente di [Speech Devices SDK](../speech-devices-sdk.md) ed estrarre il file ZIP nella directory di lavoro.
 
   > [!NOTE]
   > Questo argomento di avvio rapido presuppone che l'app venga estratta in C:\SDSDK\Android-Sample-Release
 
-- Per ottenere una [chiave di sottoscrizione di Azure per il servizio Voce](../get-started.md)
+- Per ottenere una [chiave di sottoscrizione di Azure per il servizio Voce](../overview.md#try-the-speech-service-for-free)
 
 - Se si prevede di usare la funzionalità di trascrizione conversazione, è necessario usare un [dispositivo con microfono circolare](../get-speech-devices-sdk.md) e questa funzionalità è attualmente disponibile solo per i codici di lingua "en-US" e "zh-CN" nella aree "centralus" e "eastasia". È necessario avere una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione conversazione.
 
-- Se si prevede di usare il servizio Voce per identificare finalità (o azioni) dalle espressioni degli utenti, è necessaria una sottoscrizione di [LUIS (Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Per altre informazioni su LUIS e sul riconoscimento delle finalità, vedere [Riconoscere le finalità voce con LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Se si prevede di usare il servizio Voce per identificare finalità (o azioni) dalle espressioni degli utenti, è necessaria una sottoscrizione di [LUIS (Language Understanding Service)](../../luis/luis-how-to-azure-subscription.md). Per altre informazioni su LUIS e sul riconoscimento delle finalità, vedere [Riconoscere le finalità voce con LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md).
 
-  È possibile [creare un modello LUIS semplice](https://docs.microsoft.com/azure/cognitive-services/luis/) oppure usare il modello LUIS di esempio, ovvero LUIS-example.json. Il modello LUIS di esempio è disponibile nel [sito di download di Speech Devices SDK](https://aka.ms/sdsdk-luis). Per caricare il file JSON del modello nel [portale LUIS](https://www.luis.ai/home), selezionare **Import new app** (Importa nuova app) e quindi selezionare il file JSON.
+  È possibile [creare un modello LUIS semplice](../../luis/index.yml) oppure usare il modello LUIS di esempio, ovvero LUIS-example.json. Il modello LUIS di esempio è disponibile nel [sito di download di Speech Devices SDK](https://aka.ms/sdsdk-luis). Per caricare il file JSON del modello nel [portale LUIS](https://www.luis.ai/home), selezionare **Import new app** (Importa nuova app) e quindi selezionare il file JSON.
 
 - Installare [Android Studio](https://developer.android.com/studio/) e [Vysor](https://vysor.io/download/) nel PC.
 
@@ -122,7 +122,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 1. La parola chiave predefinita è "Computer". È anche possibile provare una delle altre parole chiave disponibili, come "Machine" o "Assistant". I file di risorse per queste parole chiave alternative sono disponibili nella cartella keyword di Speech Devices SDK. La cartella C:\SDSDK\Android-Sample-Release\keyword\Computer contiene ad esempio i file usati per la parola chiave "Computer".
 
    > [!TIP]
-   > È anche possibile [creare una parola chiave personalizzata](../speech-devices-sdk-create-kws.md).
+   > È anche possibile [creare una parola chiave personalizzata](../custom-keyword-basics.md).
 
    Per usare una nuova parola chiave, aggiornare le due righe seguenti in `MainActivity.java` e copiare il pacchetto di parole chiave nell'app. Ad esempio, per usare la parola chiave 'Machine' del pacchetto di parole chiave kws-machine.zip:
 
@@ -162,7 +162,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 
    ![Applicazione di esempio di Speech Devices SDK e opzioni](../media/speech-devices-sdk/qsg-8.png)
 
-1. Provare la nuova demo di Trascrizione conversazione. Avviare la trascrizione con "Avvia sessione". Per impostazione predefinita, ogni utente è un guest. Se però si hanno le firme vocali dei partecipanti, è possibile inserirle in un file `/video/participants.properties` nel dispositivo. Per generare la firma vocale, vedere [Trascrivere le conversazioni (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Provare la nuova demo di Trascrizione conversazione. Avviare la trascrizione con "Avvia sessione". Per impostazione predefinita, ogni utente è un guest. Se però si hanno le firme vocali dei partecipanti, è possibile inserirle in un file `/video/participants.properties` nel dispositivo. Per generare la firma vocale, vedere [Trascrivere le conversazioni (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Applicazione demo di Trascrizione conversazione](../media/speech-devices-sdk/qsg-15.png)
 

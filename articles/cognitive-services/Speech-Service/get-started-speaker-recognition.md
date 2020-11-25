@@ -13,12 +13,12 @@ ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: riconoscimento del parlante, biometria vocale
-ms.openlocfilehash: b831dfb0ff7989e52fcc2a1ab62ddb6f2e22a5e2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 57c7ad220ada89e5848cf49b7fb68547bc7ad1cb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166336"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015484"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Introduzione a Riconoscimento del parlante
 
@@ -40,6 +40,6 @@ ms.locfileid: "92166336"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni dettagliate sulle classi e sulle funzioni, vedere la documentazione di riferimento di [Riconoscimento del parlante](https://docs.microsoft.com/rest/api/speakerrecognition/).
+* Per informazioni dettagliate sulle classi e sulle funzioni, vedere la documentazione di riferimento di [Riconoscimento del parlante](/rest/api/speakerrecognition/).
 
 * Vedere gli esempi per [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) e [C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) in GitHub.

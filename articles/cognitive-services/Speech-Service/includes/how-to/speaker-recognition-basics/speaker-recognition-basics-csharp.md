@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 5be99ba09032020abf777c80307e347658a6e037
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2b5a34e8f3e7132a16ad3683b846d57e9ece2cb6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470795"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015470"
 ---
 Questo argomento di avvio rapido illustra i modelli di progettazione di base per Riconoscimento del parlante tramite Speech SDK, tra cui:
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Creare una configurazione di Voce
 
-Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true). In questo esempio viene creato un oggetto [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) usando una chiave e un'area di sottoscrizione. Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
+Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet). In questo esempio viene creato un oggetto [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) usando una chiave e un'area di sottoscrizione. Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
 
 Si noti che l'area è impostata su `westus`, perché è l'unica area supportata per il servizio.
 
@@ -70,7 +70,7 @@ public class Program
 
 ## <a name="text-dependent-verification"></a>Verifica dipendente dal testo
 
-Verifica voce è l'atto di confermare che un parlante corrisponde a una voce nota o **registrata** . Il primo passaggio consiste nel **registrare** un profilo vocale, in modo che il servizio disponga di un profilo da confrontare con i campioni di voce futuri. In questo esempio, il profilo viene registrato usando una strategia **dipendente dal testo** , che richiede una passphrase specifica da usare per la registrazione e la verifica. Per un elenco delle passphrase supportate, vedere la [documentazione di riferimento](https://docs.microsoft.com/rest/api/speakerrecognition/).
+Verifica voce è l'atto di confermare che un parlante corrisponde a una voce nota o **registrata**. Il primo passaggio consiste nel **registrare** un profilo vocale, in modo che il servizio disponga di un profilo da confrontare con i campioni di voce futuri. In questo esempio, il profilo viene registrato usando una strategia **dipendente dal testo**, che richiede una passphrase specifica da usare per la registrazione e la verifica. Per un elenco delle passphrase supportate, vedere la [documentazione di riferimento](/rest/api/speakerrecognition/).
 
 Per iniziare, creare la funzione seguente nella classe `Program` per registrare un profilo vocale.
 
@@ -127,7 +127,7 @@ public static async Task SpeakerVerify(SpeechConfig config, VoiceProfile profile
 
 In questa funzione viene passato l'oggetto `VoiceProfile` appena creato per inizializzare un modello in base a cui eseguire la verifica. Successivamente, `await speakerRecognizer.RecognizeOnceAsync(model)` richiede di pronunciare di nuovo la passphrase, ma questa volta la convaliderà in base al profilo vocale e restituirà un punteggio di somiglianza compreso tra 0,0 e 1,0. L'oggetto `result` restituisce anche `Accept` o `Reject`, a seconda che la passphrase corrisponda o meno.
 
-Modificare quindi la funzione `Main()` per chiamare le nuove funzioni create. Si noti inoltre che è possibile creare un elemento `Dictionary<string, string>` da passare come riferimento tramite le chiamate di funzione. Questo perché il servizio non consente l'archiviazione di un nome leggibile con un profilo `VoiceProfile` creato e archivia solo un numero ID ai fini della privacy. Nella funzione `VerificationEnroll` aggiungere a questo dizionario una voce con l'ID appena creato, insieme a un nome di testo. Negli scenari di sviluppo di applicazioni in cui è necessario visualizzare un nome leggibile, **è necessario archiviare questo mapping in una posizione, perché il servizio non può archiviarlo** .
+Modificare quindi la funzione `Main()` per chiamare le nuove funzioni create. Si noti inoltre che è possibile creare un elemento `Dictionary<string, string>` da passare come riferimento tramite le chiamate di funzione. Questo perché il servizio non consente l'archiviazione di un nome leggibile con un profilo `VoiceProfile` creato e archivia solo un numero ID ai fini della privacy. Nella funzione `VerificationEnroll` aggiungere a questo dizionario una voce con l'ID appena creato, insieme a un nome di testo. Negli scenari di sviluppo di applicazioni in cui è necessario visualizzare un nome leggibile, **è necessario archiviare questo mapping in una posizione, perché il servizio non può archiviarlo**.
 
 ```csharp
 static async Task Main(string[] args)
@@ -163,12 +163,12 @@ Verified voice profile for speaker Your Name, score is 0.915581
 
 ## <a name="text-independent-verification"></a>Verifica indipendente dal testo
 
-A differenza della verifica **dipendente dal testo** , la verifica **indipendente dal testo** :
+A differenza della verifica **dipendente dal testo**, la verifica **indipendente dal testo**:
 
 * Non richiede che venga pronunciata una passphrase specifica, ma è possibile pronunciare le parole desiderate
 * Non richiede tre campioni audio, ma *richiede* 20 secondi di audio totale
 
-Apportare un paio di modifiche semplici alla funzione `VerificationEnroll` per passare alla verifica **indipendente dal testo** . Prima di tutto, modificare il tipo di verifica impostandola su `VoiceProfileType.TextIndependentVerification`. Modificare quindi il ciclo `while` per tenere traccia di `result.RemainingEnrollmentsSpeechLength`, che continuerà a richiedere di parlare fino a quando non saranno stati acquisiti 20 secondi di audio.
+Apportare un paio di modifiche semplici alla funzione `VerificationEnroll` per passare alla verifica **indipendente dal testo**. Prima di tutto, modificare il tipo di verifica impostandola su `VoiceProfileType.TextIndependentVerification`. Modificare quindi il ciclo `while` per tenere traccia di `result.RemainingEnrollmentsSpeechLength`, che continuerà a richiedere di parlare fino a quando non saranno stati acquisiti 20 secondi di audio.
 
 ```csharp
 public static async Task VerificationEnroll(SpeechConfig config, Dictionary<string, string> profileMapping)
@@ -230,7 +230,7 @@ Verified voice profile for speaker Your Name, score is 0.849409
 
 ## <a name="speaker-identification"></a>Identificazione voce
 
-La funzionalità Identificazione voce viene usata per determinare **chi** parla da un gruppo specifico di voci registrate. Il processo è molto simile a quello di **verifica indipendente dal testo** , con la differenza principale che può eseguire la verifica rispetto a più profili vocali contemporaneamente, anziché rispetto a un singolo profilo.
+La funzionalità Identificazione voce viene usata per determinare **chi** parla da un gruppo specifico di voci registrate. Il processo è molto simile a quello di **verifica indipendente dal testo**, con la differenza principale che può eseguire la verifica rispetto a più profili vocali contemporaneamente, anziché rispetto a un singolo profilo.
 
 Creare una funzione `IdentificationEnroll` per registrare più profili vocali. Il processo di registrazione per ogni profilo è uguale al processo di registrazione per la **verifica indipendente dal testo** e richiede 20 secondi di audio per ogni profilo. Questa funzione accetta un elenco di stringhe `profileNames` e creerà un nuovo profilo vocale per ogni nome nell'elenco. La funzione restituisce un elenco di oggetti `VoiceProfile`, che è possibile usare nella funzione successiva per l'identificazione di un parlante.
 
