@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793297"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011856"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,7 +53,7 @@ In questa esercitazione si apprenderà come:
 - Azure PowerShell deve essere installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Questa esercitazione usa funzionalità del servizio database SQL di Azure incluse in un'anteprima limitata ([processi di database elastico](elastic-database-client-library.md)). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a *SaaSFeedback\@microsoft.com* indicando nell'oggetto del messaggio Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare *SaaSFeedback\@microsoft.com* .
+> Questa esercitazione usa funzionalità del servizio database SQL di Azure incluse in un'anteprima limitata ([processi di database elastico](elastic-database-client-library.md)). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a *SaaSFeedback\@microsoft.com* indicando nell'oggetto del messaggio Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare *SaaSFeedback\@microsoft.com*.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema SaaS
 
@@ -75,7 +75,7 @@ Gli script del database multi-tenant SaaS Wingtip Tickets e un codice sorgente d
 
 Per questa esercitazione è necessario usare PowerShell per creare il database di agenti processo e l'agente processo. Come il database MSDB usato da SQL Agent, l'agente processo usa un database nel database SQL di Azure per archiviare le definizioni dei processi, lo stato dei processi e la cronologia. Dopo aver creato l'agente processo, è possibile creare e monitorare i processi immediatamente.
 
-1. In **PowerShell ISE** aprire *...\\Learning Modules (Moduli di apprendimento)\\Schema Management (Gestione schema)\\Demo-SchemaManagement.ps1* .
+1. In **PowerShell ISE** aprire *...\\Learning Modules (Moduli di apprendimento)\\Schema Management (Gestione schema)\\Demo-SchemaManagement.ps1*.
 2. Premere **F5** per eseguire lo script.
 
 Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.ps1* per creare un database denominato _jobagent_ nel server di catalogo. Lo script crea quindi l'agente processo, passando il database _jobagent_ come parametro.
@@ -84,12 +84,12 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 #### <a name="prepare"></a>Preparazione
 
-Ogni database del tenant include un set di tipi di sedi nella tabella **VenueTypes** . Ogni tipo di sede definisce il tipo di eventi ospitati in una sede. Questi tipi di sedi corrispondono alle immagini di sfondo visualizzate nell'app degli eventi del tenant.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
+Ogni database del tenant include un set di tipi di sedi nella tabella **VenueTypes**. Ogni tipo di sede definisce il tipo di eventi ospitati in una sede. Questi tipi di sedi corrispondono alle immagini di sfondo visualizzate nell'app degli eventi del tenant.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
 
 Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database.
 
 1. Aprire SSMS e connettersi al server del tenant *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Per verificare che *Motorcycle Racing* e *Swimming Club* **non siano** attualmente inclusi, passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes* .
+1. Per verificare che *Motorcycle Racing* e *Swimming Club* **non siano** attualmente inclusi, passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes*.
 
 
 
@@ -97,19 +97,19 @@ Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a un
 
 L'esercizio prevede ora la creazione di un processo per aggiornare la tabella **VenueTypes** in ogni database tenant, aggiungendo i due nuovi tipi di eventi.
 
-Per creare un nuovo processo, usare il set di stored procedure di sistema dei processi create nel database _jobagent_ . Le stored procedure sono state create quando è stato creato l'agente processo.
+Per creare un nuovo processo, usare il set di stored procedure di sistema dei processi create nel database _jobagent_. Le stored procedure sono state create quando è stato creato l'agente processo.
 
 1. In SSMS, connettersi al server tenant: tenants1-mt-&lt;utente&gt;.database.windows.net
 
-2. Individuare il database *tenants1* .
+2. Individuare il database *tenants1*.
 
 3. Eseguire una query nella tabella *VenueTypes* per verificare che né *Motorcycle Racing* (Gare motociclistiche) né *Swimming Club* (Club nuoto) siano ancora nell'elenco dei risultati.
 
-4. Connettersi al server di catalogo, *catalog-mt-&lt;user&gt;.database.windows.net* .
+4. Connettersi al server di catalogo, *catalog-mt-&lt;user&gt;.database.windows.net*.
 
 5. Connettersi al database _jobagent_ nel server di catalogo.
 
-6. In SSMS, aprire il file *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql* .
+6. In SSMS, aprire il file *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql*.
 
 7. Modificare l'istruzione: set @User = &lt;utente&gt; e sostituire il valore Utente usato per la distribuzione dell'applicazione del database multi-tenant SaaS Wingtip Tickets.
 
@@ -117,15 +117,15 @@ Per creare un nuovo processo, usare il set di stored procedure di sistema dei pr
 
 #### <a name="observe"></a>Osservazione
 
-Osservare gli elementi seguenti nello script *DeployReferenceData.sql* :
+Osservare gli elementi seguenti nello script *DeployReferenceData.sql*:
 
 - **sp\_add\_target\_group** crea il nome del gruppo di destinazione *DemoServerGroup* e aggiunge i membri di destinazione al gruppo.
 
 - **sp\_add\_target\_group\_member** aggiunge gli elementi seguenti:
-    - Un tipo di membro di destinazione del *server* .
+    - Un tipo di membro di destinazione del *server*.
         - Si tratta del server *tenants1-mt-&lt;user&gt;* che contiene i database tenant.
         - Includere il server include i database tenant esistenti in fase di esecuzione del processo.
-    - Un tipo di membro di destinazione del *database* per il database modello ( *basetenantdb* ) presente nel server *catalog-mt-&lt;user&gt;* ,
+    - Un tipo di membro di destinazione del *database* per il database modello (*basetenantdb*) presente nel server *catalog-mt-&lt;user&gt;*,
     - Un tipo di membro di destinazione del *database* per includere il database *adhocreporting* usati in un'esercitazione successiva.
 
 - **sp\_add\_job** crea un processo denominato *Reference Data Deployment* (Distribuzione dati di riferimento).
@@ -134,15 +134,15 @@ Osservare gli elementi seguenti nello script *DeployReferenceData.sql* :
 
 - Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare quando il processo è stato completato. Il processo aggiorna il database tenant e aggiorna i due database aggiuntivi che contengono la tabella di riferimento.
 
-In SSMS, passare al database tenant nel server *tenants1-mt-&lt;user&gt;* . Eseguire una query nella tabella *VenueTypes* per verificare che *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto) siano ora aggiunti alla tabella. Il conteggio totale dei tipi di eventi deve essere aumentato di due.
+In SSMS, passare al database tenant nel server *tenants1-mt-&lt;user&gt;*. Eseguire una query nella tabella *VenueTypes* per verificare che *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto) siano ora aggiunti alla tabella. Il conteggio totale dei tipi di eventi deve essere aumentato di due.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creare un processo per gestire l'indice della tabella di riferimento
 
 In questo esercizio viene creato un processo per ricompilare l'indice sulla chiave primaria della tabella di riferimento su tutti i database tenant. La ricompilazione di un indice è una tipica operazione di gestione del database che può essere eseguita da un amministratore dopo un carico di dati di grandi dimensioni, per migliorare le prestazioni.
 
-1. In SSMS connettersi al database _jobagent_ nel server *catalog-mt-&lt;utente&gt;.database.windows.net* .
+1. In SSMS connettersi al database _jobagent_ nel server *catalog-mt-&lt;utente&gt;.database.windows.net*.
 
-2. In SSMS aprire il file *...\\Learning Modules\\Schema Management\\OnlineReindex.sql* .
+2. In SSMS aprire il file *...\\Learning Modules\\Schema Management\\OnlineReindex.sql*.
 
 3. Premere **F5** per eseguire lo script.
 
@@ -150,7 +150,7 @@ In questo esercizio viene creato un processo per ricompilare l'indice sulla chia
 
 Nello script *OnlineReindex.sql* osservare gli elementi seguenti:
 
-* **sp\_add\_job** crea un nuovo processo denominato *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885* .
+* **sp\_add\_job** crea un nuovo processo denominato *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885*.
 
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare l'indice.
 

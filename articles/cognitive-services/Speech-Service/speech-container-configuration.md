@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900284"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012170"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
-I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I cinque contenitori di sintesi vocale supportati sono ora **, sintesi**vocale, riconoscimento **vocale personalizzato**, sintesi vocale, da sintesi vocale **text-to-speech**, **da** sintesi vocale e da testo a discorso **e da sintesi**vocale.
+I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I cinque contenitori di sintesi vocale supportati sono ora **, sintesi** vocale, riconoscimento **vocale personalizzato**, sintesi vocale, da sintesi vocale **text-to-speech**, **da** sintesi vocale e da testo a discorso **e da sintesi** vocale.
 
 L'ambiente di runtime del contenitore **vocale** viene configurato usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
 
@@ -50,7 +50,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 - Portale di Azure: Panoramica **vocale** , con etichetta `Endpoint`
 
-| Obbligatoria | Nome | Tipo di dati | Descrizione |
+| Necessario | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
 | Sì | `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
@@ -104,14 +104,14 @@ L'impostazione di montaggio del volume è costituita da tre `:` campi separati d
 Questo comando monta la directory _C:\input_ del computer host nella directory _/usr/local/Models_ dei contenitori.
 
 > [!IMPORTANT]
-> Le impostazioni di montaggio del volume sono valide solo per i contenitori da **riconoscimento vocale personalizzato a testo** e **da testo a voce personalizzato** . I contenitori di sintesi **vocale, sintesi vocale e** **sintesi vocale non** usano i montaggi **di**volumi, né i contenitori di sintesi vocale.
+> Le impostazioni di montaggio del volume sono valide solo per i contenitori da **riconoscimento vocale personalizzato a testo** e **da testo a voce personalizzato** . I contenitori di sintesi **vocale, sintesi vocale e** **sintesi vocale non** usano i montaggi **di** volumi, né i contenitori di sintesi vocale.
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`. Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](speech-container-howto.md#stop-the-container).
 
 - **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\` , come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host.
-- **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
+- **Ordine** degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
 Sostituire {_nome_argomento_} con i propri valori:
 

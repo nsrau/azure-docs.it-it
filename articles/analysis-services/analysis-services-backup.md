@@ -9,11 +9,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014053"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013004"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e ripristino di Analysis Services database
 
@@ -25,7 +25,7 @@ Il backup dei database modello tabulare in Azure Analysis Services è molto simi
 > 
 
 > [!NOTE]
-> Se l'account di archiviazione si trova in un'area diversa, configurare le impostazioni del firewall dell'account di archiviazione per consentire l'accesso dalle **reti selezionate**. In **intervallo di indirizzi**del firewall specificare l'intervallo di indirizzi IP per l'area in cui si trova il server Analysis Services. La configurazione delle impostazioni del firewall dell'account di archiviazione per consentire l'accesso da tutte le reti è supportata, tuttavia è preferibile scegliere le reti selezionate e specificare un intervallo di indirizzi IP. Per altre informazioni, vedere [domande frequenti sulla connettività di rete](analysis-services-network-faq.md#backup-and-restore).
+> Se l'account di archiviazione si trova in un'area diversa, configurare le impostazioni del firewall dell'account di archiviazione per consentire l'accesso dalle **reti selezionate**. In **intervallo di indirizzi** del firewall specificare l'intervallo di indirizzi IP per l'area in cui si trova il server Analysis Services. La configurazione delle impostazioni del firewall dell'account di archiviazione per consentire l'accesso da tutte le reti è supportata, tuttavia è preferibile scegliere le reti selezionate e specificare un intervallo di indirizzi IP. Per altre informazioni, vedere [domande frequenti sulla connettività di rete](analysis-services-network-faq.md#backup-and-restore).
 
 I backup vengono salvati con estensione abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
 
@@ -59,7 +59,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 1. In SSMS fare clic con il pulsante destro del mouse su un database > **Backup**.
 
-2. In **backup database**  >  **backup file**fare clic su **Sfoglia**.
+2. In **backup database**  >  **backup file** fare clic su **Sfoglia**.
 
 3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. 
 

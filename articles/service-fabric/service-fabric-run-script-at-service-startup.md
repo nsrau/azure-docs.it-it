@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75464280"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012528"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Eseguire uno script di avvio del servizio come account utente o di sistema locale
 Prima dell'avvio del file eseguibile di un servizio di Service Fabric può essere necessario eseguire alcune operazioni di configurazione o di installazione,  ad esempio la configurazione delle variabili di ambiente. Nel manifesto del servizio è possibile specificare di eseguire uno script prima dell'avvio dell'eseguibile del servizio stesso. La configurazione di criteri RunAs per il punto di ingresso dell'installazione del servizio consente di modificare l'account di esecuzione dell'eseguibile di installazione.  Un punto di ingresso dell'installazione separato consente di eseguire una configurazione con privilegi elevati per un breve periodo di tempo, in modo che non sia necessario eseguire con privilegi elevati il file eseguibile dell'host servizio per periodi di tempo prolungati.
@@ -18,7 +18,7 @@ Prima dell'avvio del file eseguibile di un servizio di Service Fabric può esser
 Il punto di ingresso dell'installazione, (**SetupEntryPoint** nel [manifesto del servizio](service-fabric-application-and-service-manifests.md)), è un punto di ingresso con privilegi che per impostazione predefinita viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account *NetworkService*) prima di qualsiasi altro punto di ingresso. L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. L'eseguibile **EntryPoint** viene eseguito dopo la conclusione dell'eseguibile **SetupEntryPoint**. Il processo risultante viene monitorato e riavviato ed inizia di nuovo con **SetupEntryPoint**, se termina o si arresta in modo anomalo. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Configurare il punto di ingresso dell'installazione del servizio
-Ecco un esempio semplice di manifesto per un servizio senza stato con uno script di installazione *MySetup.bat* nel servizio **SetupEntryPoint**.  **Arguments**è usato per passare argomenti allo script durante l'esecuzione.
+Ecco un esempio semplice di manifesto per un servizio senza stato con uno script di installazione *MySetup.bat* nel servizio **SetupEntryPoint**.  **Arguments** è usato per passare argomenti allo script durante l'esecuzione.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

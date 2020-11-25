@@ -4,11 +4,11 @@ description: Questo articolo descrive come è possibile visualizzare e analizzar
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368758"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011082"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -59,7 +59,7 @@ Gli stati di integrità inclusi sono:
 * **Non trovato**: l'area di lavoro, il gruppo di risorse o la sottoscrizione che contiene l'area di lavoro per questa soluzione è stata eliminata.
 * Non **autorizzato**: l'utente non ha le autorizzazioni necessarie per leggere i dati nell'area di lavoro.
 * **Errore**: si è verificato un errore durante il tentativo di leggere i dati dall'area di lavoro.
-* **Configurazione**non corretta: il monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
+* **Configurazione** non corretta: il monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
 * **Nessun dato**: i dati non sono stati segnalati all'area di lavoro per gli ultimi 30 minuti.
 
 Lo stato di integrità calcola lo stato complessivo del cluster come il *peggiore dei* tre stati con un'eccezione. Se uno dei tre stati è sconosciuto, lo stato complessivo del cluster indica **Unknown**.
@@ -72,17 +72,17 @@ Nella tabella seguente viene fornita una suddivisione del calcolo che controlla 
 | |Healthy |100% |
 | |Avviso |90 - 99% |
 | |Critico |<90% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Pod di sistema**| | |
 | |Healthy |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Node** | | |
 | |Healthy |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 
 Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .
 
@@ -104,8 +104,8 @@ Viene visualizzata la pagina predefinita con quattro grafici delle prestazioni i
 
 I grafici delle prestazioni mostrano quattro metriche delle prestazioni:
 
-- ** &nbsp; Utilizzo % CPU nodo**: una prospettiva aggregata di utilizzo della CPU per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati.
-- ** &nbsp; Utilizzo % memoria nodo**: una prospettiva aggregata di utilizzo della memoria per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati.
+- **&nbsp; Utilizzo % CPU nodo**: una prospettiva aggregata di utilizzo della CPU per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95** o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati.
+- **&nbsp; Utilizzo % memoria nodo**: una prospettiva aggregata di utilizzo della memoria per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95** o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati.
 - **Node count** (Numero di nodi): il numero e lo stato dei nodi in Kubernetes. Gli Stati dei nodi del cluster rappresentati sono totale, pronto e non pronto. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico.
 - **Numero di Pod attivi**: numero di Pod e stato da Kubernetes. Gli Stati dei Pod rappresentati sono totale, in sospeso, in esecuzione, sconosciuto, completato o non riuscito. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico.
 
@@ -117,7 +117,7 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metrica | Descrizione |
+|Spazio dei nomi | Metric | Descrizione |
 |----------|--------|-------------|
 | Insights. contenitore/nodi | |
 | | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.|
@@ -139,11 +139,11 @@ In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analizzare nodi, controller e integrità del contenitore
 
-Quando si passa alle schede **nodi**, **controller**e **contenitori** , viene visualizzato automaticamente un riquadro proprietà sul lato destro della pagina. Mostra le proprietà dell'elemento selezionato, che include le etichette definite per organizzare gli oggetti Kubernetes. Quando si seleziona un nodo Linux, la sezione **capacità disco locale** Mostra anche lo spazio su disco disponibile e la percentuale usata per ogni disco presentato al nodo. Selezionare il **>>** collegamento nel riquadro per visualizzare o nascondere il riquadro.
+Quando si passa alle schede **nodi**, **controller** e **contenitori** , viene visualizzato automaticamente un riquadro proprietà sul lato destro della pagina. Mostra le proprietà dell'elemento selezionato, che include le etichette definite per organizzare gli oggetti Kubernetes. Quando si seleziona un nodo Linux, la sezione **capacità disco locale** Mostra anche lo spazio su disco disponibile e la percentuale usata per ogni disco presentato al nodo. Selezionare il **>>** collegamento nel riquadro per visualizzare o nascondere il riquadro.
 
 Quando si espandono gli oggetti nella gerarchia, il riquadro delle proprietà viene aggiornato in base all'oggetto selezionato. Dal riquadro è anche possibile visualizzare i log del contenitore Kubernetes (stdout/stderrr), gli eventi e le metriche Pod selezionando il collegamento **Visualizza dati in tempo reale (anteprima)** nella parte superiore del riquadro. Per ulteriori informazioni sulla configurazione necessaria per concedere e controllare l'accesso per visualizzare questi dati, vedere [configurare i dati in tempo reale (anteprima)](container-insights-livedata-setup.md). Quando si esaminano le risorse del cluster, è possibile visualizzare i dati dal contenitore in tempo reale. Per altre informazioni su questa funzionalità, vedere [come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale](container-insights-livedata-overview.md). Per visualizzare i dati di log di Kubernetes archiviati nell'area di lavoro in base alle ricerche log predefinite, selezionare **Visualizza log contenitori** dall'elenco **a discesa Visualizza in analisi** . Per altre informazioni su questo argomento, vedere [eseguire ricerche nei log per analizzare i dati](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Usare l'opzione **+ Aggiungi filtro** nella parte superiore della pagina per filtrare i risultati per la visualizzazione in base al **servizio**, al **nodo**, **allo spazio dei nomi**o al **pool di nodi**. Dopo aver selezionato l'ambito del filtro, selezionare uno dei valori mostrati nel campo **Seleziona valore/i** . Dopo aver configurato il filtro, questo viene applicato globalmente durante la visualizzazione di qualsiasi prospettiva del cluster AKS. La formula supporta solo il segno di uguale. È possibile aggiungere altri filtri sopra il primo per limitare ulteriormente i risultati. Se ad esempio si specifica un filtro in base al **nodo**, è possibile selezionare solo il **servizio** o **lo spazio dei nomi** per il secondo filtro.
+Usare l'opzione **+ Aggiungi filtro** nella parte superiore della pagina per filtrare i risultati per la visualizzazione in base al **servizio**, al **nodo**, **allo spazio dei nomi** o al **pool di nodi**. Dopo aver selezionato l'ambito del filtro, selezionare uno dei valori mostrati nel campo **Seleziona valore/i** . Dopo aver configurato il filtro, questo viene applicato globalmente durante la visualizzazione di qualsiasi prospettiva del cluster AKS. La formula supporta solo il segno di uguale. È possibile aggiungere altri filtri sopra il primo per limitare ulteriormente i risultati. Se ad esempio si specifica un filtro in base al **nodo**, è possibile selezionare solo il **servizio** o **lo spazio dei nomi** per il secondo filtro.
 
 La specifica di un filtro in una scheda continua a essere applicata quando si seleziona un'altra scheda. Viene eliminato dopo aver selezionato il simbolo **x** accanto al filtro specificato.
 
@@ -163,7 +163,7 @@ Da un nodo espanso è possibile eseguire il drill-down dal Pod o dal contenitore
 
 ![Screenshot mostra il drill-down da nodo a controller nella visualizzazione prestazioni](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Selezionare i controller o i contenitori nella parte superiore della pagina per esaminare lo stato e l'utilizzo delle risorse per tali oggetti. Per esaminare l'utilizzo della memoria, nell'elenco a discesa **metrica** selezionare **memoria RSS** o **memoria working set**. L'opzione **Memoria RSS** è supportata solo per Kubernetes versione 1.8 e successive. In caso contrario, è possibile visualizzare i valori per **Min &nbsp; % ** As *NaN &nbsp; % *, che è un valore numerico del tipo di dati che rappresenta un valore non definito o non rappresentabile.
+Selezionare i controller o i contenitori nella parte superiore della pagina per esaminare lo stato e l'utilizzo delle risorse per tali oggetti. Per esaminare l'utilizzo della memoria, nell'elenco a discesa **metrica** selezionare **memoria RSS** o **memoria working set**. L'opzione **Memoria RSS** è supportata solo per Kubernetes versione 1.8 e successive. In caso contrario, è possibile visualizzare i valori per **Min &nbsp; %** As *NaN &nbsp; %*, che è un valore numerico del tipo di dati che rappresenta un valore non definito o non rappresentabile.
 
 ![Visualizzazione delle prestazioni dei nodi del contenitore](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -173,7 +173,7 @@ Selezionare i controller o i contenitori nella parte superiore della pagina per 
 
 - La memoria virtuale è lo spazio su disco rigido riservato (cache) usato dal sistema operativo per scambiare dati dalla memoria al disco quando si verificano richieste di memoria e quindi recuperarli di nuovo in memoria, quando necessario.
 
-Per impostazione predefinita, i dati sulle prestazioni si basano sulle ultime sei ore, ma è possibile modificare la finestra utilizzando l'opzione **TimeRange** in alto a sinistra. È anche possibile filtrare i risultati all'interno dell'intervallo di tempo selezionando **min**, **AVG**, **cinquantesimo**, **90**, **95**e **Max** nel selettore percentile.
+Per impostazione predefinita, i dati sulle prestazioni si basano sulle ultime sei ore, ma è possibile modificare la finestra utilizzando l'opzione **TimeRange** in alto a sinistra. È anche possibile filtrare i risultati all'interno dell'intervallo di tempo selezionando **min**, **AVG**, **cinquantesimo**, **90**, **95** e **Max** nel selettore percentile.
 
 ![Selezione del percentile per filtrare i dati](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
@@ -235,7 +235,7 @@ Le informazioni visualizzate quando si visualizzano i controller sono descritte 
 | Colonna | Descrizione |
 |--------|-------------|
 | Nome | Nome del controller.|
-| Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
+| Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato* o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
@@ -295,7 +295,7 @@ Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella 
 Gestione criteri di rete di Azure include metriche Prometheus informative che consentono di monitorare e comprendere meglio le configurazioni di rete. Fornisce visualizzazioni predefinite in portale di Azure o Grafana Labs. Per informazioni dettagliate, vedere [monitorare e visualizzare le configurazioni di rete con NPM di Azure](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
 
-## <a name="workbooks"></a>Workbooks
+## <a name="workbooks"></a>Cartelle di lavoro
 
 Le cartelle di lavoro combinano testo, [query di log](/azure/data-explorer/kusto/query/), [metriche](../platform/data-platform-metrics.md)e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
 

@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546008"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011490"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Approfondimenti sul gateway e procedure consigliate per Apache Hive in Azure HDInsight
 
@@ -46,7 +46,7 @@ Il diagramma seguente illustra i passaggi necessari in una query SELECT.
 
 Apache Hive è un'astrazione relazionale basata su un file system compatibile con HDFS. Questa astrazione significa che le istruzioni **Select** in hive corrispondono a operazioni di **lettura** nel file System. Le operazioni di **lettura** vengono convertite nello schema appropriato prima di essere segnalate all'utente. La latenza di questo processo aumenta con le dimensioni dei dati e gli hop totali necessari per raggiungere l'utente finale.
 
-Potrebbe verificarsi un comportamento simile quando si eseguono istruzioni **create** o **Insert** di dati di grandi dimensioni, in quanto questi comandi corrispondono alle operazioni di **scrittura** nel file system sottostante. Prendere in considerazione la scrittura di dati, ad esempio un orco non elaborato, nel file System/datalake anziché caricarli usando **Insert** o **Load** .
+Potrebbe verificarsi un comportamento simile quando si eseguono istruzioni **create** o **Insert** di dati di grandi dimensioni, in quanto questi comandi corrispondono alle operazioni di **scrittura** nel file system sottostante. Prendere in considerazione la scrittura di dati, ad esempio un orco non elaborato, nel file System/datalake anziché caricarli usando **Insert** o **Load**.
 
 Nei cluster Enterprise Security Pack abilitati, i criteri di Apache Ranger sufficientemente complessi possono causare un rallentamento nel tempo di compilazione delle query, il che può comportare un timeout del gateway. Se viene rilevato un timeout del gateway in un cluster ESP, valutare la possibilità di ridurre o combinare il numero di criteri Ranger.
 
@@ -54,9 +54,9 @@ Nei cluster Enterprise Security Pack abilitati, i criteri di Apache Ranger suffi
 
 Sono disponibili più sedi per attenuare e comprendere i problemi di prestazioni soddisfatti come parte del comportamento precedente. Usare l'elenco di controllo seguente quando si verifica un calo delle prestazioni delle query sul gateway HDInsight:
 
-* Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable` . Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y** .
+* Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable` . Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y**.
 
-* Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché usare * *Select \** _. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
+* Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché usare **Select \** _. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
 
 _ Provare a eseguire la query di interesse tramite Apache. Se il recupero dei risultati tramite Apache coeline richiede un periodo di tempo prolungato, prevedere ritardi durante il recupero degli stessi risultati tramite strumenti esterni.
 

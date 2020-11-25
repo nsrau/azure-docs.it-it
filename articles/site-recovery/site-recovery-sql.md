@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
 ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87824529"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011949"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server
 
@@ -34,7 +34,7 @@ La scelta di una tecnologia BCDR per il ripristino delle istanze di SQL Server d
 
 Tipo di distribuzione | Tecnologia BCDR | Previsto RTO per SQL Server | Previsto RPO per SQL Server |
 --- | --- | --- | ---
-SQL Server in una macchina virtuale (VM) di infrastruttura distribuita come servizio (IaaS) di Azure o in locale.| [Gruppo di disponibilità AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | Tempo impiegato per rendere la replica secondaria come primaria. | Poiché la replica nella replica secondaria è asincrona, si verifica una perdita di dati.
+SQL Server in una macchina virtuale (VM) di infrastruttura distribuita come servizio (IaaS) di Azure o in locale.| [Gruppo di disponibilità Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | Tempo impiegato per rendere la replica secondaria come primaria. | Poiché la replica nella replica secondaria è asincrona, si verifica una perdita di dati.
 SQL Server in una macchina virtuale IaaS di Azure o in locale.| [Clustering di failover (istanza del cluster di failover AlwaysOn)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | Tempo impiegato per eseguire il failover tra i nodi. | Poiché Always On FCI usa lo spazio di archiviazione condiviso, la stessa visualizzazione dell'istanza di archiviazione è disponibile in caso di failover.
 SQL Server in una macchina virtuale IaaS di Azure o in locale.| [Mirroring del database (modalità a prestazioni elevate)](/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Tempo impiegato per forzare il servizio, che utilizza il server mirror come server warm standby. | La replica è asincrona. Il database mirror potrebbe avere un certo ritardo rispetto al database principale. Il ritardo è in genere di piccole dimensioni. Tuttavia, può diventare grande se il sistema del server principale o del server mirror è sottoposto a un carico elevato.<br/><br/>Il log shipping può essere un supplemento al mirroring del database. Si tratta di un'alternativa favorevole al mirroring asincrono del database.
 SQL come piattaforma distribuita come servizio (PaaS) in Azure.<br/><br/>Questo tipo di distribuzione include i database singoli e i pool elastici. | Replica geografica attiva | 30 secondi dopo l'attivazione del failover.<br/><br/>Quando si attiva il failover per uno dei database secondari, tutti gli altri database secondari vengono collegati automaticamente al nuovo database primario. | RPO di cinque secondi.<br/><br/>La replica geografica attiva Usa la tecnologia Always On di SQL Server. Replica in modo asincrono le transazioni di cui è stato eseguito il commit nel database primario in un database secondario tramite l'isolamento dello snapshot.<br/><br/>Per i dati secondari si garantisce che non siano mai presenti transazioni parziali.

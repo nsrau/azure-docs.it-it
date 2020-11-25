@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264134"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011346"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -167,7 +167,7 @@ Per inviare le metriche ad Application Insights, è possibile usare l'API `Track
 
 * Aggregazione. Quando si usano le metriche non si considera mai una sola misura. È importante invece il riepilogo delle operazioni eseguite in un periodo di tempo specifico. Tale riepilogo viene chiamato _aggregazione_. Nell'esempio precedente la somma della metrica di aggregazione per quel periodo di tempo è `1` e il conteggio dei valori della metrica è `2`. Quando si usa l'approccio di aggregazione, si chiama `TrackMetric` solo una volta per periodo di tempo e si inviano i valori di aggregazione. Questo è l'approccio consigliato in quanto può ridurre notevolmente i costi e le prestazioni generali inviando meno punti dati ad Application Insights, durante la raccolta di tutte le informazioni pertinenti.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="single-values"></a>Valori singoli
 
@@ -741,7 +741,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 // Set up some properties and metrics:
@@ -954,7 +954,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 Per disabilitare gli agenti di *raccolta standard selezionati*, ad esempio i contatori delle prestazioni, le richieste HTTP o le dipendenze, eliminare o impostare come commento le righe rilevanti in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Questa operazione può essere eseguita, ad esempio, se si desidera inviare i propri dati TrackRequest.
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -990,7 +990,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.JS*
+*Node.js*
 
 Per Node.js, è possibile abilitare la modalità sviluppatore abilitando la registrazione interna tramite `setInternalLogging` e impostando `maxBatchSize` su 0, che consente l'invio dei dati di telemetria non appena vengono raccolti.
 
@@ -1110,7 +1110,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

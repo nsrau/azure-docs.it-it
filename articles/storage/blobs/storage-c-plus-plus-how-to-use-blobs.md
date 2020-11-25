@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033632"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011099"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
 
@@ -51,7 +51,7 @@ Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desi
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurare una stringa di connessione di archiviazione di Azure
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue in un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle archiviazione per l'account di archiviazione elencato nell' [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey* . Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [informazioni sugli account di archiviazione di Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue in un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle archiviazione per l'account di archiviazione elencato nell' [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey* . Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [informazioni sugli account di archiviazione di Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
 ```cpp
 // Define the connection-string with your values.
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Per ulteriori informazioni sull'elenco di operazioni, vedere [elenco risorse di archiviazione Azure in C++](../storage-c-plus-plus-enumeration.md).
+Per ulteriori informazioni sull'elenco di operazioni, vedere [elenco risorse di archiviazione Azure in C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Procedura: scaricare i BLOB
 Per scaricare i BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo **download_to_stream** . Nell'esempio seguente viene usato il metodo **download_to_stream** per trasferire il contenuto del BLOB in un oggetto Stream che è quindi possibile salvare in modo permanente in un file locale.
@@ -257,10 +257,9 @@ blockBlob.delete_blob();
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per ulteriori informazioni su Archiviazione di Azure.
 
-- [Come usare l'archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
+- [Come usare l'archiviazione delle code da C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [Elencare le risorse di archiviazione di Azure in C++](../storage-c-plus-plus-enumeration.md)
+- [Elencare le risorse di archiviazione di Azure in C++](../common/storage-c-plus-plus-enumeration.md)
 - [Informazioni di riferimento sulla libreria client di archiviazione per C++](https://azure.github.io/azure-storage-cpp)
 - [Documentazione di archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Trasferire dati con l'utilità della riga di comando AzCopy](../storage-use-azcopy.md)
-
+- [Trasferire dati con l'utilità della riga di comando AzCopy](../common/storage-use-azcopy-v10.md)

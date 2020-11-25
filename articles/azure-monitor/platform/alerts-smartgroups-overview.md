@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012885"
 ---
 # <a name="smart-groups"></a>Gruppi intelligenti
 
@@ -29,7 +29,7 @@ Sono supportati i seguenti stati di gruppo intelligente.
 
 | State | Descrizione |
 |:---|:---|
-| Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
+| Nuova | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato il gruppo intelligente e ha iniziato a lavorare su di esso. |
 | Chiusa | Il problema è stato risolto. Dopo che un gruppo intelligente è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 

@@ -9,11 +9,11 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563446"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011739"
 ---
 Tutti i dati archiviati in File di Azure vengono crittografati quando sono inattivi usando la crittografia del servizio di archiviazione di Azure. La crittografia del servizio di archiviazione funziona in modo analogo a BitLocker in Windows in quanto i dati vengono crittografati sotto il livello del file system. Dal momento che i dati vengono crittografati sotto il file system della condivisione file di Azure, perché sono codificati su disco, non è necessario avere accesso alla chiave sottostante nel client per leggere o scrivere nella condivisione file di Azure. La crittografia dati inattivi si applica a entrambi i protocolli SMB e NFS.
 

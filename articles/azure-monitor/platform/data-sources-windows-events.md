@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440604"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012596"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Raccolta delle origini dati del registro eventi di Windows con Log Analytics Agent
 I registri eventi di Windows sono una delle [origini dati](agent-data-sources.md) più comuni per log Analytics agenti nelle macchine virtuali Windows perché molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -65,7 +65,7 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 | Query | Descrizione |
 |:---|:---|
-| Event |Tutti gli eventi di Windows. |
+| Evento |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |
 | Event &#124; summarize count() by Source |Numero di eventi di Windows per origine. |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Numero di eventi di errore di Windows per origine. |

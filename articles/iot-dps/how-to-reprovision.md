@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839793"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010946"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
@@ -43,7 +43,7 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
     * **Latenza più bassa**: questo criterio assegna i dispositivi all'hub IoT collegato che genererà le comunicazioni di latenza più basse tra il dispositivo e l'hub IoT. Questa opzione consente al dispositivo di comunicare con l'hub IoT più vicino in base alla posizione. 
     
-    * **Distribuzione ponderata uniforme**: questo criterio distribuisce i dispositivi tra gli hub IoT collegati in base al peso di allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. Questa è l'impostazione predefinita. 
+    * **Distribuzione ponderata uniforme**: questo criterio distribuisce i dispositivi tra gli hub IoT collegati in base al peso di allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. È l'impostazione predefinita. 
     
     * **Configurazione statica**: per questo criterio è necessario che l'hub di tutti gli elementi desiderati sia elencato nella voce di registrazione per il provisioning di un dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
 

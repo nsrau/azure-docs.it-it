@@ -16,11 +16,11 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010912"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure
 
@@ -153,7 +153,7 @@ La tabella seguente illustra il mapping:
 | --- | --- |
 | **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Provider di identità (IdP)** |Azure Active Directory (Azure AD) |
-| **Servizio token di sicurezza (STS) ** |Azure AD |
+| **Servizio token di sicurezza (STS)** |Azure AD |
 | **Flusso di lavoro protezione DRM** |Protezione dinamica di Servizi multimediali |
 | **Distribuzione di licenze DRM** |* Distribuzione delle licenze di Servizi multimediali (PlayReady, Widevine, FairPlay) <br/>* Server licenze Axinom <br/>* Server licenze PlayReady personalizzato |
 | **Origine** |Endpoint di streaming di Servizi multimediali |

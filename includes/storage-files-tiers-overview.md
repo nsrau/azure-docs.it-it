@@ -9,11 +9,11 @@ ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377333"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011748"
 ---
 File di Azure offre quattro diversi livelli di archiviazione, ovvero Premium, Ottimizzato per le transazioni, Accesso frequente e Accesso sporadico, che consentono di adattare le condivisioni ai requisiti dello scenario in termini di prestazioni e prezzi:
 

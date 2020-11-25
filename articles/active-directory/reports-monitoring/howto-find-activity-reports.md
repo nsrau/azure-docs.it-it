@@ -15,11 +15,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131055"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013031"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -91,7 +91,7 @@ I servizi includono:
 
 ## <a name="sign-ins-report"></a>Report sugli accessi 
 
-Nella vista **Accessi** sono inclusi tutti gli accessi utente, nonché il report **Utilizzo delle applicazioni** . È anche possibile visualizzare le informazioni sull'uso delle applicazioni nella sezione **Gestisci** della pagina di panoramica **Applicazioni aziendali** .
+Nella vista **Accessi** sono inclusi tutti gli accessi utente, nonché il report **Utilizzo delle applicazioni**. È anche possibile visualizzare le informazioni sull'uso delle applicazioni nella sezione **Gestisci** della pagina di panoramica **Applicazioni aziendali**.
 
 Per accedere al report degli accessi:
 

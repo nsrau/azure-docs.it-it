@@ -8,19 +8,19 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: a35c34a08dba625b16940d7ec5fb870952dba36b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e60ba773c5ef750f027c2e0b1528409c71eeb4b8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630244"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011703"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
 
-- **Montaggio diretto di una condivisione file di Azure** : poiché file di Azure fornisce accesso SMB (Server Message Block) o NFS (Network File System), è possibile montare condivisioni file di Azure in locale o nel cloud usando i client standard SMB o NFS disponibili nel sistema operativo. Poiché le condivisioni file di Azure sono serverless, la distribuzione per gli scenari di produzione non richiede la gestione di dispositivi NAS o file server. Ciò significa che non è necessario applicare patch software o sostituire dischi fisici. 
+- **Montaggio diretto di una condivisione file di Azure**: poiché file di Azure fornisce accesso SMB (Server Message Block) o NFS (Network File System), è possibile montare condivisioni file di Azure in locale o nel cloud usando i client standard SMB o NFS disponibili nel sistema operativo. Poiché le condivisioni file di Azure sono serverless, la distribuzione per gli scenari di produzione non richiede la gestione di dispositivi NAS o file server. Ciò significa che non è necessario applicare patch software o sostituire dischi fisici. 
 
-- **Memorizzare nella cache locale una condivisione file di Azure con Sincronizzazione file di Azure** : Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Sincronizzazione file di Azure trasforma un server Windows locale (o cloud) in una cache rapida della condivisione file SMB di Azure. 
+- **Memorizzare nella cache locale una condivisione file di Azure con Sincronizzazione file di Azure**: Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Sincronizzazione file di Azure trasforma un server Windows locale (o cloud) in una cache rapida della condivisione file SMB di Azure. 
 
 Questo articolo illustra principalmente le considerazioni sulla distribuzione per la distribuzione di una condivisione file di Azure da montare direttamente da un client locale o cloud. Per pianificare una distribuzione di Sincronizzazione file di Azure, vedere [pianificazione di una distribuzione di sincronizzazione file di Azure](storage-sync-files-planning.md).
 
@@ -44,8 +44,8 @@ Quando si distribuiscono condivisioni file di Azure in account di archiviazione,
 
 ## <a name="identity"></a>Identità
 Per accedere a una condivisione file di Azure, l'utente della condivisione file deve essere autenticato e avere l'autorizzazione per accedere alla condivisione. Questa operazione viene eseguita in base all'identità dell'utente che accede alla condivisione file. File di Azure si integra con tre provider di identità principali:
-- **Active Directory Domain Services locale (servizi di dominio Active Directory o servizi di dominio Active Directory locale)** : gli account di archiviazione di Azure possono essere aggiunti a un dominio di proprietà del cliente, Active Directory Domain Services, proprio come un dispositivo Windows Server file server o NAS. È possibile distribuire un controller di dominio in locale, in una macchina virtuale di Azure o anche come macchina virtuale in un altro provider di servizi cloud. File di Azure è indipendente dalla posizione in cui è ospitato il controller di dominio. Una volta che un account di archiviazione è stato aggiunto a un dominio, l'utente finale può montare una condivisione file con l'account utente che ha eseguito l'accesso al proprio PC con. L'autenticazione basata su Active Directory usa il protocollo di autenticazione Kerberos.
-- **Azure Active Directory Domain Services (Azure AD DS)** : Azure AD DS fornisce un controller di dominio gestito da Microsoft che può essere usato per le risorse di Azure. Il dominio che aggiunge l'account di archiviazione a Azure AD DS offre vantaggi simili al dominio che lo aggiunge a una Active Directory di proprietà del cliente. Questa opzione di distribuzione è particolarmente utile per gli scenari di Lift-and-Shift per le applicazioni che richiedono autorizzazioni basate su AD. Poiché Azure AD DS fornisce l'autenticazione basata su Active Directory, questa opzione Usa anche il protocollo di autenticazione Kerberos.
+- **Active Directory Domain Services locale (servizi di dominio Active Directory o servizi di dominio Active Directory locale)**: gli account di archiviazione di Azure possono essere aggiunti a un dominio di proprietà del cliente, Active Directory Domain Services, proprio come un dispositivo Windows Server file server o NAS. È possibile distribuire un controller di dominio in locale, in una macchina virtuale di Azure o anche come macchina virtuale in un altro provider di servizi cloud. File di Azure è indipendente dalla posizione in cui è ospitato il controller di dominio. Una volta che un account di archiviazione è stato aggiunto a un dominio, l'utente finale può montare una condivisione file con l'account utente che ha eseguito l'accesso al proprio PC con. L'autenticazione basata su Active Directory usa il protocollo di autenticazione Kerberos.
+- **Azure Active Directory Domain Services (Azure AD DS)**: Azure AD DS fornisce un controller di dominio gestito da Microsoft che può essere usato per le risorse di Azure. Il dominio che aggiunge l'account di archiviazione a Azure AD DS offre vantaggi simili al dominio che lo aggiunge a una Active Directory di proprietà del cliente. Questa opzione di distribuzione è particolarmente utile per gli scenari di Lift-and-Shift per le applicazioni che richiedono autorizzazioni basate su AD. Poiché Azure AD DS fornisce l'autenticazione basata su Active Directory, questa opzione Usa anche il protocollo di autenticazione Kerberos.
 - **Chiave account di archiviazione** di Azure: le condivisioni file di Azure possono essere montate anche con una chiave dell'account di archiviazione di Azure. Per montare una condivisione file in questo modo, viene usato il nome dell'account di archiviazione come nome utente e la chiave dell'account di archiviazione viene usata come password. L'uso della chiave dell'account di archiviazione per montare la condivisione file di Azure è in realtà un'operazione di amministratore, poiché la condivisione file montata disporrà di autorizzazioni complete per tutti i file e le cartelle della condivisione, anche se contengono ACL. Quando si usa la chiave dell'account di archiviazione per il montaggio tramite SMB, viene usato il protocollo di autenticazione NTLMv2.
 
 Per i clienti che eseguono la migrazione da file server locali o per la creazione di nuove condivisioni file in File di Azure progettati per comportarsi come i file server Windows o i dispositivi NAS, il dominio che aggiunge l'account di archiviazione al **Active Directory di proprietà del cliente** è l'opzione consigliata. Per altre informazioni sull'aggiunta dell'account di archiviazione a un dominio di Active Directory di proprietà del cliente, vedere [Azure Files Active Directory overview](storage-files-active-directory-overview.md) (Panoramica di Active Directory per File di Azure).
@@ -63,9 +63,9 @@ Per sbloccare l'accesso alla condivisione file di Azure, sono disponibili due op
 
 Sebbene dal punto di vista tecnico, è molto più semplice montare le condivisioni file di Azure tramite l'endpoint pubblico, si prevede che la maggior parte dei clienti scelga di montare le condivisioni file di Azure tramite una connessione VPN o ExpressRoute. Il montaggio con queste opzioni è possibile con le condivisioni SMB e NFS. A tale scopo, sarà necessario configurare quanto segue per l'ambiente:  
 
-- **Tunneling di rete con ExpressRoute, da sito a sito o VPN da punto a sito** : il tunneling in una rete virtuale consente l'accesso alle condivisioni file di Azure dall'ambiente locale, anche se la porta 445 è bloccata.
-- **Endpoint privati** : gli endpoint privati assegnano all'account di archiviazione un indirizzo IP dedicato dallo spazio degli indirizzi della rete virtuale. Questo consente il tunneling di rete senza la necessità di aprire reti locali fino a tutti gli intervalli di indirizzi IP di proprietà dei cluster di archiviazione di Azure. 
-- **Inoltri DNS** : configurare il DNS locale per risolvere il nome dell'account di archiviazione, ad esempio `storageaccount.file.core.windows.net` per le aree del cloud pubblico, per risolvere l'indirizzo IP degli endpoint privati.
+- **Tunneling di rete con ExpressRoute, da sito a sito o VPN da punto a sito**: il tunneling in una rete virtuale consente l'accesso alle condivisioni file di Azure dall'ambiente locale, anche se la porta 445 è bloccata.
+- **Endpoint privati**: gli endpoint privati assegnano all'account di archiviazione un indirizzo IP dedicato dallo spazio degli indirizzi della rete virtuale. Questo consente il tunneling di rete senza la necessità di aprire reti locali fino a tutti gli intervalli di indirizzi IP di proprietà dei cluster di archiviazione di Azure. 
+- **Inoltri DNS**: configurare il DNS locale per risolvere il nome dell'account di archiviazione, ad esempio `storageaccount.file.core.windows.net` per le aree del cloud pubblico, per risolvere l'indirizzo IP degli endpoint privati.
 
 Per pianificare la rete associata alla distribuzione di una condivisione file di Azure, vedere [file di Azure considerazioni sulla rete](storage-files-networking-overview.md).
 
@@ -133,16 +133,16 @@ In generale, le funzionalità di File di Azure e l'interoperabilità con altri s
 Una volta creata una condivisione file come una condivisione file Premium o standard, non è possibile convertirla automaticamente nell'altro livello. Se si desidera passare all'altro livello, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. Per eseguire tale copia, è consigliabile usare `robocopy` per Windows o `rsync` per MacOS e Linux.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Informazioni sul provisioning per le condivisioni file Premium
-Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva.
+Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. A tutte le dimensioni delle condivisioni viene offerta la linea di base e la velocità effettiva minime. Per ogni GiB di cui è stato effettuato il provisioning, la condivisione verrà rilasciata il numero minimo di IOPS/velocità effettiva e una velocità effettiva di IOPS e 0,1 MiB/s fino al limite massimo per condivisione. Il provisioning minimo consentito è 100 GiB con IOPS/velocità effettiva minime. 
 
-In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenziate fino a tre operazioni di I/O al secondo per ogni GiB di archiviazione di cui viene effettuato il provisioning per 60 minuti o più, a seconda della dimensione della condivisione. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
+Per tutte le condivisioni Premium viene offerta la disponibilità di un massimo sforzo. Tutte le dimensioni delle condivisioni possono aumentare fino a 4.000 IOPS o fino a tre IOPS per ogni GiB di cui è stato effettuato il provisioning, a seconda del valore che fornisce una maggiore quantità di IOPS nella condivisione. Tutte le condivisioni supportano il prolungamento per una durata massima di 60 minuti al limite massimo di picchi. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
 
-È necessario eseguire il provisioning delle condivisioni con incrementi di 1 GiB. La dimensione minima è 100 GiB, la dimensione successiva è 101 GiB e così via.
+È necessario eseguire il provisioning delle condivisioni con incrementi di 1 GiB. La dimensione minima è 100 GiB, le dimensioni successive sono 101 GiB e così via.
 
 > [!TIP]
-> IOPS Baseline = 1 * GiB con provisioning. (Fino a un massimo di 100.000 IOPS).
+> IOPS Baseline = 400 + 1 * GiB con provisioning. (Fino a un massimo di 100.000 IOPS).
 >
-> Limite di espansione = 3 * IOPS Baseline. (Fino a un massimo di 100.000 IOPS).
+> Limite di espansione = MAX (4.000, 3 * IOPS baseline). (qualsiasi limite è maggiore, fino a un massimo di 100.000 IOPS).
 >
 > velocità in uscita = 60 MiB/s + 0,06 * GiB con provisioning
 >
@@ -156,33 +156,29 @@ La tabella seguente illustra alcuni esempi di queste formule per le dimensioni d
 
 |Capacità (GiB) | Operazioni di I/O al secondo di base | IOPS a impulsi | In uscita (MiB/s) | Ingresso (MiB/s) |
 |---------|---------|---------|---------|---------|
-|100         | 100     | Fino a 300     | 66   | 44   |
-|500         | 500     | Fino a 1.500   | 90   | 60   |
-|1\.024       | 1\.024   | Fino a 3.072   | 122   | 81   |
-|5120       | 5120   | Fino a 15.360  | 368   | 245   |
-|10.240      | 10.240  | Fino a 30.720  | 675 | 450   |
-|33.792      | 33.792  | Fino a 100.000 | 2.088 | 1.392   |
-|51.200      | 51.200  | Fino a 100.000 | 3.132 | 2.088   |
+|100         | 500     | Fino a 4.000     | 66   | 44   |
+|500         | 900     | Fino a 4.000  | 90   | 60   |
+|1\.024       | 1.424   | Fino a 4.000   | 122   | 81   |
+|5120       | 5.520   | Fino a 15.360  | 368   | 245   |
+|10.240      | 10.640  | Fino a 30.720  | 675   | 450   |
+|33.792      | 34.192  | Fino a 100.000 | 2.088 | 1.392   |
+|51.200      | 51.600  | Fino a 100.000 | 3.132 | 2.088   |
 |102.400     | 100,000 | Fino a 100.000 | 6.204 | 4.136   |
 
-> [!NOTE]
-> Le prestazioni delle condivisioni file sono soggette a limiti di rete del computer, larghezza di banda di rete disponibile, dimensioni i/o, parallelismo, tra molti altri fattori. Ad esempio, in base a test interni con 8 dimensioni di i/o in lettura/scrittura, una singola macchina virtuale Windows, una *F16s_v2 standard* , connessa alla condivisione file Premium tramite SMB, potrebbe raggiungere 20.000 IOPS di lettura e 15.000 di operazioni di i/o in scrittura. Con le dimensioni di i/o in lettura/scrittura di 512 MiB, la stessa VM potrebbe ottenere 1,1 GiB/s in uscita e 370 MiB/s di velocità effettiva in ingresso. Per ottenere la massima scalabilità delle prestazioni, suddividere il carico tra più macchine virtuali. Consultare la [Guida alla risoluzione dei](storage-troubleshooting-files-performance.md) problemi relativi a problemi di prestazioni e soluzioni alternative comuni.
+È importante tenere presente che le prestazioni effettive delle condivisioni file sono soggette ai limiti della rete, alla larghezza di banda di rete disponibile, alle dimensioni di i/o, al parallelismo, tra molti altri fattori. Ad esempio, in base a test interni con 8 dimensioni di i/o di lettura/scrittura, una singola macchina virtuale Windows senza SMB multicanale abilitato, *F16s_v2 standard*, connessa alla condivisione file Premium tramite SMB, potrebbe ottenere 20 IOPS di lettura e 15.000 di scrittura. Con le dimensioni di i/o in lettura/scrittura di 512 MiB, la stessa VM potrebbe ottenere 1,1 GiB/s in uscita e 370 MiB/s di velocità effettiva in ingresso. Lo stesso client può ottenere fino a \~ 3x prestazioni se SMB multicanale è abilitato nelle condivisioni Premium. Per ottenere la massima scalabilità delle prestazioni, [abilitare SMB multicanale](storage-files-enable-smb-multichannel.md) e distribuire il carico tra più macchine virtuali. Per alcuni problemi comuni di prestazioni e soluzioni alternative, vedere Guida alle prestazioni e alla [risoluzione dei problemi](storage-troubleshooting-files-performance.md) di [SMB multicanale](storage-files-smb-multichannel-performance.md) .
 
 #### <a name="bursting"></a>Espansione nel
-Le condivisioni file Premium possono aumentare il valore di IOPS fino a un fattore pari a tre. L'espansione è automatizzata e funziona in base a un sistema di credito. La funzione di espansione è basata sul massimo sforzo e il limite di espansione non è una garanzia, le condivisioni file possono *aumentare fino al* limite.
+Se il carico di lavoro richiede le prestazioni aggiuntive per soddisfare i picchi della domanda, la condivisione può usare i crediti di espansione per superare il limite di IOPS della linea di base per offrire le prestazioni di condivisione necessarie per soddisfare la domanda. Le condivisioni file Premium possono aumentare il numero di IOPS fino a 4.000 o fino a un fattore pari a tre, a seconda del valore più alto. L'espansione è automatizzata e funziona in base a un sistema di credito. Il processo di prolungamento funziona in base al massimo sforzo e il limite di espansione non è una garanzia, le condivisioni file possono *aumentare fino* al limite per una durata massima di 60 minuti.
 
-I crediti si accumulano in un bucket di espansione ogni volta che il traffico per la condivisione file è inferiore al valore di IOPS Baseline. Una condivisione GiB 100, ad esempio, ha 100 IOPS Baseline. Se il traffico effettivo nella condivisione è 40 IOPS per un intervallo di 1 secondo specifico, le operazioni di 60 i/o al secondo non usate vengono accreditate a un bucket di espansione. Questi crediti verranno quindi usati in seguito quando le operazioni superano il IOPs di base.
+I crediti si accumulano in un bucket di espansione ogni volta che il traffico per la condivisione file è inferiore al valore di IOPS Baseline. Una condivisione GiB 100, ad esempio, ha 500 IOPS Baseline. Se il traffico effettivo nella condivisione è 100 IOPS per un intervallo di 1 secondo specifico, le operazioni di 400 i/o al secondo non usate vengono accreditate a un bucket di espansione. Analogamente, la condivisione 1 TiB inattiva aumenta il credito di picco a 1.424 IOPS. Questi crediti verranno quindi usati in seguito quando le operazioni superano il IOPS di base.
 
-> [!TIP]
-> Dimensioni del bucket di espansione = Baseline IOPS * 2 * 3600.
-
-Ogni volta che una condivisione supera le operazioni di i/o al secondo per la baseline e ha crediti in un bucket di espansione, il produrrà Le condivisioni possono continuare a funzionare fino a quando i crediti restano, anche se le condivisioni inferiori a 50 TiB rimarranno al limite di un massimo di un'ora. Le condivisioni superiori a 50 TiB possono tecnicamente superare questo limite di un'ora, fino a due ore, ma si basa sul numero di crediti di espansione accumulati. Ogni i/o oltre il IOPS di base utilizza un credito e una volta che tutti i crediti vengono utilizzati, la condivisione tornerà a IOPS Baseline.
+Ogni volta che una condivisione supera le operazioni di i/o al secondo e ha crediti in un bucket di espansione, il numero massimo di picchi consentito è elevato. Le condivisioni possono continuare a essere interrotte fino a quando i crediti restano, fino a un massimo di 60 minuti di durata, ma si basano sul numero di crediti di espansione accumulati. Ogni i/o oltre le operazioni di i/o al secondo di base utilizza un credito e una volta che tutti i crediti vengono utilizzati, la condivisione tornerà al IOPS di base.
 
 I crediti di condivisione hanno tre stati:
 
 - Accumulo, quando la condivisione file usa un numero di IOPS inferiore a quello di base.
-- In calo, quando la condivisione file è in fase di espansione.
-- Costante rimanente, in cui non sono in uso crediti o IOPS di base.
+- In declino, quando la condivisione file usa più di IOPS di base e in modalità di espansione.
+- Constant, Hen la condivisione file usa esattamente la linea di base IOPS, non sono presenti crediti accumulati o usati.
 
 Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket di espansione. Se i valori di IOPS della condivisione scendono al di sotto della linea di base IOPS a causa della limitazione del server, i crediti di espansione non verranno acquisiti.
 

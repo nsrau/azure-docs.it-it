@@ -4,11 +4,11 @@ description: Informazioni su come connettersi in remoto a un'istanza di set di s
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268095"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012545"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
 In un cluster di Service Fabric in esecuzione in Azure, ogni tipo di nodo del cluster definito [configura un'istanza separata di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).  È possibile connettersi in remoto a istanze specifiche di set di scalabilità (nodi del cluster).  Diversamente dalle macchine virtuali a istanza singola, le istanze dei set di scalabilità non ottengono un proprio indirizzo IP virtuale. Può quindi essere difficile cercare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica.

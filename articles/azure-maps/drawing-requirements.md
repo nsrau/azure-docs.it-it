@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013123"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
@@ -50,9 +50,9 @@ Un pacchetto di disegni è un archivio ZIP che contiene i file seguenti:
 
 ## <a name="dwg-files-requirements"></a>Requisiti dei file DWG
 
-È necessario un singolo file DWG per ogni livello della struttura. I dati del livello devono essere contenuti in un singolo file DWG. Qualsiasi riferimento esterno ( _xref_ ) deve essere associato al disegno padre. Inoltre, ogni file DWG:
+È necessario un singolo file DWG per ogni livello della struttura. I dati del livello devono essere contenuti in un singolo file DWG. Qualsiasi riferimento esterno (_xref_) deve essere associato al disegno padre. Inoltre, ogni file DWG:
 
-* Deve definire i livelli _Exterior_ e _Unit_ . Facoltativamente, può definire i livelli facoltativi seguenti: _Wall_ , _door_ , _UnitLabel_ , _zone_ e _ZoneLabel_ .
+* Deve definire i livelli _Exterior_ e _Unit_. Facoltativamente, può definire i livelli facoltativi seguenti: _Wall_, _door_, _UnitLabel_, _zone_ e _ZoneLabel_.
 * Non deve contenere caratteristiche di più livelli.
 * Non deve contenere caratteristiche di più strutture.
 
@@ -168,7 +168,7 @@ Il file DWG per ogni livello può contenere un livello ZoneLabel. Questo livello
 
 ## <a name="manifest-file-requirements"></a>Requisiti dei file manifesto
 
-La cartella ZIP deve contenere un file manifesto al livello radice della directory, che deve essere denominato **manifest.json** . Questo file descrive i file DWG per consentire al [servizio di conversione di Mappe di Azure](/rest/api/maps/conversion) di analizzarne il contenuto. Vengono inseriti solo i file identificati dal manifesto. I file che si trovano nella cartella zip, ma non sono elencati correttamente nel manifesto, vengono ignorati.
+La cartella ZIP deve contenere un file manifesto al livello radice della directory, che deve essere denominato **manifest.json**. Questo file descrive i file DWG per consentire al [servizio di conversione di Mappe di Azure](/rest/api/maps/conversion) di analizzarne il contenuto. Vengono inseriti solo i file identificati dal manifesto. I file che si trovano nella cartella zip, ma non sono elencati correttamente nel manifesto, vengono ignorati.
 
 I percorsi dei file nell' `buildingLevels` oggetto del file manifesto devono essere relativi alla radice della cartella zip. Il nome del file DWG deve corrispondere esattamente al nome del livello della struttura. Ad esempio, un file DWG per il livello "seminterrato" è "seminterrato. dwg". Un file DWG per il livello 2 è denominato "level_2. dwg". Se il nome del livello include uno spazio, usare un carattere di sottolineatura.
 
@@ -176,7 +176,7 @@ Sebbene esistano requisiti quando si utilizzano gli oggetti manifesto, non tutti
 
 | Oggetto | Obbligatoria | Descrizione |
 | :----- | :------- | :------- |
-| `version` | True |Versione dello schema del manifesto. Attualmente è supportata solo la versione 1,1.|
+| `version` | true |Versione dello schema del manifesto. Attualmente è supportata solo la versione 1,1.|
 | `directoryInfo` | true | Descrive le informazioni geografiche e di contatto della struttura. Può anche essere usato per descrivere informazioni geografiche e di contatto di un occupante. |
 | `buildingLevels` | true | Specifica i livelli degli edifici e i file che contengono la progettazione dei livelli. |
 | `georeference` | true | Contiene informazioni geografiche numeriche per il disegno della struttura. |
@@ -219,7 +219,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### `georeference`
 
-| Proprietà  | Type | Obbligatoria | Description |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |`lat`    | NUMERIC |    true |    Rappresentazione decimale della latitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |NUMERIC|    true|    Rappresentazione decimale della longitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`). |
@@ -227,10 +227,10 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### `dwgLayers`
 
-| Proprietà  | Type | Obbligatoria | Description |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|`exterior`    |matrice di stringhe|    True|    Nomi dei livelli che definiscono il profilo di compilazione esterno.|
-|`unit`|    matrice di stringhe|    True|    Nomi dei livelli che definiscono le unità.|
+|`exterior`    |matrice di stringhe|    true|    Nomi dei livelli che definiscono il profilo di compilazione esterno.|
+|`unit`|    matrice di stringhe|    true|    Nomi dei livelli che definiscono le unità.|
 |`wall`|    matrice di stringhe    |false|    Nomi dei livelli che definiscono i muri.|
 |`door`    |matrice di stringhe|    false   | Nomi dei livelli che definiscono le porte.|
 |`unitLabel`    |matrice di stringhe|    false    |Nomi dei livelli che definiscono i nomi delle unità.|

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011388"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Analisi dei sentimenti con analisi di flusso e Azure Machine Learning Studio di Azure (versione classica)
 
@@ -43,7 +43,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 In questo passaggio si carica un file CSV nel contenitore di archiviazione.
 
-1. Nella portale di Azure selezionare **Crea una risorsa**  >  **archiviazione**  >  **account di archiviazione** .
+1. Nella portale di Azure selezionare **Crea una risorsa**  >  **archiviazione**  >  **account di archiviazione**.
 
 2. Compilare la scheda *nozioni di base* con i dettagli seguenti e lasciare i valori predefiniti per i campi rimanenti:
 
@@ -51,23 +51,23 @@ In questo passaggio si carica un file CSV nel contenitore di archiviazione.
    |---------|---------|
    |Subscription|Scegliere la propria sottoscrizione.|
    |Resource group|Scegliere il gruppo di risorse.|
-   |Nome account di archiviazione|Immettere un nome per l'account di archiviazione. Il nome deve essere univoco in Azure.|
+   |Nome dell'account di archiviazione|Immettere un nome per l'account di archiviazione. Il nome deve essere univoco in Azure.|
    |Location|Scegliere un paese. Tutte le risorse devono usare la stessa località.|
    |Tipo di account|BlobStorage|
 
    ![specificare i dettagli dell'account di archiviazione](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-3. Selezionare **Rivedi e crea** . Selezionare quindi **Crea** per distribuire l'account di archiviazione.
+3. Selezionare **Rivedi e crea**. Selezionare quindi **Crea** per distribuire l'account di archiviazione.
 
-4. Al termine della distribuzione, passare all'account di archiviazione. In **Servizio BLOB** selezionare **Contenitori** . Quindi selezionare **+ contenitore** per creare un nuovo contenitore.
+4. Al termine della distribuzione, passare all'account di archiviazione. In **Servizio BLOB** selezionare **Contenitori**. Quindi selezionare **+ contenitore** per creare un nuovo contenitore.
 
    ![Creare un contenitore di archiviazione BLOB per l'input](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. Specificare un nome per il contenitore e verificare che il **livello di accesso pubblico** sia impostato su **privato** . Al termine, selezionare **Crea** .
+5. Specificare un nome per il contenitore e verificare che il **livello di accesso pubblico** sia impostato su **privato**. Al termine, selezionare **Crea**.
 
    ![specificare i dettagli del contenitore BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. Passare al contenitore appena creato e selezionare **carica** . Caricare il file di **sampleinput.csv** scaricato in precedenza.
+6. Passare al contenitore appena creato e selezionare **carica**. Caricare il file di **sampleinput.csv** scaricato in precedenza.
 
    ![Pulsante 'Carica' per un contenitore](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -77,7 +77,7 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 
 1. Passare alla pagina del [modello di analisi predittiva del sentiment](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) nella raccolta Cortana Intelligence.  
 
-2. Selezionare **Apri in studio (classico)** .  
+2. Selezionare **Apri in studio (classico)**.  
    
    ![Analisi di flusso Azure Machine Learning Studio (versione classica), Open Studio (classico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
@@ -127,13 +127,13 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
    |Contenitore|Selezionare il contenitore creato nel passaggio precedente.|
    |Formato di serializzazione eventi|CSV|
 
-3. Selezionare **Salva** .
+3. Selezionare **Salva**.
 
 ### <a name="configure-the-job-output"></a>Configurare l'output del processo
 
 Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
-1. Passare al processo di Analisi di flusso. In **topologia processo** selezionare l'opzione **output** . Selezionare **Aggiungi**  >  **Archivio BLOB** .
+1. Passare al processo di Analisi di flusso. In **topologia processo** selezionare l'opzione **output** . Selezionare **Aggiungi**  >  **Archivio BLOB**.
 
 2. Compilare il modulo di **archiviazione BLOB** con questi valori:
 
@@ -145,7 +145,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
    |Contenitore|Selezionare il contenitore creato nel passaggio precedente.|
    |Formato di serializzazione eventi|CSV|
 
-3. Selezionare **Salva** .
+3. Selezionare **Salva**.
 
 ### <a name="add-the-studio-classic-function"></a>Aggiungere la funzione Studio (classica)
 
@@ -161,11 +161,11 @@ In questa sezione si definisce una funzione nel processo di analisi dei flussi. 
 
    |Campo  |Valore  |
    |---------|---------|
-   | Alias di funzione | Usare il nome `sentiment` e selezionare **specificare le impostazioni della funzione Azure Machine Learning manualmente** , che offre un'opzione per immettere l'URL e la chiave.      |
+   | Alias di funzione | Usare il nome `sentiment` e selezionare **specificare le impostazioni della funzione Azure Machine Learning manualmente**, che offre un'opzione per immettere l'URL e la chiave.      |
    | URL| Incollare l'URL del servizio Web.|
    |Chiave | Incollare la chiave API. |
 
-4. Selezionare **Salva** .
+4. Selezionare **Salva**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creare una query per trasformare i dati
 
@@ -173,7 +173,7 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 
 1. Tornare alla panoramica del processo di analisi di flusso.
 
-2. In **Topologia processo** selezionare **Query** .
+2. In **Topologia processo** selezionare **Query**.
 
 3. Immettere la query seguente:
 
@@ -202,16 +202,16 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 
 2. Selezionare **inizia** nella parte superiore della pagina.
 
-3. In **Avvia processo** selezionare **personalizzato** , quindi selezionare un giorno prima di quando è stato caricato il file CSV nell'archivio BLOB. Al termine, selezionare **Salva** .  
+3. In **Avvia processo** selezionare **personalizzato**, quindi selezionare un giorno prima di quando è stato caricato il file CSV nell'archivio BLOB. Al termine, selezionare **Salva**.  
 
 ### <a name="check-the-output"></a>Controllare l'output
 
-1. Consentire l'esecuzione per alcuni minuti fino a quando non vengono visualizzate attività nella casella **Monitoraggio** .
+1. Consentire l'esecuzione per alcuni minuti fino a quando non vengono visualizzate attività nella casella **Monitoraggio**.
 
 2. Se si dispone di uno strumento che in genere si utilizza per esaminare il contenuto dell'archiviazione BLOB, utilizzare tale strumento per esaminare il contenitore. In alternativa, seguire questa procedura nel portale di Azure:
 
       1. Nel portale di Azure trovare l'account di archiviazione e, all'interno dell'account, trovare il contenitore. Vengono visualizzati due file nel contenitore: il file che contiene i tweet di esempio e un file CSV generato dal processo di Analisi di flusso.
-      2. Fare clic con il pulsante destro del mouse sul file generato e quindi scegliere **Scarica** .
+      2. Fare clic con il pulsante destro del mouse sul file generato e quindi scegliere **Scarica**.
 
 3. Aprire il file CSV generato. Il contenuto visualizzato sarà simile al seguente:  
 

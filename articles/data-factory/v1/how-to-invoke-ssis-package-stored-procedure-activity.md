@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012834"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -100,8 +100,8 @@ Creare un servizio collegato per collegare il database nel database SQL di Azure
         }
         }
     ```
-2. In **Azure PowerShell** passare alla cartella **C:\ADF\RunSSISPackage** .
-3. Eseguire il cmdlet **New-AzDataFactoryLinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService** . 
+2. In **Azure PowerShell** passare alla cartella **C:\ADF\RunSSISPackage**.
+3. Eseguire il cmdlet **New-AzDataFactoryLinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -168,7 +168,7 @@ In questo passaggio viene creata una pipeline con un'attività stored procedure.
     }    
     ```
 
-2. Per creare la pipeline: **RunSSISPackagePipeline** , eseguire il cmdlet **New-AzDataFactoryPipeline** .
+2. Per creare la pipeline: **RunSSISPackagePipeline**, eseguire il cmdlet **New-AzDataFactoryPipeline** .
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -188,7 +188,7 @@ In questo passaggio viene creata una pipeline con un'attività stored procedure.
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    È possibile continuare a eseguire questo cmdlet fino a quando la sezione non passa allo stato **Pronto** oppure **Operazione non riuscita** . 
+    È possibile continuare a eseguire questo cmdlet fino a quando la sezione non passa allo stato **Pronto** oppure **Operazione non riuscita**. 
 
     È possibile eseguire la query seguente sul database SSISDB nel server per verificare che il pacchetto sia stato eseguito. 
 

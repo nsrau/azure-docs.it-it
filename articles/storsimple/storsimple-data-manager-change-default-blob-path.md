@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011439"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambiare il percorso BLOB predefinito
 
@@ -209,7 +209,7 @@ Per creare una funzione di Azure, seguire questa procedura:
         ```
 
     
-    4. Fare clic su **Save**.
+    4. Fare clic su **Salva**.
 
         ![JSON nuovo progetto di funzione](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 

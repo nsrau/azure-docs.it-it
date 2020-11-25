@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011048"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creazione della Knowledge base e gestione delle impostazioni
 
@@ -38,7 +38,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
 
    ![Screenshot della selezione di una knowledge base per il servizio QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Nel **passaggio 3**assegnare un nome alla Knowledge base `My Sample QnA KB` .
+1. Nel **passaggio 3** assegnare un nome alla Knowledge base `My Sample QnA KB` .
 
 1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
 
@@ -91,7 +91,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
 
     ![Usare la barra di origine dati di QnA Maker per comprimere ed espandere le risposte e le domande sull'origine dati](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Ricerca**nella Knowledge Base: è possibile eseguire ricerche nella Knowledge base digitando nella casella di testo nella parte superiore della tabella della Knowledge base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
+* **Ricerca** nella Knowledge Base: è possibile eseguire ricerche nella Knowledge base digitando nella casella di testo nella parte superiore della tabella della Knowledge base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
 
     ![Usare la casella di ricerca di QnA Maker sopra alle domande e risposte, per limitare la visualizzazione solo agli elementi corrispondenti al filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 

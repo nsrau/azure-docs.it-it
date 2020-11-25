@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011881"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
 
@@ -38,7 +38,7 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 
 3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro.
 
-4. Nell'area di lavoro Log Analytics selezionare **Impostazioni avanzate**, quindi selezionare **origini connesse**e infine **server Windows**.
+4. Nell'area di lavoro Log Analytics selezionare **Impostazioni avanzate**, quindi selezionare **origini connesse** e infine **server Windows**.
 
 5. Dalla pagina **server Windows** selezionare la versione appropriata per scaricare l' **agente Windows** da scaricare, a seconda dell'architettura del processore del sistema operativo Windows.
 
@@ -275,7 +275,7 @@ Seguire questa procedura per configurare l'agente di Log Analytics per Windows p
 
 8. Nel campo **Porta server di gestione** digitare il numero di porta TCP.
 
-9. In **Account azione agente**scegliere l'account di sistema locale o un account di dominio locale.
+9. In **Account azione agente** scegliere l'account di sistema locale o un account di dominio locale.
 
 10. Fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi gruppo di gestione** e quindi fare clic su **OK** per chiudere la finestra di dialogo **Proprietà di Microsoft Monitoring Agent**.
 

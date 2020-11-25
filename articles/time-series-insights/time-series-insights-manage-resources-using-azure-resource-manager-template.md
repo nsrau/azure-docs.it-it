@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597865"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96011660"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Creare risorse di Azure Time Series Insights generazione 1 usando modelli di Azure Resource Manager
 
 > [!CAUTION]
 > È un articolo di Gen1.
 
-Questo articolo descrive come creare e distribuire Azure Time Series Insights risorse usando [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell e il provider di risorse di Azure Time Series Insights.
+Questo articolo descrive come creare e distribuire Azure Time Series Insights risorse usando [modelli di Azure Resource Manager](../azure-resource-manager/index.yml), PowerShell e il provider di risorse di Azure Time Series Insights.
 
 Azure Time Series Insights supporta le risorse seguenti:
 
@@ -32,7 +32,7 @@ Azure Time Series Insights supporta le risorse seguenti:
    | Environment | Un ambiente Azure Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, leggere [Pianificare un ambiente Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Azure Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
    | Set di dati di riferimento | I set di dati di riferimento forniscono metadati sugli eventi nell'ambiente. I metadati nei set di dati di riferimento verranno aggiunto agli eventi durante l'ingresso. I set di dati di riferimento sono definiti come risorse dalle relative proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento vengono caricati o modificati tramite le API del piano dati. |
-   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Azure Time Series Insights usando portale di Azure](time-series-insights-data-access.md) |
+   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Azure Time Series Insights usando portale di Azure](./concepts-access-policies.md) |
 
 Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. I documenti seguenti descrivono i file modello in modo più dettagliato:
 
@@ -48,7 +48,7 @@ Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](ht
 
 La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager per creare un ambiente di Azure Time Series Insights, un'origine evento figlio configurato per utilizzare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 
-1. Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+1. Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai cmdlet di Azure PowerShell](/powershell/azure/get-started-azureps).
 
 1. Clone o copiare il modello [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) da GitHub.
 
@@ -127,7 +127,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
 > [!IMPORTANT]
-> Le operazioni da riga di comando visualizzate di seguito descrivono il [modulo di AZ PowerShell](https://docs.microsoft.com/powershell/azure/).
+> Le operazioni da riga di comando visualizzate di seguito descrivono il [modulo di AZ PowerShell](/powershell/azure/).
 
 1. In PowerShell accedere all'account Azure.
 
@@ -255,4 +255,4 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla gestione a livello di codice delle risorse Azure Time Series Insights usando le API REST, vedere [gestione Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- Per informazioni sulla gestione a livello di codice delle risorse Azure Time Series Insights usando le API REST, vedere [gestione Azure Time Series Insights](/rest/api/time-series-insights-management/).

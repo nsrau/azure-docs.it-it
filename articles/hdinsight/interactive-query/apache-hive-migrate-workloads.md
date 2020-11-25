@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011507"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro Azure HDInsight 3.6 Hive a HDInsight 4.0
 
@@ -41,7 +41,7 @@ Una volta completata la **copia** del Metastore, eseguire uno script di aggiorna
 
 Usare i valori nella tabella più avanti. Sostituire `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` con i valori appropriati per la **copia** Metastore hive, separati da spazi. Non includere ". database.windows.net" quando si specifica il nome del server SQL.
 
-|Proprietà | valore |
+|Proprietà | Valore |
 |---|---|
 |Tipo di script|- Personalizzato|
 |Nome|Aggiornamento hive|
@@ -117,7 +117,7 @@ I cluster HDInsight 3,6 e 4,0 devono usare lo stesso account di archiviazione.
 
 1. Connettersi al cluster HDInsight 3,6 usando un [client Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Dalla sessione SSH aperta, scaricare il file di script seguente per generare un file denominato **AllTables. HQL** .
+1. Dalla sessione SSH aperta, scaricare il file di script seguente per generare un file denominato **AllTables. HQL**.
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh

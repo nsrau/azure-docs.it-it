@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c618e8193bed1f35cbbe884d5725c4ecfb25dd75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311122"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013089"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 
 È possibile gestire l'account Mappe di Azure tramite il portale di Azure. Dopo avere creato un account, è possibile implementare le API nel proprio sito Web o nella propria applicazione per dispositivi mobili.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-new-account"></a>Creare un nuovo account
 

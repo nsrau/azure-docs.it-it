@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d33c368c271c4d1809834e2eeac8c4b5c0ba0441
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357539"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011140"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione BLOB di Azure
 
@@ -36,12 +36,12 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
 
-Questa tabella mostra le [metriche di archiviazione BLOB](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
+Questa tabella mostra le [metriche di archiviazione BLOB](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
-| Metrica | Descrizione |
+| Metric | Descrizione |
 | ------------------- | ----------------- |
-| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType** e **BlobTier** ( [Definizione](#metrics-dimensions)) |
-| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType** e **BlobTier** ( [Definizione](#metrics-dimensions)) |
+| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType** e **BlobTier** ([Definizione](#metrics-dimensions)) |
+| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType** e **BlobTier** ([Definizione](#metrics-dimensions)) |
 | BlobProvisionedSize | Quantità di spazio di archiviazione di cui è stato effettuato il provisioning nell'account di archiviazione. Questa metrica è applicabile solo agli account di archiviazione Premium. <br/><br/> Unità: byte <br/> Tipo di aggregazione: Media |
 | ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 | IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
@@ -66,8 +66,8 @@ Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monito
 
 | Nome della dimensione | Descrizione |
 | ------------------- | ----------------- |
-| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob** , **PageBlob** e **Azure Data Lake storage**. I BLOB di Accodamento sono inclusi in **BlockBlob**. |
-| **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. Per altre informazioni, vedere [Livello BLOB di Archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>**Hot** : livello di accesso frequente</li> <li>**Cool** : livello di accesso sporadico</li> <li>**Archivio** : livello archivio</li> <li>**Premium** : livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : tipi di livello per BLOB di pagine Premium</li> <li>**Standard** : tipo di livello per BLOB di pagine standard</li> <li>**Untiered** : tipo di livello per l'account di archiviazione per utilizzo generico v1</li> |
+| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob** e **Azure Data Lake storage**. I BLOB di Accodamento sono inclusi in **BlockBlob**. |
+| **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. Per altre informazioni, vedere [Livello BLOB di Archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>**Hot**: livello di accesso frequente</li> <li>**Cool**: livello di accesso sporadico</li> <li>**Archivio**: livello archivio</li> <li>**Premium**: livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipi di livello per BLOB di pagine Premium</li> <li>**Standard**: tipo di livello per BLOB di pagine standard</li> <li>**Untiered**: tipo di livello per l'account di archiviazione per utilizzo generico v1</li> |
 
 Per le dimensioni che supportano metriche, è necessario specificare il valore relativo alla dimensione per visualizzare i valori delle metriche corrispondenti. Se, ad esempio, si esamina il valore **Transactions** per le risposte con esito positivo, è necessario filtrare la dimensione **ResponseType** con **Success**. Se si esamina il valore **BlobCount** per il BLOB in blocchi, è necessario filtrare la dimensione **BlobType** con **BlockBlob**.
 

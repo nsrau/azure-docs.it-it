@@ -6,11 +6,11 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340088"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012340"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi relativi alle metriche con soglie dinamiche in monitoraggio di Azure
 

@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954563"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010963"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con portale di Azure
 
@@ -40,7 +40,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
      
         [![Aggiungere un gruppo di registrazione con il portale](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
         
-        | Campo | Description |
+        | Campo | Descrizione |
         | :--- | :--- |
         | **Nome gruppo** | Nome obbligatorio per il gruppo di dispositivi. |
         | **Tipo di attestazione** | Fare clic su **certificato** o **chiave simmetrica** per il tipo di attestazione in base al metodo di attestazione che i dispositivi utilizzeranno. |
@@ -64,7 +64,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
      
         [![Registrazione singola sul portale](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
     
-        | Campo | Description |
+        | Campo | Descrizione |
         | :--- | :--- |
         | **Meccanismo** | Selezionare **X. 509**, **TPM** o **chiave simmetrica** per il meccanismo di attestazione da utilizzare a seconda del metodo di attestazione che i dispositivi utilizzeranno. |
         | Impostazioni di attestazione | Per istruzioni dettagliate sulla creazione e l'uso di registrazioni singole con chiavi simmetriche o certificati X. 509, vedere una delle guide introduttive per il provisioning di un [dispositivo simmetrico](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) o il [provisioning di un dispositivo di certificato x. 509](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) .<br><br>Per istruzioni dettagliate sulla creazione e l'uso di registrazioni singole con l'attestazione TPM, vedere uno degli esempi per il [provisioning di un dispositivo TPM simulato](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) .|

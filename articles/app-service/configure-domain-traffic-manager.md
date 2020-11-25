@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962877"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012945"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurare un nome di dominio personalizzato in app Azure servizio con l'integrazione di gestione traffico
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962877"
 > [!NOTE]
 > Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Quando si usa [Gestione traffico di Azure](../traffic-manager/index.yml) per bilanciare il carico del traffico verso il [servizio app Azure](overview.md), è possibile accedere all'app del servizio app usando ** \<traffic-manager-endpoint> . trafficmanager.NET**. È possibile assegnare un nome di dominio personalizzato, ad esempio www \. contoso.com, all'app del servizio app per fornire un nome di dominio più riconoscibile per gli utenti.
+Quando si usa [Gestione traffico di Azure](../traffic-manager/index.yml) per bilanciare il carico del traffico verso il [servizio app Azure](overview.md), è possibile accedere all'app del servizio app usando **\<traffic-manager-endpoint> . trafficmanager.NET**. È possibile assegnare un nome di dominio personalizzato, ad esempio www \. contoso.com, all'app del servizio app per fornire un nome di dominio più riconoscibile per gli utenti.
 
 Questo articolo illustra come configurare un nome di dominio personalizzato con un'app del servizio app integrata con [Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
@@ -92,7 +92,7 @@ Dopo la propagazione dei record per il nome di dominio, usare il browser per ver
 4. Digitare il nome di dominio personalizzato di cui è stato eseguito il mapping in precedenza e selezionare **convalida**.
 5. Assicurarsi che **Tipo di record del nome host** sia impostato su **CNAME (www\.example.com o qualsiasi sottodominio**).
 
-6. Poiché l'app del servizio app è ora integrata con un endpoint di gestione traffico, in **configurazione CNAME**dovrebbe essere visualizzato il nome di dominio di gestione traffico. Selezionarlo e fare clic su **Aggiungi dominio personalizzato**.
+6. Poiché l'app del servizio app è ora integrata con un endpoint di gestione traffico, in **configurazione CNAME** dovrebbe essere visualizzato il nome di dominio di gestione traffico. Selezionarlo e fare clic su **Aggiungi dominio personalizzato**.
 
     ![Aggiunta del nome DNS all'app](./media/configure-domain-traffic-manager/enable-traffic-manager-domain.png)
 

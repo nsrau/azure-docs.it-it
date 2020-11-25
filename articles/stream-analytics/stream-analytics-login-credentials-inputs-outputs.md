@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 47afaea03e58cf6a24382727c6fc7193fde5abe4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123813"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012102"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
 
@@ -25,12 +25,12 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 
 ### <a name="blob-storagetable-storage"></a>Archiviazione BLOB/Archiviazione tabelle
 1. Accedere al portale di Azure e passare all'account di archiviazione usato come input/output per il processo di Analisi di flusso.    
-2. Dalla sezione Impostazioni aprire **Chiavi di accesso** . Delle due chiavi predefinite (key1, key2), selezionare quella che non viene usata dal processo e rigenerarla:  
+2. Dalla sezione Impostazioni aprire **Chiavi di accesso**. Delle due chiavi predefinite (key1, key2), selezionare quella che non viene usata dal processo e rigenerarla:  
    ![Rigenerare le chiavi per l'account di archiviazione](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. Copiare la chiave appena generata.    
 4. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
 5. Individuare l'input o l'output di Archiviazione BLOB o tabelle per cui aggiornare le credenziali.    
-6. Individuare il campo **Chiave dell'account di archiviazione** , incollarvi la chiave appena generata e quindi fare clic su **Salva** .    
+6. Individuare il campo **Chiave dell'account di archiviazione**, incollarvi la chiave appena generata e quindi fare clic su **Salva**.    
 7. Quando si salvano le modifiche, verrà automaticamente avviato un test di connessione. è possibile visualizzarlo nella scheda notifiche. Ci sono due notifiche: una corrisponde al salvataggio dell'aggiornamento e altre corrisponde al test della connessione:  
    ![Notifiche dopo la modifica della chiave](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
@@ -38,12 +38,12 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 ### <a name="event-hubs"></a>Hub eventi
 
 1. Accedere al portale di Azure e passare all'hub eventi usato come input/output per il processo di Analisi di flusso.    
-2. Dalla sezione Impostazioni aprire **Criteri di accesso condiviso** e selezionare i criteri di accesso richiesti. Delle due chiavi configurate, **Chiave primaria** e **Chiave secondaria** , selezionare quella non usata dal processo e rigenerarla:  
+2. Dalla sezione Impostazioni aprire **Criteri di accesso condiviso** e selezionare i criteri di accesso richiesti. Delle due chiavi configurate, **Chiave primaria** e **Chiave secondaria**, selezionare quella non usata dal processo e rigenerarla:  
    ![Rigenerare le chiavi per Hub eventi](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Copiare la chiave appena generata.    
 4. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
 5. Individuare l'input o l'output di Hub eventi per cui aggiornare le credenziali.    
-6. Individuare il campo **Chiave criteri hub eventi** , incollarvi la chiave appena generata e quindi fare clic su **Salva** .    
+6. Individuare il campo **Chiave criteri hub eventi**, incollarvi la chiave appena generata e quindi fare clic su **Salva**.    
 7. Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. Assicurarsi che abbia esito positivo.    
 8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
 
@@ -52,7 +52,7 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 È necessario connettersi al database SQL per aggiornare le credenziali di accesso di un utente esistente. è possibile eseguire questa operazione tramite il portale di Azure o con uno strumento sul lato client, ad esempio SQL Server Management Studio. Questa sezione illustra la procedura da seguire per aggiornare le credenziali tramite il portale di Azure.
 
 1. Accedere al portale di Azure e passare al database SQL usato come input/output per il processo di Analisi di flusso.    
-2. Da **Esplora dati** connettersi al database e selezionare il tipo di autorizzazione come **Autenticazione di SQL Server** , quindi digitare i dati nei campi **Account di accesso** e **Password** e infine fare clic su **OK** .  
+2. Da **Esplora dati** connettersi al database e selezionare il tipo di autorizzazione come **Autenticazione di SQL Server**, quindi digitare i dati nei campi **Account di accesso** e **Password** e infine fare clic su **OK**.  
    ![Rigenera le credenziali per il database SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Nella scheda della query modificare la password per uno degli utenti eseguendo la query seguente, facendo attenzione a sostituire `<user_name>` con il nome utente e `<new_password>` con la nuova password:  
@@ -77,7 +77,7 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 ## <a name="start-your-job-from-the-last-stopped-time"></a>Avviare il processo dall'ultimo arresto
 
 1. Passare al riquadro **Panoramica** del processo e fare clic su **Avvia** per avviare il processo.    
-2. Selezionare **Ultimo arresto** e fare clic su **Avvia** . Si noti che l'opzione "Ultimo arresto" viene visualizzata solo se il processo è stato eseguito in precedenza ed è stato generato dell'output. Il processo viene riavviato in base al momento in cui è stato restituito l'ultimo valore di output.
+2. Selezionare **Ultimo arresto** e fare clic su **Avvia**. Si noti che l'opzione "Ultimo arresto" viene visualizzata solo se il processo è stato eseguito in precedenza ed è stato generato dell'output. Il processo viene riavviato in base al momento in cui è stato restituito l'ultimo valore di output.
    ![Avviare il processo di Analisi di flusso](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Passaggi successivi

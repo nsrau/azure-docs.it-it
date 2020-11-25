@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280257"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011303"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Esercitazione: Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -213,7 +213,7 @@ await foreach (DigitalTwinsModelData md in modelDataList)
 }
 ```
 
-**Prima di eseguire di nuovo il programma per testare questo nuovo codice** , tenere presente che l'ultima volta in cui è stato eseguito il programma, il modello è già stato caricato. Gemelli digitali di Azure non consentiranno di caricare lo stesso modello due volte. Se pertanto si tenta di caricare nuovamente lo stesso modello, il programma dovrebbe generare un'eccezione.
+**Prima di eseguire di nuovo il programma per testare questo nuovo codice**, tenere presente che l'ultima volta in cui è stato eseguito il programma, il modello è già stato caricato. Gemelli digitali di Azure non consentiranno di caricare lo stesso modello due volte. Se pertanto si tenta di caricare nuovamente lo stesso modello, il programma dovrebbe generare un'eccezione.
 
 Tenendo presente questo aspetto, eseguire di nuovo il programma con questo comando nella finestra di comando:
 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Nella finestra di comando eseguire il programma con `dotnet run`. Nell'output cercare i messaggi che indicano che *sampleTwin-0* , *sampleTwin-1* e *sampleTwin-2* sono stati creati. 
+Nella finestra di comando eseguire il programma con `dotnet run`. Nell'output cercare i messaggi che indicano che *sampleTwin-0*, *sampleTwin-1* e *sampleTwin-2* sono stati creati. 
 
 Quindi eseguire di nuovo il programma. 
 
@@ -375,7 +375,7 @@ Nella finestra di comando eseguire il programma con `dotnet run`. Nell'output ve
 
 ## <a name="complete-code-example"></a>Esempio di codice completo
 
-A questo punto dell'esercitazione si avrà un'app client completa, in grado di eseguire azioni di base con Gemelli digitali di Azure. Per riferimento, di seguito è riportato il codice completo del programma nel file *Program.cs* :
+A questo punto dell'esercitazione si avrà un'app client completa, in grado di eseguire azioni di base con Gemelli digitali di Azure. Per riferimento, di seguito è riportato il codice completo del programma nel file *Program.cs*:
 
 ```csharp
 using System;
