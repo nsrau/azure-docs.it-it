@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
 ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020995"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -181,7 +181,7 @@ Quando si integra un'app per le funzioni in un piano Premium o in un piano di se
 Le seguenti API consentono di gestire a livello di codice le integrazioni delle reti virtuali internazionali:
 
 + **Interfaccia** della riga di comando di Azure: usare i [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandi per aggiungere, elencare o rimuovere un'integrazione della rete virtuale a livello di area.  
-+ **Modelli ARM** : l'integrazione della rete virtuale a livello di area può essere abilitata usando un modello di Azure Resource Manager. Per un esempio completo, vedere [il modello di avvio rapido di funzioni](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Modelli ARM**: l'integrazione della rete virtuale a livello di area può essere abilitata usando un modello di Azure Resource Manager. Per un esempio completo, vedere [il modello di avvio rapido di funzioni](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

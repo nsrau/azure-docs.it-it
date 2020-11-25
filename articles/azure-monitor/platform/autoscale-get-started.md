@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020909"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -32,9 +32,9 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
 
 Per ogni risorsa verranno indicati il numero di istanze corrente e lo stato di scalabilità automatica. Lo stato di scalabilità automatica può essere:
 
-- **Non configurato** : non è stata ancora abilitata la scalabilità automatica per questa risorsa.
-- **Configurato** : è stata abilitata la scalabilità automatica per questa risorsa.
-- **Disattivato** : è stata disattivata la scalabilità automatica per questa risorsa.
+- **Non configurato**: non è stata ancora abilitata la scalabilità automatica per questa risorsa.
+- **Configurato**: è stata abilitata la scalabilità automatica per questa risorsa.
+- **Disattivato**: è stata disattivata la scalabilità automatica per questa risorsa.
 
 ## <a name="create-your-first-autoscale-setting"></a>Creare la prima impostazione di scalabilità automatica
 
@@ -121,7 +121,7 @@ Per abilitare la funzionalità con i modelli ARM, impostare la `healthcheckpath`
 
 ### <a name="health-check-path"></a>Percorso controllo integrità
 
-Il percorso deve rispondere entro un minuto con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro un minuto o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integra". Il servizio app non segue i reindirizzamenti 302 nel percorso di controllo integrità. Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP **s** , la richiesta Healthcheck verrà inviata tramite http **s**.
+Il percorso deve rispondere entro un minuto con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro un minuto o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integra". Il servizio app non segue i reindirizzamenti 302 nel percorso di controllo integrità. Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP **s**, la richiesta Healthcheck verrà inviata tramite http **s**.
 
 Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393066"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021691"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -160,10 +160,10 @@ Per altri dettagli sulla configurazione di un servizio di bilanciamento del cari
 
 1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa**  >  **rete**  >  **bilanciamento del carico**.
 2. Scegliere un nome per il bilanciamento del carico.
-3. Impostare **tipo** su **interno**e scegliere la rete virtuale e la subnet appropriate per il servizio di bilanciamento del carico.
-4. In **assegnazione indirizzo IP**selezionare **dinamico** o **statico**.
+3. Impostare **tipo** su **interno** e scegliere la rete virtuale e la subnet appropriate per il servizio di bilanciamento del carico.
+4. In **assegnazione indirizzo IP** selezionare **dinamico** o **statico**.
 5. In **Gruppo di risorse** scegliere il gruppo di risorse per il servizio di bilanciamento del carico.
-6. In **località**scegliere l'area appropriata per il servizio di bilanciamento del carico.
+6. In **località** scegliere l'area appropriata per il servizio di bilanciamento del carico.
 7. Al termine, fare clic su **Crea** per generare il servizio di bilanciamento del carico.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Connettere un livello del database back-end al servizio di bilanciamento del carico
@@ -186,18 +186,18 @@ Per altri dettagli sulla configurazione di un servizio di bilanciamento del cari
 3. Selezionare il **Protocollo** per il probe. Per un database, può essere preferibile un probe TCP anziché un probe HTTP. Per altre informazioni sui probe del servizio di bilanciamento del carico, vedere [Probe del servizio di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Immettere la **Porta** del database da usare per l'accesso al probe.
 5. In **Intervallo** specificare la frequenza di probe per l'applicazione.
-6. In **soglia**di non integrità specificare il numero di errori di probe continui che devono verificarsi perché la macchina virtuale back-end venga considerata non integra.
+6. In **soglia** di non integrità specificare il numero di errori di probe continui che devono verificarsi perché la macchina virtuale back-end venga considerata non integra.
 7. Fare clic su **OK** per creare il probe.
 
 #### <a name="configure-the-load-balancing-rules"></a>Configurare le regole del servizio di bilanciamento del carico
 
 1. Nella sezione **Impostazioni** del servizio di bilanciamento del carico selezionare **Regole di bilanciamento del carico** e quindi selezionare **Aggiungi** per creare una regola.
 2. Immettere il **nome** per la regola di bilanciamento del carico.
-3. Scegliere l' **indirizzo IP** front-end del servizio di bilanciamento del carico, **protocollo**e **porta**.
+3. Scegliere l' **indirizzo IP** front-end del servizio di bilanciamento del carico, **protocollo** e **porta**.
 4. In **porta back**-end specificare la porta da usare nel pool back-end.
 5. Selezionare il **Pool back-end** e il **Probe** creati nei passaggi precedenti per applicarvi la regola.
-6. In **salvataggio permanente sessione**scegliere come si desidera che le sessioni vengano mantenute.
-7. In **timeout di inattività**specificare il numero di minuti prima di un timeout di inattività.
+6. In **salvataggio permanente sessione** scegliere come si desidera che le sessioni vengano mantenute.
+7. In **timeout di inattività** specificare il numero di minuti prima di un timeout di inattività.
 8. Per **Indirizzo IP mobile** selezionare **Disabilitato** o **Abilitato**.
 9. Fare clic su **OK** per creare la regola.
 

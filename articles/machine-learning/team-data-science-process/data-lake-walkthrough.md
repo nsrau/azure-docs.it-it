@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321258"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021453"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
 Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](./index.yml), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
@@ -143,7 +143,7 @@ Le attività di elaborazione dei dati illustrate in questa sezione includono l'i
 
 Gli script U-SQL sono illustrati in questo articolo e sono disponibili in un file separato. È possibile scaricare gli **script U-SQL** completi da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Progetto** , scegliere **Progetto U-SQL** , specificare un nome e salvare il progetto in una cartella.
+Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Progetto**, scegliere **Progetto U-SQL**, specificare un nome e salvare il progetto in una cartella.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -299,7 +299,7 @@ TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_e
 USING Outputters.Csv();
 ```
 
-### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dati
+### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dei dati
 Per ottenere una migliore comprensione dei dati, è possibile esplorarli usando gli script seguenti.
 
 È possibile trovare la distribuzione di corse associate o non associate alla mancia:
@@ -461,7 +461,7 @@ USING Outputters.Csv();
 ```
 
 ### <a name="run-u-sql-jobs"></a><a name="run"></a>Eseguire processi U-SQL
-Dopo aver modificato gli script U-SQL, è possibile inviarli al server usando l'account Azure Data Lake Analytics. Fare clic su **Data Lake** , **Invia processo** , selezionare il proprio **account Analisi** , scegliere **Parallelismo** e fare clic sul pulsante **Invia**.
+Dopo aver modificato gli script U-SQL, è possibile inviarli al server usando l'account Azure Data Lake Analytics. Fare clic su **Data Lake**, **Invia processo**, selezionare il proprio **account Analisi**, scegliere **Parallelismo** e fare clic sul pulsante **Invia**.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -671,11 +671,11 @@ Aprire il [Portale di Azure](https://portal.azure.com) per creare un cluster HDI
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Creare una tabella Hive in HDInsight
-È ora possibile creare tabelle hive da usare in Azure Machine Learning Studio (classico) nel cluster HDInsight usando i dati archiviati in Azure Data Lake Storage nel passaggio precedente. Passare al cluster HDInsight creato. Fare clic su **Impostazioni**  -->  **proprietà**  -->  **cluster AAD Identity**  -->  **ADLS Access** , assicurarsi che l'account Azure Data Lake Storage venga aggiunto nell'elenco con diritti di lettura, scrittura ed esecuzione.
+È ora possibile creare tabelle hive da usare in Azure Machine Learning Studio (classico) nel cluster HDInsight usando i dati archiviati in Azure Data Lake Storage nel passaggio precedente. Passare al cluster HDInsight creato. Fare clic su **Impostazioni**  -->  **proprietà**  -->  **cluster AAD Identity**  -->  **ADLS Access**, assicurarsi che l'account Azure Data Lake Storage venga aggiunto nell'elenco con diritti di lettura, scrittura ed esecuzione.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
-Fare quindi clic su **Dashboard** accanto al pulsante **Impostazioni**. Verrà visualizzata una finestra. Fare clic su **Vista Hive** nell'angolo superiore destro della pagina. Verrà visualizzato l' **Editor di query**.
+Fare quindi clic su **Dashboard** accanto al pulsante **Impostazioni**. Verrà visualizzata una finestra. Fare clic su **Vista Hive** nell'angolo superiore destro della pagina. Verrà visualizzato l'**Editor di query**.
 
  ![20](./media/data-lake-walkthrough/20-HDI-dashboard.PNG)
 

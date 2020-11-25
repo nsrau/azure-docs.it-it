@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019872"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -140,7 +140,7 @@ Un processo configurato con una sola unità di streaming è in genere sufficient
 Per un processo con 6 unità di streaming, possono essere necessarie 4 o 8 partizioni in Hub eventi. È tuttavia opportuno evitare di configurare troppe partizioni non necessarie poiché ciò determina un utilizzo eccessivo delle risorse, come nel caso di un'istanza di Hub eventi con 16 o più partizioni in un processo di Analisi di flusso con una sola unità di streaming. 
 
 ## <a name="reference-data"></a>Dati di riferimento 
-I dati di riferimento in Analisi di flusso di Azure vengono caricati in memoria per consentire la ricerca rapida. Con l'implementazione corrente ogni operazione di join con dati di riferimento mantiene una copia dei dati di riferimento in memoria, anche se il join viene eseguito con gli stessi dati di riferimento più volte. Per le query con **PARTITION BY** , ogni partizione include una copia dei dati di riferimento, in modo che le partizioni siano completamente separate. Con l'effetto moltiplicatore l'utilizzo della memoria può aumentare rapidamente se si esegue il join con i dati di riferimento più volte con più partizioni.  
+I dati di riferimento in Analisi di flusso di Azure vengono caricati in memoria per consentire la ricerca rapida. Con l'implementazione corrente ogni operazione di join con dati di riferimento mantiene una copia dei dati di riferimento in memoria, anche se il join viene eseguito con gli stessi dati di riferimento più volte. Per le query con **PARTITION BY**, ogni partizione include una copia dei dati di riferimento, in modo che le partizioni siano completamente separate. Con l'effetto moltiplicatore l'utilizzo della memoria può aumentare rapidamente se si esegue il join con i dati di riferimento più volte con più partizioni.  
 
 ### <a name="use-of-udf-functions"></a>Uso di funzioni definite dall'utente
 Quando si aggiunge una funzione definita dall'utente, Analisi di flusso di Azure carica il runtime JavaScript in memoria. Questo comportamento influisce sulla percentuale di unità di streaming.

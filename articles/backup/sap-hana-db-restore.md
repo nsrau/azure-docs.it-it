@@ -4,11 +4,11 @@ description: Questo articolo illustra come ripristinare SAP HANA database in ese
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986107"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021674"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 
@@ -46,7 +46,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 
       ![Scegliere SAP HANA in una macchina virtuale di Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. **In individua database in VM**selezionare **Visualizza dettagli**.
+  1. **In individua database in VM** selezionare **Visualizza dettagli**.
 
       ![Visualizza i dettagli](media/sap-hana-db-restore/view-details.png)
 
@@ -72,7 +72,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
     ![Elementi di backup](media/sap-hana-db-restore/backup-items.png)
 
-1. In **elementi di backup**in **tipo di gestione di backup** Selezionare **SAP Hana nella macchina virtuale di Azure**
+1. In **elementi di backup** in **tipo di gestione di backup** Selezionare **SAP Hana nella macchina virtuale di Azure**
 
     ![Tipo di gestione di backup](media/sap-hana-db-restore/backup-management-type.png)
 
@@ -90,7 +90,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
 1. Selezionare **Ripristina database**
 
-1. In **configurazione ripristino**specificare dove (o come) ripristinare i dati:
+1. In **configurazione ripristino** specificare dove (o come) ripristinare i dati:
 
     * **Percorso alternativo**: ripristinare il database in un percorso alternativo e salvare il database di origine originale.
 
@@ -116,7 +116,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
     ![Configurazione ripristino-schermata finale](media/sap-hana-db-restore/restore-configuration-last.png)
 
-1. In **Seleziona punto di ripristino**selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per [ripristinare un punto di ripristino specifico](#restore-to-a-specific-recovery-point).
+1. In **Seleziona punto di ripristino** selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per [ripristinare un punto di ripristino specifico](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-and-overwrite"></a>Ripristinare e sovrascrivere
 
@@ -124,7 +124,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
     ![Sovrascrivere il database](media/sap-hana-db-restore/overwrite-db.png)
 
-1. In **Seleziona punto di ripristino**selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per [ripristinare un punto di ripristino specifico](#restore-to-a-specific-recovery-point).
+1. In **Seleziona punto di ripristino** selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per [ripristinare un punto di ripristino specifico](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-as-files"></a>Ripristinare come file
 
@@ -132,7 +132,7 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
 
 1. Nel menu **configurazione ripristino** , in **where and How to Restore**, selezionare **Restore As files**.
 1. Selezionare il nome del server **host** /Hana in cui si desidera ripristinare i file di backup.
-1. Nel **percorso di destinazione nel server**immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari.
+1. Nel **percorso di destinazione nel server** immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari.
 
     I file di cui è stato eseguito il dump sono:
 
@@ -262,7 +262,7 @@ Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configur
 
 Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area secondaria.
 
-1. Dal portale passare a servizi di **ripristino**insieme di credenziali  >  **elementi di backup**.
+1. Dal portale passare a servizi di **ripristino** insieme di credenziali  >  **elementi di backup**.
 1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
 
 >[!NOTE]

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020416"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure da Verizon Premium
 
@@ -59,7 +59,7 @@ Queste funzionalità sono progettate per personalizzare come e quando il contenu
 | [Limitazione larghezza di banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Limita la larghezza di banda per la risposta fornita dai server perimetrali. |
 | [Ignora cache](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Determina se la richiesta può sfruttare la tecnologia di memorizzazione nella cache. |
 | [Gestione intestazione Cache-Control](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Controlla la generazione delle intestazioni Cache-Control dal server perimetrale quando la funzionalità Max-Age esterna è attiva. |
-| [Stringa di query chiave cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se la **chiave di cache*** includerà o escluderà i parametri della stringa di query associati a una richiesta. <br> _* Percorso relativo che identifica in modo univoco un asset ai fini della memorizzazione nella cache.  I server perimetrali usano questo percorso relativo quando controllano il contenuto memorizzato nella cache.  Per impostazione predefinita, una chiave di cache non conterrà parametri di stringa di query._ |
+| [Stringa di query chiave cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se la **chiave di cache** _ includerà o escluderà i parametri della stringa di query associati a una richiesta. <br> _ _ Un percorso relativo che identifica in modo univoco un asset ai fini della memorizzazione nella cache.  I server perimetrali usano questo percorso relativo quando controllano il contenuto memorizzato nella cache.  Per impostazione predefinita, una chiave di cache non conterrà la stringa di query parameters._ |
 | [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) (Riscrittura chiave cache) | Riscrive la chiave della cache associata a una richiesta. |
 | [Completa riempimento cache](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Determina ciò che accade quando una richiesta determina un mancato riscontro nella cache parziale in un server perimetrale. |
 | [Comprimi tipi di file](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Definisce i formati di file che verranno compressi nel server. | 
@@ -88,7 +88,7 @@ La funzionalità Commento consente di aggiungere una nota all'interno di una reg
 
 **[Torna all'inizio](#top)**
 
-### <a name="headers"></a><a name="headers"></a>Headers
+### <a name="headers"></a><a name="headers"></a>Intestazioni
 
 Queste funzionalità sono progettate per aggiungere, modificare o eliminare le intestazioni dalla richiesta o dalla risposta.
 

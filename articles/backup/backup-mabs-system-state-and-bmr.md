@@ -4,11 +4,11 @@ description: Usare server di Backup di Azure per eseguire il backup dello stato 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86538701"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021623"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino in bare metal usando server di Backup di Azure
 
@@ -109,7 +109,7 @@ Al termine del backup, il file viene trasferito nel computer del server di backu
 
 Per eseguire il backup dello stato del sistema e bare metal:
 
-1. Per aprire la creazione guidata gruppo protezione dati crea, nel server di backup console di amministrazione selezionare azioni di **protezione**  >  **Actions**  >  **Crea gruppo protezione**dati.
+1. Per aprire la creazione guidata gruppo protezione dati crea, nel server di backup console di amministrazione selezionare azioni di **protezione**  >  **Actions**  >  **Crea gruppo protezione** dati.
 
 1. Nella pagina **Selezione tipo di gruppo protezione dati** selezionare **Server**, quindi **Avanti**.
 
@@ -122,8 +122,8 @@ Per eseguire il backup dello stato del sistema e bare metal:
     Per prima cosa il backup a breve termine è sempre su disco, con l'opzione di eseguire il backup dal disco in Azure usando backup di Azure (a breve o a lungo termine). Un'alternativa al backup a lungo termine nel cloud consiste nella configurazione del backup a lungo termine su un dispositivo a nastro o una libreria di nastri autonoma connessa al server di Backup.
 
 1. Nella pagina **Seleziona obiettivi Short-Term** scegliere come eseguire il backup nell'archiviazione a breve termine su disco:
-    * In periodo di **mantenimento**dati scegliere per quanto tempo mantenere i dati su disco.
-    * Per **frequenza di sincronizzazione**scegliere con quale frequenza eseguire un backup incrementale su disco. Se non si vuole impostare un intervallo di backup, è possibile selezionare **immediatamente prima di un punto di ripristino**. Il server di backup eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
+    * In periodo di **mantenimento** dati scegliere per quanto tempo mantenere i dati su disco.
+    * Per **frequenza di sincronizzazione** scegliere con quale frequenza eseguire un backup incrementale su disco. Se non si vuole impostare un intervallo di backup, è possibile selezionare **immediatamente prima di un punto di ripristino**. Il server di backup eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
 
 1. Se si desidera archiviare i dati su nastro per l'archiviazione a lungo termine, nella pagina **impostazione obiettivi Long-Term** scegliere per quanto tempo conservare i dati del nastro (da 1 a 99 anni).
     1. Per **frequenza di backup**, scegliere la frequenza di esecuzione del backup su nastro. La frequenza è basata sull'intervallo di mantenimento dati selezionato:
@@ -203,7 +203,7 @@ Per ripristinare il sistema:
 
 1. Nella pagina **Opzioni ripristino di sistema** selezionare **Ripristina il computer utilizzando un'immagine del sistema creata in precedenza**.
 
-1. Nella pagina **selezionare un backup dell'immagine del sistema** selezionare **selezionare un'immagine**  >  del sistema ricerca**avanzata**  >  **per un'immagine del sistema in rete**. Se viene visualizzato un avviso, selezionare **Sì**. Passare al percorso della condivisione, immettere le credenziali e quindi selezionare il punto di ripristino. Il sistema esegue l'analisi dei backup specifici disponibili nel punto di ripristino. Selezionare il punto di ripristino da utilizzare.
+1. Nella pagina **selezionare un backup dell'immagine del sistema** selezionare **selezionare un'immagine**  >  del sistema ricerca **avanzata**  >  **per un'immagine del sistema in rete**. Se viene visualizzato un avviso, selezionare **Sì**. Passare al percorso della condivisione, immettere le credenziali e quindi selezionare il punto di ripristino. Il sistema esegue l'analisi dei backup specifici disponibili nel punto di ripristino. Selezionare il punto di ripristino da utilizzare.
 
 1. Nella pagina **scegliere la modalità di ripristino del backup** selezionare **Formatta e partiziona i dischi**. Nella pagina successiva verificare le impostazioni.
 

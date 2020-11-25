@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020603"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test di codice di data science su Azure con il processo di data science per i team e Azure DevOps Services
 Questo articolo include le linee guida preliminari per il test del codice in un flusso di lavoro di data science. Il test offre ai data scientist un metodo sistematico ed efficiente per il controllo della qualità e del risultato previsto del codice. Viene usato un [progetto TDSP (Team Data Science Process) che usa il set di dati sul reddito degli adulti UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pubblicato in precedenza per illustrare la modalità di esecuzione del test del codice. 
@@ -89,7 +89,7 @@ Usare la procedura seguente per configurare ed eseguire il test di codice e una 
 
       ![Codice per la verifica dei valori di stima](./media/code-test/check_prediction_values.PNG)
 
-1. Inserire tutte le funzioni di test in uno script Python denominato **test_funcs.py** :
+1. Inserire tutte le funzioni di test in uno script Python denominato **test_funcs.py**:
 
     ![Script Python per le funzioni di test](./media/code-test/create_file_test_func.PNG)
 

@@ -16,11 +16,11 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021130"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming
 
@@ -66,7 +66,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 ### <a name="to-create-a-windows-store-project"></a>Per creare un progetto Windows Store
 
 1. Eseguire Visual Studio. Sono supportate le versioni dalla 2012 alla 2015.
-1. Scegliere **nuovo**dal menu **file** , quindi fare clic su **progetto**.
+1. Scegliere **nuovo** dal menu **file** , quindi fare clic su **progetto**.
 1. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
     | Nome | Valore |
@@ -88,7 +88,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
     | Nome | Valore |
     | --- | --- |
     | Gruppo di riferimenti |Windows/Estensioni |
-    | Informazioni di riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
+    | Riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
 
 1. Fare clic su **OK**. 
 
@@ -97,7 +97,7 @@ Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di d
 ### <a name="to-design-the-player-user-interface"></a>Per progettare l'interfaccia utente del lettore
 
 1. In Esplora soluzioni fare doppio clic su **MainPage.xaml** per aprirlo in visualizzazione Progettazione.
-2. Individuare la ** &lt; griglia &gt; ** e ** &lt; /Grid &gt; ** contrassegna il file XAML e incollare il codice seguente tra i due tag:
+2. Individuare la **&lt; griglia &gt;** e **&lt; /Grid &gt;** contrassegna il file XAML e incollare il codice seguente tra i due tag:
 
    ```xml
          <Grid.RowDefinitions>

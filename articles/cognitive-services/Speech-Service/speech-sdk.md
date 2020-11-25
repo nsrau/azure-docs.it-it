@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870715"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021988"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
@@ -29,7 +29,7 @@ Speech SDK espone numerose funzionalità del servizio di riconoscimento vocale, 
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
 
-Il riconoscimento [vocale (noto](speech-to-text.md) anche come *riconoscimento vocale*) consente di trascrivere flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare o visualizzare. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](../luis/index.yml) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. Usare la [traduzione vocale](speech-translation.md) per tradurre l'input vocale in una lingua diversa con una singola chiamata. Per altre informazioni, vedere [nozioni di base su sintesi vocale](speech-to-text-basics.md).
+Il riconoscimento [vocale (noto](speech-to-text.md) anche come *riconoscimento vocale*) consente di trascrivere flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare o visualizzare. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](../luis/index.yml) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. Usare la [traduzione vocale](speech-translation.md) per tradurre l'input vocale in una lingua diversa con una singola chiamata. Per altre informazioni, vedere [nozioni di base su sintesi vocale](./get-started-speech-to-text.md).
 
 Il **riconoscimento vocale (SR), l'elenco di frasi, il preventivo, la traduzione e i contenitori locali** sono disponibili nelle piattaforme seguenti:
 
@@ -68,7 +68,7 @@ Gli **assistenti vocali** sono disponibili nelle piattaforme seguenti:
 
 #### <a name="keyword-spotting"></a>Individuazione di parole chiave
 
-Il concetto di [individuazione delle parole chiave](speech-devices-sdk-create-kws.md) è supportato nell'SDK di riconoscimento vocale. L'individuazione di parole chiave è l'azione di identificazione di una parola chiave in sintesi vocale, seguita da un'azione dopo aver ascoltato la parola chiave. Ad esempio, "Hey Cortana" attiverà Cortana Assistant.
+Il concetto di [individuazione delle parole chiave](./custom-keyword-basics.md) è supportato nell'SDK di riconoscimento vocale. L'individuazione di parole chiave è l'azione di identificazione di una parola chiave in sintesi vocale, seguita da un'azione dopo aver ascoltato la parola chiave. Ad esempio, "Hey Cortana" attiverà Cortana Assistant.
 
 L' **individuazione delle parole chiave (KWS)** è disponibile nelle piattaforme seguenti:
 
@@ -163,7 +163,7 @@ Una sintesi vocale personalizzata, nota anche come personalizzata, è costituita
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-android.md)]
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 [!INCLUDE [Get the Node.js Speech SDK](includes/get-speech-sdk-nodejs.md)]
 
@@ -180,4 +180,4 @@ Una sintesi vocale personalizzata, nota anche come personalizzata, è costituita
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Informazioni sul riconoscimento vocale in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

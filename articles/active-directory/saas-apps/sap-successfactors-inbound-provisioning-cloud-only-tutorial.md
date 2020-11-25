@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: a62943c1a808424ded1a5e46ed115cda332bf7d5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020756"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Esercitazione: Configurare il provisioning di utenti da SAP SuccessFactors ad Azure Active Directory
 Questa esercitazione illustra la procedura da eseguire per effettuare il provisioning dei dati ruolo di lavoro da SuccessFactors Employee Central in Azure Active Directory, con il writeback facoltativo dell'indirizzo di posta elettronica in SuccessFactors. 

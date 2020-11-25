@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075060"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020705"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Come configurare ed eseguire attività di avvio per un servizio cloud
 È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata.
@@ -31,7 +31,7 @@ Con l'attività di avvio è possibile registrare informazioni ed errori nella di
 
 Le attività di avvio possono inoltre essere eseguite più volte tra un riavvio e l'altro. Ad esempio, l'attività di avvio viene eseguita a ogni riciclo del ruolo e tali ricicli non includono necessariamente un riavvio. Le attività di avvio devono essere scritte in modo da poter essere eseguite più volte senza problemi.
 
-Le attività di avvio devono terminare con un valore di **errorlevel** (o codice di uscita) uguale a zero perché il processo di avvio possa essere completato. Se l'attività di avvio termina con un valore di **errorlevel**diverso da zero, il ruolo non verrà avviato.
+Le attività di avvio devono terminare con un valore di **errorlevel** (o codice di uscita) uguale a zero perché il processo di avvio possa essere completato. Se l'attività di avvio termina con un valore di **errorlevel** diverso da zero, il ruolo non verrà avviato.
 
 ## <a name="role-startup-order"></a>Sequenza di avvio di un ruolo
 Di seguito è riportata la procedura di avvio di un ruolo in Azure:

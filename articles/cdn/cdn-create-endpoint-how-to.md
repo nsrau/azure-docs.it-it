@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887718"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021963"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creare un endpoint della rete CDN di Azure
 Questo articolo descrive tutte le impostazioni per la creazione di un endpoint della [rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md) in un profilo della rete CDN esistente. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti. Per informazioni introduttive sulla creazione di un profilo e di un endpoint, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
@@ -101,7 +101,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    
     Se si prova a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai server POP (Point-Of-Presence), si potrebbe ricevere lo stato di risposta HTTP 404. Se sono trascorse diverse ore da quando è stato creato l'endpoint e si riceve ancora uno stato di risposta 404, vedere [Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 Per eliminare un endpoint quando non è più necessario, selezionarlo e quindi selezionare **Elimina**. 
 
 ## <a name="next-steps"></a>Passaggi successivi

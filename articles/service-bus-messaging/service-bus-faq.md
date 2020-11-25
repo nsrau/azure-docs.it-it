@@ -3,12 +3,12 @@ title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899533"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022141"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -26,7 +26,7 @@ Uno [spazio dei nomi](service-bus-create-namespace-portal.md) fornisce un conten
 La [coda del bus di servizio](service-bus-queues-topics-subscriptions.md) è un'entità in cui vengono archiviati i messaggi. Le code sono utili in presenza di più applicazioni o più parti di un'applicazione distribuita che devono comunicare tra loro. La coda è simile a un centro di distribuzione perché più prodotti (messaggi) vengono ricevuti e quindi inviati da tale posizione.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?
-Un argomento può essere visualizzato come coda e quando si usano più sottoscrizioni diventa un modello di messaggistica più completo. Si tratta essenzialmente di uno strumento di comunicazione uno-a-molti. Questo modello di pubblicazione/sottoscrizione, detto anche *Pub/Sub* , consente a un'applicazione che invia un messaggio a un argomento con più sottoscrizioni di garantire la ricezione di tale messaggio da parte di più applicazioni.
+Un argomento può essere visualizzato come coda e quando si usano più sottoscrizioni diventa un modello di messaggistica più completo. Si tratta essenzialmente di uno strumento di comunicazione uno-a-molti. Questo modello di pubblicazione/sottoscrizione, detto anche *Pub/Sub*, consente a un'applicazione che invia un messaggio a un argomento con più sottoscrizioni di garantire la ricezione di tale messaggio da parte di più applicazioni.
 
 ### <a name="what-is-a-partitioned-entity"></a>Cos'è un'entità partizionata?
 Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Supportato solo nei livelli di messaggistica Basic e standard, una [coda o un argomento partizionato](service-bus-partitioning.md) viene gestito da più broker di messaggi e archiviato in più archivi di messaggistica. Con questa funzionalità la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea di un archivio di messaggistica non rende disponibile una coda o un argomento partizionato.
@@ -53,14 +53,9 @@ Vedere la tabella seguente per le porte TCP in uscita che è necessario aprire p
 
 La porta HTTPS è in genere necessaria per le comunicazioni in uscita anche quando AMQP viene usato sulla porta 5671, perché diverse operazioni di gestione eseguite dagli SDK client e l'acquisizione di token da Azure Active Directory (se usate) vengono eseguite su HTTPS. 
 
-Gli SDK di Azure ufficiali usano in genere il protocollo AMQP per l'invio e la ricezione di messaggi dal bus di servizio. L'opzione del protocollo AMQP-over-WebSockets viene eseguita sulla porta TCP 443 esattamente come l'API HTTP, ma è identica dal punto di vista funzionale al AMQP normale. Questa opzione ha una latenza di connessione iniziale superiore a causa di round trip di handshake aggiuntive e un sovraccarico leggermente maggiore come compromesso per la condivisione della porta HTTPS. Se questa modalità è selezionata, la porta TCP 443 è sufficiente per la comunicazione. Le opzioni seguenti consentono di selezionare la modalità AMQP normale o AMQP WebSocket:
+Gli SDK di Azure ufficiali usano in genere il protocollo AMQP per l'invio e la ricezione di messaggi dal bus di servizio. 
 
-| Linguaggio | Opzione   |
-| -------- | ----- |
-| .NET     | Proprietà [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) con [TransportType. AMQP](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) o [TransportType. AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
-| Java     | [com. Microsoft. Azure. ServiceBus. ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) con [com. Microsoft. Azure. ServiceBus. Primitives. TransportType. AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) o [com.Microsoft.Azure.ServiceBus.Primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
-| Nodo  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) ha un `webSocket` argomento del costruttore. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) con [TransportType. AMQP](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) o [TransportType. AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
 Il precedente pacchetto WindowsAzure. ServiceBus per la .NET Framework dispone di un'opzione per usare il "protocollo di messaggistica del bus di servizio" (SBMP) legacy, noto anche come "NetMessaging". Questo protocollo usa le porte TCP 9350-9354. La modalità predefinita per questo pacchetto prevede di rilevare automaticamente se tali porte sono disponibili per la comunicazione e di passare a WebSocket con TLS sulla porta 443, in caso contrario. È possibile eseguire l'override di questa impostazione e forzare questa modalità impostando `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) sull' [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) impostazione, che viene applicata globalmente all'applicazione.
 
@@ -81,7 +76,7 @@ Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario ese
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Annotare il nome nella sezione di **risposta non autorevole** , presente in uno dei formati seguenti: 
+2. Annotare il nome nella sezione di **risposta non autorevole**, presente in uno dei formati seguenti: 
 
     ```
     <name>-s1.cloudapp.net

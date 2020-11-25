@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021589"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
 
@@ -61,10 +61,10 @@ Prima di configurare il client della riga di comando sau, verificare che RubyGem
 1. Nella portale di Azure cercare nell'elenco dei servizi in Azure Marketplace e quindi selezionare Log Analytics aree di lavoro.
 2. Selezionare **Crea** e quindi scegliere le opzioni per gli elementi seguenti:
 
-   * **area di lavoro Log Analytics** : immettere un nome per l'area di lavoro.
+   * **area di lavoro Log Analytics**: immettere un nome per l'area di lavoro.
    * **Sottoscrizione:** se sono disponibili più sottoscrizioni, scegliere quella con la stessa distribuzione di Cloud Foundry.
    * **Gruppo di risorse:** è possibile creare un nuovo gruppo di risorse o usare quello con la stessa distribuzione di Cloud Foundry.
-   * **Località** : immettere la località.
+   * **Località**: immettere la località.
    * **Piano tariffario:** fare clic su **OK** per completare.
 
 Per altre informazioni, vedere [Introduzione ai log di Monitoraggio di Azure](../azure-monitor/overview.md).
@@ -76,13 +76,13 @@ Per altre informazioni, vedere [Introduzione ai log di Monitoraggio di Azure](..
 1. Digitare "Cloud Foundry" nella finestra di ricerca e selezionare "Cloud Foundry Monitoring Solution" (Soluzione di monitoraggio Cloud Foundry).
 1. Verrà caricata la prima pagina del modello della soluzione di monitoraggio Cloud Foundry. Fare clic su "Crea" per avviare il pannello del modello.
 1. Immettere i parametri richiesti:
-    * **Sottoscrizione** : selezionare una sottoscrizione di Azure per l'area di lavoro Log Analytics, in genere la stessa della distribuzione di Cloud Foundry.
-    * **Gruppo di risorse** : selezionare un gruppo di risorse esistente o crearne uno nuovo per l'area di lavoro Log Analytics.
-    * **Località del gruppo di risorse** : selezionare la località del gruppo di risorse.
-    * **OMS_Workspace_Name** : immettere un nome dell'area di lavoro. Se l'area di lavoro non esiste, il modello ne creerà una nuova.
-    * **OMS_Workspace_Region** : selezionare la località per l'area di lavoro.
-    * **OMS_Workspace_Pricing_Tier** : selezionare lo SKU per l'area di lavoro Log Analytics. Vedere le [indicazioni sui prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) per riferimento.
-    * **Note legali** : fare clic su Note legali e quindi fare clic su "Crea" per accettare i termini legali.
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure per l'area di lavoro Log Analytics, in genere la stessa della distribuzione di Cloud Foundry.
+    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo per l'area di lavoro Log Analytics.
+    * **Località del gruppo di risorse**: selezionare la località del gruppo di risorse.
+    * **OMS_Workspace_Name**: immettere un nome dell'area di lavoro. Se l'area di lavoro non esiste, il modello ne creerà una nuova.
+    * **OMS_Workspace_Region**: selezionare la località per l'area di lavoro.
+    * **OMS_Workspace_Pricing_Tier**: selezionare lo SKU per l'area di lavoro Log Analytics. Vedere le [indicazioni sui prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) per riferimento.
+    * **Note legali**: fare clic su Note legali e quindi fare clic su "Crea" per accettare i termini legali.
 1. Dopo aver specificato tutti i parametri, fare clic su "Crea" per distribuire il modello. Quando viene completata la distribuzione, lo stato verrà visualizzato nella scheda delle notifiche.
 
 
@@ -183,9 +183,9 @@ Se l'area di lavoro Log Analytics è stata creata manualmente, seguire questa pr
 
 ### <a name="1-import-the-oms-view"></a>1. importare la visualizzazione OMS
 
-Dal portale di OMS passare a **Visualizza finestra di progettazione**  >  **Importa**  >  **Sfoglia** e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud* e salvare la vista. A questo punto viene visualizzato un riquadro nella pagina **Panoramica** . Selezionare per visualizzare le metriche visualizzate.
+Dal portale di OMS passare a **Visualizza finestra di progettazione**  >  **Importa**  >  **Sfoglia** e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud* e salvare la vista. A questo punto viene visualizzato un riquadro nella pagina **Panoramica**. Selezionare per visualizzare le metriche visualizzate.
 
-È possibile personalizzare le visualizzazioni o creare nuove visualizzazioni tramite **Visualizza finestra di progettazione** .
+È possibile personalizzare le visualizzazioni o creare nuove visualizzazioni tramite **Visualizza finestra di progettazione**.
 
 *"Cloud Foundry.omsview"* è una versione di anteprima del modello di visualizzazione OMS di Cloud Foundry. Si tratta di un modello predefinito completamente configurato. Inviare eventuali commenti e suggerimenti nella [sezione dedicata](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
