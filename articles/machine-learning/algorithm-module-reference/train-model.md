@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030697"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
@@ -40,16 +40,14 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
 3. Al termine del training, usare il modello con training con uno dei [moduli di Punteggio](./score-model.md)per eseguire stime sui nuovi dati.
 
 ## <a name="how-to-use-train-model"></a>Come usare Train Model 
-  
-1.  In Azure Machine Learning configurare un modello di classificazione o un modello di regressione.
     
-2. Aggiungere il modulo **Train Model** alla pipeline.  Questo modulo è reperibile nella categoria **Machine Learning** . Espandere **Train**, quindi trascinare il modulo **Train Model** nella pipeline.
+1. Aggiungere il modulo **Train Model** alla pipeline.  Questo modulo è reperibile nella categoria **Machine Learning** . Espandere **Train**, quindi trascinare il modulo **Train Model** nella pipeline.
   
-3.  Nell'input di sinistra allineare la modalità non trainata. Allineare il set di dati di training all'input di destra del **modello Train**.
+1.  Nell'input di sinistra allineare la modalità non trainata. Allineare il set di dati di training all'input di destra del **modello Train**.
 
     Il set di dati di training deve contenere una colonna di etichetta. Tutte le righe senza etichette vengono ignorate.
   
-4.  Per **colonna etichetta**, fare clic su **modifica colonna** nel pannello destro del modulo e scegliere una singola colonna contenente i risultati che il modello può usare per il training.
+1.  Per **colonna etichetta**, fare clic su **modifica colonna** nel pannello destro del modulo e scegliere una singola colonna contenente i risultati che il modello può usare per il training.
   
     - Per i problemi di classificazione, la colonna Label deve contenere valori **categorici** o valori **discreti** . Alcuni esempi potrebbero essere una classificazione Sì/No, un nome o un codice di classificazione di malattia oppure un gruppo di reddito.  Se si seleziona una colonna non categorica, il modulo restituirà un errore durante il training.
   
@@ -62,7 +60,10 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
     > [!TIP] 
     > In caso di problemi con il selettore di colonna, vedere l'articolo [selezionare le colonne nel set di dati](./select-columns-in-dataset.md) per i suggerimenti. Vengono descritti alcuni scenari comuni e suggerimenti per l'utilizzo delle opzioni **with Rules** e **by Name** .
   
-5.  Inviare la pipeline. Se si dispone di una grande quantità di dati, l'operazione può richiedere alcuni minuti.
+1.  Inviare la pipeline. Se si dispone di una grande quantità di dati, l'operazione può richiedere alcuni minuti.
+
+    > [!IMPORTANT] 
+    > Se si dispone di una colonna ID che corrisponde all'ID di ogni riga, **Train Model** può comportare un errore, ad esempio "numero di valori univoci nella colonna:" {column_name} "è maggiore di quello consentito. Ciò è dovuto al fatto che la colonna ID ha raggiunto la soglia di valori univoci e potrebbe causare una memoria insufficiente. In genere, la colonna ID non ha significato durante il training. È possibile utilizzare [Modifica metadati](edit-metadata.md) per contrassegnare la colonna come **funzionalità non crittografata** e non verrà utilizzata nel training. Per ulteriori informazioni sull'errore, vedere il [codice di errore della finestra di progettazione](././designer-error-codes.md) .
 
 ## <a name="results"></a>Risultati
 
