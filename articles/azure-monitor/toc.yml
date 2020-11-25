@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -251,6 +251,8 @@
               href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
             - name: Colonne standard
               href: platform/log-standard-columns.md
+            - name: Controllare le query
+              href: log-query/query-audit.md
             - name: Ottimizzare le query
               href: log-query/query-optimization.md
             - name: Funzioni

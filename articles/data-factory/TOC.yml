@@ -8,7 +8,7 @@
       href: introduction.md
     - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una data factory - Interfaccia utente
@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flussi di dati
           href: data-flow-troubleshoot-guide.md
+        - name: Sicurezza e controllo di accesso
+          href: security-and-access-control-troubleshoot-guide.md
         - name: Runtime di integrazione self-hosted
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Runtime di integrazione Azure-SSIS

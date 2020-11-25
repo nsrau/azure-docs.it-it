@@ -1,5 +1,5 @@
 - name: Documentazione di Archiviazione BLOB di Azure
-  href: /azure/storage/blobs/
+  href: ./index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Archiviazione BLOB di Azure
@@ -13,7 +13,7 @@
       items:
         - name: Introduzione all'archiviazione BLOB
           href: storage-blobs-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Usare i BLOB
           items:
@@ -590,7 +590,7 @@
             - name: Accessibilità di Storage Explorer
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Archiviazione BLOB in Microsoft Q&A
-          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
+          href: /answers/topics/azure-blob-storage.html
         - name: Archiviazione BLOB in Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-blob-storage'
         - name: Prezzi dei BLOB in blocchi
@@ -654,19 +654,19 @@
 - name: Data Lake Storage Gen2
   items:
     - name: Passare alla documentazione di Azure Data Lake Storage Gen1
-      href: /azure/data-lake-store/
+      href: ../../data-lake-store/index.yml
     - name: Panoramica
       items:
         - name: Introduzione a Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Analizzare i dati con Databricks
           href: data-lake-storage-quickstart-create-databricks-account.md
     - name: Esercitazioni
       items:
         - name: 'Estrarre, trasformare e caricare dati tramite Azure Databricks'
-          href: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Accedere ai dati di Data Lake Storage con Databricks usando Spark
           href: data-lake-storage-use-databricks-spark.md
         - name: 'Estrarre, trasformare e caricare dati con Apache Hive in Azure HDInsight'
@@ -712,7 +712,7 @@
         - name: Monitoraggio
           items:
             - name: Monitorare l'archiviazione BLOB
-              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transizione dalle metriche classiche
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitoraggio (versione classica)
@@ -874,7 +874,7 @@
             - name: Accessibilità di Storage Explorer
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Pagina delle domande di Domande e risposte Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
+          href: /answers/topics/azure-blob-storage.html
         - name: Archiviazione di Azure in Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Prezzi

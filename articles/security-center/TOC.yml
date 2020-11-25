@@ -278,8 +278,6 @@
       items:
         - name: Domande generali
           href: faq-general.md
-        - name: Domande sulla fatturazione
-          href: faq-billing.md
         - name: Domande sulle autorizzazioni
           href: faq-permissions.md
         - name: Domande sulla raccolta dati e sull'agente

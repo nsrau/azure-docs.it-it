@@ -35,6 +35,8 @@
           href: claim-sets.md
     - name: Flusso di lavoro
       href: workflow.md
+    - name: Visualizzare i log di controllo
+      href: audit-logs.md
 - name: Riferimenti
   items:
     - name: Domande frequenti
