@@ -10,11 +10,11 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016659"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -22,7 +22,7 @@ Per proteggere i set di scalabilità di macchine virtuali dagli errori che posso
 
 ## <a name="availability-considerations"></a>Considerazioni sulla disponibilità
 
-Quando si distribuisce un set di scalabilità a livello di area (non di zona) in una o più zone a partire dalla versione API *2017-12-01* , sono disponibili le opzioni di disponibilità seguenti:
+Quando si distribuisce un set di scalabilità a livello di area (non di zona) in una o più zone a partire dalla versione API *2017-12-01*, sono disponibili le opzioni di disponibilità seguenti:
 - Distribuzione massima (platformFaultDomainCount = 1)
 - Distribuzione fissa statica (platformFaultDomainCount = 5)
 - Distribuzione allineata con i domini di errore del disco di archiviazione (platforFaultDomainCount = 2 o 3)
@@ -52,7 +52,7 @@ Infine, per i set di scalabilità distribuiti in più zone è anche possibile sc
 
 Con il bilanciamento delle zone con massimo sforzo, il set di scalabilità tenta di aumentare e ridurre il numero di macchine virtuali mantenendo il bilanciamento. Tuttavia, se per qualche motivo questo non è possibile (ad esempio, se una zona diventa inattiva, il set di scalabilità non può creare una nuova macchina virtuale in tale zona), il set di scalabilità consente uno squilibrio temporaneo per la scalabilità verticale o orizzontale. Nei successivi tentativi di scalabilità orizzontale, il set di scalabilità aggiunge macchine virtuali alle zone che necessitano di più macchine virtuali per il set di scalabilità da bilanciare. Allo stesso modo, con i successivi tentativi di riduzione, il set di scalabilità rimuove macchine virtuali dalle zone che ne richiedono di meno per bilanciare il set di scalabilità. Con il bilanciamento delle zone restrittivo, qualsiasi tentativo di aumento o riduzione da parte del set di scalabilità ha esito negativo, in quanto così facendo si creerebbe uno squilibrio.
 
-Per usare il bilanciamento delle zone con massimo sforzo, impostare *zoneBalance* su *false* . Questa è l'impostazione predefinita nell'API versione *2017-12-01* . Per usare Strict zone Balance, impostare *zoneBalance* su *true* .
+Per usare il bilanciamento delle zone con massimo sforzo, impostare *zoneBalance* su *false*. Questa è l'impostazione predefinita nell'API versione *2017-12-01*. Per usare Strict zone Balance, impostare *zoneBalance* su *true*.
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Set di scalabilità a zona singola o con ridondanza della zona
 
@@ -79,7 +79,7 @@ Il set di scalabilità e le risorse di supporto, ad esempio Azure Load Balancer 
 
 La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata.
 
-Aggiungere il parametro `--zones` al comando [az vmss create](/cli/azure/vmss) e specificare quale zona usare, ad esempio la zona *1* , *2* o *3* . L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1* :
+Aggiungere il parametro `--zones` al comando [az vmss create](/cli/azure/vmss) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*. L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1*:
 
 ```azurecli
 az vmss create \
@@ -96,9 +96,9 @@ Per un esempio completo di un set di scalabilità a zona singola e delle relativ
 
 ### <a name="zone-redundant-scale-set"></a>Set di scalabilità con ridondanza della zona
 
-Per creare un set di scalabilità con ridondanza della zona, si usano un indirizzo IP pubblico e un servizio di bilanciamento del carico dello SKU *Standard* . Per una ridondanza ottimizzata, lo SKU *Standard* crea risorse di rete con ridondanza della zona. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
+Per creare un set di scalabilità con ridondanza della zona, si usano un indirizzo IP pubblico e un servizio di bilanciamento del carico dello SKU *Standard*. Per una ridondanza ottimizzata, lo SKU *Standard* crea risorse di rete con ridondanza della zona. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
-Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `--zones`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1,2,3* :
+Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `--zones`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1,2,3*:
 
 ```azurecli
 az vmss create \
@@ -115,9 +115,9 @@ Le operazioni da eseguire per creare e configurare tutte le macchine virtuali e 
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
-Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata. Aggiungere il parametro `-Zone` al comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e specificare quale zona usare, ad esempio la zona *1* , *2* o *3* .
+Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata. Aggiungere il parametro `-Zone` al comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*.
 
-L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1* dell'area *Stati Uniti orientali 2* . Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
+L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1* dell'area *Stati Uniti orientali 2*. Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
 
 ```powershell
 New-AzVmss `
@@ -134,7 +134,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Set di scalabilità con ridondanza della zona
 
-Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `-Zone`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1, 2, 3* dell'area *Stati Uniti orientali 2* . Vengono create automaticamente le risorse di rete di Azure con ridondanza della zona per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
+Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `-Zone`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1, 2, 3* dell'area *Stati Uniti orientali 2*. Vengono create automaticamente le risorse di rete di Azure con ridondanza della zona per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
 
 ```powershell
 New-AzVmss `
@@ -151,9 +151,9 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Usare i modelli di Gestione risorse di Azure
 
-La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata. Aggiungere la proprietà `zones` al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets* nel modello e specificare quale zona usare, ad esempio la zona *1* , *2* o *3* .
+La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata. Aggiungere la proprietà `zones` al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets* nel modello e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*.
 
-L'esempio seguente crea un set di scalabilità a zona singola per Linux denominato *myScaleSet* nella zona *1* dell'area *Stati Uniti orientali 2* :
+L'esempio seguente crea un set di scalabilità a zona singola per Linux denominato *myScaleSet* nella zona *1* dell'area *Stati Uniti orientali 2*:
 
 ```json
 {
@@ -197,7 +197,7 @@ Per un esempio completo di un set di scalabilità a zona singola e delle relativ
 
 ### <a name="zone-redundant-scale-set"></a>Set di scalabilità con ridondanza della zona
 
-Per creare un set di scalabilità con ridondanza della zona, specificare più valori nella proprietà `zones` del tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets* . L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1,2,3* dell'area *Stati Uniti orientali 2* :
+Per creare un set di scalabilità con ridondanza della zona, specificare più valori nella proprietà `zones` del tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets*. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1,2,3* dell'area *Stati Uniti orientali 2*:
 
 ```json
 {

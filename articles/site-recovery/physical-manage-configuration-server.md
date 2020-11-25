@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86132489"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017441"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -33,7 +33,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 | Spazio libero su disco (disco di conservazione) | 600 GB|
 | Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Impostazioni locali del sistema operativo | Inglese (Stati Uniti)|
-| Versione di VMware vSphere PowerCLI | Non richiesto|
+| Versione di VMware vSphere PowerCLI | Facoltativo|
 | Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 | Criteri di gruppo| Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 | IIS | - Nessun sito Web predefinito preesistente <br> -Abilitare  [l'autenticazione anonima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Abilitare l'impostazione di [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
@@ -108,7 +108,7 @@ Eseguire il file di installazione come segue:
 
 ### <a name="parameters"></a>Parametri
 
-|Nome parametro| Type | Descrizione| Valori|
+|Nome parametro| Tipo | Descrizione| Valori|
 |-|-|-|-|
 | /Modalità server|Necessario|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
 |/InstallLocation|Necessario|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
@@ -303,7 +303,7 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 
 ### <a name="renew-the-certificate"></a>Rinnovare il certificato
 
-1. Nell'insieme di credenziali aprire **Site Recovery infrastruttura**  >  **server di configurazione**e fare clic sul server di configurazione richiesto.
+1. Nell'insieme di credenziali aprire **Site Recovery infrastruttura**  >  **server di configurazione** e fare clic sul server di configurazione richiesto.
 2. La data di scadenza viene visualizzata in **integrità server di configurazione**
 3. Fare clic su **Rinnova certificati**. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530173"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016949"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
 
@@ -63,7 +63,7 @@ Creare un nuovo back-end WebAPI ASP.NET eseguendo le azioni seguenti:
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autenticare client con il back-end WebAPI
 
-In questa sezione si crea una nuova classe del gestore di messaggi denominata **AuthenticationTestHandler** per il nuovo back-end. Questa classe deriva da [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) e viene aggiunta come gestore di messaggi per poter elaborare tutte le richieste in arrivo nel back-end.
+In questa sezione si crea una nuova classe del gestore di messaggi denominata **AuthenticationTestHandler** per il nuovo back-end. Questa classe deriva da [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) e viene aggiunta come gestore di messaggi per poter elaborare tutte le richieste in arrivo nel back-end.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **AppBackend**, scegliere **Aggiungi** e quindi selezionare **Classe**.
 2. Assegnare alla nuova classe il nome **AuthenticationTestHandler.cs** e fare clic su **Aggiungi** per generarla. Questa classe autentica gli utenti tramite l'*autenticazione di base*. L'app può usare qualsiasi schema di autenticazione.
@@ -88,7 +88,7 @@ In questa sezione si crea una nuova classe del gestore di messaggi denominata **
 
    In caso contrario, la richiesta viene rifiutata. Non si tratta di un vero approccio di autenticazione e autorizzazione. È solo un esempio semplice per questa esercitazione.
 
-   Se il messaggio di richiesta viene autenticato e autorizzato da `AuthenticationTestHandler`, l'utente dell'autenticazione di base viene associato alla richiesta corrente in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Le informazioni utente in HttpContext verranno usate da un altro controller (RegisterController) in un secondo momento per aggiungere un [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) alla richiesta di registrazione per le notifiche.
+   Se il messaggio di richiesta viene autenticato e autorizzato da `AuthenticationTestHandler`, l'utente dell'autenticazione di base viene associato alla richiesta corrente in [HttpContext](/dotnet/api/system.web.httpcontext.current). Le informazioni utente in HttpContext verranno usate da un altro controller (RegisterController) in un secondo momento per aggiungere un [tag](/previous-versions/azure/azure-services/dn530749(v=azure.100)) alla richiesta di registrazione per le notifiche.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -333,7 +333,7 @@ In questa sezione si aggiunge un nuovo controller che consente ai dispositivi cl
 
     Questo codice invia un tipo di notifica basato sul parametro `pns` del servizio di notifica della piattaforma (PNS). Il valore `to_tag` viene usato per impostare il tag *username* nel messaggio. Questo tag deve corrispondere a un tag username di una registrazione dell'hub di notifica attiva. Il messaggio di notifica viene estratto dal corpo della richiesta POST ed è formattato per il PNS di destinazione.
 
-    A seconda del servizio di notifica della piattaforma (PNS) usato dai dispositivi supportati per ricevere le notifiche, sono supportate notifiche in una serie di formati. Nei dispositivi Windows è ad esempio possibile usare una [notifica di tipo avviso popup con WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) che non è supportata direttamente da un altro PNS. In tal caso, il back-end deve formattare la notifica come notifica supportata per il PNS dei dispositivi che si intende supportare. Usare quindi l'API di invio appropriata per la [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    A seconda del servizio di notifica della piattaforma (PNS) usato dai dispositivi supportati per ricevere le notifiche, sono supportate notifiche in una serie di formati. Nei dispositivi Windows è ad esempio possibile usare una [notifica di tipo avviso popup con WNS](/uwp/schemas/tiles/toastschema/schema-root) che non è supportata direttamente da un altro PNS. In tal caso, il back-end deve formattare la notifica come notifica supportata per il PNS dei dispositivi che si intende supportare. Usare quindi l'API di invio appropriata per la [classe NotificationHubClient](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

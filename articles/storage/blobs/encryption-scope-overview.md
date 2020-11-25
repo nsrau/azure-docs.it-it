@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326117"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017390"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Ambiti di crittografia per l'archiviazione BLOB (anteprima)
 
@@ -52,8 +52,8 @@ Quando un ambito di crittografia è disabilitato, non viene più fatturato. Disa
 
 Se l'ambito di crittografia è protetto con chiavi gestite dal cliente, è anche possibile eliminare la chiave associata nell'insieme di credenziali delle chiavi per disabilitare l'ambito di crittografia. Tenere presente che le chiavi gestite dal cliente sono protette dall'eliminazione temporanea e dall'eliminazione della protezione nell'insieme di credenziali delle chiavi e una chiave eliminata è soggetta al comportamento definito da tali proprietà. Per ulteriori informazioni, vedere uno degli argomenti seguenti nella documentazione di Azure Key Vault:
 
-- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../../key-vault/general/soft-delete-cli.md)
+- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Non è possibile eliminare un ambito di crittografia.

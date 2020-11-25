@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017713"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modello di controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -33,17 +33,17 @@ Questo articolo è incentrato sul controllo degli accessi in base al ruolo e sug
 
 ## <a name="role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo (RBAC di Azure)
 
-Il controllo degli accessi in base al ruolo di Azure usa assegnazioni di ruolo per applicare i set di autorizzazioni alle [entità](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (AD). Un set di autorizzazioni può concedere a un'entità di sicurezza un livello di accesso a granularità grossolana, ad esempio l'accesso in lettura o scrittura a **tutti** i dati in un account di archiviazione o **tutti** i dati in un contenitore. 
+Il controllo degli accessi in base al ruolo di Azure usa assegnazioni di ruolo per applicare i set di autorizzazioni alle [entità](../../role-based-access-control/overview.md#security-principal) Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (AD). Un set di autorizzazioni può concedere a un'entità di sicurezza un livello di accesso a granularità grossolana, ad esempio l'accesso in lettura o scrittura a **tutti** i dati in un account di archiviazione o **tutti** i dati in un contenitore. 
 
 I ruoli seguenti consentono a un'entità di sicurezza di accedere ai dati in un account di archiviazione. 
 
 |Ruolo|Descrizione|
 |--|--|
-| [Proprietario dei dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Accesso completo ai contenitori e ai dati di archiviazione BLOB. Questo accesso consente all'entità di sicurezza di impostare il proprietario di un elemento e di modificare gli ACL di tutti gli elementi. |
-| [Collaboratore ai dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Accesso in lettura, scrittura ed eliminazione ai contenitori e ai BLOB di archiviazione BLOB. Questo accesso non consente all'entità di sicurezza di impostare la proprietà di un elemento, ma può modificare l'ACL degli elementi di proprietà dell'entità di sicurezza. |
-| [Lettore dei dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Leggere ed elencare i BLOB e i contenitori di archiviazione BLOB. |
+| [Proprietario dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Accesso completo ai contenitori e ai dati di archiviazione BLOB. Questo accesso consente all'entità di sicurezza di impostare il proprietario di un elemento e di modificare gli ACL di tutti gli elementi. |
+| [Collaboratore ai dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Accesso in lettura, scrittura ed eliminazione ai contenitori e ai BLOB di archiviazione BLOB. Questo accesso non consente all'entità di sicurezza di impostare la proprietà di un elemento, ma può modificare l'ACL degli elementi di proprietà dell'entità di sicurezza. |
+| [Lettore dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) | Leggere ed elencare i BLOB e i contenitori di archiviazione BLOB. |
 
-I ruoli, ad esempio [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)e [collaboratore account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) , consentono a un'entità di sicurezza di gestire un account di archiviazione, ma non di fornire l'accesso ai dati all'interno di tale account. Tuttavia, questi ruoli (escluso **Reader**) possono ottenere l'accesso alle chiavi di archiviazione, che possono essere usate in diversi strumenti client per accedere ai dati.
+I ruoli, ad esempio [proprietario](../../role-based-access-control/built-in-roles.md#owner), [collaboratore](../../role-based-access-control/built-in-roles.md#contributor), [lettore](../../role-based-access-control/built-in-roles.md#reader)e [collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor) , consentono a un'entità di sicurezza di gestire un account di archiviazione, ma non di fornire l'accesso ai dati all'interno di tale account. Tuttavia, questi ruoli (escluso **Reader**) possono ottenere l'accesso alle chiavi di archiviazione, che possono essere usate in diversi strumenti client per accedere ai dati.
 
 ## <a name="access-control-lists-acls"></a>Elenchi di controllo di accesso (ACL)
 
@@ -73,40 +73,40 @@ Il diagramma seguente illustra il flusso di autorizzazioni per tre operazioni co
 
 La tabella seguente illustra come combinare i ruoli di Azure e le voci ACL in modo che un'entità di sicurezza possa eseguire le operazioni elencate nella colonna **Operation** . Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `/` ), una sottodirectory denominata **Oregon**, una sottodirectory della directory Oregon denominata **Portland** e un file di testo nella directory Portland denominata **Data.txt**. Le rappresentazioni in [formato breve](data-lake-storage-access-control.md#short-forms-for-permissions) della voce ACL richieste per concedere le autorizzazioni sono visualizzate in tali colonne. **N/** d (_non applicabile_) viene visualizzato nella colonna se non è necessaria una voce ACL per eseguire l'operazione.
 
-|    Operazione             | Ruolo RBAC assegnato               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    Operazione             | Ruolo di Azure assegnato               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Read Data.txt            |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |  
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | N/D      | N/D      | N/D       | N/D    |
-|                          |   Nessuno                           | `--X`    | `--X`    | `--X`     | `R--`  |
+|                          |   nessuno                           | `--X`    | `--X`    | `--X`     | `R--`  |
 | Append to Data.txt       |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | `--X`    | `--X`    | `--X`     | `-W-`  |
-|                          |   Nessuno                           | `--X`    | `--X`    | `--X`     | `RW-`  |
+|                          |   nessuno                           | `--X`    | `--X`    | `--X`     | `RW-`  |
 | Delete Data.txt          |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | `--X`    | `--X`    | `-WX`     | N/D    |
-|                          |   Nessuno                           | `--X`    | `--X`    | `-WX`     | N/D    |
+|                          |   nessuno                           | `--X`    | `--X`    | `-WX`     | N/D    |
 | Create Data.txt          |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | `--X`    | `--X`    | `-WX`     | N/D    |
-|                          |   Nessuno                           | `--X`    | `--X`    | `-WX`     | N/D    |
+|                          |   nessuno                           | `--X`    | `--X`    | `-WX`     | N/D    |
 | Elenco /                   |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | N/D      | N/D      | N/D       | N/D    |
-|                          |   Nessuno                           | `R-X`    | N/D      | N/D       | N/D    |
+|                          |   nessuno                           | `R-X`    | N/D      | N/D       | N/D    |
 | Elencare /Oregon/            |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | N/D      | N/D      | N/D       | N/D    |
-|                          |   Nessuno                           | `--X`    | `R-X`    | N/D       | N/D    |
+|                          |   nessuno                           | `--X`    | `R-X`    | N/D       | N/D    |
 | Elencare /Oregon/Portland/   |   Proprietario dei dati del BLOB di archiviazione        | N/D      | N/D      | N/D       | N/D    |
 |                          |   Collaboratore ai dati del BLOB di archiviazione  | N/D      | N/D      | N/D       | N/D    |
 |                          |   Lettore dei dati del BLOB di archiviazione       | N/D      | N/D      | N/D       | N/D    |
-|                          |   Nessuno                           | `--X`    | `--X`    | `R-X`     | N/D    |
+|                          |   nessuno                           | `--X`    | `--X`    | `R-X`     | N/D    |
 
 
 > [!NOTE] 
-> Per visualizzare il contenuto di un contenitore in Azure Storage Explorer, le entità di sicurezza devono [accedere Storage Explorer tramite Azure ad](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#add-a-resource-via-azure-ad)e, come minimo, hanno accesso in lettura (R--) alla cartella radice ( `\` ) di un contenitore. Questo livello di autorizzazione offre la possibilità di elencare il contenuto della cartella radice. Se non si desidera che il contenuto della cartella radice sia visibile, è possibile assegnare il ruolo [lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) . Con questo ruolo, saranno in grado di elencare i contenitori nell'account, ma non il contenuto del contenitore. È quindi possibile concedere l'accesso a directory e file specifici usando gli ACL.   
+> Per visualizzare il contenuto di un contenitore in Azure Storage Explorer, le entità di sicurezza devono [accedere Storage Explorer tramite Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad)e, come minimo, hanno accesso in lettura (R--) alla cartella radice ( `\` ) di un contenitore. Questo livello di autorizzazione offre la possibilità di elencare il contenuto della cartella radice. Se non si desidera che il contenuto della cartella radice sia visibile, è possibile assegnare il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) . Con questo ruolo, saranno in grado di elencare i contenitori nell'account, ma non il contenuto del contenitore. È quindi possibile concedere l'accesso a directory e file specifici usando gli ACL.   
 
 ## <a name="security-groups"></a>Gruppi di sicurezza
 
@@ -120,7 +120,7 @@ Usando i gruppi, è meno probabile che superino il numero massimo di assegnazion
 
 ## <a name="shared-key-and-shared-access-signature-sas-authorization"></a>Autorizzazione di chiave condivisa e firma di accesso condiviso (SAS)
 
-Azure Data Lake Storage Gen2 supporta anche la [chiave condivisa](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) e i metodi [SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json) per l'autenticazione. Una caratteristica di questi metodi di autenticazione è che nessuna identità è associata al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sull'autorizzazione dell'entità di sicurezza.
+Azure Data Lake Storage Gen2 supporta anche la [chiave condivisa](/rest/api/storageservices/authorize-with-shared-key) e i metodi [SAS](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per l'autenticazione. Una caratteristica di questi metodi di autenticazione è che nessuna identità è associata al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sull'autorizzazione dell'entità di sicurezza.
 
 Nel caso della chiave condivisa, il chiamante acquisisce efficacemente l'accesso "super-utente", ovvero l'accesso completo a tutte le operazioni su tutte le risorse, inclusi i dati, l'impostazione del proprietario e la modifica degli ACL.
 
@@ -129,4 +129,3 @@ I token di firma di accesso condiviso includono le autorizzazioni consentite com
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sugli elenchi di controllo di accesso, vedere  [elenchi di controllo di accesso (ACL) in Azure Data Lake storage Gen2](data-lake-storage-access-control.md).
-

@@ -10,11 +10,11 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016676"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 
@@ -283,9 +283,9 @@ Dopo l'aggiornamento del modello, la nuova configurazione viene applicata a tutt
 ## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Come aggiornare le macchine virtuali con il più recente modello del set di scalabilità
 I set di scalabilità hanno un "criterio di aggiornamento" che determina il modo in cui le macchine virtuali vengono aggiornate con l'ultima versione del modello del set di scalabilità. Le tre modalità del criterio di aggiornamento sono:
 
-- **Automatico** : in questa modalità il set di scalabilità non offre alcuna garanzia sull'ordine in cui le macchine virtuali vengono arrestate. Potrebbe arrestarle tutte contemporaneamente. 
-- **In sequenza** : in questa modalità il set di scalabilità implementa l'aggiornamento in batch con una pausa facoltativa fra i singoli batch.
-- **Manuale** : in questa modalità, quando si aggiorna il modello del set di scalabilità, le macchine virtuali esistenti rimangono invariate.
+- **Automatico**: in questa modalità il set di scalabilità non offre alcuna garanzia sull'ordine in cui le macchine virtuali vengono arrestate. Potrebbe arrestarle tutte contemporaneamente. 
+- **In sequenza**: in questa modalità il set di scalabilità implementa l'aggiornamento in batch con una pausa facoltativa fra i singoli batch.
+- **Manuale**: in questa modalità, quando si aggiorna il modello del set di scalabilità, le macchine virtuali esistenti rimangono invariate.
  
 Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggiornamento manuale" di ogni singola macchina virtuale. È possibile eseguire l'aggiornamento manuale con:
 
@@ -348,13 +348,13 @@ Alcune proprietà possono essere impostate solo quando si crea il set di scalabi
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Proprietà che possono essere modificate solo in base al valore corrente
 Alcune proprietà possono essere modificate, con eccezioni che dipendono dal valore corrente. Queste proprietà includono:
 
-- **singlePlacementGroup** : se singlePlacementGroup ha valore true, può essere impostata su false. Se invece singlePlacementGroup ha valore false, **non può** essere impostata su true.
-- **subnet** : la subnet di un set di scalabilità può essere modificata purché la subnet originale e la nuova subnet facciano parte della stessa rete virtuale.
+- **singlePlacementGroup**: se singlePlacementGroup ha valore true, può essere impostata su false. Se invece singlePlacementGroup ha valore false, **non può** essere impostata su true.
+- **subnet**: la subnet di un set di scalabilità può essere modificata purché la subnet originale e la nuova subnet facciano parte della stessa rete virtuale.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Proprietà che richiedono la deallocazione per poter essere modificate
 Alcune proprietà possono essere modificate su determinati valori solo dopo la deallocazione delle macchine virtuali del set di scalabilità. Queste proprietà includono:
 
-- **Nome SKU** : se lo SKU della nuova macchina virtuale non è supportato nell'hardware in cui è attualmente in esecuzione il set di scalabilità, è necessario deallocare le macchine virtuali nel set di scalabilità prima di modificare il nome SKU. Per altre informazioni, vedere [Come ridimensionare una VM di Azure](../virtual-machines/windows/resize-vm.md).
+- **Nome SKU**: se lo SKU della nuova macchina virtuale non è supportato nell'hardware in cui è attualmente in esecuzione il set di scalabilità, è necessario deallocare le macchine virtuali nel set di scalabilità prima di modificare il nome SKU. Per altre informazioni, vedere [Come ridimensionare una VM di Azure](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Aggiornamenti specifici delle macchine virtuali
@@ -364,22 +364,22 @@ Alcune modifiche possono essere applicate solo a macchine virtuali specifiche an
 ## <a name="scenarios"></a>Scenari
 
 ### <a name="application-updates"></a>Aggiornamenti dell'applicazione
-Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Ad esempio, se si dispone di una nuova versione di uno script da eseguire in un'estensione di script personalizzata, è possibile aggiornare la proprietà *fileURI* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi, è possibile modificare il *Proprietà forceupdatetag* per forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per altre informazioni su *Proprietà forceupdatetag* , vedere la [documentazione dell'API REST per le estensioni](/rest/api/compute/virtualmachineextensions/createorupdate). Notare che la proprietà *forceUpdateTag* non può essere usata con tutte le estensioni e non solo con l'estensione di script personalizzata.
+Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Ad esempio, se si dispone di una nuova versione di uno script da eseguire in un'estensione di script personalizzata, è possibile aggiornare la proprietà *fileURI* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi, è possibile modificare il *Proprietà forceupdatetag* per forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per altre informazioni su *Proprietà forceupdatetag*, vedere la [documentazione dell'API REST per le estensioni](/rest/api/compute/virtualmachineextensions/createorupdate). Notare che la proprietà *forceUpdateTag* non può essere usata con tutte le estensioni e non solo con l'estensione di script personalizzata.
 
 Uno scenario frequente è la distribuzione delle applicazioni tramite un'immagine personalizzata. Questo scenario è illustrato nella sezione seguente.
 
 ### <a name="os-updates"></a>Aggiornamenti del sistema operativo
-Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference* . Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 >[!NOTE]
 > Con le immagini della piattaforma si specifica solitamente "latest" come versione del riferimento all'immagine. Quando si crea, si aumenta il numero di istanze e si ricrea l'immagine, le macchine virtuali vengono create con l'ultima versione disponibile. **Non** significa però che l'immagine del sistema operativo viene aggiornata automaticamente nel tempo man mano che vengono rilasciate nuove versioni dell'immagine. È attualmente in anteprima una funzionalità separata che fornisce aggiornamenti automatici del sistema operativo. Per altre informazioni, consultare la [documentazione relativa agli aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference* . Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Aggiornare l'immagine del sistema operativo per il set di scalabilità
-Si può avere un set di scalabilità che esegue una versione precedente di Ubuntu LTS 16.04. Si vuole eseguire l'aggiornamento a una versione più recente di Ubuntu LTS 16.04, ad esempio la versione *16.04.201801090* . La proprietà della versione del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente queste proprietà con uno dei comandi seguenti:
+Si può avere un set di scalabilità che esegue una versione precedente di Ubuntu LTS 16.04. Si vuole eseguire l'aggiornamento a una versione più recente di Ubuntu LTS 16.04, ad esempio la versione *16.04.201801090*. La proprietà della versione del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente queste proprietà con uno dei comandi seguenti:
 
 - Azure PowerShell con [Update-AzVmss](/powershell/module/az.compute/update-azvmss) come segue:
 
@@ -447,7 +447,7 @@ Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e
     ```
 
 >[!NOTE]
-> Questi comandi presuppongono che nel set di scalabilità siano presenti una sola configurazione IP e un solo servizio di bilanciamento del carico. Se sono presenti più, potrebbe essere necessario usare un indice di elenco diverso da *0* .
+> Questi comandi presuppongono che nel set di scalabilità siano presenti una sola configurazione IP e un solo servizio di bilanciamento del carico. Se sono presenti più, potrebbe essere necessario usare un indice di elenco diverso da *0*.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

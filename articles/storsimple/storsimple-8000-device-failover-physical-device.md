@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803943"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017135"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Failover su un dispositivo StorSimple serie 8000 fisico
 
@@ -56,7 +56,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
    
    1. Fare clic su **origine**. Vengono visualizzati i contenitori dei volumi con volumi associati agli snapshot del cloud. Sono idonei al failover solo i contenitori visualizzati. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover. **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
-       ![Selezionare l'origine](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev5.png)
+       ![Seleziona origine](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev5.png)
    2. Fare clic su **Destinazione**. Per i contenitori dei volumi selezionati nel passaggio precedente, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Nell'elenco vengono visualizzati solo i dispositivi che hanno una capacità sufficiente a contenere i contenitori dei volumi di origine.
 
         ![Selezionare la destinazione](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)

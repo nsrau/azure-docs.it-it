@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bdeef537556db94338ed50fcfa6e9d88431f25a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204659"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016259"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -29,9 +29,9 @@ In Windows, il comando seguente consente di installare o aggiornare l'installazi
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-In Linux l'installazione dell'interfaccia della riga di comando può variare a seconda della versione del sistema operativo.  Vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli) riga di comando di Azure per la versione specifica di Linux.
+In Linux l'installazione dell'interfaccia della riga di comando può variare a seconda della versione del sistema operativo.  Vedere [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure per la versione specifica di Linux.
 
-Per creare uno snapshot incrementale, usare [AZ snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il `--incremental` parametro.
+Per creare uno snapshot incrementale, usare [AZ snapshot create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il `--incremental` parametro.
 
 Nell'esempio seguente viene creato uno snapshot incrementale, vengono sostituiti `<yourDesiredSnapShotNameHere>` ,, `<yourResourceGroupNameHere>` `<exampleDiskName>` e `<exampleLocation>` con valori personalizzati, quindi viene eseguito l'esempio:
 

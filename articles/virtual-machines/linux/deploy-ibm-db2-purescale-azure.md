@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016319"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -19,7 +19,7 @@ Questo articolo illustra come distribuire un'[architettura di esempio](ibm-db2-p
 
 Per seguire le procedure di migrazione, vedere gli script di installazione nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Questi script sono basati sull'architettura per un tipico carico di lavoro OLTP (Online Transaction Processing) di medie dimensioni.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 Per distribuire questa architettura, scaricare ed eseguire lo script deploy.sh trovato nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub.
 
@@ -71,7 +71,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 > [!NOTE]
 > Un file di risposta di esempio, DB2server. rsp, è incluso nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Se si usa questo file, è necessario modificarlo in modo che sia compatibile con l'ambiente in uso.
 
-| Nome schermata               | Campo                                        | valore                                                                                                 |
+| Nome schermata               | Campo                                        | Valore                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Schermata iniziale                   |                                              | New Install (Nuova installazione)                                                                                           |
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |

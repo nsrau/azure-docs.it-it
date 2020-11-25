@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: c7b0ea489c1d70ab86d677aad666ea6728fa76b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511618"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017084"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiare le modalità del dispositivo sul dispositivo StorSimple
 
@@ -72,7 +72,7 @@ Se il sistema passa in modalità di ripristino, è necessario contattare il supp
 Per eseguire la manutenzione o installare gli aggiornamenti in modalità manutenzione, è possibile porre il dispositivo StorSimple in modalità di manutenzione (dalla modalità normale). Eseguire le procedure seguenti per attivare o disattivare la modalità di manutenzione.
 
 > [!IMPORTANT]
-> Prima di entrare in modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri effettuando l'accesso a **Impostazioni dispositivo > Integrità hardware ** nel Portale di Azure. Se uno o entrambi i controller non sono integri, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, vedere [Contact supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
+> Prima di entrare in modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri effettuando l'accesso a **Impostazioni dispositivo > Integrità hardware** nel Portale di Azure. Se uno o entrambi i controller non sono integri, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, vedere [Contact supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
  
 
 #### <a name="to-enter-maintenance-mode"></a>Per attivare la modalità di manutenzione

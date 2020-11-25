@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017678"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 
 ## <a name="about-acls"></a>Informazioni sugli ACL
 
-È possibile associare un' [entità di sicurezza](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) a un livello di accesso per file e directory. Queste associazioni vengono acquisite in un *elenco di controllo di accesso (ACL)*. Ogni file e directory nell'account di archiviazione dispone di un elenco di controllo di accesso. Quando un'entità di sicurezza tenta un'operazione su un file o una directory, un controllo ACL determina se l'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) dispone del livello di autorizzazione corretto per eseguire l'operazione.
+È possibile associare un' [entità di sicurezza](../../role-based-access-control/overview.md#security-principal) a un livello di accesso per file e directory. Queste associazioni vengono acquisite in un *elenco di controllo di accesso (ACL)*. Ogni file e directory nell'account di archiviazione dispone di un elenco di controllo di accesso. Quando un'entità di sicurezza tenta un'operazione su un file o una directory, un controllo ACL determina se l'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) dispone del livello di autorizzazione corretto per eseguire l'operazione.
 
 > [!NOTE]
 > Gli ACL si applicano solo alle entità di sicurezza nello stesso tenant e non si applicano agli utenti che usano l'autenticazione con chiave condivisa o firma di accesso condiviso (SAS). Questo perché nessuna identità è associata al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sulle autorizzazioni dell'entità di sicurezza.  
@@ -34,13 +34,13 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 
 | Ambiente | Articolo |
 |--------|-----------|
-|Azure Storage Explorer |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|API REST |[Percorso-aggiornamento](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|API REST |[Percorso-aggiornamento](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Se l'entità di sicurezza è un'entità *servizio* , è importante usare l'ID oggetto dell'entità servizio e non l'ID oggetto della registrazione dell'app correlata. Per ottenere l'ID oggetto dell'entità servizio, aprire l'interfaccia della riga di comando di Azure, quindi usare il comando seguente: `az ad sp show --id <Your App ID> --query objectId` . Assicurarsi di sostituire il `<Your App ID>` segnaposto con l'ID app della registrazione dell'app.
@@ -92,7 +92,8 @@ Nella tabella seguente vengono illustrate le voci ACL necessarie per consentire 
 
 Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `\` ), una sottodirectory denominata **Oregon**, una sottodirectory della directory Oregon denominata **Portland** e un file di testo nella directory Portland denominata **Data.txt**. 
 
-> [! IMPORANT] Questa tabella presuppone che si stiano usando **solo** ACL senza assegnazioni di ruolo di Azure. Per visualizzare una tabella simile che combina il controllo degli accessi in base al ruolo di Azure con ACL, vedere la [tabella delle autorizzazioni: combinazione](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)di controllo degli accessi
+> [!IMPORTANT]
+> Questa tabella presuppone che si stiano usando **solo** ACL senza assegnazioni di ruolo di Azure. Per visualizzare una tabella simile che combina il controllo degli accessi in base al ruolo di Azure con ACL, vedere la [tabella delle autorizzazioni: combinazione](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)di controllo degli accessi
 
 |    Operazione             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -203,7 +204,7 @@ Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di acc
 |--|--|--|
 |utente proprietario|`rwx`|`r-w`|
 |gruppo proprietario|`r-x`|`r--`|
-|Altri|`---`|`---`|
+|Altro|`---`|`---`|
 
 File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione. 
 
@@ -330,7 +331,7 @@ Quando si dispone dell'OID corretto per l'entità servizio, passare alla pagina 
 
 No. Un contenitore non dispone di un ACL. È tuttavia possibile impostare l'ACL della directory radice del contenitore. Ogni contenitore dispone di una directory radice e condivide lo stesso nome del contenitore. Se, ad esempio, il contenitore è denominato `my-container` , la directory radice sarà denominata `myContainer/` . 
 
-L'API REST di archiviazione di Azure contiene un'operazione denominata [set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), ma tale operazione non può essere usata per impostare l'ACL di un contenitore o la directory radice di un contenitore. Questa operazione viene invece usata per indicare se è possibile [accedere pubblicamente](anonymous-read-access-configure.md)ai BLOB in un contenitore. 
+L'API REST di archiviazione di Azure contiene un'operazione denominata [set Container ACL](/rest/api/storageservices/set-container-acl), ma tale operazione non può essere usata per impostare l'ACL di un contenitore o la directory radice di un contenitore. Questa operazione viene invece usata per indicare se è possibile [accedere pubblicamente](anonymous-read-access-configure.md)ai BLOB in un contenitore. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Dove è possibile reperire altre informazioni sul modello di controllo di accesso POSIX?
 
@@ -343,6 +344,6 @@ L'API REST di archiviazione di Azure contiene un'operazione denominata [set Cont
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Modello di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

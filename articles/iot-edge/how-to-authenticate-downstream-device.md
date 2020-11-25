@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151383"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016999"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -144,7 +144,7 @@ Questa sezione si basa sulle istruzioni illustrate nell'articolo relativo all'hu
 
 2. Seguire le istruzioni riportate nella sezione [Registrare i certificati della CA X.509 nell'hub IoT](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) dell'articolo *Configurare la sicurezza X.509 nell'hub IoT di Azure*. In tale sezione si eseguono i passaggi seguenti:
 
-   1. Aggiornare un certificato CA radice. Se si usano i certificati demo, la CA radice è ** \<path> /certs/Azure-IOT-Test-only.root.ca.cert.pem**.
+   1. Aggiornare un certificato CA radice. Se si usano i certificati demo, la CA radice è **\<path> /certs/Azure-IOT-Test-only.root.ca.cert.pem**.
 
    2. Verificare di possedere il certificato CA radice.
 

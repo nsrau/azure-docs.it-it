@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017407"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Creare e gestire gli ambiti di crittografia (anteprima)
 
@@ -179,7 +179,7 @@ Per informazioni su come configurare la crittografia di archiviazione di Azure c
 
 Per visualizzare gli ambiti di crittografia per un account di archiviazione nel portale di Azure, passare all'impostazione **ambiti di crittografia** per l'account di archiviazione. Da questo riquadro è possibile abilitare o disabilitare un ambito di crittografia o modificare la chiave per un ambito di crittografia.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot che illustra come creare un ambito di crittografia in portale di Azure":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot che mostra l'elenco degli ambiti di crittografia in portale di Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Per creare un contenitore con un ambito di crittografia predefinito nel portale 
 1. Nell'elenco a discesa **ambito crittografia** selezionare l'ambito di crittografia predefinito per il contenitore.
 1. Per richiedere che tutti i BLOB nel contenitore usino l'ambito di crittografia predefinito, selezionare la casella di controllo per **usare questo ambito di crittografia per tutti i BLOB nel contenitore**. Se questa casella di controllo è selezionata, un singolo BLOB nel contenitore non può eseguire l'override dell'ambito di crittografia predefinito.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot che illustra come creare un ambito di crittografia in portale di Azure":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot che illustra il contenitore con ambito di crittografia predefinito":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Per creare un contenitore con un ambito di crittografia predefinito con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Storage container create](/cli/azure/storage/container#az-storage-container-create) , specificando l'ambito per il `--default-encryption-scope` parametro. Per forzare tutti i BLOB in un contenitore a usare l'ambito predefinito del contenitore, impostare il `--prevent-encryption-scope-override` parametro su `true` .
 
-Nell'esempio seguente viene usato l'account Azure AD per autorizzare l'operazione di creazione del contenitore. È anche possibile usare la chiave di accesso dell'account. Per altre informazioni, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md).
+Nell'esempio seguente viene usato l'account Azure AD per autorizzare l'operazione di creazione del contenitore. È anche possibile usare la chiave di accesso dell'account. Per altre informazioni, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -277,7 +277,7 @@ Per caricare un BLOB con un ambito di crittografia specificato nella portale di 
 1. Individuare la sezione elenco a discesa **ambito di crittografia** . Per impostazione predefinita, il BLOB viene creato con l'ambito di crittografia predefinito per il contenitore, se ne è stato specificato uno. Se il contenitore richiede che i BLOB usino l'ambito di crittografia predefinito, questa sezione è disabilitata.
 1. Per specificare un ambito diverso per il BLOB da caricare, selezionare **Scegli un ambito esistente**, quindi selezionare l'ambito desiderato dall'elenco a discesa.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot che illustra come creare un ambito di crittografia in portale di Azure":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot che illustra come caricare un BLOB con un ambito di crittografia":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

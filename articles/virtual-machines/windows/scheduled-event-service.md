@@ -8,11 +8,11 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999021"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015520"
 ---
 # <a name="monitoring-scheduled-events"></a>Monitoraggio di Eventi pianificati
 
@@ -165,7 +165,7 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
 1. In Azioni digitare **Email** per **NOME AZIONE** quindi selezionare **Email/SMS/Push/Voice** (E-mail/SMS/Push/Voce). Viene visualizzata la pagina **Email/SMS/Push/Voice (Posta elettronica/SMS/Push/Voce)** .
 1. Selezionare **Email**, digitare l'indirizzo di posta elettronica, quindi selezionare **OK**.
 1. Nella pagina **Aggiungi gruppo di azioni** selezionare **OK**. 
-1. Nella pagina **Crea regola** in **DETTAGLI AVVISO** digitare *myAlert* come **Nome regola di avviso**, quindi digitare *regola di avviso posta elettronica*come **descrizione**.
+1. Nella pagina **Crea regola** in **DETTAGLI AVVISO** digitare *myAlert* come **Nome regola di avviso**, quindi digitare *regola di avviso posta elettronica* come **descrizione**.
 1. Al termine selezionare **Crea regola di avviso**.
 1. Riavviare una delle macchine virtuali nel set di disponibilità. Entro pochi minuti, si dovrebbe ricevere un messaggio di posta elettronica in cui è stato attivato l'avviso.
 

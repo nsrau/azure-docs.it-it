@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961834"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016846"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -60,7 +60,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
    
    1. Nel campo **Invia notifica tramite posta elettronica** selezionare **SÌ**.
    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
-   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato * \@ Somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
+   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *\@ Somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
       
 3. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
 
@@ -99,10 +99,10 @@ Quando si fa clic su **Cancella**, è possibile fornire commenti sull'avviso e s
 
 Può risultare più efficiente eseguire i report sugli avvisi in modo da poterli esaminare e cancellare in gruppi. Inoltre, nel pannello **Avvisi** possono essere visualizzati 250 avvisi al massimo. Se è stato superato il numero di avvisi, non tutti gli avvisi verranno inclusi nella visualizzazione predefinita. È possibile combinare i campi seguenti per personalizzare quali avvisi vengono visualizzati:
 
-* **Stato**: è possibile visualizzare gli avvisi attivi o cancellati.******** Gli avvisi attivi vengono ancora attivati nel sistema, mentre gli avvisi deselezionati sono stati cancellati manualmente da un amministratore o a livello di programmazione, in quanto la condizione di avviso è stata aggiornata dal sistema con nuove informazioni.
+* **Stato**: è possibile visualizzare gli avvisi attivi o cancellati. Gli avvisi attivi vengono ancora attivati nel sistema, mentre gli avvisi deselezionati sono stati cancellati manualmente da un amministratore o a livello di programmazione, in quanto la condizione di avviso è stata aggiornata dal sistema con nuove informazioni.
 * **Gravità**: è possibile visualizzare avvisi di tutti i livelli di gravità (critico, avviso, informazione) o solo di un livello di gravità specifico, ad esempio solo avvisi critici.
 * **Origine** : è possibile visualizzare gli avvisi generati da tutte le origini o limitare gli avvisi a quelli che provengono dal servizio oppure da uno o tutti i dispositivi.
-* **Intervallo di tempo**: se si specificano le date di inizio e di fine******** e i timestamp, è possibile cercare gli avvisi durante il periodo di tempo desiderato.
+* **Intervallo di tempo**: se si specificano le date di inizio e di fine e i timestamp, è possibile cercare gli avvisi durante il periodo di tempo desiderato.
 
 ![Elenco degli avvisi](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
@@ -124,7 +124,7 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 ### <a name="cloud-connectivity-alerts"></a>Avvisi di connettività cloud
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Non è possibile stabilire la connessione a <*nome credenziali cloud*>. |Impossibile connettersi all'account di archiviazione. |Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet `Test-HcsmConnection` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, usare il cmdlet `Test-HcsStorageAccountCredential` per determinare se sono presenti problemi che possono essere risolti.<ul><li>Verificare le impostazioni di rete.</li><li>Verificare le credenziali dell'account di archiviazione.</li></ul> |
 | Nessun heartbeat ricevuto dal dispositivo negli ultimi <*numero*> minuti. |Impossibile connettersi al dispositivo. |Potrebbe essersi verificato un problema di connettività con il dispositivo. Usare il cmdlet `Test-HcsmConnection` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema o contattare l'amministratore di rete. |
@@ -143,7 +143,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="cluster-alerts"></a>Avvisi di cluster
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Failover del dispositivo su <*nome dispositivo*>. |Il dispositivo è in modalità di manutenzione. |Failover del dispositivo a causa dell'ingresso o dell'uscita dalla modalità manutenzione. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
 | Failover del dispositivo su <*nome dispositivo*>. |Il software o il firmware del dispositivo è stato appena aggiornato. |Failover del cluster a causa di un aggiornamento. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
@@ -157,20 +157,20 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="disaster-recovery-alerts"></a>Avvisi di ripristino di emergenza
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi. |Incoerenza dei dati rilevata dopo il ripristino di emergenza. |I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <*nome dispositivo*> da Gestione dispositivi StorSimple per avviare il processo di sincronizzazione. Usare l'interfaccia di Windows PowerShell per StorSimple per eseguire il cmdlet `Restore-HcsmEncryptedServiceData` sul dispositivo <*nome dispositivo*>, fornire la vecchia password come input per questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` per aggiornare la chiave DEK del servizio. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 
 ### <a name="hardware-alerts"></a>Avvisi di hardware
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Lo stato del componente hardware <*ID componente*> è segnalato come <*stato*>. | |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Malfunzionamento del controller passivo. |Il controller passivo (secondario) non funziona. |Il dispositivo è operativo, ma uno dei controller non funziona correttamente. Provare a riavviare il controller. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="job-failure-alerts"></a>Avvisi di errore di processo
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Backup di <*ID gruppo di volumi di origine*> non riuscito. |Il processo di backup non è riuscito. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | Clonazione di <*ID elemento backup di origine*> a <*numeri di serie volume di destinazione*> non riuscita. |Il processo di clonazione non è riuscito. |Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di clonazione. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi. |
@@ -178,7 +178,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="locally-pinned-volume-alerts"></a>Avvisi sul volume aggiunto in locale
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del volume locale <*nome volume*> non riuscita. |Il processo di creazione del volume non è riuscito. <*Messaggio di errore corrispondente al codice di errore non riuscito*>. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di creazione dello spazio. Per i volumi aggiunti in locale viene effettuato il thick provisioning e il processo di creazione dello spazio comporta la distribuzione dei volumi a livelli nel cloud. Se non esistono problemi di connettività, è possibile che lo spazio locale sul dispositivo sia stato esaurito. Determinare se lo spazio sul dispositivo è sufficiente prima di riprovare questa operazione. |
 | Espansione del volume locale <*nome volume*> non riuscita. |Il processo di modifica del volume non è riuscito. <*Messaggio di errore corrispondente al codice di errore non riuscito*>. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di espansione del volume. Per i volumi aggiunti in locale viene effettuato il thick provisioning e il processo di estensione dello spazio esistente comporta la distribuzione dei volumi a livelli nel cloud. Se non esistono problemi di connettività, è possibile che lo spazio locale sul dispositivo sia stato esaurito. Determinare se lo spazio sul dispositivo è sufficiente prima di riprovare questa operazione. |
@@ -190,7 +190,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="networking-alerts"></a>Avvisi di rete
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete ' DATA0' sul dispositivo *\<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
@@ -199,14 +199,14 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.|
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | La sessione del supporto tecnico Microsoft è stata avviata. |Sessione di supporto per l'accesso di terze parti. |Verificare che l'accesso sia autorizzato. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | La password per <*elemento*> scadrà tra <*periodo di tempo*>. |La scadenza della password è prossima. |Modificare la password prima della scadenza. |
@@ -216,13 +216,13 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="support-package-alerts"></a>Avvisi del pacchetto per il supporto
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del pacchetto per il supporto non riuscita. |StorSimple: impossibile generare il pacchetto. |Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 
 ### <a name="enclosure-environment-alerts"></a>Avvisi ambiente enclosure
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Il sensore di temperatura ambiente del componente hardware segnala lo stato come non riuscito.  | Tipo enclosure: enclosure principale | Questo avviso viene generato quando l'ambiente esterno alla temperatura intorno a StorSimple è superiore a un intervallo accettabile. Controllare la temperatura all'esterno dell'ambiente o il flusso d'aria dallo sfiato AC nel Data Center. Quando la temperatura torna al normale, l'avviso viene cancellato automaticamente dopo che è trascorso del tempo. Se il problema persiste, contattare il supporto tecnico Microsoft.   |
 

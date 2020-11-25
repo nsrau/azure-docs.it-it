@@ -4,11 +4,11 @@ description: Panoramica degli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093668"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017322"
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
@@ -18,9 +18,9 @@ In questo articolo vengono descritte le funzionalità di un insieme di credenzia
 
 - **Monitoraggio centralizzato per l'ambiente IT ibrido**: con gli insiemi di credenziali di Servizi di ripristino, è possibile monitorare non solo le [macchine virtuali IaaS di Azure](backup-azure-manage-vms.md) ma anche le [risorse locali](backup-azure-manage-windows-server.md#manage-backup-items) da un portale centrale. [Scopri di più](backup-azure-monitoring-built-in-monitor.md)
 
-- **Controllo degli accessi in base al ruolo di Azure (RBAC**di Azure): il controllo degli accessi in base al ruolo di Azure offre un controllo di gestione degli accessi [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali dei servizi di ripristino sono compatibili con il controllo degli accessi in base al ruolo di Azure, che limita l'accesso al set di ruoli utente definito. [Scopri di più](backup-rbac-rs-vault.md)
+- **Controllo degli accessi in base al ruolo di Azure (RBAC** di Azure): il controllo degli accessi in base al ruolo di Azure offre un controllo di gestione degli accessi [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali dei servizi di ripristino sono compatibili con il controllo degli accessi in base al ruolo di Azure, che limita l'accesso al set di ruoli utente definito. [Scopri di più](backup-rbac-rs-vault.md)
 
-- **Eliminazione**temporanea: con l'eliminazione temporanea, anche se un attore malintenzionato Elimina un backup (o i dati di backup vengono accidentalmente eliminati), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione per i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo. [Altre informazioni](backup-azure-security-feature-cloud.md)
+- **Eliminazione** temporanea: con l'eliminazione temporanea, anche se un attore malintenzionato Elimina un backup (o i dati di backup vengono accidentalmente eliminati), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione per i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo. [Altre informazioni](backup-azure-security-feature-cloud.md)
 
 - **Ripristino tra più aree**: il ripristino tra più aree (CRR) consente di ripristinare macchine virtuali di Azure in un'area secondaria, ovvero un'area abbinata ad Azure. Se Azure dichiara un'emergenza nell'area primaria, i dati replicati nell'area secondaria sono disponibili per il ripristino nell'area secondaria per attenuare l'emergenza del tempo di inattività reale nell'area primaria per il proprio ambiente. [Altre informazioni](backup-azure-arm-restore-vms.md#cross-region-restore)
 

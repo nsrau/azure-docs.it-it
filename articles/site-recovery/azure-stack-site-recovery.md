@@ -4,11 +4,11 @@ description: Informazioni su come configurare il ripristino di emergenza in Azur
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370526"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016906"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -34,7 +34,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Quando la procedura è completata, è quindi possibile eseguire un failover completo in Azure nel modo e nel momento necessari.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ![Il diagramma Mostra gli insiemi di credenziali dei servizi di ripristino per due tenant in cloud associati a sottoscrizioni tenant sia in un'infrastruttura Azure Stack comune.](./media/azure-stack-site-recovery/architecture.png)
 
@@ -186,13 +186,13 @@ Installare il server di configurazione:
 > [!NOTE]
 > Il server di configurazione può essere installato anche dalla riga di comando. [Altre informazioni](physical-manage-configuration-server.md#install-from-the-command-line)
 >
-> Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per eseguire immediatamente l'aggiornamento, selezionare server di **configurazione**  >  **_nome server_*_ > _* Refresh server**.
+> Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per eseguire immediatamente l'aggiornamento, selezionare **Server di configurazione** > **_nome server_ *_ > _* Aggiorna server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passaggio 4: Configurare l'ambiente di destinazione
 
 Selezionare e verificare le risorse di destinazione.
 
-1. In **preparare l'infrastruttura**  >  **destinazione**selezionare la sottoscrizione di Azure che si vuole usare.
+1. In **preparare l'infrastruttura**  >  **destinazione** selezionare la sottoscrizione di Azure che si vuole usare.
 2. Specificare il modello di distribuzione di destinazione.
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Se non li trova, per completare la procedura guidata è necessario creare almeno un account di archiviazione e una rete virtuale.
 
@@ -237,8 +237,8 @@ Verificare di aver completato tutte le attività nel [Passaggio 1: Preparare il 
     - Usare l'indirizzo IP interno del computer.
     - Se si specifica l'indirizzo IP pubblico, la replica potrebbe non funzionare come previsto.
 
-10. In **Proprietà**  >  **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
-11. In **Impostazioni replica**  >  **configurare le impostazioni di replica**verificare che siano selezionati i criteri di replica corretti.
+10. In **Proprietà**  >  **Configura proprietà** selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+11. In **Impostazioni replica**  >  **configurare le impostazioni di replica** verificare che siano selezionati i criteri di replica corretti.
 12. Fare clic su **Abilita la replica**.
 13. Tenere traccia dello stato di avanzamento del processo di **Abilitazione della protezione** in **Impostazioni**  >  **processi**  >  **Site Recovery processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
@@ -300,7 +300,7 @@ Prima di eseguire un failover, se si intende connettersi al computer in Azure do
 Eseguire quindi un failover come indicato di seguito:
 
 
-1. In **Impostazioni**  >  **elementi replicati**fare clic sul computer > **failover**.
+1. In **Impostazioni**  >  **elementi replicati** fare clic sul computer > **failover**.
 2. Selezionare il punto di ripristino da utilizzare.
 3. In **Failover di test** selezionare la rete Azure di destinazione.
 4. Selezionare **Arrestare la macchina prima di iniziare il failover**. Con questa impostazione, Site Recovery tenta di arrestare la macchina di origine prima di avviare il failover. Il failover tuttavia continua anche se l'arresto ha esito negativo.
@@ -316,7 +316,7 @@ Eseguire quindi un failover come indicato di seguito:
 
 Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, seguire i passaggi elencati [qui](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 In questo articolo le macchine virtuali di Azure Stack sono state replicate in Azure. Dopo che la replica è stata completata, è stato eseguito un ripristino di emergenza per verificare che il failover in Azure funzioni come previsto. L'articolo contiene anche i passaggi per eseguire un failover completo in Azure e per eseguire il failback in Azure Stack.
 

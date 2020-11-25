@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236687"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017237"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usare il firewall di Azure per controllare il traffico destinato a un endpoint privato
 
@@ -55,7 +55,7 @@ Per ulteriori informazioni sugli addebiti relativi alle connessioni con reti vir
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenario 2: architettura Hub e spoke-rete virtuale condivisa per endpoint privati e macchine virtuali
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Rete virtuale dedicata per endpoint privati" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Endpoint privati e macchine virtuali nella stessa rete virtuale" border="true":::
 
 Questo scenario viene implementato nei casi seguenti:
 
@@ -78,7 +78,7 @@ Per ulteriori informazioni sugli addebiti relativi alle connessioni con reti vir
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenario 3: rete virtuale singola
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rete virtuale dedicata per endpoint privati" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rete virtuale singola" border="true":::
 
 Esistono alcune limitazioni all'implementazione: una migrazione a un'architettura Hub e spoke non è possibile. Si applicano le stesse considerazioni dello scenario 2. In questo scenario, gli addebiti per il peering di rete virtuale non sono applicabili.
 
@@ -87,7 +87,7 @@ Esistono alcune limitazioni all'implementazione: una migrazione a un'architettur
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenario 4: traffico locale verso endpoint privati
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Rete virtuale dedicata per endpoint privati" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Traffico locale verso endpoint privati" border="true":::
 
 Questa architettura può essere implementata se è stata configurata la connettività con la rete locale usando: 
 
@@ -106,7 +106,7 @@ Si applicano le stesse considerazioni illustrate nello scenario 2. In questo sce
 * Una sottoscrizione di Azure.
 * Un'area di lavoro Log Analytics.  
 
-Vedere [creare un'area di lavoro log Analytics nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) per creare un'area di lavoro se non ne è già presente una nella sottoscrizione.
+Vedere [creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md) per creare un'area di lavoro se non ne è già presente una nella sottoscrizione.
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -228,7 +228,7 @@ Sostituire i parametri seguenti nei passaggi con le informazioni riportate di se
     | Scegliere una rete virtuale    |    Selezionare **Usa esistente**.    |
     | Rete virtuale    |    Selezionare **myAzFwVNet**.    |
     | Indirizzo IP pubblico    |    Selezionare **Aggiungi nuovo** e in nome immettere **webfirewall-IP**.    |
-    | Tunneling forzato    | Lasciare **disabilitato**il valore predefinito.    |
+    | Tunneling forzato    | Lasciare **disabilitato** il valore predefinito.    |
     |||
 5. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
 
@@ -246,7 +246,7 @@ In questa sezione vengono abilitati i log del firewall.
 
 4. Selezionare **+ Aggiungi** impostazioni di diagnostica nelle impostazioni di diagnostica.
 
-5. In **impostazioni di diagnostica**immettere o selezionare queste informazioni:
+5. In **impostazioni di diagnostica** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
@@ -265,7 +265,7 @@ In questa sezione viene creato un database SQL privato.
 
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **database**  >  **SQL database**.
 
-2. In **create SQL database-nozioni di base**immettere o selezionare queste informazioni:
+2. In **create SQL database-nozioni di base** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -273,7 +273,7 @@ In questa sezione viene creato un database SQL privato.
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo di risorse è stato creato nella sezione precedente.|
     | **Dettagli database** |  |
-    | Nome database  | Immettere **mydatabase**.  |
+    | Nome del database  | Immettere **mydatabase**.  |
     | Server | Selezionare **Crea nuovo** e immettere le informazioni riportate di seguito.    |
     | Nome server | Immettere **MYDBSERVER**. Se viene accettato questo nome, immettere un nome univoco.   |
     | Accesso amministratore server | Immettere un nome a scelta. |
@@ -288,7 +288,7 @@ In questa sezione viene creato un database SQL privato.
 
 4. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
-## <a name="create-private-endpoint"></a>Crea endpoint privato
+## <a name="create-private-endpoint"></a>Creare un endpoint privato
 
 In questa sezione viene creato un endpoint privato per il database SQL di Azure nella sezione precedente.
 
@@ -300,7 +300,7 @@ In questa sezione viene creato un endpoint privato per il database SQL di Azure 
 
 4. Selezionare **+ Endpoint privato**.
 
-5. In **Crea un endpoint privato**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
+5. In **Crea un endpoint privato** immettere o selezionare queste informazioni nella scheda **nozioni di base** :
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -343,7 +343,7 @@ In questa sezione viene creato un endpoint privato per il database SQL di Azure 
 
 12. Dopo aver creato l'endpoint, selezionare **firewall e reti virtuali** in **sicurezza**.
 
-13. In **firewall e reti virtuali**selezionare **Sì** accanto a Consenti ai **Servizi e alle risorse di Azure di accedere al server**.
+13. In **firewall e reti virtuali** selezionare **Sì** accanto a Consenti ai **Servizi e alle risorse di Azure di accedere al server**.
 
 14. Selezionare **Salva**.
 
@@ -361,7 +361,7 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | ------- | ----- |
     | Nome del peering da myAzFwVNet a rete virtuale remota | Immettere **myAzFwVNet-myVMVNet**. |
     | **Dettagli peer** |  |
-    | Modello di distribuzione della rete virtuale  | Lasciare la **Gestione risorse**predefinita.  |
+    | Modello di distribuzione della rete virtuale  | Lasciare la **Gestione risorse** predefinita.  |
     | Conosco l'ID della risorsa | lasciare la casella deselezionata.    |
     | Subscription | Selezionare la propria sottoscrizione.    |
     | Rete virtuale | Selezionare **myVMVNet**. |
@@ -371,8 +371,8 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Consenti accesso alla rete virtuale da myAzFwVNet a rete virtuale remota | Lasciare il valore predefinito, **Abilitata**.    |
     | Consenti accesso alla rete virtuale da una rete virtuale remota a myAzFwVNet    | Lasciare il valore predefinito, **Abilitata**.    |
     | **Configurare le impostazioni del traffico con inoltri** | |
-    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Enabled**. |
-    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Enabled**. |
+    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Abilitato**. |
+    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Abilitato**. |
     | **Configurare le impostazioni di transito del gateway** | |
     | Consenti transito gateway | Lasciare la casella deselezionata |
     |||
@@ -387,7 +387,7 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | ------- | ----- |
     | Nome del peering da myAzFwVNet a rete virtuale remota | Immettere **myAzFwVNet-myPEVNet**. |
     | **Dettagli peer** |  |
-    | Modello di distribuzione della rete virtuale  | Lasciare la **Gestione risorse**predefinita.  |
+    | Modello di distribuzione della rete virtuale  | Lasciare la **Gestione risorse** predefinita.  |
     | Conosco l'ID della risorsa | lasciare la casella deselezionata.    |
     | Subscription | Selezionare la propria sottoscrizione.    |
     | Rete virtuale | Selezionare **myPEVNet**. |
@@ -397,8 +397,8 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Consenti accesso alla rete virtuale da myAzFwVNet a rete virtuale remota | Lasciare il valore predefinito, **Abilitata**.    |
     | Consenti accesso alla rete virtuale da una rete virtuale remota a myAzFwVNet    | Lasciare il valore predefinito, **Abilitata**.    |
     | **Configurare le impostazioni del traffico con inoltri** | |
-    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Enabled**. |
-    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Enabled**. |
+    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Abilitato**. |
+    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Abilitato**. |
     | **Configurare le impostazioni di transito del gateway** | |
     | Consenti transito gateway | Lasciare la casella deselezionata |
 
@@ -462,12 +462,12 @@ Questa regola consente la comunicazione attraverso il firewall creato nei passag
     | **Regole** |  |
     | **Tag FQDN** | |
     | Nome  | Lasciare vuoto.  |
-    | Tipo di origine | Lasciare l' **indirizzo IP**predefinito.    |
+    | Tipo di origine | Lasciare l' **indirizzo IP** predefinito.    |
     | Source (Sorgente) | Lasciare vuoto. |
     | Tag FQDN | Lasciare selezionata l'opzione predefinita **0**. |
     | **FQDN di destinazione** | |
     | Nome | Immettere **SQLPrivateEndpoint**.    |
-    | Tipo di origine | Lasciare l' **indirizzo IP**predefinito. |
+    | Tipo di origine | Lasciare l' **indirizzo IP** predefinito. |
     | Source (Sorgente) | Immettere **10.1.0.0/16**. |
     | Protocollo: porta | Immettere **MSSQL: 1433**. |
     | FQDN di destinazione | Immettere **MYDBSERVER.database.Windows.NET**. |
@@ -481,7 +481,7 @@ Non è stato creato un peering di rete virtuale direttamente tra le reti virtual
 
 In questa sezione verrà creata una tabella di route con una route personalizzata. 
 
-La route invia il traffico dalla subnet **myVM** allo spazio degli indirizzi della rete virtuale **MyPEVNet**tramite il firewall di Azure.
+La route invia il traffico dalla subnet **myVM** allo spazio degli indirizzi della rete virtuale **MyPEVNet** tramite il firewall di Azure.
 
 1. Nel menu del portale di Azure o nella **home page** selezionare **Crea una risorsa**.
 
@@ -575,7 +575,7 @@ In questa sezione si connetterà privatamente al database SQL usando l'endpoint 
     Address: 10.2.0.4
     ```
 
-2. Installare [SQL Server gli strumenti da riga di comando](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Installare [SQL Server gli strumenti da riga di comando](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
 3. Eseguire il comando seguente per connettersi al SQL Server. Usare l'amministratore del server e la password definiti al momento della creazione del SQL Server nei passaggi precedenti.
 
@@ -604,7 +604,7 @@ In questa sezione si connetterà privatamente al database SQL usando l'endpoint 
 
 6. Nell'output della query di log verificare che **MYDBSERVER.database.Windows.NET** sia elencato in **FQDN** e che **SQLPrivateEndpoint** sia elencato in **RuleCollection**.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Al termine dell'uso delle risorse, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 

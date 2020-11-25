@@ -4,11 +4,11 @@ description: Questo articolo fornisce informazioni su come aggiungere un endpoin
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015580"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da reti virtuali specifiche 
 
@@ -55,14 +55,14 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 
     ![Opzione Firewall - Tutte le reti selezionata](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Per limitare l'accesso a reti specifiche, selezionare l'opzione **reti selezionate** nella parte superiore della pagina, se non è già selezionata.
-2. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente** _. Selezionare _ *+ Crea nuova rete virtuale* * se si vuole creare un nuovo VNet. 
+2. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente** _. Selezionare _ *+ Crea nuova rete virtuale** se si vuole creare un nuovo VNet. 
 
     ![aggiungi rete virtuale esistente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Selezionare la rete virtuale dall'elenco di reti virtuali e quindi selezionare la **subnet**. Prima di aggiungere la rete virtuale all'elenco, è necessario abilitare l'endpoint del servizio. Se l'endpoint del servizio non è abilitato, il portale richiederà di abilitarlo.
    
    ![Selezionare una subnet](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
 
-4. Dopo che l'endpoint del servizio per la subnet è stato abilitato per **Microsoft. EventHub** , dovrebbe essere visualizzato il messaggio seguente. Selezionare **Aggiungi** nella parte inferiore della pagina per aggiungere la rete. 
+4. Dopo che l'endpoint del servizio per la subnet è stato abilitato per **Microsoft. EventHub**, dovrebbe essere visualizzato il messaggio seguente. Selezionare **Aggiungi** nella parte inferiore della pagina per aggiungere la rete. 
 
     ![seleziona subnet e abilita endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/subnet-service-endpoint-enabled.png)
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707855"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015929"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurare un indirizzo IP privato per una macchina virtuale usando il portale di Azure
 
@@ -49,7 +49,7 @@ Per creare una VM denominata *DNS01* nella subnet *frontend* di una rete virtual
 2. Selezionare **calcolo**  >  **macchina virtuale**.
 
     ![Creare una macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. In **nozioni di base**specificare i valori per gli elementi, come descritto nella tabella seguente. Quindi selezionare **Avanti &nbsp; : &nbsp; dischi** e quindi **Avanti &nbsp; : &nbsp; rete**.
+3. In **nozioni di base** specificare i valori per gli elementi, come descritto nella tabella seguente. Quindi selezionare **Avanti &nbsp; : &nbsp; dischi** e quindi **Avanti &nbsp; : &nbsp; rete**.
 
     | Elemento | valore |
     | --- | --- |
@@ -58,13 +58,13 @@ Per creare una VM denominata *DNS01* nella subnet *frontend* di una rete virtual
     | **Nome macchina virtuale** | *DNS01* |
     | **Area** | **(Stati Uniti) Stati Uniti orientali** |
     | **Immagine** | **Windows Server 2019 Datacenter** |
-    | **Dimensione** | **Dimensioni della macchina virtuale** di **B1ls**, **offerta** **standard** |
+    | **Size** | **Dimensioni della macchina virtuale** di **B1ls**, **offerta** **standard** |
     | **Nome utente** | Nome utente dell'account amministratore |
     | **Password** | Password per il nome utente dell'account amministratore |
     | **Conferma password** | Nuovamente la password |
 
     ![Scheda nozioni di base, creare una macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-basics.png)
-4. In **rete**specificare i valori per gli elementi, come descritto nella tabella seguente, quindi selezionare **Avanti**.
+4. In **rete** specificare i valori per gli elementi, come descritto nella tabella seguente, quindi selezionare **Avanti**.
 
     | Elemento | valore |
     | --- | --- |
@@ -72,10 +72,10 @@ Per creare una VM denominata *DNS01* nella subnet *frontend* di una rete virtual
     | **Subnet** | **FrontEnd** |
 
     ![Scheda rete, creare una macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. In **gestione**in **account di archiviazione di diagnostica**scegliere **vnetstorage**. Se l'account di archiviazione non viene visualizzato nell'elenco, selezionare **Crea nuovo**, specificare il **nome** *Vnetstorage*e fare clic su **OK**. Infine, selezionare **verifica &nbsp; + &nbsp; creazione**.
+5. In **gestione** in **account di archiviazione di diagnostica** scegliere **vnetstorage**. Se l'account di archiviazione non viene visualizzato nell'elenco, selezionare **Crea nuovo**, specificare il **nome** *Vnetstorage* e fare clic su **OK**. Infine, selezionare **verifica &nbsp; + &nbsp; creazione**.
 
     ![Scheda gestione, creare una macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
-6. In **Review + create**esaminare le informazioni generali e quindi selezionare Create ( **Crea**).
+6. In **Review + create** esaminare le informazioni generali e quindi selezionare Create ( **Crea**).
 
     ![Esaminare + creare la scheda, creare una macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-review-create.png)
 
@@ -94,11 +94,11 @@ Per visualizzare le informazioni sull'indirizzo IP privato per la nuova macchina
 
     ![Elenco di macchine virtuali, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/virtual-machine-list.png)
 
-3. Scegliere **rete**e selezionare l'unica interfaccia di rete elencata.
+3. Scegliere **rete** e selezionare l'unica interfaccia di rete elencata.
 
     ![Interfaccia di rete, rete, macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/networking-network-interface.png)
 
-4. Scegliere **configurazioni IP**e selezionare la configurazione IP elencata nella tabella.
+4. Scegliere **configurazioni IP** e selezionare la configurazione IP elencata nella tabella.
 
     ![Configurazione IP, interfaccia di rete, rete, macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/network-interface-ip-configurations.png)
 
@@ -110,7 +110,7 @@ Per visualizzare le informazioni sull'indirizzo IP privato per la nuova macchina
 Per aggiungere un indirizzo IP privato statico alla nuova VM:
 
 1. Nella pagina Configurazione IP impostare l'assegnazione per l'indirizzo IP privato su **statico**.
-2. Cambiare l' **indirizzo IP** privato in *192.168.1.101*e quindi selezionare **Save (Salva**).
+2. Cambiare l' **indirizzo IP** privato in *192.168.1.101* e quindi selezionare **Save (Salva**).
    
     ![Assegnazione dinamica o statica, nuove impostazioni dell'indirizzo IP privato, configurazione IP, interfaccia di rete, rete, macchina virtuale, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-new.png)
 
@@ -120,7 +120,7 @@ Per aggiungere un indirizzo IP privato statico alla nuova VM:
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Rimuovere un indirizzo IP statico privato da una macchina virtuale
 Per rimuovere l'indirizzo IP statico privato dalla macchina virtuale:
 
-Nella pagina Configurazione IP impostare l'assegnazione per l'indirizzo IP privato su **dinamico**e quindi selezionare **Salva**.
+Nella pagina Configurazione IP impostare l'assegnazione per l'indirizzo IP privato su **dinamico** e quindi selezionare **Salva**.
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Impostare gli indirizzi IP all'interno del sistema operativo
 

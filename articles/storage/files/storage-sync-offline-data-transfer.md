@@ -8,11 +8,11 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630227"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017628"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure DataBox
 È possibile eseguire la migrazione dei dati in blocco a Sincronizzazione file di Azure in due modi:
@@ -81,7 +81,7 @@ Quando il server completa la sincronizzazione iniziale dello spazio dei nomi, i 
 
 A questo punto è possibile eliminare la condivisione di staging per ridurre i costi:
 
-1. Quando lo stato è **completato** , nel pannello **proprietà endpoint server** selezionare **Disabilita trasferimento dati offline**.
+1. Quando lo stato è **completato**, nel pannello **proprietà endpoint server** selezionare **Disabilita trasferimento dati offline**.
 2. Provare a eliminare la condivisione di staging per ridurre i costi. La condivisione di staging probabilmente non contiene ACL di file e cartelle, quindi è improbabile che sia utile. Per gli scopi temporizzati del backup, creare uno snapshot reale [della condivisione file di Azure di sincronizzazione](storage-snapshots-files.md). È possibile [configurare backup di Azure per eseguire snapshot]( ../../backup/backup-afs.md) in base a una pianificazione.
 
 Disabilitare la modalità di trasferimento dati offline solo quando lo stato è **completato** o quando si desidera annullare a causa di una configurazione errata. Se si disabilita la modalità durante una distribuzione, i file inizieranno a essere caricati dal server anche se la condivisione di gestione temporanea è ancora disponibile.

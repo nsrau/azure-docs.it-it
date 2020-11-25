@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
 ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539754"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016133"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -162,7 +162,7 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **CentOS-based 7.4 HPC** : i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
+* **CentOS-based 7.4 HPC**: i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
 
 * **HPC basato su CentOS** -CentOS-HPC 7,6 e versioni successive (per SKU in cui InfiniBand è supportato su SR-IOV). Queste immagini hanno Mellanox OFED e le librerie MPI pre-installate.
 

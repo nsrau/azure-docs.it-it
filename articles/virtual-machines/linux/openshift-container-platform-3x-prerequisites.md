@@ -10,11 +10,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368184"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016030"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift container Platform 3,11 in Azure
 
@@ -138,7 +138,7 @@ Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizi
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Prerequisiti applicabili solo al modello di Gestione risorse
 
-È necessario creare segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client Azure ad (**aadClientSecret**), la password amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Inoltre, se si usano certificati TLS/SSL personalizzati, sarà necessario creare sei segreti aggiuntivi, ovvero **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e **masterkeyfile**.  Questi parametri verranno illustrati in modo più dettagliato.
+È necessario creare segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client Azure ad (**aadClientSecret**), la password amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Inoltre, se si usano certificati TLS/SSL personalizzati, sarà necessario creare sei segreti aggiuntivi, ovvero **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** e **masterkeyfile**.  Questi parametri verranno illustrati in modo più dettagliato.
 
 Il modello fa riferimento a nomi di segreti specifici, quindi è **necessario** usare i nomi in grassetto elencati sopra (maiuscole/minuscole).
 

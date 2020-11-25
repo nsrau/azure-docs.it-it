@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85512975"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015401"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
 
@@ -179,9 +179,9 @@ Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indicatori LED dell’unità disco per lo chassis EBOD
 | Stato | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
 | --- | --- | --- | --- |
-| Nessuna unità installata |OFF |OFF |Nessuno |
-| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |Nessuno |
-| Set di identità del dispositivo servizi chassis SCSI (SES) |ON |Intermittenza 1 secondo accesa/1 secondo spenta |Nessuno |
+| Nessuna unità installata |OFF |OFF |nessuno |
+| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |nessuno |
+| Set di identità del dispositivo servizi chassis SCSI (SES) |ON |Intermittenza 1 secondo accesa/1 secondo spenta |nessuno |
 | Set bit errore dispositivo SES |ON |ON |Errore logico (rosso) |
 | Errore circuito di controllo alimentazione |OFF |ON |Errore del modulo (rosso) |
 
@@ -204,8 +204,8 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 | --- | --- | --- |
 | S0 |Modalità normale: invisibile all'utente |Doppio segnale acustico |
 | S1 |Modalità errore: 1 secondo accesa/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
-| S2 |Modalità promemoria: segnale acustico intermittente |Nessuno |
-| S3 |Modalità disattivato: invisibile all'utente |Nessuno |
+| S2 |Modalità promemoria: segnale acustico intermittente |nessuno |
+| S3 |Modalità disattivato: invisibile all'utente |nessuno |
 | S4 |Modalità errore critico: allarme continuo |Non disponibile: disattivazione non attiva |
 
 > [!NOTE]
@@ -225,7 +225,7 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Guasto ventola del PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Errore PCM rilevato dal modulo SBB |Errore |S1 |Errore del modulo |
-| PCM rimosso |Errore di configurazione |Nessuno |Errore del modulo |
+| PCM rimosso |Errore di configurazione |nessuno |Errore del modulo |
 | Errore di configurazione dello chassis |Errore - Critico |S1 |Errore del modulo |
 | Allerta temperatura di avviso bassa |Avviso |S1 |Errore del modulo |
 | Allerta temperatura di avviso alta |Avviso |S1 |Errore del modulo |
@@ -235,10 +235,10 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Errore del controller |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB - Moduli funzionanti rimanenti non presenti |Errore - Critico |S4 |Errore del modulo |
-| Modulo interfaccia SBB rimosso |Avviso |Nessuno |Errore del modulo |
+| Modulo interfaccia SBB rimosso |Avviso |nessuno |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Avviso - Interruzione dell'alimentazione dell’unità assente |S1 |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Errore - Critico; interruzione dell'alimentazione unità |S1 |Errore del modulo |
-| Unità rimossa |Avviso |Nessuno |Errore del modulo |
+| Unità rimossa |Avviso |nessuno |Errore del modulo |
 | Disponibilità alimentazione insufficiente |Avviso |Nessuno |Errore del modulo |
 
 ## <a name="next-steps"></a>Passaggi successivi

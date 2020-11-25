@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085192"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017033"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight
 
@@ -29,7 +29,7 @@ Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark co
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 
-2. Da **Dashboard cluster**selezionare **Yarn**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
+2. Da **Dashboard cluster** selezionare **Yarn**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
     ![Avviare l'interfaccia utente di YARN](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
@@ -126,7 +126,7 @@ Grazie all'allocazione dinamica di Spark le uniche risorse usate dal server Thri
 
 ## <a name="restart-the-jupyter-service"></a>Riavviare il servizio Jupyter
 
-Avviare l'interfaccia utente Web di Ambari, come illustrato all'inizio dell'articolo. Dal riquadro di spostamento a sinistra selezionare **Jupyter**, selezionare **azioni di servizio**e quindi selezionare **riavvia tutto**. Verrà avviato il servizio Jupyter su tutti i nodi head.
+Avviare l'interfaccia utente Web di Ambari, come illustrato all'inizio dell'articolo. Dal riquadro di spostamento a sinistra selezionare **Jupyter**, selezionare **azioni di servizio** e quindi selezionare **riavvia tutto**. Verrà avviato il servizio Jupyter su tutti i nodi head.
 
 ![Riavviare Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Riavviare Jupyter")
 
@@ -146,7 +146,7 @@ Avviare l'interfaccia utente di Yarn, come illustrato all'inizio dell'articolo. 
 
     ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)
 

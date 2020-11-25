@@ -7,11 +7,11 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002823"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016829"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Creare un contenitore di profili con Azure NetApp Files e servizi di dominio Active Directory
 
@@ -75,10 +75,10 @@ Per iniziare, è necessario configurare un account Azure NetApp Files.
 8. Fare clic sul pulsante **Aggiungi**.
 9. Quando viene visualizzata la scheda **nuovo account NetApp** , immettere i valori seguenti:
 
-    - Per **nome**immettere il nome dell'account NetApp.
+    - Per **nome** immettere il nome dell'account NetApp.
     - Per **Subscription (sottoscrizione**) selezionare la sottoscrizione per l'account di archiviazione configurato nel passaggio 4 dal menu a discesa.
-    - Per **gruppo di risorse**selezionare un gruppo di risorse esistente dal menu a discesa o crearne uno nuovo selezionando **Crea nuovo**.
-    - Per **località**selezionare l'area dell'account NetApp dal menu a discesa. Questa area deve essere la stessa area delle VM host della sessione.
+    - Per **gruppo di risorse** selezionare un gruppo di risorse esistente dal menu a discesa o crearne uno nuovo selezionando **Crea nuovo**.
+    - Per **località** selezionare l'area dell'account NetApp dal menu a discesa. Questa area deve essere la stessa area delle VM host della sessione.
 
    >[!NOTE]
    >Attualmente Azure NetApp Files non supporta il montaggio di un volume tra le aree.
@@ -94,7 +94,7 @@ Successivamente, creare un nuovo pool di capacità:
 3. Selezionare **Aggiungi pool**.
 4. Quando si apre la scheda **nuovo pool di capacità** , immettere i valori seguenti:
 
-    - Per **nome**immettere un nome per il nuovo pool di capacità.
+    - Per **nome** immettere un nome per il nuovo pool di capacità.
     - Per **livello di servizio**, selezionare il valore desiderato dal menu a discesa. Si consiglia **Premium** per la maggior parte degli ambienti.
        >[!NOTE]
        >L'impostazione Premium fornisce la velocità effettiva minima disponibile per un livello di servizio Premium, ovvero 256 MBps. Potrebbe essere necessario regolare questa velocità effettiva per un ambiente di produzione. La velocità effettiva finale è basata sulla relazione descritta in [limiti di velocità effettiva](../azure-netapp-files/azure-netapp-files-service-levels.md).
@@ -114,10 +114,10 @@ Successivamente, è necessario partecipare a una connessione Active Directory.
 2. Immettere i valori seguenti nella pagina **aggiungi Active Directory** per partecipare a una connessione:
 
     - Per **DNS primario**, immettere l'indirizzo IP del server DNS nell'ambiente in uso in grado di risolvere il nome di dominio.
-    - Per **dominio**immettere il nome di dominio completo (FQDN).
+    - Per **dominio** immettere il nome di dominio completo (FQDN).
     - Per il **prefisso server SMB (account computer)** immettere la stringa che si desidera aggiungere al nome dell'account del computer.
     - Per **username**(nome utente) immettere il nome dell'account con le autorizzazioni per l'aggiunta al dominio.
-    - Per **password**immettere la password dell'account.
+    - Per **password** immettere la password dell'account.
 
 ## <a name="create-a-new-volume"></a>Creare un nuovo volume
 
@@ -127,13 +127,13 @@ Sarà quindi necessario creare un nuovo volume.
 
 2. Quando si apre la scheda **Crea volume** , immettere i valori seguenti:
 
-    - Per **nome volume**immettere un nome per il nuovo volume.
+    - Per **nome volume** immettere un nome per il nuovo volume.
     - Per **pool di capacità**, selezionare il pool di capacità appena creato dal menu a discesa.
     - Per **quota (GIB)** immettere le dimensioni del volume appropriate per l'ambiente.
-    - In **rete virtuale**selezionare una rete virtuale esistente con connettività al controller di dominio dal menu a discesa.
-    - In **subnet**selezionare **Crea nuovo**. Tenere presente che questa subnet verrà delegata a Azure NetApp Files.
+    - In **rete virtuale** selezionare una rete virtuale esistente con connettività al controller di dominio dal menu a discesa.
+    - In **subnet** selezionare **Crea nuovo**. Tenere presente che questa subnet verrà delegata a Azure NetApp Files.
 
-3.  Selezionare **Avanti: protocollo \> \> ** per aprire la scheda protocollo e configurare i parametri di accesso al volume.
+3.  Selezionare **Avanti: protocollo \> \>** per aprire la scheda protocollo e configurare i parametri di accesso al volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurare i parametri di accesso al volume
 

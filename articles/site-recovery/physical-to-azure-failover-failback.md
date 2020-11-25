@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017424"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -36,7 +36,7 @@ Verificare le proprietà del server e assicurarsi che sia conforme ai [requisiti
 
 1. In **Elementi protetti** fare clic su **Elementi replicati** e selezionare il computer.
 2. Nel riquadro **Replicated item** (Elemento replicato) è possibile vedere un riepilogo relativo a informazioni sulla macchina, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
-3. In **calcolo e rete**è possibile modificare il nome di Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md)e le impostazioni del disco gestito
+3. In **calcolo e rete** è possibile modificare il nome di Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md)e le impostazioni del disco gestito
 4. È possibile visualizzare e modificare le impostazioni di rete, tra cui la rete/subnet in cui si troverà la macchina virtuale di Azure dopo il failover e l'indirizzo IP che le verrà assegnato.
 5. In **Disks** (Dischi) è possibile vedere le informazioni sul sistema operativo e sui dischi dati della macchina.
 
@@ -73,29 +73,29 @@ Dopo il failover è necessario [configurare le impostazioni di Azure](site-recov
 Dopo il failover in Azure, è necessario riproteggere le macchine virtuali di Azure eseguendone la replica nel sito locale. Quindi, dopo la replica, è possibile eseguire il failback in locale eseguendo un failover da Azure al sito locale.
 
 1. I server fisici replicati in Azure con Site Recovery possono eseguire il failback solo come VM VMware. È quindi necessaria un'infrastruttura VMware per eseguire il failback. Eseguire la procedura descritta in [questo articolo](vmware-azure-prepare-failback.md) per preparare la riprotezione e il failback, inclusa la configurazione di un server di elaborazione in Azure e un server di destinazione master locale e la configurazione di una VPN da sito a sito o di un peering privato ExpressRoute per il failback.
-2. Verificare che il server di configurazione locale sia in esecuzione e connesso ad Azure. Durante il failover in Azure, il sito locale potrebbe non essere accessibile e il server di configurazione potrebbe non essere disponibile o arrestarsi. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo.
-3. Eliminare gli snapshot nel server di destinazione master locale. Se sono presenti snapshot, la riprotezione non funzionerà.  Gli snapshot nella macchina virtuale vengono uniti automaticamente durante un processo di riprotezione.
-4. Per la riprotezione delle VM raccolte in un gruppo di replica per la coerenza tra più macchine virtuali, assicurarsi che tutti abbiano lo stesso sistema operativo (Windows o Linux) e assicurarsi che il server di destinazione master distribuito abbia lo stesso tipo di sistema operativo. Tutte le macchine virtuali in un gruppo di replica devono usare lo stesso server di destinazione master.
-5. Aprire [le porte necessarie per il](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) failback.
-6. Verificare che il server vCenter sia connesso prima del failback. In caso contrario, la disconnessione dei dischi e il ricollegamento alla macchina virtuale non riescono.
-7. Se un server vCenter gestisce le macchine virtuali a cui si eseguirà il failback, assicurarsi di disporre delle autorizzazioni necessarie. Se si esegue l'individuazione di vCenter con utente di sola lettura e la protezione delle macchine virtuali, la protezione funziona e il failover viene eseguito. Tuttavia, durante la riprotezione, il failover non riesce perché gli archivi dati non possono essere individuati e non sono elencati durante la riprotezione. Per risolvere il problema, è possibile aggiornare le credenziali di vCenter con un [account o autorizzazioni appropriate](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery), quindi ripetere il processo. 
-8. Se è stato usato un modello per creare le macchine virtuali, assicurarsi che ogni macchina virtuale disponga del proprio UUID per i dischi. Se l'UUID della macchina virtuale locale è in conflitto con l'UUID del server di destinazione master perché entrambi sono stati creati dallo stesso modello, la riprotezione non riesce. Eseguire la distribuzione da un modello diverso.
-9. Se si esegue il failback in un server vCenter alternativo, assicurarsi che vengano individuati il nuovo server vCenter e il server di destinazione master. In genere, se non sono gli archivi dati non sono accessibili o non sono visibili nella **riprotezione**.
-10. Verificare i seguenti scenari in cui non è possibile eseguire il failback:
-    - Se si usa l'edizione gratuita ESXi 5,5 o vSphere 6 hypervisor. Eseguire l'aggiornamento a una versione diversa.
+2. Verificare che il server di configurazione locale sia in esecuzione e connesso ad Azure. Durante il failover in Azure, il sito locale potrebbe non essere accessibile e il server di configurazione potrebbe non essere disponibile o arrestarsi. Durante il failback, la macchina virtuale deve trovarsi nel database del server di configurazione. In caso contrario, il failback ha esito negativo.
+3. Eliminare gli snapshot nel server di destinazione master locale. Se sono presenti snapshot, la riprotezione non funzionerà.  Durante il processo di riprotezione, gli snapshot nella macchina virtuale vengono uniti automaticamente.
+4. Se è necessario riproteggere macchine virtuali raccolte in un gruppo di replica per la coerenza tra più macchine virtuali, assicurarsi che tutte abbiano lo stesso sistema operativo (Windows o Linux) e assicurarsi che il server di destinazione master distribuito abbia lo stesso tipo di sistema operativo. Tutte le macchine virtuali in un gruppo di replica devono usare lo stesso server di destinazione master.
+5. Aprire [le porte necessarie](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) per il failback.
+6. Assicurarsi che il server vCenter sia connesso prima del failback. In caso contrario, la disconnessione dei dischi e il ricollegamento alla macchina virtuale non riescono.
+7. Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, assicurarsi di avere le autorizzazioni necessarie. Se si esegue l'individuazione di vCenter con utente di sola lettura e la protezione delle macchine virtuali, la protezione funziona e il failover viene eseguito. Tuttavia, durante la riprotezione, il failover ha esito negativo perché non è possibile individuare gli archivi dati che non vengono quindi elencati. Per risolvere questo problema, è possibile aggiornare le credenziali di vCenter con un [account/autorizzazioni appropriati](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) e quindi ripetere il processo. 
+8. Se è stato usato un modello per creare le macchine virtuali, assicurarsi che ogni macchina virtuale abbia un UUID univoco per i dischi. Se l'UUID della macchina virtuale locale è in conflitto con l'UUID del server di destinazione master perché entrambi sono stati creati dallo stesso modello, la riprotezione non riesce. Eseguire la distribuzione da un modello diverso.
+9. Se si esegue il failback in un server vCenter alternativo, assicurarsi che il nuovo server vCenter e il server di destinazione master vengano rilevati. In genere, se non vengono rilevati, gli archivi dati non sono accessibili o non sono visibili in **Riproteggi**.
+10. Verificare gli scenari seguenti in cui non è possibile eseguire il failback:
+    - Se si usa l'edizione gratuita ESXi 5.5 o vSphere 6 Hypervisor. Eseguire l'aggiornamento a una versione diversa.
     - Se si dispone di un server fisico Windows Server 2008 R2 SP1.
     - Macchine virtuali di cui è stata eseguita la migrazione.
     - Una macchina virtuale che è stata spostata in un altro gruppo di risorse.
     - Una macchina virtuale di Azure di replica che è stata eliminata.
     - Una macchina virtuale di Azure di replica non protetta (replica nel sito locale).
-10. [Esaminare i tipi di failback](concepts-types-of-failback.md) che è possibile usare, ovvero il ripristino del percorso originale e il ripristino in un percorso alternativo.
+10. [Esaminare i tipi di failback](concepts-types-of-failback.md) che è possibile usare: il ripristino nel percorso originale e il ripristino in un percorso alternativo.
 
 
 ## <a name="reprotect-azure-vms-to-an-alternate-location"></a>Riproteggere le macchine virtuali di Azure in un percorso alternativo
 
 Questa procedura presuppone che la macchina virtuale locale non sia disponibile.
 
-1. Nell'insieme di credenziali > **Impostazioni**  >  **elementi replicati**fare clic con il pulsante destro del mouse sul computer di cui è stato eseguito il failover > **riproteggere**.
+1. Nell'insieme di credenziali > **Impostazioni**  >  **elementi replicati** fare clic con il pulsante destro del mouse sul computer di cui è stato eseguito il failover > **riproteggere**.
 2. In **Riproteggi** verificare che **Da Azure a locale** sia selezionato.
 3. Specificare il server di destinazione master locale e il server di elaborazione.
 4. In **Archivio dati** selezionare l'archivio dati del server di destinazione master in cui ripristinare i dischi in locale.
@@ -115,8 +115,8 @@ Eseguire il failover come descritto di seguito:
 1. Nella pagina **Elementi replicati** fare clic con il pulsante destro del mouse sul computer > **Failover non pianificato**.
 2. In **Conferma failover** verificare che la direzione di failover sia da Azure.
 3. Selezionare il punto di ripristino che si desidera utilizzare per il failover.
-    - Si consiglia di usare il punto di ripristino **più recente** . Il punto coerente con l'app è alla base dell'ultimo punto nel tempo e causa la perdita di dati.
-    - Il **più recente** è un punto di ripristino coerente con l'arresto anomalo.
+    - Si consiglia di usare il punto di ripristino **più recente**. Il punto coerente con l'app è antecedente al punto di ripristino più recente e causa la perdita di alcuni dati.
+    - Il punto **più recente** è un punto di ripristino coerente con l'arresto anomalo del sistema.
     - Quando viene eseguito il failover, Site Recovery arresta le macchine virtuali di Azure e avvia la macchina virtuale locale. L'operazione comporta un tempo di inattività. Scegliere pertanto un orario appropriato.
 4. Fare clic con il pulsante destro del mouse sul computer e quindi su **Esegui commit**. Verrà attivato un processo che rimuove le macchine virtuali di Azure.
 5. Verificare che le macchine virtuali di Azure siano state arrestate come previsto.
