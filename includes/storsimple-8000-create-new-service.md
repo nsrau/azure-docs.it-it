@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d47cf21e25c89c20a8baa31a80b867b74ada93df
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360695"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025935"
 ---
 #### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
 
@@ -29,7 +29,7 @@ ms.locfileid: "93360695"
 
    2. Selezionare una sottoscrizione nell'elenco a discesa **Sottoscrizione**. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
 
-   3. Per **Gruppo di risorse** , selezionare **Usa esistente** o **Crea nuovo**. Per altre informazioni, vedere [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Gruppi di risorse di Azure).
+   3. Per **Gruppo di risorse**, selezionare **Usa esistente** o **Crea nuovo**. Per altre informazioni, vedere [Azure resource groups](../articles/azure-resource-manager/management/manage-resource-groups-portal.md) (Gruppi di risorse di Azure).
 
    4. In **Località** specificare una località per il servizio. In generale, scegliere un percorso più vicino all'area geografica in cui si vuole distribuire il dispositivo. È anche possibile tenere in considerazione quanto segue:
 

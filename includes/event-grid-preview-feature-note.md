@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 644669ea27938e385e11f3b1911a23ab30829a95
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66814907"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026091"
 ---
 Questa funzionalità è in anteprima. Per usarla, è necessario installare un modulo o un'estensione di anteprima.
 
@@ -21,7 +21,7 @@ Questa funzionalità è in anteprima. Per usarla, è necessario installare un mo
 
 Per l'interfaccia della riga di comando di Azure, è necessaria l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list).
 
-In [CloudShell](/azure/cloud-shell/quickstart):
+In [CloudShell](../articles/cloud-shell/quickstart.md):
 
 * Se si è già installata l'estensione, aggiornarla con il comando `az extension update -n eventgrid`
 * Se non si è ancora installata l'estensione, installarla con il comando `az extension add -n eventgrid`
@@ -36,7 +36,7 @@ Per un'installazione locale:
 
 Per PowerShell, è necessario il [modulo AzureRM.EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
 
-In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+In [CloudShell](../articles/cloud-shell/quickstart-powershell.md):
 
 * Installare il modulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
