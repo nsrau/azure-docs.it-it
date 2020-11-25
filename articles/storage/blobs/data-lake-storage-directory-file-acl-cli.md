@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913607"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2
 
-Questo articolo illustra come usare l['interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) per creare e gestire directory, file e autorizzazioni negli account di archiviazione che hanno uno spazio dei nomi gerarchico. 
+Questo articolo illustra come usare l['interfaccia della riga di comando di Azure](/cli/azure/) per creare e gestire directory, file e autorizzazioni negli account di archiviazione che hanno uno spazio dei nomi gerarchico. 
 
 [Esempi](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  di [Invia commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -27,19 +27,19 @@ Questo articolo illustra come usare l['interfaccia della riga di comando di Azur
 
 > [!div class="checklist"]
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni.
+> * Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](../common/storage-account-create.md) istruzioni.
 > * Interfaccia della riga di comando di Azure versione `2.6.0` o successiva.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Assicurarsi che sia installata la versione corretta dell'interfaccia della riga di comando di Azure
 
-1. Aprire [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](https://docs.microsoft.com/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure in locale.
+1. Aprire [Azure Cloud Shell](../../cloud-shell/overview.md)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure in locale.
 
 2. Verificare con il comando seguente che la versione dell'interfaccia della riga di comando di Azure installata corrisponda a `2.6.0` o successive.
 
    ```azurecli
     az --version
    ```
-   Se la versione dell'interfaccia della riga di comando di Azure fosse inferiore a `2.6.0`, installare una versione successiva. Vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Se la versione dell'interfaccia della riga di comando di Azure fosse inferiore a `2.6.0`, installare una versione successiva. Vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Effettuare la connessione all'account
 
@@ -53,7 +53,7 @@ Questo articolo illustra come usare l['interfaccia della riga di comando di Azur
 
    In caso contrario, aprire una pagina del browser all'indirizzo [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e immettere il codice di autorizzazione visualizzato nel terminale. Quindi, accedere con le credenziali dell'account nel browser.
 
-   Per altre informazioni sui diversi metodi di autenticazione, vedere [Autorizzare l'accesso ai dati BLOB o ai dati della coda con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md).
+   Per altre informazioni sui diversi metodi di autenticazione, vedere [Autorizzare l'accesso ai dati BLOB o ai dati della coda con l'interfaccia della riga di comando di Azure](./authorize-data-operations-cli.md).
 
 2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva alla sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
 
@@ -64,7 +64,7 @@ Questo articolo illustra come usare l['interfaccia della riga di comando di Azur
    Sostituire il valore segnaposto `<subscription-id>` con l'ID della sottoscrizione.
 
 > [!NOTE]
-> L'esempio presentato in questo articolo illustra l'autorizzazione Azure Active Directory. Per altre informazioni sui metodi di autorizzazione, vedere [Autorizzare l'accesso ai dati BLOB o ai dati della coda con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md).
+> L'esempio presentato in questo articolo illustra l'autorizzazione Azure Active Directory. Per altre informazioni sui metodi di autorizzazione, vedere [Autorizzare l'accesso ai dati BLOB o ai dati della coda con l'interfaccia della riga di comando di Azure](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
@@ -221,7 +221,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 È possibile ottenere, impostare e aggiornare le autorizzazioni di accesso di file e directory.
 
 > [!NOTE]
-> Se si usa Azure Active Directory per autorizzare i comandi, assicurarsi che all'entità di sicurezza sia stato assegnato il [ruolo proprietario del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Per altre informazioni sull'applicazione delle autorizzazioni ACL e sugli effetti della modifica, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se si usa Azure Active Directory per autorizzare i comandi, assicurarsi che all'entità di sicurezza sia stato assegnato il [ruolo proprietario del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Per altre informazioni sull'applicazione delle autorizzazioni ACL e sugli effetti della modifica, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="get-an-acl"></a>Recuperare un ACL
 
@@ -314,10 +314,8 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 È possibile aggiungere, aggiornare e rimuovere gli ACL in modo ricorsivo negli elementi figlio esistenti di una directory padre senza dover apportare queste modifiche singolarmente per ogni elemento figlio. Per altre informazioni, vedere [impostare elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake storage Gen2](recursive-access-control-lists.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Esempi](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
 * [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-
-

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4964270bc9c562ab17c95010610ba04444c4eede
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 0341fa56bf119893ff94afccb8adf66c89c9a68a
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542882"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746354"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST di Visione artificiale e Java
 
@@ -25,11 +25,11 @@ In questa guida di avvio rapido si analizzerà un'immagine archiviata in remoto 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Piattaforma [Java&trade; Standard Edition Development Kit 7 o 8](https://aka.ms/azure-jdks) (JDK 7 o 8)
+* Piattaforma [Java&trade; Standard Edition Development Kit 7 o 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK 7 o 8)
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="creare una risorsa Visione artificiale"  target="_blank">creare una risorsa Visione artificiale <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione al servizio Visione artificiale. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* [Creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per l'URL dell'endpoint, denominati rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
+* [Creare le variabili di ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e per l'URL dell'endpoint, denominati rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
@@ -200,4 +200,4 @@ REST Response:
 Esaminare un'applicazione Java Swing che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Esercitazione in Java per l'API Visione artificiale](../Tutorials/java-tutorial.md)
+> [Esercitazione in Java per l'API Visione artificiale](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial)

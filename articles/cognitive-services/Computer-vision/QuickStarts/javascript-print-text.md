@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e98db4ce9884918e63bc87b68f9ab6c0fdf99b93
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542763"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746133"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Avvio rapido: Estrarre testo stampato (OCR) usando l'API REST Visione artificiale e JavaScript
 
 > [!NOTE]
-> Se si estrae testo in lingua inglese, valutare la possibilità di usare la nuova [operazione di lettura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). È disponibile un [avvio rapido per JavaScript](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text).
+> Se si estrae testo in lingua inglese, valutare la possibilità di usare la nuova [operazione di lettura](../concept-recognizing-text.md). È disponibile un [avvio rapido per JavaScript](./javascript-hand-text.md).
 
 In questa guida di avvio rapido si estrarrà testo stampato da un'immagine con il riconoscimento ottico dei caratteri (OCR) usando l'API REST Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -248,6 +248,6 @@ Una risposta con esito positivo viene restituita in JSON. La pagina Web di esemp
 Esplorare ora un'applicazione JavaScript che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime con ritaglio intelligente e rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive nelle immagini. 
 
 > [!div class="nextstepaction"]
-> [Esercitazione in JavaScript per l'API Visione artificiale](../Tutorials/javascript-tutorial.md)
+> [Esercitazione in JavaScript per l'API Visione artificiale](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

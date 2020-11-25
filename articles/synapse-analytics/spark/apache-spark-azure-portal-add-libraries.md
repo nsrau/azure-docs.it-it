@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016259"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917126"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 
 Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. Per rendere disponibili le applicazioni di terze parti o codice compilato localmente, è possibile installare una libreria in uno dei pool di Apache Spark senza server (anteprima). Quando una libreria è installata per un pool Spark, è disponibile per tutte le sessioni che usano lo stesso pool. 
 
+## <a name="before-you-begin"></a>Prima di iniziare
+- Per installare e aggiornare le librerie, è necessario disporre delle autorizzazioni di **collaboratore dati BLOB di archiviazione** o di **proprietario dati BLOB di archiviazione** per l'account di archiviazione Gen2 primario collegato all'area di lavoro di Azure sinapsi Analytics.
+  
 ## <a name="default-installation"></a>Installazione predefinita
 Apache Spark in Azure sinapsi Analytics ha un'installazione completa di Anaconda, oltre a librerie aggiuntive. L'elenco completo delle librerie è disponibile nel [Apache Spark supporto della versione](apache-spark-version-support.md). 
 
@@ -35,6 +38,7 @@ Una volta identificate le librerie che si vuole usare per l'applicazione Spark, 
 > - Se il pacchetto che si sta installando è di grandi dimensioni o richiede molto tempo per l'installazione, questo influirà sul tempo di avvio dell'istanza di Spark.
 > - I pacchetti che richiedono il supporto del compilatore in fase di installazione, ad esempio GCC, non sono supportati.
 > - Non è possibile effettuare il downgrade dei pacchetti, solo aggiunti o aggiornati.
+> - Per installare le librerie, è necessario disporre delle autorizzazioni di collaboratore dati BLOB di archiviazione o di proprietario dati BLOB di archiviazione per l'account di archiviazione Gen2 primario collegato all'area di lavoro sinapsi.
 
 ### <a name="requirements-format"></a>Formato requisiti
 

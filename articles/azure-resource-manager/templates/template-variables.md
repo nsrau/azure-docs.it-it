@@ -2,19 +2,21 @@
 title: Variabili nei modelli
 description: Viene descritto come definire le variabili in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75483817"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916004"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Variabili nel modello di Azure Resource Manager
 
 Questo articolo descrive come definire e usare le variabili nel modello di Azure Resource Manager. Per semplificare il modello, è possibile usare le variabili. Anziché ripetere le espressioni complesse nell'intero modello, si definisce una variabile che contiene l'espressione complessa. Quindi, si fa riferimento a tale variabile in base alle esigenze nell'intero modello.
 
 Gestione risorse risolve le variabili prima di avviare le operazioni di distribuzione. Indipendentemente dalla posizione in cui viene usata la variabile nel modello, Resource Manager la sostituisce con il valore risolto.
+
+Il formato di ogni variabile deve corrispondere a uno dei [tipi di dati](template-syntax.md#data-types).
 
 ## <a name="define-variable"></a>Definisci variabile
 

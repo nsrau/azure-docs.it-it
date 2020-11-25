@@ -10,12 +10,12 @@ ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930833"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913777"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
@@ -59,7 +59,7 @@ Seguire questa procedura per creare una metrica per tenere traccia delle richies
 
 Dopo aver configurato la metrica, le richieste anonime inizieranno a essere visualizzate nel grafico. Nell'immagine seguente vengono mostrate le richieste anonime aggregate negli ultimi trenta minuti.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot che mostra le richieste anonime aggregate sull'archiviazione BLOB":::
 
 È anche possibile configurare una regola di avviso per ricevere una notifica quando viene effettuato un determinato numero di richieste anonime nell'account di archiviazione. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
@@ -67,9 +67,9 @@ Dopo aver configurato la metrica, le richieste anonime inizieranno a essere visu
 
 I log di archiviazione di Azure acquisiscono informazioni dettagliate sulle richieste effettuate nell'account di archiviazione, inclusa la modalità di autorizzazione di una richiesta. È possibile analizzare i log per determinare quali contenitori ricevono richieste anonime.
 
-Per registrare le richieste nell'account di archiviazione di Azure per valutare le richieste anonime, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../common/monitor-storage.md).
+Per registrare le richieste nell'account di archiviazione di Azure per valutare le richieste anonime, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](./monitor-blob-storage.md).
 
-Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 > [!NOTE]
 > L'anteprima della registrazione di archiviazione di Azure in monitoraggio di Azure è supportata solo nel cloud pubblico di Azure. I cloud governativi non supportano la registrazione per archiviazione di Azure con monitoraggio di Azure.
@@ -83,16 +83,16 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
 1. Selezionare **BLOB** per registrare le richieste effettuate nell'archivio BLOB.
-1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Selezionare **Aggiungi impostazione di diagnostica**.
 1. Consente di specificare un nome per l'impostazione di diagnostica.
 1. In **Dettagli categoria**, nella sezione **log** , scegliere i tipi di richieste da registrare. Tutte le richieste anonime saranno richieste di lettura, quindi selezionare **StorageRead** per acquisire richieste anonime.
-1. In **Dettagli destinazione**selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
+1. In **Dettagli destinazione** selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Per informazioni di riferimento sui campi disponibili nei log di archiviazione di Azure in monitoraggio di Azure, vedere [log delle risorse (anteprima)](../common/monitor-storage-reference.md#resource-logs-preview).
+Per informazioni di riferimento sui campi disponibili nei log di archiviazione di Azure in monitoraggio di Azure, vedere [log delle risorse (anteprima)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-anonymous-requests"></a>Log di query per le richieste anonime
 
@@ -164,7 +164,7 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Controllare l'impostazione di accesso pubblico per più account
 
-Per controllare l'impostazione di accesso pubblico in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](/azure/governance/resource-graph/first-query-portal).
+Per controllare l'impostazione di accesso pubblico in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](../../governance/resource-graph/first-query-portal.md).
 
 L'esecuzione della query seguente in Resource Graph Explorer restituisce un elenco di account di archiviazione e visualizza le impostazioni di accesso pubblico per ogni account:
 
@@ -190,7 +190,7 @@ Per creare un criterio con un effetto di controllo per l'impostazione di accesso
 1. Selezionare **Aggiungi definizione criteri** per creare una nuova definizione dei criteri.
 1. Per il campo **percorso definizione** selezionare il pulsante **altro** per specificare dove si trova la risorsa dei criteri di controllo.
 1. Specificare un nome per il criterio. Facoltativamente, è possibile specificare una descrizione e una categoria.
-1. In **regola dei criteri**aggiungere la definizione di criteri seguente alla sezione **policyRule** .
+1. In **regola dei criteri** aggiungere la definizione di criteri seguente alla sezione **policyRule** .
 
     ```json
     {
@@ -228,7 +228,7 @@ Per assegnare i criteri alla portale di Azure, attenersi alla procedura seguente
 1. Per il campo **ambito** selezionare l'ambito dell'assegnazione di criteri.
 1. Per il campo **definizione criteri** selezionare il pulsante **altro** , quindi selezionare i criteri definiti nella sezione precedente dall'elenco.
 1. Consente di specificare un nome per l'assegnazione dei criteri. La descrizione è facoltativa.
-1. Lasciare impostato su *abilitato*per l' **imposizione dei criteri** . Questa impostazione non ha alcun effetto sui criteri di controllo.
+1. Lasciare impostato su *abilitato* per l' **imposizione dei criteri** . Questa impostazione non ha alcun effetto sui criteri di controllo.
 1. Selezionare **Verifica + crea** per creare l'assegnazione.
 
 ### <a name="view-compliance-report"></a>Visualizza report conformità
@@ -244,7 +244,7 @@ Per visualizzare il report di conformità nel portale di Azure, attenersi alla s
 1. Filtrare i risultati per il nome dell'assegnazione di criteri creata nel passaggio precedente. Il report Mostra il numero di risorse non conformi ai criteri.
 1. È possibile eseguire il drill-down del report per ulteriori dettagli, incluso un elenco di account di archiviazione non conformi.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot che mostra il report di conformità per i criteri di controllo per l'accesso pubblico ai BLOB":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Usare i criteri di Azure per applicare l'accesso autorizzato
 
@@ -280,7 +280,7 @@ Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, 
 
 La figura seguente mostra l'errore che si verifica se si tenta di creare un account di archiviazione che consente l'accesso pubblico (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che l'accesso pubblico non sia consentito.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

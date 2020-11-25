@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913556"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Questo articolo illustra le procedure consigliate e alcune considerazioni sul fu
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
-Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e directory esistenti. I controlli di accesso possono essere usati anche per creare autorizzazioni predefinite che possono essere applicate automaticamente a nuovi file o directory. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen2 sono disponibili in [Controllo di accesso di Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e directory esistenti. I controlli di accesso possono essere usati anche per creare autorizzazioni predefinite che possono essere applicate automaticamente a nuovi file o directory. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen2 sono disponibili in [Controllo di accesso di Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Confronto tra l'uso di gruppi di sicurezza e di singoli utenti
 
@@ -31,7 +31,7 @@ Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per aggiungere o
 
 ### <a name="security-for-groups"></a>Sicurezza per i gruppi
 
-Quando gli utenti devono accedere ai dati in un account di archiviazione con spazio dei nomi gerarchico abilitato, è consigliabile usare i gruppi di sicurezza di Azure Active Directory. Alcuni gruppi consigliati per iniziare possono essere **ReadOnlyUsers**, **WriteAccessUsers**e **FullAccessUsers** per la radice del contenitore e persino separare quelli per le sottodirectory principali. Se si prevede di aggiungere, in seguito, altri gruppi di utenti che ancora non sono stati identificati, prendere in considerazione la creazione di gruppi di sicurezza fittizi che hanno accesso a determinate cartelle. L'uso di gruppi di sicurezza consente di evitare tempi di elaborazione lunghi per l'assegnazione di nuove autorizzazioni a migliaia di file.
+Quando gli utenti devono accedere ai dati in un account di archiviazione con spazio dei nomi gerarchico abilitato, è consigliabile usare i gruppi di sicurezza di Azure Active Directory. Alcuni gruppi consigliati per iniziare possono essere **ReadOnlyUsers**, **WriteAccessUsers** e **FullAccessUsers** per la radice del contenitore e persino separare quelli per le sottodirectory principali. Se si prevede di aggiungere, in seguito, altri gruppi di utenti che ancora non sono stati identificati, prendere in considerazione la creazione di gruppi di sicurezza fittizi che hanno accesso a determinate cartelle. L'uso di gruppi di sicurezza consente di evitare tempi di elaborazione lunghi per l'assegnazione di nuove autorizzazioni a migliaia di file.
 
 ### <a name="security-for-service-principals"></a>Sicurezza per le entità servizio
 
@@ -41,7 +41,7 @@ Le entità servizio di Azure Active Directory vengono in genere usate dai serviz
 
 Data Lake Storage Gen2 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per limitare il vettore di attacchi esterni. È possibile abilitare il firewall in un account di archiviazione nel portale di Azure tramite **il firewall**  >  **Abilita Firewall (on)**  >  **Consenti l'accesso alle opzioni dei servizi di Azure** .
 
-Per accedere all'account di archiviazione da Azure Databricks, distribuire Azure Databricks alla rete virtuale e quindi aggiungere la rete virtuale al firewall. Vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Per accedere all'account di archiviazione da Azure Databricks, distribuire Azure Databricks alla rete virtuale e quindi aggiungere la rete virtuale al firewall. Vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Considerazioni sulla resilienza
 

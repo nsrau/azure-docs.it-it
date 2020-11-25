@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 573937638ac0ba1c9db6f1410b9a09f4d79e0056
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a99436a65a97ae1536bd0e950a29145ccb5c669b
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746252"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST e JavaScript in Visione artificiale
 
@@ -211,4 +211,4 @@ Una risposta con esito positivo viene restituita in JSON. La pagina Web di esemp
 Esaminare un'applicazione JavaScript che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Esercitazione in JavaScript per l'API Visione artificiale](../Tutorials/javascript-tutorial.md)
+> [Esercitazione in JavaScript per l'API Visione artificiale](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)

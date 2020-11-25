@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657740"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916166"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -99,25 +99,25 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 Solo l'amministratore account può modificare l'amministratore del servizio per una sottoscrizione. Per impostazione predefinita, al momento della sottoscrizione di un abbonamento di Azure, l'amministratore del servizio corrisponde all'amministratore dell'account. L'amministratore con il ruolo di amministratore dell'account non ha accesso al portale di Azure. L'amministratore con il ruolo di amministratore del servizio ha pieno accesso al portale di Azure. Se l'amministratore dell'account e l'amministratore del servizio corrispondono allo stesso utente e si assegna l'amministratore del servizio a un altro utente, l'amministratore dell'account perde l'accesso al portale di Azure. Tuttavia, l'amministratore account può sempre usare il Centro account per reimpostare se stesso come amministratore del servizio.
 
-Attenersi alla seguente procedura per modificare l'amministratore del servizio nel **centro account**.
-
-### <a name="account-center"></a>Centro account
+Attenersi alla seguente procedura per modificare l'amministratore del servizio nel portale di Azure.
 
 1. Verificare che lo scenario sia supportato controllando le [limitazioni per la modifica dell'amministratore del servizio](#limitations-for-changing-the-service-administrator).
 
-1. Accedere al [centro account](https://account.windowsazure.com/subscriptions) come amministratore account.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
 
-1. Fare clic su una sottoscrizione.
+1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Sul lato destro fare clic su **Modifica dettagli sottoscrizione**.
+1. Nel percorso di spostamento a sinistra fare clic su **Proprietà**.
 
-    ![Screenshot che mostra il pulsante di modifica della sottoscrizione nel Centro account](./media/classic-administrators/editsub.png)
+1. Fare clic su **amministratore del servizio**.
 
-1. Nel casella **AMMINISTRATORE DEL SERVIZIO** immettere l'indirizzo di posta elettronica del nuovo amministratore del servizio.
+    ![Screenshot che mostra le proprietà della sottoscrizione nel portale di Azure](./media/classic-administrators/service-admin.png)
 
-    ![Screenshot che mostra la casella per modificare l'indirizzo e-mail dell'amministratore del servizio](./media/classic-administrators/change-service-admin.png)
+1. Nella pagina **modifica amministratore del servizio** immettere l'indirizzo di posta elettronica per il nuovo amministratore del servizio.
 
-1. Fare clic sul segno di spunta per salvare la modifica.
+    ![Screenshot che mostra la pagina modifica amministratore del servizio](./media/classic-administrators/service-admin-edit.png)
+
+1. Per salvare le modifiche, fare clic su **OK** .
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitazioni per la modifica degli amministratori del servizio
 
@@ -142,7 +142,7 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Scegliere **Proprietà**.
+1. Nel percorso di spostamento a sinistra fare clic su **Proprietà**.
 
     L'amministratore account della sottoscrizione viene visualizzato nella casella **amministratore account** .
 
