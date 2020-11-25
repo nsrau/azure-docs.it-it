@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979910"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996645"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -51,7 +51,7 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 
 **Ruolo prerequisiti:** Richiedente
 
-1. Trovare il pacchetto di accesso nell'elenco.  Se necessario, è possibile eseguire una ricerca digitando una stringa di ricerca e quindi selezionando il **nome**, il **Catalogo**o il filtro **risorse** .
+1. Trovare il pacchetto di accesso nell'elenco.  Se necessario, è possibile eseguire una ricerca digitando una stringa di ricerca e quindi selezionando il **nome**, il **Catalogo** o il filtro **risorse** .
 
     ![Portale di accesso personale-ricerca risorse](./media/entitlement-management-request-access/my-access-resource-search.png)
 

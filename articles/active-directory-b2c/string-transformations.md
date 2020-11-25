@@ -12,11 +12,11 @@ ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322165"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994843"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -80,10 +80,10 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parametri di input:
-  - **stringComparison** :  ordinalIgnoreCase
+  - **stringComparison**:  ordinalIgnoreCase
 - Risultato: errore generato
 
 ## <a name="changecase"></a>ChangeCase
@@ -115,11 +115,11 @@ Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi str
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **email** : SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - Parametri di input:
-    - **toCase** : LOWER
+    - **toCase**: LOWER
 - Attestazioni di output:
-  - **email** : someone@contoso.com
+  - **email**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -146,9 +146,9 @@ Usare questa trasformazione di attestazioni per impostare un valore ClaimType di
 ### <a name="example"></a>Esempio
 
 - Parametro di input:
-    - **value** : Condizioni d'uso di Contoso...
+    - **value**: Condizioni d'uso di Contoso...
 - Attestazioni di output:
-    - **createdClaim** : l'elemento TOS ClaimType contiene il valore "Condizioni d'uso di Contoso...".
+    - **createdClaim**: l'elemento TOS ClaimType contiene il valore "Condizioni d'uso di Contoso...".
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ Usare questa trasformazione di attestazioni per verificare se un'attestazione è
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parametri di input:
-    - **operator** :  NOT EQUAL
-    - **ignoreCase** : true
+    - **operator**:  NOT EQUAL
+    - **ignoreCase**: true
 - Attestazioni di output:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 
 ### <a name="example"></a>Esempio
 - Attestazioni di input:
-    - **inputClaim1** : v1
+    - **inputClaim1**: v1
 - Parametri di input:
-    - **compareTo** : V1
-    - **operator** : EQUAL
-    - **ignoreCase** :  true
+    - **compareTo**: V1
+    - **operator**: EQUAL
+    - **ignoreCase**:  true
 - Attestazioni di output:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ L'esempio seguente genera un ID univoco globale. Questa trasformazione di attest
 ### <a name="example"></a>Esempio
 
 - Parametri di input:
-    - **randomGeneratorType** : GUID
+    - **randomGeneratorType**: GUID
 - Attestazioni di output:
-    - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 L'esempio seguente genera un valore intero casuale compreso tra 0 e 1000. Il valore viene formattato su OTP_{valore casuale}.
 
@@ -282,12 +282,12 @@ L'esempio seguente genera un valore intero casuale compreso tra 0 e 1000. Il val
 ### <a name="example"></a>Esempio
 
 - Parametri di input:
-    - **randomGeneratorType** : INTEGER
-    - **maximumNumber** : 1000
-    - **stringFormat** : OTP_{0}
-    - **base64** : false
+    - **randomGeneratorType**: INTEGER
+    - **maximumNumber**: 1000
+    - **stringFormat**: OTP_{0}
+    - **base64**: false
 - Attestazioni di output:
-    - **outputClaim** : OTP_853
+    - **outputClaim**: OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -319,11 +319,11 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parametri di input:
-    - **stringFormat** :  cpim_{0}@{RelyingPartyTenantId}
+    - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Attestazioni di output:
-  - **outputClaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -356,12 +356,12 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim1** : Joe
-    - **inputClaim2** : Fernando
+    - **inputClaim1**: Joe
+    - **inputClaim2**: Fernando
 - Parametri di input:
-    - **stringFormat** : {0} {1}
+    - **stringFormat**: {0} {1}
 - Attestazioni di output:
-    - **outputClaim** : Joe Fernando
+    - **outputClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
@@ -427,10 +427,10 @@ La trasformazione di attestazioni imposta il valore del tipo di attestazione *su
 ### <a name="example"></a>Esempio
 
 - Attestazioni di output:
-  - **subject** : codice di verifica della posta elettronica dell'account Contoso
-  - **message** : Grazie per aver verificato l'account.
-  - **codeIntro** : Il tuo codice è
-  - **signature** : Cordiali saluti
+  - **subject**: codice di verifica della posta elettronica dell'account Contoso
+  - **message**: Grazie per aver verificato l'account.
+  - **codeIntro**: Il tuo codice è
+  - **signature**: Cordiali saluti
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -472,9 +472,9 @@ La trasformazione di attestazioni esegue la ricerca del testo dell'elemento e ne
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **mapFromClaim** : B2C_V1_90001
+    - **mapFromClaim**: B2C_V1_90001
 - Attestazioni di output:
-    - **restrictionValueClaim** : Accesso non consentito ai minorenni.
+    - **restrictionValueClaim**: Accesso non consentito ai minorenni.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputParameterId** : test.com
+    - **inputParameterId**: test.com
 - Parametri di input:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : false
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: false
 - Attestazioni di output:
-    - **outputClaim** :    c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 Quando il parametro di input `errorOnFailedLookup` è impostato su `true`, la trasformazione di attestazioni **LookupValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md) o da un [controllo di visualizzazione](display-controls.md). I metadati `LookupNotFound` di un profilo tecnico autocertificato controllano il messaggio di errore visualizzato all'utente.
 
@@ -544,12 +544,12 @@ L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputParameterId** : live.com
+    - **inputParameterId**: live.com
 - Parametri di input:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : true
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: true
 - Errore:
     - Non sono state trovate corrispondenze per il valore dell'attestazione di input nell'elenco di ID parametro di input e il valore di errorOnFailedLookup è true.
 
@@ -573,9 +573,9 @@ Usare questa trasformazione di attestazione per rimuovere i dati non necessari d
 ```
 
 - Attestazioni di input:
-    - **outputClaim** : App Contoso. Se continui a esplorare e a usare questo sito Web, accetti di rispettare i termini e le condizioni seguenti...
+    - **outputClaim**: App Contoso. Se continui a esplorare e a usare questo sito Web, accetti di rispettare i termini e le condizioni seguenti...
 - Attestazioni di output:
-    - **outputClaim** : NULL
+    - **outputClaim**: NULL
 
 ## <a name="parsedomain"></a>ParseDomain
 
@@ -602,9 +602,9 @@ Usare questa trasformazione di attestazioni per analizzare il nome di dominio do
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **emailAddress** : joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Attestazioni di output:
-    - **domain** : outlook.com
+    - **domain**: outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ Verifica se il numero di telefono indicato è valido, in base al modello di espr
 ```
 
 - Attestazioni di input:
-    - **claimToMatch** : "64854114520"
+    - **claimToMatch**: "64854114520"
 - Parametri di input:
-    - **matchTo** : "^[0-9]{4,16}$"
-    - **outputClaimIfMatched** :  "isPhone"
+    - **matchTo**: "^[0-9]{4,16}$"
+    - **outputClaimIfMatched**:  "isPhone"
 - Attestazioni di output:
-    - **outputClaim** : "isPhone"
-    - **regexCompareResultClaim** : true
+    - **outputClaim**: "isPhone"
+    - **regexCompareResultClaim**: true
 
 ### <a name="example-2"></a>Esempio 2
 
@@ -672,15 +672,15 @@ Verifica se l'indirizzo e-mail specificato è valido e restituisce l'alias di po
 ```
 
 - Attestazioni di input:
-    - **claimToMatch** : "emily@contoso.com"
+    - **claimToMatch**: "emily@contoso.com"
 - Parametri di input:
-    - **matchTo** : `(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched** :  "isEmail"
-    - **extractGroups** : true
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**:  "isEmail"
+    - **extractGroups**: true
 - Attestazioni di output:
-    - **outputClaim** : "isEmail"
-    - **regexCompareResultClaim** : true
-    - **mailAlias** : emily
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim** : v1
+    - **inputClaim**: v1
 - Parametri di input:
-    - **matchTo** : V1
-    - **stringComparison** : ordinalIgnoreCase
-    - **stringMatchMsg** :  B2C_V1_90005
-    - **stringMatchMsgCode** :  Il tipo di servizio è aggiornato alla versione 2
+    - **matchTo**: V1
+    - **stringComparison**: ordinalIgnoreCase
+    - **stringMatchMsg**:  B2C_V1_90005
+    - **stringMatchMsgCode**:  Il tipo di servizio è aggiornato alla versione 2
 - Attestazioni di output:
-    - **outputClaim1** : B2C_V1_90005
-    - **outputClaim2** : Il tipo di servizio è aggiornato alla versione 2
-    - **stringCompareResultClaim** : true
+    - **outputClaim1**: B2C_V1_90005
+    - **outputClaim2**: Il tipo di servizio è aggiornato alla versione 2
+    - **stringCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ La trasformazione di attestazioni seguente, ad esempio, controlla se il valore d
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **claimToMatch** : Minorenne
+    - **claimToMatch**: Minorenne
 - Parametri di input:
-    - **matchTo** : Minorenne
-    - **stringComparison** : ordinalIgnoreCase
-    - **outputClaimIfMatched** :  B2C_V1_90001
+    - **matchTo**: Minorenne
+    - **stringComparison**: ordinalIgnoreCase
+    - **outputClaimIfMatched**:  B2C_V1_90001
 - Attestazioni di output:
-    - **isMinorResponseCode** : B2C_V1_90001
-    - **isMinor** : true
+    - **isMinorResponseCode**: B2C_V1_90001
+    - **isMinor**: true
 
 
 ## <a name="stringcontains"></a>StringContains
@@ -807,12 +807,12 @@ Usare questa trasformazione di attestazioni per verificare se un tipo di attesta
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim** : "Admin, Approver, Editor"
+    - **inputClaim**: "Admin, Approver, Editor"
 - Parametri di input:
-    - **contains** : "admin,"
-    - **ignoreCase** : true
+    - **contains**: "admin,"
+    - **ignoreCase**: true
 - Attestazioni di output:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ Ottenere ad esempio il prefisso del paese/area geografica del numero di telefono
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim** : "+1644114520"
+    - **inputClaim**: "+1644114520"
 - Parametri di input:
-    - **startIndex** : 0
-    - **length** :  2
+    - **startIndex**: 0
+    - **length**:  2
 - Attestazioni di output:
-    - **outputClaim** : "+1"
+    - **outputClaim**: "+1"
 
 ## <a name="stringreplace"></a>StringReplace
 
@@ -883,12 +883,12 @@ Normalizzare ad esempio un numero di telefono rimuovendo i caratteri `-`
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim** : "+164-411-452-054"
+    - **inputClaim**: "+164-411-452-054"
 - Parametri di input:
-    - **oldValue** : "-"
-    - **NewValue** : ""
+    - **oldValue**: "-"
+    - **NewValue**: ""
 - Attestazioni di output:
-    - **outputClaim** : "+164411452054"
+    - **outputClaim**: "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
@@ -919,11 +919,11 @@ L'esempio seguente accetta una raccolta di stringhe di ruoli utente e la convert
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputClaim** : [ "Admin", "Author", "Reader" ]
+  - **inputClaim**: [ "Admin", "Author", "Reader" ]
 - Parametri di input:
-  - **delimiter** : ","
+  - **delimiter**: ","
 - Attestazioni di output:
-  - **outputClaim** : "Admin,Author,Reader"
+  - **outputClaim**: "Admin,Author,Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ L'esempio seguente accetta una stringa di ruoli utente con delimitatore virgola 
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputClaim** : "Admin,Author,Reader"
+  - **inputClaim**: "Admin,Author,Reader"
 - Parametri di input:
-  - **delimiter** : ","
+  - **delimiter**: ","
 - Attestazioni di output:
-  - **outputClaim** : [ "Admin", "Author", "Reader" ]
+  - **outputClaim**: [ "Admin", "Author", "Reader" ]
 
 ## <a name="string-claim-transformations-expressions"></a>Espressioni di trasformazioni di attestazioni di stringa
 Le espressioni di trasformazioni di attestazioni nei criteri personalizzati di Azure AD B2C forniscono informazioni di contesto sull'ID tenant e sull'ID profilo tecnico.

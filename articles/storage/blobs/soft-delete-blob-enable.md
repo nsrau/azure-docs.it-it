@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230229"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995302"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Abilitare e gestire l'eliminazione temporanea per i BLOB
 
@@ -34,7 +34,7 @@ Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usa
 1. Nel [portale di Azure](https://portal.azure.com/) passare all'account di archiviazione.
 1. Individuare l'opzione **protezione dati** in **servizio BLOB**.
 1. Impostare la proprietà **eliminazione temporanea BLOB** su *abilitato*.
-1. In **criteri di conservazione**specificare per quanto tempo i BLOB eliminati temporaneamente vengono conservati da archiviazione di Azure.
+1. In **criteri di conservazione** specificare per quanto tempo i BLOB eliminati temporaneamente vengono conservati da archiviazione di Azure.
 1. Salvare le modifiche.
 
 ![Screenshot del portale di Azure con il servizio BLOB di protezione dati eletto.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
@@ -194,5 +194,5 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eliminazione temporanea per l'archiviazione BLOB](soft-delete-overview.md)
+- [Eliminazione temporanea per l'archiviazione BLOB](./soft-delete-blob-overview.md)
 - [Controllo delle versioni dei BLOB](versioning-overview.md)

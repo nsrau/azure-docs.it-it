@@ -12,11 +12,11 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
 ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491699"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996305"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Distribuire modelli di Machine Learning in FPGA (Field-Programmable Gate Array) con Azure Machine Learning 
 
@@ -347,9 +347,9 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-### <a name="clean-up-resources"></a>Pulire le risorse
+### <a name="clean-up-resources"></a>Pulizia delle risorse
 
-Per evitare i costi non necessari, pulire le risorse **in questo ordine** : servizio Web, immagine, quindi il modello.
+Per evitare i costi non necessari, pulire le risorse **in questo ordine**: servizio Web, immagine, quindi il modello.
 
 ```python
 aks_service.delete()

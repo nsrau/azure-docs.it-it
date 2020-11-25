@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630261"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994494"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
-Una volta caricato il video, Video Indexer (facoltativamente) codificare il video, illustrato nell'articolo. Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si paga per minuti indicizzati. per altre informazioni, vedere [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
+Una volta caricato il video, Video Indexer (facoltativamente) codificare il video, illustrato nell'articolo. Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si pagano i minuti indicizzati. Per altre informazioni, vedere [Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 Durante il caricamento di video con l'API Video Indexer, sono disponibili le opzioni di caricamento seguenti: 
 
@@ -74,27 +74,7 @@ Questo parametro consente di specificare un ID che verrà associato al video. L'
 
 #### <a name="callbackurl"></a>callbackUrl
 
-Un URL che viene usato per notificare al cliente (con una richiesta POST) gli eventi seguenti:
-
-- Modifica stato indicizzazione: 
-    - Proprietà:    
-    
-        |Nome|Descrizione|
-        |---|---|
-        |id|ID video|
-        |state|Lo stato del video|  
-    - Esempio: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&state = processed
-- Persona identificata nel video:
-  - Proprietà
-    
-      |Nome|Descrizione|
-      |---|---|
-      |id| ID video|
-      |faceId|L'ID viso che appare nell'indice video|
-      |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
-      |personName|Il nome della persona|
-        
-    - Esempio: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceId = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### <a name="other-considerations"></a>Altre considerazioni
 
@@ -118,7 +98,7 @@ Il prezzo dipende dall'opzione di indicizzazione selezionata.
 
 #### <a name="priority"></a>priority
 
-I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso** , **Normale** (predefinito) e **Alto**.
+I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso**, **Normale** (predefinito) e **Alto**.
 
 Il parametro **priority** è supportato solo per gli account a pagamento.
 
@@ -153,7 +133,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
 
     Per ottenere la chiave API, passare a questo flusso:
 
-    * Passare a https://api-portal.videoindexer.ai/
+    * Passare a https://api-portal.videoindexer.ai/.
     * Accedi
     * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**

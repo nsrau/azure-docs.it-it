@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
 ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541590"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996220"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -20,8 +20,8 @@ Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL
 ## <a name="when-to-use-data-in-replication"></a>Quando usare la replica dei dati in ingresso
 Gli scenari principali da considerare quando si usa la funzione di replica dei dati in ingresso sono i seguenti:
 
-- **Sincronizzazione ibrida dei dati** : con la replica dei dati in ingresso è possibile mantenere i dati sincronizzati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
-- **Sincronizzazione multi-cloud** : per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
+- **Sincronizzazione ibrida dei dati**: con la replica dei dati in ingresso è possibile mantenere i dati sincronizzati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
+- **Sincronizzazione multi-cloud**: per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
  
 Per gli scenari di migrazione, usare il [servizio migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/)(DMS).
 
@@ -44,7 +44,7 @@ Per altre informazioni su questo parametro, esaminare la [documentazione di MySQ
 - Se nel server di origine è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mysql.az_replication_change_master` stored procedure. Fare riferimento agli [esempi](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
 - Verificare che l'indirizzo IP del server di origine sia stato aggiunto alle regole del firewall del server di replica di database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](./howto-manage-firewall-using-portal.md) o l'[interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md).
 - Verificare che il computer che ospita il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306.
-- Verificare che il server di origine disponga di un **indirizzo IP pubblico** , che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
+- Verificare che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
 
 ### <a name="other"></a>Altro
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.

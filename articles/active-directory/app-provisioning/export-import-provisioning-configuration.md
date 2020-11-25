@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235818"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994809"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procedura: esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto
 
@@ -32,7 +32,7 @@ Per esportare la configurazione:
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 1. Nel riquadro **Azure Active Directory** selezionare **applicazioni aziendali** e scegliere l'applicazione.
-1. Nel riquadro di spostamento a sinistra selezionare **provisioning**. Dalla pagina di configurazione del provisioning, fare clic su **mapping attributi**, quindi su **Mostra opzioni avanzate**e infine **esaminare lo schema**. Verrà visualizzata l'Editor schemi.
+1. Nel riquadro di spostamento a sinistra selezionare **provisioning**. Dalla pagina di configurazione del provisioning, fare clic su **mapping attributi**, quindi su **Mostra opzioni avanzate** e infine **esaminare lo schema**. Verrà visualizzata l'Editor schemi.
 1. Fare clic su download nella barra dei comandi nella parte superiore della pagina per scaricare lo schema.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Ripristino di emergenza: eseguire il rollback a uno stato valido noto

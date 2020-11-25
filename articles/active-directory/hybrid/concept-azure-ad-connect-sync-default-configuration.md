@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295227"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996628"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Viene inoltre illustrata la configurazione predefinita della sincronizzazione Azure AD Connect. L'obiettivo è che il lettore conosca il modo in cui il modello di configurazione, denominato provisioning dichiarativo, sta funzionando in un esempio reale. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -96,7 +96,7 @@ Un oggetto gruppo deve soddisfare i seguenti requisiti per essere sincronizzato:
   * Se il numero di membri supera il limite prima che la prima sincronizzazione venga avviata, il gruppo non verrà sincronizzato.
   * Se il numero di membri aumenta rispetto al momento della creazione, la sincronizzazione si interromperà quando raggiunge i 50.000 membri, finché il numero dei membri non diventa nuovamente inferiore a 50.000.
   * Nota: il limite di 50.000 membri viene applicato anche da Azure AD. Non è possibile sincronizzare i gruppi con un numero maggiore di membri, anche se si modifica o si rimuove la regola.
-* Se il gruppo è un **gruppo di distribuzione**deve essere anche abilitato per la posta elettronica. Per informazioni sull’applicazione di questa regola vedere [Regole predefinite del contatto](#contact-out-of-box-rules) .
+* Se il gruppo è un **gruppo di distribuzione** deve essere anche abilitato per la posta elettronica. Per informazioni sull’applicazione di questa regola vedere [Regole predefinite del contatto](#contact-out-of-box-rules) .
 
 Gli oggetti di gruppo seguenti **non** vengono sincronizzati con Azure AD:
 

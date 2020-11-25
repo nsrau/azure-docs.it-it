@@ -4,11 +4,11 @@ description: Informazioni sulle opzioni di blocco nei progetti di Azure per prot
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095995"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996101"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -19,12 +19,12 @@ La creazione di ambienti coerenti su larga scala è davvero efficace solo se esi
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
-La modalità di blocco si applica all'assegnazione del progetto ed è costituita da tre opzioni: **non bloccare**, **sola lettura**o non **eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
+La modalità di blocco si applica all'assegnazione del progetto ed è costituita da tre opzioni: **non bloccare**, **sola lettura** o non **eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
 Le modalità di blocco, tuttavia, non possono essere modificate all'esterno dei progetti di Azure.
 
-Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare**o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
+Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare** o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Modalità|Tipo di risorsa artefatto|State|Descrizione|
+|Mode|Tipo di risorsa artefatto|State|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette dai progetti di Azure. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
@@ -33,7 +33,7 @@ Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati
 
 ## <a name="overriding-locking-states"></a>Sostituzione degli stati di blocco
 
-È in genere possibile che un utente con il [controllo degli accessi in base al ruolo di Azure (RBAC)](../../../role-based-access-control/overview.md) appropriato per la sottoscrizione, ad esempio il ruolo "proprietario", sia autorizzato a modificare o eliminare qualsiasi risorsa. Questo accesso non avviene quando i progetti di Azure applicano il blocco come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura ** o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
+È in genere possibile che un utente con il [controllo degli accessi in base al ruolo di Azure (RBAC)](../../../role-based-access-control/overview.md) appropriato per la sottoscrizione, ad esempio il ruolo "proprietario", sia autorizzato a modificare o eliminare qualsiasi risorsa. Questo accesso non avviene quando i progetti di Azure applicano il blocco come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura** o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
 
 Questa misura di sicurezza salvaguarda la coerenza del progetto definito e l'ambiente che è stato progettato per creare a partire da eliminazioni accidentali o programmatiche.
 
@@ -107,9 +107,9 @@ Un'azione di negazione delle [assegnazioni](../../../role-based-access-control/d
 
 Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
 
-|Modalità |Autorizzazioni. azioni |Permissions. notacts |Entità [i]. Tipo |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
+|Mode |Autorizzazioni. azioni |Permissions. notacts |Entità [i]. Tipo |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Sola lettura |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/Subnets/join/Action** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
+|Sola lettura |**\** _ |_ *\* /Read **<br />** Microsoft. Authorization/Locks/Delete **<br />** Microsoft. Network/virtualNetwork/Subnets/join/Action** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
 |Non eliminare |**\*/Delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/Subnets/join/Action** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
 
 > [!IMPORTANT]

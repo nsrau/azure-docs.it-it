@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130562"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996127"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usare Docker Compose per distribuire più contenitori
 
@@ -39,7 +39,7 @@ Per questa procedura sono necessari diversi strumenti che devono essere installa
 
 ## <a name="docker-compose-file"></a>File Docker Compose
 
-Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su un' `DockerFile` immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML* . Specificare i valori **APIKEY** , **Billing** e **EndpointUri** appropriati nel file.
+Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su un' `DockerFile` immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing** e **EndpointUri** appropriati nel file.
 
 ```yaml
 version: '3.7'

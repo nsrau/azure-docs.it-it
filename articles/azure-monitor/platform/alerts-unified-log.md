@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995081"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
@@ -62,7 +62,7 @@ L'intervallo di tempo è impostato nella definizione della condizione della rego
 
 Analogamente a log Analytics, l'intervallo di tempo limita i dati delle query all'intervallo specificato. Anche se nella query viene usato il comando **fa** , verrà applicato l'intervallo di tempo.
 
-Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica **Period**dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
+Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica **Period** dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
 
 ### <a name="measure"></a>Measure
 
@@ -74,7 +74,7 @@ Il conteggio dei risultati è la misura predefinita. Ideale per l'utilizzo di ev
 
 Gli avvisi del log funzionano meglio quando si tenta di rilevare i dati nel log. Funziona meno bene quando si tenta di rilevare la mancanza di dati nei log. Ad esempio, avvisi sull'heartbeat della macchina virtuale.
 
-Per le aree di lavoro e Application Insights, viene chiamato **in base** al **numero di risultati della**selezione. In tutti gli altri tipi di risorse, viene chiamato **Measure** con le **righe della tabella**di selezione.
+Per le aree di lavoro e Application Insights, viene chiamato **in base** al **numero di risultati della** selezione. In tutti gli altri tipi di risorse, viene chiamato **Measure** con le **righe della tabella** di selezione.
 
 > [!NOTE]
 > Poiché i log sono dati semi-strutturati, sono intrinsecamente più latenti della metrica, è possibile che si verifichino problemi durante il tentativo di rilevare la mancanza di dati nei log ed è consigliabile usare gli [avvisi delle metriche](alerts-metric-overview.md). È possibile inviare i dati all'archivio delle metriche dai log usando gli [avvisi delle metriche per i log](alerts-metric-logs.md).
@@ -98,7 +98,7 @@ Le regole di avviso monitorano quindi le richieste che terminano con il codice d
 
 #### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Calcolo della misura in base a una colonna numerica (ad esempio valore del contatore CPU)
 
-Per le aree di lavoro e Application Insights, viene chiamato **in base** alla **misurazione della metrica**di selezione. In tutti gli altri tipi di risorse, viene chiamato **Measure** con la selezione di un nome di colonna numerico.
+Per le aree di lavoro e Application Insights, viene chiamato **in base** alla **misurazione della metrica** di selezione. In tutti gli altri tipi di risorse, viene chiamato **Measure** con la selezione di un nome di colonna numerico.
 
 ### <a name="aggregation-type"></a>Tipo di aggregazione
 

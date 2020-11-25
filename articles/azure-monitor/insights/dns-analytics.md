@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499002"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994631"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -57,7 +57,7 @@ La soluzione avvia la raccolta dati senza che siano necessarie operazioni di con
 
 Nel dashboard della soluzione fare clic su **Configurazione** per aprire la pagina Configurazione di DNS Analytics. È possibile apportare due tipi di modifiche di configurazione.
 
-- **Nomi di dominio**consentiti. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti permette di ottimizzare i dati inviati a Monitoraggio di Azure. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
+- **Nomi di dominio** consentiti. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti permette di ottimizzare i dati inviati a Monitoraggio di Azure. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
 
   È possibile modificare l'elenco per aggiungere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca. È anche possibile rimuovere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca.
 
@@ -165,7 +165,7 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 
     a. Per visualizzare i dati di log per query di ricerca, selezionare **LookUpQuery** come filtro **sottotipo** nel controllo facet sul lato sinistro. Viene visualizzata una tabella contenente gli eventi relativi a query di ricerca per il periodo di tempo selezionato.
 
-    b. Per visualizzare i dati di log per registrazioni dinamiche, selezionare ** DynamicRegistration** come filtro **sottotipo** nel controllo facet sul lato sinistro. Viene visualizzata una tabella contenente tutti gli eventi relativi a registrazioni dinamiche per il periodo di tempo selezionato.
+    b. Per visualizzare i dati di log per registrazioni dinamiche, selezionare **DynamicRegistration** come filtro **sottotipo** nel controllo facet sul lato sinistro. Viene visualizzata una tabella contenente tutti gli eventi relativi a registrazioni dinamiche per il periodo di tempo selezionato.
 
     c. Per visualizzare i dati di log per modifiche di configurazione, selezionare **ConfigurationChange** come filtro **sottotipo** nel controllo facet sul lato sinistro. Viene visualizzata una tabella contenente tutti gli eventi relativi a modifiche di configurazione per il periodo di tempo selezionato.
 

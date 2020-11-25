@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 732362ef7099e93697320d8e47180c1207e8cb32
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453859"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Esercitazione: Integrazione di Azure Active Directory con Everbridge
 
@@ -52,7 +52,7 @@ Per aggiungere Everbridge da Azure Marketplace, seguire questa procedura.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Per aggiungere Everbridge da Azure Marketplace, seguire questa procedura.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Everbridge** . Selezionare **Everbridge** nel pannello dei risultati e quindi selezionare **Aggiungi** .
+4. Nella casella di ricerca immettere **Everbridge**. Selezionare **Everbridge** nel pannello dei risultati e quindi selezionare **Aggiungi**.
 
      ![Everbridge nell'elenco risultati](common/search-new-app.png)
 
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Everbridge, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Everbridge** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **Everbridge** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Everbridge, seguire que
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -130,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Everbridge, seguire que
      > [!NOTE]
      > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Everbridge](mailto:support@everbridge.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** per scaricare il file **XML dei metadati della federazione** . Salvarlo nel computer.
+6. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** per scaricare il file **XML dei metadati della federazione**. Salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -144,11 +144,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Everbridge, seguire que
 
 ### <a name="configure-everbridge-as-everbridge-manager-portal-single-sign-on"></a>Configurare l'accesso Single Sign-On di Everbridge come portale di gestione di Everbridge
 
-Per configurare l'accesso SSO in **Everbridge** come applicazione del **portale di gestione di Everbridge** , seguire questa procedura.
+Per configurare l'accesso SSO in **Everbridge** come applicazione del **portale di gestione di Everbridge**, seguire questa procedura.
  
 1. In un'altra finestra del Web browser accedere a Everbridge come amministratore.
 
-1. Selezionare la scheda **Settings** (Impostazioni) nel menu in alto. In **Security** (Sicurezza) selezionare **Single Sign-On** .
+1. Selezionare la scheda **Settings** (Impostazioni) nel menu in alto. In **Security** (Sicurezza) selezionare **Single Sign-On**.
    
      ![Configura accesso Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
@@ -158,23 +158,23 @@ Per configurare l'accesso SSO in **Everbridge** come applicazione del **portale 
    
      c. Selezionare **Choose File** (Scegli file) per caricare il file di metadati scaricato dal portale di Azure.
    
-     d. In **SAML Identity Location** (Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
+     d. In **SAML Identity Location**(Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
    
      e. Nella casella **Identity Provider Login URL** (URL di accesso del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
    
      f. Per **Service Provider Initiated Request Binding** (Binding delle richieste avviate dal provider di servizi) selezionare **HTTP Redirect** (Reindirizzamento HTTP).
 
-     g. Selezionare **Salva** .
+     g. Selezionare **Salva**.
 
 ### <a name="configure-everbridge-as-everbridge-member-portal-single-sign-on"></a>Configurare l'accesso Single Sign-On di Everbridge come portale dei membri di Everbridge
 
-Per configurare l'accesso Single Sign-On in **Everbridge** come **portale dei membri di Everbridge** , inviare il file **XML dei metadati della federazione** scaricato al [team di supporto di Everbridge](mailto:support@everbridge.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On in **Everbridge** come **portale dei membri di Everbridge**, inviare il file **XML dei metadati della federazione** scaricato al [team di supporto di Everbridge](mailto:support@everbridge.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Per creare l'utente di test Britta Simon nel portale di Azure, seguire questa procedura.
 
-1. Nel riquadro di sinistra del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti** .
+1. Nel riquadro di sinistra del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
 
     ![Collegamenti Utenti e Tutti gli utenti](common/users.png)
 
@@ -186,11 +186,11 @@ Per creare l'utente di test Britta Simon nel portale di Azure, seguire questa pr
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nella casella **Nome** immettere **BrittaSimon** .
+    a. Nella casella **Nome** immettere **BrittaSimon**.
   
     b. Nella casella **Nome utente** immettere `brittasimon@yourcompanydomain.extension`. Un esempio è BrittaSimon@contoso.com.
 
-    c. Selezionare la casella di controllo **Mostra password** . Prendere quindi nota del valore visualizzato nella casella **Password** .
+    c. Selezionare la casella di controllo **Mostra password**. Prendere quindi nota del valore visualizzato nella casella **Password**.
 
     d. Selezionare **Create** (Crea).
 
@@ -198,11 +198,11 @@ Per creare l'utente di test Britta Simon nel portale di Azure, seguire questa pr
 
 Abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Everbridge.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** >**Everbridge** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** >**Everbridge**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Everbridge** .
+2. Nell'elenco delle applicazioni selezionare **Everbridge**.
 
     ![Collegamento di Everbridge nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -210,7 +210,7 @@ Abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole
 
     ![Collegamento Utenti e gruppi](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** . Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi** .
+4. Selezionare **Aggiungi utente**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
     ![Finestra di dialogo Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -218,7 +218,7 @@ Abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ### <a name="create-an-everbridge-test-user"></a>Creare un utente di test di Everbridge
 

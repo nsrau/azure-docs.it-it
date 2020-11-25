@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994758"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utenti
 
@@ -48,11 +48,11 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
-   1. In **Includi**selezionare **tutti gli utenti**
+   1. In **Includi** selezionare **tutti gli utenti**
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
-   1. In **Escludi**selezionare le applicazioni che non richiedono l'autenticazione a più fattori.
+1. In **app Cloud o azioni**  >  **Includi** selezionare **tutte le app Cloud**.
+   1. In **Escludi** selezionare le applicazioni che non richiedono l'autenticazione a più fattori.
 1. In **condizioni**  >  **app client (anteprima)**, in **selezionare le app client a cui verranno applicati i criteri per** lasciare selezionate tutte le impostazioni predefinite e selezionare **fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
@@ -64,12 +64,12 @@ Le organizzazioni possono scegliere di incorporare i percorsi di rete noti, dett
 
 Nei criteri di esempio precedenti, un'organizzazione può scegliere di non richiedere l'autenticazione a più fattori per l'accesso a un'app Cloud dalla propria rete aziendale. In questo caso, è possibile aggiungere la configurazione seguente ai criteri:
 
-1. In **assegnazioni**selezionare i **Conditions**  >  **percorsi**delle condizioni.
+1. In **assegnazioni** selezionare i **Conditions**  >  **percorsi** delle condizioni.
    1. Configurare **Sì**.
    1. Includere **Tutte le località**.
    1. Escludere **Tutte le posizioni attendibili**.
-   1. Selezionare **Operazione completata**.
-1. Selezionare **Operazione completata**.
+   1. Selezionare **Fine**.
+1. Selezionare **Fine**.
 1. **Salvare** le modifiche apportate ai criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi

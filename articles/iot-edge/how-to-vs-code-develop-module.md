@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
 ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995914"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -93,7 +93,7 @@ I passaggi seguenti mostrano come creare un modulo IoT Edge nel linguaggio di sv
 
 1. Immettere un nome per il modulo. Scegliere un nome univoco all'interno del registro contenitori.
 
-1. Specificare il nome del repository di immagini del modulo. Visual Studio Code popola automaticamente il nome del modulo con il valore **localhost:5000/<nome del modulo\>**. Sostituire tale valore con le proprie informazioni di registro. Se si usa un registro Docker locale per il test, **localhost** è corretto. Se si usa Registro Azure Container, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un aspetto simile a ** _\<registry name\>_ . azurecr.io**. Sostituire solo la parte **localhost: 5000** della stringa, in modo che il risultato finale appaia come ** \<*registry name*\> . _\<your module name\>_ azurecr.io/**.
+1. Specificare il nome del repository di immagini del modulo. Visual Studio Code popola automaticamente il nome del modulo con il valore **localhost:5000/<nome del modulo\>**. Sostituire tale valore con le proprie informazioni di registro. Se si usa un registro Docker locale per il test, **localhost** è corretto. Se si usa Registro Azure Container, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un aspetto simile a **_\<registry name\>_ . azurecr.io**. Sostituire solo la parte **localhost: 5000** della stringa, in modo che il risultato finale appaia come **\<*registry name*\> . _\<your module name\>_ azurecr.io/**.
 
    ![Specificare il repository di immagini Docker](./media/how-to-develop-csharp-module/repository.png)
 
@@ -122,7 +122,7 @@ Per aggiungere altri moduli alla soluzione, eseguire il comando **Azure IOT Edge
 
 Il codice del modulo predefinito fornito con la soluzione si trova al percorso seguente:
 
-- Funzione di Azure (C#): **moduli > * &lt; il nome &gt; *del modulo nome  >  * &lt; del &gt; *modulo. cs**
+- Funzione di Azure (C#): **moduli > *&lt; il nome &gt;* del modulo nome  >  *&lt; del &gt;* modulo. cs**
 - C#: **moduli > *&lt;nome del modulo&gt;* > Program.cs**
 - Python: **moduli > *&lt;nome del modulo&gt;* > main.py**
 - Node.js: **moduli > *&lt;nome del modulo&gt;* > app.js**
@@ -160,7 +160,7 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IOT Edge: a
 
 1. Preparare l'ambiente per il debug in base ai requisiti del linguaggio di sviluppo, impostare un punto di interruzione nel modulo e selezionare la configurazione di debug da usare:
    - **C#**
-     - Nel terminale Visual Studio Code integrato, modificare la directory nella cartella del *** &lt; nome &gt; del modulo*** , quindi eseguire il comando seguente per compilare l'applicazione .NET Core.
+     - Nel terminale Visual Studio Code integrato modificare la directory nella cartella **_&lt; Your module name &gt;_* _, quindi eseguire il comando seguente per compilare l'applicazione .NET Core.
 
        ```cmd
        dotnet build
@@ -168,13 +168,13 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IOT Edge: a
 
      - Aprire il file `Program.cs` e aggiungere un punto di interruzione.
 
-     - Passare alla visualizzazione Debug di Visual Studio Code selezionando **Visualizza > Debug**. Selezionare la configurazione di debug ** * &lt; nome &gt; del modulo* debug locale (.NET Core)** nell'elenco a discesa.
+     - Passare alla visualizzazione debug Visual Studio Code selezionando _* visualizza > debug * *. Selezionare la configurazione di debug * *_ &lt; nome modulo &gt; _ debug locale (.NET Core) * * dall'elenco a discesa.
 
         > [!NOTE]
         > Se .NET Core `TargetFramework` non è coerente con il percorso del programma in `launch.json` , è necessario aggiornare manualmente il percorso del programma in in `launch.json` `TargetFramework` modo che corrisponda a nel file con estensione csproj in modo che Visual Studio Code possibile avviare correttamente il programma.
 
    - **Node.js**
-     - Nel terminale Visual Studio Code integrato, modificare la directory nella cartella del *** &lt; nome &gt; del modulo*** , quindi eseguire il comando seguente per installare i pacchetti del nodo
+     - Nel terminale Visual Studio Code integrato modificare la directory nella cartella **_&lt; Your module name &gt;_* _, quindi eseguire il comando seguente per installare i pacchetti del nodo
 
        ```cmd
        npm install
@@ -182,11 +182,11 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IOT Edge: a
 
      - Aprire il file `app.js` e aggiungere un punto di interruzione.
 
-     - Passare alla visualizzazione Debug di Visual Studio Code selezionando **Visualizza > Debug**. Selezionare la configurazione di debug ** * &lt; nome &gt; del modulo* debug locale (Node.js)** nell'elenco a discesa.
+     - Passare alla visualizzazione debug Visual Studio Code selezionando _* visualizza > debug * *. Selezionare la configurazione di debug * *_ &lt; nome modulo &gt; _ debug locale (Node.js) * * dall'elenco a discesa.
    - **Java**
      - Aprire il file `App.java` e aggiungere un punto di interruzione.
 
-     - Passare alla visualizzazione Debug di Visual Studio Code selezionando **Visualizza > Debug**. Selezionare la configurazione di debug ** * &lt; nome &gt; del modulo* local debug (Java)** nell'elenco a discesa.
+     - Passare alla visualizzazione Debug di Visual Studio Code selezionando **Visualizza > Debug**. Selezionare la configurazione di debug **_&lt; nome &gt; del modulo_ local debug (Java)** nell'elenco a discesa.
 
 1. Fare clic su **Avvia debug** o premere **F5** per avviare la sessione di debug.
 
@@ -234,7 +234,7 @@ Nel computer di sviluppo è possibile avviare un simulatore di IoT Edge invece d
 
    ![Variabili delle espressioni di controllo](media/how-to-vs-code-develop-module/view-log.png)
 
-1. Passare alla visualizzazione Debug di Visual Studio Code e selezionare il file di configurazione del debug per il modulo. Il nome dell'opzione di debug deve essere simile al ** * &lt; nome &gt; del modulo* Remote Debug**
+1. Passare alla visualizzazione Debug di Visual Studio Code e selezionare il file di configurazione del debug per il modulo. Il nome dell'opzione di debug deve essere simile al **_&lt; nome &gt; del modulo_ Remote Debug**
 
 1. Selezionare **Avvia debug** o premere **F5**. Selezionare il processo a cui collegarsi.
 
@@ -322,13 +322,13 @@ Si noterà che la distribuzione è stata creata correttamente con un ID distribu
 
   - Assicurarsi che il modulo nel computer di cui eseguire il debug sia in esecuzione e pronto per il collegamento dei debugger e che la porta 9229 sia accessibile esternamente. È possibile verificarlo aprendo `http://<target-machine-IP>:9229/json` nel computer debugger. Questo URL deve visualizzare informazioni sul modulo Node.js da sottoporre a debug.
   
-  - Nel computer di sviluppo aprire Visual Studio Code e quindi modificare in `launch.json` modo che il valore dell'indirizzo del profilo del ** * &lt; nome &gt; del modulo* Remote Debug (Node.js)** (o ** * &lt; il nome &gt; del modulo* Remote Debug (Node.js nel contenitore Windows)** se il modulo è in esecuzione come contenitore Windows) sia l'IP del computer di cui è in corso il debug.
+  - Nel computer di sviluppo aprire Visual Studio Code e quindi modificare in `launch.json` modo che il valore dell'indirizzo del profilo del **_&lt; nome &gt; del modulo_ Remote Debug (Node.js)** (o **_&lt; il nome &gt; del modulo_ Remote Debug (Node.js nel contenitore Windows)** se il modulo è in esecuzione come contenitore Windows) sia l'IP del computer di cui è in corso il debug.
 
 - **Java**
 
   - Compilare un tunnel SSH al computer da sottoporre a debug eseguendo `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - Nel computer di sviluppo aprire Visual Studio Code e modificare il profilo del ** * &lt; nome &gt; del modulo* Remote Debug (Java)** in in `launch.json` modo che sia possibile connettersi al computer di destinazione. Per altre informazioni sulla modifica di `launch.json` e sul debug di Java con Visual Studio Code, vedere la sezione sulla [configurazione del debugger](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - Nel computer di sviluppo aprire Visual Studio Code e modificare il profilo del **_&lt; nome &gt; del modulo_ Remote Debug (Java)** in in `launch.json` modo che sia possibile connettersi al computer di destinazione. Per altre informazioni sulla modifica di `launch.json` e sul debug di Java con Visual Studio Code, vedere la sezione sulla [configurazione del debugger](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
@@ -336,11 +336,11 @@ Si noterà che la distribuzione è stata creata correttamente con un ID distribu
 
   - Nel codice `ptvsd.enable_attach(('0.0.0.0', 5678))` inserito precedentemente in `main.py`, sostituire **0.0.0.0** con l'indirizzo IP del computer di cui eseguire il debug. Compilare, eseguire il push e distribuire di nuovo il modulo di IoT Edge.
 
-  - Nel computer di sviluppo aprire Visual Studio Code e quindi modificare in `launch.json` modo che il `host` valore del profilo di **debug remoto (Python) del * &lt; nome &gt; del modulo* ** usi l'indirizzo IP del computer di destinazione invece di `localhost` .
+  - Nel computer di sviluppo aprire Visual Studio Code e quindi modificare in `launch.json` modo che il `host` valore del profilo di **debug remoto (Python) del _&lt; nome &gt; del modulo_** usi l'indirizzo IP del computer di destinazione invece di `localhost` .
 
 ### <a name="debug-your-module"></a>Eseguire il debug del modulo
 
-1. Nella visualizzazione Debug di Visual Studio Code selezionare il file di configurazione del debug per il modulo. Il nome dell'opzione di debug deve essere simile al ** * &lt; nome &gt; del modulo* Remote Debug**
+1. Nella visualizzazione Debug di Visual Studio Code selezionare il file di configurazione del debug per il modulo. Il nome dell'opzione di debug deve essere simile al **_&lt; nome &gt; del modulo_ Remote Debug**
 
 1. Aprire il file del modulo per il linguaggio di sviluppo e aggiungere un punto di interruzione:
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
 ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546603"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996033"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Sviluppare programmi Java MapReduce per Apache Hadoop in HDInsight
 
@@ -38,13 +38,13 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-1. Immettere il comando seguente per creare un progetto Maven denominato **wordcountjava** :
+1. Immettere il comando seguente per creare un progetto Maven denominato **wordcountjava**:
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Questo comando crea una directory con il nome specificato dal `artifactID` parametro ( **wordcountjava** in questo esempio). Questa directory contiene gli elementi seguenti:
+    Questo comando crea una directory con il nome specificato dal `artifactID` parametro (**wordcountjava** in questo esempio). Questa directory contiene gli elementi seguenti:
 
     * `pom.xml`: il modello a oggetti dei progetti ([POM o Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
     * src\main\java\org\apache\hadoop\examples: contiene il codice dell'applicazione.
@@ -143,7 +143,7 @@ Questa sezione Configura il plug-in Apache Maven Compiler e il plug-in shader pe
 
 Il plug-in maven-shade-plugin produce anche un file uberjar, che contiene tutte le dipendenze richieste dall'applicazione.
 
-Salvare il file `pom.xml`.
+Salvare il file.`pom.xml`
 
 ## <a name="create-the-mapreduce-application"></a>Creare l'applicazione MapReduce
 

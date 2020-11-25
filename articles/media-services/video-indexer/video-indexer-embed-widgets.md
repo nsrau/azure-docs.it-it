@@ -12,11 +12,11 @@ ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994979"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
 
@@ -79,8 +79,8 @@ Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere
 
 1. Accedere al sito Web [video Indexer](https://www.videoindexer.ai/) .
 1. Selezionare il video che si desidera utilizzare e premere **Play**.
-1. Selezionare il tipo di widget desiderato (**cognitive Insights**, **Player**o **Editor**).
-1. Fare clic su ** &lt; / &gt; incorpora**.
+1. Selezionare il tipo di widget desiderato (**cognitive Insights**, **Player** o **Editor**).
+1. Fare clic su **&lt; / &gt; incorpora**.
 5. Copiare il codice di incorporamento (viene visualizzato in **copia il codice incorporato** nella finestra di dialogo di **condivisione & incorporamento** ).
 6. Aggiungere il codice all'app.
 
@@ -291,7 +291,7 @@ Per impostazione predefinita, il lettore inizierà a riprodurre il video. è pos
 
 Vedere il repository di [esempi di codice](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) che contiene esempi per video Indexer API e widget:
 
-| File/cartella                       | Description                                |
+| File/cartella                       | Descrizione                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | Caricare video dell'indicizzatore video in un Azure Media Player personalizzato.                        |
 | `azure-media-player-vi-insights`  | Incorporare VI Insights con una Azure Media Player personalizzata.                             |

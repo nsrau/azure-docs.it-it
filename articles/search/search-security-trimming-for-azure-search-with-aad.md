@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994962"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtri di sicurezza per tagliare i risultati di ricerca cognitiva di Azure usando Active Directory identità
 
@@ -183,11 +183,11 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 La risposta include un elenco filtrato dei documenti, costituito da quelli che l'utente è autorizzato a visualizzare. A seconda di come viene creata la pagina dei risultati della ricerca, potrebbero essere inclusi segnali visivi per riflettere il set di risultati filtrato.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 In questa procedura dettagliata sono state apprese le tecniche per l'uso degli accessi ad AAD per filtrare i documenti in Azure ricerca cognitiva risultati, tagliando i risultati dei documenti che non corrispondono al filtro specificato nella richiesta.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Controllo degli accessi in base all'identità con i filtri ricerca cognitiva di Azure](search-security-trimming-for-azure-search.md)
 + [Filtri in ricerca cognitiva di Azure](search-filters.md)

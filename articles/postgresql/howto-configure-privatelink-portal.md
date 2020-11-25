@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636266"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995285"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con il portale
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato.  Questo articolo illustra come usare la portale di Azure per creare una VM in una rete virtuale di Azure e un singolo server di database di Azure per PostgreSQL con un endpoint privato di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per PostgreSQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
@@ -40,8 +40,8 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
     | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo** , immettere *myResourceGroup* e selezionare **OK**. |
-    | Località | Selezionare **Europa occidentale**.|
+    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere la *subnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -51,7 +51,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**.
 
-2. In **Creare una macchina virtuale - Informazioni di base** , immettere o selezionare queste informazioni:
+2. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -78,7 +78,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Crea macchina virtuale - Dischi** mantenere le impostazioni predefinite e selezionare **Avanti: Rete**.
 
-1. In **Creare una macchina virtuale - Rete** , selezionare queste informazioni:
+1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -93,7 +93,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
 
-1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
+1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
 > [!NOTE]
 > In alcuni casi, Database di Azure per PostgreSQL e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
@@ -174,7 +174,7 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
     > Usare la zona DNS privata predefinita per il servizio o specificare il nome della zona DNS preferita. Per informazioni dettagliate, vedere la [configurazione della zona DNS dei servizi di Azure](../private-link/private-endpoint-dns.md) .
 
 1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
-2. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**. 
+2. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Collegamento privato creato":::
 
@@ -184,7 +184,7 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Connettersi a una VM con Desktop remoto (RDP)
 
 
-Dopo aver creato **myVm** , connettersi alla macchina virtuale da Internet come illustrato di seguito: 
+Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come illustrato di seguito: 
 
 1. Nella barra di ricerca del portale immettere *myVm*.
 
@@ -243,7 +243,7 @@ Dopo aver creato **myVm** , connettersi alla macchina virtuale da Internet come 
 
 8. Chiudere la connessione Desktop remoto a myVm.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 Al termine dell'uso dell'endpoint privato, del server PostgreSQL e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
 1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale e selezionare  *myResourceGroup* nei   Risultati della ricerca.

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995591"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight
 
@@ -44,7 +44,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 1. Nella finestra **Crea un nuovo progetto** selezionare la casella di ricerca e immettere `Storm` . Quindi scegliere **Storm Sample** dall'elenco dei risultati e fare clic su **Next (avanti**).
 
-1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto**e passare a o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
+1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto** e passare a o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
 
     ![Configurare la finestra del nuovo progetto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
@@ -89,7 +89,7 @@ Quando si invia una topologia con Visual Studio, viene visualizzata la finestra 
 ![Topologia di monitoraggio, finestra visualizzazione topologie Storm, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
-> È inoltre possibile visualizzare le **topologie Storm ** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e quindi selezionare **Visualizza topologie Storm**.
+> È inoltre possibile visualizzare le **topologie Storm** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e quindi selezionare **Visualizza topologie Storm**.
 
 Selezionare la forma degli spout o dei bolt per visualizzare informazioni su questi componenti. Viene visualizzata una descrizione comando con informazioni sul componente per l'elemento selezionato.
 
@@ -224,9 +224,9 @@ Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visua
 | Riepilogo componenti | informazioni di base sullo spout o sul bolt. |
 | Azioni componente | Pulsanti **debug e** **Interrompi debug** . |
 | Statistiche di beccuccio o statistiche Bolt | statistiche relative allo spout o al bolt. Per impostare l'intervallo di tempo per una voce in questa sezione, selezionare il relativo collegamento nella colonna **finestra** . |
-| (Solo Bolt)<br/>Statistiche di input (intervallo di*tempo)* | informazioni sui flussi di input usati dal bolt. |
+| (Solo Bolt)<br/>Statistiche di input (intervallo di *tempo)* | informazioni sui flussi di input usati dal bolt. |
 | Statistiche di output (intervallo di *tempo)* | informazioni sui flussi generati dallo spout o dal bolt. |
-| Profilatura e debug | Controlli per la profilatura e il debug dei componenti in questa pagina. È possibile impostare il valore **stato/timeout (minuti)** ed è possibile selezionare i pulsanti per **JStack**, **riavvio**del ruolo di lavoro e **heap**. |
+| Profilatura e debug | Controlli per la profilatura e il debug dei componenti in questa pagina. È possibile impostare il valore **stato/timeout (minuti)** ed è possibile selezionare i pulsanti per **JStack**, **riavvio** del ruolo di lavoro e **heap**. |
 | Esecutori *(intervallo di tempo)* | informazioni sulle istanze dello spout o del bolt. Per visualizzare un log delle informazioni di diagnostica generate per questa istanza, selezionare la voce della **porta** per un esecutore specifico. È anche possibile visualizzare le risorse di lavoro associate a un esecutore specifico selezionando il relativo collegamento nella colonna **host** . |
 | Errors | informazioni su eventuali errori dello spout o del bolt. |
 

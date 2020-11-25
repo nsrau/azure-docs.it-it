@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76905037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995047"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Risolvere i problemi e diagnosticare gli errori del flusso di lavoro nelle App per la logica di Azure
 
@@ -27,7 +27,7 @@ Ogni esecuzione di app per la logica inizia con un tentativo di trigger, quindi 
 
    ![Visualizzare lo stato e la cronologia del trigger](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-1. Controllare gli input del trigger per verificare che vengano visualizzati come previsto. In **input collegamento**selezionare il collegamento, che mostra il riquadro **input** .
+1. Controllare gli input del trigger per verificare che vengano visualizzati come previsto. In **input collegamento** selezionare il collegamento, che mostra il riquadro **input** .
 
    Gli input del trigger includono i dati previsti dal trigger e richiedono l'avvio del flusso di lavoro. Esaminando questi input è possibile determinare se gli input del trigger sono corretti e se la condizione è stata soddisfatta, in modo che il flusso di lavoro possa continuare.
 
@@ -35,7 +35,7 @@ Ogni esecuzione di app per la logica inizia con un tentativo di trigger, quindi 
 
    ![Esaminare gli input dei trigger per gli errori](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
-1. Controllare gli output dei trigger, se presenti, per verificare che vengano visualizzati come previsto. In **output collegamento**selezionare il collegamento, che mostra il riquadro **output** .
+1. Controllare gli output dei trigger, se presenti, per verificare che vengano visualizzati come previsto. In **output collegamento** selezionare il collegamento, che mostra il riquadro **output** .
 
    Gli output dei trigger includono i dati che il trigger passa al passaggio successivo del flusso di lavoro. Esaminando questi output è possibile determinare se i valori corretti o previsti sono passati al passaggio successivo nel flusso di lavoro, ad esempio:
 

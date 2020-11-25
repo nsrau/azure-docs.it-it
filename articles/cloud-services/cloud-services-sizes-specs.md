@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076947"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994588"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -79,9 +79,9 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Molto piccola      | 1         | 0,768        | 20                   | 1/bassa |
-| Piccola           | 1         | 1,75         | 225                  | 1/moderata |
+| Piccolo           | 1         | 1,75         | 225                  | 1/moderata |
 | Media          | 2         | 3,5          | 490                  | 1/moderata |
-| Grande           | 4         | 7            | 1000                 | 2/alta |
+| large           | 4         | 7            | 1000                 | 2/alta |
 | Molto grande      | 8         | 14           | 2040                 | 4/alta |
 | A5              | 2         | 14           | 490                  | 1/moderata |
 | A6              | 4         | 28           | 1000                 | 2/alta |

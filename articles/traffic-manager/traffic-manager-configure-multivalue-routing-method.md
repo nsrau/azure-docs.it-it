@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994928"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurare il metodo di routing multivalore in Gestione traffico
 
@@ -37,7 +37,7 @@ Creare un gruppo di risorse per il profilo di Gestione traffico.
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 Creare un profilo di Gestione traffico che indirizza il traffico degli utenti verso l'endpoint con latenza più bassa.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**  >  **Crea**.
+1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Crea**:
     
     | Impostazione                 | Valore                                              |
@@ -61,7 +61,7 @@ Aggiungere due indirizzi IP come endpoint esterni al profilo multivalore di Gest
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Type                    | Endpoint esterno                                   |
+    | Tipo                    | Endpoint esterno                                   |
     | Nome           | myEndpoint1                                        |
     | Nome di dominio completo (FQDN) o IP           | Digitare l'indirizzo IP pubblico dell'endpoint che si vuole aggiungere a questo profilo di Gestione traffico                         |
     |        |           |
