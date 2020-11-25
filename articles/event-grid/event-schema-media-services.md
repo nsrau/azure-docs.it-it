@@ -4,11 +4,11 @@ description: Descrive le proprietà disponibili per gli eventi di Servizi multim
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015214"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Servizi multimediali di Azure come origine di griglia di eventi
 
@@ -434,7 +434,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia. |
-| bitrate | numero intero | Velocità in bit della traccia. |
+| bitrate | integer | Velocità in bit della traccia. |
 |  timestamp | string | Timestamp del blocco di dati eliminato. |
 | timescale | string | Scala cronologica del timestamp. |
 | resultCode | string | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
@@ -474,7 +474,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | numero intero | Velocità in bit della traccia. |
+| bitrate | integer | Velocità in bit della traccia. |
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
 | encoderIp | string  | Indirizzo IP del codificatore. |
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
@@ -591,13 +591,13 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | numero intero | Velocità in bit della traccia. |
-| incomingBitrate | numero intero | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
+| bitrate | integer | Velocità in bit della traccia. |
+| incomingBitrate | integer | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
 | lastTimestamp | string | Timestamp più recente ricevuto per una traccia negli ultimi 20 secondi. |
 | timescale | string | Scala cronologica in cui sono espressi i timestamp. |
-| overlapCount | numero intero | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
-| discontinuityCount | numero intero | Numero di discontinuità osservate negli ultimi 20 secondi. |
-| nonIncreasingCount | numero intero | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
+| overlapCount | integer | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
+| discontinuityCount | integer | Numero di discontinuità osservate negli ultimi 20 secondi. |
+| nonIncreasingCount | integer | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
 | unexpectedBitrate | bool | Se la velocità in bit prevista e quella effettiva superano il limite consentito negli ultimi 20 secondi. È true se e solo se i valori sono: incomingBitrate >= 2* bitrate O incomingBitrate <= bitrate/2 O incomingBitrate = 0. |
 | state | string | Stato dell'evento live. |
 | healthy | bool | Indica se l'inserimento è integro in base ai conteggi e ai flag. Healthy è true sei valori sono: overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
@@ -635,7 +635,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | numero intero | Velocità in bit della traccia. |
+| bitrate | integer | Velocità in bit della traccia. |
 | previousTimestamp | string | Timestamp del frammento precedente. |
 | newTimestamp | string | Timestamp del frammento corrente. |
 | discontinuityGap | string | Spazio tra i due timestamp precedenti. |

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 3b26b7d95f4a6d01d81a2916403ab3a630370fc8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pexip"></a>Esercitazione: Integrazione di Azure Active Directory con Pexip
 
@@ -61,7 +61,7 @@ Per configurare l'integrazione di Pexip in Azure AD, è necessario aggiungere Pe
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Pexip** , selezionare **Pexip** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Pexip**, selezionare **Pexip** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Pexip nell'elenco risultati](common/search-new-app.png)
 
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pexip, seguire questa p
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://my.videxio.com`
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On sul lato **Pexip** è necessario inviar
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -150,7 +150,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Pexip.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Pexip**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Pexip**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

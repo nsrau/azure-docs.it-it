@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: dce8893cac156ce2941652e32409357cb8ec3b1a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131531"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96015316"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usare Visione artificiale contenitore con Kubernetes e Helm
 
@@ -27,10 +27,10 @@ I prerequisiti seguenti prima di usare Visione artificiale contenitori in locale
 
 | Necessario | Scopo |
 |----------|---------|
-| Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
+| Account Azure | Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito][free-azure-account]. |
 | INTERFACCIA della riga di comando Kubernetes | L' [interfaccia][kubernetes-cli] della riga di comando di Kubernetes è necessaria per gestire le credenziali condivise dal registro contenitori. Kubernetes è necessario anche prima di Helm, ovvero Kubernetes Package Manager. |
 | Interfaccia della riga di comando di Helm | Installare l' [interfaccia][helm-install]della riga di comando di Helm, che viene usata per installare un grafico Helm (definizione del pacchetto del contenitore). |
-| Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica**|
+| Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -48,7 +48,7 @@ Il computer host dovrebbe avere un cluster Kubernetes disponibile. Per informazi
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurare i valori del grafico Helm per la distribuzione
 
-Per iniziare, creare una cartella denominata *Read* . Incollare quindi il contenuto YAML seguente in un nuovo file denominato `chart.yaml` :
+Per iniziare, creare una cartella denominata *Read*. Incollare quindi il contenuto YAML seguente in un nuovo file denominato `chart.yaml` :
 
 ```yaml
 apiVersion: v2
@@ -76,7 +76,7 @@ read:
     name: cognitive-services-read
     registry:  mcr.microsoft.com/
     repository: azure-cognitive-services/vision/read
-    tag: 3.1-preview
+    tag: 3.2-preview.1
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -105,7 +105,7 @@ read:
 > [!IMPORTANT]
 > - Se i `billing` `apikey` valori e non vengono specificati, i servizi scadono dopo 15 minuti. Analogamente, la verifica ha esito negativo perché i servizi non sono disponibili.
 > 
-> - Se si distribuiscono più contenitori di lettura dietro un servizio di bilanciamento del carico, ad esempio in Docker Compose o Kubernetes, è necessario disporre di una cache esterna. Poiché il contenitore di elaborazione e il contenitore di richieste GET potrebbero non essere uguali, una cache esterna archivia i risultati e li condivide tra i contenitori. Per informazioni dettagliate sulle impostazioni della cache, vedere [configurare visione artificiale contenitori Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> - Se si distribuiscono più contenitori di lettura dietro un servizio di bilanciamento del carico, ad esempio in Docker Compose o Kubernetes, è necessario disporre di una cache esterna. Poiché il contenitore di elaborazione e il contenitore di richieste GET potrebbero non essere uguali, una cache esterna archivia i risultati e li condivide tra i contenitori. Per informazioni dettagliate sulle impostazioni della cache, vedere [configurare visione artificiale contenitori Docker](./computer-vision-resource-container-config.md).
 >
 
 Creare una cartella *templates* sotto la directory *Read* . Copiare e incollare il codice YAML seguente in un file denominato `deployment.yaml` . Il `deployment.yaml` file fungerà da modello Helm.
@@ -192,7 +192,7 @@ I *grafici Helm* forniti tirano le immagini docker del servizio visione artifici
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installare il grafico Helm nel cluster Kubernetes
 
-Per installare il *grafico Helm* , è necessario eseguire il [`helm install`][helm-install-cmd] comando. Assicurarsi di eseguire il comando install dalla directory sopra la `read` cartella.
+Per installare il *grafico Helm*, è necessario eseguire il [`helm install`][helm-install-cmd] comando. Assicurarsi di eseguire il comando install dalla directory sopra la `read` cartella.
 
 ```console
 helm install read ./read
@@ -243,6 +243,106 @@ deployment.apps/read   1/1     1            1           17s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
+
+## <a name="deploy-multiple-v3-containers-on-the-kubernetes-cluster"></a>Distribuire più contenitori V3 nel cluster Kubernetes
+
+A partire dalla versione V3 del contenitore, è possibile usare i contenitori in parallelo sia a livello di attività che di pagina.
+
+Per impostazione predefinita, ogni contenitore V3 ha un dispatcher e un ruolo di lavoro di riconoscimento. Il dispatcher è responsabile della suddivisione di un'attività multipagina in più sottoattività a pagina singola. Il ruolo di lavoro di riconoscimento è ottimizzato per riconoscere un documento a pagina singola. Per ottenere il parallelismo a livello di pagina, distribuire più contenitori V3 dietro un servizio di bilanciamento del carico e lasciare che i contenitori condividano un'archiviazione e una coda universali. 
+
+> [!NOTE] 
+> Attualmente sono supportate solo archiviazione di Azure e la coda di Azure. 
+
+Il contenitore che riceve la richiesta può suddividere l'attività in sottoattività a pagina singola e aggiungerle alla coda universale. Qualsiasi ruolo di lavoro di riconoscimento da un contenitore meno occupato può utilizzare sottoattività a pagina singola dalla coda, eseguire il riconoscimento e caricare il risultato nella risorsa di archiviazione. La velocità effettiva può essere migliorata fino a `n` volte, a seconda del numero di contenitori distribuiti.
+
+Copiare e incollare il codice YAML seguente in un file denominato `deployment.yaml` . Sostituire i `# {ENDPOINT_URI}` `# {API_KEY}` commenti e con i propri valori. Sostituire il `# {AZURE_STORAGE_CONNECTION_STRING}` commento con la stringa di connessione di archiviazione di Azure. Configurare `replicas` il numero desiderato, che è impostato su `3` nell'esempio seguente.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: read
+  labels:
+    app: read-deployment
+spec:
+  selector:
+    matchLabels:
+      app: read-app
+  replicas: # {NUMBER_OF_READ_CONTAINERS}
+  template:
+    metadata:
+      labels:
+        app: read-app
+    spec:
+      containers:
+      - name: cognitive-services-read
+        image: mcr.microsoft.com/azure-cognitive-services/vision/read
+        ports:
+        - containerPort: 5000
+        env:
+        - name: EULA
+          value: accept
+        - name: billing
+          value: # {ENDPOINT_URI}
+        - name: apikey
+          value: # {API_KEY}
+        - name: Storage__ObjectStore__AzureBlob__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+        - name: Queue__Azure__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-cognitive-service-read
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: read-app
+```
+
+Eseguire il comando seguente. 
+
+```console
+kubectl apply -f deployment.yaml
+```
+
+Di seguito è riportato un esempio di output che potrebbe essere visualizzato dopo una corretta esecuzione della distribuzione:
+
+```console
+deployment.apps/read created
+service/azure-cognitive-service-read created
+```
+
+Il completamento della distribuzione di Kubernetes può richiedere alcuni minuti. Per verificare che i pod e i servizi siano distribuiti e disponibili correttamente, eseguire il comando seguente:
+
+```console
+kubectl get all
+```
+
+Verrà visualizzato un output della console simile al seguente:
+
+```console
+kubectl get all
+NAME                       READY   STATUS    RESTARTS   AGE
+pod/read-6cbbb6678-58s9t   1/1     Running   0          3s
+pod/read-6cbbb6678-kz7v4   1/1     Running   0          3s
+pod/read-6cbbb6678-s2pct   1/1     Running   0          3s
+
+NAME                                   TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)          AGE
+service/azure-cognitive-service-read   LoadBalancer   10.0.134.0   <none>         5000:30846/TCP   17h
+service/kubernetes                     ClusterIP      10.0.0.1     <none>         443/TCP          78d
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/read   3/3     3            3           3s
+
+NAME                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/read-6cbbb6678   3         3         3       3s
+```
+
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -257,7 +357,7 @@ Per altri dettagli sull'installazione di applicazioni con Helm in Azure Kubernet
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm

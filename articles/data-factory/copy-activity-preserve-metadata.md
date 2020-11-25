@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324298"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015078"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Mantenere i metadati e gli ACL usando l'attività di copia in Azure Data Factory
 
@@ -31,11 +31,11 @@ Quando si esegue la migrazione dei dati da un data Lake a un altro, tra cui [Ama
 L'attività di copia supporta la conservazione dei seguenti attributi durante la copia dei dati:
 
 - **Tutti i metadati specificati dal cliente** 
-- E le **cinque proprietà di sistema predefinite dell'archivio dati**seguenti: `contentType` , `contentLanguage` (ad eccezione di Amazon S3), `contentEncoding` ,, `contentDisposition` `cacheControl` .
+- E le **cinque proprietà di sistema predefinite dell'archivio dati** seguenti: `contentType` , `contentLanguage` (ad eccezione di Amazon S3), `contentEncoding` ,, `contentDisposition` `cacheControl` .
 
 **Gestire le differenze nei metadati:** Amazon S3 e archiviazione di Azure consentono diversi set di caratteri nelle chiavi dei metadati specificati dal cliente. Quando si sceglie di mantenere i metadati usando l'attività di copia, ADF sostituisce automaticamente i caratteri non validi con ' _'.
 
-Quando si copiano i file così come sono da Amazon S3/Azure Data Lake storage Gen2/BLOB di Azure o da archiviazione file di Azure a Azure Data Lake storage Gen2/BLOB di Azure/archiviazione file di Azure con formato binario, è possibile trovare l'opzione **Mantieni** nella **Copy Activity**  >  scheda**Impostazioni** attività di copia per la creazione di attività o la pagina **Impostazioni** in copia dati strumento.
+Quando si copiano i file così come sono da Amazon S3/Azure Data Lake storage Gen2/BLOB di Azure o da archiviazione file di Azure a Azure Data Lake storage Gen2/BLOB di Azure/archiviazione file di Azure con formato binario, è possibile trovare l'opzione **Mantieni** nella **Copy Activity**  >  scheda **Impostazioni** attività di copia per la creazione di attività o la pagina **Impostazioni** in copia dati strumento.
 
 ![Conserva metadati dell'attività di copia](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 

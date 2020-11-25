@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898810"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014891"
 ---
 # <a name="clip-values"></a>Ritagliare valori
 
@@ -32,9 +32,9 @@ Il modulo applica gli stessi criteri e il metodo di sostituzione a **tutte** le 
 
 Se è necessario applicare metodi di ritaglio o criteri diversi ad alcune colonne, è necessario utilizzare una nuova istanza di **clip values** per ogni set di colonne analoghe.
 
-1.  Aggiungere il modulo **clip values** alla pipeline e connetterlo al set di dati che si vuole modificare. È possibile trovare questo modulo in **trasformazione dati**nella categoria **Ridimensiona e Riduci** . 
+1.  Aggiungere il modulo **clip values** alla pipeline e connetterlo al set di dati che si vuole modificare. È possibile trovare questo modulo in **trasformazione dati** nella categoria **Ridimensiona e Riduci** . 
   
-1.  In **elenco di colonne**utilizzare il selettore di colonna per scegliere le colonne a cui verranno applicati i **valori di ritaglio** .  
+1.  In **elenco di colonne** utilizzare il selettore di colonna per scegliere le colonne a cui verranno applicati i **valori di ritaglio** .  
   
 1.  Per **set di soglie**, scegliere una delle opzioni seguenti dall'elenco a discesa. Queste opzioni determinano la modalità di impostazione dei limiti superiore e inferiore per i valori accettabili rispetto a quelli che devono essere ritagliati.  
   
@@ -56,7 +56,7 @@ Se è necessario applicare metodi di ritaglio o criteri diversi ad alcune colonn
   
 1. Se si sceglie **percentile**, i valori della colonna vengono vincolati a un intervallo percentile. 
 
-    Si supponga, ad esempio, di voler tenere solo i valori nell'intervallo 10-80 percentile e sostituire tutti gli altri. Scegliere **percentile**, quindi digitare 10 per **valore percentile per soglia inferiore**e digitare 80 per **valore percentile per soglia superiore**. 
+    Si supponga, ad esempio, di voler tenere solo i valori nell'intervallo 10-80 percentile e sostituire tutti gli altri. Scegliere **percentile**, quindi digitare 10 per **valore percentile per soglia inferiore** e digitare 80 per **valore percentile per soglia superiore**. 
 
     Per alcuni esempi su come usare gli intervalli percentile, vedere la sezione relativa ai [percentile](#examples-for-clipping-using-percentiles) .  
   
@@ -98,9 +98,9 @@ Per comprendere il funzionamento dell'operazione di taglio con i percentili, pre
   
 1.  Per **set di soglie**, scegliere **ClipPeaksAndSubPeaks**.  
   
-1.  Per la **soglia superiore**scegliere **percentile**e per il **numero percentile**digitare 90.  
+1.  Per la **soglia superiore** scegliere **percentile** e per il **numero percentile** digitare 90.  
   
-1.  Per **valore sostitutivo superiore**scegliere **valore mancante**.  
+1.  Per **valore sostitutivo superiore** scegliere **valore mancante**.  
   
 1.  Per **Lower threshold** scegliere **Percentile** e per **Percentile number** digitare 10.  
   

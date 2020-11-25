@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
 ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015112"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
 
@@ -27,7 +27,7 @@ Le versioni supportate di IBM DB2 sono 10,5 e versioni successive, come descritt
 
 Prima di iniziare un'installazione, vedere le note e la documentazione SAP seguenti:
 
-| Nota SAP | Description |
+| Nota SAP | Descrizione |
 | --- | --- |
 | [1928533] | Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
 | [2015553] | SAP in Azure: prerequisiti per il supporto |

@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 706457a602e20dd37e64e5f389948b351ac8ebcf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015248"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usare un progetto di database U-SQL per sviluppare un database U-SQL per Azure Data Lake
 
@@ -68,7 +68,7 @@ Il pacchetto .usqldbpack può essere distribuito in un account locale o in un ac
 
 1. Fare clic con il pulsante destro del mouse sul progetto di database U-SQL, quindi selezionare **Distribuisci**.
 
-1. Nella **procedura guidata Distribuisci database U-SQL**selezionare l' **account Anna** in cui si desidera distribuire il database. Gli account locali e gli account ADLA sono entrambi supportati.
+1. Nella **procedura guidata Distribuisci database U-SQL** selezionare l' **account Anna** in cui si desidera distribuire il database. Gli account locali e gli account ADLA sono entrambi supportati.
 
 1. **Origine database** viene compilato automaticamente e punta al pacchetto .usqldbpack nella cartella di output della compilazione del progetto.
 

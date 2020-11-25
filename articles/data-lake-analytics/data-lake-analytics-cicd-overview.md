@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219327"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015265"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -460,7 +460,7 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Valore predefinito | Obbligatorio |
+| Parametro | Descrizione | Valore predefinito | Necessario |
 |---------|-----------|-------------|--------|
 |Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
@@ -469,13 +469,13 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Valore predefinito|Obbligatorio|
+|Parametro|Descrizione|Valore predefinito|Necessario|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Valore predefinito|Obbligatorio|
+|Parametro|Descrizione|Valore predefinito|Necessario|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|
