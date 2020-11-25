@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0aea0425123cab4da1939e85a2cfd6071f772737
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637065"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95795762"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Python in Azure dalla riga di comando
 
@@ -239,7 +239,7 @@ Usare i comandi seguenti per creare questi elementi. Sono supportati sia l'inter
     # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
     ```
     
     Il comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea l'app per le funzioni in Azure. Se si usa Python 3.7 o 3.6, sostituire `--runtime-version` rispettivamente con `3.7` o `3.6`.

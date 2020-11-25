@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604496"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522946"
 ---
 # <a name="about-the-move-process"></a>Informazioni sul processo di spostamento
 
@@ -25,8 +25,8 @@ Durante lo spostamento tra aree vengono usati questi componenti.
 
 **Componente** | **Dettagli**
 --- | ---
-**Spostamento risorse** |  Spostamento risorse si coordina con i [provider di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) per orchestrare lo spostamento delle risorse tra le aree. Analizza le dipendenze delle risorse e ne gestisce lo stato durante il processo di spostamento. 
-**Raccolta di spostamento** |  Una raccolta di spostamento è un oggetto [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).<br/><br/> La raccolta di spostamento viene creata durante il processo di spostamento tra aree, per ogni combinazione abbinata di aree di origine e di destinazione in una sottoscrizione. La raccolta contiene i metadati e le informazioni di configurazione sulle risorse che si desidera spostare.<br/><br/>Le risorse aggiunte a una raccolta di spostamento devono trovarsi nella stessa sottoscrizione, ma possono essere incluse in gruppi di risorse diversi. 
+**Spostamento risorse** |  Spostamento risorse si coordina con i [provider di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md) per orchestrare lo spostamento delle risorse tra le aree. Analizza le dipendenze delle risorse e ne gestisce lo stato durante il processo di spostamento. 
+**Raccolta di spostamento** |  Una raccolta di spostamento è un oggetto [Azure Resource Manager](../azure-resource-manager/management/overview.md).<br/><br/> La raccolta di spostamento viene creata durante il processo di spostamento tra aree, per ogni combinazione abbinata di aree di origine e di destinazione in una sottoscrizione. La raccolta contiene i metadati e le informazioni di configurazione sulle risorse che si desidera spostare.<br/><br/>Le risorse aggiunte a una raccolta di spostamento devono trovarsi nella stessa sottoscrizione, ma possono essere incluse in gruppi di risorse diversi. 
 **Risorsa di spostamento** | Una risorsa che viene aggiunta a una raccolta di spostamento viene rilevata da Spostamento risorse come risorsa di spostamento.<br/><br/> Spostamento risorse gestisce le informazioni per tutte le risorse di spostamento nella raccolta di spostamento e mantiene una relazione uno-a-uno tra la risorsa di origine e quella di destinazione. 
 **Dipendenze** | Spostamento risorse convalida le risorse aggiunte a una raccolta e controlla se hanno dipendenze non incluse nella raccolta di spostamento.<br/><br/> Dopo aver identificato le dipendenze per una risorsa, è possibile aggiungerle alla raccolta di spostamento in modo da spostarle. È anche possibile selezionare risorse esistenti alternative nell'area di destinazione. Tutte le dipendenze devono essere risolte prima di avviare lo spostamento. 
 

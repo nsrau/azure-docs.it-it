@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289610"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658962"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creazione e unione di CSR in Key Vault
 
@@ -25,7 +25,15 @@ Per informazioni più generali sui certificati, vedere [Certificati di Azure Key
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Aggiunta in Key Vault di un certificato rilasciato da un'autorità di certificazione non attendibile
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Aggiunta in Key Vault del certificato emesso da una CA partner
+Key Vault collabora con le due autorità di certificazione seguenti per semplificare la creazione di certificati. 
+
+|Provider|Tipo di certificato|Eseguire la configurazione  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign| [Guida all'integrazione](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Aggiunta in Key Vault del certificato emesso da una CA non partner
 
 La procedura seguente consente di creare un certificato rilasciato da autorità di certificazione non associate a Key Vault, come nel caso di GoDaddy, che non è un'autorità di certificazione attendibile dell'insieme di credenziali delle chiavi. 
 

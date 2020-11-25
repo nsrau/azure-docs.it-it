@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db93262a0f5c6bd75f8c5611c7f33de085e05a82
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569071"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564889"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -31,7 +31,7 @@ ms.locfileid: "91569071"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
-Questa esercitazione illustra come creare una data factory di Azure con Visual Studio. Si crea un progetto di Visual Studio usando il modello di progetto DataFactory, si definiscono le entità della data factory (servizi collegati, set di dati e pipeline) in formato JSON e quindi si pubblicano/distribuiscono queste entità nel cloud. 
+Questa esercitazione illustra come creare un'istanza di Azure Data Factory con Visual Studio. Si crea un progetto di Visual Studio usando il modello di progetto DataFactory, si definiscono le entità della data factory (servizi collegati, set di dati e pipeline) in formato JSON e quindi si pubblicano/distribuiscono queste entità nel cloud. 
 
 La pipeline in questa esercitazione include un'attività, l'**attività Hive di HDInsight**, che esegue uno script Hive in un cluster Azure HDInsight per trasformare i dati di input e generare i dati di output. L'esecuzione della pipeline è pianificata una volta al mese tra le ore di inizio e di fine specificate. 
 
@@ -67,7 +67,7 @@ Di seguito sono elencati i passaggi da eseguire nell'ambito di questa procedura 
    * Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
    * Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). È anche possibile aggiornare il plug-in nel modo seguente: dal menu scegliere **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Aggiorna**.
 
-Verrà ora usato Visual Studio per creare una data factory di Azure.
+Verrà ora usato Visual Studio per creare un'istanza di Azure Data Factory.
 
 ### <a name="create-visual-studio-project"></a>Creare un progetto di Visual Studio
 1. Avviare **Visual Studio 2013** o **Visual Studio 2015**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Si dovrebbe vedere la finestra di dialogo **Nuovo progetto** .  
@@ -406,7 +406,7 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 
 ### <a name="additional-notes"></a>Note aggiuntive
 - Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, un'attività di copia per copiare dati da un archivio dati di origine a uno di destinazione e un'attività Hive HDInsight per eseguire uno script Hive e trasformare i dati di input. Vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) per tutte le origini e i sink supportati dall'attività di copia. Per l'elenco di servizi di calcolo supportati da Data Factory, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md) .
-- I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) per tutte le origini e i sink supportati dall'attività di copia. Vedere l'articolo relativo ai [servizi collegati di calcolo](data-factory-compute-linked-services.md) per un elenco dei servizi di calcolo supportati da Data Factory e le [attività di trasformazione](data-factory-data-transformation-activities.md) eseguibili in tali servizi.
+- I servizi collegati collegano archivi dati o servizi di calcolo a un'istanza di Azure Data Factory. Vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) per tutte le origini e i sink supportati dall'attività di copia. Vedere l'articolo relativo ai [servizi collegati di calcolo](data-factory-compute-linked-services.md) per un elenco dei servizi di calcolo supportati da Data Factory e le [attività di trasformazione](data-factory-data-transformation-activities.md) eseguibili in tali servizi.
 - Per informazioni dettagliate sulle proprietà JSON usate nella definizione del servizio collegato Archiviazione di Azure, vedere l'articolo relativo allo [spostamento di dati da e verso BLOB di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 - È possibile usare il proprio cluster HDInsight anziché un cluster HDInsight su richiesta. Per informazioni dettagliate, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md) .
 -  Data Factory crea automaticamente un cluster HDInsight **basato su Linux** con il codice JSON precedente. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
@@ -429,7 +429,7 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Aggiornare gli strumenti di Data factory di Azure per Visual Studio
 Per aggiornare gli strumenti di Azure Data Factory per Visual Studio, eseguire queste operazioni:
 
-1. Fare clic su **Strumenti**nel menu e selezionare **Estensioni e aggiornamenti**.
+1. Fare clic su **Strumenti** nel menu e selezionare **Estensioni e aggiornamenti**.
 2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
 3. Selezionare **Azure Data Factory tools for Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento.
 
@@ -546,13 +546,13 @@ Al momento della distribuzione, i valori del file di configurazione vengono usat
 Non è consigliabile ed è spesso contrario ai criteri di sicurezza eseguire il commit di dati sensibili come le stringhe di connessione nel repository del codice. Per altre informazioni sull'archiviazione di informazioni riservate in Azure Key Vault e sul relativo uso durante la pubblicazione di entità di Data Factory, vedere l'esempio di [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) in GitHub. L'estensione Secure Publish per Visual Studio permette di archiviare i segreti in Key Vault, mentre in servizi collegati o configurazioni di distribuzione vengono specificati solo riferimenti a tali segreti. I riferimenti vengono risolti quando si pubblicano entità di Data Factory di Azure. È possibile eseguire il commit di questi file al repository di origine senza esporre i segreti.
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:  
+In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo uno script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 2. Creare due **servizi collegati**:
    1. **Archiviazione di Azure** per collegare l'archivio BLOB di Azure che contiene i file di input/output alla data factory.
    2. **Azure HDInsight** per collegare un cluster Hadoop di HDInsight alla data factory. Azure Data Factory crea un cluster Hadoop di HDInsight JIT per elaborare i dati di input e generare i dati di output.
-3. Creare due **set di dati**che descrivono i dati di input e di output per l'attività Hive di HDInsight nella pipeline.
+3. Creare due **set di dati** che descrivono i dati di input e di output per l'attività Hive di HDInsight nella pipeline.
 4. Creare una **pipeline** con un'attività **Hive di HDInsight**.  
 
 ## <a name="next-steps"></a>Passaggi successivi

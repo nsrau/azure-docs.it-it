@@ -5,22 +5,29 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489936"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577499"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Avvio rapido: Condividere dati con Condivisione dati di Azure nel portale di Azure
 
-In questa guida di avvio rapido verrà illustrato come configurare una nuova condivisione dati di Azure usando il portale di Azure.
+Questa guida di avvio rapido illustra come configurare una nuova istanza di Condivisione dati di Azure per condividere i dati dell'account di archiviazione tramite il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Indirizzo di posta elettronica per l'accesso ad Azure dei destinatari (gli alias di posta elettronica non funzionano).
+* Se l'archivio dati di Azure di origine si trova in una sottoscrizione di Azure diversa da quella che verrà usata per creare la risorsa Condivisione dati, registrare il [provider di risorse Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) nella sottoscrizione in cui risiede l'archivio dati di Azure. 
 
+### <a name="share-from-a-storage-account"></a>Condividere da un account di archiviazione
+
+* Un account di Archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di archiviazione di Azure](../storage/common/storage-account-create.md).
+* Autorizzazione per la scrittura nell'account di archiviazione, disponibile in *Microsoft.Storage/storageAccounts/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
+* Autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo di **proprietario**. 
 
 ## <a name="create-a-data-share-account"></a>Creare un account di condivisione dati
 
@@ -55,7 +62,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Selezionare **Start sharing your data** (Inizia a condividere i dati).
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Immettere i dettagli della condivisione. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
 
@@ -67,7 +74,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
    ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
-1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un'istanza di Database SQL di Azure o di Azure Synapse Analytics, verrà chiesto di immettere alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
+1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. 
 
    ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 

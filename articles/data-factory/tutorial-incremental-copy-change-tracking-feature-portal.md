@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale dei dati tramite Rilevamento modifiche con il portale di Azure
-description: In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di rilevamento delle modifiche nel database di origine del database SQL di Azure in una risorsa di Archiviazione BLOB di Azure.
+description: In questa esercitazione si crea un'istanza di Azure Data Factory con una pipeline che carica dati differenziali in una risorsa di archiviazione BLOB di Azure in base alle informazioni di rilevamento delle modifiche presenti nel database di origine in Database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542020"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561132"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche con il portale di Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database di origine del database SQL di Azure in una risorsa di Archiviazione BLOB di Azure.  
+In questa esercitazione si crea un'istanza di Azure Data Factory con una pipeline che carica dati differenziali in una risorsa di archiviazione BLOB di Azure in base alle informazioni di **rilevamento delle modifiche** presenti nel database di origine in Database SQL di Azure.  
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -164,14 +164,14 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
 
      ![Pagina Nuova data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
+   Il nome dell'istanza di Azure Data Factory deve essere **univoco globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
 
    *Il nome della data factory "ADFTutorialDataFactory" non è disponibile*
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
 
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
+      - Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+      - Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.   
          
         Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 4. Selezionare **V2 (anteprima)** per **Versione**.

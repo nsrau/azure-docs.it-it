@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209941"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554700"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Esercitazione: Gestire i flag di funzionalità in Configurazione app di Azure
 
@@ -56,6 +56,7 @@ Per aggiungere un nuovo flag di funzionalità:
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+    | Microsoft.Targeting | { "Audience": BLOB JSON che definisce utenti, gruppi e percentuali di implementazione. Vedere un esempio nell'elemento `EnabledFor` di [questo file di impostazioni](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtro dei flag di funzionalità](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +66,7 @@ Per modificare il valore di stato di un flag di funzionalità:
 
 1. Selezionare **Gestione funzionalità**.
 
-1. A destra di un flag di funzionalità che si vuole modificare, selezionare i puntini di sospensione ( **...** ) e quindi selezionare **Modifica**.
+1. A destra di un flag di funzionalità che si vuole modificare, selezionare i puntini di sospensione (**...**) e quindi selezionare **Modifica**.
 
 1. Impostare un nuovo stato per il flag di funzionalità.
 

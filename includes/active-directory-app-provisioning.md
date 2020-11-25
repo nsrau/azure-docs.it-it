@@ -1,13 +1,12 @@
 ---
-ms.openlocfilehash: 475a468977a976e2e7399c14df9329b31446d404
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135058"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563988"
 ---
-
-In Azure Active Directory (Azure AD) il termine **provisioning di app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ( [SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md) e altre ancora.
+In Azure Active Directory (Azure AD) il termine **provisioning di app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md) e altre ancora.
 
 ![Diagramma che illustra una panoramica del provisioning](./media/active-directory-app-provisioning/provisioning-overview.png)
 
@@ -46,7 +45,7 @@ Azure AD offre il supporto preintegrato per numerosi sistemi di risorse umane e 
 
    ![Logo Salesforce](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile inviare una [richiesta di integrazione dell'applicazione nella raccolta di app](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md). Affinché la richiesta di provisioning venga accettata, l'applicazione deve avere un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per consentire un rapido onboarding dell'app sulla piattaforma.
+   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile inviare una [richiesta di integrazione dell'applicazione nella raccolta di app](../articles/active-directory/develop/v2-howto-app-gallery-listing.md). Affinché la richiesta di provisioning venga accettata, l'applicazione deve avere un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per consentire un rapido onboarding dell'app sulla piattaforma.
 
 * **Applicazioni che supportano SCIM 2.0**. Per informazioni su come connettere in modo generico le applicazioni che implementano le API di gestione utenti basate su SCIM 2.0, vedere [Creare un endpoint SCIM e configurare il provisioning utenti](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
 

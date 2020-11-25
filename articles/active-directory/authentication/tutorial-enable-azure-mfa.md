@@ -1,6 +1,6 @@
 ---
-title: Abilitare Azure Multi-Factor Authentication
-description: Questa esercitazione illustra come abilitare Azure Multi-Factor Authentication per un gruppo di utenti e testare la richiesta del fattore secondario durante un evento di accesso.
+title: Abilitare Azure AD Multi-Factor Authentication
+description: Questa esercitazione illustra come abilitare Azure AD Multi-Factor Authentication per un gruppo di utenti e testare la richiesta del fattore secondario durante un evento di accesso.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddb252d7ba5534269d3da1e14064740690879816
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 62818ae5be079dc154e6d6faef4a8ebaae8fcd9d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963806"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837873"
 ---
-# <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Esercitazione: Proteggere gli eventi di accesso con Azure Multi-Factor Authentication
+# <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Esercitazione: Proteggere gli eventi di accesso degli utenti con Azure AD Multi-Factor Authentication
 
 L'autenticazione a più fattori è un processo che richiede all'utente di immettere ulteriori forme di identificazione durante un evento di accesso. La richiesta può prevedere l'immissione di un codice sul telefono cellulare o l'analisi dell'impronta digitale. Quando è necessaria una seconda forma di autenticazione, la sicurezza viene rafforzata, perché questo fattore aggiuntivo non è facile da ottenere o duplicare.
 
-I criteri di accesso condizionale e Multi-Factor Authentication di Azure offrono la flessibilità necessaria per abilitare l'autenticazione a più fattori per gli utenti durante eventi di accesso specifici.
+Azure AD Multi-Factor Authentication e i criteri di accesso condizionale offrono la flessibilità per abilitare l'autenticazione a più fattori per gli utenti durante specifici eventi di accesso.
 
 > [!IMPORTANT]
-> Questa esercitazione illustra all'amministratore come abilitare Azure Multi-Factor Authentication.
+> Questa esercitazione illustra come un amministratore può abilitare Azure AD Multi-Factor Authentication.
 >
-> Se il team IT non ha consentito di usare Azure Multi-Factor Authentication o se si verificano problemi durante l'accesso, rivolgersi al supporto tecnico per assistenza aggiuntiva.
+> Se il team IT non ha abilitato l'opzione per usare Azure AD Multi-Factor Authentication o se si verificano problemi durante l'accesso, rivolgersi al supporto tecnico per ulteriore assistenza.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un criterio di accesso condizionale per abilitare Azure Multi-Factor Authentication per un gruppo di utenti
+> * Creare un criterio di accesso condizionale per abilitare Azure AD Multi-Factor Authentication per un gruppo di utenti
 > * Configurare le condizioni dei criteri che richiedono l'autenticazione a più fattori
 > * Testare il processo di autenticazione a più fattori come utente
 
@@ -42,18 +42,18 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Un tenant di Azure AD funzionante con almeno una licenza di valutazione o di Azure AD Premium P1 abilitata.
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un account con privilegi di *amministratore globale*.
-* Un utente non amministratore con una password conosciuta, ad esempio *testuser*. In questa esercitazione sarà possibile testare l'esperienza di zure Multi-Factor Authentication dell'utente finale usando questo account.
+* Un utente non amministratore con una password conosciuta, ad esempio *testuser*. In questa esercitazione sarà possibile testare l'esperienza di Azure AD Multi-Factor Authentication dell'utente finale usando questo account.
     * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
-* Un gruppo di cui l'utente non amministratore è membro, ad esempio, *MFA-Test-Group*. In questa esercitazione verrà abilitata l'esperienza di Azure Multi-Factor Authentication per questo gruppo.
+* Un gruppo di cui l'utente non amministratore è membro, ad esempio, *MFA-Test-Group*. In questa esercitazione verrà abilitata l'esperienza di Azure AD Multi-Factor Authentication per questo gruppo.
     * Se è necessario creare un gruppo, vedere come [creare un gruppo e aggiungere membri in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
-I criteri di accesso condizionale costituiscono il modo consigliato per abilitare e usare Azure Multi-Factor Authentication. L'accesso condizionale consente di creare e definire criteri che reagiscono agli eventi di accesso e richiedono azioni aggiuntive prima che a un utente venga concesso l'accesso a un'applicazione o a un servizio.
+I criteri di accesso condizionale costituiscono il modo consigliato per abilitare e usare Azure AD Multi-Factor Authentication. L'accesso condizionale consente di creare e definire criteri che reagiscono agli eventi di accesso e richiedono azioni aggiuntive prima che a un utente venga concesso l'accesso a un'applicazione o a un servizio.
 
 ![Diagramma della panoramica del funzionamento dell'accesso condizionale per proteggere il processo di accesso](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
-I criteri di accesso condizionale possono essere granulari e specifici, con l'obiettivo di consentire agli utenti di garantire la produttività ovunque e in qualsiasi momento, ma anche di proteggere l'organizzazione. Questa esercitazione illustra come creare criteri di accesso condizionale di base per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure. Un'esercitazione successiva di questa serie mostra come configurare Azure Multi-Factor Authentication usando criteri di accesso condizionale basati sul rischio.
+I criteri di accesso condizionale possono essere granulari e specifici, con l'obiettivo di consentire agli utenti di garantire la produttività ovunque e in qualsiasi momento, ma anche di proteggere l'organizzazione. Questa esercitazione illustra come creare criteri di accesso condizionale di base per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure. Un'esercitazione successiva di questa serie mostra come configurare Azure AD Multi-Factor Authentication usando criteri di accesso condizionale basati sul rischio.
 
 Prima di tutto, creare un criterio di accesso condizionale e assegnare il gruppo di test degli utenti come segue:
 
@@ -92,23 +92,23 @@ I controlli di accesso consentono di definire i requisiti per concedere l'access
 1. In *Controlli di accesso* scegliere **Concedi** e quindi assicurarsi che il pulsante di opzione **Concedi accesso** sia selezionato.
 1. Selezionare la casella **Richiedi autenticazione a più fattori** e quindi scegliere **Seleziona**.
 
-È possibile impostare i criteri di accesso condizionale su *Solo report* per visualizzare il modo in cui la configurazione influirà sugli utenti o su *No* se non si vuole usare il criterio in questo momento. Poiché questa esercitazione è destinata a un gruppo di test di utenti, ora verrà abilitato il criterio e si procederà al test di Azure Multi-Factor Authentication.
+È possibile impostare i criteri di accesso condizionale su *Solo report* per visualizzare il modo in cui la configurazione influirà sugli utenti o su *No* se non si vuole usare il criterio in questo momento. Poiché questa esercitazione è destinata a un gruppo di utenti di test, ora verrà abilitato il criterio e si procederà al test di Azure AD Multi-Factor Authentication.
 
 1. Impostare l'interruttore *Abilita criterio* su **Sì**.
 1. Per applicare il criterio di accesso condizionale, selezionare **Crea**.
 
-## <a name="test-azure-multi-factor-authentication"></a>Testare Azure Multi-Factor Authentication
+## <a name="test-azure-ad-multi-factor-authentication"></a>Testare Azure AD Multi-Factor Authentication
 
-A questo punto, si testerà il funzionamento del criterio di accesso condizionale e di Azure Multi-Factor Authentication. Prima di tutto, accedere a una risorsa che non richiede l'autenticazione a più fattori:
+A questo punto, si testerà il funzionamento del criterio di accesso condizionale e di Azure AD Multi-Factor Authentication. Prima di tutto, accedere a una risorsa che non richiede l'autenticazione a più fattori:
 
 1. Aprire una nuova finestra del browser in modalità InPrivate o anonima e passare a [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 1. Accedere con l'utente test non amministratore, ad esempio *testuser*. Non viene visualizzata alcuna richiesta di autenticazione a più fattori.
 1. Chiudere la finestra del browser.
 
-Accedere quindi al portale di Azure. Poiché nel criterio di accesso condizionale il portale di Azure è stato configurato per richiedere una verifica aggiuntiva, verrà visualizzata una richiesta di Azure Multi-Factor Authentication.
+Accedere quindi al portale di Azure. Poiché nel criterio di accesso condizionale il portale di Azure è stato configurato per richiedere una verifica aggiuntiva, verrà visualizzata una richiesta di Azure AD Multi-Factor Authentication.
 
 1. Aprire una nuova finestra del browser in modalità InPrivate o in incognito e passare a [https://portal.azure.com](https://portal.azure.com).
-1. Accedere con l'utente test non amministratore, ad esempio *testuser*. È necessario registrarsi e usare Azure Multi-Factor Authentication. Seguire le istruzioni per completare il processo e verificare che sia possibile accedere al portale di Azure.
+1. Accedere con l'utente test non amministratore, ad esempio *testuser*. È necessario registrarsi e usare Azure AD Multi-Factor Authentication. Seguire le istruzioni per completare il processo e verificare che sia possibile accedere al portale di Azure.
 
     ![Seguire le istruzioni visualizzate nel browser e quindi quelle nella richiesta di autenticazione a più fattori registrata per accedere](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
@@ -116,7 +116,7 @@ Accedere quindi al portale di Azure. Poiché nel criterio di accesso condizional
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si intende usare più il criterio di accesso condizionale per abilitare Azure Multi-Factor Authentication configurato come parte di questa esercitazione, seguire questa procedura per eliminare il criterio:
+Se non si intende usare più il criterio di accesso condizionale per abilitare Azure AD Multi-Factor Authentication configurato come parte di questa esercitazione, seguire questa procedura per eliminarlo:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare e selezionare **Azure Active Directory**, quindi scegliere **Sicurezza** dal menu a sinistra.
@@ -125,10 +125,10 @@ Se non si intende usare più il criterio di accesso condizionale per abilitare A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata abilitata l'esperienza di Azure Multi-Factor Authentication usando i criteri di accesso condizionale per un gruppo selezionato di utenti. Si è appreso come:
+In questa esercitazione è stata abilitata l'esperienza di Azure AD Multi-Factor Authentication usando i criteri di accesso condizionale per un gruppo selezionato di utenti. Si è appreso come:
 
 > [!div class="checklist"]
-> * Creare un criterio di accesso condizionale per abilitare Azure Multi-Factor Authentication per un gruppo di utenti di Azure AD
+> * Creare un criterio di accesso condizionale per abilitare Azure AD Multi-Factor Authentication per un gruppo di utenti di Azure AD
 > * Configurare le condizioni dei criteri che richiedono l'autenticazione a più fattori
 > * Testare il processo di autenticazione a più fattori come utente
 

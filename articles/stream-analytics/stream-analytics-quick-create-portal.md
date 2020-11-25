@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90901074"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006662"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
 
@@ -124,7 +124,7 @@ In questa sezione si configurerà l'input del dispositivo hub IoT per il process
 
 1. Passare al processo di Analisi di flusso creato in precedenza.  
 
-2. Selezionare**Output** > **Aggiungi** > **Archiviazione BLOB**.  
+2. Selezionare **Output** > **Aggiungi** > **Archiviazione BLOB**.  
 
 3. Compilare la pagina **Archivio BLOB** con i valori seguenti:
 

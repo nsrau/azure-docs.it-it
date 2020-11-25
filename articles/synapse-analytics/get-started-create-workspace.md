@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515410"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592448"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -47,35 +47,23 @@ Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse 
 ## <a name="create-a-dedicated-sql-pool"></a>Creare un pool SQL dedicato
 
 1. Nel riquadro sinistro di Synapse Studio selezionare **Gestisci** > **Pool SQL**.
-1. Selezionare **Nuovo** e immettere le impostazioni seguenti:
-
-    |Impostazione | Valore consigliato | 
-    |---|---|---|
-    |**Nome del pool SQL**| **SQLDB1**|
-    |**Livello di prestazioni**|**DW100C**|
-    |||
-
-1. Selezionare **Rivedi e crea** > **Crea**. Il pool SQL dedicato sarà pronto in pochi minuti. Il pool SQL dedicato è associato a un database del pool SQL dedicato anch'esso denominato **SQLDB1**.
+1. Selezionare **Nuovo**
+1. Per **Nome del pool SQL**, selezionare **SQLPOOL1**
+1. Per **Livello di prestazioni**, scegliere **DW100C**
+1. Selezionare **Rivedi e crea** > **Crea**. Il pool SQL dedicato sarà pronto in pochi minuti. Il pool SQL dedicato è associato a un database del pool SQL dedicato anche questo denominato **SQLPOOL1**.
 
 Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibile sospendere il pool in un secondo momento per ridurre i costi.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>Creare un pool di Apache Spark serverless
 
 1. Nel riquadro sinistro di Synapse Studio selezionare **Gestisci** > **Pool di Apache Spark**.
-1. Selezionare **Nuovo** e immettere le impostazioni seguenti:
-
-    |Impostazione | Valore consigliato | 
-    |---|---|---|
-    |**Nome del pool di Apache Spark**|**Spark1**
-    |**Dimensioni nodo**| **Small**|
-    |**Numero di nodi**| Impostare il valore minimo e il valore massimo su 3|
-
+1. Selezionare **Nuovo** 
+1. Per **Nome del pool di Apache Spark**, immettere **Spark1**.
+1. Per **Dimensioni del nodo**, immettere **Piccole**.
+1. Per **Numero di nodi**, impostare il valore minimo su 3 e il valore massimo su 3
 1. Selezionare **Rivedi e crea** > **Crea**. Il pool di Apache Spark è pronto in pochi secondi.
 
-Quando si esegue un'attività Spark in Azure Synapse, si specifica un pool di Spark da usare. Il pool indica ad Azure Synapse il numero di risorse Spark da usare. Verranno addebitati i costi solo per le risorse usate. Quando si interrompe attivamente l'uso del pool, le risorse raggiungono automaticamente il timeout e vengono riciclate.
-
-> [!NOTE]
-> I database Spark vengono creati in modo indipendente dai pool di Spark. In un'area di lavoro è sempre presente un database Spark **predefinito**. È possibile creare ulteriori database Spark.
+Il pool di Spark indica ad Azure Synapse il numero di risorse Spark da usare. Verranno addebitati i costi solo per le risorse usate. Quando si interrompe attivamente l'uso del pool, le risorse raggiungono automaticamente il timeout e vengono riciclate.
 
 ## <a name="the-serverless-sql-pool"></a>Pool SQL serverless
 

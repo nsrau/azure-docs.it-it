@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af35927abfa491891dffe2c2397d6daf8c1ccde2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87835749"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543120"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 
@@ -91,7 +91,7 @@ La prima cosa da fare è creare i riferimenti agli oggetti usati per accedere e 
 Dopo aver creato l'oggetto contenitore **blobClient**, è possibile creare l'oggetto BLOB **Block** che punta al BLOB specifico a cui si è interessati. Si possono quindi eseguire operazioni come caricamento, download e copia.
 
 > [!IMPORTANT]
-> I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sulla denominazione dei contenitori e dei BLOB vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
+> I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sulla denominazione dei contenitori e dei BLOB vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
 In questa sezione si configura un'istanza del client di archiviazione di Azure, si crea un'istanza dell'oggetto del servizio BLOB, si crea un nuovo contenitore e si impostano le autorizzazioni per il contenitore in modo che i BLOB siano pubblici. Il contenitore è denominato **quickstartblobs**. 
 

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89433433"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578128"
 ---
 # <a name="what-is-azure-data-share"></a>Che cos'è Condivisione dati di Azure?
 
@@ -45,7 +45,7 @@ I provider di dati possono offrire ai consumer aggiornamenti incrementali per i 
 
 ![flusso di condivisione dati](media/data-share-flow.png)
 
-Dopo aver accettato una condivisione dati, il consumer potrà ricevere i dati in un archivio dati a propria scelta. Se ad esempio il provider condivide i dati tramite Archiviazione BLOB di Azure, il consumer può riceverli in Azure Data Lake Store. Analogamente, se il provider di dati condivide i dati di Azure Synapse Analytics (in precedenza SQL Data Warehouse), il consumer di dati può scegliere se ricevere i dati in Azure Data Lake Store, in un database SQL di Azure o in Azure Synapse Analytics. Nel caso di condivisione da origini basate su SQL, il consumer di dati può anche scegliere se ricevere i dati in formato PARQUET o CSV. 
+Dopo aver accettato una condivisione dati, il consumer potrà ricevere i dati in un archivio dati a propria scelta. Se ad esempio il provider condivide i dati tramite Archiviazione BLOB di Azure, il consumer può riceverli in Azure Data Lake Store. Analogamente, se il provider di dati condivide i dati di Azure Synapse Analytics, il consumer di dati può scegliere se ricevere i dati in Azure Data Lake Store, in un database SQL di Azure o in Azure Synapse Analytics. Nel caso di condivisione da origini basate su SQL, il consumer di dati può anche scegliere se ricevere i dati in formato PARQUET o CSV. 
 
 Con la condivisione sul posto, i provider di dati possono condividere i dati nella posizione in cui risiedono, senza copiarli. Una volta stabilita la relazione di condivisione tramite il flusso di invito, viene creato un collegamento simbolico tra l'archivio dati di origine del provider di dati e l'archivio dati di destinazione del consumer di dati. Il consumer di dati può leggere ed eseguire query sui dati in tempo reale usando il proprio archivio dati. Le modifiche apportate all'archivio dati di origine diventano immediatamente disponibili per il consumer di dati. La condivisione sul posto è attualmente disponibile in anteprima per Esplora dati di Azure.
 
@@ -73,9 +73,7 @@ Condivisione dati di Azure consente ai consumer di dati di:
 
 * Accettare i dati condivisi con l'utente in un [archivio dati supportato](supported-data-stores.md)
 
-* Attivare uno snapshot completo o incrementale di una condivisione dati ricevuta da un'organizzazione
-
-* Sottoscrivere una condivisione dati per ricevere la copia più recente dei dati tramite snapshot incrementale
+* Accedere ai dati sul posto oppure attivare uno snapshot completo o incrementale dei dati condivisi
 
 Tutte le principali funzionalità descritte sopra sono supportate tramite il portale di Azure o le API REST. Per altre informazioni sull'uso di Condivisione dati di Azure tramite API REST, vedere la documentazione di riferimento. 
 

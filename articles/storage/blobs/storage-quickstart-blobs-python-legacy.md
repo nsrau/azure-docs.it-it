@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a01b6e644ce3afda451d94d3e00eda278a645adf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851325"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523306"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Avvio rapido: Gestire i BLOB con Python v2.1 SDK
 
@@ -137,7 +137,7 @@ Prima di tutto, creare i riferimenti agli oggetti usati per accedere all'archivi
 Una volta creato il contenitore cloud di BLOB, creare un'istanza dell'oggetto **CloudBlockBlob** che punta allo specifico BLOB a cui è interessati. È possibile quindi caricare, scaricare e copiare il BLOB in base alle proprie esigenze.
 
 > [!IMPORTANT]
-> I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
+> I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
@@ -216,7 +216,7 @@ Per altre informazioni sullo sviluppo di applicazioni Python con Archiviazione B
 
 ### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client
 
-- Per altre informazioni sulla libreria client Python, vedere le [Librerie di Archiviazione di Azure per Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Per altre informazioni sulla libreria client Python, vedere le [Librerie di Archiviazione di Azure per Python](/python/api/overview/azure/storage).
 - Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) scritti con la libreria client per Python.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Gestire le macchine virtuali con l'interfaccia della riga di comando"
-description: Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure per gestire macchine virtuali di Azure applicando il controllo degli accessi in base al ruolo, oltre a criteri, blocchi e tag.
+description: Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure per gestire le macchine virtuali di Azure applicando il Controllo degli accessi in base al ruolo di Azure, oltre a criteri, blocchi e tag.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 565315ad78a2994f44973c4fdcd4519ab9e03ea8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517955"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831787"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Esercitazione: Informazioni sulla gestione di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location "East US"
 
 Il gruppo di risorse è attualmente vuoto.
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
 Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
 

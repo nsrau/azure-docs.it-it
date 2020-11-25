@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109018"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004739"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 con Xamarin
 
@@ -39,8 +39,8 @@ Collegamenti di riferimento:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio con il [carico di lavoro Sviluppo di applicazioni per dispositivi mobili con .NET](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) installato o [Visual Studio per Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
+* Visual Studio con il [carico di lavoro Sviluppo di applicazioni per dispositivi mobili con .NET](/xamarin/get-started/installation/?pivots=windows) installato o [Visual Studio per Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>Configurazione
     

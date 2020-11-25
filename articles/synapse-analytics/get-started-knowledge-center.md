@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/16/2020
+ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331958"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685427"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
@@ -25,14 +25,14 @@ Questa esercitazione descrive come usare il Knowledge Center di Synapse Studio.
 
 È possibile trovare il Knowledge Center in Synapse Studio in due modi:
 
-  1. Nell'hub Home, in Collegamenti utili fare clic sul primo collegamento denominato **Knowledge Center**.
+  1. Nell'hub Home, nell'angolo in alto a destra della pagina, fare clic su **Learn**.
   2. Nella barra dei menu in alto fare clic su **Guida** e quindi su **Knowledge Center**.
 
 Scegliere uno dei due metodi e aprire il **Knowledge Center**.
 
 ## <a name="overview"></a>Panoramica
 
-Nel **Knowledge Center** sono disponibili tre opzioni:
+Il **Knowledge Center** consente di eseguire tre operazioni:
 * **Use samples immediately** (Usa immediatamente gli esempi). Questa opzione è ideale per visualizzare l'esecuzione dell'analisi il più rapidamente possibile. Per un esempio rapido del funzionamento di Synapse, scegliere questa opzione.
 * **Browse available samples** (Sfoglia gli esempi disponibili). Questa opzione consente di collegare i set di dati di esempio e di aggiungere il codice di esempio sotto forma di script SQL, notebook e pipeline.
 * **Tour Synapse studio** (Esplora Synapse Studio). Questa opzione consente di esplorare rapidamente gli elementi di base di Synapse Studio. È utile se non si è mai usato Synapse Studio prima.

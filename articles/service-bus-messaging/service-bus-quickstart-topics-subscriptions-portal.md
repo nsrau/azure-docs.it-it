@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 9085ccd272c6634e4be518872cb7e279da6b803c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 749ba3d2947dfd7defdf2549305f2a61c16ba713
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425401"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803277"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento
 In questa guida di avvio rapido si usa il portale di Azure per creare un argomento del Bus di servizio e quindi creare le sottoscrizioni a tale argomento. 
@@ -36,7 +36,7 @@ In questo articolo sono stati creati uno spazio dei nomi del bus di servizio, un
 
 - [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - [Java](service-bus-java-how-to-use-topics-subscriptions.md)
-- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 - [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 - [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

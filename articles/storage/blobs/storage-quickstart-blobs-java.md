@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e6f731a72308db98309d40bceb95f6108abab4eb
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: dc8df24c1ad20aa3380009fe4c0abb29e31823e8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017048"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021725"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Guida introduttiva: Gestire i BLOB con Java v12 SDK
 
@@ -24,7 +24,7 @@ Risorse aggiuntive:
 * [Documentazione di riferimento delle API](/java/api/overview/azure/storage-blob-readme)
 * [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 * [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-* [Esempi](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Esempi](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -43,7 +43,7 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 Creare un'applicazione Java denominata *blob-quickstart-v12*.
 
-1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven * per creare una nuova app console con il nome *blob-quickstart-v12. Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
+1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven *per creare una nuova app console con il nome* blob-quickstart-v12. Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
 
    ```console
    mvn archetype:generate -DgroupId=com.blobs.quickstart \

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3693f46a602929f9d6e2f4e29083b071ae6a9e9e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "69541494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972461"
 ---
 È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un database a grafo. 
 
@@ -30,6 +30,6 @@ ms.locfileid: "69541494"
     ID database|sample-database|Immettere *sample-database* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali.
     Velocità effettiva|400 UR/s|Modificare la velocità effettiva in 400 unità richiesta al secondo (UR/sec). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.
     ID grafo|sample-graph|Immettere *sample-graph* come nome della nuova raccolta. I nomi dei grafi presentano gli stessi requisiti relativi ai caratteri degli ID di database.
-    Chiave di partizione| /pk |Per la scalabilità orizzontale di tutti gli account Cosmos DB, è necessaria una chiave di partizione. Per informazioni su come selezionare una chiave di partizione appropriata, vedere l'articolo [Partizionamento dei dati dei grafici](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+    Chiave di partizione| /pk |Per la scalabilità orizzontale di tutti gli account Cosmos DB, è necessaria una chiave di partizione. Per informazioni su come selezionare una chiave di partizione appropriata, vedere l'articolo [Partizionamento dei dati dei grafici](../articles/cosmos-db/graph-partitioning.md).
 
 3. Dopo avere compilato il modulo, fare clic su **OK**.

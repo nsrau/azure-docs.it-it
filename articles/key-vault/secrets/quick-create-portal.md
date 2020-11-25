@@ -11,67 +11,47 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 080e2daf5065c0762fb039a84e62580e5c915ddb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735168"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685852"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
-Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. È possibile creare e gestire istanze di Azure Key Vault tramite il portale di Azure. In questo avvio rapido viene creato un insieme di credenziali delle chiavi che viene poi usato per archiviare un segreto. Per altre informazioni su Key Vault, vedere la relativa [panoramica](../general/overview.md).
+Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. È possibile creare e gestire istanze di Azure Key Vault tramite il portale di Azure. In questo avvio rapido viene creato un insieme di credenziali delle chiavi che viene poi usato per archiviare un segreto. 
 
-Per altre informazioni sui segreti, vedere [Informazioni sui segreti](about-secrets.md).
+Per altre informazioni, vedere 
+- [Panoramica di Key Vault](../general/overview.md)
+- [Panoramica dei segreti](about-secrets.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Per accedere ad Azure Key Vault, è necessaria una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+L'accesso ai segreti avviene interamente tramite Azure Key Vault. Per questa guida di avvio rapido, creare un insieme di credenziali delle chiavi usando il [portale di Azure](../general/quick-create-portal.md), l'[interfaccia della riga di comando di Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-a-vault"></a>Creare un insieme di credenziali
-
-1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
-2. Nella casella di ricerca immettere **Key Vault**.
-3. Nell'elenco dei risultati scegliere **Key Vault**.
-4. Nella sezione Key Vault scegliere **Crea**.
-5. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:
-    - **Name** : è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
-    - **Sottoscrizione** Scegliere una sottoscrizione.
-    - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
-    - Scegliere un percorso nel menu a discesa **Percorso**.
-    - Lasciare invariati i valori predefiniti delle altre opzioni.
-6. Dopo avere specificato le informazioni, selezionare **Crea**.
-
-Prendere nota delle due proprietà elencate di seguito:
-
-* **Vault Name** : nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri passaggi.
-* **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://contoso-vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
-
-È anche possibile creare un'istanza di Key Vault con l'interfaccia della riga di comando di Azure e PowerShell:
-- [Creare un insieme di credenziali delle chiavi con PowerShell](../general/quick-create-powershell.md)
-- [Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](../general/quick-create-cli.md)
-
-A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
-
-![Output dopo la creazione dell'istanza di Key Vault](../media/quick-create-portal/vault-properties.png)
-
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
 
-Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. In questo caso si aggiunge una password che può essere usata da un'applicazione. La password è denominata **ExamplePassword** e al suo interno viene archiviato il valore di **hVFkk965BuUv**.
+Per aggiungere un segreto all'insieme di credenziali, seguire questa procedura:
 
-1. Nella pagina delle proprietà di Key Vault selezionare **Segreti**.
-2. Fare clic su **Genera/Importa**.
-3. Nella schermata **Crea un segreto** selezionare i seguenti valori:
-    - **Opzioni di caricamento** : manuale.
-    - **Name** : ExamplePassword.
-    - **Valore** : hVFkk965BuUv
+1. Nel portale di Azure passare al nuovo insieme di credenziali delle chiavi
+1. Nella pagina di impostazioni di Key Vault selezionare **Segreti**.
+1. Fare clic su **Genera/Importa**.
+1. Nella schermata **Crea un segreto** selezionare i seguenti valori:
+    - **Opzioni di caricamento**: manuale.
+    - **Nome**: digitare un nome per il segreto. Il nome del segreto deve essere univoco all'interno di un'istanza di Key Vault. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, che inizia con una lettera e contiene solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -. Per altre informazioni sulla denominazione, vedere [Oggetti, identificatori e controllo delle versioni di Key Vault](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)
+    - **Value**: digitare un valore per il segreto. Le API di Key Vault accettano e restituiscono i valori dei segreti sotto forma di stringhe. 
     - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
 
 Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. 
+
+Per altre informazioni sugli attributi dei segreti, vedere [Informazioni sui segreti di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets)
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperare un segreto dall'insieme di credenziali delle chiavi
 
@@ -83,15 +63,19 @@ Facendo clic sul pulsante "Mostra il valore segreto" nel riquadro di destra, è 
 
 ![Valore segreto visualizzato](../media/quick-create-portal/current-version-shown.png)
 
+Per recuperare il segreto creato in precedenza, è possibile usare l'[interfaccia della riga di comando di Azure]() oppure [Azure PowerShell]().
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide di avvio rapido ed esercitazioni relative a Key Vault si basano su questa guida di avvio rapido. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
 1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questo avvio rapido, selezionarlo.
 2. Selezionare **Elimina gruppo di risorse**.
 3. Nella casella **DIGITARE IL NOME DEL GRUPPO DI RISORSE:** digitare il nome del gruppo di risorse e selezionare **Elimina**.
 
+> [!NOTE]
+> È importante tenere presente che, dopo l'eliminazione, un segreto, una chiave, un certificato o un insieme di credenziali delle chiavi rimarrà recuperabile per un periodo configurabile di 7-90 giorni di calendario. Se non viene specificata una configurazione, il periodo di recupero predefinito verrà impostato su 90 giorni. In questo modo gli utenti hanno il tempo sufficiente per notare l'eliminazione accidentale di un segreto e intervenire. Per altre informazioni sull'eliminazione e il recupero di insiemi di credenziali delle chiavi e dei relativi oggetti, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

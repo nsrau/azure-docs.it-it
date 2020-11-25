@@ -2,14 +2,14 @@
 title: Panoramica dei server con abilitazione di Azure Arc
 description: Informazioni su come usare i server con abilitazione di Azure Arc per gestire server ospitati all'esterno di Azure come una risorsa di Azure.
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360582"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578723"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -44,7 +44,16 @@ I dati di log raccolti e archiviati in un'area di lavoro Log Analytics dalla mac
 
 Per un elenco definitivo delle aree supportate con i server con abilitazione di Azure Arc, vedere la pagina [Prodotti Azure in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
-Nella maggior parte dei casi, la posizione selezionata durante la creazione dello script di installazione deve essere l'area di Azure geograficamente più vicina alla posizione del computer. I dati inattivi verranno archiviati all'interno dell'area geografica di Azure contenente l'area specificata, il che potrebbe influire anche sulla scelta dell'area in caso di requisiti di residenza dei dati. Se l'area di Azure a cui è connesso il computer è interessata da un'interruzione del servizio, il computer connesso non sarà interessato, ma le operazioni di gestione che usano Azure potrebbero non venire completate. In caso di interruzione di servizio a livello di area, se sono presenti più località che supportano un servizio con ridondanza geografica, è consigliabile connettere le macchine virtuali in ogni località a un'area di Azure diversa.
+Nella maggior parte dei casi, la posizione selezionata durante la creazione dello script di installazione deve essere l'area di Azure geograficamente più vicina alla posizione del computer. I dati inattivi vengono archiviati all'interno dell'area geografica di Azure contenente l'area specificata, il che potrebbe influire anche sulla scelta dell'area in caso di requisiti di residenza dei dati. Se l'area di Azure a cui è connesso il computer è interessata da un'interruzione del servizio, il computer connesso non sarà interessato, ma le operazioni di gestione che usano Azure potrebbero non venire completate. In caso di interruzione di servizio a livello di area, se sono presenti più località che supportano un servizio con ridondanza geografica, è consigliabile connettere le macchine virtuali in ogni località a un'area di Azure diversa.
+
+Le informazioni dei metadati seguenti sul computer connesso vengono raccolte e archiviate nell'area in cui è configurata la risorsa computer Azure Arc:
+
+- Nome e versione del sistema operativo
+- Nome computer
+- Nome di dominio completo (FQDN) del computer
+- Versione dell'agente Connected Machine
+
+Se ad esempio il computer è registrato con Azure Arc nell'area Stati Uniti orientali, questi dati vengono archiviati nell'area Stati Uniti.
 
 ### <a name="agent-status"></a>Stato dell'agente
 

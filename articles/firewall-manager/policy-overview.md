@@ -5,20 +5,31 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075464"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509734"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Panoramica dei criteri di Gestione firewall di Azure
 
-I criteri firewall sono risorse di Azure contenenti raccolte di regole NAT, di rete e dell'applicazione, nonché impostazioni di intelligence sulle minacce. Sono risorse globali che possono essere usate in più istanze di Firewall di Azure in hub virtuali protetti e reti virtuali hub. I criteri funzionano in diverse aree e sottoscrizioni.
+I criteri firewall sono risorse di Azure contenenti raccolte di regole NAT, di rete e dell'applicazione, oltre a impostazioni di intelligence sulle minacce. Sono risorse globali che possono essere usate in più istanze di Firewall di Azure in hub virtuali protetti e reti virtuali hub. I criteri funzionano in diverse aree e sottoscrizioni.
 
 ![Criteri di Gestione firewall di Azure](media/policy-overview/policy-overview.png)
+
+## <a name="availability"></a>Disponibilità
+
+I criteri firewall rappresentano una risorsa a disponibilità elevata che viene replicata automaticamente. Nella rara eventualità di un'emergenza locale, le operazioni di criteri firewall vengono sottoposte a failover nelle aree associate di Azure. Le operazioni di post recupero vengono sottoposte a failover nell'area primaria di Azure, sia per le operazioni sincrone che asincrone. 
+
+Le aree associate offrono diversi vantaggi, tra cui:
+- Isolamento fisico con una distanza di almeno 480 chilometri
+- Recupero più veloce in seguito a un'emergenza
+- Rispetto dei requisiti di residenza dei dati imposti in base all'area geografica
+
+Per altre informazioni sulle aree associate, vedere [Continuità aziendale e ripristino di emergenza: aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
 
 ## <a name="policy-creation-and-association"></a>Creazione e associazione di criteri
 

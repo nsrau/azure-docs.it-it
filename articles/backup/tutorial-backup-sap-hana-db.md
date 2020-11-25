@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173766"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695215"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -107,9 +107,10 @@ L'esecuzione dello script di pre-registrazione esegue le funzioni seguenti:
 * Esegue i controlli della connettività di rete in uscita con i server di Backup di Azure e i servizi dipendenti come Azure Active Directory e Archiviazione di Azure.
 * Accede al sistema HANA usando la chiave utente elencata come parte dei [prerequisiti](#prerequisites). La chiave utente viene usata per creare un utente di backup (AZUREWLBACKUPHANAUSER) nel sistema HANA e **può essere eliminata dopo l'esecuzione corretta dello script di pre-registrazione**.
 * Ad AZUREWLBACKUPHANAUSER vengono assegnati questi ruoli e autorizzazioni necessari:
-  * AMMINISTRATORE DEL DATABASE (nel caso di MDC) e AMMINISTRATORE DEL BACKUP (nel caso di DSC): per creare nuovi database durante il ripristino.
+  * Per MDC: DATABASE ADMIN e BACKUP ADMIN (HANA 2.0 SPS05 e versioni successive): per creare nuovi database durante il ripristino.
+  * Per SDC: BACKUP ADMIN: per creare nuovi database durante il ripristino.
   * CATALOG READ: per leggere il catalogo di backup.
-  * SAP_INTERNAL_HANA_SUPPORT: per accedere ad alcune tabelle private.
+  * SAP_INTERNAL_HANA_SUPPORT: per accedere ad alcune tabelle private. Richiesto solo per le versioni di SDC e MDC inferiori a HANA 2.0 SPS04 Rev 46. Non è richiesto per HANA 2.0 SPS04 Rev 46 e versioni successive perché ora le informazioni necessarie vengono recuperate da tabelle pubbliche con la correzione del team HANA.
 * Lo script aggiunge una chiave a **hdbuserstore** per AZUREWLBACKUPHANAUSER per il plug-in di backup HANA per gestire tutte le operazioni (query su database, operazioni di ripristino, configurazione ed esecuzione del backup).
 
 >[!NOTE]
@@ -139,7 +140,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
    ![Selezionare tutti i servizi](./media/tutorial-backup-sap-hana-db/all-services.png)
 
-3. Nella finestra di dialogo **Tutti i servizi** inserire **Servizi di ripristino**. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare**Insieme di credenziali di Servizi di ripristino**.
+3. Nella finestra di dialogo **Tutti i servizi** inserire **Servizi di ripristino**. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare **Insieme di credenziali di Servizi di ripristino**.
 
    ![Selezionare gli insiemi di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
@@ -226,11 +227,16 @@ Specificare le impostazioni del criterio come segue:
    ![Criteri di backup differenziale](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >I backup incrementali non sono attualmente supportati.
+   >I backup incrementali sono ora disponibili in anteprima pubblica. È possibile scegliere un backup quotidiano differenziale o incrementale, ma non entrambi.
    >
+7. In **Criteri di backup incrementale** selezionare **Abilita** per aprire i controlli relativi a frequenza e conservazione.
+    * È possibile attivare al massimo un backup differenziale al giorno.
+    * I backup incrementali possono essere conservati per un massimo di 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.
 
-7. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
-8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
+    ![Criteri di backup incrementale](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
+9. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
    * Per impostazione predefinita, l'opzione **Backup del log** è impostata su **Abilita**. Questa opzione non può essere disabilitata perché SAP HANA gestisce tutti i backup del log.
    * Per la pianificazione del backup è stata impostata l'opzione **2 ore** e per il periodo di conservazione **15 giorni**.
 
@@ -240,8 +246,8 @@ Specificare le impostazioni del criterio come segue:
    > I backup del log iniziano a fluire solo dopo il corretto completamento di un backup completo.
    >
 
-9. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
-10. Dopo aver completato la definizione dei criteri di backup, selezionare **OK**.
+10. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
+11. Dopo aver completato la definizione dei criteri di backup, selezionare **OK**.
 
 I backup per i database SAP HANA sono stati correttamente configurati.
 

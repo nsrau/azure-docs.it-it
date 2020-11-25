@@ -4,11 +4,11 @@ description: "Guida introduttiva: usare Griglia di eventi di Azure e l'interfacc
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324399"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996347"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Guida introduttiva: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
 
@@ -26,7 +26,7 @@ Prima di sottoscrivere l'argomento personalizzato, creare una funzione per gesti
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Selezionare il trigger di Griglia di eventi":::
 3. Nella pagina **Nuova funzione** immettere un nome per la funzione e selezionare **Crea funzione**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Selezionare il trigger di Griglia di eventi":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Pagina Nuova funzione":::
 4. Usare la pagina **Codice e test** per visualizzare il codice esistente per la funzione e aggiornarlo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -46,7 +46,7 @@ Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in c
 4. Nella pagina **Crea argomento** procedere come segue:
 
     1. Specificare un **nome** univoco per l'argomento personalizzato. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Non usare il nome visualizzato nell'immagine In alternativa, creare un nome personalizzato di lunghezza compresa tra 3 e 50 caratteri e contenente solo valori compresi tra a e z, A e Z, 0 e 9 e "-".
-    2. Selezionare la **sottoscrizione**di Azure.
+    2. Selezionare la **sottoscrizione** di Azure.
     3. Selezionare lo stesso gruppo di risorse dei passaggi precedenti.
     4. Selezionare una **posizione** per l'argomento di Griglia di eventi.
     5. Mantenere il valore predefinito **Schema griglia di eventi** per il campo **Schema evento**. 
@@ -88,7 +88,7 @@ Si sottoscrive un argomento di Griglia di eventi per indicare di quali eventi si
     
         L'invio in batch può fornire una velocità effettiva elevata. Per **Numero massimo di eventi per batch** impostare il numero massimo di eventi che una sottoscrizione includerà in un batch. L'opzione per le dimensioni batch preferite consente di impostare il limite superiore preferito per le dimensioni batch in KB, ma questo valore può essere superato se le dimensioni di un singolo evento sono superiori a questa soglia.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Selezionare il trigger di Griglia di eventi":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Abilita l'invio in batch":::
     6. Nella pagina **Crea sottoscrizione di eventi** selezionare **Crea**.
 
 ## <a name="send-an-event-to-your-topic"></a>Inviare un evento all'argomento
