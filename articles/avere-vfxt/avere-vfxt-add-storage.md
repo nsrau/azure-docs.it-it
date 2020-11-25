@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001525"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
 
@@ -137,7 +137,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
    ![Modulo delle credenziali cloud completato nel pannello di controllo di Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. A questo punto, creare il core filer. Sul lato sinistro del pannello di controllo, fare clic su **Core filer**  >   **Gestisci Core**filer.
+1. A questo punto, creare il core filer. Sul lato sinistro del pannello di controllo, fare clic su **Core filer**  >   **Gestisci Core** filer.
 
 1. Fare clic sul pulsante **Create** (Crea) nella pagine delle impostazioni **Manage Core Filers** (Gestisci core filer).
 
@@ -172,7 +172,7 @@ Altre informazioni sulle giunzioni sono disponibili nella [sezione relativa agli
 
 Attenersi alla seguente procedura nell'interfaccia del pannello di controllo di.
 
-* Fare **VServer**clic su  >  **spazio dei nomi** vserver in alto a sinistra.
+* Fare **VServer** clic su  >  **spazio dei nomi** vserver in alto a sinistra.
 * Fornire un percorso dello spazio dei nomi che inizi con una barra (/), ad esempio ``/vfxt/data``.
 * Scegliere il core filer.
 * Scegliere l'esportazione del core filer.

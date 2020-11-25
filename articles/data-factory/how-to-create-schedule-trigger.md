@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655460"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001984"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -366,13 +366,13 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Tipo | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sì | Nessuno | Date-Ore ISO-8601 | per il fuso orario UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> per altro fuso orario `"2013-01-09T09:30:00-08:00"` |
-| **Fuso orario** | string | Sì | Nessuno | [Valori del fuso orario](#time-zone-option)  | `"UTC"` |
-| **ricorrenza** | Oggetto | Sì | Nessuno | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervallo** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
-| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | per il fuso orario UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> per altro fuso orario `"endTime" : "2013-02-09T09:30:00-08:00"`|
+| **startTime** | string | Sì | nessuno | Date-Ore ISO-8601 | per il fuso orario UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> per altro fuso orario `"2013-01-09T09:30:00-08:00"` |
+| **Fuso orario** | string | Sì | nessuno | [Valori del fuso orario](#time-zone-option)  | `"UTC"` |
+| **ricorrenza** | Oggetto | Sì | nessuno | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervallo** | Numero | No | 1 | Da 1 a 1.000 | `"interval":10` |
+| **endTime** | string | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | per il fuso orario UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> per altro fuso orario `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **pianificazione** | Oggetto | No | nessuno | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="time-zone-option"></a>Opzione fuso orario

@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171466"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002818"
 ---
 # <a name="persist-state-in-windows"></a>Mantieni stato in Windows
 
@@ -73,8 +73,8 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     1. Fare clic con il pulsante destro del mouse su, quindi scegliere **Proprietà**.
     1. Scegliere **Sicurezza**.
     1. In * nome gruppo o utente selezionare **modifica**.
-    1. Selezionare **Aggiungi**, immettere `Users` , selezionare **Controlla nomi**e quindi fare clic su **OK**.
-    1. In *autorizzazioni per utenti*selezionare **modifica**, quindi fare clic su **OK**.
+    1. Selezionare **Aggiungi**, immettere `Users` , selezionare **Controlla nomi** e quindi fare clic su **OK**.
+    1. In *autorizzazioni per utenti* selezionare **modifica**, quindi fare clic su **OK**.
 1. Usare le **associazioni** per montare il volume e ridistribuire il modulo di griglia di eventi da portale di Azure
 
    Ad esempio,

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658690"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003974"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -636,6 +636,14 @@ Se si distribuisce una factory in produzione e si nota che è presente un bug ch
 Vedere il video sotto un'esercitazione dettagliata su come correggere gli ambienti. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Controllo dell'esposizione e flag funzionalità
+
+Quando si lavora in un team, sono presenti istanze in cui è possibile eseguire il merge delle modifiche, ma non si vuole che vengano eseguiti in ambienti con privilegi elevati, ad esempio PROD e QA. Per gestire questo scenario, il team di ADF consiglia [il concetto DevOps di utilizzo dei flag funzionalità](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). In ADF è possibile combinare [parametri globali](author-global-parameters.md) e l' [attività di condizione If](control-flow-if-condition-activity.md) per nascondere i set di logica basati su questi flag di ambiente.
+
+Per informazioni su come configurare un flag di funzionalità, vedere l'esercitazione seguente sul video:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
 

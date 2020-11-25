@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361858"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002596"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione della versione classica
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si verifica uno degli errori seguenti durante il tentativo di eliminare un account o un contenitore di archiviazione oppure un file BLOB di pagine *.vhd della versione classica di Azure. 

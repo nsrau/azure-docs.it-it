@@ -13,11 +13,11 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80992046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001644"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +44,7 @@ Se si spostano dati da un server FTP **locale** in un archivio dati cloud, ad es
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata di Data Factory**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager modello**, l' **API .NET**e l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager modello**, l' **API .NET** e l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -64,7 +64,7 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
 
 | Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| type |Impostare su FtpServer. |Sì |&nbsp; |
+| tipo |Impostare su FtpServer. |Sì |&nbsp; |
 | host |Specificare il nome o indirizzo IP del server FTP. |Sì |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione. |Sì |Di base, anonimo |
 | username |Specificare l'utente che ha accesso al server FTP. |No |&nbsp; |

@@ -16,11 +16,11 @@ ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977426"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003005"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure
 
@@ -38,7 +38,7 @@ Questo articolo illustra come creare, elencare, eliminare o assegnare un ruolo a
 Per creare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per creare l'identità gestita assegnata dall'utente.
-2. Nella casella di ricerca digitare *identità gestite*e in **Servizi**fare clic su **identità gestite**.
+2. Nella casella di ricerca digitare *identità gestite* e in **Servizi** fare clic su **identità gestite**.
 3. Fare clic su **Aggiungi** e immettere i valori nei campi seguenti nel riquadro **Crea identità gestita assegnata dall'utente**:
     - **Sottoscrizione**: scegliere la sottoscrizione in cui creare l'identità gestita assegnata dall'utente.
     - **Gruppo di risorse**: scegliere un gruppo di risorse per creare l'identità gestita assegnata dall'utente in oppure fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse.

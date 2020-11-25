@@ -7,18 +7,18 @@ ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761363"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96004263"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurare l'ambiente per le guide introduttive e le esercitazioni Plug and Play
 
 Prima di poter completare qualsiasi cosa Plug and Play guide introduttive e le esercitazioni, è necessario configurare un hub e il servizio Device provisioning (DPS) nella sottoscrizione di Azure. Sono inoltre necessarie copie locali dei file di modello usati dalle applicazioni di esempio e dallo strumento Azure Internet Explorer.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Per evitare la necessità di installare l'interfaccia della riga di comando di Azure in locale, è possibile usare la Azure Cloud Shell per configurare i servizi cloud.
 
@@ -126,7 +126,7 @@ Le guide introduttive e le esercitazioni usano lo strumento **Azure Internet Exp
 
 La prima volta che si esegue lo strumento, viene richiesta la stringa di connessione dell'hub Internet. Usare la stringa di connessione di cui si è preso nota in precedenza.
 
-Configurare lo strumento per l'uso dei file di modello scaricati in precedenza. Dal home page nello strumento selezionare **impostazioni plug and Play**Internet e quindi **+ Aggiungi > cartella locale**. Selezionare la cartella *Models* creata in precedenza. Quindi selezionare **Save (Salva** ) per salvare le impostazioni.
+Configurare lo strumento per l'uso dei file di modello scaricati in precedenza. Dal home page nello strumento selezionare **impostazioni plug and Play** Internet e quindi **+ Aggiungi > cartella locale**. Selezionare la cartella *Models* creata in precedenza. Quindi selezionare **Save (Salva** ) per salvare le impostazioni.
 
 Per altre informazioni, vedere [Installare e usare Azure IoT Explorer](howto-use-iot-explorer.md).
 
@@ -143,4 +143,4 @@ az group delete --name my-pnp-resourcegroup
 Ora che è stato configurato l'ambiente, è possibile provare una delle guide introduttive o le esercitazioni, ad esempio:
 
 > [!div class="nextstepaction"]
-> [Connettere un'app di esempio Plug and Play dispositivo all'hub Internet (Node.js)](quickstart-connect-device-node.md)
+> [Connettere un'app di esempio Plug and Play dispositivo all'hub Internet](quickstart-connect-device.md)

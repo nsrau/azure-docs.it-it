@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a971b0a1e15278d3911568007d9e57ac1ede778
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309485"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003600"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Team Data Science Process per i data scientist
 

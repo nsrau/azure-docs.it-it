@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: genli
 ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85983225"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002613"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installare l'agente di macchine virtuali di Azure in modalità offline 
 
@@ -39,7 +39,7 @@ Usare la procedura seguente per installare l'agente di macchine virtuali in moda
 
 1. Acquisire uno snapshot per il disco del sistema operativo della VM interessata, creare un disco dallo snapshot, quindi collegare il disco a una VM per la risoluzione dei problemi. Per altre informazioni, vedere [Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando il portale Azure](troubleshoot-recovery-disks-portal-windows.md). Per la macchina virtuale classica, eliminare la macchina virtuale e mantenete il disco del sistema operativo e quindi alleghi il disco del sistema operativo alla VM di risoluzione dei problemi.
 
-2.  Connettersi alla macchina virtuale per la risoluzione dei problemi. Aprire Gestione **computer**gestione  >  **disco**. Verificare che il disco del sistema operativo sia online e che siano assegnate lettere di unità alle partizioni del disco.
+2.  Connettersi alla macchina virtuale per la risoluzione dei problemi. Aprire Gestione **computer** gestione  >  **disco**. Verificare che il disco del sistema operativo sia online e che siano assegnate lettere di unità alle partizioni del disco.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Passaggio 2: Modificare il disco del sistema operativo per installare l'agente di macchine virtuali di Azure
 

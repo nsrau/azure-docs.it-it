@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405174"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003659"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiare e trasformare i dati in fiocco di neve usando Azure Data Factory
 
@@ -37,9 +37,7 @@ Per l'attività di copia, questo connettore a fiocco di neve supporta le funzion
 - Copiare i dati da fiocco di neve che usa la copia di fiocco di neve [nel comando [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) per ottenere prestazioni ottimali.
 - Copiare i dati in fiocco di neve che sfrutta la copia del fiocco di neve [nel comando [Table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) per ottenere prestazioni ottimali. Supporta fiocco di neve in Azure. 
 
-Quando si usa l'area di lavoro di Azure sinapsi Analytics, il fiocco di neve non è supportato.
-
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -152,8 +150,8 @@ Per copiare dati da fiocco di neve, nella sezione **origine** dell'attività di 
 | type                         | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SnowflakeSource**. | Sì      |
 | query          | Specifica la query SQL per leggere i dati da fiocco di neve. Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio.<br>L'esecuzione di stored procedure non è supportata. | No       |
 | exportSettings | Impostazioni avanzate utilizzate per recuperare dati da fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No       |
-| ***In `exportSettings` :*** |  |  |
-| type | Tipo di comando Export impostato su **SnowflakeExportCopyCommand**. | Sì |
+| ***In `exportSettings` :** _ |  |  |
+| tipo | Il tipo di comando Export, impostato su _ * SnowflakeExportCopyCommand * *. | Sì |
 | additionalCopyOptions | Opzioni di copia aggiuntive, fornite come dizionario di coppie chiave-valore. Esempi: MAX_FILE_SIZE, overwrite. Per altre informazioni, vedere [Opzioni di copia a fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opzioni del formato di file aggiuntive fornite al comando COPY come dizionario di coppie chiave-valore. Esempi: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Per altre informazioni, vedere [Opzioni del tipo di formato fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
@@ -163,16 +161,16 @@ Se l'archivio dati sink e il formato soddisfano i criteri descritti in questa se
 
 - Il **servizio collegato sink** è l' [**Archivio BLOB di Azure**](connector-azure-blob-storage.md) con l'autenticazione della **firma di accesso condiviso** .
 
-- Il **formato dei dati sink** è di **parquet**, **testo delimitato**o **JSON** con le configurazioni seguenti:
+- Il **formato dei dati sink** è di **parquet**, **testo delimitato** o **JSON** con le configurazioni seguenti:
 
-    - Per il formato **parquet** , il codec di compressione è **None**, **Snapper**o **LZO**.
+    - Per il formato **parquet** , il codec di compressione è **None**, **Snapper** o **LZO**.
     - Per il formato **testo delimitato** :
-        - `rowDelimiter` è **\r\n**o qualsiasi carattere singolo.
-        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `rowDelimiter` è **\r\n** o qualsiasi carattere singolo.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
-        - `quoteChar`**virgolette doppie**, **virgolette singole**o **stringhe vuote** (senza virgolette).
-    - Per il formato **JSON** , la copia diretta supporta solo il caso in cui la tabella o il risultato della query di un fiocco di codice sorgente abbia solo una singola colonna e il tipo di dati di questa colonna è **Variant**, **Object**o **Array**.
-        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `quoteChar`**virgolette doppie**, **virgolette singole** o **stringhe vuote** (senza virgolette).
+    - Per il formato **JSON** , la copia diretta supporta solo il caso in cui la tabella o il risultato della query di un fiocco di codice sorgente abbia solo una singola colonna e il tipo di dati di questa colonna è **Variant**, **Object** o **Array**.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
         - `filePattern` nel sink dell'attività di copia viene lasciato come predefinito o impostato su **setOfObjects**.
 
@@ -283,8 +281,8 @@ Per copiare dati in fiocco di neve, sono supportate le proprietà seguenti nella
 | type              | Proprietà Type del sink dell'attività di copia, impostata su **SnowflakeSink**. | Sì                                           |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in fiocco di neve in ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | importSettings | Impostazioni avanzate utilizzate per scrivere dati in fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No |
-| ***In `importSettings` :*** |                                                              |  |
-| type | Tipo di comando Import impostato su **SnowflakeImportCopyCommand**. | Sì |
+| **_In `importSettings` :_* _ |                                                              |  |
+| tipo | Tipo di comando Import impostato su _ * SnowflakeImportCopyCommand * *. | Sì |
 | additionalCopyOptions | Opzioni di copia aggiuntive, fornite come dizionario di coppie chiave-valore. Esempi: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Per altre informazioni, vedere [Opzioni di copia a fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opzioni del formato di file aggiuntive fornite al comando COPY, fornite come dizionario di coppie chiave-valore. Esempi: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Per altre informazioni, vedere [Opzioni del tipo di formato fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
@@ -294,17 +292,17 @@ Se l'archivio dati di origine e il formato soddisfano i criteri descritti in que
 
 - Il **servizio collegato di origine** è l' [**Archivio BLOB di Azure**](connector-azure-blob-storage.md) con l'autenticazione della **firma di accesso condiviso** .
 
-- Il **formato dei dati di origine** è **parquet**, **testo delimitato**o **JSON** con le configurazioni seguenti:
+- Il **formato dei dati di origine** è **parquet**, **testo delimitato** o **JSON** con le configurazioni seguenti:
 
-    - Per il formato **parquet** , il codec di compressione è **None**o **Snapper**.
+    - Per il formato **parquet** , il codec di compressione è **None** o **Snapper**.
 
     - Per il formato **testo delimitato** :
-        - `rowDelimiter` è **\r\n**o qualsiasi carattere singolo. Se il delimitatore di riga non è "\r\n", `firstRowAsHeader` deve essere **false**e `skipLineCount` non è specificato.
-        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `rowDelimiter` è **\r\n** o qualsiasi carattere singolo. Se il delimitatore di riga non è "\r\n", `firstRowAsHeader` deve essere **false** e `skipLineCount` non è specificato.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` viene lasciato come predefinito o impostato su "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar`**virgolette doppie**, **virgolette singole**o **stringhe vuote** (senza virgolette).
-    - Per il formato **JSON** , la copia diretta supporta solo le maiuscole/minuscole che la tabella di fiocco di neve ha una sola colonna e il tipo di dati di questa colonna è **Variant**, **Object**o **Array**.
-        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `quoteChar`**virgolette doppie**, **virgolette singole** o **stringhe vuote** (senza virgolette).
+    - Per il formato **JSON** , la copia diretta supporta solo le maiuscole/minuscole che la tabella di fiocco di neve ha una sola colonna e il tipo di dati di questa colonna è **Variant**, **Object** o **Array**.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
         - Il mapping delle colonne non è specificato.
 
@@ -411,7 +409,7 @@ Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere
 
 La tabella seguente elenca le proprietà supportate dall'origine fiocco di neve. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
 
-| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Tabella | Se si seleziona tabella come input, il flusso di dati recupererà tutti i dati dalla tabella specificata nel set di dati a fiocco di neve o nelle opzioni di origine quando si usa il set di dati inline. | No | string | *(solo per set di dati inline)*<br>tableName<br>schemaName |
 | Query | Se si seleziona query come input, immettere una query per recuperare i dati da fiocco di neve. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati.<br>Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio. | No | string | query |
@@ -441,7 +439,7 @@ source(allowSchemaDrift: true,
 
 La tabella seguente elenca le proprietà supportate dal sink di fiocco di neve. È possibile modificare queste proprietà nella scheda **Impostazioni** . Quando si usa il set di dati inline, verranno visualizzate impostazioni aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
 
-| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update (metodo) | Specificare le operazioni consentite nella destinazione di fiocco di neve.<br>Per aggiornare, Upsert o eliminare righe, è necessaria una [trasformazione alter Row](data-flow-alter-row.md) per contrassegnare le righe per tali azioni. | Sì | `true` o `false` | cancellabile <br/>inseribile <br/>aggiornabile <br/>upsertable |
 | Colonne chiave | Per le operazioni di aggiornamento, upsert ed eliminazione è necessario impostare una o più colonne chiave per determinare quale riga modificare. | No | Array | chiavi |

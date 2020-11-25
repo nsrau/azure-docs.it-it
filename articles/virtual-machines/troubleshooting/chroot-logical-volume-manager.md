@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167917"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002698"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
@@ -65,9 +65,9 @@ La maggior parte degli scenari, il disco snapshot collegato viene visualizzato c
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-**\*** Indica una partizione di avvio ed è necessario montare entrambe le partizioni.
+* *\** _ Indica una partizione di avvio. entrambe le partizioni devono essere montate.
 
-Eseguire il comando **lsblk** per visualizzare il LVM della macchina virtuale interessata
+Eseguire il comando _ *lsblk** per visualizzare il LVM della macchina virtuale interessata
 
 `lsblk`
 

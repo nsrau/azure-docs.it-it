@@ -7,11 +7,11 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012654"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001865"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
 In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa i **reporter di integrità** (componenti di sistema e watchdog). Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
@@ -207,7 +207,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Inviare report sull'integrità con **Send-ServiceFabric*EntityType*HealthReport**.
+Inviare report sull'integrità con **Send-ServiceFabric *EntityType* HealthReport**.
 
 L'esempio seguente illustra la generazione di report periodica sui valori della CPU in un nodo. I report devono essere inviati ogni 30 secondi e hanno una durata (TTL) di 2 minuti. Se scadono, nel reporter sono presenti problemi e quindi il nodo viene considerato in stato di errore. Quando la CPU è oltre la soglia specificata, il report presenta uno stato di integrità di tipo avviso. Quando la CPU rimane oltre la soglia specificata per più di tempo di quello configurato, verrà segnalato come errore. In caso contrario, il reporter invia uno stato di integrità corretto.
 

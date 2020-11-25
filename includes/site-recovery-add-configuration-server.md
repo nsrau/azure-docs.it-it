@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: f699ffe6d5a91e8ce3ae90c7e12249bbad0fff3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500428"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001559"
 ---
 1. Eseguire il file di installazione per l'Installazione unificata.
 2. In **Before you begin** (Prima di iniziare) selezionare **Install the configuration server and process server** (Installare il server di configurazione e il server di elaborazione).

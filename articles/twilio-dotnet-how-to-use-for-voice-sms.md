@@ -14,11 +14,11 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003761"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Come usare Twilio per le funzionalità voce ed SMS da Azure
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -39,7 +39,7 @@ L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le app
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbi Twilio
-L'API usa i verbi Twilio; il verbo ** &lt; Say &gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
+L'API usa i verbi Twilio; il verbo **&lt; Say &gt;** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
 
 Di seguito è riportato un elenco dei verbi Twilio.  Per altre informazioni su altri verbi e funzionalità, vedere la [documentazione relativa al linguaggio di markup Twilio](https://www.twilio.com/docs/api/twiml).
 

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791663"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002077"
 ---
 È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi. Per scrivere eventi in un hub eventi, è necessario disporre dell'autorizzazione di invio.
 
@@ -235,7 +235,7 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nella [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) usare l'annotazione [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) per i parametri il cui valore potrebbe essere pubblicato in Hub eventi. Il parametro deve essere di tipo `OutputBinding<T>`, dove `T` corrisponde a un POJO o a qualsiasi tipo Java nativo.
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) per i parametri il cui valore potrebbe essere pubblicato in Hub eventi. Il parametro deve essere di tipo `OutputBinding<T>`, dove `T` corrisponde a un POJO o a qualsiasi tipo Java nativo.
 
 ---
 
@@ -274,15 +274,15 @@ Sono disponibili due opzioni per la restituzione dell'output di un messaggio del
 
 - **Valore restituito**: impostare la proprietà `name` in *function.json* su `$return`. Con questa configurazione, il valore restituito della funzione viene salvato in modo permanente come messaggio dell'hub eventi.
 
-- **Imperativo**: passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). Il valore passato a `set` viene salvato in modo permanente come messaggi dell'hub eventi.
+- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). Il valore passato a `set` viene salvato in modo permanente come messaggi dell'hub eventi.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Sono disponibili due opzioni per la restituzione dell'output di un messaggio dell'hub eventi da una funzione tramite l'annotazione [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
+Sono disponibili due opzioni per la restituzione dell'output di un messaggio dell'hub eventi da una funzione tramite l'annotazione [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
 
 - **Valore restituito**: quando si applica l'annotazione alla funzione stessa, il valore restituito della funzione viene salvato in modo permanente come messaggio dell'hub eventi.
 
-- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico di tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione un valore passato al metodo `setValue` viene salvato in modo permanente come messaggio dell'hub eventi.
+- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico di tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding), dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione un valore passato al metodo `setValue` viene salvato in modo permanente come messaggio dell'hub eventi.
 
 ---
 
@@ -290,4 +290,4 @@ Sono disponibili due opzioni per la restituzione dell'output di un messaggio del
 
 | Binding | Informazioni di riferimento |
 |---|---|
-| Hub eventi | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |
+| Hub eventi | [Operations Guide](/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |

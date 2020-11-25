@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001925"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
@@ -37,7 +37,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi [Apache Hadoop](https://hadoop.apache.org/) è possibile modificare lo script della shell usato per avviare il servizio per passare queste opzioni.
 
-In ogni script è presente un'esportazione per gli ** \* \_ opz**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
+In ogni script è presente un'esportazione per gli **\* \_ opz**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
 
 I processi di mapping e riduzione sono leggermente diversi, in quanto queste operazioni sono processi figlio del servizio MapReduce. Ogni processo di mapping o riduzione viene eseguito in un contenitore figlio e ci sono due elementi che contengono le opzioni di JVM. Entrambi sono contenuti in **mapred-site.xml**:
 
@@ -91,7 +91,7 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
     ![Elenco filtrato di configurazione di Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Individuare la voce ** \* \_ opz** per il servizio per il quale si desidera abilitare i dump dell'heap e aggiungere le opzioni che si desidera abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
+4. Individuare la voce **\* \_ opz** per il servizio per il quale si desidera abilitare i dump dell'heap e aggiungere le opzioni che si desidera abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
 
     ![Apache Ambari Hadoop-NameNode-opz](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

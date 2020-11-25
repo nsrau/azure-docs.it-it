@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371172"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003064"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
@@ -56,7 +56,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Attività Azure Machine Learning Studio (classiche): esecuzione batch e risorsa di aggiornamento](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
+[Attività di Azure Machine Learning Studio (versione classica): Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
 [Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -112,7 +112,7 @@ name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguit
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No
 attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
 parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
-Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Number | No 
+Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Numero | No 
 annotations | Elenco di tag associati alla pipeline | Array | No
 
 ## <a name="activity-json"></a>Attività JSON

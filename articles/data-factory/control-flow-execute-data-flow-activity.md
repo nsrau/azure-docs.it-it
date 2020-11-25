@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/28/2020
-ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/24/2020
+ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003948"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -37,6 +37,7 @@ Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite 
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -62,6 +63,7 @@ Compute. coreCount | Il numero di core usati nel cluster Spark. Può essere spec
 Compute. computeType | Tipo di calcolo usato nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | "General", "ComputeOptimized", "MemoryOptimized" | No
 staging. linkedService | Se si usa un'origine o un sink di analisi sinapsi di Azure, specificare l'account di archiviazione usato per la gestione temporanea di base.<br/><br/>Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Sono inoltre disponibili informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.<br/> | LinkedServiceReference | Solo se il flusso di dati legge o scrive in un'analisi di sinapsi di Azure
 staging. folderPath | Se si usa un'origine o un sink di analisi sinapsi di Azure, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | string | Solo se il flusso di dati legge o scrive in Azure sinapsi Analytics
+traceLevel | Impostare il livello di registrazione dell'esecuzione dell'attività flusso di dati | Fine, grossolana, nessuna | No
 
 ![Esegui flusso di dati](media/data-flow/activity-data-flow.png "Esegui flusso di dati")
 
@@ -87,6 +89,12 @@ Per le esecuzioni di pipeline, il cluster è un cluster di processi che richiede
 ### <a name="polybase"></a>PolyBase
 
 Se si usa un'analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse) come sink o origine, è necessario scegliere un percorso di gestione temporanea per il carico batch di base. La polibase consente il caricamento batch in blocco anziché il caricamento dei dati riga per riga. La polibase riduce drasticamente il tempo di caricamento in Azure sinapsi Analytics.
+
+## <a name="logging-level"></a>Livello di registrazione
+
+Se non è necessaria l'esecuzione di ogni pipeline delle attività del flusso di dati per registrare completamente tutti i log di telemetria dettagliati, è possibile impostare facoltativamente il livello di registrazione su "Basic" o "None". Quando si eseguono i flussi di dati in modalità "verbose" (impostazione predefinita), si richiede ad ADF di registrare completamente l'attività a ogni singolo livello di partizione durante la trasformazione dei dati. Questa operazione può rivelarsi costosa, quindi l'abilitazione dettagliata solo quando la risoluzione dei problemi può migliorare le prestazioni complessive della pipeline e del flusso di dati. La modalità "Basic" registrerà solo le durate della trasformazione mentre "None" fornirà solo un riepilogo delle durate.
+
+![Livello di registrazione](media/data-flow/logging.png "Impostare il livello di registrazione")
 
 ## <a name="parameterizing-data-flows"></a>Flussi di dati parametrizzazione
 
@@ -116,7 +124,7 @@ La pipeline di debug viene eseguita sul cluster di debug attivo, non sull'ambien
 
 ## <a name="monitoring-the-data-flow-activity"></a>Monitoraggio dell'attività flusso di dati
 
-L'attività flusso di dati offre un'esperienza di monitoraggio speciale in cui è possibile visualizzare le informazioni sul partizionamento, sulla fase temporale e sulla derivazione dei dati. Aprire il riquadro Monitoraggio usando l'icona degli occhiali in **azioni** . Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
+L'attività flusso di dati offre un'esperienza di monitoraggio speciale in cui è possibile visualizzare le informazioni sul partizionamento, sulla fase temporale e sulla derivazione dei dati. Aprire il riquadro Monitoraggio usando l'icona degli occhiali in **azioni**. Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usa l'attività flusso di dati restituisce un'attività successiva
 

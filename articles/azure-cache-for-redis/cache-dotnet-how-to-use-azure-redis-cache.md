@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
 ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077065"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002461"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Avvio rapido: Usare la cache di Azure per Redis in .NET Framework
 
@@ -83,7 +83,7 @@ In Visual Studio aprire il file *App.config* e aggiornarlo includendo un attribu
 
 In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**. Aggiungere un riferimento all'assembly **System.Configuration**.
 
-Aggiungere le istruzioni `using` seguenti a *Program.cs* :
+Aggiungere le istruzioni `using` seguenti a *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -192,13 +192,13 @@ In Visual Studio fare clic su **Strumenti** > **Gestione pacchetti NuGet** > **C
 Install-Package Newtonsoft.Json
 ```
 
-Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs* :
+Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Aggiungere la definizione di classe `Employee` seguente a *Program.cs* :
+Aggiungere la definizione di classe `Employee` seguente a *Program.cs*:
 
 ```csharp
 class Employee

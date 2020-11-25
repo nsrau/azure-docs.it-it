@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290688"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002239"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
@@ -56,7 +56,7 @@ La topologia di fabbriche, linee di produzione e stazioni è gerarchica:
 Ogni nodo nella topologia ha un set comune di proprietà che definiscono:
 
 * Un identificatore univoco per il nodo della topologia.
-* Un nome.
+* Un nome
 * Una descrizione.
 * Un'immagine.
 * Gli elementi figlio del nodo della topologia.
@@ -88,7 +88,7 @@ Il frammento di codice seguente mostra la struttura del file di configurazione `
 }
 ```
 
-Le proprietà comuni di  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` sono:
+Le proprietà comuni di `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` sono:
 
 * **Name** (tipo string)
 
@@ -265,7 +265,7 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 
 ### <a name="visual-appearance"></a>Aspetto visivo
 
-Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
+Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Alcuni esempi:
 
 * Nome
 * Descrizione
@@ -294,7 +294,7 @@ Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei v
 Fabbrica connessa supporta un semplice meccanismo di generazione di avvisi basati sulla soglia minima o massima. Ci sono diverse azioni predefinite che è possibile configurare in risposta agli avvisi. Il meccanismo è controllato dalle proprietà seguenti:
 
 * Massimo
-* Minima
+* Minimo
 * MaximumAlertActions
 * MinimumAlertActions
 

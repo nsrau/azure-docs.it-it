@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
 ms.openlocfilehash: 997e2e97161e6db7cdca04c1b79f5149a2e4c409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392851"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003532"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
 
@@ -43,8 +43,8 @@ La Figura 2 mostra le stesse informazioni, suddivise tuttavia per endpoint. È q
 
 ## <a name="endpoint-status-by-endpoint"></a>Stato endpoint per endpoint
 Usare [questa metrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) per comprendere lo stato di integrità degli endpoint nel profilo. Sono necessari due valori:
- - usare **1 ** se l'endpoint è attivo.
- - usare **0 ** se l'endpoint è inattivo.
+ - usare **1** se l'endpoint è attivo.
+ - usare **0** se l'endpoint è inattivo.
 
 Questa metrica può essere visualizzata sia come valore aggregato che rappresenta lo stato di tutte le metriche (Figura 3), sia come suddivisione (vedi Figura 4) per mostrare lo stato di endpoint specifici. Nel primo caso, se il livello di aggregazione selezionato è **Avg**, il valore di questa metrica sarà la media aritmetica dello stato di tutti gli endpoint. Ad esempio, se un profilo ha due endpoint e solo uno è integro, questa metrica avrà un valore di **0,50** come mostrato nella Figura 3. 
 

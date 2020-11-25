@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003685"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Scegliere il piano tariffario corretto in Mappe di Azure
 
@@ -33,7 +33,7 @@ Se le API geospaziali principali soddisfano i requisiti del servizio, scegliere 
 |-----------------------------------------|:-------------------:|:--------:|
 | Rendering mappa                              | ✓                   | ✓       |
 | Immagini satellite                       |                     | ✓        |
-| Ricerca                                  | ✓                    | ✓        |
+| Cerca                                  | ✓                    | ✓        |
 | Ricerca batch                            |                     | ✓        |
 | Route                                   | ✓                    |✓        |
 | Routing batch                            |                    | ✓        |

@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329483"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002749"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Ricerca full-text in Azure ricerca cognitiva
 
@@ -373,7 +373,7 @@ Ciò significa che un punteggio di pertinenza *potrebbe* essere diverso per docu
 
 In genere, il punteggio del documento non è l'attributo migliore per l'ordinamento dei documenti se la stabilità dell'ordine è importante. Ad esempio, dati due documenti con un punteggio identico, non vi sono garanzie circa quale sarà visualizzato per primo in esecuzioni successive della stessa query. Il punteggio del documento deve solo dare un'idea generale della pertinenza del documento relativo ad altri documenti nel set di risultati.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Il successo dei motori di ricerca Internet ha generato aspettative per la ricerca full-text su dati privati. Per quasi tutti i tipi di esperienza di ricerca, è ora previsto che il motore comprenda il nostro obiettivo, anche quando i termini sono errati o incompleti. Si possono anche prevedere delle corrispondenze basate su termini quasi equivalenti o sinonimi che non abbiamo mai specificato.
 
@@ -393,13 +393,13 @@ Questo articolo ha esplorato la ricerca full-text nel contesto di Azure ricerca 
 
 + [Configurare gli analizzatori personalizzati](/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Search Documents REST API](/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 
 [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintassi completa della query Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Sintassi di query Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Gestire i risultati della ricerca](./search-pagination-page-layout.md)
 

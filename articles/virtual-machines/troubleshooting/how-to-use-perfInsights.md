@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361348"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002664"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Come usare PerfInsights in Azure
 
@@ -123,10 +123,10 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 | Traccia di XPerf                       |                            |                                    |                          |                      | Sì                  |
 | Traccia di StorPort                    |                            |                                    |                          |                      | Sì                  |
 | Traccia di rete                     |                            |                                    |                          | Sì                  | Sì                  |
-| Traccia del benchmark Diskspd ***       |                            | Sì                                |                          |                      |                      |
+| Traccia benchmark Diskspd * * _       |                            | Sì                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Traccia di diagnostica delle prestazioni (*)
+### <a name="performance-diagnostics-trace-_"></a>Traccia di diagnostica delle prestazioni (_)
 
 Esegue in background un motore basato su regole per raccogliere dati e diagnosticare problemi di prestazioni in corso. Sono attualmente supportate le regole seguenti:
 
@@ -154,7 +154,7 @@ Raccoglie i contatori delle prestazioni seguenti:
 #### <a name="for-azure-files"></a>Per File di Azure
 \Condivisioni client SMB
 
-### <a name="diskspd-benchmark-trace-"></a>Traccia del benchmark Diskspd (***)
+### <a name="diskspd-benchmark-trace-_"></a>Traccia benchmark Diskspd (* * _)
 Il carico di lavoro di I/O Diskspd testa (disco del sistema operativo [scrittura] e unità di pool [lettura/scrittura])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Eseguire lo strumento PerfInsights nella macchina virtuale
@@ -165,8 +165,7 @@ Il carico di lavoro di I/O Diskspd testa (disco del sistema operativo [scrittura
 
 -  Questo strumento deve essere eseguito nella macchina virtuale in cui si è verificato il problema di prestazioni. 
 
--  Sono supportati i sistemi operativi seguenti:
-   * Windows Server 2019
+-  Sono supportati i sistemi operativi seguenti: _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 R2
    * Windows Server 2012

@@ -4,11 +4,11 @@ description: Questo articolo descrive come usare i vecchi e i nuovi eventi di di
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182599"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002886"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usare le impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino
 
@@ -44,7 +44,7 @@ Per inviare i dati di diagnostica dell'insieme di credenziali a Log Analytics:
 1. Passare all'insieme di credenziali e selezionare **impostazioni di diagnostica**. Selezionare **+ Aggiungi impostazioni di diagnostica**.
 1. Assegnare un nome all'impostazione di diagnostica.
 1. Selezionare la casella **di controllo Invia a log Analytics** e selezionare un'area di lavoro log Analytics.
-1. Selezionare **risorsa specifica** nell'interruttore e selezionare i sei eventi seguenti: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**e **AddonAzureBackupProtectedInstance**.
+1. Selezionare **risorsa specifica** nell'interruttore e selezionare i sei eventi seguenti: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage** e **AddonAzureBackupProtectedInstance**.
 1. Selezionare **Salva**.
 
    ![Modalità specifica della risorsa](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
@@ -64,7 +64,7 @@ Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatib
 * Fornire una migliore individuabilità degli schemi e della relativa struttura.
 * Migliorare le prestazioni tra la latenza di inserimento e i tempi di esecuzione delle query.
 
-*La fine dell'evento legacy in modalità diagnostica di Azure verrà deprecata. La scelta dei nuovi eventi può essere utile per evitare migrazioni complesse in un secondo*momento. La [soluzione](./configure-reports.md) per la creazione di report che usa log Analytics interrompe anche il supporto dei dati dell'evento legacy.
+*La fine dell'evento legacy in modalità diagnostica di Azure verrà deprecata. La scelta dei nuovi eventi può essere utile per evitare migrazioni complesse in un secondo* momento. La [soluzione](./configure-reports.md) per la creazione di report che usa log Analytics interrompe anche il supporto dei dati dell'evento legacy.
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>Passaggi per passare alle nuove impostazioni di diagnostica per un'area di lavoro Log Analytics
 
@@ -114,15 +114,15 @@ Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatib
 
 ## <a name="send-azure-site-recovery-events-to-log-analytics"></a>Inviare eventi Azure Site Recovery al Log Analytics
 
-Backup di Azure e gli eventi di Azure Site Recovery vengono inviati dallo stesso insieme di credenziali di servizi di ripristino. Azure Site Recovery non è attualmente disponibile per le tabelle specifiche delle risorse. Gli utenti che desiderano inviare eventi Azure Site Recovery ai Log Analytics vengono indirizzati all'uso *solo*della modalità diagnostica di Azure, come illustrato nell'immagine. Se *si sceglie la modalità specifica della risorsa per gli eventi di Azure Site Recovery, i dati necessari non vengono inviati all'area di lavoro di log Analytics*.
+Backup di Azure e gli eventi di Azure Site Recovery vengono inviati dallo stesso insieme di credenziali di servizi di ripristino. Azure Site Recovery non è attualmente disponibile per le tabelle specifiche delle risorse. Gli utenti che desiderano inviare eventi Azure Site Recovery ai Log Analytics vengono indirizzati all'uso *solo* della modalità diagnostica di Azure, come illustrato nell'immagine. Se *si sceglie la modalità specifica della risorsa per gli eventi di Azure Site Recovery, i dati necessari non vengono inviati all'area di lavoro di log Analytics*.
 
 ![Eventi Site Recovery](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
 Per concludere:
 
 * Se è già stata configurata la diagnostica Log Analytics con Diagnostica di Azure e sono state scritte query personalizzate, mantenere l'impostazione *intatta* fino a quando non si esegue la migrazione delle query per usare i dati dei nuovi eventi.
-* Se si desidera eseguire l'onboarding anche nelle nuove tabelle, è consigliabile creare una **nuova** impostazione di diagnostica, selezionare specifico per la **risorsa**e selezionare i sei nuovi eventi.
-* Se si sta inviando attualmente Azure Site Recovery eventi a Log Analytics, *non* scegliere la modalità specifica della risorsa per questi eventi. In caso contrario, i dati per questi eventi non verranno inseriti nell'area di lavoro Log Analytics. In alternativa, creare un'impostazione di diagnostica aggiuntiva, selezionare **diagnostica di Azure**e selezionare gli eventi di Azure Site Recovery pertinenti.
+* Se si desidera eseguire l'onboarding anche nelle nuove tabelle, è consigliabile creare una **nuova** impostazione di diagnostica, selezionare specifico per la **risorsa** e selezionare i sei nuovi eventi.
+* Se si sta inviando attualmente Azure Site Recovery eventi a Log Analytics, *non* scegliere la modalità specifica della risorsa per questi eventi. In caso contrario, i dati per questi eventi non verranno inseriti nell'area di lavoro Log Analytics. In alternativa, creare un'impostazione di diagnostica aggiuntiva, selezionare **diagnostica di Azure** e selezionare gli eventi di Azure Site Recovery pertinenti.
 
 La figura seguente mostra un esempio di un utente che dispone di tre impostazioni di diagnostica per un insieme di credenziali. La prima impostazione, denominata **Setting1**, invia dati da un evento AzureBackupReport a un'area di lavoro log Analytics in modalità diagnostica di Azure. La seconda impostazione, denominata **Setting2**, invia i dati dai sei nuovi eventi di backup di Azure a un'area di lavoro log Analytics nella modalità specifica della risorsa. La terza impostazione, denominata **Setting3**, invia i dati dagli eventi Azure Site Recovery a un'area di lavoro log Analytics in modalità diagnostica di Azure.
 

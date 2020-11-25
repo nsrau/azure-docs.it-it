@@ -4,11 +4,11 @@ description: Le funzionalità di Azure Lighthouse possono essere usate per sempl
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167350"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004246"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
@@ -24,7 +24,7 @@ Nei casi in cui è necessaria un'architettura multi-tenant, Azure Lighthouse pu�
 
 Per usare Azure Lighthouse in un'azienda, è necessario determinare quale tenant includerà gli utenti che eseguono operazioni di gestione sugli altri tenant. In altre parole, sarà necessario determinare quale tenant sarà il tenant di gestione per gli altri tenant.
 
-Si immagini, ad esempio, che l'organizzazione disponga di un singolo tenant che chiameremo *tenant a*. L'organizzazione acquisisce quindi il *tenant B* e il *tenant C*e si hanno motivi aziendali per cui è necessario mantenerli come tenant distinti.
+Si immagini, ad esempio, che l'organizzazione disponga di un singolo tenant che chiameremo *tenant a*. L'organizzazione acquisisce quindi il *tenant B* e il *tenant C* e si hanno motivi aziendali per cui è necessario mantenerli come tenant distinti.
 
 L'organizzazione vuole usare le stesse definizioni di criteri e procedure di backup e gli stessi processi di sicurezza in tutti i tenant. Poiché il tenant A include già gli utenti responsabili di queste attività, è possibile caricare le sottoscrizioni nel tenant B e nel tenant C, consentendo agli stessi utenti del tenant a di eseguire tali attività.
 

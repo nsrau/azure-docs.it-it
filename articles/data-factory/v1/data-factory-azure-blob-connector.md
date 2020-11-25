@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438518"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001739"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -49,12 +49,12 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 >
 > L'attività di copia non elimina i dati dall'origine dopo che i dati sono stati correttamente copiati nella destinazione. Se è necessario eliminare i dati di origine dopo una copia con esito positivo, creare un'[attività personalizzata](data-factory-use-custom-activities.md) per eliminare i dati e usare l'attività nella pipeline. Per un esempio, vedere l'[esempio di eliminazione di BLOB o cartella in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archivio BLOB di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Questo articolo include una [procedura dettagliata](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage)per la creazione di una pipeline per copiare dati da un percorso di un archivio BLOB di Azure al percorso di un altro archivio BLOB di Azure. Per un'esercitazione sulla creazione di una pipeline per copiare dati da un archivio BLOB di Azure a un database SQL di Azure, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET** e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -188,7 +188,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
 2. Fare clic su **Crea una risorsa** nell'angolo in alto a sinistra, selezionare **Intelligence e analisi** e quindi **Data factory**.
 3. Nel riquadro **Nuova data factory**:  
     1. Immettere **ADFBlobConnectorDF** come **nome**. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore `*Data factory name “ADFBlobConnectorDF” is not available`, modificare il nome della data factory, ad esempio, nomeutenteADFBlobConnectorDF, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
-    2. Selezionare la **sottoscrizione**di Azure.
+    2. Selezionare la **sottoscrizione** di Azure.
     3. Per Gruppo di risorse, selezionare **Usa esistente** per selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
     4. Selezionare una **località** per la data factory.
     5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.
@@ -247,7 +247,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
 9. Nella pagina **Specify the Azure Blob storage account** (Specificare l'account di archiviazione BLOB di Azure):  
     1. Immettere **AzureStorageLinkedService** nel campo **Connection name** (Nome connessione).
     2. Verificare che in **Account selection method** (Metodo di selezione dell'account) sia selezionata l'opzione **From Azure subscriptions** (Da sottoscrizioni di Azure).
-    3. Selezionare la **sottoscrizione**di Azure.
+    3. Selezionare la **sottoscrizione** di Azure.
     4. Selezionare l'account di archiviazione di Azure.
     5. Fare clic su **Avanti**.
 10. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output):  

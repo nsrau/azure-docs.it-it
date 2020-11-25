@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509122"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002563"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -70,7 +70,7 @@ Per il contratto Enterprise Agreement:
 
 •   Caricare una VM personalizzata e distribuirla usando un modello di Resource Manager o Azure PowerShell.
 
-Per altre informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le risorse seguenti:
 
  - [Panoramica del vantaggio Azure Hybrid use](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 

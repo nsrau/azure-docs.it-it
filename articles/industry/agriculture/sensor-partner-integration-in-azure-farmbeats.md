@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001593"
 ---
 # <a name="sensor-partner-integration"></a>Integrazione di partner di sensori
 
@@ -126,10 +126,10 @@ JSON è un formato di dati comune indipendente dal linguaggio che offre una rapp
 
 FarmBeats Datahub include le API seguenti che consentono ai partner di dispositivi di creare e gestire i metadati dei dispositivi o dei sensori.
 
-- /**DeviceModel** : DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, ovvero gateway o nodo.
-- /**Device** : Device corrisponde a un dispositivo fisico presente nella farm.
-- /**SensorModel** : SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misurazione del sensore, ad esempio la temperatura e la pressione dell'ambiente.
-- /**Sensor** : Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
+- /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, ovvero gateway o nodo.
+- /**Device**: Device corrisponde a un dispositivo fisico presente nella farm.
+- /**SensorModel**: SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misurazione del sensore, ad esempio la temperatura e la pressione dell'ambiente.
+- /**Sensor**: Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
 
   DeviceModel | Descrizione |
   --- | ---

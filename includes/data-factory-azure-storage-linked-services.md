@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75468331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001736"
 ---
 ### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Il **servizio collegato ad Archiviazione di Azure** consente di collegare un account di Archiviazione di Azure a una data factory di Azure tramite la **chiave dell'account**, che fornisce alla data factory l'accesso globale ad Archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Archiviazione di Azure.
@@ -66,7 +66,7 @@ Il servizio collegato di firma di accesso condiviso Archiviazione di Azure conse
 }
 ```
 
-Quando si crea un **URI della firma di accesso condiviso**considerare quanto segue:  
+Quando si crea un **URI della firma di accesso condiviso** considerare quanto segue:  
 
 * Impostare le **autorizzazioni** appropriate di lettura o scrittura per gli oggetti in base al modo in cui il servizio collegato (lettura, scrittura, lettura/scrittura) viene usato nella data factory.
 * Impostare **Ora di scadenza** in modo appropriato. L'accesso agli oggetti di Archiviazione di Azure non deve scadere nel periodo attivo della pipeline.

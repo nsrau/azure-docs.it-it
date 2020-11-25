@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442022"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003177"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
 
@@ -80,21 +80,21 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    ![Selezione della capacità di Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti**.
+6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti.
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
     |Nome dell'ordine di esportazione     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
 
-    ![Nozioni fondamentali sull'ordine di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Nozioni fondamentali sull'ordine di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Selezionare **Avanti: selezione dati** per continuare.
 
 7. In **selezione dati** selezionare **Aggiungi account di archiviazione ed Esporta tipo**.
 
-    ![Aggiungere un account di archiviazione e un tipo di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Aggiungere un account di archiviazione e un tipo di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. In **Seleziona l'opzione Esporta** specificare i dettagli dell'opzione di esportazione. Immettere o selezionare le informazioni seguenti e selezionare **Aggiungi**.
 
@@ -102,7 +102,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Account di archiviazione     | L'account di archiviazione di Azure da cui si desidera esportare i dati. |
     |Tipo di esportazione     | Specifica il tipo di dati da esportare da **tutti gli oggetti** e **utilizzare il file XML**.<ul><li> **Tutti gli oggetti** : specifica che il processo Esporta tutti i dati a seconda della selezione effettuata per le **Opzioni di trasferimento**.</li><li> **Usa file XML** : specifica un file XML che contiene un set di percorsi e prefissi per i BLOB e/o i file da esportare dall'account di archiviazione. Il file XML deve trovarsi nel contenitore dell'account di archiviazione selezionato e la selezione da condivisioni file non è attualmente supportata. Il file deve essere un file XML non vuoto.</li></ul>        |
-    |Opzioni di trasferimento     |  Specifica le opzioni di trasferimento dati da **Seleziona tutto** , **tutti i BLOB** e **tutti i file**. <ul><li> **Select All** : specifica che tutti i blob e file di Azure vengono esportati. Se si usa un account di archiviazione che supporta solo BLOB (account di archiviazione BLOB), l'opzione **tutti i file** non sarà selezionabile.</li><li> **All Blobs** : specifica che vengono esportati solo i BLOB in blocchi e di pagine.</li><li> **Tutti i file** : specifica che tutti i file vengono esportati, esclusi i BLOB. Il tipo di account di archiviazione in cui si dispone (utilizzo generico V1 e GPv2, archiviazione Premium o archiviazione BLOB) determina i tipi di dati che è possibile esportare. Per altre informazioni, vedere [account di archiviazione supportati per l'esportazione](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opzioni di trasferimento     |  Specifica le opzioni di trasferimento dati da **Seleziona tutto**, **tutti i BLOB** e **tutti i file**. <ul><li> **Select All** : specifica che tutti i blob e file di Azure vengono esportati. Se si usa un account di archiviazione che supporta solo BLOB (account di archiviazione BLOB), l'opzione **tutti i file** non sarà selezionabile.</li><li> **All Blobs** : specifica che vengono esportati solo i BLOB in blocchi e di pagine.</li><li> **Tutti i file** : specifica che tutti i file vengono esportati, esclusi i BLOB. Il tipo di account di archiviazione in cui si dispone (utilizzo generico V1 e GPv2, archiviazione Premium o archiviazione BLOB) determina i tipi di dati che è possibile esportare. Per altre informazioni, vedere [account di archiviazione supportati per l'esportazione](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Includi log dettagliato     | Indica se si desidera un file di log dettagliato contenente un elenco di tutti i file che sono stati esportati correttamente.        |
 
     > [!NOTE]
@@ -115,15 +115,88 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    Per un esempio di input XML, vedere [input XML di esempio](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. In **selezione dati** esaminare le impostazioni e fare clic su **avanti: sicurezza>**.
+9. In **selezione dati** esaminare le impostazioni e fare clic su **avanti: sicurezza>** per continuare.
 
    ![Ordine di esportazione, selezione dati](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. In **Sicurezza** , se si vuole abilitare la crittografia doppia basata su software, selezionare **Abilita crittografia doppia per l'ordine**. 
+    La schermata **sicurezza** consente di usare la propria chiave di crittografia e di scegliere di usare la crittografia doppia.
+
+    Tutte le impostazioni nella schermata **Sicurezza** sono facoltative. Se non si modifica alcuna impostazione, vengono applicate le impostazioni predefinite.
+
+    ![Schermata sicurezza in Importazione guidata ordine di Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Se si vuole usare la propria chiave gestita dal cliente per proteggere la passkey di sblocco per la nuova risorsa, espandere **tipo di crittografia**.
+
+    La configurazione di una chiave gestita dal cliente per la Azure Data Box è facoltativa. Per impostazione predefinita, Data Box usa una chiave gestita da Microsoft per proteggere la passkey di sblocco.
+
+    Una chiave gestita dal cliente non influisce sulla modalità di crittografia dei dati nel dispositivo. La chiave viene usata solo per crittografare la passkey di sblocco del dispositivo.
+
+    Se non si vuole usare una chiave gestita dal cliente, andare al passaggio 16.
+
+    ![Schermata sicurezza che mostra le impostazioni del tipo di crittografia](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Selezionare **chiave gestita dal cliente** come tipo di chiave. Selezionare quindi **selezionare un insieme di credenziali delle chiavi e una chiave**.
+   
+    ![Schermata sicurezza, impostazioni per una chiave gestita dal cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. Nella schermata **Seleziona chiave da Azure Key Vault** la sottoscrizione viene popolata automaticamente.
+
+    - Per **Key Vault** è possibile selezionare un insieme di credenziali delle chiavi esistente dall'elenco a discesa.
+
+      ![Selezionare la chiave dalla schermata Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nella schermata **Crea** insieme di credenziali delle chiavi immettere il gruppo di risorse e un nome dell'insieme di credenziali delle chiavi. Assicurarsi che la protezione **eliminazione** temporanea e **ripulitura** sia abilitata. Accettare tutte le altre impostazioni predefinite e selezionare **Verifica + crea**.
+
+      ![Crea nuove impostazioni di Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Esaminare le informazioni per l'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
+
+      ![Schermata nuova revisione Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. Nella schermata **Seleziona chiave da Azure Key Vault** è possibile selezionare una chiave esistente nell'insieme di credenziali delle chiavi.
+
+    ![Selezionare la chiave esistente da Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Se si vuole creare una nuova chiave, selezionare **Crea nuovo**. È necessario utilizzare una chiave RSA. La dimensione può essere 2048 o successiva. Immettere un nome per la nuova chiave, accettare le altre impostazioni predefinite e selezionare **Crea**.
+
+      ![Crea nuova opzione chiave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Si riceverà una notifica quando la chiave è stata creata nell'insieme di credenziali delle chiavi.
+
+14. Selezionare la **versione** della chiave da usare e quindi scegliere **Seleziona**.
+
+      ![Nuova chiave creata nell'insieme di credenziali delle chiavi](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Se si vuole creare una nuova versione della chiave, selezionare **Crea nuovo**.
+
+    ![Aprire una finestra di dialogo per la creazione di una nuova versione della chiave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    Nella schermata **Crea nuova chiave** scegliere impostazioni per la nuova versione della chiave e selezionare **Crea**.
+
+    ![Creare una nuova versione della chiave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    Le impostazioni del **tipo di crittografia** nella schermata **sicurezza** mostrano l'insieme di credenziali delle chiavi e la chiave.
+
+    ![Chiave e Key Vault per una chiave gestita dal cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Selezionare un'identità utente da usare per gestire l'accesso a questa risorsa. Scegliere **selezionare un'identità utente**. Nel pannello a destra selezionare la sottoscrizione e l'identità gestita da usare. Scegliere quindi **Seleziona**.
+
+    Un'identità gestita assegnata dall'utente è una risorsa di Azure autonoma che può essere usata per gestire più risorse. Per altre informazioni, vedere [tipi di identità gestiti](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Selezionare un'identità utente](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    L'identità utente viene visualizzata nelle impostazioni del **tipo di crittografia** .
+
+    È possibile comprimere ora le impostazioni del **tipo di crittografia** .
+
+    ![Identità utente selezionata visualizzata nelle impostazioni del tipo di crittografia](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Se si vuole abilitare la crittografia doppia basata su software, espandere **crittografia doppia (per ambienti con sicurezza elevata)** e selezionare **Abilita crittografia doppia per l'ordine**. 
 
     La crittografia basata su software viene eseguita oltre alla crittografia AES a 256 bit dei dati nel Data Box.
 
-   
     > [!NOTE]
     > Se si abilita questa opzione, l'elaborazione dll'ordine e la copia dei dati potrebbero richiedere più tempo. Non è possibile modificare questa opzione dopo aver creato l'ordine.
 
@@ -157,7 +230,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 ## <a name="export-order-using-xml-file"></a>Esporta ordine tramite file XML
 
-Se si seleziona **Usa file XML** , è possibile specificare contenitori e BLOB specifici (pagina e blocco) che si desidera esportare. È necessario seguire le specifiche della [tabella dei file XML di esempio](#sample-xml-file) per la formattazione del codice XML. La procedura seguente illustra come usare un file XML per esportare i dati:
+Se si seleziona **Usa file XML**, è possibile specificare contenitori e BLOB specifici (pagina e blocco) che si desidera esportare. È necessario seguire le specifiche della [tabella dei file XML di esempio](#sample-xml-file) per la formattazione del codice XML. La procedura seguente illustra come usare un file XML per esportare i dati:
 
 1. In **tipo di esportazione** selezionare **Usa file XML**. Si tratta del file XML che specifica i BLOB specifici e i file di Azure che si vuole esportare. Per aggiungere il file XML, selezionare **fare clic qui per selezionare un file XML**.
 

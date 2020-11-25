@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69259023484457249acd4c7b4a65c4cbe3e660ca
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400955"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002860"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -28,7 +28,7 @@ Seguire questa procedura per creare un insieme di credenziali di Servizi di ripr
 
     ![Selezionare tutti i servizi](./media/backup-create-rs-vault/click-all-services.png)
 
-1. Nella finestra di dialogo **Tutti i servizi** inserire *Servizi di ripristino*. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare**Insieme di credenziali di Servizi di ripristino**.
+1. Nella finestra di dialogo **Tutti i servizi** inserire *Servizi di ripristino*. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare **Insieme di credenziali di Servizi di ripristino**.
 
     ![Inserire e selezionare le insiemi di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/all-services.png)
 
@@ -65,4 +65,4 @@ Seguire questa procedura per creare un insieme di credenziali di Servizi di ripr
      ![Aggiornare l'elenco dell'insieme di credenziali di backup](./media/backup-create-rs-vault/refresh-button.png)
 
 >[!IMPORTANT]
-> È consigliabile rivedere le impostazioni predefinite di **Tipo di replica di archiviazione** e **Impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali. Per altre informazioni, vedere la sezione [Impostare la ridondanza di archiviazione](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+> È consigliabile rivedere le impostazioni predefinite di **Tipo di replica di archiviazione** e **Impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali. Per altre informazioni, vedere la sezione [Impostare la ridondanza di archiviazione](../articles/backup/backup-create-rs-vault.md#set-storage-redundancy).

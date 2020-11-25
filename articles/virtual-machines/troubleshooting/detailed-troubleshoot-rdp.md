@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 91f15e32866cca008553286f7585247909d9a4ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002681"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
 Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.

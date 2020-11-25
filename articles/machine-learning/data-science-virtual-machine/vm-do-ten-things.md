@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002766"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data Science con Windows Data Science Virtual Machine
 
@@ -197,7 +197,7 @@ Dopo aver eseguito il comando AzCopy per la copia in un BLOB di Azure, il file v
 È anche possibile caricare i dati dal file locale nella macchina virtuale usando Azure Storage Explorer:
 
 * Per caricare i dati in un contenitore, selezionare il contenitore di destinazione e selezionare il pulsante **carica** . ![ Screenshot del pulsante carica in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Selezionare i puntini di sospensione ( **...** ) a destra della casella **file** , selezionare uno o più file da caricare dal file System e selezionare **carica** per iniziare a caricare i file. ![ Screenshot della finestra di dialogo Carica file](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Selezionare i puntini di sospensione (**...**) a destra della casella **file** , selezionare uno o più file da caricare dal file System e selezionare **carica** per iniziare a caricare i file. ![ Screenshot della finestra di dialogo Carica file](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Leggere dati da un BLOB di Azure: Python ODBC
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, contenitore
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460986"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001805"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Installare ed eseguire contenitori Docker per LUIS
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -60,7 +60,7 @@ API di creazione per le app in pacchetto:
 
 Nella tabella seguente sono elencati i valori minimi e consigliati per l'host contenitore. I requisiti possono variare a seconda del volume di traffico.
 
-|Contenitore| Minima | Consigliato | PROGRAMMI<br>(Minimo, massimo)|
+|Contenitore| Minima | Implementazione consigliata | PROGRAMMI<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20, 40|
 
@@ -108,7 +108,7 @@ Posizionare il file del pacchetto in una directory e fare riferimento alla direc
 
 ### <a name="package-types"></a>Tipi di pacchetto
 
-La directory di montaggio dell'input può contenere contemporaneamente i modelli di **produzione**, **gestione temporanea**e **versione** dell'app. Tutti i pacchetti vengono montati.
+La directory di montaggio dell'input può contenere contemporaneamente i modelli di **produzione**, **gestione temporanea** e **versione** dell'app. Tutti i pacchetti vengono montati.
 
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
@@ -276,12 +276,12 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 |Query parameter (Parametro di query)|Tipo|Scopo|
 |--|--|--|
 |`q`|string|Espressione dell'utente.|
-|`timezoneOffset`|d'acquisto|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
+|`timezoneOffset`|Numero|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è true.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Eseguire query sull'app LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Per eseguire query nell'ambiente di **gestione temporanea** , sostituire `production` nella route con `staging` :
+Per eseguire query nell'ambiente _ *staging**, sostituire `production` nella route con `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 Il nome della versione può essere composto da un massimo di 10 caratteri e deve contenere solo caratteri consentiti in un URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importare i log dell'endpoint per l'apprendimento attivo
 
@@ -346,11 +346,11 @@ Il percorso seguente indica la struttura di directory nidificata per i file di l
 /output/luis/{INSTANCE_ID}/
 ```
 
-Dal portale di LUIS selezionare l'app, quindi selezionare **Import endpoint logs** (Importa log endpoint) per caricare i log.
+Dal portale LUIS selezionare l'app, quindi selezionare _ *Importa log endpoint** per caricare i log.
 
 ![Importare i file di log del contenitore per l'apprendimento attivo](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Dopo il caricamento del log, [esaminare le espressioni dell'endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) nel portale di LUIS.
+Dopo il caricamento del log, [esaminare le espressioni dell'endpoint](./luis-concept-review-endpoint-utterances.md) nel portale di LUIS.
 
 <!--  ## Validate container is running -->
 

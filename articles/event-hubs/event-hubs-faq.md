@@ -3,12 +3,12 @@ title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 41b010315adaf5a0eca2939b1d42fe4d7c159628
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843044"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002792"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -58,83 +58,7 @@ Hub eventi genera metriche complete che specificano lo stato delle risorse in [M
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Dove vengono archiviati i dati dei clienti in hub eventi di Azure?
 Hub eventi di Azure archivia i dati dei clienti. Questi dati vengono archiviati automaticamente da Hub eventi in una singola area, in modo che questo servizio soddisfi automaticamente i requisiti di residenza dei dati dell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
-È possibile usare i protocolli seguenti con hub eventi di Azure per inviare e ricevere eventi:
-
-- Advance Message Queueing Protocol 1,0 (AMQP)
-- Hypertext Transfer Protocol 1,1 con TLS (HTTPS)
-- Apache Kafka
-
-Vedere la tabella seguente per le porte in uscita da aprire per usare questi protocolli per comunicare con Hub eventi di Azure. 
-
-| Protocollo | Porte | Dettagli | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTPS | 443 | Questa porta viene usata per l'API HTTP/REST e per AMQP-over-WebSocket. |
-| Kafka | 9093 | Vedere [Usare Hub eventi da applicazioni Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-
-La porta HTTPS è necessaria per le comunicazioni in uscita anche quando AMQP viene usato sulla porta 5671, perché diverse operazioni di gestione eseguite dagli SDK client e l'acquisizione di token da Azure Active Directory (se usate) vengono eseguite su HTTPS. 
-
-Gli SDK di Azure ufficiali usano in genere il protocollo AMQP per l'invio e la ricezione di eventi da Hub eventi. L'opzione del protocollo AMQP-over-WebSockets viene eseguita sulla porta TCP 443 esattamente come l'API HTTP, ma è identica dal punto di vista funzionale al AMQP normale. Questa opzione ha una latenza di connessione iniziale superiore a causa di round trip di handshake aggiuntivi e un sovraccarico leggermente maggiore come compromesso per la condivisione della porta HTTPS. Se questa modalità è selezionata, la porta TCP 443 è sufficiente per la comunicazione. Le opzioni seguenti consentono di selezionare la modalità AMQP normale o AMQP WebSocket:
-
-| Linguaggio | Opzione   |
-| -------- | ----- |
-| .NET     | Proprietà [EventHubConnectionOptions. TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) con [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) o [EventHubsTransportType. AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
-| Java     | [com. Microsoft. Azure. Eventhubs. EventProcessorClientBuilder. TransportType](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) con [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) o [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
-| Nodo  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) dispone di una `webSocketOptions` Proprietà. |
-| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) con [TransportType. AMQP](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) o [TransportType. AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
-
-
-
-### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quali indirizzi IP è necessario consentire?
-Per trovare gli indirizzi IP corretti da aggiungere all'elenco di connessioni consentite, attenersi alla procedura seguente:
-
-1. Al prompt dei comandi eseguire il comando seguente: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. 
-
-Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
-
-1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Annotare il nome nella sezione di **risposta non autorevole**, presente in uno dei formati seguenti: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
-
-    > [!NOTE]
-    > L'indirizzo IP restituito dal `nslookup` comando non è un indirizzo IP statico. Tuttavia rimane costante fino a quando la distribuzione sottostante non viene eliminata o spostata in un cluster diverso.
-
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Dove è possibile trovare gli indirizzi IP client che inviano o ricevono messaggi nello spazio dei nomi?
-Per prima cosa, abilitare il [filtro IP](event-hubs-ip-filtering.md) nello spazio dei nomi. 
-
-Abilitare quindi i log di diagnostica per [gli eventi di connessione alla rete virtuale di hub eventi](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguendo le istruzioni riportate nell' [Abilitazione dei log di diagnostica](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verrà visualizzato l'indirizzo IP per il quale la connessione viene negata.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
-
-> [!IMPORTANT]
-> I log di rete virtuale vengono generati solo se lo spazio dei nomi consente l'accesso da **indirizzi IP specifici** (regole di filtro IP). Se non si vuole limitare l'accesso allo spazio dei nomi usando queste funzionalità e si vuole comunque ottenere i log di rete virtuale per tenere traccia degli indirizzi IP dei client che si connettono allo spazio dei nomi di hub eventi, è possibile usare la soluzione alternativa seguente: abilitare il filtro IP e aggiungere l'intervallo IPv4 totale indirizzabile (1.0.0.0/1-255.0.0.0/1). Hub eventi non supporta gli intervalli di indirizzi IPv6. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ## <a name="apache-kafka-integration"></a>Integrazione di Apache Kafka
 
@@ -318,7 +242,7 @@ Ad esempio, se si esegue in Azure Stack Hub versione 2005, la versione più rece
 
 Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione dal codice, vedere gli esempi seguenti su GitHub: 
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
 - Python [sincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)

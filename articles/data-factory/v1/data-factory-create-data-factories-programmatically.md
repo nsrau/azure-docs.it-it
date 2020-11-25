@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003634"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante Azure Data Factory .NET SDK
 > [!NOTE]
@@ -138,7 +138,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
         </appSettings>
     </configuration>
     ```
-5. Nel file di App.Config aggiornare i valori per ** &lt; ID &gt; applicazione**, ** &lt; password &gt; **, ** &lt; ID &gt; sottoscrizione**e ** &lt; ID &gt; tenant** con valori personalizzati.
+5. Nel file di App.Config aggiornare i valori per **&lt; ID &gt; applicazione**, **&lt; password &gt;**, **&lt; ID &gt; sottoscrizione** e **&lt; ID &gt; tenant** con valori personalizzati.
 6. Aggiungere le seguenti istruzioni **using** al file **Program.cs** nel progetto.
 
     ```csharp
@@ -446,7 +446,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
     }
     ```
 
-15. Nel Esplora soluzioni espandere il progetto: **DataFactoryAPITestApp**, fare clic con il pulsante destro del mouse su **riferimenti**e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly `System.Configuration` e fare clic su **OK**.
+15. Nel Esplora soluzioni espandere il progetto: **DataFactoryAPITestApp**, fare clic con il pulsante destro del mouse su **riferimenti** e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly `System.Configuration` e fare clic su **OK**.
 15. Compilare l'applicazione console. Scegliere **Compila** dal menu e fare clic su **Compila soluzione**.
 16. Verificare che esista almeno un file nel contenitore adftutorial nell'archiviazione BLOB di Azure. In caso contrario, creare il file Emp.txt nel Blocco note con il contenuto seguente e caricarlo nel contenitore adftutorial.
 

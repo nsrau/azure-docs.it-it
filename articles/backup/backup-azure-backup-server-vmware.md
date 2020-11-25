@@ -4,11 +4,11 @@ description: Questo articolo illustra come usare server di Backup di Azure per e
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069833"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002954"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
@@ -100,15 +100,15 @@ Configurare un canale sicuro come indicato di seguito:
 
 8. Fare clic con il pulsante destro del mouse sul certificato radice e nel menu a comparsa, selezionare **Installa certificato**.
 
-9. In **importazione guidata certificati**selezionare **computer locale** come destinazione per il certificato, quindi fare clic su **Avanti**. Se viene visualizzata la richiesta di conferma delle modifiche al computer, confermare.
+9. In **importazione guidata certificati** selezionare **computer locale** come destinazione per il certificato, quindi fare clic su **Avanti**. Se viene visualizzata la richiesta di conferma delle modifiche al computer, confermare.
 
     ![Pagina iniziale della procedura guidata](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-10. Nella pagina **archivio certificati** selezionare **colloca tutti i certificati nel seguente archivio**e quindi selezionare **Sfoglia** per scegliere l'archivio certificati.
+10. Nella pagina **archivio certificati** selezionare **colloca tutti i certificati nel seguente archivio** e quindi selezionare **Sfoglia** per scegliere l'archivio certificati.
 
     ![Archiviazione dei certificati](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
-11. In **Seleziona archivio certificati**selezionare **autorità di certificazione radice attendibili** come cartella di destinazione per i certificati, quindi fare clic su **OK**.
+11. In **Seleziona archivio certificati** selezionare **autorità di certificazione radice attendibili** come cartella di destinazione per i certificati, quindi fare clic su **OK**.
 
     ![Cartella di destinazione dei certificati](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
@@ -143,11 +143,11 @@ Il server di Backup di Azure richiede un account utente con autorizzazioni di ac
 
     ![Amministrazione](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. In **Administration**  >  **ruoli**di amministrazione selezionare l'icona Aggiungi ruolo (simbolo +).
+3. In **Administration**  >  **ruoli** di amministrazione selezionare l'icona Aggiungi ruolo (simbolo +).
 
     ![Aggiungi ruolo](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. In **Crea**  >  **nome ruolo**ruolo immettere *BackupAdminRole*. È possibile scegliere un nome qualsiasi, ma deve essere riconoscibile per lo scopo del ruolo.
+4. In **Crea**  >  **nome ruolo** ruolo immettere *BackupAdminRole*. È possibile scegliere un nome qualsiasi, ma deve essere riconoscibile per lo scopo del ruolo.
 
 5. Selezionare i privilegi riepilogati nella tabella seguente e quindi fare clic su **OK**.  Il nuovo ruolo viene visualizzato nell'elenco nel pannello dei **ruoli**.
    - Selezionare l'icona accanto all'etichetta padre per espandere l'elemento padre e visualizzare i privilegi figlio.
@@ -199,7 +199,7 @@ La tabella seguente specifica i privilegi che è necessario assegnare all'accoun
 | Virtual machine .Provisioning.Allow disk access                            | Virtual machine .Provisioning.Allow disk access                            |
 | Virtual machine .Provisioning.Allow file access                            | Virtual machine .Provisioning.Allow file access                            |
 | Virtual machine .Provisioning.Allow read-only disk access                  | Virtual machine .Provisioning.Allow read-only disk access                  |
-| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
+| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
 | Virtual machine .Snapshot management. Create snapshot                      | Virtual machine .Snapshot management. Create snapshot                      |
 | Virtual machine .Snapshot management.Remove Snapshot                       | Virtual machine .Snapshot management.Remove Snapshot                       |
 | Virtual machine .Snapshot management.Revert to snapshot                    | Virtual machine .Snapshot management.Revert to snapshot                    |
@@ -248,7 +248,7 @@ La tabella seguente specifica i privilegi che è necessario assegnare all'accoun
 
     ![Pannello Global Permissions (Autorizzazioni globali)](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
-5. In **radice autorizzazioni globali-Aggiungi autorizzazione**selezionare **Aggiungi** per scegliere l'utente o il gruppo.
+5. In **radice autorizzazioni globali-Aggiungi autorizzazione** selezionare **Aggiungi** per scegliere l'utente o il gruppo.
 
     ![Scegliere un utente o un gruppo](./media/backup-azure-backup-server-vmware/vmware-add-new-global-perm.png)
 
@@ -276,7 +276,7 @@ Il nuovo account utente e il ruolo associato vengono visualizzati nell'elenco ne
 
     ![Finestra di dialogo Gestisci credenziali](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. In **Aggiungi credenziale**immettere un nome e una descrizione per la nuova credenziale e specificare il nome utente e la password definiti nel server VMware. Per identificare le credenziali, in questa procedura viene usato il nome *Contoso Vcenter credential*. Se il server VMware e il server di Backup di Azure non sono nello stesso dominio, specificare il dominio nel nome utente.
+4. In **Aggiungi credenziale** immettere un nome e una descrizione per la nuova credenziale e specificare il nome utente e la password definiti nel server VMware. Per identificare le credenziali, in questa procedura viene usato il nome *Contoso Vcenter credential*. Se il server VMware e il server di Backup di Azure non sono nello stesso dominio, specificare il dominio nel nome utente.
 
     ![Finestra di dialogo Aggiungi credenziali del server di Backup di Azure](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -292,7 +292,7 @@ Aggiungere il server vCenter al server di Backup di Azure.
 
     ![Aprire l'Aggiunta guidata server di produzione](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. In **Aggiunta guidata server di produzione**  >  **selezionare** la pagina tipo di server di produzione, selezionare **server VMware**e quindi fare clic su **Avanti**.
+2. In **Aggiunta guidata server di produzione**  >  **selezionare** la pagina tipo di server di produzione, selezionare **server VMware** e quindi fare clic su **Avanti**.
 
     ![Aggiunta guidata server di produzione](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -334,7 +334,7 @@ Aggiungere le macchine virtuali VMware per il backup. I gruppi protezione dati r
 
 1. Nella pagina **Selezione tipo di gruppo protezione** dati selezionare **Server** e quindi fare clic su **Avanti**. Verrà visualizzata la pagina **Selezione membri del gruppo**.
 
-1. In **Seleziona membri del gruppo**selezionare le macchine virtuali (o cartelle VM) di cui si vuole eseguire il backup. Fare quindi clic su **Avanti**.
+1. In **Seleziona membri del gruppo** selezionare le macchine virtuali (o cartelle VM) di cui si vuole eseguire il backup. Fare quindi clic su **Avanti**.
 
     - Quando si seleziona una cartella, le macchine virtuali o le cartelle al suo interno vengono selezionate per il backup. È possibile deselezionare le cartelle o le macchine virtuali da escludere dal backup.
 1. Se una macchina virtuale o una cartella è già sottoposta a backup, non è possibile selezionarla. In questo modo si garantisce che non vengano creati punti di ripristino duplicati per una macchina virtuale.

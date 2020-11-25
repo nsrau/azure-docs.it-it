@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150168"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001508"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](./overview.md). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -123,6 +123,6 @@ L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi ch
 
 Il servizio app non fornisce l'accesso tramite Desktop remoto alle istanze della macchina virtuale.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 [Sandbox Servizio app di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): informazioni aggiornate sull'ambiente di esecuzione del servizio App. Questa pagina è gestita direttamente dal team di sviluppo del servizio App.

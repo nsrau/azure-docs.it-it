@@ -14,11 +14,11 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637667"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001678"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Copia guidata di Azure Data Factory
 
@@ -63,7 +63,7 @@ La schermata seguente mostra una query SQL usando la funzione `Text.Format` e la
 ![Espressione di convalida](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtro dei dati in una cartella BLOB di Azure
-È possibile usare le variabili nel percorso della cartella per copiare dati da una cartella determinata in fase di esecuzione in base alle [variabili di sistema](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** e **{custom}** . Ad esempio: inputfolder/{year}/{month}/{day}.
+È possibile usare le variabili nel percorso della cartella per copiare dati da una cartella determinata in fase di esecuzione in base alle [variabili di sistema](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** e **{custom}**. Ad esempio: inputfolder/{year}/{month}/{day}.
 
 Si supponga di avere cartelle di input nel formato seguente:
 
@@ -74,7 +74,7 @@ Si supponga di avere cartelle di input nel formato seguente:
 ...
 ```
 
-Fare clic sul pulsante **Esplora** per **File o cartella** , passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli** . Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. Sostituire **2016** con **{year}** , **03** con **{month}** , **01** con **{day}** e **02** con **{hour}** , quindi premere il tasto **Tab** . Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
+Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. Sostituire **2016** con **{year}**, **03** con **{month}**, **01** con **{day}** e **02** con **{hour}**, quindi premere il tasto **Tab**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
 
 ![Uso di variabili di sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -98,25 +98,25 @@ In questa sezione vengono illustrati i metodi di risoluzione dei problemi comuni
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Codice di errore: non è possibile convalidare nella copia guidata
 
-- **Sintomi** : nel primo passaggio della copia guidata viene visualizzato il messaggio di avviso "Impossibile convalidare".
-- **Cause** : questa situazione può verificarsi quando tutti i cookie di terze parti sono disabilitati.
-- **Risoluzione** : 
+- **Sintomi**: nel primo passaggio della copia guidata viene visualizzato il messaggio di avviso "Impossibile convalidare".
+- **Cause**: questa situazione può verificarsi quando tutti i cookie di terze parti sono disabilitati.
+- **Risoluzione**: 
     - Usare Internet Explorer o il browser Microsoft Edge.
-    - Se si usa il browser Chrome, seguire le istruzioni riportate di seguito per aggiungere l'eccezione dei cookie per *microsoftonline.com* e *Windows.NET* .
+    - Se si usa il browser Chrome, seguire le istruzioni riportate di seguito per aggiungere l'eccezione dei cookie per *microsoftonline.com* e *Windows.NET*.
         1.  Aprire il browser Chrome.
         2.  Fare clic sulla chiave o su tre righe a destra (personalizzare e controllare Google Chrome).
-        3.  Fare clic su **Impostazioni** .
+        3.  Fare clic su **Impostazioni**.
         4.  Cerca i **cookie** o passa alla **privacy** in impostazioni avanzate.
-        5.  Selezionare **impostazioni contenuto** .    
-        6.  I cookie devono essere impostati in modo da **consentire l'impostazione dei dati locali (scelta consigliata)** .
-        7.  Fare clic su **Gestisci eccezioni** . In **schema hostname** immettere quanto segue e verificare che **Consenti** sia il set di comportamenti.
+        5.  Selezionare **impostazioni contenuto**.    
+        6.  I cookie devono essere impostati in modo da **consentire l'impostazione dei dati locali (scelta consigliata)**.
+        7.  Fare clic su **Gestisci eccezioni**. In **schema hostname** immettere quanto segue e verificare che **Consenti** sia il set di comportamenti.
             - login.microsoftonline.com
             - login.windows.net
         8.  Chiudere il browser e riavviarlo.
     - Se si usa il browser Firefox, seguire le istruzioni riportate di seguito per aggiungere l'eccezione dei cookie.
-        1. Dal menu Firefox passare a **strumenti**  >  **Opzioni** .
-        2. In **Privacy**  >  **cronologia** privacy, è possibile che l'impostazione corrente **usi impostazioni personalizzate per la cronologia** .
-        3. In **accetta cookie di terze parti** , l'impostazione corrente potrebbe **non essere mai** , quindi è necessario fare clic su **eccezioni** a destra per aggiungere i siti seguenti.
+        1. Dal menu Firefox passare a **strumenti**  >  **Opzioni**.
+        2. In **Privacy**  >  **cronologia** privacy, è possibile che l'impostazione corrente **usi impostazioni personalizzate per la cronologia**.
+        3. In **accetta cookie di terze parti**, l'impostazione corrente potrebbe **non essere mai**, quindi è necessario fare clic su **eccezioni** a destra per aggiungere i siti seguenti.
             - https://login.microsoftonline.com
             - https://login.windows.net
         4.  Chiudere il browser e riavviarlo. 
@@ -124,9 +124,9 @@ In questa sezione vengono illustrati i metodi di risoluzione dei problemi comuni
 
 ### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Codice di errore: Impossibile aprire la pagina di accesso e immettere la password
 
-- **Sintomi** : la copia guidata reindirizza l'utente alla pagina di accesso, ma la pagina di accesso non viene visualizzata correttamente.
-- **Cause** : questo problema può verificarsi se l'ambiente di rete è stato modificato dalla rete di Office alla rete domestica. Sono presenti alcune cache nei browser. 
-- **Risoluzione** : 
+- **Sintomi**: la copia guidata reindirizza l'utente alla pagina di accesso, ma la pagina di accesso non viene visualizzata correttamente.
+- **Cause**: questo problema può verificarsi se l'ambiente di rete è stato modificato dalla rete di Office alla rete domestica. Sono presenti alcune cache nei browser. 
+- **Risoluzione**: 
     1.  Chiudere il browser e riprovare. Se il problema persiste, procedere al passaggio successivo.   
     2.  Se si utilizza il browser Internet Explorer, provare ad aprirlo in modalità privata (premere "Ctrl" + "Maiusc" + "P"). Se si usa il browser Chrome, provare ad aprirlo in modalità in incognito (premere "Ctrl" + "Maiusc" + "N"). Se il problema persiste, procedere al passaggio successivo. 
     3.  Provare a usare un altro browser. 
