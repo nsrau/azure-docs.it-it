@@ -3,17 +3,17 @@ title: Azure Defender per SQL - Vantaggi e funzionalità
 description: Informazioni sui vantaggi e sulle funzionalità di Azure Defender per SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372542"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693461"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduzione ad Azure Defender per SQL
 
@@ -25,7 +25,7 @@ Azure Defender per SQL include due piani di Azure Defender che estendono il [pac
 |----|:----|
 |Stato della versione:|**Azure Defender per server di database SQL di Azure** - Disponibile a livello generale<br>**Azure Defender per server SQL nelle macchine virtuali** - Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prezzi:|I due piani che formano **Azure Defender per SQL** sono soggetti alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
-|Versioni di SQL protette:|Database SQL di Azure <br>Istanza gestita di SQL di Azure<br>Azure Synapse Analytics (in precedenza SQL Data Warehouse)<br>SQL Server (tutte le versioni supportate)|
+|Versioni di SQL protette:|Database SQL di Azure <br>Istanza gestita di SQL di Azure<br>Pool SQL dedicato in Azure Synapse (in precedenza SQL Data Warehouse)<br>SQL Server (tutte le versioni supportate)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
 |||
 
@@ -36,7 +36,7 @@ Azure Defender per SQL include due piani di Azure Defender che estendono il [pac
 - **Azure Defender per server di database SQL di Azure** protegge:
   - [Database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md)
   - [Istanza gestita di database SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Pool SQL dedicato in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - **Azure Defender per server SQL nelle macchine virtuali (anteprima)** estende le protezioni per i server SQL nativi di Azure in modo da supportare completamente gli ambienti ibridi e proteggere i server SQL (tutte le versioni supportate) ospitati in Azure, in altri ambienti cloud e persino in computer locali
 
@@ -54,9 +54,9 @@ Questi due piani includono funzionalità per l'identificazione e l'attenuazione 
 
 Gli avvisi di sicurezza vengono attivati in caso di:
 
-- **Potenziali attacchi SQL injection** , incluse le vulnerabilità rilevate quando le applicazioni generano un'istruzione SQL non corretta nel database
-- **Accesso anomalo al database e modelli di query** , come ad esempio un numero insolitamente elevato di tentativi di accesso non riusciti con credenziali diverse (tentativo di attacco di forza bruta)
-- **Attività sospette sul database** , ad esempio una modifica nella destinazione di archiviazione di esportazione per un'operazione di importazione ed esportazione SQL
+- **Potenziali attacchi SQL injection**, incluse le vulnerabilità rilevate quando le applicazioni generano un'istruzione SQL non corretta nel database
+- **Accesso anomalo al database e modelli di query**, come ad esempio un numero insolitamente elevato di tentativi di accesso non riusciti con credenziali diverse (tentativo di attacco di forza bruta)
+- **Attività sospette sul database**, ad esempio una modifica nella destinazione di archiviazione di esportazione per un'operazione di importazione ed esportazione SQL
 
 Gli avvisi includono i dettagli dell'evento imprevisto che li ha attivati e raccomandazioni su come analizzare e risolvere le minacce.
 

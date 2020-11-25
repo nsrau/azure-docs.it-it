@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336140"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001899"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Risorse aggiuntive:
 * [Documentazione di riferimento delle API](/javascript/api/@azure/storage-blob)
 * [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Esempi](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,7 +66,7 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 ### <a name="create-a-cors-rule"></a>Creare una regola CORS
 
-Prima che l'applicazione Web possa accedere a un archivio BLOB dal client, l'account deve essere configurato per abilitare la [condivisione di risorse tra le origini](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (CORS).
+Prima che l'applicazione Web possa accedere a un archivio BLOB dal client, l'account deve essere configurato per abilitare la [condivisione di risorse tra le origini](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (CORS).
 
 Selezionare l'account di archiviazione nel portale di Azure. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e selezionare **CORS**. Per questa guida introduttiva viene creata una regola CORS aperta:
 
@@ -76,10 +76,10 @@ La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per 
 
 |Impostazione  |valore  | Descrizione |
 |---------|---------|---------|
-| **ORIGINI CONSENTITE** | **\*** | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `*`, tutti i domini potranno accedere all'account di archiviazione. |
+| **ORIGINI CONSENTITE** | **\** _ | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `_`, tutti i domini potranno accedere all'account di archiviazione. |
 | **METODI CONSENTITI** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** e **PUT** | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
-| **INTESTAZIONI CONSENTITE** | **\*** | Definisce un elenco di intestazioni della richiesta (comprese le intestazioni con prefisso) consentite per l'account di archiviazione. Impostando il valore su `*`, tutte le intestazioni potranno accedere. |
-| **INTESTAZIONI ESPOSTE** | **\*** | Elenca le intestazioni di risposta consentite dall'account. Impostando il valore su `*`, l'account potrà inviare qualsiasi intestazione. |
+| **INTESTAZIONI CONSENTITE** | **\** _ | Definisce un elenco di intestazioni della richiesta (comprese le intestazioni con prefisso) consentite per l'account di archiviazione. Impostando il valore su `_`, tutte le intestazioni potranno accedere. |
+| **INTESTAZIONI ESPOSTE** | **\** _ | Elenca le intestazioni di risposta consentite dall'account. Impostando il valore su `_`, l'account potrà inviare qualsiasi intestazione. |
 | **VALIDITÀ MASSIMA** | **86400** | Periodo massimo di memorizzazione in secondi della richiesta OPTIONS preliminare nella cache di un browser. Il valore *86400* consente la conservazione della cache per un giorno intero. |
 
 Dopo aver compilato i campi con i valori di questa tabella, fare clic sul pulsante **Salva**.

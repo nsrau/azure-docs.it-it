@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto Carico di lavoro dell'ambiente del ser
 description: Mapping dei controlli del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 in Criteri di Azure e il Controllo degli accessi in base al ruolo di Azure.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420411"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842550"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapping dei controlli del progetto di esempio Carico di lavoro dell'ambiente del servizio app/SQL ISO 27001
 
@@ -82,7 +82,7 @@ Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../..
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedure di accesso sicure
 
-Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Azure Multi-Factor Authentication offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
+Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Azure Multi-Factor Authentication offre ulteriore sicurezza richiedendo una seconda forma di autenticazione per un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione

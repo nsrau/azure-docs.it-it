@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303370"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888607"
 ---
 # <a name="what-is-azure-communication-services"></a>Che cos'è l'offerta Servizi di comunicazione di Azure?
 
@@ -77,9 +77,9 @@ Per informazioni sulle librerie client di Servizi di comunicazione di Azure, ved
 
 Sono disponibili altri due prodotti Microsoft per la comunicazione che attualmente non sono direttamente interoperabili con Servizi di comunicazione:
 
- - Le [API di comunicazione cloud di Microsoft Graph](https://docs.microsoft.com/graph/cloud-communications-concept-overview), che consentono alle organizzazioni di creare esperienze di comunicazione associate agli utenti di Azure Active Directory con licenze M365. Questa soluzione è ideale per le applicazioni associate ad Azure Active Directory o in cui si vuole estendere le esperienze di produttività di Microsoft Teams. Sono anche disponibili API per la creazione di applicazioni e la personalizzazione all'interno dell'esperienza [Teams](https://docs.microsoft.com/microsoftteams/platform/?view=msteams-client-js-latest&preserve-view=true).
+ - Le [API di comunicazione cloud di Microsoft Graph](/graph/cloud-communications-concept-overview), che consentono alle organizzazioni di creare esperienze di comunicazione associate agli utenti di Azure Active Directory con licenze M365. Questa soluzione è ideale per le applicazioni associate ad Azure Active Directory o in cui si vuole estendere le esperienze di produttività di Microsoft Teams. Sono anche disponibili API per la creazione di applicazioni e la personalizzazione all'interno dell'esperienza [Teams](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest).
 
- - [Azure PlayFab Party](https://docs.microsoft.com/gaming/playfab/features/multiplayer/networking/), che semplifica l'aggiunta di comunicazioni di dati e chat a bassa latenza ai giochi. Anche se è possibile usare sistemi di rete e chat per il gioco con Servizi di comunicazione, PlayFab è un'opzione personalizzata e gratuita su Xbox.
+ - [Azure PlayFab Party](/gaming/playfab/features/multiplayer/networking/), che semplifica l'aggiunta di comunicazioni di dati e chat a bassa latenza ai giochi. Anche se è possibile usare sistemi di rete e chat per il gioco con Servizi di comunicazione, PlayFab è un'opzione personalizzata e gratuita su Xbox.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666535"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016225"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Avvio rapido: Esplorare l'ambiente demo di Azure Time Series Insights Gen2
 
@@ -119,7 +119,7 @@ Usando Azure Time Series Insights Gen2 e i dati di telemetria dei sensori, è st
 
 Dopo aver completato la Guida di avvio rapido, eliminare le risorse create:
 
-1. Scegliere **Tutte le risorse**  dal menu a sinistra nel [portale di Azure ](https://portal.azure.com) e individuare il gruppo di risorse di Azure Time Series Insights Gen2.
+1. Scegliere **Tutte le risorse**  dal menu a sinistra nel [portale di Azure](https://portal.azure.com) e individuare il gruppo di risorse di Azure Time Series Insights Gen2.
 1. Per eliminare l'intero gruppo di risorse e tutte le risorse in esso contenute, selezionare **Elimina** oppure rimuovere ogni risorsa singolarmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -127,9 +127,9 @@ Dopo aver completato la Guida di avvio rapido, eliminare le risorse create:
 A questo punto è possibile creare l'ambiente di Azure Time Series Insights Gen2. Per iniziare:
 
 > [!div class="nextstepaction"]
-> [Pianificare l'ambiente in Azure Time Series Insights Gen2](time-series-insights-update-plan.md)
+> [Pianificare l'ambiente in Azure Time Series Insights Gen2](./how-to-plan-your-environment.md)
 
 Informazioni su come usare la demo e le relative funzionalità:
 
 > [!div class="nextstepaction"]
-> [Strumento di esplorazione di Azure Time Series Insights Gen2](time-series-insights-update-explorer.md)
+> [Strumento di esplorazione di Azure Time Series Insights Gen2](./concepts-ux-panels.md)

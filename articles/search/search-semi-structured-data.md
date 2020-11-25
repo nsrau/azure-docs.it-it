@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397386"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701280"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Esercitazione: Indicizzare i BLOB JSON da Archiviazione di Azure con le API REST
 
@@ -76,11 +76,11 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
 
-   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Creare un account di archiviazione" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Opzione Carica nella barra dei comandi" border="false":::
 
 1. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
 
-   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Creare un account di archiviazione" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Caricare file" border="false":::
 
 Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
 
@@ -98,19 +98,19 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" border="false":::
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
 ## <a name="2---set-up-postman"></a>2 - Configurare Postman
 
-Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md) per altre informazioni.
+Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure](search-get-started-rest.md).
 
 I metodi di richiesta usati in questa esercitazione sono **POST** e **GET**. Verranno effettuate tre chiamate API al servizio di ricerca per creare un'origine dati, un indice e un indicizzatore. L'origine dati include un puntatore all'account di archiviazione e ai dati JSON. Il servizio di ricerca stabilisce la connessione durante il caricamento dei dati.
 
 In Headers (Intestazioni) impostare "Content-type" su `application/json` e `api-key` sulla chiave API di amministrazione del servizio Ricerca cognitiva di Azure. Dopo aver impostato le intestazioni, è possibile usarle per ogni richiesta in questo esercizio.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Creare un account di archiviazione" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Intestazione e URL della richiesta Postman" border="false":::
 
 Gli URI devono specificare una versione API e ogni chiamata deve restituire un messaggio di creazione riuscita con codice **201**. La versione API disponibile a livello generale per l'uso delle matrici JSON è `2020-06-30`.
 
@@ -315,11 +315,11 @@ Un indicizzatore si connette all'origine dati, importa i dati nell'indice di ric
 
 1. Aggiungere il parametro di query `$select` per limitare i risultati a un minor numero di campi: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  Per questa query, anche se viene trovata la corrispondenza per 100 documenti, per impostazione predefinita Ricerca cognitiva di Azure ne restituisce solo 50 nei risultati.
 
-   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Creare un account di archiviazione" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Query con parametri" border="false":::
 
 1. Un esempio di query più complessa può essere `$filter=MinimumAge ge 30 and MaximumAge lt 75`, che restituisce solo i risultati in cui il parametro MinimumAge è maggiore o uguale a 30 e il parametro MaximumAge è minore di 75. Sostituire l'espressione `$select` con l'espressione `$filter`.
 
-   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Creare un account di archiviazione" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Ricerca su dati semistrutturati" border="false":::
 
 È anche possibile usare gli operatori logici (and, or e not) e gli operatori di confronto (eq, ne, gt, lt, ge e le). Per i confronti tra stringhe viene fatta distinzione tra maiuscole e minuscole. Per altre informazioni ed esempi, vedere [Creare una query semplice](search-query-simple-examples.md).
 

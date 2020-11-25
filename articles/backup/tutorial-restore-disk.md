@@ -4,12 +4,12 @@ description: Informazioni su come ripristinare un disco e creare un ripristino d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 45e171e064cbd8be5418e20784e6034830d27fe9
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746739"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566674"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Ripristinare una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -23,13 +23,11 @@ Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di c
 
 Per informazioni sull'uso di PowerShell per ripristinare un disco e creare una macchina virtuale ripristinata, vedere [Eseguire il back e il ripristino di macchine virtuali di Azure con PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+ - Questa esercitazione richiede la versione 2.0.18 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="prerequisites"></a>Prerequisiti
-
-Per questa esercitazione è necessaria una macchina virtuale Linux protetta con Backup di Azure. Per simulare un'eliminazione accidentale della macchina virtuale e il processo di recupero, viene creata una macchina virtuale da un disco in un punto di ripristino. Se si necessita di una macchina virtuale Linux protetta con Backup di Azure, vedere [Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando](quick-backup-vm-cli.md).
+ - Per questa esercitazione è necessaria una macchina virtuale Linux protetta con Backup di Azure. Per simulare un'eliminazione accidentale della macchina virtuale e il processo di recupero, viene creata una macchina virtuale da un disco in un punto di ripristino. Se si necessita di una macchina virtuale Linux protetta con Backup di Azure, vedere [Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando](quick-backup-vm-cli.md).
 
 ## <a name="backup-overview"></a>Panoramica del servizio Backup
 
@@ -88,7 +86,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
     ```
 
     > [!WARNING]
-    > Se il _ *gruppo di risorse di destinazione* * non viene fornito, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
+    > Se il _ *gruppo di risorse di destinazione** non viene fornito, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -154,7 +152,7 @@ az backup job list \
     --output table
 ```
 
-L'output è simile all'esempio seguente che mostra che il processo di ripristino è *In corso* :
+L'output è simile all'esempio seguente che mostra che il processo di ripristino è *In corso*:
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -164,7 +162,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quando lo *Stato* del processo di ripristino segnala *Completato* , le informazioni necessarie (configurazione della macchina virtuale e modello di distribuzione) sono state ripristinate nell'account di archiviazione.
+Quando lo *Stato* del processo di ripristino segnala *Completato*, le informazioni necessarie (configurazione della macchina virtuale e modello di distribuzione) sono state ripristinate nell'account di archiviazione.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Creare una macchina virtuale dal disco ripristinato
 

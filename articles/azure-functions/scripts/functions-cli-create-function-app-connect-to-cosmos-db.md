@@ -4,12 +4,12 @@ description: Esempio di script dell'interfaccia della riga di comando - Creare u
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 440767159ec1321d9b157f53408dbff8f9706eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760017439ddc65ee929db1612b34b093d8bed8a0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498566"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565399"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creare una funzione di Azure che si connette a un database Azure Cosmos DB | Documentazione Microsoft
 
@@ -17,9 +17,9 @@ Questo script di esempio di Funzioni di Azure crea un'app per le funzioni e conn
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si usa l'interfaccia della riga di comando in locale, assicurarsi di eseguire l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+ - Questa esercitazione richiede la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -31,7 +31,7 @@ In questo esempio si crea un'app per le funzioni di Azure e si aggiunge un endpo
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Lo script usa i seguenti comandi: ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti: Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

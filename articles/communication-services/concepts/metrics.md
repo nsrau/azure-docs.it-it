@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b8d74f86fc9c3d2cc020628f67c36d8d67973fff
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128595"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888658"
 ---
 # <a name="metrics-overview"></a>Panoramica delle metriche
 
-Servizi di comunicazione di Azure attualmente include le metriche per i servizi Chat e SMS. È possibile usare [Esplora metriche di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) per tracciare i propri grafici, analizzare le anomalie nei valori delle metriche e interpretare il traffico API usando i dati delle metriche generati dalle richieste di Chat e SMS.
+Servizi di comunicazione di Azure attualmente include le metriche per i servizi Chat e SMS. È possibile usare [Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md) per tracciare i propri grafici, analizzare le anomalie nei valori delle metriche e interpretare il traffico API usando i dati delle metriche generati dalle richieste di Chat e SMS.
 
 ## <a name="where-to-find-metrics"></a>Dove trovare le metriche
 
@@ -26,15 +26,15 @@ I servizi Chat e SMS di Servizi di comunicazione di Azure generano metriche per 
 
 ## <a name="metric-definitions"></a>Definizioni delle metriche
 
-Esistono due tipi di richieste rappresentate nelle metriche di Servizi di comunicazione: **richieste API di Chat** e **richieste API di SMS** .
+Esistono due tipi di richieste rappresentate nelle metriche di Servizi di comunicazione: **richieste API di Chat** e **richieste API di SMS**.
 
 Entrambe le metriche di richieste API contengono tre dimensioni che è possibile usare per filtrare i dati. Queste dimensioni possono essere aggregate usando il tipo di aggregazione `Count` e supportano tutte le serie temporali di aggregazione standard di Azure, tra cui `Sum`, `Average`, `Min` e `Max`.
 
-Altre informazioni sui tipi di aggregazione supportati e sulle aggregazioni di serie temporali sono disponibili in [Funzionalità avanzate di Esplora metriche di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#changing-aggregation)
+Altre informazioni sui tipi di aggregazione supportati e sulle aggregazioni di serie temporali sono disponibili in [Funzionalità avanzate di Esplora metriche di Azure](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
 
-- **Operazione** : tutte le operazioni o le route che è possibile chiamare nel gateway Chat di Servizi di comunicazione di Azure.
-- **Codice di stato** : la risposta del codice di stato inviata dopo la richiesta.
-- **StatusSubClass** : la serie di codici di stato inviati dopo la risposta. 
+- **Operazione**: tutte le operazioni o le route che è possibile chiamare nel gateway Chat di Servizi di comunicazione di Azure.
+- **Codice di stato**: la risposta del codice di stato inviata dopo la richiesta.
+- **StatusSubClass**: la serie di codici di stato inviati dopo la risposta. 
 
 
 ### <a name="chat-api-request-metric-operations"></a>Operazioni per le metriche delle richieste API di Chat
@@ -75,8 +75,8 @@ Per le metriche delle richieste API di SMS sono disponibili le operazioni seguen
 | SMSMessagesReceived      | Ottiene i messaggi SMS. |
 
 
-:::image type="content" source="./media/sms-metric.png" alt-text="Metriche delle richieste API di Chat.":::
+:::image type="content" source="./media/sms-metric.png" alt-text="Metriche delle richieste API di SMS.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle [metriche della piattaforma dati](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
+- Altre informazioni sulle [metriche della piattaforma dati](../../azure-monitor/platform/data-platform-metrics.md)

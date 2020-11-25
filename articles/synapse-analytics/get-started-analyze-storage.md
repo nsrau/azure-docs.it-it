@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322927"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592584"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analizzare i dati in un account di archiviazione
 
@@ -36,16 +36,16 @@ Eseguire il codice seguente in un notebook per creare un file CSV e un file Parq
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analizzare i dati in un account di archiviazione
 
 1. In Synapse Studio passare all'hub **Data** (Dati) e quindi selezionare **Linked** (Collegati).
 1. Passare a **Account di archiviazione** > **myworkspace (Primario - contosolake)** .
-1. Selezionare **utenti (Primario)** . Verrà visualizzata la cartella **NYCTaxi**. Al suo interno saranno presenti due cartelle denominate **PassengerCountStats.csv** e **PassengerCountStats.parquet**.
-1. Aprire la cartella **PassengerCountStats.parquet**. All'interno sarà presente un file parquet con nome come `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
+1. Selezionare **utenti (Primario)** . Verrà visualizzata la cartella **NYCTaxi**. All'interno dovrebbero essere visibili due cartelle denominate **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
+1. Aprire la cartella **PassengerCountStats_parquetformat**. All'interno sarà presente un file parquet con nome come `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
 1. Fare clic con il pulsante destro del mouse su **.parquet**, quindi scegliere **Nuovo notebook**. Verrà creato un notebook con una cella simile alla seguente:
 
     ```py

@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2afe53ade9106fa5e1ebb9ec43492a86bd9fc213
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1c4cc7f5440aca27be085c238179cd0ab20b226a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127319"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874050"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Architettura di riferimento per il monitoraggio qualità acqua 
 
@@ -41,10 +41,10 @@ I dispositivi usati nelle soluzioni intelligenti di gestione dei servizi idrici 
 Azure IoT Central è una piattaforma per app IoT che consente di usare la propria soluzione IoT fin da subito. È possibile personalizzare la soluzione e integrarla con servizi di terze parti.
 Dopo aver connesso i dispositivi idrici intelligenti a IoT Central, è possibile accedere alla gestione e al controllo dei dispositivi, al monitoraggio, agli avvisi e all'interfaccia utente con controllo degli accessi in base al ruolo, dashboard configurabili con informazioni dettagliate e opzioni di estendibilità. 
 
-## <a name="extensibility-and-integrations"></a>Estendibilità e integrazioni 
+## <a name="extensibility-and-integrations"></a>Estendibilità e integrazioni
 È possibile estendere l'applicazione IoT in IoT Central e, facoltativamente:
 * trasformare e integrare i dati IoT per l'analisi avanzata, ad esempio il training di modelli di Machine Learning, tramite l'esportazione continua dei dati dall'applicazione IoT Central
-* automatizzare i flussi di lavoro in altri sistemi attivando azioni usando Microsoft Flow o webhook dall'applicazione IoT Central
+* automatizzare i flussi di lavoro in altri sistemi attivando azioni usando Power Automate o webhook dall'applicazione IoT Central
 * eseguire l'accesso a livello di codice all'applicazione IoT in IoT Central tramite API di IoT Central
 
 ## <a name="business-applications"></a>Applicazioni aziendali 

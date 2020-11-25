@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5df2c2f686a1993dcd25d5391d5b553f2b42d937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87924275"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965647"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. L'hosting dei domini in Azure consente di gestire i record DNS usando gli stessi strumenti, credenziali, API e fatturazione usati per altri servizi Azure.
 
-Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [Domini del servizio app](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
+Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [Domini del servizio app](../app-service/manage-custom-dns-buy-domain.md#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
 DNS di Azure offre le funzionalità seguenti.
 
@@ -29,11 +29,11 @@ I domini DNS nel servizio DNS di Azure sono ospitati nella rete globale di Azure
 
  DNS di Azure si basa su Azure Resource Manager, che offre funzionalità quali:
 
-* [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
+* [Controllo degli accessi in base al ruolo di Azure](../azure-resource-manager/management/overview.md) per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
 
-* [Log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
+* [Log attività](../azure-resource-manager/management/overview.md) per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
 
-* [Blocco delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) per bloccare una sottoscrizione, un gruppo di risorse o una risorsa. I blocchi impediscono ad altri utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale.
+* [Blocco delle risorse](../azure-resource-manager/management/lock-resources.md) per bloccare una sottoscrizione, un gruppo di risorse o una risorsa. I blocchi impediscono ad altri utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale.
 
 Per altre informazioni, vedere [Come proteggere le zone e i record DNS](dns-protect-zones-recordsets.md). 
 
@@ -67,6 +67,6 @@ Per altre informazioni, vedere la [panoramica dei record alias DNS di Azure](dns
 
 * Per informazioni sui record e le zone DNS, vedere [Panoramica delle zone e dei record DNS](dns-zones-records.md).
 
-* Per informazioni su come creare una zona in DNS di Azure, vedere [Creare una zona DNS](./dns-getstarted-create-dnszone-portal.md).
+* Per informazioni su come creare una zona in DNS di Azure, vedere [Creare una zona DNS](./dns-getstarted-portal.md).
 
 * Per domande frequenti sul servizio DNS di Azure, vedere [Domande frequenti su DNS di Azure](dns-faq.md).

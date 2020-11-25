@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597828"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020062"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Che cos'è Azure Time Series Insights Gen1?
 
@@ -33,7 +33,7 @@ Azure Time Series Insights è caratterizzato da quattro processi chiave:
 - In Azure Time Series Insights è disponibile una visualizzazione predefinita tramite lo strumento di esplorazione di Azure Time Series Insights.
 - Azure Time Series Insights fornisce un servizio di query sia nello strumento di esplorazione di Azure Time Series Insights che tramite l'uso di API di facile integrazione per incorporare dati delle serie temporali nelle applicazioni personalizzate.
 
-Se si compila un'applicazione per consumo interno o destinata ai clienti esterni, è possibile usare Azure Time Series Insights come back-end. È possibile usarla per indicizzare, archiviare e aggregare i dati delle serie temporali. Per creare una visualizzazione e un'esperienza utente personalizzate, usare [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights include anche diverse [API di query](how-to-shape-query-json.md) per abilitare questi scenari personalizzati.
+Se si compila un'applicazione per consumo interno o destinata ai clienti esterni, è possibile usare Azure Time Series Insights come back-end. È possibile usarla per indicizzare, archiviare e aggregare i dati delle serie temporali. Per creare una visualizzazione e un'esperienza utente personalizzate, usare [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights include anche diverse [API di query](./concepts-json-flattening-escaping-rules.md) per abilitare questi scenari personalizzati.
 
 I dati delle serie temporali rappresentano il modo in cui un asset o un processo varia nel corso del tempo. I dati delle serie temporali vengono indicizzati in base ai timestamp e l'ora è l'asse più significativo lungo il quale tali dati vengono organizzati. I dati delle serie temporali in genere vengono acquisiti in ordine sequenziale, quindi vengono considerati un inserimento anziché un aggiornamento al database.
 

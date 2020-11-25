@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783182"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835748"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -39,9 +39,9 @@ Nel [post di blog di ottobre 2018](https://techcommunity.microsoft.com/t5/Azure-
 >
 > In occasione dell'evento Ignite l'anno scorso ho parlato dei tre attacchi più frequenti ai nostri sistemi di gestione dell'identità. Ecco il volume recente di questi attacchi
 >   
->   - **Ripetizione della violazione** : 4,6 miliardi di attacchi rilevati nel mese di maggio 2018
->   - **Password spraying** : 350.000 nel mese di aprile 2018
->   - **Phishing** : questo valore è difficilmente quantificabile con esattezza, ma abbiamo riscontrato 23 milioni di eventi di rischio nel mese di marzo 2018, molti dei quali sono correlati al phishing
+>   - **Ripetizione della violazione**: 4,6 miliardi di attacchi rilevati nel mese di maggio 2018
+>   - **Password spraying**: 350.000 nel mese di aprile 2018
+>   - **Phishing**: questo valore è difficilmente quantificabile con esattezza, ma abbiamo riscontrato 23 milioni di eventi di rischio nel mese di marzo 2018, molti dei quali sono correlati al phishing
 
 ## <a name="risk-detection-and-remediation"></a>Rilevamento e correzione dei rischi
 
@@ -59,7 +59,7 @@ Identity Protection consente di identificare i rischi suddivisi nelle classifica
 
 Per maggiori dettagli su questi rischi e su come/quando vengono calcolati, vedere l'articolo [Che cosa sono i rischi?](concept-identity-protection-risks.md).
 
-I segnali di rischio possono attivare interventi di correzione, ad esempio richiedere agli utenti di eseguire Azure Multi-Factor Authentication, reimpostare la password usando la reimpostazione della password self-service o bloccare l'operazione finché un amministratore non interviene.
+I segnali di rischio possono attivare interventi di correzione, ad esempio richiedere agli utenti di eseguire Azure AD Multi-Factor Authentication, reimpostare la password usando la reimpostazione della password self-service o bloccare l'operazione finché un amministratore non interviene.
 
 ## <a name="risk-investigation"></a>Analisi degli eventi di rischio
 

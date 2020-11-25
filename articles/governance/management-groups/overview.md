@@ -1,15 +1,15 @@
 ---
 title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951877"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699594"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -150,7 +150,7 @@ Le definizioni del ruolo sono con ambito assegnabile in qualsiasi punto all'inte
 
 Esaminiamo, ad esempio, una piccola sezione di una gerarchia per un oggetto visivo.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagramma di una gerarchia di gruppi di gestione di esempio." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagramma di un subset della gerarchia di gruppi di gestione di esempio." border="false":::
    Il diagramma è incentrato sul gruppo di gestione radice con i gruppi di gestione figlio IT e Marketing. Il gruppo di gestione IT dispone di un singolo gruppo di gestione figlio denominato Produzione mentre il gruppo di gestione Marketing ha due sottoscrizioni figlio Versione di valutazione gratuita.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Esistono alcune limitazioni quando si usano i ruoli personalizzati nei gruppi di
  - È possibile definire un solo gruppo di gestione negli ambiti assegnabili di un nuovo ruolo. Questa limitazione è prevista per ridurre il numero di situazioni in cui le definizioni del ruolo e le assegnazioni di ruolo sono disconnesse. Questa situazione si verifica quando una sottoscrizione o un gruppo di gestione con un'assegnazione di ruolo viene spostato in un elemento padre diverso che non contiene la definizione del ruolo.  
  - Le azioni del piano dati del provider di risorse non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con l'aggiornamento dei provider di risorse del piano dati.
    Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
- - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Se è presente un errore di digitazione o un ID gruppo di gestione non corretto, la definizione del ruolo verrà comunque creata.  
+ - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Se è presente un errore di digitazione o un ID gruppo di gestione non corretto, la definizione del ruolo verrà comunque creata.
+
+> [!IMPORTANT]
+> L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+> Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Spostamento di gruppi di gestione e sottoscrizioni 
 
@@ -194,7 +198,7 @@ Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gest
 
 I gruppi di gestione sono supportati all'interno del [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md). È possibile cercare tutti gli eventi che si verificano per un gruppo di gestione nella stessa posizione centrale delle altre risorse di Azure. È ad esempio possibile vedere tutte le modifiche delle assegnazioni di ruoli o di criteri apportate a uno specifico gruppo di gestione.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagramma di una gerarchia di gruppi di gestione di esempio." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot dei log attività e delle operazioni correlate al gruppo di gestione selezionato." border="false":::
 
 Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azure, l'ambito di destinazione per tali gruppi sarà simile a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

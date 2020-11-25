@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185112"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886907"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Esercitazione: Eseguire script Python tramite Azure Data Factory usando Azure Batch
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una distribuzione [Python](https://www.python.org/downloads/) installata per i test locali.
-* Il pacchetto di [Azure](https://pypi.org/project/azure/) `pip`.
+* Il pacchetto `pip` [azure-storage-blob](https://pypi.org/project/azure-storage-blob/).
 * Il [set di dati iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Un account Azure Batch e un account di archiviazione di Azure collegato. Per altre informazioni su come creare e collegare account Batch agli account di archiviazione, vedere [Creare un account Batch](quick-create-portal.md#create-a-batch-account).
 * Un account di Azure Data Factory. Per altre informazioni su come creare una data factory tramite il portale di Azure, vedere [Creare una data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
@@ -57,7 +57,7 @@ In questa sezione si userà Batch Explorer per creare il pool di Batch che verr�
     1. Impostare il tipo di scala su **A dimensione fissa** e impostare il numero di nodi dedicati su 2.
     1. In **Data science** selezionare **Dsvm Windows** come sistema operativo.
     1. Scegliere `Standard_f2s_v2` come dimensione della macchina virtuale.
-    1. Abilitare l'attività di avvio e aggiungere il comando `cmd /c "pip install pandas"`. L'identità utente può rimanere l'**utente del pool** predefinito.
+    1. Abilitare l'attività di avvio e aggiungere il comando `cmd /c "pip install azure-storage-blob pandas"`. L'identità utente può rimanere l'**utente del pool** predefinito.
     1. Selezionare **OK**.
 
 ## <a name="create-blob-containers"></a>Creare contenitori BLOB
@@ -75,17 +75,17 @@ Lo script Python seguente carica il set di dati `iris.csv` dal contenitore `inpu
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -98,10 +98,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Salvare lo script come `main.py` e caricarlo nel contenitore di **Archiviazione di Azure**. Assicurarsi di testare e convalidare la funzionalità localmente prima di caricarla nel contenitore BLOB:
+Salvare lo script come `main.py` e caricarlo nel contenitore di **Archiviazione di Azure** `input`. Assicurarsi di testare e convalidare la funzionalità localmente prima di caricarla nel contenitore BLOB:
 
 ``` bash
 python main.py
