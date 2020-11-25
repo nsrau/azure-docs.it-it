@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
 ms.openlocfilehash: 67ea5800885b4edb16581f22c199d139053af495
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337813"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018937"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
@@ -98,7 +98,7 @@ Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azur
 
 Lo strumento Migrazione server di Azure Migrate usa un'appliance di replica per replicare i computer in Azure. L'appliance di replica esegue i componenti seguenti.
 
-- **Server di configurazione** : Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
+- **Server di configurazione**: Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
 - **Server di elaborazione** Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione cache in Azure. 
 
 Preparare la distribuzione dell'appliance come indicato di seguito:
@@ -140,7 +140,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
 ### <a name="download-the-replication-appliance-installer"></a>Scaricare il programma di installazione dell'appliance di replica
 
-1. Nel progetto di Azure Migrate selezionare **Server** , quindi in **Azure Migrate: Migrazione server** fare clic su **Individua**.
+1. Nel progetto di Azure Migrate selezionare **Server**, quindi in **Azure Migrate: Migrazione server** fare clic su **Individua**.
 
     ![Individuare le VM](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -226,7 +226,7 @@ Selezionare ora le VM per la migrazione.
 > [!NOTE]
 > È possibile replicare fino a 10 VM contemporaneamente. Se è necessario replicarne più, replicarle simultaneamente in batch di 10.
 
-1. Nel progetto di Azure Migrate selezionare **Server** , **Azure Migrate: Migrazione server** , quindi **Replica**.
+1. Nel progetto di Azure Migrate selezionare **Server**, **Azure Migrate: Migrazione server**, quindi **Replica**.
 
     ![Screenshot della schermata Azure Migrate - Server che mostra il pulsante Replica selezionato in Azure Migrate: Migrazione del server in Strumenti di migrazione.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
@@ -237,7 +237,7 @@ Selezionare ora le VM per la migrazione.
 
     ![Screenshot della scheda Impostazioni origine nella schermata Replica con il campo Credenziali guest evidenziato.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. In **Macchine virtuali** , in **Importare le impostazioni di migrazione da una valutazione?** , lasciare l'impostazione predefinita **No, specificherò le impostazioni di migrazione manualmente**.
+7. In **Macchine virtuali**, in **Importare le impostazioni di migrazione da una valutazione?** , lasciare l'impostazione predefinita **No, specificherò le impostazioni di migrazione manualmente**.
 8. Selezionare ogni macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **Avanti: Impostazioni di destinazione**.
 
     ![Selezionare le VM](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
@@ -249,7 +249,7 @@ Selezionare ora le VM per la migrazione.
     -  Zona di disponibilità per aggiungere la macchina migrata a una zona di disponibilità specifica nell'area. Usare questa opzione per distribuire i server che formano un livello applicazione a più nodi tra zone di disponibilità. Se si seleziona questa opzione, sarà necessario specificare la zona di disponibilità da usare per ogni macchina selezionata nella scheda Calcolo. Questa opzione è disponibile solo se l'area di destinazione selezionata per la migrazione supporta le zone di disponibilità
     -  Set di disponibilità per inserire la macchina migrata in un set di disponibilità. Per usare questa opzione, il gruppo di risorse di destinazione selezionato deve avere uno o più set di disponibilità.
     - L'opzione La ridondanza dell'infrastruttura non è richiesta se non è necessaria una di queste configurazioni di disponibilità per le macchine migrate.
-12. In **Vantaggio Azure Hybrid** :
+12. In **Vantaggio Azure Hybrid**:
 
     - Selezionare **No** se non si vuole applicare Vantaggio Azure Hybrid. Quindi fare clic su **Next**.
     - Selezionare **Sì** se si hanno computer Windows Server con copertura Software Assurance o sottoscrizioni di Windows Server attive e si vuole applicare il vantaggio alle VM di cui si sta eseguendo la migrazione. Quindi fare clic su **Next**.
@@ -258,10 +258,10 @@ Selezionare ora le VM per la migrazione.
 
 13. In **Calcolo** controllare il nome della macchina virtuale, le dimensioni, il tipo di disco del sistema operativo e la configurazione della disponibilità, se selezionata nel passaggio precedente. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
-    - **Dimensioni macchina virtuale** : se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale mostra le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**.
-    - **Disco del sistema operativo** : specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo.
-    - **Zona di disponibilità** : specificare la zona di disponibilità da usare.
-    - **Set di disponibilità** : specificare il set di disponibilità da usare.
+    - **Dimensioni macchina virtuale**: se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale mostra le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**.
+    - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo.
+    - **Zona di disponibilità**: specificare la zona di disponibilità da usare.
+    - **Set di disponibilità**: specificare il set di disponibilità da usare.
 
 > [!NOTE]
 > Se si vuole selezionare un'opzione di disponibilità diversa per un set di macchine virtuali, andare al passaggio 1 e ripetere i passaggi selezionando opzioni di disponibilità diverse dopo aver avviato la replica per un set di macchine virtuali.

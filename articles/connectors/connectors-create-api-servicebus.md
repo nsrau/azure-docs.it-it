@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019711"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -47,7 +47,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Nella [portale di Azure](https://portal.azure.com)accedere con l'account Azure.
 
-1. Passare allo *spazio dei nomi* del bus di servizio. Nella pagina dello spazio dei nomi selezionare **Criteri di accesso condivisi** in **Impostazioni**. In **attestazioni**verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
+1. Passare allo *spazio dei nomi* del bus di servizio. Nella pagina dello spazio dei nomi selezionare **Criteri di accesso condivisi** in **Impostazioni**. In **attestazioni** verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
 
    ![Gestire le autorizzazioni per lo spazio dei nomi del bus di servizio](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
@@ -163,7 +163,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 ## <a name="send-correlated-messages-in-order"></a>Invia messaggi correlati in ordine
 
-Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile usare il modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy) usando il [connettore del bus di servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
+Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile usare il modello di serie di istruzioni [ *sequenziali*](/azure/architecture/patterns/sequential-convoy) usando il [connettore del bus di servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
 
 Quando si crea un'app per la logica, è possibile selezionare il modello **di recapito correlato nell'ordine usando le sessioni del bus di servizio** , che implementa il modello di serie di istruzioni sequenziali. Per ulteriori informazioni, vedere [inviare messaggi correlati in ordine](../logic-apps/send-related-messages-sequential-convoy.md).
 

@@ -10,11 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023310"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017968"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Appiattimento JSON, escape e gestione delle matrici
 
@@ -87,7 +87,7 @@ ID della serie temporale alla radice dell'oggetto e al timestamp annidato \
 **Risultato in un file parquet:**\
 La configurazione e il payload precedenti produrranno tre colonne e quattro eventi
 
-| timestamp  | id_string | values.value_double
+|  timestamp  | id_string | values.value_double
 | ---- | ---- | ---- |
 | `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` |
 | `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` |
@@ -145,7 +145,7 @@ ID della serie temporale composita con una proprietà nidificata \
 **Risultato in un file parquet:**\
 La configurazione e il payload precedenti produrranno quattro colonne e sei eventi
 
-| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
+|  timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31,149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20,560796 |
@@ -178,7 +178,7 @@ L'ID e il timestamp della serie temporale si trovano nella radice dell'oggetto \
 **Risultato in un file parquet:**\
 La configurazione e il payload precedenti produrranno tre colonne e un evento
 
-| timestamp  | id_string | datapoints_dynamic  
+|  timestamp  | id_string | datapoints_dynamic  
 | ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 

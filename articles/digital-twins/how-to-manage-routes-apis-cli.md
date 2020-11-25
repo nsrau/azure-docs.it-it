@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vedere come configurare e gestire gli endpoint e le route di eventi per i dati di Azure Digital gemelli.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b836038aa2f8f60e25c51d1d5674d22497b3ce44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533753"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96018962"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -64,15 +64,15 @@ Dopo aver creato l'argomento, è possibile collegarlo ai dispositivi gemelli dig
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi** , che verrà creata [più avanti in questo articolo](#create-an-event-route) usando l'API del servizio dispositivi digitali gemelli di Azure.
+A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route) usando l'API del servizio dispositivi digitali gemelli di Azure.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Creare un hub eventi o un endpoint del bus di servizio
 
 Il processo per la creazione di hub eventi o endpoint del bus di servizio è simile al processo di griglia di eventi illustrato in precedenza.
 
 Prima di tutto, creare le risorse che verranno usate come endpoint. Ecco cosa è necessario:
-* Bus di servizio: _spazio dei nomi del bus_ di servizio, _argomento del bus di servizio_ , regola di _autorizzazione_
-* Hub eventi: _spazio dei nomi di hub eventi_ , _Hub eventi_ , _regola di autorizzazione_
+* Bus di servizio: _spazio dei nomi del bus_ di servizio, _argomento del bus di servizio_, regola di _autorizzazione_
+* Hub eventi: _spazio dei nomi di hub eventi_, _Hub eventi_, _regola di autorizzazione_
 
 Quindi, usare i comandi seguenti per creare gli endpoint nei dispositivi gemelli digitali di Azure: 
 
@@ -156,10 +156,10 @@ Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un
 
 Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Prerequisito** : è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
+**Prerequisito**: è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
 
->[!NOTE]
->Se gli endpoint sono stati distribuiti di recente, verificare che la distribuzione sia terminata **prima** di provare a usarli per una nuova route di eventi. Se la distribuzione della route non riesce perché gli endpoint non sono pronti, attendere alcuni minuti e riprovare.
+> [!NOTE]
+> Se gli endpoint sono stati distribuiti di recente, verificare che la distribuzione sia terminata **prima** di provare a usarli per una nuova route di eventi. Se la distribuzione della route non riesce perché gli endpoint non sono pronti, attendere alcuni minuti e riprovare.
 >
 > Se si crea uno script per questo flusso, è possibile che si voglia tenere conto di questa situazione creando in 2-3 minuti di tempo di attesa per il completamento della distribuzione del servizio endpoint prima di passare alla configurazione del routing.
 
@@ -229,7 +229,7 @@ Senza filtro, gli endpoint ricevono una serie di eventi da dispositivi gemelli d
 
 È possibile limitare gli eventi inviati aggiungendo un **filtro** per un endpoint alla route dell'evento.
 
-Per aggiungere un filtro, è possibile usare una richiesta PUT per *https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-10-31* con il corpo seguente:
+Per aggiungere un filtro, è possibile usare una richiesta PUT su *https://{Your-Azure-Digital-gemells-hostname}/eventRoutes/{Event-route-name}? API-Version = 2020-10-31* con il corpo seguente:
 
 ```json  
 {
@@ -237,7 +237,6 @@ Per aggiungere un filtro, è possibile usare una richiesta PUT per *https://{You
     "filter": "<filter-text>"
 }
 ``` 
-
 Ecco i filtri di route supportati. Usare i dettagli nella colonna *Filtra schema testo* per sostituire il `<filter-text>` segnaposto nel corpo della richiesta precedente.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 04abc051cec8a6fb38ce6aa8f5347ae06cb8bd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688450"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019753"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Spostare il gruppo di sicurezza di rete di Azure (NSG) in un'altra area usando Azure PowerShell
 
@@ -106,9 +106,9 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
     Get-AzLocation | format-table
     
     ```
-8. È anche possibile modificare altri parametri nel file con ** \<resource-group-name> estensione JSON** se si sceglie e sono facoltativi in base ai requisiti:
+8. È anche possibile modificare altri parametri nel file con **\<resource-group-name> estensione JSON** se si sceglie e sono facoltativi in base ai requisiti:
 
-    * **Regole di sicurezza** : è possibile modificare le regole distribuite nel NSG di destinazione aggiungendo o rimuovendo regole nella sezione **SecurityRules** del file con ** \<resource-group-name> estensione JSON** :
+    * **Regole di sicurezza** : è possibile modificare le regole distribuite nel NSG di destinazione aggiungendo o rimuovendo regole nella sezione **SecurityRules** del file con **\<resource-group-name> estensione JSON** :
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
             
         ```
 
-        Per completare l'aggiunta o la rimozione delle regole nel NSG di destinazione, è necessario modificare anche i tipi di regole personalizzati alla fine del file con ** \<resource-group-name> estensione JSON** nel formato dell'esempio seguente:
+        Per completare l'aggiunta o la rimozione delle regole nel NSG di destinazione, è necessario modificare anche i tipi di regole personalizzati alla fine del file con **\<resource-group-name> estensione JSON** nel formato dell'esempio seguente:
 
         ```json
            {

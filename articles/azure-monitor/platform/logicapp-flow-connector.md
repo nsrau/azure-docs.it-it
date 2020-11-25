@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019039"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione
 [App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
@@ -46,15 +46,15 @@ Le esercitazioni seguenti illustrano l'uso dei connettori di monitoraggio di Azu
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-Passare a **app** per la logica nella portale di Azure e fare clic su **Aggiungi**. Selezionare una **sottoscrizione**, un **gruppo di risorse**e un' **area** per archiviare la nuova app per la logica e assegnarle un nome univoco. È possibile attivare **log Analytics** impostazione per raccogliere informazioni sui dati e gli eventi di runtime, come descritto in [configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure](../../logic-apps/monitor-logic-apps-log-analytics.md). Questa impostazione non è obbligatoria per l'uso del connettore log di monitoraggio di Azure.
+Passare a **app** per la logica nella portale di Azure e fare clic su **Aggiungi**. Selezionare una **sottoscrizione**, un **gruppo di risorse** e un' **area** per archiviare la nuova app per la logica e assegnarle un nome univoco. È possibile attivare **log Analytics** impostazione per raccogliere informazioni sui dati e gli eventi di runtime, come descritto in [configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure](../../logic-apps/monitor-logic-apps-log-analytics.md). Questa impostazione non è obbligatoria per l'uso del connettore log di monitoraggio di Azure.
 
 ![Creare l'app per la logica](media/logicapp-flow-connector/create-logic-app.png)
 
 
-Fare clic su **Verifica + crea** e quindi su **Crea**. Al termine della distribuzione, fare clic su **Vai alla risorsa** per aprire la **finestra di progettazione delle app**per la logica.
+Fare clic su **Verifica + crea** e quindi su **Crea**. Al termine della distribuzione, fare clic su **Vai alla risorsa** per aprire la **finestra di progettazione delle app** per la logica.
 
 ### <a name="create-a-trigger-for-the-logic-app"></a>Creare un trigger per l'app per la logica
-In **inizia con un trigger comune**selezionare **ricorrenza**. Verrà creata un'app per la logica che viene eseguita automaticamente a intervalli regolari. Nella casella **frequenza** dell'azione selezionare **giorno** e nella casella **intervallo** immettere **1** per eseguire il flusso di lavoro una volta al giorno.
+In **inizia con un trigger comune** selezionare **ricorrenza**. Verrà creata un'app per la logica che viene eseguita automaticamente a intervalli regolari. Nella casella **frequenza** dell'azione selezionare **giorno** e nella casella **intervallo** immettere **1** per eseguire il flusso di lavoro una volta al giorno.
 
 ![Azione di ricorrenza](media/logicapp-flow-connector/recurrence-action.png)
 
@@ -62,7 +62,7 @@ In **inizia con un trigger comune**selezionare **ricorrenza**. Verrà creata un'
 L'esercitazione seguente illustra come creare un'app per la logica che invia i risultati di una query di log di monitoraggio di Azure tramite posta elettronica. 
 
 ### <a name="add-azure-monitor-logs-action"></a>Azione Aggiungi log di monitoraggio di Azure
-Fare clic su **+ nuovo passaggio** per aggiungere un'azione che viene eseguita dopo l'azione di ricorrenza. In **scegliere un'azione**Digitare **monitoraggio di Azure** e quindi selezionare **log di monitoraggio di Azure**.
+Fare clic su **+ nuovo passaggio** per aggiungere un'azione che viene eseguita dopo l'azione di ricorrenza. In **scegliere un'azione** Digitare **monitoraggio di Azure** e quindi selezionare **log di monitoraggio di Azure**.
 
 ![Azione log di monitoraggio di Azure](media/logicapp-flow-connector/select-azure-monitor-connector.png)
 
@@ -93,7 +93,7 @@ Il messaggio verrà inviato dall'account associato alla connessione corrente. È
 
 ### <a name="add-email-action"></a>Aggiungi azione di posta elettronica
 
-Fare clic su **+ nuovo passaggio**e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione**Digitare **Outlook** , quindi selezionare **Office 365 Outlook**.
+Fare clic su **+ nuovo passaggio** e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione** Digitare **Outlook** , quindi selezionare **Office 365 Outlook**.
 
 ![Seleziona connettore Outlook](media/logicapp-flow-connector/select-outlook-connector.png)
 

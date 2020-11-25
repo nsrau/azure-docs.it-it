@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636834"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019617"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: esempi
 > [!NOTE]
@@ -56,10 +56,10 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 È possibile usare il riquadro **Pipeline di esempio** nella home page della data factory per distribuire le pipeline di esempio e le entità associate (set di dati e servizi collegati) nella data factory.
 
 1. Creare una data factory o aprire una data factory esistente. Per la procedura di creazione di una data factory, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio** .
+2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio**.
 
     ![Riquadro Pipeline di esempio](./media/data-factory-samples/SamplePipelinesTile.png)
-3. Nel pannello **Pipeline di esempio** , fare clic sull' **esempio** da distribuire.
+3. Nel pannello **Pipeline di esempio**, fare clic sull'**esempio** da distribuire.
 
     ![Pannello Pipeline di esempio](./media/data-factory-samples/SampleTile.png)
 4. Specificare le impostazioni di configurazione per l'esempio, Ad esempio, il nome dell'account di archiviazione di Azure e la chiave dell'account, il nome logico del server SQL, il database, l'ID utente e la password e così via.
@@ -69,7 +69,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 6. Lo stato della distribuzione sarà visualizzato sul riquadro dell'esempio selezionato in precedenza nel pannello **Pipeline di esempio** .
 
     ![Stato della distribuzione](./media/data-factory-samples/DeploymentStatus.png)
-7. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio** .  
+7. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio**.  
 8. Nel pannello **DATA FACTORY** si potrà notare che i servizi collegati, i set di dati e le pipeline vengono aggiunti alla data factory.  
 
     ![Pannello Data factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
@@ -79,37 +79,37 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 È necessario disporre dei seguenti prodotti installati nel computer in uso:
 
 * Visual Studio 2013 o Visual Studio 2015
-* Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET** .
-* Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in attenendosi alla procedura seguente: nel menu fare clic su **strumenti**  ->  **estensioni e aggiornamenti**  ->  **online**  ->  **Visual Studio Gallery**  ->  **Microsoft Azure Data Factory Tools for Visual Studio**  ->  **Update** .
+* Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
+* Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in attenendosi alla procedura seguente: nel menu fare clic su **strumenti**  ->  **estensioni e aggiornamenti**  ->  **online**  ->  **Visual Studio Gallery**  ->  **Microsoft Azure Data Factory Tools for Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Usare Modelli di Data Factory
-1. Fare clic su **File** nel menu, scegliere **Nuovo** e quindi fare clic su **Progetto** .
+1. Fare clic su **File** nel menu, scegliere **Nuovo** e quindi fare clic su **Progetto**.
 2. Nella finestra di dialogo **Nuovo progetto** seguire questa procedura:
 
-   1. Selezionare **DataFactory** in **Modelli** .
+   1. Selezionare **DataFactory** in **Modelli**.
    2. Selezionare **Data Factory Templates** (Modelli di Data Factory) nel riquadro di destra.
    3. Immettere un **nome** per il progetto.
    4. Selezionare una **località** per il progetto.
-   5. Fare clic su **OK** .
+   5. Fare clic su **OK**.
 
       ![Finestra di dialogo Nuovo progetto](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. Nella finestra di dialogo **Data Factory Templates** (Modelli di Data Factory) selezionare il modello di esempio dalla sezione **Use-Case Templates** (Modelli di casi d'uso) e fare clic su **Avanti** . I passaggi seguenti forniscono istruzioni dettagliate per l'uso del modello **Customer Profiling** (Profiling cliente). I passaggi sono simili ad altri esempi.
+3. Nella finestra di dialogo **Data Factory Templates** (Modelli di Data Factory) selezionare il modello di esempio dalla sezione **Use-Case Templates** (Modelli di casi d'uso) e fare clic su **Avanti**. I passaggi seguenti forniscono istruzioni dettagliate per l'uso del modello **Customer Profiling** (Profiling cliente). I passaggi sono simili ad altri esempi.
 
     ![Finestra di dialogo Modelli di Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. Nella finestra di dialogo **Data Factory Configuration** (Configurazione di Data Factory) fare clic su **Avanti** nella pagina **Data Factory Basics** (Informazioni di base di Data Factory).
 5. Nella pagina **Configure data factory** (Configura data factory), procedere come segue:
-   1. Selezionare **Crea nuovo data factory** . In alternativa, selezionare **Use existing data factory** (Usa data factory esistente).
+   1. Selezionare **Crea nuovo data factory**. In alternativa, selezionare **Use existing data factory**(Usa data factory esistente).
    2. Immettere un **nome** per il data factory.
    3. Selezionare la **sottoscrizione di Azure** in cui creare la data factory.
    4. Selezionare il **gruppo di risorse** per la data factory.
-   5. Selezionare **Stati Uniti Occidentali** , **Stati Uniti Orientali** o **Europa settentrionale** per l' **area** .
-   6. Fare clic su **Avanti** .
+   5. Selezionare **Stati Uniti Occidentali**, **Stati Uniti Orientali** o **Europa settentrionale** per l'**area**.
+   6. Fare clic su **Avanti**.
 6. Nella pagina **Configura archivi dati** specificare un **database esistente nel database SQL di Azure e nell'account di archiviazione di** **Azure** (o) creare database/archiviazione e fare clic su Avanti.
-7. Nella pagina **Configura calcolo** selezionare le impostazioni predefinite e fare clic su **Avanti** .
-8. Nella pagina **Riepilogo** esaminare tutte le impostazioni e fare clic su **Avanti** .
-9. Nella pagina **Stato distribuzione** attendere finché non viene completata la distribuzione e fare clic su **Fine** .
-10. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica** .
-11. Se viene visualizzato **Sign in to your Microsoft account** (Accedere all'account Microsoft), nella finestra di dialogo immettere le credenziali per l'account associato alla sottoscrizione di Azure e fare clic su **Accedi** .
+7. Nella pagina **Configura calcolo** selezionare le impostazioni predefinite e fare clic su **Avanti**.
+8. Nella pagina **Riepilogo** esaminare tutte le impostazioni e fare clic su **Avanti**.
+9. Nella pagina **Stato distribuzione** attendere finché non viene completata la distribuzione e fare clic su **Fine**.
+10. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**.
+11. Se viene visualizzato **Sign in to your Microsoft account** (Accedere all'account Microsoft), nella finestra di dialogo immettere le credenziali per l'account associato alla sottoscrizione di Azure e fare clic su **Accedi**.
 12. Verrà visualizzata la finestra di dialogo seguente:
 
     ![Finestra di dialogo Pubblica](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
@@ -117,9 +117,9 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
     1. Confermare l'opzione **Use existing data factory** (Usa data factory esistente).
     2. Selezionare la stessa **data factory** del modello precedente.
-    3. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi** . Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato.
-14. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo** .     
-15. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione** .
+    3. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato.
+14. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
+15. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 16. Nella pagina **Stato della distribuzione** , è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Finish (Fine) dopo il termine della distribuzione.
 
 Per informazioni dettagliate sull'uso di Visual Studio per creare entità di Data Factory e pubblicarle in Azure, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .

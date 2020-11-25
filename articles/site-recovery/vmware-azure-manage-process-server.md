@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361390"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019192"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -37,7 +37,7 @@ Quando si distribuisce un server di elaborazione locale o come macchina virtuale
 
 Bilanciare il carico spostando le macchine virtuali tra due server di elaborazione, come indicato di seguito:
 
-1. Nell'insieme di credenziali, in **Gestisci** fare clic su **infrastruttura Site Recovery**. In **per VMware & computer fisici**fare clic su **server di configurazione**.
+1. Nell'insieme di credenziali, in **Gestisci** fare clic su **infrastruttura Site Recovery**. In **per VMware & computer fisici** fare clic su **server di configurazione**.
 2. Fare clic sul server di configurazione con cui vengono registrati i server di elaborazione.
 3. Fare clic sul server di elaborazione per il quale si desidera bilanciare il carico del traffico.
 
@@ -47,7 +47,7 @@ Bilanciare il carico spostando le macchine virtuali tra due server di elaborazio
 
     ![Screenshot mostra il riquadro del bilanciamento del carico con selezionare il server di elaborazione di destinazione selezionato.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Fare clic su **Seleziona computer**e scegliere i computer che si desidera spostare dall'attuale al server di elaborazione di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media. Fare quindi clic su **OK**. 
+2. Fare clic su **Seleziona computer** e scegliere i computer che si desidera spostare dall'attuale al server di elaborazione di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media. Fare quindi clic su **OK**. 
 3. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio**  >  **Site Recovery processi**.
 
 Saranno necessari circa 15 minuti affinché le modifiche vengano riflesse nel portale. Per un effetto più rapido, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
@@ -56,7 +56,7 @@ Saranno necessari circa 15 minuti affinché le modifiche vengano riflesse nel po
 
 Spostare l'intero carico di lavoro gestito da un server di elaborazione in un server di elaborazione diverso, come indicato di seguito:
 
-1. Nell'insieme di credenziali, in **Gestisci** fare clic su **infrastruttura Site Recovery**. In **per VMware & computer fisici**fare clic su **server di configurazione**.
+1. Nell'insieme di credenziali, in **Gestisci** fare clic su **infrastruttura Site Recovery**. In **per VMware & computer fisici** fare clic su **server di configurazione**.
 2. Fare clic sul server di configurazione con cui vengono registrati i server di elaborazione.
 3. Fare clic sul server di elaborazione da cui si desidera passare il carico di lavoro.
 4. Fare clic su **Switch**, selezionare il server di elaborazione di destinazione in cui si desidera spostare il carico di lavoro. Quindi fare clic su **OK**
@@ -69,7 +69,7 @@ Saranno necessari circa 15 minuti affinché le modifiche vengano riflesse nel po
 
 ## <a name="register-a-master-target-server"></a>Registrare un server di destinazione master
 
-Il server di destinazione master risiede nel server di configurazione e nei server di elaborazione con scalabilità orizzontale. Deve essere registrato con il server di configurazione. Se si verifica un errore in questa registrazione, può influisca sull'integrità degli elementi protetti. Per registrare il server di destinazione master con il server di configurazione, accedere al server di configurazione specifico o al server di elaborazione con scalabilità orizzontale in cui è richiesta la registrazione. Passare alla cartella **%ProgramData%\ASR\Agent**ed eseguire il comando seguente nel prompt dei comandi dell'amministratore.
+Il server di destinazione master risiede nel server di configurazione e nei server di elaborazione con scalabilità orizzontale. Deve essere registrato con il server di configurazione. Se si verifica un errore in questa registrazione, può influisca sull'integrità degli elementi protetti. Per registrare il server di destinazione master con il server di configurazione, accedere al server di configurazione specifico o al server di elaborazione con scalabilità orizzontale in cui è richiesta la registrazione. Passare alla cartella **%ProgramData%\ASR\Agent** ed eseguire il comando seguente nel prompt dei comandi dell'amministratore.
 
    ```
    cmd
@@ -111,7 +111,7 @@ Se un server di elaborazione locale usa un proxy per connettersi ad Azure, è po
    net stop obengine
    net start obengine
    ```
-2. Passare alla cartella **%ProgramData%\ASR\Agent**ed eseguire il comando seguente:
+2. Passare alla cartella **%ProgramData%\ASR\Agent** ed eseguire il comando seguente:
    ```
    cmd
    cdpcli.exe --registermt

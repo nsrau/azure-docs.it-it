@@ -4,11 +4,11 @@ description: Informazioni su come usare il dashboard per un Lab della classe in 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3834e6910faea38e87489d1ad0075d4bd9b8c6c6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376953"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018308"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Dashboard per lab per le classi
 Questo articolo descrive la visualizzazione dashboard di un Lab della classe in Azure Lab Services. 

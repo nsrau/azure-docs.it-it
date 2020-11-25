@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531611"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019447"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminologia del servizio Device provisioning in hub Internet (DPS)
 
@@ -123,6 +123,6 @@ L'ID dispositivo è l'ID visualizzato nell'hub IoT. È possibile, ma non obbliga
 
 
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 
 Le operazioni rappresentano l'unità di fatturazione del servizio Device Provisioning. Un'operazione si riferisce al corretto completamento di un'istruzione nel servizio. Le operazioni includono le registrazioni e le ripetizioni delle registrazioni dei dispositivi, oltre alle modifiche sul lato del servizio, come l'aggiunta di voci all'elenco di registrazione e l'aggiornamento delle voci dell'elenco di registrazione.

@@ -4,11 +4,11 @@ description: Vengono descritti i parametri relativi all'aggiornamento di un'appl
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247966"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018478"
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento di un'applicazione
 Questo articolo descrive i diversi parametri che si applicano durante l'aggiornamento di un'applicazione di Azure Service Fabric. I parametri di aggiornamento di un'applicazione determinano i timeout e i controlli di integrità che vengono applicati durante l'aggiornamento e specificano i criteri da applicare quando un aggiornamento non riesce. I parametri dell'applicazione si applicano agli aggiornamenti tramite:
@@ -28,7 +28,7 @@ I parametri obbligatori e facoltativi applicabili sono descritti in ogni sezione
 
 Gli aggiornamenti dell'applicazione di Service Fabric con PowerShell usano il comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade). Si seleziona la modalità di aggiornamento passando il parametro **Monitored**, **UnmonitoredAuto** o **UnmonitoredManual** a [ Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
-I parametri di aggiornamento delle applicazioni di Service Fabric in Visual Studio vengono impostati tramite la finestra di dialogo di Visual Studio Aggiornamento impostazioni. Si seleziona la modalità di aggiornamento di Visual Studio usando l'elenco a discesa sia su **Modalità di aggiornamento** che su **Monitored**, **UnmonitoredAuto** o **UnmonitoredManual **. Per altre informazioni, vedere [Configurare l'aggiornamento di un'applicazione di Service Fabric in Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
+I parametri di aggiornamento delle applicazioni di Service Fabric in Visual Studio vengono impostati tramite la finestra di dialogo di Visual Studio Aggiornamento impostazioni. Si seleziona la modalità di aggiornamento di Visual Studio usando l'elenco a discesa sia su **Modalità di aggiornamento** che su **Monitored**, **UnmonitoredAuto** o **UnmonitoredManual**. Per altre informazioni, vedere [Configurare l'aggiornamento di un'applicazione di Service Fabric in Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
 
 ### <a name="required-parameters"></a>Parametri obbligatori
 (PS=PowerShell, VS=Visual Studio)
@@ -41,7 +41,7 @@ FailureAction |PS, VS|I valori consentiti sono **Rollback**, **Manual**, e **Inv
 Monitored |PS|Indica che la modalità di aggiornamento viene monitorata. Al termine dell'aggiornamento per un dominio di aggiornamento del cmdlet, se l'integrità del dominio di aggiornamento e il cluster soddisfano i criteri di integrità definiti, Service Fabric consente di aggiornare il dominio di aggiornamento successivo. Se il dominio di aggiornamento o il cluster non riescono a soddisfare i criteri di integrità, l'aggiornamento non riesce, quindi la risorsa Service Fabric esegue il rollback dell'aggiornamento per il dominio di aggiornamento o viene ripristinata la modalità manuale per i criteri specificati. Si tratta della modalità consigliata per gli aggiornamenti dell'applicazione in un ambiente di produzione. |
 UpgradeMode | VS | I valori consentiti sono **Monitored** (impostazione predefinita), **UnmonitoredAuto** o **UnmonitoredManual**. Vedere i parametri di PowerShell per ogni modalità, in questo articolo, per informazioni dettagliate. |
 UnmonitoredAuto | PS | Indica che la modalità di aggiornamento non viene monitorata automaticamente. Dopo che la risorsa Service Fabric effettua un aggiornamento su un dominio di aggiornamento, Service Fabric consente di aggiornare il dominio di aggiornamento successivo, qualunque sia lo stato di integrità dell'applicazione. Questa modalità non è consigliabile per la produzione ed è utile solo durante lo sviluppo di un'applicazione. |
-UnmonitoredManual | PS | Indica che la modalità di aggiornamento non viene monitorata manualmente. Dopo che la risorsa Service Fabric effettua un aggiornamento su un dominio di aggiornamento, rimane in attesa per poter aggiornare il dominio di aggiornamento successivo con il cmdlet*Resume-ServiceFabricApplicationUpgrade*. |
+UnmonitoredManual | PS | Indica che la modalità di aggiornamento non viene monitorata manualmente. Dopo che la risorsa Service Fabric effettua un aggiornamento su un dominio di aggiornamento, rimane in attesa per poter aggiornare il dominio di aggiornamento successivo con il cmdlet *Resume-ServiceFabricApplicationUpgrade*. |
 
 ### <a name="optional-parameters"></a>Parametri facoltativi
 

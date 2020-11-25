@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124408"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018818"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning Studio (versione classica)
 
@@ -52,7 +52,7 @@ Per elaborare 200.000 eventi al secondo, il processo di Analisi di flusso necess
 
 ![Ridimensionare l'analisi di flusso con funzioni di studio (classiche) a due processi](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Ridimensionare l'analisi di flusso con funzioni di studio (classiche) a due processi")
 
-In generale, * *_B_* _ per le dimensioni del batch, _*_L_*_ per la latenza del servizio Web in batch di dimensioni B in millisecondi, la velocità effettiva di un processo di analisi di flusso con _*_N_*_ unità di streaming è:
+In generale, **_B_* _ per le dimensioni del batch, _*_L_*_ per la latenza del servizio Web in batch di dimensioni B in millisecondi, la velocità effettiva di un processo di analisi di flusso con _*_N_*_ unità di streaming è:
 
 ![Formula per ridimensionare analisi di flusso con funzioni di studio (classiche)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Formula per ridimensionare analisi di flusso con funzioni di studio (classiche)")
 
@@ -63,7 +63,7 @@ Per ulteriori informazioni su questa impostazione, vedere l' [articolo relativo 
 ## <a name="example--sentiment-analysis"></a>Esempio: Analisi di valutazione
 L'esempio seguente include un processo di analisi di flusso con la funzione valutazione di Analysis Studio (classica), come descritto nell'esercitazione sull'integrazione di analisi di [flusso Machine Learning Studio (classica)](stream-analytics-machine-learning-integration-tutorial.md).
 
-La query è una semplice query completamente partizionata seguita dalla funzione _ *sentimento* *, come illustrato nell'esempio seguente:
+La query è una semplice query completamente partizionata seguita dalla funzione _ *sentimento**, come illustrato nell'esempio seguente:
 
 ```SQL
     WITH subquery AS (
@@ -99,7 +99,7 @@ Esaminiamo il ridimensionamento usando le misure di latenza seguenti per ogni di
 | 300 ms | Batch da 10.000 eventi |
 | 500 ms | Batch da 25.000 eventi |
 
-1. Utilizzo della prima opzione ( **senza effettuare**  il provisioning di altre unità di streaming). È possibile aumentare le dimensioni del batch a **25.000** . L'aumento delle dimensioni del batch in questo modo consentirà al processo di elaborare 1 milione eventi con 20 connessioni simultanee al servizio Web Studio (classico) (con una latenza di 500 ms per chiamata). Quindi, la latenza aggiuntiva del processo di analisi di flusso dovuta alle richieste della funzione di valutazione rispetto alle richieste del servizio Web Studio (classica) viene aumentata da **200 MS** a **500 ms** . Tuttavia, le dimensioni del batch **non possono** essere aumentate in modo infinito perché i servizi Web di studio (classico) richiedono che le dimensioni del payload di una richiesta siano pari a 4 MB o inferiori e il timeout delle richieste del servizio web dopo 100 secondi di operatività.
+1. Utilizzo della prima opzione (**senza effettuare**  il provisioning di altre unità di streaming). È possibile aumentare le dimensioni del batch a **25.000**. L'aumento delle dimensioni del batch in questo modo consentirà al processo di elaborare 1 milione eventi con 20 connessioni simultanee al servizio Web Studio (classico) (con una latenza di 500 ms per chiamata). Quindi, la latenza aggiuntiva del processo di analisi di flusso dovuta alle richieste della funzione di valutazione rispetto alle richieste del servizio Web Studio (classica) viene aumentata da **200 MS** a **500 ms**. Tuttavia, le dimensioni del batch **non possono** essere aumentate in modo infinito perché i servizi Web di studio (classico) richiedono che le dimensioni del payload di una richiesta siano pari a 4 MB o inferiori e il timeout delle richieste del servizio web dopo 100 secondi di operatività.
 1. Se si usa la seconda opzione, le dimensioni batch rimangono pari a 1000. Con una latenza del servizio Web di 200 ms, ogni 20 connessioni simultanee al servizio Web sarebbe possibile elaborare 1000 * 20 * 5 eventi = 100.000 al secondo. Per elaborare 1.000.000 di eventi al secondo, quindi, il processo richiederebbe 60 unità di streaming. Rispetto alla prima opzione, il processo di Analisi di flusso invierebbe più richieste batch al servizio Web, generando così un costo maggiore.
 
 Di seguito è riportata una tabella della velocità effettiva del processo di Analisi di flusso per diverse unità di streaming e dimensioni batch, in numero di eventi al secondo.
@@ -120,17 +120,17 @@ A questo punto, è necessario avere già una conoscenza approfondita del funzion
 Normalmente, le dimensioni del batch impostate per le funzioni Studio (classiche) non saranno esattamente divisibile per il numero di eventi restituiti da ogni processo di analisi di flusso "pull". In questo caso, il servizio Web Studio (classico) viene chiamato con batch parziali. L'uso di batch parziali evita il sovraccarico della latenza dei processi nell'unione di eventi tra un pull e l'altro.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nuove metriche di monitoraggio correlate alle funzioni
-Nell'area di monitoraggio di un processo di Analisi di flusso sono state aggiunte altre tre metriche relative alle funzioni. Le metriche sono **FUNCTION REQUESTS** , **FUNCTION EVENTS** e **FAILED FUNCTION REQUESTS** e sono illustrate nella figura seguente.
+Nell'area di monitoraggio di un processo di Analisi di flusso sono state aggiunte altre tre metriche relative alle funzioni. Le metriche sono **FUNCTION REQUESTS**, **FUNCTION EVENTS** e **FAILED FUNCTION REQUESTS** e sono illustrate nella figura seguente.
 
 ![Ridimensionare analisi di flusso con le metriche delle funzioni di studio (classiche)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Ridimensionare analisi di flusso con le metriche delle funzioni di studio (classiche)")
 
 Di seguito sono riportate le rispettive definizioni.
 
-**FUNCTION REQUESTS** : numero di richieste di funzione.
+**FUNCTION REQUESTS**: numero di richieste di funzione.
 
-**FUNCTION EVENTS** : numero di eventi nelle richieste di funzione.
+**FUNCTION EVENTS**: numero di eventi nelle richieste di funzione.
 
-**FAILED FUNCTION REQUESTS** : numero di richieste di funzione non riuscite.
+**FAILED FUNCTION REQUESTS**: numero di richieste di funzione non riuscite.
 
 ## <a name="key-takeaways"></a>Risultati principali
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018206"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Questo articolo illustra come creare e gestire gli avvisi di log con monitoraggi
 Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Passare alla risorsa su cui si vuole inviare l'avviso.
-1. In **monitoraggio**selezionare **log**.
+1. In **monitoraggio** selezionare **log**.
 1. Eseguire una query sui dati del log che possono indicare il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/saved-queries.md) per capire cosa è possibile individuare o [iniziare a scrivere una query personalizzata](../log-query/get-started-portal.md). È anche possibile trovare [informazioni su come creare query di avviso ottimizzate](alerts-log-query.md).
 1. Premere il pulsante "+ nuovo regola di avviso" per avviare il flusso di creazione dell'avviso.
 
@@ -79,9 +79,9 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Facoltativamente, è anche possibile impostare il [numero di violazioni per attivare un avviso](alerts-unified-log.md#number-of-violations-to-trigger-alert) utilizzando **violazioni totali o consecutive**.
 
-1. Selezionare **Operazione completata**. 
+1. Selezionare **Fine**. 
 
-1. Definire il **nome**e la **Descrizione**della regola di avviso e selezionare la **gravità**dell'avviso. Questi dettagli vengono usati in tutte le azioni di avviso. Inoltre, è possibile scegliere di non attivare la regola di avviso durante la creazione selezionando **Abilita regola al momento della creazione**.
+1. Definire il **nome** e la **Descrizione** della regola di avviso e selezionare la **gravità** dell'avviso. Questi dettagli vengono usati in tutte le azioni di avviso. Inoltre, è possibile scegliere di non attivare la regola di avviso durante la creazione selezionando **Abilita regola al momento della creazione**.
 
 1. Scegliere se si desidera eliminare le azioni regola per un periodo di tempo dopo la generazione di un avviso, utilizzare l'opzione non [**visualizzare avvisi**](alerts-unified-log.md#state-and-resolving-alerts) . La regola verrà comunque eseguita e creerà avvisi, ma le azioni non verranno attivate per evitare il rumore. Il valore di azioni mute deve essere maggiore della frequenza di avviso per essere effettivo.
 
@@ -94,7 +94,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Facoltativamente, è possibile personalizzare le azioni nelle regole di avviso del log:
 
-    - **Oggetto del messaggio**di posta elettronica personalizzato: sostituisce l' *oggetto del messaggio* di posta elettronica delle azioni. Non è possibile modificare il corpo del messaggio e questo campo **non è per gli indirizzi di posta elettronica**.
+    - **Oggetto del messaggio** di posta elettronica personalizzato: sostituisce l' *oggetto del messaggio* di posta elettronica delle azioni. Non è possibile modificare il corpo del messaggio e questo campo **non è per gli indirizzi di posta elettronica**.
     - **Includi payload JSON personalizzato**: esegue l'override del JSON webhook usato dai gruppi di azioni presupponendo che il gruppo di azioni contenga un'azione webhook. Altre informazioni sull' [azione webhook per gli avvisi del log](./alerts-log-webhook.md).
 
     ![Override dell'azione per gli avvisi del log](media/alerts-log/AlertsPreviewOverrideLog.png)
@@ -126,7 +126,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
     ![Creare una regola](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Premere il pulsante **Seleziona risorsa** . Filtrare scegliendo la *sottoscrizione*, il *tipo di risorsa*e selezionare una risorsa. Verificare che la risorsa disponga di log disponibili.
+1. Premere il pulsante **Seleziona risorsa** . Filtrare scegliendo la *sottoscrizione*, il *tipo di risorsa* e selezionare una risorsa. Verificare che la risorsa disponga di log disponibili.
 
    ![Selezionare una risorsa](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -176,7 +176,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
     ![Scheda azioni](media/alerts-log/actions-tab.png)
 
-1. Nella scheda **Dettagli** definire i dettagli della **regola di avviso**e i **Dettagli del progetto**. Facoltativamente, è possibile impostare se non **avviare l'esecuzione**o [**disattivare le azioni**](alerts-unified-log.md#state-and-resolving-alerts) per un periodo di tempo dopo il quale la regola di avviso viene attivata.
+1. Nella scheda **Dettagli** definire i dettagli della **regola di avviso** e i **Dettagli del progetto**. Facoltativamente, è possibile impostare se non **avviare l'esecuzione** o [**disattivare le azioni**](alerts-unified-log.md#state-and-resolving-alerts) per un periodo di tempo dopo il quale la regola di avviso viene attivata.
 
     > [!NOTE]
     > Le regole di avviso del log sono attualmente senza stato e generano un'azione ogni volta che viene creato un avviso, a meno che non sia stato definito muting.

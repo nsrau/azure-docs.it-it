@@ -15,22 +15,22 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018648"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso della rete CDN di Azure con CORS
 ## <a name="what-is-cors"></a>Che cos'è CORS?
 CORS (Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Per ridurre il rischio di attacchi tramite script da altri siti, tutti i Web browser moderni implementano una restrizione di sicurezza nota come [regola della stessa origine](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Questo impedisce a una pagina Web di chiamare le API in un dominio diverso.  CORS offre un modo sicuro per consentire a una origine, ovvero il dominio di origine, di chiamare le API in un'altra origine.
 
-## <a name="how-it-works"></a>Come funziona
-Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste complesse* .
+## <a name="how-it-works"></a>Funzionamento
+Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste complesse*.
 
 ### <a name="for-simple-requests"></a>Per le richieste semplici:
 
-1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin** . Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo,* *dominio* e *porta* .  Quando una pagina da https \: //www.contoso.com tenta di accedere ai dati di un utente nell'origine fabrikam.com, l'intestazione della richiesta seguente viene inviata a Fabrikam.com:
+1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo,* *dominio* e *porta*.  Quando una pagina da https \: //www.contoso.com tenta di accedere ai dati di un utente nell'origine fabrikam.com, l'intestazione della richiesta seguente viene inviata a Fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
@@ -48,7 +48,7 @@ Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste com
 
 ### <a name="for-complex-requests"></a>Per le richieste complesse:
 
-Una richiesta complessa è una richiesta CORS in cui il browser deve inviare una *richiesta preliminare* , ovvero un probe preliminare, prima di inviare la richiesta CORS effettiva. La richiesta preliminare chiede l'autorizzazione del server perché la richiesta CORS originale possa procedere e si tratta di una richiesta `OPTIONS` allo stesso URL.
+Una richiesta complessa è una richiesta CORS in cui il browser deve inviare una *richiesta preliminare*, ovvero un probe preliminare, prima di inviare la richiesta CORS effettiva. La richiesta preliminare chiede l'autorizzazione del server perché la richiesta CORS originale possa procedere e si tratta di una richiesta `OPTIONS` allo stesso URL.
 
 > [!TIP]
 > Per altre informazioni sui flussi CORS e i problemi comuni, vedere [Guide to CORS for REST APIs](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/) (Guida di CORS per le API REST).
@@ -58,7 +58,7 @@ Una richiesta complessa è una richiesta CORS in cui il browser deve inviare una
 ## <a name="wildcard-or-single-origin-scenarios"></a>Scenari con caratteri jolly o singola origine
 La condivisione CORS sulla rete CDN di Azure funzionerà automaticamente senza operazioni di configurazione aggiuntive quando l'intestazione **Access-Control-Allow-Origin** è impostata sul carattere jolly asterisco (*) o su una singola origine.  La rete CDN memorizzerà nella cache la prima risposta e le richieste successive useranno la stessa intestazione.
 
-Se sono state inviate richieste alla rete CDN prima che la condivisione CORS venisse impostata nell'origine, sarà necessario eliminare il contenuto sull'endpoint e ricaricarlo con l'intestazione **Access-Control-Allow-Origin** .
+Se sono state inviate richieste alla rete CDN prima che la condivisione CORS venisse impostata nell'origine, sarà necessario eliminare il contenuto sull'endpoint e ricaricarlo con l'intestazione **Access-Control-Allow-Origin**.
 
 ## <a name="multiple-origin-scenarios"></a>Scenari con più origini
 Se si desidera autorizzare per CORS uno specifico elenco di origini, le operazioni da eseguire sono più complesse. Il problema si verifica quando la rete CDN memorizza nella cache l'intestazione **Access-Control-Allow-Origin** per la prima origine CORS.  Quando un'origine CORS differente effettua una richiesta successiva, la rete CDN gestisce l'intestazione **Access-Control-Allow-Origin** memorizzata nella cache, che però non corrisponde.  Esistono diversi modi per risolvere il problema.
@@ -69,10 +69,10 @@ Nella rete CDN standard di Azure di Microsoft è possibile creare una regola nel
 ![Esempio di regole con il motore regole standard](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> È possibile aggiungere altre azioni alla regola per modificare intestazioni di risposta aggiuntive, ad esempio **Access-Control-Allow-Methods** .
+> È possibile aggiungere altre azioni alla regola per modificare intestazioni di risposta aggiuntive, ad esempio **Access-Control-Allow-Methods**.
 > 
 
-Nella rete **CDN standard di Azure di Akamai** , l'unico meccanismo per consentire più origini senza usare l'origine con caratteri jolly consiste nell'usare la [memorizzazione nella cache della stringa di query](cdn-query-string.md). Abilitare l'impostazione della stringa di query per l'endpoint della rete CDN e usare quindi una stringa di query univoca per le richieste provenienti da ciascun dominio consentito. Con questa operazione la rete CDN memorizza nella cache un oggetto separato per ciascuna stringa di query univoca. Questo approccio tuttavia non rappresenta la soluzione ideale, poiché avrà come risultato la memorizzazione nella cache di più copie dello stesso file nella rete CDN.  
+Nella rete **CDN standard di Azure di Akamai**, l'unico meccanismo per consentire più origini senza usare l'origine con caratteri jolly consiste nell'usare la [memorizzazione nella cache della stringa di query](cdn-query-string.md). Abilitare l'impostazione della stringa di query per l'endpoint della rete CDN e usare quindi una stringa di query univoca per le richieste provenienti da ciascun dominio consentito. Con questa operazione la rete CDN memorizza nella cache un oggetto separato per ciascuna stringa di query univoca. Questo approccio tuttavia non rappresenta la soluzione ideale, poiché avrà come risultato la memorizzazione nella cache di più copie dello stesso file nella rete CDN.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Rete CDN Premium di Azure fornita da Verizon
 Usando il motore delle regole Premium di Verizon, è necessario [creare una regola](./cdn-verizon-premium-rules-engine.md) per controllare l'intestazione **Origin** nella richiesta.  Se l'origine è valida, la regola imposterà l'intestazione **Access-Control-Allow-Origin** sull'origine indicata nella richiesta.  Se l'origine specificata nell'intestazione **Origin** non è consentita, la regola deve omettere l'intestazione **Access-Control-Allow-Origin** , che farà sì che il browser rifiuti la richiesta. 
@@ -91,7 +91,7 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > 
 > 
 
-Se l'espressione regolare corrisponde, la regola specificata sostituirà l'intestazione **Access-Control-Allow-Origin** (se presente) proveniente dall'origine con l'origine che ha inviato la richiesta.  È inoltre possibile aggiungere altre intestazioni CORS, ad esempio **Access-Control-Allow-Methods** .
+Se l'espressione regolare corrisponde, la regola specificata sostituirà l'intestazione **Access-Control-Allow-Origin** (se presente) proveniente dall'origine con l'origine che ha inviato la richiesta.  È inoltre possibile aggiungere altre intestazioni CORS, ad esempio **Access-Control-Allow-Methods**.
 
 ![Esempio di regole con espressione regolare](./media/cdn-cors/cdn-cors-regex.png)
 

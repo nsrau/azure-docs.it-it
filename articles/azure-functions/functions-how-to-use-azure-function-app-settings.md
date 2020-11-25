@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746168"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019507"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
@@ -29,11 +29,11 @@ Questo articolo descrive come configurare e gestire le app per le funzioni.
 
 1. Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale immettere il nome dell'app per le funzioni e selezionarlo dall'elenco. 
 
-2. In **Impostazioni** nel riquadro a sinistra selezionare **configurazione** .
+2. In **Impostazioni** nel riquadro a sinistra selezionare **configurazione**.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Panoramica dell'app per le funzioni nel portale di Azure":::
 
-È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina Panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e le **[funzionalità della piattaforma](#platform-features)** .
+È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina Panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e le **[funzionalità della piattaforma](#platform-features)**.
 
 ## <a name="application-settings"></a><a name="settings"></a>Impostazioni applicazione
 

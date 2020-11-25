@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019685"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -98,7 +98,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
    >
    > Se si usa Chrome, passare a [Chrome Web Store](https://chrome.google.com/webstore/), eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.
    >
-   > Seguire la stessa procedura per Firefox (installazione di un componente aggiuntivo). Fare clic sul pulsante **Apri menu** sulla barra degli strumenti (**tre linee orizzontali** nell'angolo superiore destro), fare clic su **componenti**aggiuntivi, eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.    
+   > Seguire la stessa procedura per Firefox (installazione di un componente aggiuntivo). Fare clic sul pulsante **Apri menu** sulla barra degli strumenti (**tre linee orizzontali** nell'angolo superiore destro), fare clic su **componenti** aggiuntivi, eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.    
    >
    >
 
@@ -178,8 +178,8 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Aggiungere un servizio collegato per un account di archiviazione di Azure
 1. Nell'**editor di Data factory** fare clic su **Nuovo archivio dati** nella barra dei comandi e quindi su **Archiviazione di Azure**.
-2. Nel campo **Nome account**immettere il nome dell'account di archiviazione di Azure.
-3. Nel campo **Chiave account**immettere la chiave per l'account di archiviazione di Azure.
+2. Nel campo **Nome account** immettere il nome dell'account di archiviazione di Azure.
+3. Nel campo **Chiave account** immettere la chiave per l'account di archiviazione di Azure.
 4. Fare clic su **Distribuisci** per distribuire **AzureStorageLinkedService**.
 
 ## <a name="create-datasets"></a>Creare set di dati
@@ -210,7 +210,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 ### <a name="create-input-dataset"></a>Creare set di dati di input
 
-1. Nell' **editor di data factory**fare clic su **... Altro**, fare clic su **nuovo set di dati** sulla barra dei comandi e quindi su **SQL Server tabella**.
+1. Nell' **editor di data factory** fare clic su **... Altro**, fare clic su **nuovo set di dati** sulla barra dei comandi e quindi su **SQL Server tabella**.
 2. Sostituire lo script JSON nel riquadro a destra con il testo seguente:
 
     ```JSON   
@@ -277,7 +277,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
    * L'oggetto **type** è impostato su **AzureBlob**.
    * **linkedServiceName** è impostato su **AzureStorageLinkedService**. Questo servizio collegato è stato creato al passaggio 2.
    * **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. Se non esiste ancora, creare il contenitore **adftutorial** .
-   * La **disponibilità** è impostata su **hourly** (la**frequenza** è impostata su **hour** e l' **intervallo** è impostato su **1**).  Il servizio Data Factory genera una sezione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
+   * La **disponibilità** è impostata su **hourly** (la **frequenza** è impostata su **hour** e l' **intervallo** è impostato su **1**).  Il servizio Data Factory genera una sezione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
    Se non si specifica un **nome file** per una **tabella di output**, i file generati in **folderPath** vengono denominati nel formato seguente:, `Data.<Guid>.txt` ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.
 
@@ -302,7 +302,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 ## <a name="create-pipeline"></a>Creare una pipeline
 In questo passaggio viene creata una **pipeline** con un'**attività di copia** che usa **EmpOnPremSQLTable** come input e **OutputBlobTable** come output.
 
-1. In Data Factory Editor fare clic su **... Altro**e fare clic su **nuova pipeline**.
+1. In Data Factory Editor fare clic su **... Altro** e fare clic su **nuova pipeline**.
 2. Sostituire lo script JSON nel riquadro a destra con il testo seguente:    
 
     ```JSON   

@@ -7,11 +7,11 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260243"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018835"
 ---
 # <a name="service-fabric-terminology-overview"></a>Panoramica della terminologia di Service Fabric
 
@@ -68,7 +68,7 @@ Per ulteriori informazioni, leggere l'articolo relativo al [modello di applicazi
 
 Sono disponibili due tipi di servizi:
 
-* Senza **stato: usare**un servizio senza stato quando lo stato permanente del servizio è archiviato in un servizio di archiviazione esterno, ad esempio archiviazione di Azure, database SQL di azure o Azure Cosmos DB. Usare un servizio senza stato nei casi in cui il servizio non prevede alcun tipo di archivio permanente. Ad esempio, per un servizio di calcolo in cui i valori vengono passati al servizio, viene eseguito un calcolo che usa tali valori e viene restituito un risultato.
+* Senza **stato: usare** un servizio senza stato quando lo stato permanente del servizio è archiviato in un servizio di archiviazione esterno, ad esempio archiviazione di Azure, database SQL di azure o Azure Cosmos DB. Usare un servizio senza stato nei casi in cui il servizio non prevede alcun tipo di archivio permanente. Ad esempio, per un servizio di calcolo in cui i valori vengono passati al servizio, viene eseguito un calcolo che usa tali valori e viene restituito un risultato.
 * Con **stato**: usare un servizio con stato quando si vuole che Service Fabric gestisca lo stato del servizio tramite le raccolte Reliable Collections o i modelli di programmazione Reliable Actors. Quando si crea un servizio denominato, specificare il numero di partizioni su cui distribuire lo stato per ottenere scalabilità. Specificare anche quante volte replicare lo stato tra i nodi, per ottenere affidabilità. Ogni servizio denominato ha un'unica replica primaria e più repliche secondarie. Lo stato del servizio denominato si modifica quando si scrive nella replica primaria. Service Fabric quindi replica questo stato in tutte le repliche secondarie per assicurare la sincronizzazione dello stato. Service Fabric rileva automaticamente quando una replica primaria ha esito negativo e promuove una replica secondaria esistente a una replica primaria. Crea quindi una nuova replica secondaria.  
 
 Le **repliche o istanze** fanno riferimento al codice (e allo stato per i servizi con stato) di un servizio distribuito e in esecuzione. Vedere [repliche e istanze](service-fabric-concepts-replica-lifecycle.md).
@@ -164,14 +164,14 @@ Ambienti diversi hanno diversi livelli di supporto per i Framework e i modelli d
 
 | Tipo di applicazione | Descritto da | Azure Service Fabric Mesh | Cluster di Azure Service Fabric (qualsiasi sistema operativo)| Cluster locale | Cluster autonomo |
 |---|---|---|---|---|---|
-| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportato | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportate | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
 |Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | Non supportato| Supportato|Supportato|Windows: supportato|
 
 La tabella seguente descrive i diversi modelli applicativi e gli strumenti disponibili per tali modelli rispetto a Service Fabric.
 
 | Tipo di applicazione | Descritto da | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
-| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | VS 2017 |Non supportato |Non supportato | Supportato, solo ambiente Mesh | Non supportato|
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | VS 2017 |Non supportate |Non supportate | Supportato, solo ambiente Mesh | Non supportato|
 |Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | VS 2017 e VS 2015| Supportato|Supportato|Supportato|Supportato|
 
 ## <a name="next-steps"></a>Passaggi successivi

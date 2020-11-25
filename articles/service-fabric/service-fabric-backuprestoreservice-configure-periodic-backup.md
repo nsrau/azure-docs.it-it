@@ -4,19 +4,19 @@ description: Usare la funzionalità di backup e ripristino periodico di Service 
 ms.topic: article
 ms.date: 2/01/2019
 ms.openlocfilehash: 2607502af44b178131820d78f23bcdf4e32454a0
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506125"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018886"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
 
 La configurazione del backup periodico dei servizi Reliable con stato o dei Reliable Actors è costituita dai passaggi seguenti:
 
-1. **Creazione di criteri di backup** : in questa fase vengono creati uno o più criteri di backup, a seconda dei requisiti.
+1. **Creazione di criteri di backup**: in questa fase vengono creati uno o più criteri di backup, a seconda dei requisiti.
 
-2. **Abilitazione del backup** : in questa fase i criteri di backup creati nel **passaggio 1** vengono associati alle entità corrispondenti: _Applicazione_ , _Servizio_ o _Partizione_.
+2. **Abilitazione del backup**: in questa fase i criteri di backup creati nel **passaggio 1** vengono associati alle entità corrispondenti: _Applicazione_, _Servizio_ o _Partizione_.
 
 ## <a name="create-backup-policy"></a>Crea criterio di backup
 
@@ -35,7 +35,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
 
     3. La replica ha superato il limite specificato in MaxAccumulatedBackupLogSizeInMB.
 
-* **Pianificazione backup** : cadenza o frequenza di esecuzione dei backup periodici. È possibile pianificare l'esecuzione di backup a intervalli specificati o con un orario fisso ogni giorno o ogni settimana.
+* **Pianificazione backup**: cadenza o frequenza di esecuzione dei backup periodici. È possibile pianificare l'esecuzione di backup a intervalli specificati o con un orario fisso ogni giorno o ogni settimana.
 
     1. **Frequency-based backup schedule** (Pianificazione backup basata sulla frequenza): questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati a intervalli fissi. L'intervallo di tempo desiderato tra due backup successivi può essere definito usando il formato ISO 8601. La pianificazione backup basata sulla frequenza supporta la risoluzione di intervalli fino a un minuto.
         ```json
@@ -46,7 +46,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         ```
 
     2. **Time-based backup schedule** (Pianificazione backup basata su tempo): questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici ogni giorno o ogni settimana. Il tipo di frequenza di pianificazione può essere giornaliero o settimanale.
-        1. **Pianificazione del backup _giornaliera_ basata sul tempo** : questo tipo di pianificazione deve essere usato se è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Giornaliera_ e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Ad esempio `0001-01-01T18:00:00` rappresenta le _18:00_ di ogni giorno e la parte della data _0001-01-01_ viene ignorata. L'esempio seguente visualizza la configurazione che attiva un backup giornaliero alle _9:00_ e alle _18:00_ di ogni giorno.
+        1. **Pianificazione del backup _giornaliera_ basata sul tempo**: questo tipo di pianificazione deve essere usato se è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Giornaliera_ e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Ad esempio `0001-01-01T18:00:00` rappresenta le _18:00_ di ogni giorno e la parte della data _0001-01-01_ viene ignorata. L'esempio seguente visualizza la configurazione che attiva un backup giornaliero alle _9:00_ e alle _18:00_ di ogni giorno.
 
             ```json
             {
@@ -59,7 +59,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             }
             ```
 
-        2. **Pianificazione del backup _settimanale_ basato sul tempo** : questo tipo di pianificazione deve essere usato se è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Settimanale_ , quindi impostare `RunDays` sull'elenco dei giorni della settimana in cui va attivato il backup e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Elenco dei giorni della settimana in cui attivare il backup periodico. L'esempio seguente visualizza una configurazione che attiva il backup giornaliero alle _9:00_ e alle _18.00_ ogni giorno da lunedì a venerdì.
+        2. **Pianificazione del backup _settimanale_ basato sul tempo**: questo tipo di pianificazione deve essere usato se è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Settimanale_, quindi impostare `RunDays` sull'elenco dei giorni della settimana in cui va attivato il backup e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Elenco dei giorni della settimana in cui attivare il backup periodico. L'esempio seguente visualizza una configurazione che attiva il backup giornaliero alle _9:00_ e alle _18.00_ ogni giorno da lunedì a venerdì.
 
             ```json
             {
@@ -79,7 +79,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             }
             ```
 
-* **Archivio backup** : specifica il percorso in cui caricare i backup. La destinazione di archiviazione può essere l'archivio BLOB di Azure o una condivisione di file.
+* **Archivio backup**: specifica il percorso in cui caricare i backup. La destinazione di archiviazione può essere l'archivio BLOB di Azure o una condivisione di file.
     1. **Azure blob store** (Archivio BLOB di Azure): questo tipo di archiviazione va selezionato quando è necessario archiviare in Azure i backup generati. Questo tipo di archiviazione può essere usato sia dai cluster _autonomi_ che da quelli _basati su Azure_. La descrizione di questo tipo di archiviazione richiede la stringa di connessione e il nome del contenitore in cui devono essere caricati i backup. Se il contenitore con il nome specificato non è disponibile, viene creato durante il caricamento di un backup.
 
         ```json
@@ -95,8 +95,8 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         > Il servizio Backup Restore non funziona con archiviazione di Azure V1
         >
 
-    2. **Condivisione file** : questo tipo di archiviazione deve essere selezionato per i cluster _autonomi_ quando è necessario archiviare il backup dei dati in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
-        1. _Autenticazione di Windows integrata_ : l'accesso alla condivisione di file è consentito a tutti i computer appartenenti al cluster Service Fabric. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
+    2. **Condivisione file**: questo tipo di archiviazione deve essere selezionato per i cluster _autonomi_ quando è necessario archiviare il backup dei dati in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
+        1. _Autenticazione di Windows integrata_: l'accesso alla condivisione di file è consentito a tutti i computer appartenenti al cluster Service Fabric. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
 
             ```json
             {
@@ -124,8 +124,8 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
 > Verificare che l'affidabilità di archiviazione soddisfi o superi i requisiti di affidabilità dei dati di backup.
 >
 
-* **Criteri di conservazione** : specifica i criteri per conservare i backup nell'archiviazione configurata. Sono supportati solo i criteri di conservazione di base.
-    1. **Criteri di conservazione di base** : questi criteri di conservazione consentono di garantire un utilizzo ottimale dello spazio di archiviazione rimuovendo i file di backup che non sono più necessari. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
+* **Criteri di conservazione**: specifica i criteri per conservare i backup nell'archiviazione configurata. Sono supportati solo i criteri di conservazione di base.
+    1. **Criteri di conservazione di base**: questi criteri di conservazione consentono di garantire un utilizzo ottimale dello spazio di archiviazione rimuovendo i file di backup che non sono più necessari. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
 
         ```json
         {
@@ -136,28 +136,28 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         ```
 
 ## <a name="enable-periodic-backup"></a>Abilitare il backup periodico
-Dopo aver definito i criteri di backup in modo da soddisfare i requisiti per il backup dei dati, è necessario associare i criteri di backup a un' _applicazione_ , a un _servizio_ o a una _partizione_.
+Dopo aver definito i criteri di backup in modo da soddisfare i requisiti per il backup dei dati, è necessario associare i criteri di backup a un'_applicazione_, a un _servizio_ o a una _partizione_.
 
 > [!NOTE]
 > Verificare che non siano in corso aggiornamenti dell'applicazione prima di abilitare il backup
 >
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagazione gerarchica dei criteri di backup
-In Service Fabric la relazione tra applicazione, servizio e partizioni è gerarchica, come illustrato in [Modello applicativo](./service-fabric-application-model.md). Il criterio di backup può essere associato a un' _applicazione_ , un _servizio_ o una _partizione_ nella gerarchia. Il criterio si propaga gerarchicamente al livello successivo. Se ad esempio è presente un solo criterio di backup associato a un' _applicazione_ , tutte le partizioni con stato appartenenti a tutti i _servizi Reliable con stato_ e i _Reliable Actors_ dell' _applicazione_ vengono sottoposte a backup usando il criterio di backup. Se invece il criterio di backup è associato a un _servizio Reliable con stato_ , tutte le partizioni del servizio vengono sottoposte a backup usando il criterio di backup.
+In Service Fabric la relazione tra applicazione, servizio e partizioni è gerarchica, come illustrato in [Modello applicativo](./service-fabric-application-model.md). Il criterio di backup può essere associato a un'_applicazione_, un _servizio_ o una _partizione_ nella gerarchia. Il criterio si propaga gerarchicamente al livello successivo. Se ad esempio è presente un solo criterio di backup associato a un'_applicazione_, tutte le partizioni con stato appartenenti a tutti i _servizi Reliable con stato_ e i _Reliable Actors_ dell'_applicazione_ vengono sottoposte a backup usando il criterio di backup. Se invece il criterio di backup è associato a un _servizio Reliable con stato_, tutte le partizioni del servizio vengono sottoposte a backup usando il criterio di backup.
 
 ### <a name="overriding-backup-policy"></a>Override dei criteri di backup
-In un determinato scenario è possibile che il backup dei dati con la stessa pianificazione sia idoneo per tutti i servizi dell'applicazione ad eccezione di servizi specifici, che richiedono ad esempio una pianificazione più frequente o un backup in un account di archiviazione o una condivisione di file diversa. Per la risoluzione di queste situazioni, il servizio di ripristino del backup dispone di un'opzione per eseguire l'override del criterio propagato a livello del servizio e della partizione. Quando il criterio di backup è associato a un _servizio_ o una _partizione_ , esegue l'override del criterio di backup propagato, se presente.
+In un determinato scenario è possibile che il backup dei dati con la stessa pianificazione sia idoneo per tutti i servizi dell'applicazione ad eccezione di servizi specifici, che richiedono ad esempio una pianificazione più frequente o un backup in un account di archiviazione o una condivisione di file diversa. Per la risoluzione di queste situazioni, il servizio di ripristino del backup dispone di un'opzione per eseguire l'override del criterio propagato a livello del servizio e della partizione. Quando il criterio di backup è associato a un _servizio_ o una _partizione_, esegue l'override del criterio di backup propagato, se presente.
 
 ### <a name="example"></a>Esempio
 
-Questo esempio usa una configurazione con due applicazioni, _MyApp_A_ e _MyApp_B_. L'applicazione _MyApp_A_ contiene due servizi Reliable con stato, _SvcA1_ & _SvcA3_ e un servizio Reliable Actor, _ActorA2_. _SvcA1_ contiene tre partizioni, mentre _ActorA2_ e _SvcA3_ contengono due partizioni ciascuno.  L'applicazione _MyApp_B_ contiene tre servizi Reliable con stato: _SvcB1_ , _SvcB2_ e _SvcB3_. _SvcB1_ e _SvcB2_ contengono due partizioni ciascuno, mentre _SvcB3_ contiene tre partizioni.
+Questo esempio usa una configurazione con due applicazioni, _MyApp_A_ e _MyApp_B_. L'applicazione _MyApp_A_ contiene due servizi Reliable con stato, _SvcA1_ & _SvcA3_ e un servizio Reliable Actor, _ActorA2_. _SvcA1_ contiene tre partizioni, mentre _ActorA2_ e _SvcA3_ contengono due partizioni ciascuno.  L'applicazione _MyApp_B_ contiene tre servizi Reliable con stato: _SvcB1_, _SvcB2_ e _SvcB3_. _SvcB1_ e _SvcB2_ contengono due partizioni ciascuno, mentre _SvcB3_ contiene tre partizioni.
 
 Si supponga che i requisiti di backup dei dati di queste applicazioni siano i seguenti
 
 1. MyApp_A
     1. Creare un backup giornaliero dei dati per tutte le partizioni di tutti i _servizi Reliable con stato_ e i _Reliable Actors_ appartenenti all'applicazione. Caricare i dati di backup nella posizione _BackupStore1_.
 
-    2. Uno dei servizi, _SvcA3_ , richiede il backup dei dati ogni ora.
+    2. Uno dei servizi, _SvcA3_, richiede il backup dei dati ogni ora.
 
     3. Il volume dei dati nella partizione _SvcA1_P2_ è superiore a quello previsto e i dati di backup corrispondenti devono essere archiviati in un'altra posizione di archiviazione, _BackupStore2_.
 
@@ -170,7 +170,7 @@ Per soddisfare questi requisiti di backup dei dati, vengono creati i criteri di 
 1. MyApp_A
     1. Creare un criterio di backup _BP_1_ con pianificazione del backup basata sulla frequenza (in cui la frequenza è impostata su 24 ore) e archiviazione del backup configurata per l'uso del percorso di archiviazione _BackupStore1_. Abilitare questo criterio per l'applicazione _MyApp_A_ usando l'API [Enable Application Backup](/rest/api/servicefabric/sfclient-api-enableapplicationbackup). Questa azione abilita il backup dei dati usando il criterio di backup _BP_1_ per tutte le partizioni di _servizi Reliable con stato_ e _Reliable Actors_ appartenenti all'applicazione _MyApp_A_.
 
-    2. Creare un criterio di backup _BP_2_ con pianificazione del backup basata sulla frequenza (in cui la frequenza è impostata su 1 ora) e archiviazione del backup configurata per l'uso del percorso di archiviazione _BackupStore1_. Abilitare questo criterio per il servizio _SvcA3_ usando l'API [Enable Service Backup](/rest/api/servicefabric/sfclient-api-enableservicebackup). Questa azione esegue l'override del criterio propagato _BP_1_ abilitando esplicitamente il criterio di backup _BP_2_ per tutte le partizioni del servizio _SvcA3_ : per queste partizioni viene usato il criterio di backup _BP_2_.
+    2. Creare un criterio di backup _BP_2_ con pianificazione del backup basata sulla frequenza (in cui la frequenza è impostata su 1 ora) e archiviazione del backup configurata per l'uso del percorso di archiviazione _BackupStore1_. Abilitare questo criterio per il servizio _SvcA3_ usando l'API [Enable Service Backup](/rest/api/servicefabric/sfclient-api-enableservicebackup). Questa azione esegue l'override del criterio propagato _BP_1_ abilitando esplicitamente il criterio di backup _BP_2_ per tutte le partizioni del servizio _SvcA3_: per queste partizioni viene usato il criterio di backup _BP_2_.
 
     3. Creare un criterio di backup _BP_3_ con pianificazione del backup basata sulla frequenza (in cui la frequenza è impostata su 24 ore) e archiviazione del backup configurata per l'uso del percorso di archiviazione _BackupStore2_. Abilitare questo criterio per la partizione _SvcA1_P2_ usando l'API [Enable Partition Backup](/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Questa azione esegue l'override del criterio propagato _BP_1_ e abilita in modo esplicito il criterio di backup _BP_3_ per la partizione _SvcA1_P2_.
 
@@ -184,9 +184,9 @@ Il diagramma seguente visualizza i criteri di backup abilitati in modo esplicito
 ![Gerarchia dell'applicazione in Service Fabric][0]
 
 ## <a name="disable-backup"></a>Disabilitare il backup
-È possibile disabilitare i criteri di backup quando non è necessario eseguire il backup dei dati. Un criterio di backup abilitato per un' _applicazione_ può essere disabilitato solo nella stessa _applicazione_ usando l'API [Disable Application Backup](/rest/api/servicefabric/sfclient-api-disableapplicationbackup); un criterio di backup abilitato per un _servizio_ può essere disabilitato nello stesso _servizio_ usando l'API [Disable Service Backup](/rest/api/servicefabric/sfclient-api-disableservicebackup); un criterio di backup abilitato per una _partizione_ può essere disabilitato nella stessa _partizione_ usando l'API [Disable Partition Backup](/rest/api/servicefabric/sfclient-api-disablepartitionbackup).
+È possibile disabilitare i criteri di backup quando non è necessario eseguire il backup dei dati. Un criterio di backup abilitato per un'_applicazione_ può essere disabilitato solo nella stessa _applicazione_ usando l'API [Disable Application Backup](/rest/api/servicefabric/sfclient-api-disableapplicationbackup); un criterio di backup abilitato per un _servizio_ può essere disabilitato nello stesso _servizio_ usando l'API [Disable Service Backup](/rest/api/servicefabric/sfclient-api-disableservicebackup); un criterio di backup abilitato per una _partizione_ può essere disabilitato nella stessa _partizione_ usando l'API [Disable Partition Backup](/rest/api/servicefabric/sfclient-api-disablepartitionbackup).
 
-* La disabilitazione di un criterio di backup per un' _applicazione_ arresta tutti i backup dei dati periodici che si verificano in seguito alla propagazione del criterio di backup alle partizioni del servizio Reliable con stato o alle partizioni Reliable Actor.
+* La disabilitazione di un criterio di backup per un'_applicazione_ arresta tutti i backup dei dati periodici che si verificano in seguito alla propagazione del criterio di backup alle partizioni del servizio Reliable con stato o alle partizioni Reliable Actor.
 
 * La disabilitazione di un criterio di backup per un _servizio_ arresta tutti i backup dei dati periodici che si verificano in seguito alla propagazione del criterio di backup alle partizioni del _servizio_.
 
@@ -203,21 +203,21 @@ Il diagramma seguente visualizza i criteri di backup abilitati in modo esplicito
 >
 
 ## <a name="suspend--resume-backup"></a>Sospendere e riprendere il backup
-In determinati casi può risultare necessario sospendere temporaneamente il backup periodico dei dati. In tali situazioni, a seconda delle esigenze, è possibile usare l'API di sospensione del backup a livello di _applicazione_ , _servizio_ o _partizione_. La sospensione del backup periodico è transitiva per il sottoalbero della gerarchia dell'applicazione dal punto in cui viene applicata. 
+In determinati casi può risultare necessario sospendere temporaneamente il backup periodico dei dati. In tali situazioni, a seconda delle esigenze, è possibile usare l'API di sospensione del backup a livello di _applicazione_, _servizio_ o _partizione_. La sospensione del backup periodico è transitiva per il sottoalbero della gerarchia dell'applicazione dal punto in cui viene applicata. 
 
-* Se la sospensione viene implementata in un' _applicazione_ usando l'API [Suspend Application Backup](/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), il backup periodico dei dati viene sospeso per tutti i servizi e le partizioni sotto tale applicazione.
+* Se la sospensione viene implementata in un'_applicazione_ usando l'API [Suspend Application Backup](/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), il backup periodico dei dati viene sospeso per tutti i servizi e le partizioni sotto tale applicazione.
 
 * Se la sospensione viene implementata in un _servizio_ usando l'API [Suspend Service Backup](/rest/api/servicefabric/sfclient-api-suspendservicebackup), il backup periodico dei dati viene sospeso per tutte le partizioni sotto tale servizio.
 
 * Se la sospensione viene implementata in una _partizione_ usando l'API [Suspend Partition Backup](/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), il backup periodico dei dati viene sospeso per tutti i dati inclusi in tale partizione.
 
-Quando la sospensione non è più necessaria è possibile ripristinare il backup periodico dei dati usando le rispettive API di ripresa del backup. Il backup periodico deve essere ripresto nella stessa _applicazione_ , _servizio_ o _partizione_ in cui è stato sospeso.
+Quando la sospensione non è più necessaria è possibile ripristinare il backup periodico dei dati usando le rispettive API di ripresa del backup. Il backup periodico deve essere ripresto nella stessa _applicazione_, _servizio_ o _partizione_ in cui è stato sospeso.
 
-* Se la sospensione è stata applicata in un' _applicazione_ , il backup deve essere ripreso usando l'API [Resume Application Backup](/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
+* Se la sospensione è stata applicata in un'_applicazione_, il backup deve essere ripreso usando l'API [Resume Application Backup](/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
 
-* Se la sospensione è stata applicata in un _servizio_ , il backup deve essere ripreso usando l'API [Resume Service Backup](/rest/api/servicefabric/sfclient-api-resumeservicebackup).
+* Se la sospensione è stata applicata in un _servizio_, il backup deve essere ripreso usando l'API [Resume Service Backup](/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
-* Se la sospensione è stata applicata in una _partizione_ , il backup deve essere ripreso usando l'API [Resume Partition Backup](/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+* Se la sospensione è stata applicata in una _partizione_, il backup deve essere ripreso usando l'API [Resume Partition Backup](/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Differenza tra sospensione e disabilitazione dei backup
 È opportuno usare la funzionalità di disabilitazione dei backup quando i backup non sono più necessari per un'applicazione, un servizio o una partizione specifica. È possibile anche richiamare una richiesta di disabilitazione dei backup insieme al parametro di pulizia dei backup per essere certi che vengano eliminati anche tutti i backup esistenti. È opportuno invece usare la funzionalità di sospensione nei casi in cui si intende disattivare temporaneamente i backup, ad esempio quando il disco locale è pieno o il caricamento di una copia di backup non riesce a causa di un problema di rete e così via. 
@@ -234,7 +234,7 @@ Quando Service Fabric rileva che nella partizione si verifica la perdita di dati
 >
 
 ## <a name="get-backup-configuration"></a>Ottenere la configurazione del backup
-API diverse consentono di ottenere informazioni di configurazione del backup a livello di _applicazione_ , _servizio_ e _partizione_. Le API sono rispettivamente [Get Application Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Get Partition Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo). In generale queste API restituiscono il criterio di backup applicabile, l'ambito di applicazione del criterio e i dettagli della sospensione del backup. Segue una breve descrizione dei risultati restituiti da queste API.
+API diverse consentono di ottenere informazioni di configurazione del backup a livello di _applicazione_, _servizio_ e _partizione_. Le API sono rispettivamente [Get Application Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Get Partition Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo). In generale queste API restituiscono il criterio di backup applicabile, l'ambito di applicazione del criterio e i dettagli della sospensione del backup. Segue una breve descrizione dei risultati restituiti da queste API.
 
 - Get Application Backup Configuration Info: specifica i dettagli del criterio di backup applicato all'applicazione e di tutti i criteri sottoposti a override nei servizi e nelle partizioni appartenenti all'applicazione. Include anche informazioni di sospensione per l'applicazione e i servizi e le partizioni corrispondenti.
 

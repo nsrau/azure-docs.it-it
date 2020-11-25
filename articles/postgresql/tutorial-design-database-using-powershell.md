@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333016"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018087"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Esercitazione: Progettare un database di Azure per PostgreSQL - Server singolo usando PowerShell
 
@@ -142,7 +142,7 @@ Se nel computer client è installato PostgreSQL, è possibile usare un'istanza l
    CREATE DATABASE mypgsqldb;
    ```
 
-1. Nel prompt, eseguire il comando seguente per cambiare la connessione nel database appena creato **mypgsqldb** :
+1. Nel prompt, eseguire il comando seguente per cambiare la connessione nel database appena creato **mypgsqldb**:
 
    ```sql
    \c mypgsqldb

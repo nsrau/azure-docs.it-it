@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095952"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018249"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Ridimensionare automaticamente un'istanza di Gestione API di Azure  
 
@@ -52,7 +52,7 @@ Alcune limitazioni e conseguenze di decisioni di scalabilità devono essere pres
 
 Attenersi alla procedura seguente per configurare la scalabilità automatica per un servizio Gestione API di Azure:
 
-1. Nel portale di Azure, passare all'istanza di **Monitoraggio** .
+1. Nel portale di Azure, passare all'istanza di **Monitoraggio**.
 
     ![Monitoraggio di Azure](media/api-management-howto-autoscale/01.png)
 
@@ -62,11 +62,11 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
 3. Individuare il servizio Gestione API di Azure avvalendosi dei filtri nei menu a discesa.
 4. Selezionare l'istanza del servizio Gestione API di Azure desiderata.
-5. Nella sezione appena aperta, fare clic sul pulsante **Abilita scalabilità automatica** .
+5. Nella sezione appena aperta, fare clic sul pulsante **Abilita scalabilità automatica**.
 
     ![Abilitare la scalabilità automatica di Monitoraggio di Azure](media/api-management-howto-autoscale/03.png)
 
-6. Nella sezione **Regole** , fare clic su **+ Aggiungi una regola** .
+6. Nella sezione **Regole**, fare clic su **+ Aggiungi una regola**.
 
     ![Aggiungere una regola di scalabilità automatica di Monitoraggio di Azure](media/api-management-howto-autoscale/04.png)
 
@@ -93,7 +93,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     ![Regola di scalabilità orizzontale di Monitoraggio di Azure](media/api-management-howto-autoscale/05.png)
 
-9. Fare clic nuovamente su **+ Aggiungi una regola** .
+9. Fare clic nuovamente su **+ Aggiungi una regola**.
 
     Questa volta dovrà essere definita una regola di riduzione. Ciò garantisce che le risorse non vengano sprecate quando diminuisce l'utilizzo delle API.
 
@@ -127,7 +127,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     ![Screenshot che evidenzia dove impostare il numero massimo di unità di gestione API di Azure.](media/api-management-howto-autoscale/07.png)
 
-13. Fare clic su **Salva** . La scalabilità automatica è stata configurata.
+13. Fare clic su **Salva**. La scalabilità automatica è stata configurata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

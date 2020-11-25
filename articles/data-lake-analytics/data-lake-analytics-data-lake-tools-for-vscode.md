@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221248"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019056"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usare gli Strumenti Azure Data Lake per Visual Studio Code
 
@@ -20,7 +20,7 @@ In questo articolo si apprenderà come usare gli Strumenti Azure Data Lake per V
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Gli strumenti Azure Data Lake per VS Code supportano Windows, Linux e MacOS.L'esecuzione e il debug locali di U-SQL funzionano solo in Windows.
+Gli strumenti Azure Data Lake per VS Code supportano Windows, Linux e MacOS. L'esecuzione e il debug locali di U-SQL funzionano solo in Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -65,18 +65,18 @@ Usare il riquadro comandi (CTRL+MAIUSC+P) e immettere **ADL: Open Sample Script*
 4. Immettere il codice seguente nel file Untitled-1:
 
    ```usql
-   @departments  =
-       SELECT * FROM
-           (VALUES
-               (31,    "Sales"),
-               (33,    "Engineering"),
-               (34,    "Clerical"),
-               (35,    "Marketing")
-           ) AS
-                 D( DepID, DepName );
+   @departments  =
+       SELECT * FROM
+           (VALUES
+               (31,    "Sales"),
+               (33,    "Engineering"),
+               (34,    "Clerical"),
+               (35,    "Marketing")
+           ) AS
+                 D( DepID, DepName );
    ```
 
-   OUTPUT @departments      in "/output/departments.csv" utilizzando Outputters.Csv ();
+   OUTPUT @departments     in "/Output/departments.csv" utilizzando Outputters.Csv ();
 
     Lo script crea un file departments.csv con alcuni dati inclusi nella cartella /output.
 

@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219684"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018988"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Eseguire script U-SQL nel computer locale
 
@@ -72,7 +72,7 @@ Un progetto U-SQL gestisce l'ambiente di esecuzione locale isolato mediante una 
 
 Un progetto U-SQL crea una cartella radice dei dati locale e configura i dati per un account **Local-project**. Una cartella radice dei dati temporanea viene pulita e ricreata nella directory di lavoro del progetto U-SQL a ogni nuova compilazione ed esecuzione locale. Tutte le origini dati configurate dal progetto U-SQL vengono copiate in questa cartella radice dei dati locale temporanea prima delle esecuzioni dei processi locali. 
 
-È possibile configurare la cartella radice delle origini dati. Fare clic con **U-SQL project**il pulsante destro del mouse su  >  **Property**  >  **origine dati di test**Proprietà progetto U-SQL. Quando si esegue uno script U-SQL in un account **Local-project**, tutti i file e le sottocartelle nella cartella **Verifica origine dati** vengono copiati nella cartella radice dei dati locale temporanea. Sono inclusi i file nelle sottocartelle. Al termine delle esecuzioni dei processi locali, i risultati di output sono disponibili anche nella cartella radice dei dati locale temporanea nella directory di lavoro del progetto. Tutto l'output viene eliminato e pulito a ogni nuova compilazione e pulizia del progetto. 
+È possibile configurare la cartella radice delle origini dati. Fare clic con **U-SQL project** il pulsante destro del mouse su  >  **Property**  >  **origine dati di test** Proprietà progetto U-SQL. Quando si esegue uno script U-SQL in un account **Local-project**, tutti i file e le sottocartelle nella cartella **Verifica origine dati** vengono copiati nella cartella radice dei dati locale temporanea. Sono inclusi i file nelle sottocartelle. Al termine delle esecuzioni dei processi locali, i risultati di output sono disponibili anche nella cartella radice dei dati locale temporanea nella directory di lavoro del progetto. Tutto l'output viene eliminato e pulito a ogni nuova compilazione e pulizia del progetto. 
 
 ![Configurare l'origine dati di test di un progetto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 

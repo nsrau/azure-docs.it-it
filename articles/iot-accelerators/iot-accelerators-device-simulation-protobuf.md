@@ -10,11 +10,11 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075961"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018529"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -249,7 +249,7 @@ Per configurare Postman
 
 1. Fare clic su **File \> Importa**. Fare clic su **Scegli file**.
 
-1. Selezionare **Azure le soluzioni \_ per la simulazione dei dispositivi di Azure** e l'acceleratore di soluzione per la **simulazione dei dispositivi di Azure. postazione \_ ** e fare clic su **Apri**.
+1. Selezionare **Azure le soluzioni \_ per la simulazione dei dispositivi di Azure** e l'acceleratore di soluzione per la **simulazione dei dispositivi di Azure. postazione \_** e fare clic su **Apri**.
 
 1. Espandere **Azure IoT Device Simulation solution accelerator** (Acceleratore soluzione di simulazione dispositivi IoT Azure) per visualizzare le richieste che è possibile inviare.
 
@@ -265,7 +265,7 @@ Per configurare ed eseguire la simulazione
 
 Per arrestare la simulazione, selezionare la richiesta **Stop simulation** (Arresta simulazione) in Postman e quindi fare clic su **Send** (Invia).
 
-### <a name="clean-up-resources"></a>Pulire le risorse
+### <a name="clean-up-resources"></a>Pulizia delle risorse
 
 È possibile arrestare i due microservizi in esecuzione in locale nelle istanze di Visual Studio Code (**Debug \> Arresta debug**).
 
