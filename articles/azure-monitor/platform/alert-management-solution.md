@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677566"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997257"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
@@ -20,7 +20,7 @@ ms.locfileid: "92677566"
 La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](./alerts-overview.md) o [importate da Nagios o Zabbix](../learn/quick-collect-linux-computer.md). La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](./om-agents.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso** , pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
+La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
 
 - Per gli avvisi di Log Analytics, [creare regole di avviso](./alerts-overview.md) per creare i record degli avvisi direttamente nel repository.
 - Per gli avvisi di Nagios e Zabbix, [configurare tali server](../learn/quick-collect-linux-computer.md) per inviare avvisi a Log Analytics.
@@ -63,7 +63,7 @@ Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboa
 | Critical Alerts |Tutti gli avvisi con un livello di gravità Critico raggruppati per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
 | Warning Alerts |Tutti gli avvisi con una gravità Avviso per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
 | Avvisi attivi System Center Operations Manager |Tutti gli avvisi raccolti da Operations Manager con uno stato diverso da *Chiuso* raggruppati per origine che ha generato l'avviso. |
-| All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso* . |
+| All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso*. |
 
 Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](../log-query/log-query-overview.md) per dati di avviso:
 
@@ -71,9 +71,9 @@ Se si scorre verso destra, il dashboard elenca diverse query comuni che è possi
 
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-La soluzione Alert Management consente di analizzare qualsiasi record con un tipo di **Avviso** .  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
+La soluzione Alert Management consente di analizzare qualsiasi record con un tipo di **Avviso**.  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
 
-La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager** .  Questi record includono le proprietà elencate nella tabella seguente:  
+La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager**.  Questi record includono le proprietà elencate nella tabella seguente:  
 
 | Proprietà | Descrizione |
 |:--- |:--- |

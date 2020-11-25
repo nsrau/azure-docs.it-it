@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 3c26a84e32a17cba83b5ca895f146e561072fa62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054960"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998193"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usare StorSimple Snapshot Manager per visualizzare e gestire i processi di backup
 
@@ -50,7 +50,7 @@ Utilizzare la procedura seguente per visualizzare i processi di backup e riprist
 
 #### <a name="to-view-recent-jobs"></a>Per visualizzare i processi recenti
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **Ultime 24 ore**. Il riquadro **Risultati** mostra i processi di backup completati nelle ultime 24 ore (fino a un massimo di 64 processi). Le informazioni seguenti vengono visualizzate nel riquadro **Risultati**, a seconda delle opzioni di visualizzazione specificate:****
+2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **Ultime 24 ore**. Il riquadro **Risultati** mostra i processi di backup completati nelle ultime 24 ore (fino a un massimo di 64 processi). Le informazioni seguenti vengono visualizzate nel riquadro **Risultati**, a seconda delle opzioni di visualizzazione specificate:
    
    * **Nome**: nome dello snapshot pianificato.
    * **Avvio**: data e ora di inizio dello snapshot.
@@ -70,7 +70,7 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
 #### <a name="to-view-currently-running-jobs"></a>Per visualizzare i processi attualmente in esecuzione
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. A seconda delle opzioni di visualizzazione specificate,**** nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
+2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. A seconda delle opzioni di visualizzazione specificate, nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
    
    * **Nome**: nome dello snapshot pianificato.
    * **Avvio**: data e ora di inizio dello snapshot.

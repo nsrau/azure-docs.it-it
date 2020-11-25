@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
-ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edc2ad0f895b8a1bb6448ce1cdf79b1b2ce83951
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80879209"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95997197"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuire il contenitore Language Understanding (LUIS) in istanze di contenitore di Azure
 
-Informazioni su come distribuire il contenitore [Luis](luis-container-howto.md) di servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa del rilevatore di anomalie. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore [Luis](luis-container-howto.md) di servizi cognitivi in [istanze di contenitore](../../container-instances/index.yml)di Azure. Questa procedura illustra la creazione di una risorsa del rilevatore di anomalie. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 

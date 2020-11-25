@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327902"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997563"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure AD proxy di applicazione
 
@@ -47,14 +47,14 @@ Queste tre caratteristiche mantengono i collegamenti funzionanti indipendentemen
 > [!NOTE]
 > L'ultima opzione è riservata ai tenant che, per qualsiasi motivo, non possono usare i domini personalizzati per avere gli stessi URL interni ed esterni per le app. Prima di abilitare questa funzionalità, verificare se i [domini personalizzati nel proxy di applicazione di Azure AD](application-proxy-configure-custom-domain.md) possono fare al caso. 
 > 
-> Oppure, se l'applicazione che deve essere configurata con la traslazione del collegamento è SharePoint, vedere [Configurare i mapping di accesso alternativo per SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) per un altro approccio ai collegamenti di mapping. 
+> Oppure, se l'applicazione che deve essere configurata con la traslazione del collegamento è SharePoint, vedere [Configurare i mapping di accesso alternativo per SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) per un altro approccio ai collegamenti di mapping. 
 
  
 ### <a name="option-1-microsoft-edge-integration"></a>Opzione 1: integrazione di Microsoft Edge 
 
 È possibile usare Microsoft Edge per proteggere ulteriormente l'applicazione e il contenuto. Per usare questa soluzione, è necessario richiedere o consigliare agli utenti di accedere all'applicazione tramite Microsoft Edge. Tutti gli URL interni pubblicati con il proxy di applicazione verranno riconosciuti da Edge e reindirizzati all'URL esterno corrispondente. Ciò garantisce il funzionamento di tutti gli URL interni a livello di codice e, se un utente va al browser e digita direttamente l'URL interno, funziona anche se l'utente è in remoto.  
 
-Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione relativa alla [gestione dell'accesso Web tramite Edge per iOS e Android con Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) .  
+Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione relativa alla [gestione dell'accesso Web tramite Edge per iOS e Android con Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) .  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opzione 2: Estensione MyApps del browser 
 
@@ -62,7 +62,7 @@ Con l'estensione MyApps del browser, tutti gli URL interni pubblicati con Applic
 
 Per usare questa funzionalità, l'utente deve scaricare l'estensione e avere effettuato l'accesso. Non è necessaria nessun'altra configurazione per gli amministratori o gli utenti. 
 
-Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione dell' [estensione del browser app](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
+Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione dell' [estensione del browser app](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
 
 ### <a name="option-3-link-translation-setting"></a>Opzione 3: Impostazione di conversione dei collegamenti 
 
@@ -152,4 +152,4 @@ Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità ope
 ## <a name="next-steps"></a>Passaggi successivi
 [Usare i domini personalizzati con il proxy di applicazione Azure AD](application-proxy-configure-custom-domain.md) per avere gli stessi URL interni ed esterni
 
-[Configurare i mapping di accesso alternativo per for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurare i mapping di accesso alternativo per for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

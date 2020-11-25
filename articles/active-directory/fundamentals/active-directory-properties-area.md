@@ -14,11 +14,11 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321974"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996756"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Aggiungere le informazioni sulla privacy dell'organizzazione tramite Azure Active Directory
 Questo articolo illustra in che modo un amministratore tenant può aggiungere informazioni relative alla privacy al tenant Azure Active Directory (Azure AD) di un'organizzazione, tramite il portale di Azure.
@@ -49,7 +49,7 @@ Aggiungere le informazioni sulla privacy dell'organizzazione nella sezione **Pro
     - **URL dell'informativa sulla privacy.** Digitare il collegamento al documento dell'organizzazione che descrive il modo in cui l'organizzazione gestisce la privacy dei dati dei guest interni ed esterni.
 
         >[!Important]
-        >Se non si include la propria informativa sulla privacy o l'informativa sulla privacy, i guest esterni visualizzeranno un testo nella casella **Controlla autorizzazioni** che indica che ** < _il nome dell'organizzazione_> non ha fornito collegamenti alle relative condizioni da rivedere**. Ad esempio, un utente guest visualizza questo messaggio quando riceve un invito per accedere a un'organizzazione tramite la collaborazione B2B.
+        >Se non si include la propria informativa sulla privacy o l'informativa sulla privacy, i guest esterni visualizzeranno un testo nella casella **Controlla autorizzazioni** che indica che **< _il nome dell'organizzazione_> non ha fornito collegamenti alle relative condizioni da rivedere**. Ad esempio, un utente guest visualizza questo messaggio quando riceve un invito per accedere a un'organizzazione tramite la collaborazione B2B.
 
         ![Finestra di dialogo per la verifica delle autorizzazioni di Collaborazione B2B con messaggio](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 

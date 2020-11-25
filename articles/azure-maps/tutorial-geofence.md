@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896801"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997274"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -56,7 +56,7 @@ In questa esercitazione si caricheranno dati GeoJSON di geofencing che contengon
 
     Il parametro `geojson` nel percorso dell'URL rappresenta il formato dei dati caricati.
 
-4. Selezionare la scheda **Corpo** . Selezionare **raw** e quindi **JSON** come formato di input. Copiare e incollare i dati GeoJSON seguenti nell'area di testo **Body** (Corpo):
+4. Selezionare la scheda **Corpo**. Selezionare **raw** e quindi **JSON** come formato di input. Copiare e incollare i dati GeoJSON seguenti nell'area di testo **Body** (Corpo):
 
    ```JSON
    {
@@ -190,43 +190,43 @@ Successivamente creare due endpoint di [app per la logica](../event-grid/handler
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'angolo in alto a sinistra del portale di Azure selezionare **Crea una risorsa** .
+2. Nell'angolo in alto a sinistra del portale di Azure selezionare **Crea una risorsa**.
 
-3. Nella casella **Cerca nel Marketplace** digitare **App per la logica** .
+3. Nella casella **Cerca nel Marketplace** digitare **App per la logica**.
 
-4. Nei risultati selezionare **App per la logica** > **Crea** .
+4. Nei risultati selezionare **App per la logica** > **Crea**.
 
 5. Nella pagina **App per la logica** immettere i valori seguenti:
     * La **sottoscrizione** da usare per l'app per la logica.
-    * Il nome del **gruppo di risorse** per l'app per la logica. Per il gruppo di risorse è possibile selezionare l'opzione **Crea nuovo** o **Usa esistente** .
-    * Il **nome dell'app per la logica** . In questo caso usare `Equipment-Enter` come nome.
+    * Il nome del **gruppo di risorse** per l'app per la logica. Per il gruppo di risorse è possibile selezionare l'opzione **Crea nuovo** o **Usa esistente**.
+    * Il **nome dell'app per la logica**. In questo caso usare `Equipment-Enter` come nome.
 
     Ai fini di questa esercitazione, mantenere le impostazioni predefinite per tutti gli altri valori.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
 
-6. Selezionare **Rivedi e crea** . Rivedere le impostazioni e selezionare **Crea** per inviare la distribuzione. Al termine della distribuzione, selezionare **Vai alla risorsa** . Si aprirà **Progettazione app per la logica** .
+6. Selezionare **Rivedi e crea**. Rivedere le impostazioni e selezionare **Crea** per inviare la distribuzione. Al termine della distribuzione, selezionare **Vai alla risorsa**. Si aprirà **Progettazione app per la logica**.
 
-7. Selezionare un tipo di trigger. Scorrere verso il basso fino alla sezione **Inizia con un trigger comune** . Selezionare **Alla ricezione di una richiesta HTTP** .
+7. Selezionare un tipo di trigger. Scorrere verso il basso fino alla sezione **Inizia con un trigger comune**. Selezionare **Alla ricezione di una richiesta HTTP**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot che mostra come creare un trigger HTTP per l'app per la logica.":::
 
-8. Nell'angolo in alto a destra di Progettazione app per la logica selezionare **Salva** . Viene automaticamente generato l' **URL POST HTTP** . Salvare l'URL. Sarà necessario nella sezione successiva per creare un endpoint di evento.
+8. Nell'angolo in alto a destra di Progettazione app per la logica selezionare **Salva**. Viene automaticamente generato l'**URL POST HTTP**. Salvare l'URL. Sarà necessario nella sezione successiva per creare un endpoint di evento.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot dell'URL della richiesta HTTP e dello schema JSON dell'app per la logica.":::
 
-9. Selezionare **+ Nuovo passaggio** . A questo punto scegliere un'azione. Digitare `outlook.com email` nella casella di ricerca. Nell'elenco **Azioni** scorrere verso il basso e selezionare **Invia un messaggio di posta elettronica (v2)** .
+9. Selezionare **+ Nuovo passaggio**. A questo punto scegliere un'azione. Digitare `outlook.com email` nella casella di ricerca. Nell'elenco **Azioni** scorrere verso il basso e selezionare **Invia un messaggio di posta elettronica (v2)** .
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot della finestra di progettazione per creare un'app per la logica.":::
 
 10. Accedere all'account Outlook. Assicurarsi di selezionare **Sì** per consentire all'app per la logica di accedere all'account. Compilare i campi per l'invio di un messaggio di posta elettronica.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot del passaggio per l'invio di un messaggio di posta elettronica nella creazione di un'app per la logica.":::
 
     >[!TIP]
     > È possibile recuperare i dati della risposta GeoJSON, ad esempio `geometryId` o `deviceId`, nelle notifiche tramite posta elettronica. È possibile configurare App per la logica per leggere i dati inviati da Griglia di eventi. Per informazioni su come configurare App per la logica per l'utilizzo e il passaggio dei dati degli eventi nelle notifiche tramite posta elettronica, vedere [Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando Griglia di eventi e App per la logica](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
-11. Nell'angolo in alto a sinistra di Progettazione app per la logica selezionare **Salva** .
+11. Nell'angolo in alto a sinistra di Progettazione app per la logica selezionare **Salva**.
 
 Per creare una seconda app per la logica che invii notifiche al direttore dei lavori quando un macchinario esce ed entra nel cantiere, ripetere i passaggi 3-11. Assegnare all'app per la logica il nome `Equipment-Exit`.
 
@@ -236,23 +236,23 @@ Mappe di Azure supporta [tre tipi di eventi](../event-grid/event-schema-azure-ma
 
 I passaggi seguenti illustrano come creare una sottoscrizione di eventi di entrata nel recinto virtuale. È possibile creare la sottoscrizione per gli eventi di uscita dal recinto virtuale ripetendo i passaggi allo stesso modo.
 
-1. Passare all'account di Mappe di Azure. Nel dashboard selezionare **Sottoscrizioni** . Selezionare il nome della sottoscrizione e scegliere **Eventi** dal menu Impostazioni.
+1. Passare all'account di Mappe di Azure. Nel dashboard selezionare **Sottoscrizioni**. Selezionare il nome della sottoscrizione e scegliere **Eventi** dal menu Impostazioni.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Screenshot del passaggio agli eventi dell'account di Mappe di Azure.":::
 
 2. Per creare una sottoscrizione per gli eventi, selezionare **+ Sottoscrizione di eventi** nella pagina Eventi.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Screenshot della creazione di una sottoscrizione di eventi di Mappe di Azure.":::
 
 3. Nella pagina **Crea sottoscrizione di eventi** immettere i valori seguenti:
     * In **Nome** specificare un nome per la sottoscrizione di eventi.
-    * In **Schema evento** selezionare *Schema griglia di eventi* .
+    * In **Schema evento** selezionare *Schema griglia di eventi*.
     * Il valore di **Nome dell'argomento del sistema** per questa sottoscrizione di eventi, che in questo caso è `Contoso-Construction`.
-    * Per **Filtra per tipi di evento** , scegliere `Geofence Entered` come tipo di evento.
-    * Per **Tipo di endpoint** , scegliere `Web Hook`.
-    * Per **Endpoint** , copiare l'URL POST HTTP per l'endpoint di entrata dell'app per la logica creato nella sezione precedente. Se si è dimenticato di salvarlo, basta tornare in Progettazione app per la logica e copiarlo dal passaggio relativo al trigger HTTP.
+    * Per **Filtra per tipi di evento**, scegliere `Geofence Entered` come tipo di evento.
+    * Per **Tipo di endpoint**, scegliere `Web Hook`.
+    * Per **Endpoint**, copiare l'URL POST HTTP per l'endpoint di entrata dell'app per la logica creato nella sezione precedente. Se si è dimenticato di salvarlo, basta tornare in Progettazione app per la logica e copiarlo dal passaggio relativo al trigger HTTP.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot dei dettagli della sottoscrizione di eventi di Mappe di Azure.":::
 
 4. Selezionare **Create** (Crea).
 
@@ -264,7 +264,7 @@ Usare l'[API Get Geofence del servizio spaziale](/rest/api/maps/spatial/getgeofe
 
 Ogni macchinario è associato a un valore `deviceId`. In questa esercitazione verrà monitorato un singolo macchinario il cui ID univoco è `device_1`.
 
-Il diagramma seguente mostra le cinque posizioni del macchinario nel tempo, a partire dalla posizione *Start* , che si trova all'esterno dei recinti virtuali. Ai fini di questa esercitazione, la posizione *Start* non è definita, dato che non verranno eseguite query sul dispositivo in tale posizione.
+Il diagramma seguente mostra le cinque posizioni del macchinario nel tempo, a partire dalla posizione *Start*, che si trova all'esterno dei recinti virtuali. Ai fini di questa esercitazione, la posizione *Start* non è definita, dato che non verranno eseguite query sul dispositivo in tale posizione.
 
 Quando si esegue una query sull'[API Get Geofence del sevizio spaziale](/rest/api/maps/spatial/getgeofence) con una posizione del macchinario che indica l'entrata o l'uscita iniziale dal recinto virtuale, Griglia di eventi chiama l'endpoint appropriato dell'app per la logica per inviare una notifica tramite posta elettronica al direttore dei lavori.
 
@@ -274,7 +274,7 @@ Ognuna delle sezioni seguenti crea richieste API Geofencing usando le cinque div
 
 ### <a name="equipment-location-1-47638237-122132483"></a>Posizione 1 del macchinario (47.638237,-122.132483)
 
-1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 1* (Posizione 1). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva** .
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 1* (Posizione 1). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET**  nella scheda del generatore e immettere l'URL seguente. Sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 
@@ -314,7 +314,7 @@ Nella risposta GeoJSON riportata sopra la distanza negativa dal recinto virtuale
 
 ### <a name="location-2-4763800-122132531"></a>Posizione 2 (47.63800,-122.132531)
 
-1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 2* (Posizione 2). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva** .
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 2* (Posizione 2). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET**  nella scheda del generatore e immettere l'URL seguente. Sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 
@@ -354,7 +354,7 @@ Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto vir
 
 ### <a name="location-3-4763810783315048-12213336020708084"></a>Posizione 3 (47.63810783315048,-122.13336020708084)
 
-1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 3* (Posizione 3). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva** .
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 3* (Posizione 3). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET**  nella scheda del generatore e immettere l'URL seguente. Sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 
@@ -397,7 +397,7 @@ Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto vir
 
 ### <a name="location-4-47637988-1221338344"></a>Posizione 4 (47.637988,-122.1338344)
 
-1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 4* (Posizione 4). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva** .
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 4* (Posizione 4). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET**  nella scheda del generatore e immettere l'URL seguente. Sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 
@@ -431,7 +431,7 @@ Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto vir
 
 ### <a name="location-5-4763799--122134505"></a>Posizione 5 (47.63799, -122.134505)
 
-1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 5* (Posizione 5). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva** .
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 5* (Posizione 5). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET**  nella scheda del generatore e immettere l'URL seguente. Sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 

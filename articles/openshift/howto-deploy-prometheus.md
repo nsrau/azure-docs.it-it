@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometeo, Aro, OpenShift, metriche, Red Hat
 ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218613"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996849"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuire un'istanza di Prometeo autonoma in un cluster Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ I file di configurazione Prometheus verranno preparati localmente. Creare una nu
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Accedere al cluster usando lo strumento OC
 
-1. Aprire un Web browser e quindi passare alla console Web del cluster ( https://openshift .* ID casuale*. *Region*. azmosa.io).
+1. Aprire un Web browser e quindi passare alla console Web del cluster ( https://openshift .*ID casuale*. *Region*. azmosa.io).
 2. Accedere con le credenziali di Azure.
 3. Selezionare il nome utente nell'angolo in alto a destra e quindi selezionare **copia login comando**.
 4. Incollare il nome utente nel terminale che verrà usato.
@@ -188,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>Facoltativo: distribuire un'applicazione di esempio
 
-Tutto funziona, ma non sono presenti fonti di metriche. Passare all'URL Prometeo ( https://prom-prometheus-project.apps .* ID casuale*. *Region*. azmosa.io/). È possibile trovarlo usando il comando seguente:
+Tutto funziona, ma non sono presenti fonti di metriche. Passare all'URL Prometeo ( https://prom-prometheus-project.apps .*ID casuale*. *Region*. azmosa.io/). È possibile trovarlo usando il comando seguente:
 
 ```
 oc get route prom -n prometheus-project
@@ -206,7 +206,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Le nuove applicazioni dovrebbero essere visualizzate come destinazioni valide nella pagina Individuazione servizio entro 30 secondi dopo la distribuzione.
 
-Per altri dettagli, selezionare **Status**  >  **destinazioni**di stato.
+Per altri dettagli, selezionare **Status**  >  **destinazioni** di stato.
 
 > [!NOTE]
 > Per ogni destinazione ricavata correttamente, Prometeo aggiunge un punto dati nella metrica in alto. Selezionare **Prometheus** nell'angolo superiore sinistro **, immettere come** espressione, quindi selezionare **Execute (Esegui**).

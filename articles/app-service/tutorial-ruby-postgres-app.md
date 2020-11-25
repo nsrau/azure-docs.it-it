@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997927"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilare un'app Ruby e Postgres nel servizio app di Azure in Linux
 
@@ -125,7 +125,7 @@ In questa sezione verranno creati un database e un server di Database di Azure p
 az extension add --name db-up
 ```
 
-Creare il database Postgres in Azure con il comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), come illustrato nell'esempio seguente. Sostituire *\<postgresql-name>* con un nome *univoco* (l'endpoint server è *https://\<postgresql-name>.postgres.database.azure.com* ). Per *\<admin-username>* e *\<admin-password>* specificare le credenziali per creare un utente amministratore per questo server Postgres.
+Creare il database Postgres in Azure con il comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), come illustrato nell'esempio seguente. Sostituire *\<postgresql-name>* con un nome *univoco* (l'endpoint server è *https://\<postgresql-name>.postgres.database.azure.com*). Per *\<admin-username>* e *\<admin-password>* specificare le credenziali per creare un utente amministratore per questo server Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -157,7 +157,7 @@ In questo passaggio si connette l'applicazione Ruby on Rails al database Postgre
 
 ### <a name="configure-the-database-connection"></a>Configurare la connessione al database
 
-Nel repository aprire _config/database.yml_ . Alla fine del file sostituire le variabili dell'ambiente di produzione con il codice seguente. 
+Nel repository aprire _config/database.yml_. Alla fine del file sostituire le variabili dell'ambiente di produzione con il codice seguente. 
 
 ```txt
 production:
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Passare a `http://<app-name>.azurewebsites.net` e aggiungere alcune attività all'elenco.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Screenshot di un esempio di app Ruby on Rails denominato Attività.":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Screenshot dell'esempio di app Azure denominato Attività che mostra le attività aggiunte all'elenco.":::
 
 L'app Ruby on Rails basata sui dati è ora in esecuzione nel servizio app di Azure.
 
@@ -336,7 +336,7 @@ Generare una nuova migrazione che aggiunge una colonna booleana denominata `Done
 rails generate migration AddDoneToTasks Done:boolean
 ```
 
-Questo comando genera nuovo file di migrazione nella directory _db/migrate_ .
+Questo comando genera nuovo file di migrazione nella directory _db/migrate_.
 
 
 Nel terminale eseguire le migrazioni del database Rails per apportare la modifica nel database locale.
@@ -347,7 +347,7 @@ rake db:migrate
 
 ### <a name="update-application-logic"></a>Aggiornare la logica dell'applicazione
 
-Aprire il file *app/controllers/tasks_controller.rb* . Alla fine del file trovare la riga seguente:
+Aprire il file *app/controllers/tasks_controller.rb*. Alla fine del file trovare la riga seguente:
 
 ```rb
 params.require(:task).permit(:Description)
@@ -361,7 +361,7 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Aggiornare le visualizzazioni
 
-Aprire il file *app/views/tasks/_form.html.erb* , che è il modulo di modifica.
+Aprire il file *app/views/tasks/_form.html.erb*, che è il modulo di modifica.
 
 Trovare la riga `<%=f.error_span(:Description) %>` e inserire il codice seguente direttamente sotto di essa:
 
@@ -372,7 +372,7 @@ Trovare la riga `<%=f.error_span(:Description) %>` e inserire il codice seguente
 </div>
 ```
 
-Aprire il file *app/views/tasks/show.html.erb* , che è la pagina della visualizzazione a record singolo. 
+Aprire il file *app/views/tasks/show.html.erb*, che è la pagina della visualizzazione a record singolo. 
 
 Trovare la riga `<dd><%= @task.Description %></dd>` e inserire il codice seguente direttamente sotto di essa:
 
@@ -381,7 +381,7 @@ Trovare la riga `<dd><%= @task.Description %></dd>` e inserire il codice seguent
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Aprire il file *app/views/tasks/index.html.erb* , che è la pagina di indice per tutti i record.
+Aprire il file *app/views/tasks/index.html.erb*, che è la pagina di indice per tutti i record.
 
 Trovare la riga `<th><%= model_class.human_attribute_name(:Description) %></th>` e inserire il codice seguente direttamente sotto di essa:
 

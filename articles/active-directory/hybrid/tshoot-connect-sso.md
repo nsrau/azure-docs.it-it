@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294819"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997682"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -35,7 +35,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 - L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
 - Se un utente fa parte di troppi gruppi in Active Directory, il ticket Kerberos dell'utente sarà probabilmente troppo grande per l'elaborazione e ciò causerà l'esito negativo dell'accesso Single Sign-On facile. Le richieste HTTPS di Azure AD possono avere intestazioni con una dimensione massima di 50 KB. I ticket Kerberos devono essere più piccoli rispetto a tale dimensione per contenere altri elementi di Azure AD (in genere, 2 - 5 KB), come i cookie. Si consiglia di ridurre le appartenenze a gruppi dell'utente e riprovare.
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-the-feature) la funzionalità nel tenant in uso.
-- L'aggiunta dell'URL del servizio Azure AD ( `https://autologon.microsoftazuread-sso.com` ) all'area siti attendibili anziché all'area Intranet locale *impedisce agli utenti*di effettuare l'accesso.
+- L'aggiunta dell'URL del servizio Azure AD ( `https://autologon.microsoftazuread-sso.com` ) all'area siti attendibili anziché all'area Intranet locale *impedisce agli utenti* di effettuare l'accesso.
 - Seamless SSO supporta i tipi di crittografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 per Kerberos. Si consiglia di impostare il tipo di crittografia per l'account AzureADSSOAcc $ su AES256_HMAC_SHA1 o uno dei tipi AES rispetto a RC4 per una maggiore sicurezza. Il tipo di crittografia viene archiviato nell'attributo msDS-SupportedEncryptionTypes dell'account nel Active Directory.  Se il tipo di crittografia dell'account AzureADSSOAcc $ è impostato su RC4_HMAC_MD5 e si desidera modificarlo in uno dei tipi di crittografia AES, assicurarsi di eseguire prima il rollover della chiave di decrittografia Kerberos dell'account AzureADSSOAcc $ come illustrato nel [documento di domande frequenti](how-to-connect-sso-faq.md) , in caso contrario, l'accesso SSO facile non verrà eseguito.
 -  Se si dispone di più di una foresta con trust tra foreste, l'abilitazione dell'accesso SSO in una delle foreste consentirà l'accesso SSO in tutte le foreste trusted. Se si Abilita SSO in una foresta in cui SSO è già abilitato, verrà segnalato un errore che informa che SSO è già abilitato nella foresta.
 
@@ -57,7 +57,7 @@ Se al tenant è associata una licenza di Azure AD Premium, è anche possibile es
 
 Passare a **Azure Active Directory**  >  **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/), quindi selezionare l'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
-|Codice dell'errore di accesso|Motivo dell'errore di accesso|Soluzione
+|Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
 | --- | --- | ---
 | 81001 | Il ticket Kerberos dell'utente è troppo grande. | Ridurre l'appartenenza a gruppi dell'utente e riprovare.
 | 81002 | Impossibile convalidare il ticket Kerberos dell'utente. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).

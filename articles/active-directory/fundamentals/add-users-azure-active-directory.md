@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996696"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 
@@ -42,9 +42,9 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
    - **Nome**. Obbligatorio. Nome e cognome del nuovo utente. Ad esempio, *Mary Parker*.
 
-   - **Nome utente**. Obbligatorio. Nome utente del nuovo utente. Ad esempio, `mary@contoso.com`
+   - **Nome utente**. Obbligatorio. Nome utente del nuovo utente. Ad esempio: `mary@contoso.com`.
 
-     La parte del dominio del nome utente deve usare il nome di dominio predefinito iniziale, * \<yourdomainname> onmicrosoft.com*, o un nome di dominio personalizzato, ad esempio *contoso.com*. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [aggiungere il nome di dominio personalizzato usando il portale di Azure Active Directory](add-custom-domain.md).
+     La parte del dominio del nome utente deve usare il nome di dominio predefinito iniziale, *\<yourdomainname> onmicrosoft.com*, o un nome di dominio personalizzato, ad esempio *contoso.com*. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [aggiungere il nome di dominio personalizzato usando il portale di Azure Active Directory](add-custom-domain.md).
 
    - **Gruppi**. Facoltativamente, è possibile aggiungere l'utente a uno o più gruppi esistenti. È anche possibile aggiungere l'utente a gruppi in un secondo momento. Per ulteriori informazioni sull'aggiunta di utenti ai gruppi, vedere [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
@@ -54,7 +54,7 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
 1. Copiare la password generata automaticamente specificata nella casella **password** . Sarà necessario assegnare questa password all'utente per accedere per la prima volta.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 L'utente viene creato e aggiunto all'organizzazione Azure AD.
 

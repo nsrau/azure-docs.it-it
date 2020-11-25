@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fc1b2638c2ab17c4cd58ca8d4508d2e6d244cfa
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465491"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996814"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
@@ -391,8 +391,8 @@ A questo punto, dopo avere appreso a usare l'archiviazione BLOB da iOS, seguire 
 
 - [Libreria client di archiviazione di Azure per iOS](https://github.com/azure/azure-storage-ios)
 - [Documentazione di riferimento iOS di Archiviazione di Azure](https://azure.github.io/azure-storage-ios/)
-- [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog del team di Archiviazione di Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+- [API REST dei servizi di archiviazione di Azure](/rest/api/storageservices/)
+- [Blog del team di Archiviazione di Azure](/archive/blogs/windowsazurestorage/)
 
-In caso di domande sulla libreria, è possibile pubblicare un post nella [pagina di domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+In caso di domande sulla libreria, è possibile pubblicare un post nella [pagina di domande e risposte Microsoft](/answers/topics/azure-blob-storage.html) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).

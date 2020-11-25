@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: eca64411ccb61e5dcbac5e988f12096550eaaa2c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ec2deaf3149e174cce201d0bbad8a55d156d30f
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101001"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95998337"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Risolvere i problemi relativi all'uso di Azure Cosmos DB Async Java SDK v2 con API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -181,9 +181,9 @@ Usando `observeOn(customScheduler)`, il thread di I/O di Netty viene rilasciato 
 ### <a name="request-rate-too-large"></a>La frequenza delle richieste è troppo elevata
 Questo errore è un errore sul lato server. Indica l'esaurimento della velocità effettiva di cui è stato effettuato il provisioning. Riprovare in un secondo momento. Se questo errore si verifica spesso, provare ad aumentare la velocità effettiva della raccolta.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Errore di connessione all'emulatore di Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Errore durante la connessione all'emulatore Azure Cosmos DB
 
-Il certificato HTTPS dell'emulatore di Azure Cosmos DB è autofirmato. Per poter usare l'SDK con l'emulatore, importare il certificato dell'emulatore in un Java TrustStore. Per altre informazioni, vedere [Esportare i certificati dell'emulatore di Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+Il certificato HTTPS dell'emulatore Azure Cosmos DB è autofirmato. Per poter usare l'SDK con l'emulatore, importare il certificato dell'emulatore in un Java TrustStore. Per altre informazioni, vedere [esportare Azure Cosmos DB certificati dell'emulatore](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Problemi di conflitto di dipendenze
 

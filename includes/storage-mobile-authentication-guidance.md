@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeea7b1fed0c2a1f805e21b4dec9ec3cad7fc976
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67673389"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996815"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di Azure
 Per autenticare l'applicazione per accedere ai servizi di archiviazione, è possibile procedere in due modi:
@@ -49,5 +49,4 @@ L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per gene
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
-
+Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](../articles/storage/common/storage-sas-overview.md).

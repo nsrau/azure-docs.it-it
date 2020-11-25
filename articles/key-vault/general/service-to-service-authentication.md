@@ -9,11 +9,11 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998107"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -65,7 +65,7 @@ Per lo sviluppo locale, esistono due scenari di autenticazione principali: auten
 
 I computer locali non supportano le identità gestite per le risorse di Azure. Di conseguenza, la libreria `Microsoft.Azure.Services.AppAuthentication` usa le credenziali per lo sviluppatore per l'esecuzione nell'ambiente di sviluppo locale. Quando la soluzione viene distribuita in Azure, la libreria usa l'autenticazione del servizio gestito per passare a un flusso di concessione delle credenziali client di OAuth 2.0. Questo approccio significa che è possibile testare lo stesso codice in locale e in remoto senza preoccuparsi.
 
-Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio** , l' **interfaccia della riga di comando di Azure** o l' **autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se nessuna opzione funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
+Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio**, l'**interfaccia della riga di comando di Azure** o l'**autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se nessuna opzione funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
 
 #### <a name="authenticating-with-visual-studio"></a>Autenticazione con Visual Studio
 
@@ -73,11 +73,11 @@ Per eseguire l'autenticazione usando Visual Studio:
 
 1. Accedere a Visual Studio e usare **gli strumenti** &nbsp; > &nbsp; **Opzioni** per aprire le **Opzioni**.
 
-1. Selezionare **autenticazione dei servizi di Azure** , scegliere un account per lo sviluppo locale e fare clic su **OK**.
+1. Selezionare **autenticazione dei servizi di Azure**, scegliere un account per lo sviluppo locale e fare clic su **OK**.
 
 Se si verificano problemi con Visual Studio, ad esempio errori che coinvolgono il file del provider di token, esaminare attentamente i passaggi precedenti.
 
-Potrebbe essere necessario autenticare nuovamente il token dello sviluppatore. A tale scopo, selezionare **strumenti** &nbsp; > &nbsp; **Opzioni** , quindi selezionare **&nbsp; &nbsp; autenticazione servizio di Azure**. Cercare un collegamento per la **ripetizione dell'autenticazione** nell'account selezionato. Selezionare il collegamento per eseguire l'autenticazione.
+Potrebbe essere necessario autenticare nuovamente il token dello sviluppatore. A tale scopo, selezionare **strumenti** &nbsp; > &nbsp; **Opzioni**, quindi selezionare **&nbsp; &nbsp; autenticazione servizio di Azure**. Cercare un collegamento per la **ripetizione dell'autenticazione** nell'account selezionato. Selezionare il collegamento per eseguire l'autenticazione.
 
 #### <a name="authenticating-with-azure-cli"></a>Autenticazione con l'interfaccia della riga di comando di Azure
 
@@ -91,7 +91,7 @@ Per usare l'interfaccia della riga di comando di Azure:
 
 1. Verificare l'accesso immettendo *AZ account Get-Access-token--Resource https: \/ /Vault.Azure.NET*. Se viene visualizzato un errore, verificare che la versione corretta dell'interfaccia della riga di comando di Azure sia installata correttamente.
 
-   Se l'interfaccia della riga di comando di Azure non è installata nella directory predefinita, è possibile che venga visualizzato un messaggio di errore che non è in `AzureServiceTokenProvider` grado di trovare il percorso dell'interfaccia Usare la variabile di ambiente **AzureCLIPath** per definire la cartella di installazione dell'interfaccia della riga di comando di Azure. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path** , quando è necessario.
+   Se l'interfaccia della riga di comando di Azure non è installata nella directory predefinita, è possibile che venga visualizzato un messaggio di errore che non è in `AzureServiceTokenProvider` grado di trovare il percorso dell'interfaccia Usare la variabile di ambiente **AzureCLIPath** per definire la cartella di installazione dell'interfaccia della riga di comando di Azure. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path**, quando è necessario.
 
 1. Se è stato eseguito l'accesso all'interfaccia della riga di comando di Azure usando più account o se l'account ha accesso a più sottoscrizioni, è necessario specificare la sottoscrizione da usare. Immettere il comando *AZ account set--subscription <subscription-id>*.
 
@@ -167,7 +167,7 @@ Sono disponibili tre metodi principali per l'uso di un'entità servizio per l'es
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Sostituire *{AppId}* , *{TenantId}* e *{Thumbprint}* con i valori generati nel passaggio 1. Sostituire *{CertificateStore}* con *LocalMachine* ' o *CurrentUser* , in base al piano di distribuzione.
+    Sostituire *{AppId}*, *{TenantId}* e *{Thumbprint}* con i valori generati nel passaggio 1. Sostituire *{CertificateStore}* con *LocalMachine*' o *CurrentUser*, in base al piano di distribuzione.
 
 1. Eseguire l'applicazione.
 
@@ -185,7 +185,7 @@ Sono disponibili tre metodi principali per l'uso di un'entità servizio per l'es
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}
     ```
 
-    Sostituire _{AppId}_ , _{TenantId}_ e _{ClientSecret}_ con i valori generati nel passaggio 1.
+    Sostituire _{AppId}_, _{TenantId}_ e _{ClientSecret}_ con i valori generati nel passaggio 1.
 
 1. Eseguire l'applicazione.
 
@@ -217,7 +217,7 @@ Per usare un certificato client per l'autenticazione dell'entità servizio:
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    Ad esempio, se l'insieme di credenziali delle chiavi è denominato *myKeyVault* ed è stato creato un certificato denominato *CERT* , l'identificatore del certificato sarà:
+    Ad esempio, se l'insieme di credenziali delle chiavi è denominato *myKeyVault* ed è stato creato un certificato denominato *CERT*, l'identificatore del certificato sarà:
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -262,7 +262,7 @@ Per visualizzare la `Microsoft.Azure.Services.AppAuthentication` libreria in azi
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>L'interfaccia della riga di comando di Azure non è installata, non è stato effettuato l'accesso oppure non si dispone della versione più recente
 
-Eseguire *AZ account Get-Access-token* per verificare se l'interfaccia della riga di comando di Azure Mostra un token per l'utente. Se non è stato **trovato alcun programma di questo tipo** , installare la [versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Potrebbe essere necessario effettuare l'accesso.
+Eseguire *AZ account Get-Access-token* per verificare se l'interfaccia della riga di comando di Azure Mostra un token per l'utente. Se non è stato **trovato alcun programma di questo tipo**, installare la [versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Potrebbe essere necessario effettuare l'accesso.
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider non trova il percorso dell'interfaccia della riga di comando di Azure
 

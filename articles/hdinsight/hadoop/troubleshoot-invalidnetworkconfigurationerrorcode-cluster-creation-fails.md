@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790917"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998754"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La creazione del cluster non riesce con InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -30,7 +30,7 @@ La descrizione dell'errore contiene "risoluzione nome host non riuscita".
 
 Questo errore indica un problema con la configurazione DNS personalizzata. I server DNS all'interno di una rete virtuale possono inviare query DNS ai resolver ricorsivi di Azure per risolvere i nomi host all'interno della rete virtuale. per informazioni dettagliate, vedere [risoluzione dei nomi nelle reti virtuali](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . L'accesso ai resolver ricorsivi di Azure viene fornito tramite l'indirizzo IP virtuale 168.63.129.16. Questo indirizzo IP è accessibile solo dalle macchine virtuali di Azure. Quindi non funzionerà se si usa un server DNS locale o se il server DNS è una macchina virtuale di Azure, che non fa parte della rete virtuale del cluster.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 1. Eseguire ssh nella macchina virtuale che fa parte del cluster ed eseguire il comando `hostname -f` . Verrà restituito il nome di dominio completo dell'host (indicato `<host_fqdn>` nelle istruzioni seguenti).
 
@@ -56,7 +56,7 @@ La descrizione dell'errore contiene "Impossibile connettersi all'account di arch
 
 Archiviazione di Azure e SQL non hanno indirizzi IP fissi, quindi è necessario consentire le connessioni in uscita a tutti gli IP per consentire l'accesso a questi servizi. La procedura di risoluzione esatta varia a seconda che sia stato configurato un gruppo di sicurezza di rete (NSG) o regole di User-Defined (UDR). Per informazioni dettagliate su queste configurazioni, vedere la sezione [controllo del traffico di rete con HDInsight con gruppi di sicurezza di rete e route definite dall'utente](../control-network-traffic.md) .
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 * Se il cluster usa un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -66,7 +66,7 @@ Archiviazione di Azure e SQL non hanno indirizzi IP fissi, quindi è necessario 
 
     Passare alla portale di Azure e identificare la tabella di route associata alla subnet in cui viene distribuito il cluster. Una volta trovata la tabella di route per la subnet, controllare la sezione **Route** .
 
-    Se sono presenti route definite, assicurarsi che siano presenti route per gli indirizzi IP per l'area in cui è stato distribuito il cluster e che il **NextHopType** per ogni route sia **Internet** . Deve essere definita una route per ogni indirizzo IP richiesto documentato nell'articolo citato sopra.
+    Se sono presenti route definite, assicurarsi che siano presenti route per gli indirizzi IP per l'area in cui è stato distribuito il cluster e che il **NextHopType** per ogni route sia **Internet**. Deve essere definita una route per ogni indirizzo IP richiesto documentato nell'articolo citato sopra.
 
 ## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"Non è stato possibile stabilire una connessione in uscita dal cluster per la comunicazione con il provider di risorse HDInsight. Verificare che la connettività in uscita sia consentita. "
 
@@ -78,7 +78,7 @@ La descrizione dell'errore contiene "Impossibile stabilire una connessione in us
 
 Quando si usano cluster HDInsight collegati privata, l'accesso in uscita dal cluster deve essere configurato per consentire la connessione al provider di risorse HDInsight.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 * Per risolvere questo problema, vedere la procedura di configurazione del collegamento privato HDInsight in [configurazione del collegamento privato](../hdinsight-private-link.md)
 ---
@@ -98,7 +98,7 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
 
 Probabilmente si è riscontrato un problema con la configurazione del DNS personalizzato.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Verificare che 168.63.129.16 sia nella catena DNS personalizzata. I server DNS all'interno di una rete virtuale possono inoltrare query DNS ai resolver ricorsivi di Azure per risolvere i nomi host all'interno di quella rete virtuale. Per altre informazioni, vedere [risoluzione dei nomi nelle reti virtuali](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). L'accesso ai resolver ricorsivi di Azure viene fornito tramite l'indirizzo IP virtuale 168.63.129.16.
 
@@ -158,4 +158,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per migliorare l'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172903"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997104"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
-Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Il feed di modifiche fornisce un registro **ordinato**, **garantito**, **durevole**, non **modificabile**e di sola **lettura** di queste modifiche. Le applicazioni client possono leggere questi log in qualsiasi momento, in streaming o in modalità batch. Il feed delle modifiche consente di creare soluzioni efficienti e scalabili che elaborano gli eventi di modifica che si verificano nell'account di archiviazione BLOB a un costo ridotto.
+Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Il feed di modifiche fornisce un registro **ordinato**, **garantito**, **durevole**, non **modificabile** e di sola **lettura** di queste modifiche. Le applicazioni client possono leggere questi log in qualsiasi momento, in streaming o in modalità batch. Il feed delle modifiche consente di creare soluzioni efficienti e scalabili che elaborano gli eventi di modifica che si verificano nell'account di archiviazione BLOB a un costo ridotto.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-Il feed delle modifiche viene archiviato come [BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in un contenitore speciale nell'account di archiviazione al costo dei [prezzi di BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) standard. È possibile controllare il periodo di conservazione di questi file in base ai requisiti (vedere le [condizioni](#conditions) della versione corrente). Gli eventi di modifica vengono aggiunti al feed delle modifiche come record nella specifica del formato [Apache avro](https://avro.apache.org/docs/1.8.2/spec.html) : un formato compatto, rapido e binario che fornisce strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory.
+Il feed delle modifiche viene archiviato come [BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in un contenitore speciale nell'account di archiviazione al costo dei [prezzi di BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) standard. È possibile controllare il periodo di conservazione di questi file in base ai requisiti (vedere le [condizioni](#conditions) della versione corrente). Gli eventi di modifica vengono aggiunti al feed delle modifiche come record nella specifica del formato [Apache avro](https://avro.apache.org/docs/1.8.2/spec.html) : un formato compatto, rapido e binario che fornisce strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory.
 
 È possibile elaborare questi log in modo asincrono, in modo incrementale o completo. Un numero qualsiasi di applicazioni client può leggere in modo indipendente il feed delle modifiche, in parallelo e con il proprio ritmo. Le applicazioni di analisi come [Apache drill](https://drill.apache.org/docs/querying-avro-files/) o [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) possono usare i log direttamente come file Avro, che consentono di elaborarli a costi ridotti, con larghezza di banda elevata e senza dover scrivere un'applicazione personalizzata.
 
@@ -105,7 +105,7 @@ Usare un modello di Azure Resource Manager per abilitare il feed delle modifiche
 
 1. Nella portale di Azure scegliere **Crea una risorsa**.
 
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
 
 3. Scegliere **[Distribuisci un modello personalizzato](https://portal.azure.com/#create/Microsoft.Template)**, quindi scegliere **Compila modello personalizzato nell'editor**.
 
@@ -206,7 +206,7 @@ Il file manifesto del segmento ( `meta.json` ) Mostra il percorso dei file del f
 
 I file del feed delle modifiche contengono una serie di record di eventi di modifica. Ogni record dell'evento di modifica corrisponde a una modifica a un singolo BLOB. I record vengono serializzati e scritti nel file usando la specifica del formato [Apache avro](https://avro.apache.org/docs/1.8.2/spec.html) . È possibile leggere i record utilizzando la specifica del formato di file avro. Sono disponibili diverse librerie per elaborare i file in tale formato.
 
-I file del feed di modifiche vengono archiviati nella `$blobchangefeed/log/` directory virtuale come [BLOB di Accodamento](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Il primo file del feed delle modifiche in ogni percorso avrà `00000` il nome del file, ad esempio `00000.avro` . Il nome di ogni file di log successivo aggiunto a tale percorso aumenterà di 1 (ad esempio: `00001.avro` ).
+I file del feed di modifiche vengono archiviati nella `$blobchangefeed/log/` directory virtuale come [BLOB di Accodamento](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Il primo file del feed delle modifiche in ogni percorso avrà `00000` il nome del file, ad esempio `00000.avro` . Il nome di ogni file di log successivo aggiunto a tale percorso aumenterà di 1 (ad esempio: `00001.avro` ).
 
 Nei record del feed di modifiche vengono acquisiti i tipi di evento seguenti:
 - BlobCreated
@@ -243,7 +243,7 @@ Di seguito è riportato un esempio di record dell'evento di modifica dal file de
 }
 ```
 
-Per una descrizione di ogni proprietà, vedere [schema di eventi di griglia di eventi di Azure per l'archiviazione BLOB](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Gli eventi BlobPropertiesUpdated e BlobSnapshotCreated sono attualmente esclusivi per il feed di modifiche e non sono ancora supportati per gli eventi di archiviazione BLOB.
+Per una descrizione di ogni proprietà, vedere [schema di eventi di griglia di eventi di Azure per l'archiviazione BLOB](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Gli eventi BlobPropertiesUpdated e BlobSnapshotCreated sono attualmente esclusivi per il feed di modifiche e non sono ancora supportati per gli eventi di archiviazione BLOB.
 
 > [!NOTE]
 > I file del feed di modifiche per un segmento non vengono visualizzati immediatamente dopo la creazione di un segmento. La durata del ritardo rientra nell'intervallo normale di latenza di pubblicazione del feed di modifiche che è entro pochi minuti dalla modifica.
