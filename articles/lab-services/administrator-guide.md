@@ -4,11 +4,11 @@ description: Questa guida consente agli amministratori che creano e gestiscono g
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999281"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
 Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account Lab per la propria scuola. Dopo aver configurato un account Lab, gli amministratori o gli educatori creano i Lab contenuti nell'account. Questo articolo fornisce una panoramica generale delle risorse di Azure che sono interessati e le linee guida per crearle.
@@ -21,7 +21,7 @@ Gli amministratori IT che gestiscono le risorse cloud di un'università sono in 
 
 Per altre informazioni sull'architettura, vedere [nozioni fondamentali sull'architettura dei Lab](./classroom-labs-fundamentals.md).
 
-## <a name="subscription"></a>Sottoscrizione
+## <a name="subscription"></a>Subscription
 L'Università può avere una o più sottoscrizioni di Azure. Le sottoscrizioni vengono usate per gestire la fatturazione e la sicurezza per tutte le risorse e i servizi di Azure usati al suo interno, inclusi gli account Lab.
 
 La relazione tra un account lab e la relativa sottoscrizione è importante perché:

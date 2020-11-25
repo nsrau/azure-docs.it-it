@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082750"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000964"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
@@ -65,7 +65,7 @@ Il responsabile del gruppo o un amministratore di sistema TDSP designato complet
 - Consente di creare un **repository di modelli di progetto** nel progetto di gruppo Azure DevOps e di deselezionarlo dal repository dei modelli di progetto sviluppato dal team Microsoft TDSP. Il repository di modelli di progetto Microsoft TDSP fornisce:
   - **Struttura di directory standardizzata**, incluse le directory per i dati, il codice e i documenti.
   - Un set di **modelli di documento standardizzati** per guidare un processo di Data Science efficiente.
-- Consente di creare un **repository di utilità**e di inizializzarlo dal repository di utilità sviluppato dal team TDSP di Microsoft. Il repository di utilità TDSP di Microsoft fornisce un set di utilità utili per rendere più efficiente il lavoro di un data scientist. Il repository Microsoft Utility include utilità per l'esplorazione interattiva dei dati, l'analisi, la creazione di report e la modellazione e la creazione di report di base.
+- Consente di creare un **repository di utilità** e di inizializzarlo dal repository di utilità sviluppato dal team TDSP di Microsoft. Il repository di utilità TDSP di Microsoft fornisce un set di utilità utili per rendere più efficiente il lavoro di un data scientist. Il repository Microsoft Utility include utilità per l'esplorazione interattiva dei dati, l'analisi, la creazione di report e la modellazione e la creazione di report di base.
 - Imposta i **criteri di controllo di sicurezza** per l'account dell'organizzazione.
 
 Per istruzioni dettagliate, vedere [attività del responsabile del gruppo per un team di Data Science](group-manager-tasks.md).

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284065"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999604"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Trovare i risultati in Ricerca Bing usando app per la logica di Azure
 
@@ -39,7 +39,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. Nella casella di ricerca digitare "Ricerca Bing" come filtro. Nell'elenco di trigger selezionare il trigger desiderato.
+2. Nella casella di ricerca, digitare "Ricerca Bing" come filtro. Nell'elenco di trigger selezionare il trigger desiderato.
 
    Nell'esempio viene usato il trigger seguente: **Ricerca Bing - Sul nuovo articolo di notizie**
 
@@ -88,8 +88,8 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
    Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
-3. Nella casella di ricerca digitare "Ricerca Bing" come filtro.
-Nell'elenco delle azioni, scegliere l'azione desiderata.
+3. Nella casella di ricerca, digitare "Ricerca Bing" come filtro.
+Nell'elenco delle azioni scegliere l'azione desiderata.
 
    Questo esempio usa questa azione:
 

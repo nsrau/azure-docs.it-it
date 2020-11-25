@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 9bc31cf8fee2669634ff366caac77cb090baf075
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000301"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 
@@ -30,7 +30,7 @@ La scelta tra backup con ridondanza locale o ridondanza geografica si effettua a
 > Dopo aver creato il server, il tipo di ridondanza (locale o geografica) non può essere modificato.
 >
 
-Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** consente di selezionare backup **con ridondanza locale** o **ridondanza geografica** per il server. In questa finestra è anche possibile specificare il **periodo di conservazione dei backup** , ovvero per quanti giorni si vogliono archiviare i backup del server.
+Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** consente di selezionare backup **con ridondanza locale** o **ridondanza geografica** per il server. In questa finestra è anche possibile specificare il **periodo di conservazione dei backup**, ovvero per quanti giorni si vogliono archiviare i backup del server.
 
    :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
@@ -62,10 +62,10 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
    :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Database di Azure per MySQL - Informazioni di ripristino":::
-   - **Punto di ripristino** : selezionare il punto nel tempo per il ripristino.
-   - **Server di destinazione** : specificare un nome per il nuovo server.
-   - **Percorso** : non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
-   - **Piano tariffario** : non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
+   - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
+   - **Server di destinazione**: specificare un nome per il nuovo server.
+   - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
 
@@ -92,7 +92,7 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 3. Selezionare **backup** come **origine dati**. Questa azione carica un elenco a discesa che fornisce un elenco di server in cui sono abilitati i backup con ridondanza geografica.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selezionare origine dati.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selezionare l'origine dati.":::
     
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
@@ -106,13 +106,13 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
    
    :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selezionare backup.":::
 
-6. Il server utilizzerà i valori per il numero di **Vcore** , il **periodo di conservazione dei backup** , l'opzione di **ridondanza del backup** , la versione del **motore** e le **credenziali di amministratore**. Selezionare **Continua**. 
+6. Il server utilizzerà i valori per il numero di **Vcore**, il **periodo di conservazione dei backup**, l'opzione di **ridondanza del backup**, la versione del **motore** e le **credenziali di amministratore**. Selezionare **Continua**. 
    
    :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continuare con il backup.":::
 
 7. Compilare il resto del modulo con le proprie preferenze. È possibile selezionare qualsiasi **posizione**.
 
-    Dopo aver selezionato il percorso, è possibile selezionare **Configura server** per aggiornare **la generazione di calcolo** (se disponibile nell'area scelta), il numero di **Vcore** , il **periodo di conservazione dei backup** e l'opzione di **ridondanza del backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
+    Dopo aver selezionato il percorso, è possibile selezionare **Configura server** per aggiornare **la generazione di calcolo** (se disponibile nell'area scelta), il numero di **Vcore**, il **periodo di conservazione dei backup** e l'opzione di **ridondanza del backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
 
    :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Compila modulo."::: 
 

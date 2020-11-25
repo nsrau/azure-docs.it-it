@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284466"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000675"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Risolvere i problemi relativi alle azioni script in Azure HDInsight
 
@@ -45,13 +45,13 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
 
     ![Script per log delle azioni](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    In questa directory i log sono organizzati per **nodi head** , **nodi di lavoro** e **nodi Zookeeper**. Vedere gli esempi seguenti:
+    In questa directory i log sono organizzati per **nodi head**, **nodi di lavoro** e **nodi Zookeeper**. Vedere gli esempi seguenti:
 
-    * **Nodo head** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Nodo head**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
     * **Nodo** del ruolo di lavoro: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nodo Zookeeper** : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nodo Zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Tutti i file **stdout** e **stderr** dell'host corrispondente vengono caricati nell'account di archiviazione. Per ogni azione script esiste un file **output-\*.txt** e un file **errors-\*.txt**. Il file **output-*.txt** contiene informazioni relative all'URI dello script che è stato eseguito nell'host. Il testo seguente è un esempio di queste informazioni:
 
@@ -59,7 +59,7 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* È possibile creare più volte un cluster dell'azione script con lo stesso nome. In questo caso, è possibile distinguere i log corrispondenti in base al nome della cartella **DATE**. Ad esempio, la struttura di cartelle per un cluster, **mycluster** , creato in diverse date sarà simile alle voci di log seguenti:
+* È possibile creare più volte un cluster dell'azione script con lo stesso nome. In questo caso, è possibile distinguere i log corrispondenti in base al nome della cartella **DATE**. Ad esempio, la struttura di cartelle per un cluster, **mycluster**, creato in diverse date sarà simile alle voci di log seguenti:
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 

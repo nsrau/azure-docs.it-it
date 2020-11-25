@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
 ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873892"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999893"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installare un notebook di Jupyter in locale e connetterlo ad Apache Spark in HDInsight
 
@@ -74,7 +74,7 @@ Scaricare il [programma di installazione di Anaconda](https://www.anaconda.com/d
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. Facoltativa. Immettere il comando seguente per abilitare l'estensione del server:
+1. facoltativo. Immettere il comando seguente per abilitare l'estensione del server:
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -90,7 +90,7 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
     python
     ```
 
-2. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Immettere il comando seguente per identificare la home directory e creare una cartella denominata ** \. sparkmagic**.  Il percorso completo sarà output.
+2. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Immettere il comando seguente per identificare la home directory e creare una cartella denominata **\. sparkmagic**.  Il percorso completo sarà output.
 
     ```python
     import os

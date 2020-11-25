@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739910"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999442"
 ---
 * I sistemi multi-tenant che supportano l'intera gamma di piani tariffari eccetto isolated.
 * Il ambiente del servizio app, che distribuisce nella VNet e supporta le app di piano tariffario isolate.
@@ -18,7 +18,7 @@ La funzionalità di integrazione VNet viene usata nelle app multi-tenant. Se l'a
 
 L'integrazione di VNet consente all'app di accedere alle risorse nel VNet, ma non concede l'accesso privato in ingresso all'app dal VNet. L'accesso al sito privato fa riferimento a rendere un'app accessibile solo da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'integrazione di VNet viene usata solo per eseguire chiamate in uscita dall'app in VNet. La funzionalità di integrazione VNet si comporta in modo diverso quando viene usata con VNet nella stessa area e con VNet in altre aree. La funzionalità di integrazione VNet presenta due varianti:
 
-* **Integrazione VNet a livello**di area: quando ci si connette a Azure Resource Manager reti virtuali nella stessa area, è necessario disporre di una subnet dedicata nel VNet con cui si esegue l'integrazione.
+* **Integrazione VNet a livello** di area: quando ci si connette a Azure Resource Manager reti virtuali nella stessa area, è necessario disporre di una subnet dedicata nel VNet con cui si esegue l'integrazione.
 * **Gateway: integrazione VNet necessaria**: quando ci si connette a VNet in altre aree o a una rete virtuale classica nella stessa area, è necessario un gateway di rete virtuale di Azure di cui è stato effettuato il provisioning nel VNet di destinazione.
 
 Funzionalità di integrazione di VNet:
@@ -38,5 +38,5 @@ Gateway: l'integrazione VNet necessaria consente di accedere alle risorse solo n
 Indipendentemente dalla versione usata, l'integrazione di VNet consente all'app di accedere alle risorse nel VNet, ma non concede l'accesso privato in ingresso all'app dal VNet. L'accesso al sito privato fa riferimento a rendere l'app accessibile solo da una rete privata, ad esempio dall'interno di una VNet di Azure. L'integrazione di VNet è solo per la creazione di chiamate in uscita dall'app in VNet.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

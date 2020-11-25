@@ -5,11 +5,11 @@ ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
 ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532376"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000148"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Usare i dati di Azure Blockchain Workbench in Microsoft Power BI
 
@@ -24,7 +24,7 @@ Questo articolo contiene una procedura dettagliata su come connettersi al databa
 ## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Connessione di Power BI ai dati in Azure Blockchain Workbench
 
 1.  Aprire Power BI Desktop.
-2.  Selezionare **recuperare i dati**.
+2.  Selezionare **Recupera dati**.
 
     ![Recuperare i dati](./media/data-powerbi/get-data.png)
 3.  Selezionare **SQL Server** nell'elenco dei tipi di origine dati.

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491444"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001236"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Trigger di archiviazione code di Azure per funzioni di Azure
 
@@ -19,7 +19,7 @@ Il trigger di archiviazione code esegue una funzione quando i messaggi vengono a
 
 ## <a name="encoding"></a>Codifica
 
-Le funzioni richiedono una stringa codificata *base64*. Le modifiche al tipo di codifica, per preparare i dati come una stringa con codifica *base64* , devono essere implementate nel servizio di chiamata.
+Le funzioni richiedono una stringa codificata *base64*. Le modifiche al tipo di codifica, per preparare i dati come una stringa con codifica *base64*, devono essere implementate nel servizio di chiamata.
 
 ## <a name="example"></a>Esempio
 
@@ -46,7 +46,7 @@ public static class QueueFunctions
 
 L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e il codice [script C# (file con estensione csx)](functions-reference-csharp.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
-Ecco il file *function.json* :
+Ecco il file *function.json*:
 
 ```json
 {
@@ -97,11 +97,27 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 Nella sezione [usage](#usage) è illustrato `myQueueItem`, denominato dalla proprietà `name` in function.json.  Nella sezione [message metadata](#message-metadata) sono illustrate tutte le altre variabili indicate.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Nell'esempio Java seguente viene illustrata una funzione trigger della coda di archiviazione che registra il messaggio attivato inserito nella coda `myqueuename` .
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
-Ecco il file *function.json* :
+Ecco il file *function.json*:
 
 ```json
 {
@@ -141,6 +157,42 @@ module.exports = async function (context, message) {
 ```
 
 Nella sezione [usage](#usage) è illustrato `myQueueItem`, denominato dalla proprietà `name` in function.json.  Nella sezione [message metadata](#message-metadata) sono illustrate tutte le altre variabili indicate.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nell'esempio seguente viene illustrato come leggere un messaggio della coda passato a una funzione tramite un trigger.
+
+Un trigger della coda di archiviazione è definito in *function.js* nel file in cui `type` è impostato su `queueTrigger` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Il codice nel file di *Run.ps1* dichiara un parametro come `$QueueItem` , che consente di leggere il messaggio della coda nella funzione.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Nell'esempio Java seguente viene illustrata una funzione trigger della coda di archiviazione che registra il messaggio attivato inserito nella coda `myqueuename` .
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 Gli attributi non sono supportati da Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Gli attributi non sono supportati da JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Gli attributi non sono supportati da Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 L' `QueueTrigger` annotazione consente di accedere alla coda che attiva la funzione. Nell'esempio seguente il messaggio della coda viene reso disponibile alla funzione tramite il `message` parametro.
@@ -305,6 +333,18 @@ public class QueueTriggerDemo {
 |`queueName`  | Dichiara il nome della coda nell'account di archiviazione. |
 |`connection` | Punta alla stringa di connessione dell'account di archiviazione. |
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Gli attributi non sono supportati da JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Gli attributi non sono supportati da Python.
+
 ---
 
 ## <a name="configuration"></a>Configurazione
@@ -327,7 +367,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Accedere ai dati del messaggio usando un parametro di metodo, ad esempio `string paramName` . È possibile definire associazioni con uno dei seguenti tipi:
 
-* Object: il runtime di Funzioni deserializza un payload JSON in un'istanza di una classe arbitraria definita nel codice. 
+* Object: il runtime di Funzioni deserializza un payload JSON in un'istanza di una classe arbitraria definita nel codice.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ Accedere ai dati del messaggio usando un parametro di metodo, ad esempio `string
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+L'annotazione [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) consente di accedere al messaggio della coda che ha attivato la funzione.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Il payload dell'elemento della coda è disponibile tramite `context.bindings.<NAME>` dove `<NAME>` corrisponde al nome definito in *function.js*. Se il payload è JSON, il valore viene deserializzato in un oggetto.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Accedere al messaggio della coda tramite il parametro di stringa che corrisponde al nome designato dal parametro del binding `name` nel *function.jssu* file.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Accedere al messaggio della coda tramite il parametro tipizzato come [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# <a name="java"></a>[Java](#tab/java)
-
-L'annotazione [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) consente di accedere al messaggio della coda che ha attivato la funzione.
+Accedere al messaggio della coda tramite il parametro tipizzato come [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
 
 ---
 

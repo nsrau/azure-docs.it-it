@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398324"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000811"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory
 
@@ -73,7 +73,7 @@ Il modello definisce sei parametri:
 
     ![Esaminare il risultato](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
-7. A questo punto è possibile aggiungere un trigger Windows a cascata per automatizzare questa pipeline, in modo che la pipeline possa sempre copiare i file nuovi e modificati solo da LastModifiedDate periodicamente.  Selezionare **Aggiungi trigger**e selezionare **nuovo/modifica**.
+7. A questo punto è possibile aggiungere un trigger Windows a cascata per automatizzare questa pipeline, in modo che la pipeline possa sempre copiare i file nuovi e modificati solo da LastModifiedDate periodicamente.  Selezionare **Aggiungi trigger** e selezionare **nuovo/modifica**.
 
     ![Schermata che evidenzia l'opzione di menu nuovo/modifica visualizzata quando si seleziona Aggiungi trigger.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
@@ -88,8 +88,8 @@ Il modello definisce sei parametri:
     - **Directory_Source**  =  **sottocartella**.  È possibile sostituire con la sottocartella nell'archivio dati di origine.
     - **FolderPath_Destination**  =  **DestinationFolder**.  È possibile sostituire con la cartella nell'archivio dati di destinazione.
     - **Directory_Destination**  =  **sottocartella**.  È possibile sostituire con la sottocartella nell'archivio dati di destinazione.
-    - **LastModified_From**  =   ** \@ trigger (). Outputs. windowStartTime**.  Si tratta di una variabile di sistema del trigger che determina l'ora in cui la pipeline è stata attivata l'ultima volta.
-    - **LastModified_To**  =  ** \@ trigger (). Outputs. windowEndTime**.  Si tratta di una variabile di sistema del trigger che determina l'ora in cui la pipeline viene attivata questa volta.
+    - **LastModified_From**  =   **\@ trigger (). Outputs. windowStartTime**.  Si tratta di una variabile di sistema del trigger che determina l'ora in cui la pipeline è stata attivata l'ultima volta.
+    - **LastModified_To**  =  **\@ trigger (). Outputs. windowEndTime**.  Si tratta di una variabile di sistema del trigger che determina l'ora in cui la pipeline viene attivata questa volta.
     
     ![Parametri di input](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776545"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000097"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -60,7 +60,7 @@ La modifica di testo in formato RTF del testo di risposta offre lo stile Markdow
     |--|--|
     |Consente di passare da un editor di testo RTF a un Markdown e viceversa. `</>`|CTRL+M|
     |Grassetto. **B**|CTR + LB|
-    |Corsivo, indicato con una ** _I_**|CTRL+I|
+    |Corsivo, indicato con una **_I_**|CTRL+I|
     |Elenco non ordinato||
     |Elenco ordinato||
     |Stile paragrafo||

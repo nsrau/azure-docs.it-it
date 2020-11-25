@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999927"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usare le funzionalità per aumentare il segnale dell'elenco di parole
 
@@ -41,7 +41,7 @@ Esaminare i [concetti](luis-concept-feature.md) per comprendere quando e perché
 
 1. L'elenco di frasi può essere applicato all'intera app con l'impostazione **globale** o a un modello specifico (finalità o entità). Se si crea l'elenco di frasi, come _funzionalità_ di uno scopo o di un'entità, l'interruttore non è impostato per il livello globale. In questo caso, il significato dell'interruttore è che la funzionalità è locale solo per tale modello, pertanto _non è globale_ per l'applicazione.
 
-1. Selezionare **Operazione completata**. La nuova funzionalità viene aggiunta alla pagina delle **funzionalità di ml** .
+1. Selezionare **Fine**. La nuova funzionalità viene aggiunta alla pagina delle **funzionalità di ml** .
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651805"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999264"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurare un Lab per le classi di progettazione con SOLIDWORKs
 
@@ -31,7 +31,7 @@ Dopo aver configurato il server licenze, è necessario eseguire il peering della
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](./tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/). Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](./tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
@@ -76,7 +76,7 @@ I passaggi descritti in questa sezione illustrano come configurare la macchina v
     > [!NOTE]
     > Nella finestra di dialogo **Aggiungi server** verrà richiesto il **numero di porta** utilizzato per il server licenze e il nome o l'indirizzo IP del server licenze.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costi
 
 Verrà ora trattata una possibile stima dei costi per questa classe. Questa stima non include il costo di esecuzione del server licenze. Verrà usata una classe di 25 studenti. Sono previste 20 ore di tempo della classe pianificata. Ogni studente riceve inoltre una quota di 10 ore per il lavoro o assegnazioni al di fuori dell'orario di classe pianificato. Le dimensioni della macchina virtuale scelte sono **small GPU (visualizzazione)**, ovvero 160 unità Lab.
 

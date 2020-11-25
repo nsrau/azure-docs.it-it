@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999443"
 ---
-La funzionalità è facile da configurare, ma ciò non significa che la tua esperienza sarà priva di problemi. Se si verificano problemi durante l'accesso all'endpoint desiderato, sono disponibili alcune utilità che è possibile usare per testare la connettività dalla console app. Le console disponibili sono due: Uno è la console Kudu e l'altro è la console nella portale di Azure. Per accedere alla console Kudu dall'app, passare a **strumenti**  >  **Kudu** . È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Al termine del caricamento del sito Web, passare alla scheda **debug console** . Per accedere alla console ospitata da portale di Azure dall'app, passare a **strumenti**  >  **console** .
+La funzionalità è facile da configurare, ma ciò non significa che la tua esperienza sarà priva di problemi. Se si verificano problemi durante l'accesso all'endpoint desiderato, sono disponibili alcune utilità che è possibile usare per testare la connettività dalla console app. Le console disponibili sono due: Uno è la console Kudu e l'altro è la console nella portale di Azure. Per accedere alla console Kudu dall'app, passare a **strumenti**  >  **Kudu**. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Al termine del caricamento del sito Web, passare alla scheda **debug console** . Per accedere alla console ospitata da portale di Azure dall'app, passare a **strumenti**  >  **console**.
 
 #### <a name="tools"></a>Strumenti
-Nelle app di Windows native gli strumenti **ping** , **nslookup** e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza (funzionano in [contenitori Windows personalizzati](../articles/app-service/quickstart-custom-container.md)). Per riempire il void, vengono aggiunti due strumenti distinti. Per testare la funzionalità DNS, è stato aggiunto uno strumento denominato **nameresolver.exe** . La sintassi è:
+Nelle app di Windows native gli strumenti **ping**, **nslookup** e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza (funzionano in [contenitori Windows personalizzati](../articles/app-service/quickstart-custom-container.md)). Per riempire il void, vengono aggiunti due strumenti distinti. Per testare la funzionalità DNS, è stato aggiunto uno strumento denominato **nameresolver.exe**. La sintassi è:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -37,8 +37,8 @@ L'utilità **tcpping** indica se è possibile raggiungere un host e una porta sp
 #### <a name="debug-access-to-virtual-network-hosted-resources"></a>Eseguire il debug dell'accesso alle risorse ospitate nella rete virtuale
 Una serie di elementi può impedire all'app di raggiungere un host e una porta specifici. Nella maggior parte dei casi, si tratta di una delle operazioni seguenti:
 
-* **L'ostacolo è rappresentato da un firewall** . Se si dispone di un firewall nel modo in cui si raggiunge il timeout TCP. che in questo caso è di 21 secondi. Usare lo strumento **tcpping** per testare la connettività. I timeout TCP possono essere causati da molti elementi oltre i firewall, ma iniziare da qui.
-* **Il DNS non è accessibile** . Il timeout DNS è di 3 secondi per ogni server DNS. Se si dispone di due server DNS, il timeout è di 6 secondi. Usare nameresolver per verificare il funzionamento del DNS. Non è possibile usare nslookup, perché non usa il DNS con cui è configurata la rete virtuale. Se non è accessibile, è possibile che si disponga di un firewall o di un NSG che blocca l'accesso al DNS o che potrebbe essere inattivo.
+* **L'ostacolo è rappresentato da un firewall**. Se si dispone di un firewall nel modo in cui si raggiunge il timeout TCP. che in questo caso è di 21 secondi. Usare lo strumento **tcpping** per testare la connettività. I timeout TCP possono essere causati da molti elementi oltre i firewall, ma iniziare da qui.
+* **Il DNS non è accessibile**. Il timeout DNS è di 3 secondi per ogni server DNS. Se si dispone di due server DNS, il timeout è di 6 secondi. Usare nameresolver per verificare il funzionamento del DNS. Non è possibile usare nslookup, perché non usa il DNS con cui è configurata la rete virtuale. Se non è accessibile, è possibile che si disponga di un firewall o di un NSG che blocca l'accesso al DNS o che potrebbe essere inattivo.
 
 Se tali elementi non rispondono ai problemi, cercare prima di tutto, ad esempio:
 
@@ -51,7 +51,7 @@ Se tali elementi non rispondono ai problemi, cercare prima di tutto, ad esempio:
 **Gateway: integrazione VNet necessaria**
 * L'intervallo di indirizzi da punto a sito è compreso negli intervalli RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * Il gateway viene visualizzato come attivo nel portale? Se il gateway è inattivo, è necessario riattivarlo.
-* I certificati vengono visualizzati come sincronizzati o si ritiene che la configurazione di rete sia stata modificata?  Se i certificati non sono sincronizzati o si ritiene che sia stata apportata una modifica alla configurazione della rete virtuale che non è stata sincronizzata con gli ASP, selezionare **Sincronizza rete** .
+* I certificati vengono visualizzati come sincronizzati o si ritiene che la configurazione di rete sia stata modificata?  Se i certificati non sono sincronizzati o si ritiene che sia stata apportata una modifica alla configurazione della rete virtuale che non è stata sincronizzata con gli ASP, selezionare **Sincronizza rete**.
 * Se si attraversa una VPN, è il gateway locale configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint nella rete virtuale ma non in locale, verificare le route.
 * Si sta provando a usare un gateway di coesistenza che supporta sia da punto a sito che da ExpressRoute? I gateway di coesistenza non sono supportati con l'integrazione VNet.
 
@@ -68,13 +68,13 @@ Non si conosce l'indirizzo effettivamente usato dall'app. Potrebbe trattarsi di 
 
 Di seguito è riportata la procedura di debug aggiuntiva:
 
-* Connettersi a una macchina virtuale nella rete virtuale e provare a raggiungere l'host di risorse: porta da qui. Per verificare l'accesso al protocollo TCP usare il comando di PowerShell **test-netconnection** . La sintassi è:
+* Connettersi a una macchina virtuale nella rete virtuale e provare a raggiungere l'host di risorse: porta da qui. Per verificare l'accesso al protocollo TCP usare il comando di PowerShell **test-netconnection**. La sintassi è:
 
 ```powershell
 test-netconnection hostname [optional: -Port]
 ```
 
-* Visualizzare un'applicazione in una macchina virtuale e testare l'accesso all'host e alla porta dalla console dall'app usando **tcpping** .
+* Visualizzare un'applicazione in una macchina virtuale e testare l'accesso all'host e alla porta dalla console dall'app usando **tcpping**.
 
 #### <a name="on-premises-resources"></a>Risorse locali ####
 

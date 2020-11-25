@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.openlocfilehash: 191832ab227e854b40938183e335c1b6ea52199c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347846"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000055"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creare e gestire account di integrazione per integrazioni aziendali B2B in App per la logica di Azure
 
@@ -63,7 +63,7 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
    | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/management/overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
    | **Piano tariffario** | Sì | <*livello di prezzo*> | Il piano tariffario per l'account di integrazione, che può essere modificato in un secondo momento. Per questo esempio, selezionare **Free**. Per altre informazioni, vedere gli argomenti seguenti: <p>- [Modello di determinazione prezzi di app per la logica](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limiti e configurazione delle app per la logica](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Prezzi di app per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Posizione** | Sì | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota** : per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Posizione** | Sì | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | No | Disattivato, acceso | Per questo esempio, lasciare l'impostazione **off** . |
    |||||
 
@@ -160,7 +160,7 @@ Per consentire alle app per la logica di accedere a un account di integrazione c
 
 1. Nel [portale di Azure](https://portal.azure.com)aprire un'app per la logica esistente o creare una nuova app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro**. In **account di integrazione** aprire l'elenco **selezionare un account di integrazione** . Selezionare l'account di integrazione da collegare all'app per la logica.
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**. In **account di integrazione** aprire l'elenco **selezionare un account di integrazione** . Selezionare l'account di integrazione da collegare all'app per la logica.
 
    ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
 
@@ -203,7 +203,7 @@ Per apportare questa modifica, è possibile usare l'portale di Azure o l'interfa
 
    ![Nel menu account di integrazione selezionare "panoramica"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-1. Nel riquadro Panoramica selezionare Aggiorna piano **tariffario** , che elenca tutti i livelli superiori disponibili. Quando si seleziona un livello, la modifica avrà effetto immediato.
+1. Nel riquadro Panoramica selezionare Aggiorna piano **tariffario**, che elenca tutti i livelli superiori disponibili. Quando si seleziona un livello, la modifica avrà effetto immediato.
 
 <a name="upgrade-tier-azure-cli"></a>
 

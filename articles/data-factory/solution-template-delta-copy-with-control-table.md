@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442004"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000828"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia Delta da un database con una tabella di controllo
 
@@ -42,7 +42,7 @@ Il modello contiene quattro attività:
 
 Il modello definisce i parametri seguenti:
 - *Data_Source_Table_Name* è la tabella nel database di origine da cui si desidera caricare i dati.
-- *Data_Source_WaterMarkColumn* è il nome della colonna nella tabella di origine utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna è in genere *DateTime*, *int*o similar.
+- *Data_Source_WaterMarkColumn* è il nome della colonna nella tabella di origine utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna è in genere *DateTime*, *int* o similar.
 - *Data_Destination_Container* è il percorso radice della posizione in cui vengono copiati i dati nell'archivio di destinazione.
 - *Data_Destination_Directory* è il percorso della directory sotto la radice della posizione in cui vengono copiati i dati nell'archivio di destinazione.
 - *Data_Destination_Table_Name* è la posizione in cui vengono copiati i dati nell'archivio di destinazione (applicabile quando si seleziona "Azure sinapsi Analytics (in precedenza SQL DW)" come destinazione dati.
@@ -52,7 +52,7 @@ Il modello definisce i parametri seguenti:
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
-1. Esplorare la tabella di origine che si desidera caricare e definire la colonna con limite massimo che può essere utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna potrebbe essere *DateTime*, *int*o simile. Il valore di questa colonna aumenta man mano che vengono aggiunte nuove righe. Dalla seguente tabella di origine di esempio (data_source_table), è possibile usare la colonna *LastModifytime* come colonna con limite massimo.
+1. Esplorare la tabella di origine che si desidera caricare e definire la colonna con limite massimo che può essere utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna potrebbe essere *DateTime*, *int* o simile. Il valore di questa colonna aumenta man mano che vengono aggiunte nuove righe. Dalla seguente tabella di origine di esempio (data_source_table), è possibile usare la colonna *LastModifytime* come colonna con limite massimo.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -110,11 +110,11 @@ Il modello definisce i parametri seguenti:
   
     ![Esaminare la pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Selezionare **stored procedure**. Per **Nome stored procedure**scegliere **[dbo]. [ update_watermark]**. Selezionare **Importa parametro**, quindi selezionare **Aggiungi contenuto dinamico**.  
+9. Selezionare **stored procedure**. Per **Nome stored procedure** scegliere **[dbo]. [ update_watermark]**. Selezionare **Importa parametro**, quindi selezionare **Aggiungi contenuto dinamico**.  
 
     ![Impostare l'attività stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Scrivere il contenuto ** \@ {Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** e quindi selezionare **Finish (fine**).  
+10. Scrivere il contenuto **\@ {Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** e quindi selezionare **Finish (fine**).  
 
     ![Scrivere il contenuto per i parametri dell'stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
@@ -136,7 +136,7 @@ Il modello definisce i parametri seguenti:
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
-14. Per eseguire di nuovo la pipeline, selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
+14. Per eseguire di nuovo la pipeline, selezionare **debug**, immettere i **parametri** e quindi fare clic su **fine**.
 
     Si noterà che nella destinazione sono state copiate solo le nuove righe.
 

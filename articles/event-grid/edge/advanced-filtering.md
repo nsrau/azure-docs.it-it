@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001049"
 ---
 # <a name="advanced-filtering"></a>Filtro avanzato
 Griglia di eventi consente di specificare i filtri per qualsiasi proprietà nel payload JSON. Questi filtri sono modellati come set di `AND` condizioni, con ogni condizione esterna con condizioni interne facoltative `OR` . Per ogni `AND` condizione specificare i valori seguenti:

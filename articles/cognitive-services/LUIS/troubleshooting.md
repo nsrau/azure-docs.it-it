@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566266"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96000131"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -108,7 +108,7 @@ Le soluzioni includono:
 
 * Se non si è al livello più elevato, è possibile [aumentare il piano tariffario](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 * Se l'utilizzo supera il piano tariffario più elevato, aggiungere altre Language Understanding risorse con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker compose può essere utile per questa operazione.
-* È possibile controllare le richieste dell'applicazione client con i [criteri di ripetizione](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementati quando si ottiene questo codice di stato.
+* È possibile controllare le richieste dell'applicazione client con i [criteri di ripetizione](/azure/architecture/best-practices/transient-faults#general-guidelines) implementati quando si ottiene questo codice di stato.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>La query dell'endpoint ha restituito risultati imprevisti. Cosa devo fare?
 
@@ -278,7 +278,7 @@ Se si usa il servizio Azure Bot e il problema è che il **Test in Web Chat** (Te
 1. Aprire l'editor di codice online.
 1. Nella barra di spostamento superiore azzurra selezionare il nome del bot (il secondo elemento a destra).
 1. Nell'elenco a discesa visualizzato selezionare **Open Kudu Console** (Apri console Kudu).
-1. Selezionare **LogFiles** , quindi selezionare **Application** (Applicazione). Esaminare tutti i file di log. Se l'errore non compare nella cartella dell'applicazione, esaminare tutti i file di log in **LogFiles**.
+1. Selezionare **LogFiles**, quindi selezionare **Application** (Applicazione). Esaminare tutti i file di log. Se l'errore non compare nella cartella dell'applicazione, esaminare tutti i file di log in **LogFiles**.
 1. Ricordarsi di ricompilare il progetto se si usa un linguaggio compilato, ad esempio C#.
 
 > [!Tip]
@@ -286,7 +286,7 @@ Se si usa il servizio Azure Bot e il problema è che il **Test in Web Chat** (Te
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Risolvere il problema durante il debug nel computer locale con Bot Framework.
 
-Per altre informazioni sul debug locale di un bot, vedere [Eseguire il debug di un bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Per altre informazioni sul debug locale di un bot, vedere [Eseguire il debug di un bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrazione di LUIS
 
@@ -296,7 +296,7 @@ Se si seleziona un modello LUIS e quindi il pulsante **Seleziona** nel riquadro 
 ![Area geografica del bot Web per il modello LUIS](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Quali aree geografiche LUIS supportano il priming del riconoscimento vocale di Bot Framework?
-Il [priming del riconoscimento vocale](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) è supportato solo per le app LUIS nell'istanza Stati Uniti centrali.
+Il [priming del riconoscimento vocale](/bot-framework/bot-service-manage-speech-priming) è supportato solo per le app LUIS nell'istanza Stati Uniti centrali.
 
 ## <a name="api-programming-strategies"></a>Strategie di programmazione di API
 
@@ -334,4 +334,4 @@ Video:
 
 Per altre informazioni su LUIS, vedere le risorse seguenti:
 * [Domande su Stack Overflow con tag LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Pagina Domande e risposte di Microsoft&per MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Pagina Domande e risposte di Microsoft&per MSDN Language Understanding Intelligent Services (LUIS)](/answers/topics/azure-language-understanding.html)

@@ -9,11 +9,11 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001321"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app iOS con Hub di notifica di Azure
 
@@ -51,7 +51,7 @@ Generare il file della richiesta di firma del certificato usato da Apple per la 
 
 1. Sul Mac eseguire lo strumento Accesso Portachiavi. Può essere aperto dalla cartella **Utilities** (Utility) o **Other** (Altro) nella finestra di avvio.
 
-2. Selezionare **Accesso Portachiavi** , espandere **Certificate Assistant** (Assistente certificati) e quindi selezionare **Request a Certificate from a Certificate Authority** (Richiedi certificato da Autorità di certificazione).
+2. Selezionare **Accesso Portachiavi**, espandere **Certificate Assistant** (Assistente certificati) e quindi selezionare **Request a Certificate from a Certificate Authority** (Richiedi certificato da Autorità di certificazione).
 
    :::image type="content" source="media/ios-sdk-get-started/image1.png" alt-text="Screenshot in cui è evidenziata l'opzione di menu Request a Certificate from a Certificate Authority.":::
 
@@ -84,8 +84,8 @@ Per inviare notifiche push a un'app per iOS, registrare l'applicazione con Apple
 
 3. Aggiornare i tre valori seguenti per la nuova app e quindi selezionare **Continue** (Continua).
 
-   - **Descrizione** : digitare un nome descrittivo per l'app.
-   - **Bundle ID** : immettere un valore di ID bundle nel formato **Organization Identifier.Product Name** come indicato nella [guida alla distribuzione di app](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). I valori **Organization Identifier** (Identificatore organizzazione) e **Product Name** (Nome prodotto) devono corrispondere all'identificatore dell'organizzazione e al nome del prodotto usati nella creazione del progetto Xcode. Nello screenshot seguente il valore **NotificationHubs** viene usato come identificatore dell'organizzazione e il valore **GetStarted** viene usato come nome del prodotto. Assicurarsi che il valore **Bundle Identifier** (Identificatore bundle) corrisponda al valore nel progetto Xcode, affinché Xcode usi il profilo di pubblicazione corretto.
+   - **Descrizione**: digitare un nome descrittivo per l'app.
+   - **Bundle ID**: immettere un valore di ID bundle nel formato **Organization Identifier.Product Name** come indicato nella [guida alla distribuzione di app](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). I valori **Organization Identifier** (Identificatore organizzazione) e **Product Name** (Nome prodotto) devono corrispondere all'identificatore dell'organizzazione e al nome del prodotto usati nella creazione del progetto Xcode. Nello screenshot seguente il valore **NotificationHubs** viene usato come identificatore dell'organizzazione e il valore **GetStarted** viene usato come nome del prodotto. Assicurarsi che il valore **Bundle Identifier** (Identificatore bundle) corrisponda al valore nel progetto Xcode, affinché Xcode usi il profilo di pubblicazione corretto.
 
       :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Registrare un ID app":::
 
@@ -106,11 +106,11 @@ Per inviare notifiche push a un'app per iOS, registrare l'applicazione con Apple
 > [!NOTE]
 > Con la versione di iOS 13, è possibile ricevere notifiche automatiche solo usando l'autenticazione basata su token. Se si usa l'autenticazione basata su certificati per le credenziali del servizio APN, è necessario passare all'autenticazione basata su token.
 
-Per consentire all'hub di notifica di usare **APNS** , è necessario un certificato. Questa operazione può essere eseguita in uno dei due modi seguenti:
+Per consentire all'hub di notifica di usare **APNS**, è necessario un certificato. Questa operazione può essere eseguita in uno dei due modi seguenti:
 
 - Creare un file con estensione **p12** che può essere caricato direttamente in Hub di notifica.
 
-- Creare un file con estensione **p8** che può essere usato per l' [autenticazione basata su token](notification-hubs-push-notification-http2-token-authentication.md) (approccio più recente).
+- Creare un file con estensione **p8** che può essere usato per l'[autenticazione basata su token](notification-hubs-push-notification-http2-token-authentication.md) (approccio più recente).
 
 La seconda opzione presenta diversi vantaggi rispetto all'uso dei certificati, come documentato in [Autenticazione basata su token (HTTP/2) per APNS](notification-hubs-push-notification-http2-token-authentication.md). Sono comunque fornite le procedure per entrambi gli approcci.
 
@@ -163,7 +163,7 @@ La seconda opzione presenta diversi vantaggi rispetto all'uso dei certificati, c
    - **App ID Prefix** (Prefisso ID app); si tratta di un **ID team**
    - **Bundle ID** (ID bundle)
 
-2. In **Certificates, Identifiers & Profiles** (Certificati, identificatori e profili) fare clic su **Keys** (Chiavi). Se è già stata configurata una chiave per **APNS** , è possibile riutilizzare il certificato con estensione .p8 scaricato subito dopo la creazione. In tal caso, è possibile ignorare i passaggi da 3 a 5.
+2. In **Certificates, Identifiers & Profiles** (Certificati, identificatori e profili) fare clic su **Keys** (Chiavi). Se è già stata configurata una chiave per **APNS**, è possibile riutilizzare il certificato con estensione .p8 scaricato subito dopo la creazione. In tal caso, è possibile ignorare i passaggi da 3 a 5.
 
 3. Per creare una nuova chiave, fare clic sul pulsante **+** o sul pulsante **Create a key** (Crea una chiave).
 
@@ -236,7 +236,7 @@ In questa sezione viene creato un hub di notifica e viene configurata l'autentic
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Scegliere **Tutti i servizi** dal menu a sinistra e quindi selezionare **Hub di notifica** nella sezione **Dispositivi mobili**. Selezionare l'icona a forma di stella accanto al nome del servizio per aggiungere il servizio alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto **Hub di notifica** a **PREFERITI** , selezionarlo.
+2. Scegliere **Tutti i servizi** dal menu a sinistra e quindi selezionare **Hub di notifica** nella sezione **Dispositivi mobili**. Selezionare l'icona a forma di stella accanto al nome del servizio per aggiungere il servizio alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto **Hub di notifica** a **PREFERITI**, selezionarlo.
 
    :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure portal":::
 

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999441"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -23,8 +23,8 @@ L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
 Quando si usa l'integrazione di VNet con reti virtuali nella stessa area, è possibile usare le funzionalità di rete di Azure seguenti:
 
-* **Gruppi di sicurezza di rete (gruppi)** : è possibile bloccare il traffico in uscita con una NSG posizionata nella subnet di integrazione. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione VNet per fornire l'accesso in ingresso all'app.
-* **Tabelle di route (UDR)** : è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita laddove si vuole.
+* **Gruppi di sicurezza di rete (gruppi)**: è possibile bloccare il traffico in uscita con una NSG posizionata nella subnet di integrazione. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione VNet per fornire l'accesso in ingresso all'app.
+* **Tabelle di route (UDR)**: è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita laddove si vuole.
 
 Per impostazione predefinita, l'app instrada solo il traffico RFC1918 in VNet. Se si vuole instradare tutto il traffico in uscita nella VNet, applicare l'impostazione dell'app WEBSITE_VNET_ROUTE_ALL all'app. Per configurare l'impostazione dell'app:
 
@@ -110,5 +110,5 @@ Se si desidera effettuare chiamate a [endpoint privati][privateendpoints], è ne
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

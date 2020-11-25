@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089550"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999213"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
 
@@ -157,7 +157,7 @@ Per aggiungere manualmente le VM:
 
 **Total DR-Drill cost (average)** (Costo totale esercitazioni sul ripristino di emergenza - media): costo di calcolo e di archiviazione per le esercitazioni sul ripristino di emergenza.
 
-**Costo**della licenza di Azure Site Recovery: costo della licenza di Site Recovery.
+**Costo** della licenza di Azure Site Recovery: costo della licenza di Site Recovery.
 
 ## <a name="supported-target-regions"></a>Aree di destinazione supportate
 Site Recovery Deployment Planner offre la stima dei costi per le aree di Azure riportate di seguito. Se la propria area non è inclusa nell'elenco, è possibile usare qualsiasi area elencata con i prezzi più simili a quelli della propria area:

@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07a274bd4ac227b6260f7891b24dad0eacdfb4f7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561528"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999910"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -29,8 +29,8 @@ LUIS consente tre tipi di risorse di Azure e una risorsa non di Azure:
 
 |Risorsa|Scopo|Servizio cognitivo `kind`|Servizio cognitivo `type`|
 |--|--|--|--|
-|Creazione di una risorsa|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. [Creare una risorsa Luis authoring](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) se si desidera creare app Luis a livello di codice o dal portale Luis. È necessario [eseguire la migrazione dell'account Luis](luis-migration-authoring.md#what-is-migration) prima di collegare le risorse di creazione di Azure all'applicazione. È possibile controllare le autorizzazioni per la risorsa di creazione assegnando [agli utenti il ruolo Collaboratore](#contributions-from-other-authors). <br><br> È disponibile un livello per la risorsa LUIS Authoring:<br> <ul> <li>**Risorsa di authoring F0 gratuita** , che offre 1 milione transazioni gratuite per la creazione e 1.000 test gratuiti per le richieste di endpoint di stima mensili. |`LUIS.Authoring`|`Cognitive Services`|
-|Risorsa Previsione| Dopo la pubblicazione dell'applicazione LUIS, utilizzare la risorsa/chiave di stima per eseguire query sulle richieste dell'endpoint di stima. Creare una risorsa di stima LUIS prima che l'app client richieda le stime oltre le 1.000 richieste fornite dalla risorsa di creazione o di avvio. <br><br> Per la risorsa di stima sono disponibili due livelli:<br><ul> <li> **Risorsa di stima F0 gratuita** , che fornisce 10.000 richieste di endpoint di stima gratuite mensili.<br> <li> **Risorsa di stima S0 standard** , che corrisponde al livello a pagamento. [Altre informazioni sui prezzi.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Creazione di una risorsa|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. [Creare una risorsa Luis authoring](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) se si desidera creare app Luis a livello di codice o dal portale Luis. È necessario [eseguire la migrazione dell'account Luis](luis-migration-authoring.md#what-is-migration) prima di collegare le risorse di creazione di Azure all'applicazione. È possibile controllare le autorizzazioni per la risorsa di creazione assegnando [agli utenti il ruolo Collaboratore](#contributions-from-other-authors). <br><br> È disponibile un livello per la risorsa LUIS Authoring:<br> <ul> <li>**Risorsa di authoring F0 gratuita**, che offre 1 milione transazioni gratuite per la creazione e 1.000 test gratuiti per le richieste di endpoint di stima mensili. |`LUIS.Authoring`|`Cognitive Services`|
+|Risorsa Previsione| Dopo la pubblicazione dell'applicazione LUIS, utilizzare la risorsa/chiave di stima per eseguire query sulle richieste dell'endpoint di stima. Creare una risorsa di stima LUIS prima che l'app client richieda le stime oltre le 1.000 richieste fornite dalla risorsa di creazione o di avvio. <br><br> Per la risorsa di stima sono disponibili due livelli:<br><ul> <li> **Risorsa di stima F0 gratuita**, che fornisce 10.000 richieste di endpoint di stima gratuite mensili.<br> <li> **Risorsa di stima S0 standard**, che corrisponde al livello a pagamento. [Altre informazioni sui prezzi.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Risorsa di avvio/versione di valutazione|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. Questa risorsa viene creata per impostazione predefinita se si sceglie l'opzione risorsa di avvio quando si accede per la prima volta a LUIS. La chiave di avvio sarà deprecata. Tutti gli utenti di LUIS dovranno [eseguire la migrazione dei propri account](luis-migration-authoring.md#what-is-migration) e collegare le applicazioni Luis a una risorsa di creazione. Diversamente dalla risorsa di creazione, questa risorsa non fornisce le autorizzazioni per il controllo degli accessi in base al ruolo di Azure. <br><br> Analogamente a quanto avviene con la risorsa di creazione, la risorsa iniziale offre 1 milione transazioni di creazione gratuite e 1.000 test delle richieste di endpoint di stima gratuite.|-|Non è una risorsa di Azure.|
 |[Chiave di risorsa multiservizio di servizi cognitivi](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Richieste di endpoint di stima delle query condivise con LUIS e altri servizi cognitivi supportati.|`CognitiveServices`|`Cognitive Services`|
 
@@ -176,7 +176,7 @@ Un'app pubblica viene pubblicata in tutte le aree geografiche. Un utente con una
 
 ### <a name="create-resources-in-the-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di Azure
 
-Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente.
+Usare l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente.
 
 Risorsa `kind` :
 
@@ -214,7 +214,7 @@ Risorsa `kind` :
 
 1. Accedere al [portale LUIS](https://www.luis.ai).
 1. Nell'angolo in alto a destra selezionare l'account utente e quindi selezionare **Impostazioni**.
-1. Nella pagina **impostazioni utente** selezionare **Aggiungi risorsa di creazione** , quindi selezionare una risorsa di creazione esistente. Selezionare **Salva**.
+1. Nella pagina **impostazioni utente** selezionare **Aggiungi risorsa di creazione**, quindi selezionare una risorsa di creazione esistente. Selezionare **Salva**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Assegnare una risorsa a un'app
 
@@ -224,7 +224,7 @@ Risorsa `kind` :
 È possibile utilizzare questa procedura per creare una risorsa di creazione o di stima o assegnarne una a un'applicazione: 
 
 1. Accedere al [portale LUIS](https://www.luis.ai). Selezionare un'app nell'elenco **My apps** (App personali).
-1. Passare a **gestire**  >  **le risorse di Azure** :
+1. Passare a **gestire**  >  **le risorse di Azure**:
 
     ![Screenshot che mostra la pagina delle risorse di Azure.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
@@ -256,7 +256,7 @@ Per i processi automatizzati come le pipeline CI/CD, è possibile automatizzare 
 
     Per questa API POST sono necessari i valori seguenti:
 
-    |Type|Impostazione|Valore|
+    |Tipo|Impostazione|Valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore della proprietà `Authorization` è `Bearer {token}`. Il valore del token deve essere preceduto dalla parola `Bearer` e da uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|

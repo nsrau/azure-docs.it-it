@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307569"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000641"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con ServiceNow usando i webhook
 
@@ -37,7 +37,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
     ![La scheda relativa alle risorse in ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-1.  **Denominare ** la nuova risorsa `event` e cambiare il **metodo HTTP** in `POST`.
+1.  **Denominare** la nuova risorsa `event` e cambiare il **metodo HTTP** in `POST`.
 
 1.  Nella sezione **Script** aggiungere il codice JavaScript seguente:
 
@@ -194,7 +194,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 1. Passare a [ServiceNow](https://www.servicenow.com/) per confermare che l'integrazione è stata configurata correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
+- Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Informazioni sulle [notifiche per l'integrità del servizio](./service-notifications.md).
 - Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).

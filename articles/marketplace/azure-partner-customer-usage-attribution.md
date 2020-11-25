@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628391"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999876"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -100,7 +100,7 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 
 1. Aprire il modello di Resource Manager.
 
-1. Aggiungere una nuova risorsa di tipo [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments) nel file di modello principale. La risorsa deve essere solo nel file **mainTemplate.json** o **azuredeploy.json** , non in un template annidato o collegato.
+1. Aggiungere una nuova risorsa di tipo [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments) nel file di modello principale. La risorsa deve essere solo nel file **mainTemplate.json** o **azuredeploy.json**, non in un template annidato o collegato.
 
 1. Immettere il valore GUID dopo il `pid-` prefisso come nome della risorsa. Se ad esempio il GUID è eb7927c8-dd66-43e1-b0cf-c346a422063, il nome della risorsa sarà _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
@@ -113,7 +113,7 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 ### <a name="sample-resource-manager-template-code"></a>Esempio di codice di modello di Resource Manager
 
 Per abilitare il rilevamento delle risorse per il modello, è necessario aggiungere la risorsa aggiuntiva seguente nella sezione risorse. Assicurarsi di modificare il seguente codice di esempio con il proprio input quando aggiunto al file del modello principale.
-La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredeploy.json** , non in un template annidato o collegato.
+La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredeploy.json**, non in un template annidato o collegato.
 
 ```json
 // Make sure to modify this sample code with your own inputs where applicable
@@ -251,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Report
 
-È possibile trovare il report per l'attribuzione dell'utilizzo da parte dei clienti nel dashboard del Centro per i partner ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Per visualizzare il report, è necessario usare le credenziali del Centro per i partner per accedere. Se si verificano problemi con il report o l'accesso, creare una richiesta di supporto seguendo le istruzioni nella sezione Supporto.
-
-Scegliere l'opzione relativa al modello monitorato nell'elenco a discesa per il tipo di associazione partner per visualizzare il report.
-
-![Report per l'attribuzione dell'utilizzo da parte dei clienti](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+È possibile trovare il report per l'attribuzione dell'utilizzo da parte dei clienti nel dashboard del Centro per i partner ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Per visualizzare il report, è necessario usare le credenziali del Centro per i partner per accedere. Se si verificano problemi con il report o l'accesso, creare una [richiesta di supporto](#get-support).
 
 ## <a name="notify-your-customers"></a>Informare i clienti
 
@@ -269,7 +265,7 @@ Quando si distribuisce questo modello, Microsoft è in grado di identificare l'i
 
 Quando si distribuisce \<PARTNER> il software, Microsoft è in grado di identificare l'installazione del \<PARTNER> software con le risorse di Azure distribuite. Microsoft è in grado di correlare le risorse di Azure usate per supportare il software. Microsoft raccoglie queste informazioni per fornire l'esperienza utente migliore con i propri prodotti e per il funzionamento delle proprie attività aziendali. I dati vengono raccolti e regolati dall'Informativa sulla privacy di Microsoft, disponibile all'indirizzo [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 Per informazioni sulle opzioni di supporto disponibili nel Marketplace commerciale, vedere [supporto per il programma Commercial Marketplace nel centro per i partner](support.md).
 

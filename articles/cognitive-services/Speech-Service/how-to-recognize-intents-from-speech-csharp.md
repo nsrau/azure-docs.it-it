@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918792"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001099"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscimento vocale per C #
 
@@ -55,7 +55,7 @@ LUIS usa tre tipi di chiave:
 | Starter   | Testa l'applicazione LUIS usando solo testo   |
 | Endpoint  | Autorizza l'accesso a una particolare app LUIS            |
 
-Per questa guida, è necessario il tipo di chiave dell'endpoint. Questa guida usa l'app di esempio Home Automation LUIS, che è possibile creare seguendo la Guida introduttiva [usare l'app di automazione domestica predefinita](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
+Per questa guida, è necessario il tipo di chiave dell'endpoint. Questa guida usa l'app di esempio Home Automation LUIS, che è possibile creare seguendo la Guida introduttiva [usare l'app di automazione domestica predefinita](../luis/luis-get-started-create-app.md) . Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
 
 Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non Abilita l'integrazione del servizio vocale e non funzionerà con questa guida. Creare una risorsa LUIS nel dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di abbonamento gratuito per questa guida.
 
@@ -201,4 +201,4 @@ Cercare il codice usato in questo articolo nella cartella **samples/csharp/share
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Riconoscimento vocale da un microfono](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Avvio rapido: Riconoscimento vocale da un microfono](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

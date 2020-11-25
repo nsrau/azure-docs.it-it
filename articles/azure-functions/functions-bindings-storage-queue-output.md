@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317226"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001253"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associazioni di output di archiviazione code di Azure per funzioni di Azure
 
@@ -100,6 +100,24 @@ public static void Run(
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+ Nell'esempio seguente viene illustrata una funzione Java che consente di creare un messaggio in coda per quando viene attivato da una richiesta HTTP.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di parametro deve essere `OutputBinding<T>` , dove `T` è qualsiasi tipo Java nativo di un POJO.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger HTTP in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione crea un elemento della coda per ogni richiesta HTTP ricevuta.
@@ -149,6 +167,79 @@ module.exports = function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Negli esempi di codice seguenti viene illustrato come generare un messaggio della coda da una funzione attivata tramite HTTP. La sezione di configurazione con `type` di `queue` definisce l'associazione di output.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Msg",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Utilizzando questa configurazione dell'associazione, una funzione di PowerShell può creare un messaggio della coda utilizzando `Push-OutputBinding` . In questo esempio viene creato un messaggio da una stringa di query o da un parametro del corpo.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
+Per inviare più messaggi contemporaneamente, definire una matrice di messaggi e utilizzare `Push-OutputBinding` per inviare messaggi all'associazione di output della coda.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = @("message1", "message2")
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -214,24 +305,6 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
- Nell'esempio seguente viene illustrata una funzione Java che consente di creare un messaggio in coda per quando viene attivato da una richiesta HTTP.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di parametro deve essere `OutputBinding<T>` , dove `T` è qualsiasi tipo Java nativo di un POJO.
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
@@ -270,14 +343,6 @@ Per un esempio completo, vedere [esempio di output](#example).
 
 Gli attributi non sono supportati da Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Gli attributi non sono supportati da JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Gli attributi non sono supportati da Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 L' `QueueOutput` annotazione consente di scrivere un messaggio come output di una funzione. Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che consente di creare un messaggio in coda.
@@ -308,6 +373,18 @@ public class HttpTriggerQueueOutput {
 |`connection` | Punta alla stringa di connessione dell'account di archiviazione. |
 
 Il parametro associato all' `QueueOutput` annotazione viene tipizzato come istanza di [output \<T\> ](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) .
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Gli attributi non sono supportati da JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Gli attributi non sono supportati da Python.
 
 ---
 
@@ -359,25 +436,29 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-L'elemento della coda di output è disponibile tramite `context.bindings.<NAME>` dove `<NAME>` corrisponde al nome definito in *function.js*. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Sono disponibili due opzioni per l'output di un messaggio della coda da una funzione:
-
-- **Valore restituito**: impostare la `name` Proprietà in *function.jssu* `$return` . Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio di archiviazione di Accodamento.
-
-- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [out](/python/api/azure-functions/azure.functions.out?view=azure-python) . Il valore passato a `set` viene reso permanente come messaggio di archiviazione di Accodamento.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Sono disponibili due opzioni per l'output di un messaggio della coda da una funzione tramite l'annotazione [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
 
 - **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come messaggio in coda.
 
-- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al `setValue` metodo rende permanente il valore come messaggio in coda.
+- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico di tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al `setValue` metodo rende permanente il valore come messaggio in coda.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+L'elemento della coda di output è disponibile tramite `context.bindings.<NAME>` dove `<NAME>` corrisponde al nome definito in *function.js*. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+L'output per il messaggio della coda è disponibile tramite `Push-OutputBinding` la posizione in cui si passano gli argomenti che corrispondono al nome designato dal parametro del binding `name` nel *function.jssu* file.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Sono disponibili due opzioni per l'output di un messaggio della coda da una funzione:
+
+- **Valore restituito**: impostare la proprietà `name` in *function.json* su `$return`. Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio di archiviazione di Accodamento.
+
+- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) del parametro dichiarato come tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true). Il valore passato a `set` viene reso permanente come messaggio di archiviazione di Accodamento.
 
 ---
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001287"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione
 
@@ -74,7 +74,7 @@ Se i certificati dei membri nel pool back-end non sono firmati da autorità di c
 
 > [!NOTE] 
 >
-> Il certificato aggiunto all' **impostazione HTTP di back-end** per autenticare i server back-end può essere lo stesso del certificato aggiunto al **listener** per la terminazione TLS nel gateway applicazione o diverso per maggiore sicurezza.
+> Il certificato aggiunto all'**impostazione HTTP di back-end** per autenticare i server back-end può essere lo stesso del certificato aggiunto al **listener** per la terminazione TLS nel gateway applicazione o diverso per maggiore sicurezza.
 
 ![Scenario di TLS end-to-end][1]
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000522"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -29,7 +29,7 @@ Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apac
 
 1. Selezionare il proprio cluster nel [portale di Azure](https://portal.azure.com/).  Per istruzioni, vedere [elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Il cluster viene aperto in una nuova visualizzazione del portale.
 
-1. Da **Dashboard cluster**selezionare **visualizzazioni Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster. È anche possibile passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/views` nel browser, dove `CLUSTERNAME` è il nome del cluster.
+1. Da **Dashboard cluster** selezionare **visualizzazioni Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster. È anche possibile passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/views` nel browser, dove `CLUSTERNAME` è il nome del cluster.
 
 1. Nell'elenco di viste selezionare __vista Hive__.
 

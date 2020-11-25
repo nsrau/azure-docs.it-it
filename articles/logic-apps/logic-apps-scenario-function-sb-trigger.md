@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629734"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000335"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chiamare o attivare app per la logica usando funzioni di Azure e il bus di servizio di Azure
 
@@ -42,7 +42,7 @@ Per questo scenario, è presente una funzione che esegue ogni app per la logica 
 
    Con il trigger request è possibile immettere facoltativamente uno schema JSON da usare con il messaggio della coda. Gli schemi JSON consentono alla finestra di progettazione di app per la logica di comprendere la struttura per i dati di input e di semplificare l'uso di output nel flusso di lavoro.
 
-1. Per specificare uno schema, immetterlo nella casella **Schema JSON del corpo della richiesta** , ad esempio:
+1. Per specificare uno schema, immetterlo nella casella **Schema JSON del corpo della richiesta**, ad esempio:
 
    ![Specificare lo schema JSON](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
 
@@ -50,7 +50,7 @@ Per questo scenario, è presente una funzione che esegue ogni app per la logica 
 
    1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
 
-   1. In **immettere o incollare un payload JSON di esempio** , immettere il payload di esempio e quindi **fare** clic su fine.
+   1. In **immettere o incollare un payload JSON di esempio**, immettere il payload di esempio e quindi **fare** clic su fine.
 
       ![Immettere il payload di esempio](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 

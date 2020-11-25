@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284014"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999579"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
 
@@ -73,7 +73,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, selezionare **nuovo passaggio**e quindi selezionare **Aggiungi un'azione**. Nella casella di ricerca immettere `ftp` come filtro. Nell'elenco **azioni** selezionare l'azione desiderata.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, selezionare **nuovo passaggio** e quindi selezionare **Aggiungi un'azione**. Nella casella di ricerca immettere `ftp` come filtro. Nell'elenco **azioni** selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
@@ -81,7 +81,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
 1. Fornire le informazioni per il trigger o l'azione selezionata e continuare a compilare il flusso di lavoro dell'app per la logica.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 <a name="file-added-modified"></a>
 
@@ -133,7 +133,7 @@ L'azione **Ottieni metadati file** ottiene le proprietà di un file che si trova
 
    ![Creare la connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. Quando viene visualizzata l'azione **Ottieni metadati file** , fare clic all'interno della casella **file** per visualizzare l'elenco di contenuto dinamico. A questo punto è possibile selezionare le proprietà per gli output dei passaggi precedenti. In **ottenere i metadati del file**nell'elenco di contenuto dinamico selezionare la proprietà **List of files ID** , che fa riferimento alla raccolta in cui il file è stato aggiunto o aggiornato.
+1. Quando viene visualizzata l'azione **Ottieni metadati file** , fare clic all'interno della casella **file** per visualizzare l'elenco di contenuto dinamico. A questo punto è possibile selezionare le proprietà per gli output dei passaggi precedenti. In **ottenere i metadati del file** nell'elenco di contenuto dinamico selezionare la proprietà **List of files ID** , che fa riferimento alla raccolta in cui il file è stato aggiunto o aggiornato.
 
    ![Trovare e selezionare la proprietà "elenco di ID file"](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
