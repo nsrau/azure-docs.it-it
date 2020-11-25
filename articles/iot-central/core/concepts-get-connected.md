@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: abfd5fadcf553e73dca3f08bc8a0e377f2ace87d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121820"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -255,7 +255,7 @@ Tutti i dati scambiati tra i dispositivi e Azure IoT Central vengono crittografa
 
 Se si è uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:
 
-- Esaminare alcuni esempi di codice che illustrano come usare i token SAS in [esercitazione: creare e connettere un'applicazione client all'applicazione IoT Central di Azure (esercitazione-Connect-device-nodejs.md)
+- Esaminare alcuni esempi di codice che illustrano come usare i token SAS in [esercitazione: creare e connettere un'applicazione client all'applicazione IoT Central di Azure](tutorial-connect-device.md)
 - Informazioni su come [connettere i dispositivi con certificati X. 509 usando Node.js SDK per dispositivi per IOT Central applicazione](how-to-connect-devices-x509.md)
 - Informazioni su come [monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure](./howto-monitor-devices-azure-cli.md)
 - Informazioni su come [definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central](./howto-set-up-template.md)

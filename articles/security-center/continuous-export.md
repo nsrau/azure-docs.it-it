@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289227"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122305"
 ---
 # <a name="continuously-export-security-center-data"></a>Esportazione continua dei dati del Centro sicurezza
 
@@ -61,7 +61,11 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
 1. Dall'intestazione laterale del Centro sicurezza selezionare **prezzi & impostazioni**.
 1. Selezionare la sottoscrizione specifica per la quale si desidera configurare l'esportazione dei dati.
 1. Dall'intestazione laterale della pagina impostazioni per la sottoscrizione selezionare **esportazione continua**.
-    [ ![ Opzioni di esportazione nel centro sicurezza di Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) qui è possibile visualizzare le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opzioni di esportazione nel centro sicurezza di Azure":::
+
+    Qui vengono visualizzate le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
+
 1. Selezionare il tipo di dati che si desidera esportare e scegliere tra i filtri in ogni tipo (ad esempio, esportare solo gli avvisi con livello di gravità elevato).
 1. Facoltativamente, se la selezione include una di queste quattro raccomandazioni, è possibile includere i risultati della valutazione della vulnerabilità insieme ad essi:
     - È necessario correggere i risultati della valutazione della vulnerabilità nei database SQL
@@ -163,7 +167,7 @@ Per visualizzare gli schemi di eventi dei tipi di dati esportati, visitare gli [
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visualizzare gli avvisi e le raccomandazioni esportati in monitoraggio di Azure
 
-In alcuni casi, è possibile scegliere di visualizzare gli avvisi di sicurezza e/o le raccomandazioni esportati in [monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md). 
+È anche possibile scegliere di visualizzare gli avvisi di sicurezza e/o le raccomandazioni esportati in [monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md). 
 
 Monitoraggio di Azure offre un'esperienza unificata per gli avvisi per un'ampia gamma di avvisi di Azure, tra cui log di diagnostica, avvisi sulle metriche e avvisi personalizzati basati sulle query Log Analytics area di lavoro.
 
@@ -207,7 +211,7 @@ Scopri di più sui [prezzi di hub eventi di Azure](https://azure.microsoft.com/p
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>L'esportazione include i dati sullo stato corrente di tutte le risorse?
 
-No. L'esportazione continua è compilata per lo streaming di **eventi** :
+No. L'esportazione continua è compilata per lo streaming di **eventi**:
 
 - Gli **avvisi** ricevuti prima dell'abilitazione dell'esportazione non verranno esportati.
 - Le **raccomandazioni** vengono inviate ogni volta che viene modificato lo stato di conformità di una risorsa. Ad esempio, quando una risorsa passa da integro a non integro. Pertanto, come per gli avvisi, le raccomandazioni per le risorse che non hanno modificato lo stato poiché l'esportazione abilitata non verranno esportate.

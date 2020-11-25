@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989548"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121759"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payload di telemetria, proprietà e comandi
 
@@ -36,7 +36,7 @@ Ogni esempio mostra un frammento di codice del modello di dispositivo che defini
 
 Il file JSON che definisce il modello di dispositivo usa [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-Per il codice del dispositivo di esempio che mostra alcuni payload in uso, vedere l'applicazione [creare e connettere un'applicazione client all'applicazione azure IOT Central (Node.js)](tutorial-connect-device-nodejs.md) e [creare e connettere un'applicazione client alle esercitazioni di Azure IOT Central Application (Python)](tutorial-connect-device-python.md) .
+Per il codice del dispositivo di esempio che mostra alcuni di questi payload in uso, vedere l'esercitazione [creare e connettere un'applicazione client all'applicazione Azure IOT Central](tutorial-connect-device.md) .
 
 ## <a name="view-raw-data"></a>Visualizzare dati non elaborati
 

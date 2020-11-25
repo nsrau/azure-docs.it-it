@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b7780a0ef70a89a88070d5883cc840319a67fa3d
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122360"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Esentare una risorsa dai consigli e dal punteggio di sicurezza
 
@@ -31,7 +31,7 @@ La risorsa sarà elencata come non applicabile e il motivo verrà visualizzato c
 |Aspetto|Dettagli|
 |----|:----|
 |Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Prezzi:|Si tratta di una funzionalità di criteri di Azure Premium offerta per i clienti di Azure Defender senza costi aggiuntivi. Per gli altri utenti potrebbero essere applicati addebiti in futuro.|
+|Prezzi:|Si tratta di una funzionalità di criteri di Azure Premium offerta per i clienti di Azure Defender senza costi aggiuntivi. Per gli altri utenti, potrebbero essere applicati addebiti in futuro.|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario della sottoscrizione** o **collaboratore dei criteri** per creare un'esenzione<br>Per creare una regola, è necessario disporre delle autorizzazioni per modificare i criteri in criteri di Azure.<br>Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
