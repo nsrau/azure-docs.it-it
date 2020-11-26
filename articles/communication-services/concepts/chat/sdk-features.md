@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666144"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885989"
 ---
 # <a name="chat-client-library-overview"></a>Panoramica della libreria client di chat
 
@@ -52,7 +52,7 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 | Eventi             | Usare Griglia di eventi per sottoscrivere l'attività degli utenti nei thread di chat e integrare servizi di notifica o logica di business personalizzati     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitoraggio        | Monitorare l'utilizzo in termini di messaggi inviati                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorare la qualità e lo stato delle richieste API effettuate dall'app e configurare gli avvisi tramite il portale                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Funzionalità aggiuntive | Usare le [API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/) insieme alla libreria client di chat per abilitare le funzionalità intelligenti, *traduzione della lingua e analisi del sentiment del messaggio in arrivo in un client, conversione della voce in testo scritto per scrivere un messaggio mentre il membro parla e così via.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Funzionalità aggiuntive | Usare le [API Servizi cognitivi](../../../cognitive-services/index.yml) insieme alla libreria client di chat per abilitare le funzionalità intelligenti, *traduzione della lingua e analisi del sentiment del messaggio in arrivo in un client, conversione della voce in testo scritto per scrivere un messaggio mentre il membro parla e così via.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

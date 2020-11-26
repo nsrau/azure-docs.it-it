@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660339"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021759"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
@@ -35,7 +35,7 @@ L'interfaccia della riga di comando di Azure è l'esperienza della riga di coman
 
 È possibile autorizzare l'accesso all'archiviazione BLOB dall'interfaccia della riga di comando di Azure con le credenziali di Azure AD o usando la chiave di accesso dell'account di archiviazione. È consigliabile usare le credenziali di Azure AD. Questo articolo illustra come autorizzare le operazioni con l'archiviazione BLOB tramite Azure AD.
 
-I comandi dell'interfaccia della riga di comando di Azure per le operazioni sui dati dell'archiviazione BLOB supportano il parametro `--auth-mode`, che consente di specificare come autorizzare una determinata operazione. Impostare il parametro `--auth-mode` su `login` per concedere l'autorizzazione con le credenziali di Azure AD. Per altre informazioni, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+I comandi dell'interfaccia della riga di comando di Azure per le operazioni sui dati dell'archiviazione BLOB supportano il parametro `--auth-mode`, che consente di specificare come autorizzare una determinata operazione. Impostare il parametro `--auth-mode` su `login` per concedere l'autorizzazione con le credenziali di Azure AD. Per altre informazioni, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Solo le operazioni sui dati dell'archiviazione BLOB supportano il parametro `--auth-mode`. Le operazioni di gestione, ad esempio la creazione di un gruppo di risorse o di un account di archiviazione, usano automaticamente le credenziali di Azure AD per l'autorizzazione.
 
@@ -89,7 +89,7 @@ az storage container create \
 > [!IMPORTANT]
 > La propagazione delle assegnazioni dei ruoli può richiedere alcuni minuti.
 
-È anche possibile usare la chiave dell'account di archiviazione per autorizzare l'operazione di creazione del contenitore. Per altre informazioni sull'autorizzazione delle operazioni sui dati con l'interfaccia della riga di comando di Azure, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+È anche possibile usare la chiave dell'account di archiviazione per autorizzare l'operazione di creazione del contenitore. Per altre informazioni sull'autorizzazione delle operazioni sui dati con l'interfaccia della riga di comando di Azure, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="upload-a-blob"></a>Caricare un BLOB
 
@@ -169,4 +169,4 @@ az group delete \
 In questa Guida di avvio rapido è stato descritto il trasferimento di file tra un file system locale e un contenitore in Archiviazione BLOB di Azure. Per altre informazioni sull'uso dell'archiviazione BLOB con l'interfaccia della riga di comando di Azure, esplorare gli esempi dell'interfaccia della riga di comando di Azure per l'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
-> [Esempi di interfaccia della riga di comando di Azure per l'archiviazione BLOB di Azure](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Esempi di interfaccia della riga di comando di Azure per l'archiviazione BLOB di Azure](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/04/2020
+ms.date: 11/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 519447dfffaa660131fa587eaef946c76f66983b
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027330"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96013395"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Avvio rapido: Creare una data factory usando l'interfaccia utente di Azure Data Factory 
 
@@ -42,12 +42,12 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
-1. Selezionare **Analisi** e quindi **Data factory**. 
+1. Selezionare **Integrazione** e quindi **Data factory**. 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** per **Nome**. 
  
-   Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, **&lt;nomeutente&gt;ADFTutorialDataFactory** , e provare di nuovo a crearla. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
+   Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, **&lt;nomeutente&gt;ADFTutorialDataFactory**, e provare di nuovo a crearla. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
    ![Errore quando un nome non è disponibile](./media/doc-common-process/name-not-available-error.png)
 1. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
@@ -104,9 +104,9 @@ In questa procedura viene creato un servizio collegato per collegare l'account d
 ## <a name="create-datasets"></a>Creare set di dati
 In questa procedura verranno creati due set di dati: **InputDataset** e **OutputDataset**. I set di dati sono di tipo **AzureBlob**. Fanno riferimento al servizio collegato Archiviazione di Azure creato nella sezione precedente. 
 
-Il set di dati di input rappresenta i dati di origini nella cartella di input. Nella definizione del set di dati di input specificare il contenitore BLOB ( **adftutorial** ), la cartella ( **input** ) e il file ( **emp.txt** ) che includono i dati di origine. 
+Il set di dati di input rappresenta i dati di origini nella cartella di input. Nella definizione del set di dati di input specificare il contenitore BLOB (**adftutorial**), la cartella (**input**) e il file (**emp.txt**) che includono i dati di origine. 
 
-Il set di dati di output rappresenta i dati copiati nella destinazione. Nella definizione del set di dati di output specificare il contenitore BLOB ( **adftutorial** ), la cartella ( **output** ) e il file in cui vengono copiati i dati. A ogni esecuzione di una pipeline è associato un ID univoco. È possibile accedere a questo ID usando la variabile di sistema **RunId**. Il nome del file di output viene valutato dinamicamente in base all'ID dell'esecuzione della pipeline.   
+Il set di dati di output rappresenta i dati copiati nella destinazione. Nella definizione del set di dati di output specificare il contenitore BLOB (**adftutorial**), la cartella (**output**) e il file in cui vengono copiati i dati. A ogni esecuzione di una pipeline è associato un ID univoco. È possibile accedere a questo ID usando la variabile di sistema **RunId**. Il nome del file di output viene valutato dinamicamente in base all'ID dell'esecuzione della pipeline.   
 
 Nelle impostazioni del servizio collegato è stato specificato l'account di archiviazione di Azure che contiene i dati di origine. Nelle impostazioni del set di dati di origine specificare la posizione esatta in cui si trovano i dati, ovvero contenitore BLOB, cartella e file. Nelle impostazioni del set di dati di sink specificare la posizione in cui vengono copiati i dati, ovvero contenitore BLOB, cartella e file. 
  
@@ -127,7 +127,7 @@ Nelle impostazioni del servizio collegato è stato specificato l'account di arch
 
     c. Per **Percorso file** selezionare il pulsante **Sfoglia**.
 
-    d. Nella finestra **Choose a file or folder** (Scegliere un file o una cartella) passare alla cartella **input** nel contenitore **adftutorial** , selezionare il file **emp.txt** e quindi selezionare **OK**.
+    d. Nella finestra **Choose a file or folder** (Scegliere un file o una cartella) passare alla cartella **input** nel contenitore **adftutorial**, selezionare il file **emp.txt** e quindi selezionare **OK**.
     
     e. Selezionare **OK**.   
 
@@ -156,6 +156,7 @@ In questa procedura viene creata e convalidata una pipeline con un'attività di 
 1. Nel pannello Generale in **Proprietà** specificare **CopyPipeline** per **Nome**. Comprimere quindi il pannello facendo clic sull'icona Proprietà nell'angolo superiore destro.
 
 1. Nella casella degli strumenti **Attività** espandere **Move & Transform** (Sposta e trasforma). Trascinare l'attività **Copia dati** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. È anche possibile eseguire una ricerca di attività nella casella degli strumenti **Attività**. Specificare **CopyFromBlobToBlob** per **Nome**.
+
    ![Creazione di un'attività di copia dei dati](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
 1. Passare alla scheda **Origine** nelle impostazioni dell'attività Copia e selezionare **InputDataset** per **Source Dataset** (Set di dati di origine).
@@ -163,6 +164,7 @@ In questa procedura viene creata e convalidata una pipeline con un'attività di 
 1. Passare alla scheda **Sink** nelle impostazioni dell'attività Copia e selezionare **OutputDataset** per **Sink Dataset** (Set di dati sink).
 
 1. Fare clic su **Convalida** sulla barra degli strumenti della pipeline sopra l'area di disegno per convalidare le impostazioni della pipeline. Assicurarsi che la pipeline sia stata convalidata correttamente. Per chiudere l'output della convalida, selezionare il pulsante **>>** (freccia destra). 
+
    ![Convalidare una pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
 ## <a name="debug-the-pipeline"></a>Eseguire il debug della pipeline
@@ -180,6 +182,7 @@ In questo passaggio viene eseguito il debug della pipeline prima della distribuz
 In questa procedura vengono distribuite entità (servizi collegati, set di dati, pipeline) in Azure Data Factory. Viene quindi attivata manualmente un'esecuzione della pipeline. 
 
 1. Prima di attivare una pipeline, è necessario pubblicare entità in Data Factory. Per pubblicare, selezionare **Pubblica tutti** nella parte superiore. 
+
     ![Pubblica tutti](./media/quickstart-create-data-factory-portal/publish-all.png)
 
 1. Per attivare manualmente la pipeline, selezionare **Aggiungi trigger** sulla barra degli strumenti della pipeline e quindi selezionare **Trigger Now** (Attiva adesso). Nella pagina **Esecuzione della pipeline** selezionare **Fine**.
@@ -206,7 +209,7 @@ La procedura è facoltativa in questa esercitazione. È possibile creare un *tri
 
 1. Nella pagina **Add Triggers** (Aggiungi trigger) selezionare **Choose trigger** (Scegli trigger) e quindi selezionare **Nuovo**. 
 
-1. Nella pagina **Nuovo trigger** , in **Fine** , selezionare **In data** , specificare un'ora di fine successiva di qualche minuto all'ora corrente e quindi selezionare **OK**. 
+1. Nella pagina **Nuovo trigger**, in **Fine**, selezionare **In data**, specificare un'ora di fine successiva di qualche minuto all'ora corrente e quindi selezionare **OK**. 
 
    Per ogni esecuzione della pipeline sono previsti costi, quindi specificare un'ora di fine successiva di qualche minuto all'ora di inizio. Assicurarsi che si tratti dello stesso giorno. Assicurarsi tuttavia che il tempo specificato tra l'ora di pubblicazione e l'ora di fine sia sufficiente per l'esecuzione della pipeline. Il trigger viene applicato solo dopo la pubblicazione della soluzione in Data Factory, non quando si salva il trigger nell'interfaccia utente. 
 
