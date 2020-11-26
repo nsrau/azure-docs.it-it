@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319844"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172232"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Pianificare e risolvere i problemi relativi alle modifiche al nome dell'entità utente in Azure Active Directory
 
-Un nome dell'entità utente (UPN) è un attributo che è uno standard di comunicazione Internet per gli account utente. Un UPN è costituito da un prefisso UPN (il nome dell'account utente) e un suffisso UPN (nome di dominio DNS). Il prefisso viene unito al suffisso usando il simbolo "@". Ad esempio: someone@example.com. Un UPN deve essere univoco tra tutti gli oggetti entità di sicurezza in una foresta di directory. 
+Un nome dell'entità utente (UPN) è un attributo che è uno standard di comunicazione Internet per gli account utente. Un UPN è costituito da un prefisso UPN (il nome dell'account utente) e un suffisso UPN (nome di dominio DNS). Il prefisso viene unito al suffisso usando il simbolo "@". Ad esempio, someone@example.com Un UPN deve essere univoco tra tutti gli oggetti entità di sicurezza in una foresta di directory. 
 
 **Questo articolo presuppone che si usi UPN come identificatore utente. Si occupa della pianificazione delle modifiche UPN e del ripristino da problemi che possono derivare da modifiche UPN.**
 
@@ -58,7 +58,7 @@ Bsimon@contoso.comaBritta.Simon@contoso.com
     Ad esempio, se un utente ha modificato le divisioni, è possibile modificare il dominio: 
 
    * Da Britta.Simon@contoso.com a Britta.Simon@contosolabs.com <br>
-     Oppure<br>
+     Or<br>
     * Da Britta.Simon@corp.contoso.com a Britta.Simon@labs.contoso.com 
 
 Si consiglia di modificare l'UPN degli utenti ogni volta che viene aggiornato l'indirizzo di posta elettronica primario.
@@ -174,7 +174,7 @@ L' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) di
 
 * Autenticazione a più fattori tramite una notifica push o un codice di verifica
 
-* Fungere da broker di autenticazione nei dispositivi iOS e Android per fornire Single Sign-On per le applicazioni che usano [l'autenticazione negoziata](../develop/brokered-auth.md)
+* Fungere da broker di autenticazione nei dispositivi iOS e Android per fornire Single Sign-On per le applicazioni che usano [l'autenticazione negoziata](../develop/msal-android-single-sign-on.md)
 
 * Registrazione del dispositivo (anche nota come Workplace Join) per Azure AD, che è un requisito per altre funzionalità, ad esempio Protezione app di Intune e l'iscrizione/gestione del dispositivo,
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: bc16f75a4ed2f9fe3be8a8bdc2d981a339780cc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7c30bca947788e93e57f462094d51f00e338c0b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960780"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171654"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Distribuire Azure AD proxy di applicazione per l'accesso sicuro alle applicazioni interne in un dominio gestito Azure Active Directory Domain Services
 
@@ -120,6 +120,6 @@ Con il Azure AD proxy di applicazione integrato con Azure AD DS, pubblicare le a
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
 [Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer

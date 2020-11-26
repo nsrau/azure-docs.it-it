@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356349"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173380"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -36,7 +36,7 @@ Sono inoltre disponibili molti vantaggi quando i clienti usano Azure AD come pro
 - Fornire Single Sign-On per gli utenti. Con l'accesso SSO si riducono i costi di supporto rendendo più semplice per i clienti Single Sign-On. Se SSO con un clic è abilitato, gli amministratori IT dei clienti non devono apprendere come configurare l'applicazione per l'uso nell'organizzazione. Per altre informazioni sull'accesso Single Sign-On, vedere [Informazioni sull'accesso Single Sign-On](../manage-apps/what-is-single-sign-on.md).
 - L'app può essere individuabile nella raccolta di app Microsoft 365, nell'utilità di avvio delle app Microsoft 365 e in Microsoft Search in Office.com. 
 - Gestione integrata delle app. Per ulteriori informazioni sulla gestione delle app in Azure AD, vedere informazioni sulla [gestione delle applicazioni](../manage-apps/what-is-application-management.md).
-- L'app può usare la [API Graph](https://docs.microsoft.com/graph/) per accedere ai dati che guidano la produttività degli utenti nell'ecosistema Microsoft.
+- L'app può usare la [API Graph](/graph/) per accedere ai dati che guidano la produttività degli utenti nell'ecosistema Microsoft.
 - La documentazione specifica dell'applicazione coprodotta con il team di Azure AD per i clienti reciproci semplifica l'adozione.
 - Si fornisce ai clienti la possibilità di gestire completamente l'autenticazione e l'autorizzazione delle identità dei dipendenti e dei guest.
 - Inserimento di tutte le responsabilità di gestione e conformità degli account con il proprietario del cliente di tali identità.
@@ -47,7 +47,7 @@ Sono inoltre disponibili molti vantaggi quando i clienti usano Azure AD come pro
 - Aggiungere sicurezza e praticità quando gli utenti effettuano l'accesso alle applicazioni usando Azure AD SSO e rimuovendo la necessità di credenziali separate.
 
 > [!TIP]
-> Quando si offre un'applicazione per l'uso da parte di altre aziende tramite un acquisto o una sottoscrizione, l'applicazione viene reso disponibile ai clienti all'interno dei propri tenant di Azure. Questa operazione è nota come creazione di un'applicazione multi-tenant. Per una panoramica di questo concetto, vedere [applicazioni multi-tenant in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) e [locazione in Azure Active Directory](single-and-multi-tenant-apps.md).
+> Quando si offre un'applicazione per l'uso da parte di altre aziende tramite un acquisto o una sottoscrizione, l'applicazione viene reso disponibile ai clienti all'interno dei propri tenant di Azure. Questa operazione è nota come creazione di un'applicazione multi-tenant. Per una panoramica di questo concetto, vedere [applicazioni multi-tenant in Azure](../../dotnet-develop-multitenant-applications.md) e [locazione in Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Per pubblicare l'app nella raccolta Azure AD è necessario accettare termini e condizioni specifici. Prima di iniziare, assicurarsi di leggere e accettare i [termini e le condizioni](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -98,7 +98,7 @@ La tabella seguente confronta gli standard principali: Open Authentication 2,0 (
 | Criteri di accesso condizionale per le applicazioni per dispositivi mobili| √| X |
 | Esperienza multi-factor authentication per applicazioni per dispositivi mobili| √| X |
 | Provisioning SCIM| √| √ |
-| Microsoft Graph di accesso| √| X |
+| Accesso a Microsoft Graph| √| X |
 
 * Possibile, ma Microsoft non fornisce esempi o indicazioni.
 
@@ -162,7 +162,7 @@ Se l'app supporta SAML 2,0, è possibile integrarla direttamente con un tenant d
 Microsoft non fornisce o consiglia librerie per le implementazioni SAML. Sono disponibili molte librerie open source.
 
 ### <a name="implement-ws-fed"></a>Implementare WS-Fed
-Per altre informazioni sulle WS-Fed in ASP.NET Core, vedere [autenticare gli utenti con WS-Federation in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Per altre informazioni sulle WS-Fed in ASP.NET Core, vedere [autenticare gli utenti con WS-Federation in ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementare l'insieme di credenziali delle password
 
@@ -173,13 +173,13 @@ Creare un'applicazione Web con una pagina di accesso HTML. Assicurarsi che l'app
 
 Per poter testare l'app, è necessario un tenant di Azure AD. Per configurare l'ambiente di sviluppo, vedere [Guida introduttiva: configurare un tenant](quickstart-create-new-tenant.md).
 
-In alternativa, un tenant Azure AD viene incluso in ogni sottoscrizione di Microsoft 365. Per configurare un ambiente di sviluppo Microsoft 365 gratuito, vedere [partecipare al programma Microsoft 365 Developer Program](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+In alternativa, un tenant Azure AD viene incluso in ogni sottoscrizione di Microsoft 365. Per configurare un ambiente di sviluppo Microsoft 365 gratuito, vedere [partecipare al programma Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
 Quando si dispone di un tenant, è necessario abilitare e testare l'accesso Single Sign-on. 
 
-**Per le applicazioni OIDC o giuramento** , [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
+**Per le applicazioni OIDC o giuramento**, [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
 
-**Per le applicazioni basate su SAML e WS-Fed** , si [configurano le applicazioni Single Sign-on basate su SAML](../manage-apps/configure-saml-single-sign-on.md) usando un modello SAML generico in Azure ad.
+**Per le applicazioni basate su SAML e WS-Fed**, si [configurano le applicazioni Single Sign-on basate su SAML](../manage-apps/configure-saml-single-sign-on.md) usando un modello SAML generico in Azure ad.
 
 Se necessario, è anche possibile [convertire un'applicazione a tenant singolo in multi-tenant](howto-convert-app-to-be-multi-tenant.md) .
 
@@ -209,7 +209,7 @@ La facilità di adozione è un fattore significativo nelle decisioni relative al
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentazione sul sito Microsoft
 
-Quando l'applicazione viene elencata con la raccolta di applicazioni di Azure Active Directory, che pubblica anche l'applicazione in Azure Marketplace, Microsoft genererà la documentazione per i clienti reciproci che spiegano il processo dettagliato. È possibile vedere un esempio [qui](https://aka.ms/appstutorial). Questa documentazione viene creata in base all'invio alla raccolta ed è possibile aggiornarla facilmente se si apportano modifiche all'applicazione con l'account GitHub.
+Quando l'applicazione viene elencata con la raccolta di applicazioni di Azure Active Directory, che pubblica anche l'applicazione in Azure Marketplace, Microsoft genererà la documentazione per i clienti reciproci che spiegano il processo dettagliato. È possibile vedere un esempio [qui](../saas-apps/tutorial-list.md). Questa documentazione viene creata in base all'invio alla raccolta ed è possibile aggiornarla facilmente se si apportano modifiche all'applicazione con l'account GitHub.
 
 
 ## <a name="step-5---submit-your-app"></a>Passaggio 5: inviare l'app
@@ -254,7 +254,7 @@ Per aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, s
 
 ![Elenco di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/openid.png)
 
-Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0** o **WS-Fed** , selezionare **SAML 2.0/WS-Fed** come illustrato.
+Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0** o **WS-Fed**, selezionare **SAML 2.0/WS-Fed** come illustrato.
 
 ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 
@@ -262,7 +262,7 @@ Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO bas
 
 ![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se si sta implementando un endpoint [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. 
+Se si sta implementando un endpoint [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. 
 
    ![Richiesta di provisioning utenti](./media/howto-app-gallery-listing/user-provisioning.png)
 

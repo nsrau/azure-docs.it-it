@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662480"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172368"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: estensioni della directory
 È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni](/graph/extensibility-overview
@@ -60,7 +60,7 @@ Durante l'installazione di Azure AD Connect viene registrata un'applicazione in 
 
 Assicurarsi di selezionare **tutte le applicazioni** per visualizzare questa app.
 
-Gli attributi sono preceduti dall' **estensione \_ {ApplicationID} \_ **. ApplicationId ha lo stesso valore per tutti gli attributi nel tenant del Azure AD. Questo valore sarà necessario per tutti gli altri scenari in questo argomento.
+Gli attributi sono preceduti dall' **estensione \_ {ApplicationID} \_**. ApplicationId ha lo stesso valore per tutti gli attributi nel tenant del Azure AD. Questo valore sarà necessario per tutti gli altri scenari in questo argomento.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Visualizzazione degli attributi tramite l'API Microsoft Graph
 
@@ -70,6 +70,9 @@ Questi attributi sono ora disponibili tramite l'API di Microsoft Graph, usando [
 > Nell'API Microsoft Graph è necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi seguenti: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Per altre informazioni, vedere [Microsoft Graph: Usare parametri di query](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Non è supportata la sincronizzazione dei valori di attributo da AADConnect agli attributi di estensione che non sono stati creati da AADConnect. Questa operazione può produrre problemi di prestazioni e risultati imprevisti. Per la sincronizzazione sono supportati solo gli attributi di estensione creati come illustrato in precedenza.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Usare gli attributi nei gruppi dinamici
 

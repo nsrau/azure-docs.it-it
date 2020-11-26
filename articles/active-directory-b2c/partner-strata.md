@@ -11,23 +11,23 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330326"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171416"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Esercitazione per estendere Azure AD B2C per proteggere le applicazioni locali usando gli strati
 
 In questa esercitazione di esempio viene illustrato come integrare Azure Active Directory (AD) B2C con l'agente di [orchestrazione delle identità Maverics](https://www.strata.io/maverics-identity-orchestrator/)di strati.
 L'agente di orchestrazione delle identità Maverics estende Azure AD B2C per proteggere le applicazioni locali. Si connette a qualsiasi sistema di identità, esegue in modo trasparente la migrazione di utenti e credenziali, sincronizza i criteri e le configurazioni ed estrae l'autenticazione e la gestione delle sessioni. L'uso di Strata Enterprise può passare rapidamente da Legacy a Azure AD B2C senza riscrivere le applicazioni. La soluzione offre i vantaggi seguenti:
 
-- **Single Sign-On cliente (SSO) per app ibride locali** : Azure ad B2C supporta il servizio SSO con l'agente di orchestrazione delle identità Maverics. Gli utenti eseguono l'accesso con gli account ospitati in Azure AD B2C o provider di identità di social networking (IdP). Maverics estende l'accesso SSO alle app che sono state tradizionalmente protette da sistemi di identità legacy come Symantec SiteMinder.
+- **Single Sign-On cliente (SSO) per app ibride locali**: Azure ad B2C supporta il servizio SSO con l'agente di orchestrazione delle identità Maverics. Gli utenti eseguono l'accesso con gli account ospitati in Azure AD B2C o provider di identità di social networking (IdP). Maverics estende l'accesso SSO alle app che sono state tradizionalmente protette da sistemi di identità legacy come Symantec SiteMinder.
 
-- **Estendi l'accesso Single Sign-on basato su standard alle app senza riscriverle** : usare Azure ad B2C per gestire l'accesso degli utenti e abilitare SSO con i connettori SAML o OIDC di agente di orchestrazione identità Maverics.
+- **Estendi l'accesso Single Sign-on basato su standard alle app senza riscriverle**: usare Azure ad B2C per gestire l'accesso degli utenti e abilitare SSO con i connettori SAML o OIDC di agente di orchestrazione identità Maverics.
 
-- **Semplicità di configurazione** : Azure ad B2C offre una semplice interfaccia utente dettagliata per la connessione dei connettori SAML o OIDC di agente di orchestrazione Maverics Identity a Azure ad B2C.
+- **Semplicità di configurazione**: Azure ad B2C offre una semplice interfaccia utente dettagliata per la connessione dei connettori SAML o OIDC di agente di orchestrazione Maverics Identity a Azure ad B2C.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- Un [tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) collegato alla sottoscrizione di Azure.
+- Un [tenant Azure ad B2C](./tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 
 - Istanza di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per archiviare i segreti utilizzati dall'agente di orchestrazione delle identità Maverics. Viene usato per connettersi a Azure AD B2C o ad altri provider di attributi, ad esempio una directory LDAP (Lightweight Directory Access Protocol) o un database.
 
@@ -47,11 +47,11 @@ Per iniziare, è necessario:
 
 L'integrazione Maverics di strati include i componenti seguenti:
 
-- **Azure ad B2C** : il server di autorizzazione responsabile della verifica delle credenziali dell'utente. Gli utenti autenticati possono accedere alle app locali usando un account locale archiviato nella directory Azure AD B2C.
+- **Azure ad B2C**: il server di autorizzazione responsabile della verifica delle credenziali dell'utente. Gli utenti autenticati possono accedere alle app locali usando un account locale archiviato nella directory Azure AD B2C.
 
-- **Un IDP sociale o aziendale esterno** : può essere qualsiasi provider OpenID Connect, Facebook, Google o github. Vedere informazioni sull'uso di [IDP esterni](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) con Azure ad B2C.  
+- **Un IDP sociale o aziendale esterno**: può essere qualsiasi provider OpenID Connect, Facebook, Google o github. Vedere informazioni sull'uso di [IDP esterni](./technical-overview.md#external-identity-providers) con Azure ad B2C.  
 
-- Agente **di orchestrazione delle identità Maverics di strati** : il servizio che orchestra l'accesso utente e passa in modo trasparente l'identità alle app tramite intestazioni HTTP.
+- Agente **di orchestrazione delle identità Maverics di strati**: il servizio che orchestra l'accesso utente e passa in modo trasparente l'identità alle app tramite intestazioni HTTP.
 
 Il diagramma dell'architettura seguente illustra l'implementazione di.
 
@@ -75,7 +75,7 @@ Per ottenere il software da usare per integrare l'app locale legacy con Azure AD
 
 1. **Registrare l'applicazione**
 
-   a. [Registrare l'agente di orchestrazione come applicazione](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga) in Azure ad B2C tenant.
+   a. [Registrare l'agente di orchestrazione come applicazione](./tutorial-register-applications.md?tabs=app-reg-ga) in Azure ad B2C tenant.
    >[!Note]
    >Quando si configura l'istanza dell'agente di orchestrazione, saranno necessari il nome e l'identificatore del tenant, l'ID client, il segreto client, le attestazioni configurate e l'URI di reindirizzamento.
 
@@ -83,13 +83,13 @@ Per ottenere il software da usare per integrare l'app locale legacy con Azure AD
 
    c. Aggiungere un URI di reindirizzamento per l'applicazione. Questo URI corrisponderà al `oauthRedirectURL` parametro della configurazione del connettore Azure ad B2C dell'agente di orchestrazione, ad esempio `https://example.com/oidc-endpoint` .
 
-2. **Creare un flusso utente** : creare un [segno e un flusso utente di accesso](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows).
+2. **Creare un flusso utente**: creare un [segno e un flusso utente di accesso](./tutorial-create-user-flows.md).
 
-3. **Aggiungere un** provider di identità: scegliere di effettuare l'accesso dell'utente con un account locale o un [IDP](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)aziendale o sociale.
+3. **Aggiungere un** provider di identità: scegliere di effettuare l'accesso dell'utente con un account locale o un [IDP](./tutorial-add-identity-providers.md)aziendale o sociale.
 
-4. **Definire gli attributi utente** : definire gli attributi da raccogliere durante l'iscrizione.
+4. **Definire gli attributi utente**: definire gli attributi da raccogliere durante l'iscrizione.
 
-5. **Specificare le attestazioni dell'applicazione** : specificare gli attributi da restituire all'applicazione tramite l'istanza dell'agente di orchestrazione. L'agente di orchestrazione utilizza gli attributi delle attestazioni restituite da Azure AD B2C e può recuperare attributi aggiuntivi da altri sistemi di identità connesse, ad esempio le directory LDAP e i database. Tali attributi vengono impostati nelle intestazioni HTTP e inviati all'applicazione upstream locale.
+5. **Specificare le attestazioni dell'applicazione**: specificare gli attributi da restituire all'applicazione tramite l'istanza dell'agente di orchestrazione. L'agente di orchestrazione utilizza gli attributi delle attestazioni restituite da Azure AD B2C e può recuperare attributi aggiuntivi da altri sistemi di identità connesse, ad esempio le directory LDAP e i database. Tali attributi vengono impostati nelle intestazioni HTTP e inviati all'applicazione upstream locale.
 
 ## <a name="configure-maverics-identity-orchestrator"></a>Configurare l'agente di orchestrazione delle identità Maverics
 
@@ -259,7 +259,7 @@ appgateways:
 
 È importante proteggere i segreti usati dall'agente di orchestrazione per connettersi a Azure AD B2C e a qualsiasi altro sistema di identità. Per impostazione predefinita, Maverics utilizzerà i segreti in testo normale, `maverics.yaml` ma in questa esercitazione si userà Azure Key Vault come provider di segreti.
 
-Seguire le istruzioni per [creare una nuova Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) che l'istanza dell'agente di orchestrazione userà come provider di segreti. Aggiungere i segreti all'insieme di credenziali e prendere nota del `SECRET NAME` dato a ogni segreto. Ad esempio, `AzureADB2CClientSecret`
+Seguire le istruzioni per [creare una nuova Key Vault](../key-vault/secrets/quick-create-portal.md) che l'istanza dell'agente di orchestrazione userà come provider di segreti. Aggiungere i segreti all'insieme di credenziali e prendere nota del `SECRET NAME` dato a ogni segreto. Ad esempio, `AzureADB2CClientSecret`
 
 Per dichiarare un valore come segreto in un file di configurazione `maverics.yaml`, racchiudere il segreto tra parentesi angolari:
 
@@ -342,6 +342,6 @@ appgateways:
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

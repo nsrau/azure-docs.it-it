@@ -40,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: Nome di dominio completo nelle regole di rete
       href: fqdn-filtering-network-rules.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Distribuire provider del partner di sicurezza

@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488401"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172348"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -52,7 +52,7 @@ Azure Active Directory Connect esegue gli script di PowerShell firmati come part
 
 I criteri di esecuzione consigliati durante l'installazione sono "RemoteSigned".
 
-Per ulteriori informazioni sull'impostazione dei criteri di esecuzione di PowerShell, vedere [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Per ulteriori informazioni sull'impostazione dei criteri di esecuzione di PowerShell, vedere [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
 
 
 ### <a name="azure-ad-connect-server"></a>Server di Azure AD Connect
@@ -82,7 +82,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 - Creare un [account dedicato per tutto il personale con accesso con privilegi](/windows-server/identity/securing-privileged-access/securing-privileged-access). Gli amministratori non dovrebbero esplorare il Web, controllare la posta elettronica e svolgere attività quotidiane per la produttività con account con privilegi elevati.
 - Seguire le istruzioni fornite nella pagina relativa alla [protezione dell'accesso con privilegi](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Negare l'utilizzo dell'autenticazione NTLM con il server AADConnect. Di seguito sono riportati alcuni modi per eseguire questa operazione: [limitazione di NTLM nel server AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restrizione di NTLM in un dominio](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Verificare che ogni computer disponga di una password di amministratore locale univoca. Per ulteriori informazioni, vedere la pagina relativa alla [soluzione di password di amministratore locale (giri)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) può configurare password casuali univoche in ogni workstation e server archiviarle in Active Directory protette da un ACL. Solo gli utenti autorizzati idonei possono leggere o richiedere la reimpostazione di queste password di account amministratore locale. È possibile ottenere i giri da usare nelle workstation e nei server dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Indicazioni aggiuntive per la gestione di un ambiente con i giri e le workstation con accesso con privilegi (Paw) sono disponibili negli [standard operativi basati sul principio di origine pulita](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Verificare che ogni computer disponga di una password di amministratore locale univoca. Per ulteriori informazioni, vedere la pagina relativa alla [soluzione di password di amministratore locale (giri)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) può configurare password casuali univoche in ogni workstation e server archiviarle in Active Directory protette da un ACL. Solo gli utenti autorizzati idonei possono leggere o richiedere la reimpostazione di queste password di account amministratore locale. È possibile ottenere i giri da usare nelle workstation e nei server dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=46899). Indicazioni aggiuntive per la gestione di un ambiente con i giri e le workstation con accesso con privilegi (Paw) sono disponibili negli [standard operativi basati sul principio di origine pulita](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implementare [workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicati per tutto il personale con accesso con privilegi ai sistemi informativi dell'organizzazione. 
 - Seguire queste [linee guida aggiuntive](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) per ridurre la superficie di attacco dell'ambiente Active Directory.
 
@@ -147,7 +147,7 @@ Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 ### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
 Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel server deve essere installata questa versione o una versione successiva. A seconda della versione di Windows Server, eseguire le operazioni seguenti:
 
-* R2 per Windows Server 2012
+* Windows Server 2012 R2
   * Microsoft PowerShell viene installato per impostazione predefinita, Non è richiesta alcuna azione.
   * .NET Framework 4.5.1 e versioni successive sono disponibili tramite Windows Update. Assicurarsi di aver installato gli ultimi aggiornamenti di Windows Server nel pannello di controllo.
 * Windows Server 2012

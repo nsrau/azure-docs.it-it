@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 32526a31a9d52fbfac57f1d384b25e0939b5e297
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424257"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172874"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Come trovare l'ID tenant di Azure Active Directory
 
@@ -51,7 +51,7 @@ Per ulteriori informazioni, vedere questo Azure PowerShell riferimento ai cmdlet
 ## <a name="find-tenant-id-with-cli"></a>Trovare l'ID tenant con l'interfaccia della riga di comando
 Se si vuole usare un'interfaccia della riga di comando per trovare l'ID tenant, è possibile eseguire questa operazione con l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) o [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/). 
 
-Per l'interfaccia della riga di comando di Azure, usare uno dei comandi **AZ login** , **AZ account list** o **AZ account tenant list** , come illustrato nell'esempio seguente. Si noti la proprietà **tenantId** per ogni sottoscrizione nell'output di ogni comando.
+Per l'interfaccia della riga di comando di Azure, usare uno dei comandi **AZ login**, **AZ account list** o **AZ account tenant list** , come illustrato nell'esempio seguente. Si noti la proprietà **tenantId** per ogni sottoscrizione nell'output di ogni comando.
 
 ```azurecli-interactive
 az login
@@ -77,4 +77,4 @@ Per ulteriori informazioni, vedere la Guida di riferimento al comando Microsoft 
 
 - Per informazioni su come associare o aggiungere una sottoscrizione a un tenant, vedere [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- Per informazioni su come trovare l'ID oggetto, vedere [trovare l'ID oggetto utente](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Per informazioni su come trovare l'ID oggetto, vedere [trovare l'ID oggetto utente](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

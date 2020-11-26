@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2825d3776f7b45f6726aaec05484900511ed1477
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896090"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172976"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -30,7 +30,7 @@ Le domande frequenti, o FAQ, sulla collaborazione business-to-business, o B2B, d
 Assolutamente sì. Vedere il [post del blog su questa funzionalità](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Per altre informazioni su come personalizzare la pagina di accesso dell'organizzazione, vedere [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Gli utenti di Collaborazione B2B possono accedere a SharePoint Online e a OneDrive?
-Sì. Tuttavia, la possibilità di cercare gli utenti guest esistenti in SharePoint Online tramite la selezione utenti è **disattivata** per impostazione predefinita. Per attivare l'opzione di ricercare degli utenti guest esistenti, impostare **ShowPeoplePickerSuggestionsForGuestUsers** a **On** . È possibile attivare questa impostazione a livello di tenant o a livello di raccolta siti. È possibile modificare questa impostazione tramite i cmdlet Set-SPOTenant e SPOSite Set. Con questi cmdlet, i membri possono cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SharePoint Online di cui si è già effettuato il provisioning.
+Sì. Tuttavia, la possibilità di cercare gli utenti guest esistenti in SharePoint Online tramite la selezione utenti è **disattivata** per impostazione predefinita. Per attivare l'opzione di ricercare degli utenti guest esistenti, impostare **ShowPeoplePickerSuggestionsForGuestUsers** a **On**. È possibile attivare questa impostazione a livello di tenant o a livello di raccolta siti. È possibile modificare questa impostazione tramite i cmdlet Set-SPOTenant e SPOSite Set. Con questi cmdlet, i membri possono cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SharePoint Online di cui si è già effettuato il provisioning.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>La funzione di caricamento dei CSV è ancora supportata?
 Sì. Per altre informazioni sull'uso della funzionalità di caricamento dei file con estensione CSV, vedere [questo esempio di PowerShell](code-samples.md).
@@ -64,17 +64,17 @@ A meno che a un utente non venga assegnato il ruolo di amministratore con limita
 Sì. È possibile creare un criterio di accesso condizionale che impedisce a tutti gli utenti guest ed esterni di accedere al portale di Azure. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sicurezza o amministratore dell'accesso condizionale.
-2. Nella portale di Azure selezionare **Azure Active Directory** . 
-3. In **Gestisci** selezionare **sicurezza** .
-4. In **Proteggi** selezionare **accesso condizionale** . Selezionare **Nuovi criteri** .
+2. Nel portale di Azure selezionare **Azure Active Directory**. 
+3. In **Gestisci** selezionare **sicurezza**.
+4. In **Proteggi** selezionare **accesso condizionale**. Selezionare **Nuovi criteri**.
 5. Nella casella di testo **nome** della **nuova** pagina immettere un nome per il criterio, ad esempio "impedisce ai guest di accedere al portale".
-6. In **Assegnazioni** selezionare **Utenti e gruppi** .
-7. Nella scheda **Includi** scegliere **Seleziona utenti e gruppi** , quindi selezionare **tutti gli utenti guest ed External (anteprima)** .
-9. Selezionare **Operazione completata** .
-10. Nella sezione **assegnazioni** della **nuova** pagina selezionare **app Cloud o azioni** .
-11. Nella pagina **app o azioni cloud** scegliere **Seleziona app** , quindi scegliere **Seleziona** .
-12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona** .
-13. Nella pagina **app o azioni cloud** selezionare **fine** .
+6. In **Assegnazioni** selezionare **Utenti e gruppi**.
+7. Nella scheda **Includi** scegliere **Seleziona utenti e gruppi**, quindi selezionare **tutti gli utenti guest ed External (anteprima)**.
+9. Selezionare **Fine**.
+10. Nella sezione **assegnazioni** della **nuova** pagina selezionare **app Cloud o azioni**.
+11. Nella pagina **app o azioni cloud** scegliere **Seleziona app**, quindi scegliere **Seleziona**.
+12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona**.
+13. Nella pagina **app o azioni cloud** selezionare **fine**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>La Collaborazione B2B di Azure AD supporta l'autenticazione a più fattori e gli account di posta elettronica degli utenti?
 Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica degli utenti sono supportati per la Collaborazione B2B di Azure AD.
@@ -84,7 +84,7 @@ Se il tenant di Azure AD è la home directory per l'utente, è possibile [reimpo
  
 * Gli utenti guest che accedono con un account Microsoft (ad esempio, guestuser@live.com) possono reimpostare le proprie password con la reimpostazione della password self-service dell'account Microsoft. Vedere [Come reimpostare la password dell'account Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gli utenti guest che accedono con un account Google o un altro provider di identità esterno possono reimpostare le proprie password usando il metodo di reimpostazione della password self-service del provider di identità. Un utente guest con un account Google guestuser@gmail.com, ad esempio, può reimpostare la password seguendo le istruzioni contenute in [Modificare o reimpostare la password](https://support.google.com/accounts/answer/41078).
-* Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](../users-groups-roles/domains-admin-takeover.md) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
+* Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](../enterprise-users/domains-admin-takeover.md) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
 
 * Se la home directory dell'utente guest è il tenant di Azure AD, è possibile reimpostare la password dell'utente. È ad esempio possibile che sia stato creato o sincronizzato un utente da Active Directory locale e che UserType sia stato impostato su Guest. Poiché questo utente è incluso nella directory, è possibile reimpostarne la password dal portale di Azure.
 

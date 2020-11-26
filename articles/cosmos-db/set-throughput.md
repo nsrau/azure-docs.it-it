@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917257"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170825"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -137,7 +137,7 @@ Se si **aumenta la velocità effettiva con provisioning**, nella maggior parte d
 
 Come descritto nella sezione precedente relativa alla [velocità effettiva con provisioning](#current-provisioned-throughput) , la velocità effettiva minima di cui è possibile eseguire il provisioning in un contenitore o un database dipende da diversi fattori. Uno di essi è la quantità di dati attualmente archiviati, perché Azure Cosmos DB impone una velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione.
 
-Questo può costituire un problema in situazioni in cui è necessario archiviare grandi quantità di dati, ma con requisiti di velocità effettiva bassi rispetto. Per gestire meglio questi scenari, Azure Cosmos DB ha introdotto un **programma "High storage/low throughput"** che riduce il vincolo ur/s per GB da 10 a 1 per gli account idonei.
+Questo può costituire un problema in situazioni in cui è necessario archiviare grandi quantità di dati, ma con requisiti di velocità effettiva bassi rispetto. Per gestire meglio questi scenari, Azure Cosmos DB ha introdotto un **programma "High storage/low throughput"** che riduce il vincolo di Ur/s per GB per gli account idonei.
 
 Attualmente è necessario disporre di almeno 1 contenitore o database con velocità effettiva condivisa contenente più di 1 TB di dati nell'account per essere idonei. Per partecipare al programma e valutare l'idoneità completa, è sufficiente compilare [questo sondaggio](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Il team di Azure Cosmos DB sarà quindi seguito e procederà con l'onboarding.
 

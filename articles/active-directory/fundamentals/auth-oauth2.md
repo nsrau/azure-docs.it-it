@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577907"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172840"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Autenticazione OAuth 2,0 con Azure Active Directory
 
@@ -34,20 +34,19 @@ Per rich client & scenari di app moderne e accesso all'API Web RESTful.
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente** : richiede un servizio dall'applicazione Web (app). L'utente è in genere il proprietario della risorsa che possiede i dati e ha la possibilità di consentire ai client di accedere ai dati o alla risorsa. 
+* **Utente**: richiede un servizio dall'applicazione Web (app). L'utente è in genere il proprietario della risorsa che possiede i dati e ha la possibilità di consentire ai client di accedere ai dati o alla risorsa. 
 
-* **Web browser** : il Web browser con cui l'utente interagisce è il client OAuth. 
+* **Web browser**: il Web browser con cui l'utente interagisce è il client OAuth. 
 
-* **App Web** : l'app Web o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. 
+* **App Web**: l'app Web o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. 
 
-* **Azure ad** : Azure ad è il server di autorizzazione, noto anche come provider di identità (IDP). Gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e la relazione di trust. È responsabile dell'emissione dei token che concedono e revocano l'accesso alle risorse.
+* **Azure ad**: Azure ad è il server di autorizzazione, noto anche come provider di identità (IDP). Gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e la relazione di trust. È responsabile dell'emissione dei token che concedono e revocano l'accesso alle risorse.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementare OAuth 2,0 con Azure AD
 
-* [Integrazione di applicazioni con Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrazione di applicazioni con Azure AD](../saas-apps/tutorial-list.md) 
 
-* [Protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Tipi di applicazioni e OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [Tipi di applicazioni e OAuth2](../develop/v2-app-types.md) 
 
- 

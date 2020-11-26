@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376885"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170923"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione dello strumento di amministrazione di TheAccessHub con Azure Active Directory B2C
 
@@ -38,13 +38,13 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- [Tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Il tenant deve essere collegato alla sottoscrizione di Azure.
+- [Tenant Azure ad B2C](./tutorial-create-tenant.md). Il tenant deve essere collegato alla sottoscrizione di Azure.
 
 - Ambiente dello strumento di amministrazione di TheAccessHub: contattare l' [identità N8](https://n8id.com/contact/) per eseguire il provisioning di un nuovo ambiente.
 
 - Opzionale Informazioni sulla connessione e le credenziali per i database o i protocolli LDAP (Lightweight Directory Access Protocol) di cui si desidera eseguire la migrazione dei dati del cliente.
 
-- Opzionale Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), se si vuole integrare lo strumento di amministrazione di TheAccessHub nel flusso dei criteri di iscrizione.
+- Opzionale Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./custom-policy-get-started.md), se si vuole integrare lo strumento di amministrazione di TheAccessHub nel flusso dei criteri di iscrizione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -162,9 +162,9 @@ Le autorizzazioni per gestire gli utenti Customer e CSR/helpdesk nello strumento
 
 3. Selezionare > **Aggiungi gruppo**
 
-4. Immettere il **nome del gruppo** , la **Descrizione del gruppo** e il **proprietario del gruppo**
+4. Immettere il **nome del gruppo**, la **Descrizione del gruppo** e il **proprietario del gruppo**
 
-5. Cercare e selezionare le caselle sui colleghi che si desidera siano membri del gruppo, quindi selezionare > **Aggiungi**
+5. Cercare e selezionare le caselle sui colleghi che si desidera siano membri del gruppo, quindi selezionare >**Aggiungi**
 
 6. Nella parte inferiore della pagina è possibile visualizzare tutti i membri del gruppo.
 
@@ -180,7 +180,7 @@ Le autorizzazioni per gestire gli utenti Customer e CSR/helpdesk nello strumento
 
 3. Selezionare > **Aggiungi organizzazione**
 
-4. Fornire un **nome di organizzazione** , un **proprietario dell'organizzazione** e un' **organizzazione padre**.
+4. Fornire un **nome di organizzazione**, un **proprietario dell'organizzazione** e un' **organizzazione padre**.
 
     a. Il nome dell'organizzazione è idealmente un valore che corrisponde ai dati del cliente. Quando si caricano i dati dei colleghi e dei clienti, se si specifica il nome dell'organizzazione nel carico, il collega può essere inserito automaticamente nell'organizzazione.
 
@@ -296,7 +296,7 @@ Usando lo strumento di amministrazione di TheAccessHub, è possibile importare d
 
 4. Selezionare il **tipo di collega** Azure ad B2C utente
 
-5. Selezionare **origine** , nella finestra di dialogo popup, selezionare l'origine dati. Se è stata creata un'origine dati OneDrive, selezionare anche il file.
+5. Selezionare **origine**, nella finestra di dialogo popup, selezionare l'origine dati. Se è stata creata un'origine dati OneDrive, selezionare anche il file.
 
 6. Se non si vuole creare nuovi account cliente con questo carico, modificare il primo criterio: se il **collega non è stato trovato in TheAccessHub** , **non eseguire alcuna operazione**
 
@@ -358,7 +358,7 @@ Per sincronizzare i dati da Azure AD B2C nello strumento di amministrazione di T
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configurare i criteri di Azure AD B2C
 
-Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAccessHub è limitata alla capacità di Mantenete aggiornato lo stato con Azure AD B2C. Possiamo sfruttare l'API dello strumento di amministrazione di TheAccessHub e i criteri di Azure AD B2C per informare lo strumento di amministrazione di TheAccessHub delle modifiche appena si verificano. Questa soluzione richiede una conoscenza tecnica di [Azure ad B2C criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). Nella sezione successiva verranno illustrati i passaggi dei criteri di esempio e un certificato sicuro per notificare allo strumento di amministrazione TheAccessHub i nuovi account nei criteri personalizzati Sign-Up.
+Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAccessHub è limitata alla capacità di Mantenete aggiornato lo stato con Azure AD B2C. Possiamo sfruttare l'API dello strumento di amministrazione di TheAccessHub e i criteri di Azure AD B2C per informare lo strumento di amministrazione di TheAccessHub delle modifiche appena si verificano. Questa soluzione richiede una conoscenza tecnica di [Azure ad B2C criteri personalizzati](./custom-policy-get-started.md). Nella sezione successiva verranno illustrati i passaggi dei criteri di esempio e un certificato sicuro per notificare allo strumento di amministrazione TheAccessHub i nuovi account nei criteri personalizzati Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Creare credenziali sicure per richiamare l'API dello strumento di amministrazione di TheAccessHub
 
@@ -372,7 +372,7 @@ Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAcc
 
 5. Selezionare **download** per ottenere il certificato client.
 
-6. Seguire questa [esercitazione](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) per aggiungere il certificato client in Azure ad B2C.
+6. Seguire questa [esercitazione](./secure-rest-api.md#https-client-certificate-authentication ) per aggiungere il certificato client in Azure ad B2C.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>Recuperare gli esempi di criteri personalizzati
 
@@ -386,12 +386,12 @@ Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAcc
 
 5. Selezionare **download** per ottenere un file zip con criteri di base che aggiungono i clienti allo strumento di amministrazione di TheAccessHub quando i clienti si iscrivono.
 
-6. Seguire questa [esercitazione](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) per iniziare a progettare criteri personalizzati in Azure ad B2C.
+6. Seguire questa [esercitazione](./custom-policy-get-started.md) per iniziare a progettare criteri personalizzati in Azure ad B2C.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

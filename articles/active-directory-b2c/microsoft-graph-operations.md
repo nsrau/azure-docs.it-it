@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9db46d13c9a798204958a7c295df9cca169fc08f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954036"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170940"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
 
@@ -36,12 +36,12 @@ Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l
 
 ## <a name="user-phone-number-management"></a>Gestione dei numeri di telefono dell'utente
 
-- [Aggiungere](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
-- [Recupero](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
-- [Aggiornamento](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
-- [Elimina](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+- [Aggiungere](/graph/api/authentication-post-phonemethods)
+- [Ottieni](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Aggiornamento](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Elimina](/graph/api/phoneauthenticationmethod-delete)
 
-Per altre informazioni sulla gestione del numero di telefono dell'accesso dell'utente con l'API Microsoft Graph, vedere [metodi di autenticazione B2C](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
+Per altre informazioni sulla gestione del numero di telefono dell'accesso dell'utente con l'API Microsoft Graph, vedere [metodi di autenticazione B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Provider di identità (flusso utente)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992833"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170617"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -140,9 +140,9 @@ Dopo aver distribuito il modello e aver atteso alcuni minuti per il completament
 
 Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le metriche per una risorsa. Le possibili destinazioni sono:
 
-- [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Soluzioni di [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [area di lavoro Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- Soluzioni di [Hub eventi](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+- [area di lavoro Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 In questo esempio viene usata l'area di lavoro Log Analytics per creare un dashboard.
 
@@ -180,7 +180,7 @@ A questo punto è possibile configurare l'area di lavoro di Log Analytics per vi
 Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta. Per altre informazioni, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
 
 1. Dall' **area di lavoro log Analytics** selezionare **log**
-1. Nell'editor di query incollare la query del [linguaggio di query kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) seguente. Questa query Mostra l'utilizzo dei criteri per operazione negli ultimi x giorni. La durata predefinita è impostata su 90 giorni (90D). Si noti che la query si concentra solo sull'operazione in cui un token/codice viene emesso dal criterio.
+1. Nell'editor di query incollare la query del [linguaggio di query kusto](/azure/data-explorer/kusto/query/) seguente. Questa query Mostra l'utilizzo dei criteri per operazione negli ultimi x giorni. La durata predefinita è impostata su 90 giorni (90D). Si noti che la query si concentra solo sull'operazione in cui un token/codice viene emesso dal criterio.
 
     ```kusto
     AuditLogs
@@ -205,7 +205,7 @@ Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei 
 
 1. Selezionare **Salva**.
 
-È anche possibile modificare la query per visualizzare i dati usando l'operatore [Render](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
+È anche possibile modificare la query per visualizzare i dati usando l'operatore [Render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
 
 ```kusto
 AuditLogs

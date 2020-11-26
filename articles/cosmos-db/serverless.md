@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/25/2020
+ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490356"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170834"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB senza server (anteprima)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,9 +33,8 @@ Quando si utilizza Azure Cosmos DB, tutte le operazioni di database hanno un cos
 
 Azure Cosmos DB gli scenari più adatti per i server in cui ci si aspetta:
 
-- **Traffico leggero** : poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi
-- Velocità di espansione **moderata** : poiché i contenitori senza server possono fornire fino a 5.000 unità richiesta al secondo
-- **Prestazioni moderate** : poiché i contenitori senza server hanno [caratteristiche specifiche delle prestazioni](#performance)
+- **Traffico basso, intermittente e imprevedibile**: poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi
+- **Prestazioni moderate**: poiché i contenitori senza server hanno [caratteristiche specifiche delle prestazioni](#performance)
 
 Per questi motivi, è necessario prendere in considerazione Azure Cosmos DB senza server per i seguenti tipi di carico di lavoro:
 
@@ -62,7 +61,6 @@ Qualsiasi contenitore creato in un account senza server è un contenitore senza 
     - Non è possibile passare una velocità effettiva quando si crea un contenitore senza server e in questo modo viene restituito un errore.
     - Non è possibile leggere o aggiornare la velocità effettiva in un contenitore senza server e in questo modo viene restituito un errore.
     - Non è possibile creare un database di velocità effettiva condivisa in un account senza server e in questo modo viene restituito un errore.
-- I contenitori senza server possono fornire un'espansione massima della velocità effettiva di 5.000 unità richiesta al secondo.
 - I contenitori senza server possono archiviare un massimo di 50 GB di dati e indici.
 
 ## <a name="monitoring-your-consumption"></a>Monitoraggio del consumo
@@ -79,8 +77,8 @@ Quando si Esplora il riquadro **metriche** dell'account, si troverà un grafico 
 
 Le risorse senza server producono caratteristiche specifiche delle prestazioni diverse da quelle offerte dalle risorse della velocità effettiva con provisioning:
 
-- **Disponibilità** : dopo che l'offerta senza server diventa disponibile a livello generale, la disponibilità di contenitori senza server sarà coperta da un contratto di servizio (SLA) del 99,9% quando non vengono usati zone di disponibilità (ridondanza della zona). Il contratto di contratto è 99,99% quando si utilizzano zone di disponibilità.
-- **Latenza** : dopo che l'offerta senza server diventa disponibile a livello generale, la latenza dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) di 10 millisecondi o meno per le scritture di punti e 30 millisecondi o meno per le Scritture. Un'operazione di lettura di punti consiste nel recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione.
+- **Disponibilità**: dopo che l'offerta senza server diventa disponibile a livello generale, la disponibilità di contenitori senza server sarà coperta da un contratto di servizio (SLA) del 99,9% quando non vengono usati zone di disponibilità (ridondanza della zona). Il contratto di contratto è 99,99% quando si utilizzano zone di disponibilità.
+- **Latenza**: dopo che l'offerta senza server diventa disponibile a livello generale, la latenza dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) di 10 millisecondi o meno per le scritture di punti e 30 millisecondi o meno per le Scritture. Un'operazione di lettura di punti consiste nel recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione.
 - Espansione **: dopo** che l'offerta senza server diventa disponibile a livello generale, l'espansione dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) del 95%. Ciò significa che è possibile ottenere la massima espansione per almeno il 95% del tempo.
 
 > [!NOTE]

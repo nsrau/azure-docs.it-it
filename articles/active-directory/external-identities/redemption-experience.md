@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441811"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173091"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -33,7 +33,7 @@ Quando si aggiunge un utente guest alla directory [usando il portale di Azure](.
 
 1. L'utente guest riceve un [messaggio di posta elettronica di invito](./invitation-email-elements.md) inviato da **Microsoft Invitations**.
 2. L'utente guest seleziona **Accetta l'invito** nel messaggio di posta elettronica.
-3. L'utente guest userà le proprie credenziali per accedere alla directory. Se l'utente guest non dispone di un account che può essere federato alla directory e la funzionalità [passcode monouso tramite posta elettronica](./one-time-passcode.md) non è abilitata, all'utente guest viene richiesto di creare un [account del servizio gestito](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale o un [account self-service Azure AD](../users-groups-roles/directory-self-service-signup.md). Per informazioni dettagliate, vedere il [flusso di riscatto dell'invito](#invitation-redemption-flow).
+3. L'utente guest userà le proprie credenziali per accedere alla directory. Se l'utente guest non dispone di un account che può essere federato alla directory e la funzionalità [passcode monouso tramite posta elettronica](./one-time-passcode.md) non è abilitata, all'utente guest viene richiesto di creare un [account del servizio gestito](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale o un [account self-service Azure AD](../enterprise-users/directory-self-service-signup.md). Per informazioni dettagliate, vedere il [flusso di riscatto dell'invito](#invitation-redemption-flow).
 4. L'utente guest viene guidato attraverso l'[esperienza di consenso](#consent-experience-for-the-guest) descritta di seguito.
 
 ## <a name="redemption-through-a-direct-link"></a>Riscatto attraverso un collegamento diretto
@@ -74,9 +74,9 @@ Quando un utente fa clic sul collegamento **Accetta l'invito** in un [messaggio 
 
 7. Se la funzionalità [passcode monouso tramite posta elettronica è abilitata per gli utenti guest](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), all'utente viene inviato un passcode tramite il messaggio di posta elettronica di invito. L'utente recupererà il passcode e lo immetterà nella pagina di accesso di Azure AD.
 
-8. Se la funzionalità passcode monouso tramite posta elettronica è disabilitata per gli utenti guest, Azure AD controlla il suffisso del dominio per determinare se appartiene a un account consumer. In tal caso, all'utente viene richiesto di creare un [account Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale. In caso contrario, all'utente viene richiesto di creare un [account self-service Azure AD](../users-groups-roles/directory-self-service-signup.md).
+8. Se la funzionalità passcode monouso tramite posta elettronica è disabilitata per gli utenti guest, Azure AD controlla il suffisso del dominio per determinare se appartiene a un account consumer. In tal caso, all'utente viene richiesto di creare un [account Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale. In caso contrario, all'utente viene richiesto di creare un [account self-service Azure AD](../enterprise-users/directory-self-service-signup.md).
 
-9. Azure AD tenta di creare un [account self-service Azure AD](../users-groups-roles/directory-self-service-signup.md) verificando l'accesso al messaggio di posta elettronica. La verifica dell'account viene effettuata inviando tramite posta elettronica un codice che l'utente dovrà recuperare e immettere in Azure AD. Tuttavia, se il tenant dell'utente invitato è federato o se il campo AllowEmailVerifiedUsers è impostato su false nel tenant dell'utente invitato, l'utente non potrà completare la procedura di riscatto e il flusso genera un errore. Per altre informazioni, vedere [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Azure AD tenta di creare un [account self-service Azure AD](../enterprise-users/directory-self-service-signup.md) verificando l'accesso al messaggio di posta elettronica. La verifica dell'account viene effettuata inviando tramite posta elettronica un codice che l'utente dovrà recuperare e immettere in Azure AD. Tuttavia, se il tenant dell'utente invitato è federato o se il campo AllowEmailVerifiedUsers è impostato su false nel tenant dell'utente invitato, l'utente non potrà completare la procedura di riscatto e il flusso genera un errore. Per altre informazioni, vedere [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. All'utente viene richiesto di creare un [account Microsoft (account del servizio gestito)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale.
 

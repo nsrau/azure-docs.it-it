@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443603"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173191"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Un'app Web che chiama le API Web: chiamare un'API Web
 
@@ -29,7 +29,7 @@ La chiamata di un'API Web protetta dipende dal linguaggio e dal Framework scelti
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Quando si usa *Microsoft. Identity. Web* , sono disponibili tre opzioni di utilizzo per la chiamata di un'API:
+Quando si usa *Microsoft. Identity. Web*, sono disponibili tre opzioni di utilizzo per la chiamata di un'API:
 
 - [Opzione 1: chiamare Microsoft Graph con l'SDK di Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
 - [Opzione 2: chiamare un'API Web downstream con la classe helper](#option-2-call-a-downstream-web-api-with-the-helper-class)
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > È possibile usare lo stesso principio per chiamare qualsiasi API Web.
 >
-> La maggior parte delle API Web di Azure fornisce un SDK che semplifica la chiamata dell'API come nel caso di Microsoft Graph. Vedere, ad esempio, [creare un'applicazione Web che autorizza l'accesso all'archiviazione BLOB con Azure ad](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) per un esempio di un'app Web con Microsoft. Identity. Web e con Azure Storage SDK.
+> La maggior parte delle API Web di Azure fornisce un SDK che semplifica la chiamata dell'API come nel caso di Microsoft Graph. Vedere, ad esempio, [creare un'applicazione Web che autorizza l'accesso all'archiviazione BLOB con Azure ad](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per un esempio di un'app Web con Microsoft. Identity. Web e con Azure Storage SDK.
 
 # <a name="java"></a>[Java](#tab/java)
 
