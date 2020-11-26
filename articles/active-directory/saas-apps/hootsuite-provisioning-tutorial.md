@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 011071c9aa1722b8f1cf81ec8d9ef88e8d91ea03
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b371baec663ffc7ff5909e04965353e79acb9708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359052"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177073"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurare Hootsuite per il provisioning utenti automatico
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive le procedure da eseguire sia in Hootsuite che in A
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * Un account utente con [Hootsuite](http://www.hootsuite.com/) che ha autorizzazioni **Gestisci membri** per l'organizzazione.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
@@ -121,7 +121,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
       |externalId|string|
       |Membri di|Informazioni di riferimento|
 
-12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Per abilitare il servizio di provisioning di Azure AD per Hootsuite, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 

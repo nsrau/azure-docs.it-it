@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 130bb108af5e44ddf61b639c666cb0dba64d69cb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356893"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179255"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Esercitazione: Configurare Fuze per il provisioning utenti automatico
 
@@ -38,7 +38,7 @@ Questa esercitazione descrive la procedura da eseguire in Fuze e Azure Active Di
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
 * [Un tenant di Fuze](https://www.fuze.com/).
 * Un account utente in Fuze con autorizzazioni di amministratore.
 

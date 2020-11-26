@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: f6a03a65b18d09000e93a1e0fa4a194321912211
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 75da1e2b2f1954b0126b08232046fe09b1c2b6e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354253"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177942"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Esercitazione: Configurare InVision per il provisioning utenti automatico
 
@@ -39,7 +39,7 @@ Questa esercitazione descrive le procedure da eseguire sia in InVision che in Az
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * Un account [InVision Enterprise](https://www.invisionapp.com/enterprise) con SSO abilitato.
 * Account utente in InVision con autorizzazioni di amministratore.
 

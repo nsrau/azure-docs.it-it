@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: f060a6ee2b5968c1d1daf3c668b6e7009b6ccd69
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358134"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177889"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Esercitazione: Configurare Juno Journey per il provisioning utenti automatico
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive le procedure da eseguire sia in Juno Journey che i
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 *  Un [tenant di Juno Journey](https://www.junojourney.com/getstarted).
 *  Un account utente in Juno Journey con autorizzazioni di amministratore.
 
