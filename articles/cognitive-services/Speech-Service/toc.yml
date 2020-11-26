@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Usare l'API di trascrizione batch
           href: batch-transcription.md
+        - name: Valutare la pronuncia
+          href: how-to-pronunciation-assessment.md
     - name: Esercitazioni
       items:
         - name: Migliorare l'accuratezza con i modelli di tenant

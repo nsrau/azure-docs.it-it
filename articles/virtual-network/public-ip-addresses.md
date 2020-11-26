@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358168"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169934"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
@@ -54,7 +54,7 @@ Indirizzi IP pubblici con SKU standard:
 - Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
 - Sicurezza per impostazione predefinita e chiusa al traffico in ingresso. Consentire il traffico in ingresso elenco con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
 - Assegnati a interfacce di rete, bilanciamenti del carico pubblico standard o gateway applicazione. Per altre informazioni sul servizio di bilanciamento del carico standard, vedere [Load Balancer standard di Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Può essere con ridondanza della zona o di zona (è possibile creare una zona e garantire la garanzia in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Può essere con ridondanza della zona (pubblicizzato da tutte e 3 le zone) o di zona (è possibile creare una zona e garantirla in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Gli IP con ridondanza della zona possono essere creati solo in aree in cui sono attive [3 zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-region) .** Gli IP creati prima che le zone siano Live non saranno con ridondanza della zona.
  
 > [!NOTE]
 > La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
@@ -98,7 +98,7 @@ Ad esempio, una risorsa IP pubblico viene rilasciata da una risorsa denominata *
 L'indirizzo IP viene rilasciato quando il metodo di allocazione viene modificato da **statico** a **dinamico**. Per assicurarsi che l'indirizzo IP per la risorsa associata rimanga invariato, impostare il metodo di allocazione in modo esplicito su **statico**. Un indirizzo IP statico viene assegnato immediatamente.
 
 > [!NOTE]
-> Anche quando si imposta il metodo di allocazione su **statico** , non è possibile specificare l'indirizzo IP effettivo assegnato alla risorsa indirizzo IP pubblico. Azure assegna l'indirizzo IP da un pool di indirizzi IP disponibili nella località di Azure in cui viene creata la risorsa.
+> Anche quando si imposta il metodo di allocazione su **statico**, non è possibile specificare l'indirizzo IP effettivo assegnato alla risorsa indirizzo IP pubblico. Azure assegna l'indirizzo IP da un pool di indirizzi IP disponibili nella località di Azure in cui viene creata la risorsa.
 >
 
 Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:

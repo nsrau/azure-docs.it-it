@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d899fe7f84a8708bb8ee32cc008567b272a885c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705861"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169376"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -49,7 +49,7 @@ Una volta deciso, una particolare considerazione è la posizione in cui si esegu
 
 ### <a name="get-an-azure-government-subscription"></a>Ottenere una sottoscrizione di Azure per enti pubblici
 
-Per ottenere una sottoscrizione di Azure per enti pubblici, vedere [gestione e connessione alla sottoscrizione in Azure per enti](../../azure-government/documentation-government-manage-subscriptions.md)pubblici.
+Per ottenere una sottoscrizione di Azure per enti pubblici, vedere [gestione e connessione alla sottoscrizione in Azure per enti](../../azure-government/compare-azure-government-global-azure.md)pubblici.
 
 Se non si ha una sottoscrizione di Azure per enti pubblici, creare un [account gratuito](https://azure.microsoft.com/global-infrastructure/government/request/) prima di iniziare.
 
@@ -80,7 +80,7 @@ Per abilitare l'applicazione MSAL.js per i cloud sovrani:
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione**.
 1. Nella sezione **URI di reindirizzamento** selezionare la piattaforma **Web** e impostare il valore sull'URL dell'applicazione in base al server Web. Vedere le sezioni successive per istruzioni su come impostare e ottenere l'URL di reindirizzamento in Visual Studio e nel nodo.
 1. Selezionare **Registra**.
-1. Nella pagina **Panoramica ** dell'app prendere nota del valore del campo **ID applicazione (client)**.
+1. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)**.
 1. Per questa esercitazione è necessario abilitare il [flusso di concessione implicito](v2-oauth2-implicit-grant-flow.md). Nel riquadro sinistro dell'applicazione registrata selezionare **Autenticazione**.
 1. In **Impostazioni avanzate**, in **Concessione implicita**, selezionare entrambe le caselle di controllo **Token ID** e **Token di accesso**. I token ID e i token di accesso sono necessari perché l'app deve eseguire l'accesso degli utenti e chiamare un'API.
 1. Selezionare **Salva**.
@@ -89,7 +89,7 @@ Per abilitare l'applicazione MSAL.js per i cloud sovrani:
 
 - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) per un server Web locale, ad esempio node.
 
-  oppure
+  o
 
 - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 

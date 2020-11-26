@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209903"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169495"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Procedura: abilitare l'accesso Single Sign-on tra app in Android usando MSAL
 
 Single Sign-on (SSO) consente agli utenti di immettere le proprie credenziali una sola volta e di utilizzare le credenziali automaticamente tra le applicazioni.
 
-La [piattaforma Microsoft Identity](/azure/active-directory/develop/) e Microsoft Authentication Library (MSAL) consentono di abilitare l'accesso SSO attraverso la propria suite di app. Con la funzionalità Broker e le applicazioni di autenticazione, è possibile estendere SSO nell'intero dispositivo.
+La [piattaforma Microsoft Identity](./index.yml) e Microsoft Authentication Library (MSAL) consentono di abilitare l'accesso SSO attraverso la propria suite di app. Con la funzionalità Broker e le applicazioni di autenticazione, è possibile estendere SSO nell'intero dispositivo.
 
 In questa procedura verrà illustrato come configurare gli SDK utilizzati dall'applicazione per fornire l'accesso SSO ai clienti.
 
@@ -33,7 +33,7 @@ In questa procedura verrà illustrato come configurare gli SDK utilizzati dall'a
 
 Questa procedura presuppone che si sappia come:
 
-- Eseguire il provisioning dell'app usando il portale di Azure. Per altre informazioni su questo argomento, vedere le istruzioni per la creazione di un'app nell' [esercitazione su Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project) .
+- Eseguire il provisioning dell'app usando il portale di Azure. Per altre informazioni su questo argomento, vedere le istruzioni per la creazione di un'app nell' [esercitazione su Android](./tutorial-v2-android.md#create-a-project) .
 - Integrare l'applicazione con [Microsoft Authentication Library per Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## <a name="methods-for-single-sign-on"></a>Metodi per Single Sign-On
@@ -117,7 +117,7 @@ Windows:
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Dopo aver generato un hash della firma con *lo strumento*di riutilizzo, usare il portale di Azure per generare l'URI di reindirizzamento:
+Dopo aver generato un hash della firma con *lo strumento* di riutilizzo, usare il portale di Azure per generare l'URI di reindirizzamento:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare l'app Android in **registrazioni app**.
 1. Selezionare **autenticazione**  >  **Aggiungi piattaforma**  >  **Android**.
@@ -159,7 +159,7 @@ Se si ottiene un `MsalClientException` con codice di errore `"BROKER_BIND_FAILUR
 Potrebbe non essere immediatamente chiaro che l'integrazione di Service Broker funziona, ma è possibile seguire questa procedura per verificare:
 
 1. Nel dispositivo Android completare una richiesta utilizzando broker.
-1. Nelle impostazioni del dispositivo Android cercare un account appena creato corrispondente all'account con cui è stata eseguita l'autenticazione. L'account deve essere di tipo *account*aziendale.
+1. Nelle impostazioni del dispositivo Android cercare un account appena creato corrispondente all'account con cui è stata eseguita l'autenticazione. L'account deve essere di tipo *account* aziendale.
 
 Se si desidera ripetere il test, è possibile rimuovere l'account dalle impostazioni.
 

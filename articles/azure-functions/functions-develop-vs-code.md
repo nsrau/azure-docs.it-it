@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare e testare funzioni di Azure usando 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010517"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168433"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare Funzioni di Azure con Visual Studio Code
 
@@ -34,7 +34,7 @@ L'estensione può essere usata con i linguaggi seguenti, che sono supportati dal
 
 In questo articolo gli esempi sono attualmente disponibili solo per le funzioni JavaScript (Node.js) e libreria di classi C#.  
 
-Questo articolo fornisce informazioni dettagliate su come usare l'estensione funzioni di Azure per sviluppare funzioni e pubblicarle in Azure. Prima di leggere questo articolo, è necessario [creare la prima funzione usando Visual Studio Code](functions-create-first-function-vs-code.md).
+Questo articolo fornisce informazioni dettagliate su come usare l'estensione funzioni di Azure per sviluppare funzioni e pubblicarle in Azure. Prima di leggere questo articolo, è necessario [creare la prima funzione usando Visual Studio Code](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Non combinare lo sviluppo locale e il portale per una singola app per le funzioni. Quando si pubblica da un progetto locale a un'app per le funzioni, il processo di distribuzione sovrascrive le funzioni sviluppate nel portale.
@@ -187,7 +187,7 @@ Visual Studio Code consente di aggiungere binding al function.jsnel file attenen
 
 Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
 
-| Prompt | Valore | Descrizione |
+| Prompt | valore | Descrizione |
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
@@ -233,7 +233,7 @@ Quando si pubblica da Visual Studio Code, si sfrutta la tecnologia di [distribuz
 
 ### <a name="quick-function-app-create"></a>Creazione rapida di app per le funzioni
 
-Quando si sceglie **+ Crea nuova app per le funzioni in Azure..**., l'estensione genera automaticamente i valori per le risorse di Azure necessarie per l'app per le funzioni. Questi valori sono basati sul nome dell'app per le funzioni che si sceglie. Per un esempio di come usare i valori predefiniti per pubblicare il progetto in una nuova app per le funzioni in Azure, vedere l' [articolo della Guida introduttiva Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+Quando si sceglie **+ Crea nuova app per le funzioni in Azure..**., l'estensione genera automaticamente i valori per le risorse di Azure necessarie per l'app per le funzioni. Questi valori sono basati sul nome dell'app per le funzioni che si sceglie. Per un esempio di come usare i valori predefiniti per pubblicare il progetto in una nuova app per le funzioni in Azure, vedere l' [articolo della Guida introduttiva Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 Se si desidera fornire nomi espliciti per le risorse create, è necessario scegliere il percorso di creazione avanzato.
 
@@ -251,7 +251,7 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
 1. Dopo i prompt, fornire le seguenti informazioni:
 
-    | Prompt | Valore | Descrizione |
+    | Prompt | valore | Descrizione |
     | ------ | ----- | ----------- |
     | Selezionare l'app per le funzioni in Azure | Crea nuovo app per le funzioni in Azure | Al prompt successivo, digitare un nome univoco globale che identifichi la nuova app per le funzioni e quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
     | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |

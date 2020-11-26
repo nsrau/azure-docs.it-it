@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019960"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169750"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -67,7 +67,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `email`                    | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | Account del servizio gestito, Azure AD | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (gli utenti all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stato dell'account utente nel tenant | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
 | `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve anch'esso essere impostato. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](/azure/active-directory/authentication/howto-authentication-use-email-signin) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
 | `idtyp`                    | Tipo di token   | Token di accesso JWT | Speciale: solo nei token di accesso solo app |  Il valore è `app` quando il token è un token solo app. Questo è il modo più accurato per un'API per determinare se un token è un token dell'app o un token dell'utente e dell'app.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Set di attestazioni facoltative specifiche per v2.0
@@ -85,7 +85,7 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v1.0, ma non sono 
 | `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
 | `family_name` | Cognome                       | Fornisce il cognome dell'utente, come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato nell'account del servizio gestito e in Azure AD. Richiede l'ambito `profile`.   |
 | `given_name`  | Nome                      | Fornisce il nome dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato nell'account del servizio gestito e in Azure AD.  Richiede l'ambito `profile`. |
-| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](/azure/active-directory/authentication/howto-authentication-use-email-signin) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
+| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
 
@@ -139,7 +139,7 @@ Questo oggetto OptionalClaims fa sì che il token ID restituito al client includ
 1. Selezionare **Aggiungi**.
 
 > [!NOTE]
-> Il pannello di **configurazione del token** di opzione dell'interfaccia utente non è attualmente disponibile per le app registrate in un tenant Azure ad B2C. Per le applicazioni registrate in un tenant B2C, le attestazioni facoltative possono essere configurate modificando il manifesto dell'applicazione. Per altre informazioni [, vedere aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+> Il pannello di **configurazione del token** di opzione dell'interfaccia utente non è attualmente disponibile per le app registrate in un tenant Azure ad B2C. Per le applicazioni registrate in un tenant B2C, le attestazioni facoltative possono essere configurate modificando il manifesto dell'applicazione. Per altre informazioni [, vedere aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati in Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
 
 **Configurazione di attestazioni facoltative tramite il manifesto dell'applicazione:**
 
@@ -186,7 +186,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Tipo                       | Descrizione                                           |
+| Nome          | Type                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -199,7 +199,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |

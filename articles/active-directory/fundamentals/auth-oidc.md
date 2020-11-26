@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 0e5bf7e51de38d42e64f6737e687c5946a464160
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576989"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168662"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Autenticazione OpenID Connect con Azure Active Directory
 
@@ -38,24 +38,23 @@ Oltre all'autenticazione, è possibile richiedere il consenso dell'utente. Il co
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente** : richiede un servizio dall'applicazione.
+* **Utente**: richiede un servizio dall'applicazione.
 
-* **Agent attendibile** : il componente con cui l'utente interagisce. Questo agente attendibile è in genere un Web browser.
+* **Agent attendibile**: il componente con cui l'utente interagisce. Questo agente attendibile è in genere un Web browser.
 
-* **Applicazione** : l'applicazione o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il provider di identità per autenticare e autorizzare l'agente attendibile in modo sicuro. 
+* **Applicazione**: l'applicazione o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il provider di identità per autenticare e autorizzare l'agente attendibile in modo sicuro. 
 
-* **Azure ad** : il provider OIDC, noto anche come provider di identità, gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e le relazioni di trust tra le entità in un flusso. Autentica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. 
+* **Azure ad**: il provider OIDC, noto anche come provider di identità, gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e le relazioni di trust tra le entità in un flusso. Autentica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implementare OIDC con Azure AD
 
-* [Integrazione di applicazioni con Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrazione di applicazioni con Azure AD](../saas-apps/tutorial-list.md) 
 
-* [Protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Microsoft Identity Platform e protocollo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 
+* [Microsoft Identity Platform e protocollo OpenID Connect](../develop/v2-protocols-oidc.md) 
 
-* [Accesso Web con OpenID Connect in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
+* [Accesso Web con OpenID Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Proteggere l'applicazione usando OpenID Connect e Azure AD](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Proteggere l'applicazione usando OpenID Connect e Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
- 

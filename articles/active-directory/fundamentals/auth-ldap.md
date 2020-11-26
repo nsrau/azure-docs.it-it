@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5314758acecae2a9d68f2405fc1c3d2196950b4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: f209d394e1a0c2c4ddde9cbf8df2704647e2822a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577057"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168713"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Autenticazione LDAP con Azure Active Directory
 
@@ -40,32 +40,31 @@ Azure Active Directory (Azure AD) supporta questo modello tramite Azure AD Domai
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente** : accede alle applicazioni dipendenti da LDAP tramite un browser.
+* **Utente**: accede alle applicazioni dipendenti da LDAP tramite un browser.
 
-* **Web browser** : l'interfaccia con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
+* **Web browser**: l'interfaccia con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
 
-* **Rete virtuale** : una rete privata in Azure attraverso la quale l'applicazione legacy può utilizzare i servizi LDAP. 
+* **Rete virtuale**: una rete privata in Azure attraverso la quale l'applicazione legacy può utilizzare i servizi LDAP. 
 
-* **Applicazioni legacy** : applicazioni o carichi di lavoro del server che richiedono LDAP distribuito in una rete virtuale in Azure o che hanno visibilità per gli IP delle istanze di servizi di dominio Active Directory tramite route di rete. 
+* **Applicazioni legacy**: applicazioni o carichi di lavoro del server che richiedono LDAP distribuito in una rete virtuale in Azure o che hanno visibilità per gli IP delle istanze di servizi di dominio Active Directory tramite route di rete. 
 
-* **Azure ad** : Sincronizza le informazioni di identità dalla directory locale dell'organizzazione tramite Azure ad Connect.
+* **Azure ad**: Sincronizza le informazioni di identità dalla directory locale dell'organizzazione tramite Azure ad Connect.
 
-* **Azure ad Domain Services (ad DS)** : esegue una sincronizzazione unidirezionale da Azure ad per consentire l'accesso a un insieme centrale di utenti, gruppi e credenziali. L'istanza di servizi di dominio Active Directory viene assegnata a una rete virtuale. Le applicazioni, i servizi e le VM in Azure che si connettono alla rete virtuale assegnata a servizi di dominio Active Directory possono usare funzionalità comuni di servizi di dominio Active Directory, ad esempio LDAP, aggiunta a un dominio, criteri di gruppo, Kerberos e autenticazione NTLM.
+* **Azure ad Domain Services (ad DS)**: esegue una sincronizzazione unidirezionale da Azure ad per consentire l'accesso a un insieme centrale di utenti, gruppi e credenziali. L'istanza di servizi di dominio Active Directory viene assegnata a una rete virtuale. Le applicazioni, i servizi e le VM in Azure che si connettono alla rete virtuale assegnata a servizi di dominio Active Directory possono usare funzionalità comuni di servizi di dominio Active Directory, ad esempio LDAP, aggiunta a un dominio, criteri di gruppo, Kerberos e autenticazione NTLM.
    > [!NOTE]
    >  Negli ambienti in cui l'organizzazione non è in grado di sincronizzare gli hash delle password o l'accesso degli utenti tramite smart card, è consigliabile utilizzare una foresta di risorse in servizi di dominio Active Directory. 
 
-* **Azure ad Connect** : strumento per sincronizzare le informazioni sull'identità locale con Microsoft Azure ad. La distribuzione guidata e le esperienze guidate consentono di configurare i prerequisiti e i componenti necessari per la connessione, inclusa la sincronizzazione e l'accesso da Active Directory a Azure AD. 
+* **Azure ad Connect**: strumento per sincronizzare le informazioni sull'identità locale con Microsoft Azure ad. La distribuzione guidata e le esperienze guidate consentono di configurare i prerequisiti e i componenti necessari per la connessione, inclusa la sincronizzazione e l'accesso da Active Directory a Azure AD. 
 
-* **Active Directory** : servizio directory in cui vengono archiviate [informazioni sull'identità locale, ad esempio informazioni su utenti e account](https://www.dnsstuff.com/active-directory-service-accounts), e informazioni di sicurezza, ad esempio le password.
+* **Active Directory**: servizio directory in cui vengono archiviate [informazioni sull'identità locale, ad esempio informazioni su utenti e account](https://www.dnsstuff.com/active-directory-service-accounts), e informazioni di sicurezza, ad esempio le password.
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Implementare l'autenticazione LDAP con Azure AD
 
-* [Creare e configurare un'istanza di Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Creare e configurare un'istanza di Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configurare la rete virtuale per un'istanza di Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Configurare la rete virtuale per un'istanza di Azure AD DS](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Configurare LDAP sicuro per un dominio gestito Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Configurare LDAP sicuro per un dominio gestito Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Creare un trust tra foreste in uscita per un dominio locale in Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Creare un trust tra foreste in uscita per un dominio locale in Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

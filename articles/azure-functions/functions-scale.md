@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167795"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -97,7 +97,7 @@ Anche con Always On abilitato, il timeout di esecuzione per le singole funzioni 
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinare il piano di hosting di un'applicazione esistente
 
-Per determinare il piano di hosting usato dall'app per le funzioni, vedere **piano di servizio app** nella scheda **Panoramica** per l'app per le funzioni nella [portale di Azure](https://portal.azure.com). Per visualizzare il piano tariffario, selezionare il nome del **piano di servizio app**e quindi selezionare **Proprietà** nel riquadro sinistro.
+Per determinare il piano di hosting usato dall'app per le funzioni, vedere **piano di servizio app** nella scheda **Panoramica** per l'app per le funzioni nella [portale di Azure](https://portal.azure.com). Per visualizzare il piano tariffario, selezionare il nome del **piano di servizio app** e quindi selezionare **Proprietà** nel riquadro sinistro.
 
 ![Visualizzare il piano nel portale](./media/functions-scale/function-app-overview-portal.png)
 
@@ -191,7 +191,7 @@ La tabella di confronto seguente mostra tutti gli aspetti importanti che consent
 |**[Piano a consumo](#consumption-plan)**| Ridimensiona automaticamente e paga solo per le risorse di calcolo quando le funzioni sono in esecuzione. Nel piano a consumo, le istanze dell'host funzioni vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso.<br/> ✔ Piano di hosting predefinito.<br/>✔ Pagare solo quando le funzioni sono in esecuzione.<br/>✔ la scalabilità orizzontale automatica, anche durante i periodi di carico elevato.|  
 |**[Piano Premium](#premium-plan)**|Con la scalabilità automatica basata su richiesta, è possibile usare i ruoli di lavoro pre-riscaldati per eseguire le applicazioni senza alcun ritardo dopo l'inattività, l'esecuzione in istanze più potenti e la connessione a reti virtuali. Si consideri il piano Premium di funzioni di Azure nelle situazioni seguenti, oltre a tutte le funzionalità del piano di servizio app: <br/>✔ Le app per le funzioni vengono eseguite in modo continuo o quasi continuo.<br/>✔ Si dispone di un numero elevato di esecuzioni di piccole dimensioni e si dispone di una fattura di esecuzione elevata, ma di una fattura con un minimo di GB nel piano a consumo.<br/>✔ Sono necessarie più opzioni di CPU o memoria rispetto a quelle fornite dal piano a consumo.<br/>✔ Il codice deve essere eseguito più a lungo del tempo di esecuzione massimo consentito nel piano a consumo.<br/>✔ Sono necessarie funzionalità disponibili solo in un piano Premium, ad esempio la connettività di rete virtuale.|  
 |**[Piano](#app-service-plan)**<sup>1</sup> dedicato|Eseguire le funzioni all'interno di un piano di servizio app alle normali tariffe del piano di servizio app. Ideale per le operazioni a esecuzione prolungata, nonché quando sono necessari costi e scalabilità più predittivi. Si consideri un piano di servizio app nelle situazioni seguenti:<br/>✔ Sono presenti VM sottoutilizzate esistenti che eseguono già altre istanze del servizio app.<br/>✔ Si desidera fornire un'immagine personalizzata su cui eseguire le funzioni.|  
-|**[ASE](#app-service-plan)** Ambiente del servizio app<sup>1</sup>|Ambiente del servizio app (ASE) è una funzionalità del servizio app che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app su vasta scala. Gli ambienti sono appropriati per i carichi di lavoro delle applicazioni che richiedono: <br/>✔ Scalabilità molto elevata.<br/>✔ L'isolamento completo del calcolo e l'accesso alla rete sicuro.<br/>✔ Utilizzo elevato della memoria.|  
+|**[ASE](#app-service-plan)** Ambiente del servizio app <sup>1</sup>|Ambiente del servizio app (ASE) è una funzionalità del servizio app che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app su vasta scala. Gli ambienti sono appropriati per i carichi di lavoro delle applicazioni che richiedono: <br/>✔ Scalabilità molto elevata.<br/>✔ L'isolamento completo del calcolo e l'accesso alla rete sicuro.<br/>✔ Utilizzo elevato della memoria.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes fornisce un ambiente completamente isolato e dedicato in esecuzione nella piattaforma Kubernetes.  Kubernetes è appropriato per i carichi di lavoro delle applicazioni che richiedono: <br/>✔ Requisiti hardware personalizzati.<br/>Isolamento ✔ e accesso alla rete protetto.<br/>✔ La possibilità di eseguire in un ambiente ibrido o multicloud.<br/>✔ Eseguiti insieme a servizi e applicazioni Kubernetes esistenti.|  
 
 <sup>1</sup> per i limiti specifici per le varie opzioni del piano di servizio app, vedere i [limiti del piano di servizio app](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
@@ -203,7 +203,7 @@ La tabella di confronto seguente mostra tutti gli aspetti importanti che consent
 | **[Piano a consumo](#consumption-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | Nessun supporto  |
 | **[Piano Premium](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Piano dedicato](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
-| **[ASE](#app-service-plan)** Ambiente del servizio app<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
+| **[ASE](#app-service-plan)** Ambiente del servizio app <sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
 | **[Kubernetes](functions-kubernetes-keda.md)** | n/d | n/d |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 
 <sup>1</sup> Linux è l'unico sistema operativo supportato per lo stack di runtime di Python.  
@@ -218,7 +218,7 @@ La tabella di confronto seguente mostra tutti gli aspetti importanti che consent
 | **[Piano a consumo](#consumption-plan)** | Gestito da eventi. Aumento automatico del numero di istanze anche in periodo di carico elevato. L'infrastruttura di funzioni di Azure consente di ridimensionare le risorse di CPU e memoria aggiungendo altre istanze dell'host di funzioni, in base al numero di eventi su cui vengono attivate le relative funzioni. | 200 |
 | **[Piano Premium](#premium-plan)** | Gestito da eventi. Aumento automatico del numero di istanze anche in periodo di carico elevato. L'infrastruttura di funzioni di Azure consente di ridimensionare le risorse di CPU e memoria aggiungendo altre istanze dell'host di funzioni, in base al numero di eventi su cui vengono attivate le relative funzioni. |100|
 | **[Piano](#app-service-plan)**<sup>1</sup> dedicato | Scalabilità manuale/automatica |10-20|
-| **[ASE](#app-service-plan)** Ambiente del servizio app<sup>1</sup> | Scalabilità manuale/automatica |100 |
+| **[ASE](#app-service-plan)** Ambiente del servizio app <sup>1</sup> | Scalabilità manuale/automatica |100 |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | Scalabilità automatica guidata dagli eventi per i cluster Kubernetes con [Keda](https://keda.sh). | Varia &nbsp; a seconda del &nbsp; cluster.&nbsp;&nbsp;|
 
 <sup>1</sup> per i limiti specifici per le varie opzioni del piano di servizio app, vedere i [limiti del piano di servizio app](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
@@ -230,7 +230,7 @@ La tabella di confronto seguente mostra tutti gli aspetti importanti che consent
 | **[Piano a consumo &nbsp;](#consumption-plan)** | Le app possono essere ridimensionate a zero se inattive per un determinato periodo di tempo, ovvero alcune richieste potrebbero avere latenza aggiuntiva all'avvio.  Il piano a consumo ha alcune ottimizzazioni che consentono di ridurre l'ora di avvio a freddo, incluso il pull da funzioni segnaposto pre-riscaldate che hanno già l'host funzione e i processi del linguaggio in esecuzione. |
 | **[Piano Premium](#premium-plan)** | Per evitare l'avvio a freddo, le istanze sono perennemente calde. |
 | **[Piano](#app-service-plan)**<sup>1</sup> dedicato | Quando è in esecuzione in un piano dedicato, l'host di funzioni può essere eseguito in modo continuo, il che significa che l'avvio a freddo non è realmente un problema. |
-| **[ASE](#app-service-plan)** Ambiente del servizio app<sup>1</sup> | Quando è in esecuzione in un piano dedicato, l'host di funzioni può essere eseguito in modo continuo, il che significa che l'avvio a freddo non è realmente un problema. |
+| **[ASE](#app-service-plan)** Ambiente del servizio app <sup>1</sup> | Quando è in esecuzione in un piano dedicato, l'host di funzioni può essere eseguito in modo continuo, il che significa che l'avvio a freddo non è realmente un problema. |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | Dipende dalla configurazione KEDA. Le app possono essere configurate per l'esecuzione sempre senza avvio a freddo o configurate per la scalabilità a zero, il che comporta l'avvio a freddo di nuovi eventi. 
 
 <sup>1</sup> per i limiti specifici per le varie opzioni del piano di servizio app, vedere i [limiti del piano di servizio app](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
@@ -250,13 +250,13 @@ La tabella di confronto seguente mostra tutti gli aspetti importanti che consent
 | **[Piano a consumo](#consumption-plan)** | Pagare solo per il tempo di esecuzione delle funzioni. La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. |
 | **[Piano Premium](#premium-plan)** | Il piano Premium è basato sul numero di secondi e di memoria Core usati nelle istanze necessarie e pre-surriscaldate. È necessario che almeno un'istanza per piano rimanga sempre calda. Questo piano offre prezzi più prevedibili. |
 | **[Piano](#app-service-plan)**<sup>1</sup> dedicato | Si paga lo stesso per le app per le funzioni in un piano di servizio app come per le altre risorse del servizio app, ad esempio le app Web.|
-| **[ASE](#app-service-plan)** Ambiente del servizio app<sup>1</sup> | esiste una tariffa mensile fissa per un ambiente del servizio app che paga l'infrastruttura e non cambia con le dimensioni dell'ambiente del servizio app. Inoltre, c'è un costo per ogni piano di servizio app vCPU. Tutte le app ospitate in un ambiente del servizio app fanno parte di uno SKU di prezzi isolato. |
+| **[ASE](#app-service-plan)** Ambiente del servizio app <sup>1</sup> | esiste una tariffa mensile fissa per un ambiente del servizio app che paga l'infrastruttura e non cambia con le dimensioni dell'ambiente del servizio app. Inoltre, c'è un costo per ogni piano di servizio app vCPU. Tutte le app ospitate in un ambiente del servizio app fanno parte di uno SKU di prezzi isolato. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| Si pagano solo i costi del cluster Kubernetes. nessuna fatturazione aggiuntiva per le funzioni. L'app per le funzioni viene eseguita come carico di lavoro dell'applicazione nella parte superiore del cluster, proprio come per una normale app. |
 
 <sup>1</sup> per i limiti specifici per le varie opzioni del piano di servizio app, vedere i [limiti del piano di servizio app](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ [Guida introduttiva: Creare un progetto Funzioni di Azure con Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Guida introduttiva: Creare un progetto Funzioni di Azure con Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Tecnologie di distribuzione in funzioni di Azure](functions-deployment-technologies.md) 
 + [Guida per sviluppatori di Funzioni di Azure](functions-reference.md)

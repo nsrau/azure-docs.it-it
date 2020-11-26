@@ -13,19 +13,19 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe48cf28ab3004087e2b022d7a9eca69a1e58e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449355"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169631"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
 Questo articolo descrive la registrazione dell'applicazione, gli oggetti applicazione e le entità servizio in Azure Active Directory: quali sono, come vengono usati e come sono correlati tra loro. Viene inoltre presentato uno scenario di esempio multi-tenant per illustrare la relazione tra l'oggetto applicazione di un'applicazione e gli oggetti entità servizio corrispondenti.
 
 ## <a name="application-registration"></a>Registrazione dell'applicazione
-Per delegare le funzioni di gestione delle identità e degli accessi ai Azure AD, un'applicazione deve essere registrata con un [tenant](developer-glossary.md#tenant)di Azure ad. Quando si registra l'applicazione con Azure AD, si crea una configurazione di identità per l'applicazione che consente l'integrazione con Azure AD. Quando si registra un'app nella [portale di Azure][AZURE-Portal], è possibile scegliere se si tratta di un singolo tenant (accessibile solo nel tenant) o multi-tenant (accessibile ad altri tenant) ed è possibile impostare facoltativamente un URI di reindirizzamento (a cui viene inviato il token di accesso).
+Per delegare le funzioni di gestione delle identità e degli accessi ai Azure AD, un'applicazione deve essere registrata con un [tenant](developer-glossary.md#tenant)di Azure ad. Quando si registra l'applicazione con Azure AD, si crea una configurazione di identità per l'applicazione che consente l'integrazione con Azure AD. Quando si registra un'app nella [portale di Azure][AZURE-Portal], è possibile scegliere se si tratta di un singolo tenant (accessibile solo nel tenant) o multi-tenant (accessibile in altri tenant) ed è possibile impostare facoltativamente un URI di reindirizzamento (a cui viene inviato il token di accesso).
 
 :::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Screenshot del riquadro registra un'applicazione del portale di Azure":::
 

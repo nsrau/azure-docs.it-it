@@ -67,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: Più collegamenti ISP - Selezione del percorso di Azure
           href: path-selection-multiple-links.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Concetti relativi ai prezzi
       href: pricing-concepts.md
     - name: Informazioni sull'appliance virtuale di rete in un hub virtuale
@@ -119,7 +123,7 @@
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Configurare l'autenticazione multi-applicazione di Azure AD
           href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Routing
+    - name: Routing.
       items:
         - name: Come configurare il routing dell'hub virtuale
           href: how-to-virtual-hub-routing.md

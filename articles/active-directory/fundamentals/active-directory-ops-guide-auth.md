@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836989"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168866"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -160,7 +160,7 @@ Fornire un meccanismo di Single Sign-On standardizzato per l'intera organizzazio
 > [!NOTE]
 > Se non si dispone di un meccanismo per individuare le applicazioni non gestite nell'organizzazione, è consigliabile implementare un processo di individuazione utilizzando una soluzione CASB (cloud Access Security broker Solution), ad esempio [Microsoft cloud app Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Infine, se si dispone di un Azure AD raccolta di app e si usano applicazioni che supportano SSO con Azure AD, è consigliabile [elencare l'applicazione nella raccolta di app](../azuread-dev/howto-app-gallery-listing.md).
+Infine, se si dispone di un Azure AD raccolta di app e si usano applicazioni che supportano SSO con Azure AD, è consigliabile [elencare l'applicazione nella raccolta di app](../develop/v2-howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Lettura consigliata per l'accesso Single Sign-on
 
@@ -255,7 +255,7 @@ L'accesso condizionale è uno strumento essenziale per migliorare il comportamen
 
 #### <a name="conditional-access-recommended-reading"></a>Lettura consigliata per l'accesso condizionale
 
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](../conditional-access/best-practices.md)
+- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](../conditional-access/overview.md)
 - [Configurazioni di identità e accesso dei dispositivi](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory](../conditional-access/concept-conditional-access-conditions.md)
 - [Criteri comuni di accesso condizionale](../conditional-access/concept-conditional-access-policy-common.md)
@@ -372,7 +372,7 @@ L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è
 - [Informazioni di riferimento sull'API di gestione di Office 365](/office/office-365-management-api/office-365-management-activity-api-reference)
 - [Come usare il pacchetto di contenuto Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Esistono 12 aspetti di un'infrastruttura di identità sicura. Questo elenco consente di proteggere e gestire ulteriormente le credenziali, definire l'esperienza di autenticazione, assegnare i delegati, misurare l'utilizzo e definire i criteri di accesso in base al comportamento di sicurezza dell'organizzazione.
 

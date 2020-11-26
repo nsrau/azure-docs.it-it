@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539074"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167846"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -19,7 +19,7 @@ Gli sviluppatori di Python possono anche essere interessati a uno degli articoli
 
 | Introduzione | Concetti| Scenari/esempi |
 | -- | -- | -- | 
-| <ul><li>[Funzione Python con Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Funzione Python con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Classificazione di immagini con PyTorch](machine-learning-pytorch.md)</li><li>[Esempio di automazione di Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Esplora esempi di Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Funzione Python con Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funzione Python con terminale/prompt dei comandi](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Classificazione di immagini con PyTorch](machine-learning-pytorch.md)</li><li>[Esempio di automazione di Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Esplora esempi di Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Modello di programmazione
 
@@ -93,22 +93,22 @@ La struttura di cartelle per consigliata per un progetto di Funzioni per Python 
 ```
 La cartella principale del progetto (<project_root>) può contenere i file seguenti:
 
-* *local.settings.json* : viene usato per archiviare le impostazioni dell'app e le stringhe di connessione durante l'esecuzione in locale. Questo file non viene pubblicato in Azure. Per altre informazioni, vedere [local.settings.file](functions-run-local.md#local-settings-file).
-* *requirements.txt* : contiene l'elenco dei pacchetti Python installati dal sistema durante la pubblicazione in Azure.
-* *host.json* : contiene le opzioni di configurazione globali che interessano tutte le funzioni in un'app per le funzioni. Questo file viene pubblicato in Azure. Non tutte le opzioni sono supportate durante l'esecuzione in locale. Per altre informazioni, vedere [host.json](functions-host-json.md).
-* *. VSCODE/* : (facoltativo) contiene la configurazione VSCODE dell'archivio. Per altre informazioni, vedere [impostazione di VSCode](https://code.visualstudio.com/docs/getstarted/settings).
-* *. venv/* : (facoltativo) contiene un ambiente virtuale Python utilizzato dallo sviluppo locale.
-* *Dockerfile* : (facoltativo) usato per la pubblicazione del progetto in un [contenitore personalizzato](functions-create-function-linux-custom-image.md).
-* *test/* : (facoltativo) contiene i test case dell'app per le funzioni.
-* *. funcignore* : (facoltativo) dichiara i file che non devono essere pubblicati in Azure. In genere, questo file contiene `.vscode/` per ignorare l'impostazione dell'editor, `.venv/` per ignorare l'ambiente virtuale Python locale, `tests/` per ignorare i test case e `local.settings.json` per impedire la pubblicazione delle impostazioni dell'app locale.
+* *local.settings.json*: viene usato per archiviare le impostazioni dell'app e le stringhe di connessione durante l'esecuzione in locale. Questo file non viene pubblicato in Azure. Per altre informazioni, vedere [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt*: contiene l'elenco dei pacchetti Python installati dal sistema durante la pubblicazione in Azure.
+* *host.json*: contiene le opzioni di configurazione globali che interessano tutte le funzioni in un'app per le funzioni. Questo file viene pubblicato in Azure. Non tutte le opzioni sono supportate durante l'esecuzione in locale. Per altre informazioni, vedere [host.json](functions-host-json.md).
+* *. VSCODE/*: (facoltativo) contiene la configurazione VSCODE dell'archivio. Per altre informazioni, vedere [impostazione di VSCode](https://code.visualstudio.com/docs/getstarted/settings).
+* *. venv/*: (facoltativo) contiene un ambiente virtuale Python utilizzato dallo sviluppo locale.
+* *Dockerfile*: (facoltativo) usato per la pubblicazione del progetto in un [contenitore personalizzato](functions-create-function-linux-custom-image.md).
+* *test/*: (facoltativo) contiene i test case dell'app per le funzioni.
+* *. funcignore*: (facoltativo) dichiara i file che non devono essere pubblicati in Azure. In genere, questo file contiene `.vscode/` per ignorare l'impostazione dell'editor, `.venv/` per ignorare l'ambiente virtuale Python locale, `tests/` per ignorare i test case e `local.settings.json` per impedire la pubblicazione delle impostazioni dell'app locale.
 
 Ogni funzione ha il proprio file di codice e il file di configurazione delle associazioni (function.json).
 
-Quando si distribuisce il progetto in un'app per le funzioni in Azure, l'intero contenuto della cartella principale del progetto ( *<project_root>* ) deve essere incluso nel pacchetto, ma non nella cartella stessa, che significa che `host.json` deve trovarsi nella radice del pacchetto. In questo esempio si consiglia di mantenere i test in una cartella insieme ad altre funzioni `tests/` . Per altre informazioni, vedere [Testing unità](#unit-testing).
+Quando si distribuisce il progetto in un'app per le funzioni in Azure, l'intero contenuto della cartella principale del progetto (*<project_root>*) deve essere incluso nel pacchetto, ma non nella cartella stessa, che significa che `host.json` deve trovarsi nella radice del pacchetto. In questo esempio si consiglia di mantenere i test in una cartella insieme ad altre funzioni `tests/` . Per altre informazioni, vedere [Testing unità](#unit-testing).
 
 ## <a name="import-behavior"></a>Importare il comportamento
 
-È possibile importare moduli nel codice della funzione utilizzando riferimenti assoluti e relativi. In base alla struttura di cartelle illustrata in precedenza, le importazioni seguenti funzionano dal file di funzione *<project_root> \My \_ prima \_ funzione \\ _ \_ init \_ \_ . py* :
+È possibile importare moduli nel codice della funzione utilizzando riferimenti assoluti e relativi. In base alla struttura di cartelle illustrata in precedenza, le importazioni seguenti funzionano dal file di funzione *<project_root> \My \_ prima \_ funzione \\ _ \_ init \_ \_ . py*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -187,7 +187,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando viene richiamata questa funzione, la richiesta HTTP viene passata alla funzione come `req`. Verrà recuperata una voce da Archiviazione BLOB di Azure in base all' _ID_ nell'URL di route e verrà resa disponibile come `obj` nel corpo della funzione.  In questo caso, l'account di archiviazione specificato è la stringa di connessione disponibile nell'impostazione dell'app AzureWebJobsStorage, che corrisponde allo stesso account di archiviazione usato dall'app per le funzioni.
+Quando viene richiamata questa funzione, la richiesta HTTP viene passata alla funzione come `req`. Verrà recuperata una voce da Archiviazione BLOB di Azure in base all'_ID_ nell'URL di route e verrà resa disponibile come `obj` nel corpo della funzione.  In questo caso, l'account di archiviazione specificato è la stringa di connessione disponibile nell'impostazione dell'app AzureWebJobsStorage, che corrisponde allo stesso account di archiviazione usato dall'app per le funzioni.
 
 
 ## <a name="outputs"></a>Output
@@ -491,7 +491,7 @@ func azure functionapp publish <APP_NAME>
 
 Ricordare di sostituire `<APP_NAME>` con il nome dell'app per le funzioni in Azure.
 
-Anche l'[estensione Funzioni di Azure per Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) richiede una compilazione remota per impostazione predefinita.
+Anche l'[estensione Funzioni di Azure per Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) richiede una compilazione remota per impostazione predefinita.
 
 ### <a name="local-build"></a>Compilazione locale
 
@@ -694,8 +694,8 @@ Per un elenco delle librerie di sistema preinstallate nelle immagini Docker per 
 
 |  Runtime di Funzioni  | Versione di Debian | Versioni di Python |
 |------------|------------|------------|
-| Versione 2.x | Estendi  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versione 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Versione 2.x | Estendi  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versione 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
 
 ## <a name="cross-origin-resource-sharing"></a>Condivisione di risorse tra le origini
 

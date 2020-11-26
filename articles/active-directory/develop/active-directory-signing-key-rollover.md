@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981ac775e7153cfd03dc1760bbbc4e50fd9ecc57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948131"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169546"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Rollover della chiave di firma nella piattaforma di identità Microsoft
 Questo articolo descrive le informazioni che è necessario conoscere sulle chiavi pubbliche usate dalla piattaforma di identità Microsoft per firmare i token di sicurezza. È importante sottolineare che queste chiavi si riattivano periodicamente e, in caso di emergenza, possono essere immediatamente sottoposte a rollback. Tutte le applicazioni che usano la piattaforma di identità Microsoft devono essere in grado di gestire il processo di rollover della chiave a livello di codice. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
@@ -138,19 +138,19 @@ Se l'autenticazione è stata aggiunta alla soluzione manualmente, l'applicazione
 I passaggi seguenti consentono di verificare il corretto funzionamento della logica dell'applicazione.
 
 1. In Visual Studio 2013 aprire la soluzione, quindi fare clic sulla scheda **Esplora server** nella finestra a destra.
-2. Espandere **Connessioni dati**, l'opzione relativa alla connessione predefinita****, quindi **Tabelle**. Trovare la tabella relativa alle chiavi dell'autorità di emissione****, fare clic con il pulsante destro del mouse su di essa, quindi scegliere **Mostra dati tabella**.
-3. Nella tabella relativa alle chiavi dell'autorità di emissione**** è presente almeno una riga che corrisponde al valore di identificazione personale della chiave. Eliminare tutte le righe nella tabella.
+2. Espandere **Connessioni dati**, l'opzione relativa alla connessione predefinita, quindi **Tabelle**. Trovare la tabella relativa alle chiavi dell'autorità di emissione, fare clic con il pulsante destro del mouse su di essa, quindi scegliere **Mostra dati tabella**.
+3. Nella tabella relativa alle chiavi dell'autorità di emissione è presente almeno una riga che corrisponde al valore di identificazione personale della chiave. Eliminare tutte le righe nella tabella.
 4. Fare clic con il pulsante destro del mouse sulla tabella **Tenant**, quindi scegliere **Mostra dati tabella**.
 5. Nella tabella **Tenant** è presente almeno una riga che corrisponde a un identificatore di tenant di directory univoco. Eliminare tutte le righe nella tabella. Se non si eliminano le righe nella tabella **Tenant** e nella tabella **IssuingAuthorityKeys**, si verificherà un errore in fase di esecuzione.
 6. Compilare ed eseguire l'applicazione. Dopo aver effettuato l'accesso al proprio account sarà possibile arrestare l'applicazione.
-7. Tornare a **Esplora server** ed esaminare i valori nella tabella **Tenant** e in quella relativa alle chiavi dell'autorità di emissione.**** Si noterà che sono stati popolati automaticamente con le informazioni appropriate dal documento di metadati della federazione.
+7. Tornare a **Esplora server** ed esaminare i valori nella tabella **Tenant** e in quella relativa alle chiavi dell'autorità di emissione. Si noterà che sono stati popolati automaticamente con le informazioni appropriate dal documento di metadati della federazione.
 
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>API Web che proteggono le risorse e sono state create con Visual Studio 2013
 Se l'applicazione API Web è stata creata in Visual Studio 2013 tramite il modello API Web ed è stata selezionata l'opzione **Account aziendali** nel menu **Modifica autenticazione**, la logica necessaria è già disponibile nell'applicazione.
 
 Se l'autenticazione è stata configurata manualmente, seguire le istruzioni riportate di seguito per informazioni su come configurare l'API Web per aggiornare automaticamente le informazioni sulla chiave.
 
-Il frammento di codice seguente illustra come ottenere le chiavi più recenti dal documento di metadati della federazione e quindi usare il [gestore dei token JWT](https://msdn.microsoft.com/library/dn205065.aspx) per convalidare il token. Il frammento di codice presuppone che si userà il proprio meccanismo di memorizzazione nella cache per salvare in modo permanente la chiave per convalidare i token futuri dalla piattaforma di identità Microsoft, sia che si tratti di un database, di un file di configurazione o di un'altra posizione.
+Il frammento di codice seguente illustra come ottenere le chiavi più recenti dal documento di metadati della federazione e quindi usare il [gestore dei token JWT](/previous-versions/dotnet/framework/security/json-web-token-handler) per convalidare il token. Il frammento di codice presuppone che si userà il proprio meccanismo di memorizzazione nella cache per salvare in modo permanente la chiave per convalidare i token futuri dalla piattaforma di identità Microsoft, sia che si tratti di un database, di un file di configurazione o di un'altra posizione.
 
 ```
 using System;
@@ -241,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012
-Se l'applicazione è stata creata in Visual Studio 2012 è stato probabilmente usato lo strumento Identità e accesso per configurare l'applicazione. È anche probabile che si usi [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). Il VINR è responsabile della gestione delle informazioni sui provider di identità attendibili (piattaforma di identità Microsoft) e delle chiavi usate per convalidare i token emessi da tali provider. VINR semplifica anche l'aggiornamento automatico delle informazioni sulla chiave archiviate in un file Web.config, scaricando il documento di metadati della federazione più recente associato alla directory, verificando se la configurazione è aggiornata con il documento più recente e aggiornando l'applicazione per l'uso della nuova chiave se necessario.
+Se l'applicazione è stata creata in Visual Studio 2012 è stato probabilmente usato lo strumento Identità e accesso per configurare l'applicazione. È anche probabile che si usi [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). Il VINR è responsabile della gestione delle informazioni sui provider di identità attendibili (piattaforma di identità Microsoft) e delle chiavi usate per convalidare i token emessi da tali provider. VINR semplifica anche l'aggiornamento automatico delle informazioni sulla chiave archiviate in un file Web.config, scaricando il documento di metadati della federazione più recente associato alla directory, verificando se la configurazione è aggiornata con il documento più recente e aggiornando l'applicazione per l'uso della nuova chiave se necessario.
 
 Se l'applicazione è stata creata usando uno degli esempi di codice o le procedure dettagliate offerte da Microsoft, la logica di rollover della chiave è già inclusa nel progetto. Si noterà che il codice seguente esiste già nel progetto. Se l'applicazione non ha questa logica, seguire questa procedura per aggiungerla e verificarne il corretto funzionamento.
 
@@ -290,14 +290,14 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
 Se è stata compilata un'applicazione in WIF v1.0 non esistono meccanismi per aggiornare automaticamente la configurazione dell'applicazione per l'uso di una nuova chiave.
 
 * *Modo più semplice* : usare lo strumento FedUtil incluso in WIF SDK, che può recuperare il documento di metadati più recente e aggiornare la configurazione.
-* Aggiornare l'applicazione a .NET 4.5, che include la versione più recente di WIF nello spazio dei nomi System. Sarà quindi possibile usare [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) per eseguire gli aggiornamenti automatici della configurazione dell'applicazione.
+* Aggiornare l'applicazione a .NET 4.5, che include la versione più recente di WIF nello spazio dei nomi System. Sarà quindi possibile usare [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) per eseguire gli aggiornamenti automatici della configurazione dell'applicazione.
 * Eseguire un rollover manuale seguendo le istruzioni alla fine di questo documento.
 
 Istruzioni per usare FedUtil per aggiornare la configurazione:
 
 1. Verificare di avere l'SDK WIF v1.0 installato nel computer di sviluppo per Visual Studio 2008 o 2010. È possibile [scaricarlo da qui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se non è ancora installato.
 2. In Visual Studio aprire la soluzione, fare clic con il pulsante destro del mouse sul progetto applicabile, quindi scegliere **Aggiorna metadati di federazione**. Se questa opzione non è disponibile, FedUtil o l'SDK WIF v1.0 non è stato installato.
-3. Quando viene richiesto, selezionare **Aggiorna** per iniziare ad aggiornare i metadati di federazione. Se si ha accesso all'ambiente server in cui è ospitata l'applicazione, è possibile usare facoltativamente l' [utilità di pianificazione dell'aggiornamento automatico dei metadati](https://msdn.microsoft.com/library/ee517272.aspx)di FedUtil.
+3. Quando viene richiesto, selezionare **Aggiorna** per iniziare ad aggiornare i metadati di federazione. Se si ha accesso all'ambiente server in cui è ospitata l'applicazione, è possibile usare facoltativamente l' [utilità di pianificazione dell'aggiornamento automatico dei metadati](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))di FedUtil.
 4. Fare clic su **Fine** per completare il processo di aggiornamento.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>API / applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato

@@ -4,12 +4,12 @@ description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure nec
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54bfd770fba9a1766396d66c0c263111c233c9c2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921742"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167880"
 ---
 # <a name="azure-functions-developer-guide"></a>Guida per sviluppatori di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -42,7 +42,7 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 
 | Proprietà | Valori/tipi | Commenti |
 | --- | --- | --- |
-| `type` |string |Tipo di associazione. Ad esempio: `queueTrigger`. |
+| `type` |string |Tipo di associazione. Ad esempio, `queueTrigger` |
 | `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
 | `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
@@ -61,7 +61,7 @@ La struttura di cartelle mostrata sopra è quella predefinita (e consigliata) pe
 > Se si distribuisce un pacchetto manualmente, assicurarsi di distribuire il file _host.json_ e le cartelle della funzione direttamente nella cartella `wwwroot`. Non includere la cartella `wwwroot` nelle distribuzioni. In caso contrario, verranno create le cartelle `wwwroot\wwwroot`.
 
 #### <a name="use-local-tools-and-publishing"></a>Usare strumenti e pubblicazione locali
-È possibile creare e pubblicare app per le funzioni tramite vari strumenti, tra cui [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md) e [Azure Functions Core Tools](./functions-develop-local.md). Per altre informazioni, vedere [Scrivere codice per Funzioni di Azure e testarle in locale](./functions-develop-local.md).
+È possibile creare e pubblicare app per le funzioni tramite vari strumenti, tra cui [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md) e [Azure Functions Core Tools](./functions-develop-local.md). Per altre informazioni, vedere [Scrivere codice per Funzioni di Azure e testarle in locale](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
