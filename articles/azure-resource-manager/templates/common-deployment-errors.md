@@ -4,12 +4,12 @@ description: Descrive come risolvere errori comuni durante la distribuzione di r
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000709"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185828"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -19,7 +19,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Strategia di riduzione del rischio | Altre informazioni |
+| Codice di errore | Strategia di riduzione del rischio | Ulteriori informazioni |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -76,10 +76,10 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | StorageAccountAlreadyTaken | Fornire un nome univoco per l'account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](error-storage-account-name.md) |
 | StorageAccountNotFound | Controllare la sottoscrizione, il gruppo di risorse e il nome dell'account di archiviazione che si sta tentando di usare. | |
 | SubnetsNotInSameVnet | Una macchina virtuale può avere solo una rete virtuale. Quando si distribuiscono più schede di interfaccia di rete, assicurarsi che appartengano alla stessa rete virtuale. | [Più schede di interfaccia di rete](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | Non è possibile accedere a una sottoscrizione specificata per la distribuzione. È possibile che l'ID sottoscrizione sia errato, che l'utente che distribuisce il modello non disponga di autorizzazioni adeguate per la distribuzione nella sottoscrizione oppure che il formato dell'ID sottoscrizione sia errato. Quando si utilizzano distribuzioni nidificate per la [distribuzione tra ambiti](cross-scope-deployment.md), fornire il GUID per la sottoscrizione. | |
+| SubscriptionNotFound | Non è possibile accedere a una sottoscrizione specificata per la distribuzione. È possibile che l'ID sottoscrizione sia errato, che l'utente che distribuisce il modello non disponga di autorizzazioni adeguate per la distribuzione nella sottoscrizione oppure che il formato dell'ID sottoscrizione sia errato. Quando si utilizzano distribuzioni nidificate per la [distribuzione tra ambiti](./deploy-to-resource-group.md), fornire il GUID per la sottoscrizione. | |
 | SubscriptionNotRegistered | Quando si distribuisce una risorsa, il provider di risorse deve essere registrato per la sottoscrizione. Quando si usa un modello di Azure Resource Manager per la distribuzione, il provider di risorse viene registrato automaticamente nella sottoscrizione. In alcuni casi, la registrazione automatica non viene completata nel tempo. Per evitare questo errore intermittente, registrare il provider di risorse prima della distribuzione. | [Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Ridurre il numero di gruppi di risorse per una distribuzione singola. | [Distribuzione con ambito incrociato](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Ridurre il numero di gruppi di risorse per una distribuzione singola. | [Distribuzione con ambito incrociato](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>Trovare il codice di errore
 

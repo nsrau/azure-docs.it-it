@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930306"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184485"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
@@ -116,7 +116,7 @@ Il diagramma seguente illustra un ambiente ibrido:
 
 ![Ambiente di rete ibrido](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-In uno scenario ibrido, le applicazioni dei data center locali devono accedere alle risorse in Azure.  Questa esigenza si verifica, ad esempio, quando si vuole estendere il datacenter ad Azure, si vogliono usare i servizi nativi di Azure o per il ripristino di emergenza. Per informazioni su come connettere più risorse locali a risorse di Azure tramite una rete VPN da sito a sito o un circuito ExpressRoute, vedere le [opzioni di pianificazione di Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable).
+In uno scenario ibrido, le applicazioni dei data center locali devono accedere alle risorse in Azure.  Questa esigenza si verifica, ad esempio, quando si vuole estendere il datacenter ad Azure, si vogliono usare i servizi nativi di Azure o per il ripristino di emergenza. Per informazioni su come connettere più risorse locali a risorse di Azure tramite una rete VPN da sito a sito o un circuito ExpressRoute, vedere le [opzioni di pianificazione di Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
 In una topologia di rete hub-spoke, l'hub è una rete virtuale in Azure che svolge la funzione di punto centrale di connettività alla rete locale. Gli spoke sono reti virtuali di cui viene eseguito il peering con l'hub e possono essere usati per isolare i carichi di lavoro.
 

@@ -4,12 +4,12 @@ description: Monitorare le prestazioni di un sito Web senza ripetere la distribu
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020926"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186304"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -93,7 +93,7 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
 
 - Confermare la presenza del file applicationinsights.config nella directory di destinazione dell'app e l'inclusione della ikey.
 
-- Se si ritiene che i dati non siano presenti, è possibile eseguire una query in [Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli cloud che inviano dati di telemetria.
+- Se si ritiene che i dati non siano presenti, è possibile eseguire una query in [Analytics](../log-query/log-analytics-tutorial.md) per elencare tutti i ruoli cloud che inviano dati di telemetria.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Aggiungere altri dati di telemetria:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

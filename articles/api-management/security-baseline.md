@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ac568e56d201ef43e40428085b226608e83973a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024569"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183754"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Baseline di sicurezza di Azure per Gestione API
 
@@ -98,7 +98,7 @@ Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per n
 
 * [Informazioni sul gateway applicazione di Azure](../application-gateway/index.yml)
 
-* [Come configurare la protezione DDoS di Azure standard](../virtual-network/manage-ddos-protection.md)
+* [Come configurare la protezione DDoS di Azure standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
@@ -301,7 +301,7 @@ Facoltativamente, è possibile integrare Gestione API con Azure Application Insi
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
-* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come eseguire l'integrazione con Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -614,7 +614,7 @@ Microsoft gestisce l'infrastruttura sottostante per Gestione API di Azure e ha i
 
 **Indicazioni**: le chiamate del piano di gestione vengono eseguite tramite Azure Resource Manager su TLS. È necessario un token JSON Web (JWT) valido. Le chiamate del piano dati possono essere protette con TLS e uno dei meccanismi di autenticazione supportati (ad esempio, il certificato client o JWT).
 
-* [Informazioni sulla protezione dei dati in Gestione API di Azure](./api-management-security-controls.md#data-protection)
+* [Informazioni sulla protezione dei dati in Gestione API di Azure](#data-protection)
 
 * [Gestire le impostazioni TLS in Gestione API di Azure](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -664,7 +664,7 @@ Microsoft gestisce l'infrastruttura sottostante per Gestione API di Azure e ha i
 
 **Indicazioni**: i dati sensibili, ad esempio i certificati, le chiavi e i valori denominati segreti vengono crittografati con chiavi di istanza per servizio, gestite dallo stesso. Tutte le chiavi di crittografia sono in base all'istanza del servizio e sono gestite dallo stesso.
 
-* [Informazioni sulla protezione/crittografia dei dati inattivi con Gestione API di Azure](./api-management-security-controls.md#data-protection)
+* [Informazioni sulla protezione/crittografia dei dati inattivi con Gestione API di Azure](#data-protection)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -692,7 +692,7 @@ Microsoft gestisce l'infrastruttura sottostante per Gestione API di Azure e ha i
 
 Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esaminare i controlli di sicurezza disponibili per ridurre le vulnerabilità correlate alla configurazione del servizio.
 
-* [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure](./api-management-security-controls.md)
+* [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure]()
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -728,7 +728,7 @@ Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esa
 
 Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. I clienti devono esaminare i controlli di sicurezza cui hanno accesso per ridurre le vulnerabilità correlate alla configurazione del servizio.
 
-* [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure](./api-management-security-controls.md)
+* [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure]()
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -932,8 +932,6 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 * [Documentazione di Azure Repos](/azure/devops/repos/index)
 
-* [Informazioni sul Resource Kit di Gestione API di Azure DevOps](./api-management-security-controls.md#configuration-management)
-
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
 **Responsabilità**: Customer
@@ -971,8 +969,6 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 **Indicazioni**: usare il Resource Kit DevOps di Gestione API di Azure per eseguire la gestione della configurazione per Gestione API di Azure.
 
 Inoltre, definire e implementare configurazioni di sicurezza standard per i servizi di Gestione API di Azure con Criteri di Azure. Usare gli alias di Criteri di Azure nello spazio dei nomi "Microsoft.ApiManagement" per creare criteri personalizzati per controllare o applicare la configurazione delle istanze di Gestione API di Azure. Usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
-
-* [Informazioni sul Resource Kit di Gestione API di Azure DevOps](./api-management-security-controls.md#configuration-management)
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1140,7 +1136,7 @@ Abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eli
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
+**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
 
 Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione, tramite i tag e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 

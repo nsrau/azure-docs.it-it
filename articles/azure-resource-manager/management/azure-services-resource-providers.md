@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 7c8e535978bff38146caee1a3b5177d5befaa6a1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697731"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185862"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -126,7 +126,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Ancoraggi nello spazio di Azure](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS di Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Bilanciamento del carico](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Protezione DDoS di Azure](../../ddos-protection/ddos-protection-overview.md)<br />[DNS di Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Bilanciamento del carico](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Hub di notifica di Azure](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Archivio oggetti |

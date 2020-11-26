@@ -4,12 +4,12 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992848"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186355"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -191,7 +191,7 @@ Per visualizzare i contatori delle prestazioni e i conteggi degli eventi, aprire
 
 ![Dati di Diagnostica di Azure](./media/cloudservices/23-wad.png)
 
-Per eseguire ricerche nei vari log di traccia inviati da Diagnostica di Azure, usare la [Ricerca](./diagnostic-search.md) o una [Query Analytics](../log-query/get-started-portal.md). Supponendo, ad esempio, di avere un'eccezione non gestita che ha causato l'arresto e il riciclo di un ruolo, questa informazione verrebbe visualizzata nel canale Applicazione del registro eventi di Windows. È possibile usare la funzionalità di ricerca per visualizzare l'errore del registro eventi di Windows e ottenere l'analisi dello stack completa per l'eccezione. In questo modo sarà possibile trovare la causa radice del problema.
+Per eseguire ricerche nei vari log di traccia inviati da Diagnostica di Azure, usare la [Ricerca](./diagnostic-search.md) o una [Query Analytics](../log-query/log-analytics-tutorial.md). Supponendo, ad esempio, di avere un'eccezione non gestita che ha causato l'arresto e il riciclo di un ruolo, questa informazione verrebbe visualizzata nel canale Applicazione del registro eventi di Windows. È possibile usare la funzionalità di ricerca per visualizzare l'errore del registro eventi di Windows e ottenere l'analisi dello stack completa per l'eccezione. In questo modo sarà possibile trovare la causa radice del problema.
 
 ![Ricerca di Diagnostica di Azure](./media/cloudservices/25-wad.png)
 
@@ -236,7 +236,7 @@ Per i ruoli Web vengono raccolti anche i contatori seguenti:
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-È possibile specificare altri contatori delle prestazioni personalizzati o di Windows modificando*ApplicationInsights.config* [come illustrato in questo esempio](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+È possibile specificare altri contatori delle prestazioni personalizzati o di Windows modificando *ApplicationInsights.config* [come illustrato in questo esempio](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Contatori delle prestazioni](./media/cloudservices/002-servers.png)
 

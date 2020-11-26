@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049790"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185998"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiviare dati da un'area di lavoro Log Analytics ad archiviazione di Azure tramite l'app per la logica
 Questo articolo descrive un metodo per usare [app](../../logic-apps/index.yml) per la logica di Azure per eseguire query sui dati da un'area di lavoro log Analytics in monitoraggio di Azure e inviarli ad archiviazione di Azure. Usare questo processo quando è necessario esportare i dati di log di monitoraggio di Azure per gli scenari di controllo e conformità o per consentire a un altro servizio di recuperare questi dati.  
@@ -25,7 +25,7 @@ Il metodo descritto in questo articolo descrive un'esportazione pianificata da u
 - Esportare una volta nel computer locale usando lo script di PowerShell. Vedere [Invoke-AzOperationalInsightsQueryExport]] ( https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport) .
 
 ## <a name="overview"></a>Panoramica
-Questa procedura usa il [connettore log di monitoraggio di Azure](https://docs.microsoft.com/connectors/azuremonitorlogs/) che consente di eseguire una query di log da un'app per la logica e di usare l'output in altre azioni nel flusso di lavoro. Il [connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblob/) viene usato in questa procedura per inviare l'output della query ad archiviazione di Azure. Le altre azioni sono descritte nelle sezioni riportate di seguito.
+Questa procedura usa il [connettore log di monitoraggio di Azure](/connectors/azuremonitorlogs/) che consente di eseguire una query di log da un'app per la logica e di usare l'output in altre azioni nel flusso di lavoro. Il [connettore di archiviazione BLOB di Azure](/connectors/azureblob/) viene usato in questa procedura per inviare l'output della query ad archiviazione di Azure. Le altre azioni sono descritte nelle sezioni riportate di seguito.
 
 ![Panoramica dell'app per la logica](media/logs-export-logicapp/logic-app-overview.png)
 
@@ -61,21 +61,21 @@ Usare la procedura descritta in [creare un contenitore](../../storage/blobs/stor
 
 ## <a name="create-logic-app"></a>Creare un'app per la logica
 
-Passare a **app** per la logica nella portale di Azure e fare clic su **Aggiungi**. Selezionare una **sottoscrizione**, un **gruppo di risorse**e un' **area** per archiviare la nuova app per la logica e assegnarle un nome univoco. È possibile attivare **log Analytics** impostazione per raccogliere informazioni sui dati e gli eventi di runtime, come descritto in [configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure](../../logic-apps/monitor-logic-apps-log-analytics.md). Questa impostazione non è obbligatoria per l'uso del connettore log di monitoraggio di Azure.
+Passare a **app** per la logica nella portale di Azure e fare clic su **Aggiungi**. Selezionare una **sottoscrizione**, un **gruppo di risorse** e un' **area** per archiviare la nuova app per la logica e assegnarle un nome univoco. È possibile attivare **log Analytics** impostazione per raccogliere informazioni sui dati e gli eventi di runtime, come descritto in [configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure](../../logic-apps/monitor-logic-apps-log-analytics.md). Questa impostazione non è obbligatoria per l'uso del connettore log di monitoraggio di Azure.
 
 ![Creare l'app per la logica](media/logs-export-logicapp/create-logic-app.png)
 
 
-Fare clic su **Verifica + crea** e quindi su **Crea**. Al termine della distribuzione, fare clic su **Vai alla risorsa** per aprire la **finestra di progettazione delle app**per la logica.
+Fare clic su **Verifica + crea** e quindi su **Crea**. Al termine della distribuzione, fare clic su **Vai alla risorsa** per aprire la **finestra di progettazione delle app** per la logica.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Creare un trigger per l'app per la logica
-In **inizia con un trigger comune**selezionare **ricorrenza**. Verrà creata un'app per la logica che viene eseguita automaticamente a intervalli regolari. Nella casella **frequenza** dell'azione selezionare **ora** e nella casella **intervallo** immettere **1** per eseguire il flusso di lavoro una volta al giorno.
+In **inizia con un trigger comune** selezionare **ricorrenza**. Verrà creata un'app per la logica che viene eseguita automaticamente a intervalli regolari. Nella casella **frequenza** dell'azione selezionare **ora** e nella casella **intervallo** immettere **1** per eseguire il flusso di lavoro una volta al giorno.
 
 ![Azione di ricorrenza](media/logs-export-logicapp/recurrence-action.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Azione Aggiungi log di monitoraggio di Azure
-Fare clic su **+ nuovo passaggio** per aggiungere un'azione che viene eseguita dopo l'azione di ricorrenza. In **scegliere un'azione**Digitare **monitoraggio di Azure** e quindi selezionare **log di monitoraggio di Azure**.
+Fare clic su **+ nuovo passaggio** per aggiungere un'azione che viene eseguita dopo l'azione di ricorrenza. In **scegliere un'azione** Digitare **monitoraggio di Azure** e quindi selezionare **log di monitoraggio di Azure**.
 
 ![Azione log di monitoraggio di Azure](media/logs-export-logicapp/select-azure-monitor-connector.png)
 
@@ -131,7 +131,7 @@ L'output dell'azione **Esegui query e risultati elenco** è formattato in JSON. 
 È possibile specificare uno schema JSON che descriva il payload che si prevede di ricevere. La finestra di progettazione consente di analizzare il contenuto JSON con questo schema e genera i token descrittivi che rappresentano le proprietà presenti nel contenuto JSON. È possibile quindi fare riferimento a tali proprietà e usarle facilmente nel flusso di lavoro dell'app per la logica. 
 
 
-Fare clic su **+ nuovo passaggio**e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione**Digitare **JSON** e quindi selezionare **analizza JSON**.
+Fare clic su **+ nuovo passaggio** e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione** Digitare **JSON** e quindi selezionare **analizza JSON**.
 
 ![Selezionare l'attività analizza JSON](media/logs-export-logicapp/select-parse-json.png)
 
@@ -166,7 +166,7 @@ Fare clic nella casella **contenuto** per visualizzare un elenco di valori delle
 ## <a name="add-the-compose-action"></a>Aggiungere l'azione compose
 L'azione **compose** accetta l'output JSON analizzato e crea l'oggetto che è necessario archiviare nel BLOB.
 
-Fare clic su **+ nuovo passaggio**e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione**Digitare **compose** , quindi selezionare l'azione **Componi** .
+Fare clic su **+ nuovo passaggio** e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione** Digitare **compose** , quindi selezionare l'azione **Componi** .
 
 ![Selezionare l'azione Componi](media/logs-export-logicapp/select-compose.png)
 
@@ -179,7 +179,7 @@ Fare clic sulla casella **input** per visualizzare un elenco di valori delle att
 ## <a name="add-the-create-blob-action"></a>Aggiungere l'azione crea BLOB
 L'azione crea BLOB scrive il JSON composto nell'archivio.
 
-Fare clic su **+ nuovo passaggio**e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione**Digitare **BLOB** , quindi selezionare l'azione **Crea BLOB** .
+Fare clic su **+ nuovo passaggio** e quindi su **+ Aggiungi un'azione**. In **scegliere un'azione** Digitare **BLOB** , quindi selezionare l'azione **Crea BLOB** .
 
 ![Selezionare Crea BLOB](media/logs-export-logicapp/select-create-blob.png)
 

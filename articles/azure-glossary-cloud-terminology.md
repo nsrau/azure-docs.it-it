@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 2e183ad8a6e25c12f073f51e9416b4fc0ed9365f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530404"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186389"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -41,7 +41,7 @@ Risorse di calcolo fornite da [Servizio app di Azure](app-service/overview.md) p
 
 ## <a name="availability-set"></a>set di disponibilità
 Raccolta di macchine virtuali gestite insieme per offrire ridondanza delle applicazioni e affidabilità. Durante un evento di manutenzione pianificato o non pianificato, l'uso di un set di disponibilità assicura la disponibilità di almeno una macchina virtuale.  
-Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modello di distribuzione classica di Azure
 Uno dei due [modelli di distribuzione](./azure-resource-manager/management/deployment-models.md) usati per la distribuzione delle risorse in Azure. Il nuovo modello è Azure Resource Manager. Alcuni servizi di Azure supportano solo il modello di sviluppo di Resource Manager, alcuni supportano solo il modello di sviluppo classico e alcuni supportano entrambi. La documentazione per ogni servizio di Azure specifica i modelli supportati.
@@ -58,7 +58,7 @@ Uno dei due [modelli di distribuzione](./azure-resource-manager/management/deplo
 
 ## <a name="fault-domain"></a>dominio di errore
 Raccolta di macchine virtuali di un set di disponibilità nelle quali può verificarsi un errore contemporaneamente. Un esempio è un gruppo di macchine virtuali in un rack che condividono un'unità di alimentazione e un commutatore di rete comune. In Azure, le macchine virtuali di un set di disponibilità vengono suddivise automaticamente su più domini di errore.  
-Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)  
+Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>area geografica
 Limite definito per la residenza dei dati che contiene in genere due o più aree. I limiti possono essere compresi all'interno o superare i confini nazionali e sono influenzati dalla regolamentazione fiscale. Ogni area geografica include almeno un'area. Asia Pacifico e Giappone sono esempi di aree geografiche. Chiamata anche *geografia*.  
@@ -102,7 +102,7 @@ Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/
 Contenitore in Resource Manager che include le risorse correlate di un'applicazione. Il gruppo di risorse può includere tutte le risorse di un'applicazione o solo le risorse raggruppate logicamente. È possibile decidere come si desidera allocare le risorse a gruppi di risorse nel modo appropriato per l'organizzazione.  
 Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
-## <a name="resource-manager-template"></a><a name="arm-template"></a>Modello di Resource Manager
+## <a name="resource-manager-template"></a><a name="arm-template"></a>Modello di Gestione risorse
 File JSON che definisce in modo dichiarativo una o più risorse di Azure e che definisce le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto.  
 Vedere [Creazione di modelli di Azure Resource Manager](./azure-resource-manager/templates/template-syntax.md)
 
@@ -135,7 +135,7 @@ Vedere [Uso dei tag per organizzare le risorse di Azure](./azure-resource-manage
 
 ## <a name="update-domain"></a>dominio di aggiornamento
 Raccolta di macchine virtuali di un set di disponibilità che vengono aggiornate contemporaneamente. Le macchine virtuali nello stesso dominio di aggiornamento vengono riavviate contemporaneamente durante la manutenzione pianificata. Azure non riavvia mai più di un dominio di aggiornamento alla volta.  
-Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>macchina virtuale
 Implementazione del software di un computer fisico che esegue un sistema operativo. È possibile eseguire più macchine virtuali contemporaneamente nello stesso hardware. In Azure sono disponibili macchine virtuali di dimensioni diverse.  
@@ -144,7 +144,7 @@ Vedere [Documentazione delle macchine virtuali](https://azure.microsoft.com/docu
 ## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>estensione macchina virtuale
 Risorsa che implementa comportamenti o funzionalità utili per il funzionamento di altri programmi o che consentono di interagire con un computer in esecuzione. È possibile ad esempio usare l'estensione di accesso della macchina virtuale per reimpostare o modificare i valori di accesso remoto in una macchina virtuale di Azure.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
-Vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Windows)](./virtual-machines/extensions/features-windows.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) o [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Linux)](./virtual-machines/extensions/features-linux.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Windows)](./virtual-machines/extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Linux)](./virtual-machines/extensions/features-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-network"></a><a name="vnet"></a>rete virtuale
 Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un [gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) consente di stabilire connessioni tra le reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  

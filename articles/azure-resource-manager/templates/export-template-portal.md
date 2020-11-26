@@ -3,12 +3,12 @@ title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951758"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185692"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -51,7 +51,7 @@ Quando si esporta da un gruppo di risorse o una risorsa, il modello esportato vi
 
 La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Se viene visualizzato un avviso quando si esporta un modello che indica che un tipo di risorsa non è stato esportato, è comunque possibile individuare le proprietà per tale risorsa. Per informazioni sulle diverse opzioni per la visualizzazione delle proprietà delle risorse, vedere [individuazione delle proprietà delle risorse](view-resources.md). È anche possibile esaminare l' [API REST di Azure](/rest/api/azure/) per il tipo di risorsa.
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151061"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183975"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Log delle risorse per il servizio Azure SignalR
 
@@ -122,7 +122,7 @@ Per visualizzare i log delle risorse, attenersi alla procedura seguente:
 
     ![Voce di menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Immettere `SignalRServiceDiagnosticLogs` e selezionare intervallo di tempo per eseguire query sui log delle risorse. Per le query avanzate, vedere [Introduzione a log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md)
+2. Immettere `SignalRServiceDiagnosticLogs` e selezionare intervallo di tempo per eseguire query sui log delle risorse. Per le query avanzate, vedere [Introduzione a log Analytics in monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Log di query in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -136,7 +136,7 @@ OperationName | Nome dell'operazione dell'evento
 Location | Località del servizio Azure SignalR
 Level | Livello evento log
 CallerIpAddress | Indirizzo IP del server/client
-Message | Messaggio dettagliato dell'evento del log
+Messaggio | Messaggio dettagliato dell'evento del log
 UserId | Identità dell'utente
 ConnectionId | Identità della connessione
 ConnectionType | Tipo di connessione. I valori consentiti sono: `Server` \| `Client`. `Server`: connessione dal lato server; `Client`: connessione dal lato client
@@ -182,9 +182,9 @@ Se viene restituito 401 non autorizzato per le richieste client, controllare i l
 
 #### <a name="throttling"></a>Limitazione
 
-Se non è possibile stabilire connessioni client SignalR al servizio Azure SignalR, controllare i log delle risorse. Se si verifica `Connection count reaches limit` un log delle risorse, si stabiliscono troppe connessioni al servizio SignalR, che raggiungono il limite del numero di connessioni. Prendere in considerazione la scalabilità verticale del servizio SignalR. Se si verifica `Message count reaches limit` nel log delle risorse, significa che si usa il livello gratuito e si usa la quota dei messaggi. Se si desidera inviare più messaggi, provare a modificare il servizio SignalR nel livello standard per inviare messaggi aggiuntivi. Per altre informazioni, vedere [prezzi del servizio Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
+Se non è possibile stabilire connessioni client SignalR al servizio Azure SignalR, controllare i log delle risorse. Se si verifica `Connection count reaches limit` un log delle risorse, si stabiliscono troppe connessioni al servizio SignalR, che raggiungono il limite del numero di connessioni. Prendere in considerazione la scalabilità verticale del servizio SignalR. Se si verifica `Message count reaches limit` nel log delle risorse, significa che si usa il livello gratuito e si usa la quota dei messaggi. Se si desidera inviare più messaggi, provare a modificare il servizio SignalR nel livello standard per inviare messaggi aggiuntivi. Per altre informazioni, vedere [prezzi del servizio Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-### <a name="get-help"></a>Ottenere aiuto
+### <a name="get-help"></a>Ottieni supporto
 
 Si consiglia di eseguire prima la risoluzione dei problemi. La maggior parte dei problemi è causata da problemi di rete o del server dell'app. Seguire la [Guida alla risoluzione dei problemi con il log delle risorse](#troubleshooting-with-resource-logs) e la guida alla risoluzione dei [problemi di base](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) per individuare la causa principale.
 Se il problema persiste, è consigliabile aprire un problema in GitHub o creare un ticket nel portale di Azure.

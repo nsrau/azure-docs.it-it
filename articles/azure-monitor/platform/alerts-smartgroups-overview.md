@@ -4,12 +4,12 @@ description: I gruppi intelligenti sono aggregazioni di avvisi che consentono di
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012885"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186610"
 ---
 # <a name="smart-groups"></a>Gruppi intelligenti
 
@@ -33,7 +33,7 @@ Sono supportati i seguenti stati di gruppo intelligente.
 | Confermato | Un amministratore ha esaminato il gruppo intelligente e ha iniziato a lavorare su di esso. |
 | Chiusa | Il problema è stato risolto. Dopo che un gruppo intelligente è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
-[Informazioni su come modificare lo stato del gruppo intelligente](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+[Informazioni su come modificare lo stato del gruppo intelligente](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 > [!NOTE]
 >  La modifica dello stato di un gruppo intelligente non modifica lo stato degli avvisi dei membri individuali.
@@ -58,5 +58,5 @@ Il nome di un gruppo intelligenti è il nome del suo primo avviso. Non è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestire i gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Modificare lo stato di avvisi e gruppi intelligenti](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Gestire i gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Modificare lo stato di avvisi e gruppi intelligenti](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

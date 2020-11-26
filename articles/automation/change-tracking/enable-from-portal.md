@@ -5,18 +5,18 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d13e19958ce4614db3706845cc6717b77f60c4c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6ca5b1df05c04937598278378e001f41f08ef23c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209880"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183635"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Abilitare Rilevamento modifiche e inventario dal portale di Azure
 
 Questo articolo descrive come abilitare [rilevamento modifiche e l'inventario](overview.md) per una o più macchine virtuali di Azure nel portale di Azure. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale esistente usando Rilevamento modifiche e inventario.
 
-Il numero di gruppi di risorse che è possibile usare per la gestione delle macchine virtuali è vincolato ai [limiti di distribuzione di Resource Manager](../../azure-resource-manager/templates/cross-scope-deployment.md). Gestione risorse le distribuzioni sono limitate a cinque gruppi di risorse per ogni distribuzione. Due di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono così tre gruppi di risorse da selezionare per la gestione con Rilevamento modifiche e inventario. Questo limite si applica solo alla configurazione simultanea, non al numero di gruppi di risorse che possono essere gestiti da una funzionalità di Automazione.
+Il numero di gruppi di risorse che è possibile usare per la gestione delle macchine virtuali è vincolato ai [limiti di distribuzione di Resource Manager](../../azure-resource-manager/templates/deploy-to-resource-group.md). Gestione risorse le distribuzioni sono limitate a cinque gruppi di risorse per ogni distribuzione. Due di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono così tre gruppi di risorse da selezionare per la gestione con Rilevamento modifiche e inventario. Questo limite si applica solo alla configurazione simultanea, non al numero di gruppi di risorse che possono essere gestiti da una funzionalità di Automazione.
 
 > [!NOTE]
 > Quando si abilita Rilevamento modifiche e inventario, sono supportate solo determinate aree geografiche per il collegamento a un'area di lavoro Log Analytics e un account di Automazione. Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](../how-to/region-mappings.md).

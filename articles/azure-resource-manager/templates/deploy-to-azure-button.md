@@ -3,12 +3,12 @@ title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555264"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185726"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
@@ -107,7 +107,7 @@ Per HTML, usare:
 Per git con repository di Azure, il pulsante è nel formato:
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Distribuire il modello

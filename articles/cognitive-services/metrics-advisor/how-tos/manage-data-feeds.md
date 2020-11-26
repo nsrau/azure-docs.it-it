@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043171"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184723"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Procedura: gestire i feed di dati
 
-Informazioni su come gestire i feed di dati caricati in metriche Advisor. Questo articolo illustra la gestione dei feed di dati nel monitoraggio delle metriche.
+Informazioni su come gestire i feed di dati caricati in metriche Advisor. Questo articolo descrive come gestire i feed di dati in metriche Advisor.
 
 ## <a name="edit-a-data-feed"></a>Modificare un feed di dati
 
@@ -27,7 +27,7 @@ Informazioni su come gestire i feed di dati caricati in metriche Advisor. Questo
 > I dettagli seguenti non possono essere modificati dopo la creazione di un feed di dati. 
 > * ID feed di dati
 > * Data e ora creazione
-> * Dimensione
+> * Dimension
 > * Tipo di origine
 > * Granularità
 
@@ -72,7 +72,7 @@ Quando si crea un nuovo feed di dati sono disponibili diverse impostazioni avanz
 
 ### <a name="ingestion-options"></a>Opzioni di inserimento
 
-* **Offset tempo**di inserimento: per impostazione predefinita, i dati vengono inseriti in base alla granularità specificata. Ad esempio, una metrica con un timestamp *giornaliero* verrà inserita un giorno dopo il timestamp. È possibile utilizzare l'offset per ritardare il tempo di inserimento con un numero *positivo* oppure spostarlo in un numero *negativo* .
+* **Offset tempo** di inserimento: per impostazione predefinita, i dati vengono inseriti in base alla granularità specificata. Ad esempio, una metrica con un timestamp *giornaliero* verrà inserita un giorno dopo il timestamp. È possibile utilizzare l'offset per ritardare il tempo di inserimento con un numero *positivo* oppure spostarlo in un numero *negativo* .
 
 * **Massima concorrenza**: impostare questo parametro se l'origine dati supporta la concorrenza limitata. In caso contrario, lasciare l'impostazione predefinita.
 
@@ -83,7 +83,7 @@ Quando si crea un nuovo feed di dati sono disponibili diverse impostazioni avanz
     | Giornaliero, personalizzato (>= 1 giorno), settimanale, mensile, annuale     | 7 giorni          |
     | Ogni ora, personalizzata (< 1 giorno)       | 72 ore |
 
-* **Intervallo**minimo tra tentativi: è possibile specificare l'intervallo minimo durante il tentativo di pull dei dati dall'origine. Se si lascia il valore predefinito (-1), l'intervallo tra tentativi verrà determinato in base alla granularità riportata di seguito.
+* **Intervallo** minimo tra tentativi: è possibile specificare l'intervallo minimo durante il tentativo di pull dei dati dall'origine. Se si lascia il valore predefinito (-1), l'intervallo tra tentativi verrà determinato in base alla granularità riportata di seguito.
     
     | Granularità       | Intervallo minimo tra tentativi           |
     | :------------ | :--------------- |
@@ -97,7 +97,7 @@ Quando si crea un nuovo feed di dati sono disponibili diverse impostazioni avanz
 > Questa impostazione non influirà sull'origine dati e non influirà sui grafici dei dati visualizzati nel portale. Il riempimento automatico si verifica solo durante il rilevamento delle anomalie.
 
 Alcune serie temporali non sono continue. Quando non sono presenti punti dati, Metrics Advisor utilizzerà il valore specificato per riempirli prima del rilevamento delle anomalie per una maggiore accuratezza.
-Le opzioni disponibili sono: 
+Le opzioni sono: 
 
 * Utilizzo del valore del punto dati effettivo precedente. Viene usato per impostazione predefinita.
 * Utilizzando un valore specifico.
@@ -106,7 +106,7 @@ Le opzioni disponibili sono:
 
 I modelli di collegamento all'azione vengono usati per predefinire URL http di utilità pratica, che sono costituiti da segnaposto,,, `%datafeed` `%metric` `%timestamp` `%detect_config` e `%tagset` . È possibile usare il modello per il Reindirizzamento da un'anomalia o da un evento imprevisto a un URL specifico per eseguire il drill-down.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Recupero feed di dati" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Modello di collegamento all'azione" lightbox="../media/action-link-template.png":::
 
 Dopo aver compilato il collegamento all'azione, fare clic sul **collegamento Vai a azione** nell'opzione azione dell'elenco eventi imprevisti e sul menu di scelta rapida dell'albero degli eventi imprevisti. Sostituire i segnaposto nel modello di collegamento all'azione con i valori corrispondenti dell'anomalia o dell'evento imprevisto.
 

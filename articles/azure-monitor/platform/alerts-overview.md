@@ -4,12 +4,12 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d0f71ebf8a7acab6d4b46f59049bf1efd5290284
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536048"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186644"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -84,7 +84,7 @@ Sono supportati i tipi di avviso seguenti.
 
 Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su *"attivato"* e quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su *"risolto"*. 
 
-Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="alerts-experience"></a>Esperienza degli avvisi 
 La pagina avvisi predefiniti fornisce un riepilogo degli avvisi creati in un intervallo di tempo specifico. Vengono visualizzati gli avvisi totali per ogni gravità, con colonne che identificano il numero totale di avvisi in ogni stato per ogni gravità. Selezionare uno dei valori di gravità per aprire la pagina [Tutti gli avvisi](#all-alerts-page) filtrata in base al livello di gravità specificato.
@@ -102,13 +102,13 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 | Colonna | Descrizione |
 |:---|:---|
-| Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
+| Subscription | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Resource group | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Intervallo di ore | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
 Selezionare i valori seguenti nella parte superiore della pagina degli avvisi per aprire un'altra pagina:
 
-| Valore | Descrizione |
+| valore | Descrizione |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -148,7 +148,7 @@ Per visualizzare la pagina **tutti gli avvisi** , selezionare **Total Alerts**. 
 
 | Colonna | Descrizione |
 |:---|:---|
-| Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
+| Subscription | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Resource group | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
 | Risorsa | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
@@ -204,12 +204,12 @@ Usare l' [API REST di gestione avvisi](/rest/api/monitor/alertsmanagement/alerts
 
 ## <a name="smart-groups"></a>Gruppi intelligenti
 
-I gruppi intelligenti sono aggregazioni di avvisi basati sugli algoritmi di Machine Learning, che possono contribuire a ridurre il rumore degli avvisi e ad agevolare la risoluzione dei problemi. [Sono disponibili altre informazioni sui gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) e su [come gestire i gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+I gruppi intelligenti sono aggregazioni di avvisi basati sugli algoritmi di Machine Learning, che possono contribuire a ridurre il rumore degli avvisi e ad agevolare la risoluzione dei problemi. [Sono disponibili altre informazioni sui gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) e su [come gestire i gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni sui gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Altre informazioni sui gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Informazioni sui gruppi di azioni](./action-groups.md)
-- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json) (Gestione delle istanze di avvio in Azure)
-- [Gestione di gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json) (Gestione delle istanze di avvio in Azure)
+- [Gestione di gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Scopri di più sui prezzi per gli avvisi di Azure](https://azure.microsoft.com/pricing/details/monitor/)

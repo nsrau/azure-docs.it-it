@@ -5,12 +5,12 @@ ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207326"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183567"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
@@ -87,6 +87,6 @@ In alternativa, è possibile scollegare l'area di lavoro dall'account di Automaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere informazioni aggiuntive su Gestione aggiornamenti in [Panoramica di Gestione aggiornamenti](../update-management/update-mgmt-overview.md).
+* Vedere informazioni aggiuntive su Gestione aggiornamenti in [Panoramica di Gestione aggiornamenti](../update-management/overview.md).
 * Scoprire di più su Rilevamento modifiche e inventario in [Panoramica di Rilevamento modifiche e inventario](../change-tracking/overview.md).
 * Vedere altre informazioni su Avvio/Arresto di macchine virtuali durante gli orari di minore attività in [Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md).

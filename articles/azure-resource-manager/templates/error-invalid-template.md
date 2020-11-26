@@ -3,12 +3,12 @@ title: Errori di modello non valido
 description: Viene illustrato come risolvere gli errori di modello non valido durante la distribuzione di modelli di Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373811"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185794"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -130,7 +130,7 @@ Ricontrollare i valori consentiti nel modello e specificarne uno durante la dist
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Soluzione 4: troppi gruppi di risorse di destinazione
 
-Questo errore può essere visualizzato nelle distribuzioni precedenti perché esisteva il limite di cinque gruppi di risorse di destinazione in una singola distribuzione. Nel maggio 2020 il limite è stato aumentato a 800 gruppi di risorse. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-scope-deployment.md).
+Questo errore può essere visualizzato nelle distribuzioni precedenti perché esisteva il limite di cinque gruppi di risorse di destinazione in una singola distribuzione. Nel maggio 2020 il limite è stato aumentato a 800 gruppi di risorse. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](./deploy-to-resource-group.md).
 
 <a id="circular-dependency"></a>
 

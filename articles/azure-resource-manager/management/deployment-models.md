@@ -3,12 +3,12 @@ title: Resource Manager e distribuzione classica
 description: Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: d9c1a27efc1f474e25d0ed164d106e8f64ba3e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88511406"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185845"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 
@@ -101,7 +101,7 @@ La soluzione classica per l'hosting di una macchina virtuale include:
 
 La tabella seguente descrive i cambiamenti nelle modalità di interazione dei provider di risorse di calcolo, rete e archiviazione:
 
-| Item | Classic | Gestione risorse |
+| Elemento | Classic | Gestione risorse |
 | --- | --- | --- |
 | Servizio cloud per macchine virtuali |Servizio cloud era un contenitore per mantenere le macchine virtuali che richiedevano disponibilità dalla piattaforma e bilanciamento del carico. |Servizio cloud non è più un oggetto richiesto per la creazione di una macchina virtuale che utilizza il nuovo modello. |
 | Reti virtuali |La rete virtuale è facoltativa per la macchina virtuale. Se inclusa, la rete virtuale non può essere distribuita con Gestione risorse. |La macchina virtuale richiede una rete virtuale distribuita con Resource Manager. |
@@ -123,9 +123,9 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 Se si è pronti per eseguire la migrazione delle risorse dalla distribuzione classica alla distribuzione Gestione risorse, vedere:
 
 1. [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-2. [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
+2. [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
+3. [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md)
+4. [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure](../../virtual-machines/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

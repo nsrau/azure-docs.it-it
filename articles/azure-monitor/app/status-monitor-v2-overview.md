@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318947"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186219"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure per i server locali
 
@@ -67,7 +67,7 @@ Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-moni
   - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) può essere usato per verificare che l'abilitazione sia stata completata.
   - È consigliabile usare le [metriche in tempo reale](./live-stream.md) per determinare rapidamente se l'app invia dati di telemetria.
 
-  - È anche possibile usare [log Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
+  - È anche possibile usare [log Analytics](../log-query/log-analytics-tutorial.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Aggiungere altri dati di telemetria:
 * [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
 * Aggiungere i dati di [telemetria del client Web](./javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
 * [Aggiungere il Application Insights SDK al codice per](./asp-net.md) poter inserire le chiamate di traccia e log.
-

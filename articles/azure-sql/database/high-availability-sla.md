@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901319"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185607"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ La versione con ridondanza della zona dell'architettura a disponibilità elevata
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilità del livello di servizio con iperscalabilità
 
-L'architettura del livello di servizio con iperscalabilità è descritta in [architettura di funzioni distribuite](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) ed è attualmente disponibile solo per il database SQL, non per SQL istanza gestita.
+L'architettura del livello di servizio con iperscalabilità è descritta in [architettura di funzioni distribuite](./service-tier-hyperscale.md#distributed-functions-architecture) ed è attualmente disponibile solo per il database SQL, non per SQL istanza gestita.
 
 ![Architettura funzionale iperscalabile](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,12 +102,12 @@ Il modello di disponibilità in iperscalabilità include quattro livelli:
 
 - Livello di calcolo senza stato che esegue i `sqlservr.exe` processi e contiene solo dati temporanei e memorizzati nella cache, ad esempio cache RBPEX non coprente, tempdb, database modello e così via, nell'unità SSD collegata e nella cache dei piani, nel pool di buffer e nel pool columnstore in memoria. Questo livello senza stato include la replica di calcolo primaria e, facoltativamente, un numero di repliche di calcolo secondarie che possono fungere da destinazioni di failover.
 - Livello di archiviazione senza stato formato da server di pagine. Questo livello è il motore di archiviazione distribuito per i `sqlservr.exe` processi in esecuzione nelle repliche di calcolo. Ogni server della pagina contiene solo dati temporanei e memorizzati nella cache, ad esempio la copertura della cache RBPEX nell'unità SSD collegata e le pagine di dati memorizzate nella cache. Ogni server di pagina dispone di un server di paging associato in una configurazione Active-Active per fornire bilanciamento del carico, ridondanza e disponibilità elevata.
-- Un livello di archiviazione del log delle transazioni con stato formato dal nodo di calcolo che esegue il processo del servizio di log, l'area di destinazione del log delle transazioni e l'archiviazione a lungo termine del log delle transazioni. La zona di destinazione e l'archiviazione a lungo termine usano archiviazione di Azure, che fornisce disponibilità e [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) per il log delle transazioni, garantendo la durabilità dei dati per le transazioni di cui
-- Un livello di archiviazione dati con stato con i file di database (con estensione MDF/NDF) archiviati in archiviazione di Azure e aggiornati dai server delle pagine. Questo livello usa le funzionalità di disponibilità e [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) dei dati di archiviazione di Azure. Garantisce che ogni pagina di un file di dati venga mantenuta anche se i processi in altri livelli di architettura iperscalare si arrestano in modo anomalo o se i nodi di calcolo hanno esito negativo.
+- Un livello di archiviazione del log delle transazioni con stato formato dal nodo di calcolo che esegue il processo del servizio di log, l'area di destinazione del log delle transazioni e l'archiviazione a lungo termine del log delle transazioni. La zona di destinazione e l'archiviazione a lungo termine usano archiviazione di Azure, che fornisce disponibilità e [ridondanza](../../storage/common/storage-redundancy.md) per il log delle transazioni, garantendo la durabilità dei dati per le transazioni di cui
+- Un livello di archiviazione dati con stato con i file di database (con estensione MDF/NDF) archiviati in archiviazione di Azure e aggiornati dai server delle pagine. Questo livello usa le funzionalità di disponibilità e [ridondanza](../../storage/common/storage-redundancy.md) dei dati di archiviazione di Azure. Garantisce che ogni pagina di un file di dati venga mantenuta anche se i processi in altri livelli di architettura iperscalare si arrestano in modo anomalo o se i nodi di calcolo hanno esito negativo.
 
 I nodi di calcolo in tutti i livelli di iperscalabilità vengono eseguiti in Service Fabric di Azure, che controlla l'integrità di ogni nodo ed esegue i failover ai nodi integri disponibili se necessario.
 
-Per altre informazioni sulla disponibilità elevata in iperscalabilità, vedere [disponibilità elevata del database in iperscalabilità](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+Per altre informazioni sulla disponibilità elevata in iperscalabilità, vedere [disponibilità elevata del database in iperscalabilità](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Ripristino accelerato del database

@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186559"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](./alerts-overview.md). Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/get-started-portal.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md).
+Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](./alerts-overview.md). Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md).
 
 > [!NOTE]
-> I dati di log da un' [area di lavoro log Analytics](../log-query/get-started-portal.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
+> I dati di log da un' [area di lavoro log Analytics](../log-query/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
 
 > [!NOTE]
 > Non sono attualmente previsti addebiti aggiuntivi per la versione dell'API `2020-05-01-preview` e gli avvisi del log incentrato sulle risorse.  I prezzi per le funzionalità in anteprima verranno annunciati in futuro e un avviso fornito prima di iniziare la fatturazione. Se si sceglie di continuare a usare la nuova versione dell'API e gli avvisi del log incentrato sulle risorse dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Gli avvisi del log eseguono query sui dati Log Analytics. Innanzitutto è necessario iniziare a [raccogliere i dati di log](resource-logs.md) ed eseguire query sui dati di log per individuare eventuali problemi. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/saved-queries.md) in log Analytics per comprendere cosa è possibile individuare o iniziare [a scrivere una query personalizzata](../log-query/get-started-portal.md).
+Gli avvisi del log eseguono query sui dati Log Analytics. Innanzitutto è necessario iniziare a [raccogliere i dati di log](resource-logs.md) ed eseguire query sui dati di log per individuare eventuali problemi. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) in log Analytics per comprendere cosa è possibile individuare o iniziare [a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md).
 
 Il [collaboratore di monitoraggio di Azure](./roles-permissions-security.md) è un ruolo comune necessario per la creazione, la modifica e l'aggiornamento degli avvisi del log. Sono necessari anche i diritti di esecuzione delle query & di accesso per i log delle risorse. L'accesso parziale ai log delle risorse può non riuscire a eseguire query o restituire risultati parziali. [Altre informazioni sulla configurazione degli avvisi di log in Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ La definizione della condizione delle regole di ricerca log inizia da:
 Le sezioni seguenti descrivono i diversi parametri che è possibile usare per impostare la logica precedente.
 
 ### <a name="log-query"></a>Query di log
-Query [log Analytics](../log-query/get-started-portal.md) utilizzata per valutare la regola. I risultati restituiti da questa query vengono usati per determinare se è necessario attivare un avviso. È possibile definire l'ambito della query per:
+Query [log Analytics](../log-query/log-analytics-tutorial.md) utilizzata per valutare la regola. I risultati restituiti da questa query vengono usati per determinare se è necessario attivare un avviso. È possibile definire l'ambito della query per:
 
 - Una risorsa specifica, ad esempio una macchina virtuale.
 - Una risorsa su scala, ad esempio una sottoscrizione o un gruppo di risorse.
@@ -182,11 +182,11 @@ Nelle aree di lavoro e in Application Insights, viene chiamato non **visualizzar
 
 Vedere questo esempio di valutazione degli avvisi:
 
-| Ora    | Valutazione della condizione del log | Risultato 
+| Tempo    | Valutazione della condizione del log | Risultato 
 | ------- | ----------| ----------| ------- 
 | 00:05 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione.
-| 00:10 | true  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
-| 00:15 | true  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:10 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:15 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
 | 00:20 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato degli avvisi di precedente rimane attivo.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione per gli avvisi del log
@@ -209,4 +209,3 @@ Le informazioni sui prezzi sono disponibili nella [pagina dei prezzi di monitora
 * Acquisire familiarità con i [webhook negli avvisi dei log in Azure](alerts-log-webhook.md).
 * Informazioni su [Avvisi di Azure](./alerts-overview.md).
 * Altre informazioni su [log Analytics](../log-query/log-query-overview.md).
-

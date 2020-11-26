@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000726"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185964"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -72,7 +72,7 @@ Sono applicabili le regole seguenti:
 1. Concessione delle autorizzazioni a Key Vault
 1. Collegamento di aree di lavoro Log Analytics
 
-La configurazione della chiave Customer-Managed non è supportata in portale di Azure e il provisioning viene eseguito tramite [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), l' [interfaccia](https://docs.microsoft.com/cli/azure/monitor/log-analytics) della riga di comando o le richieste [Rest](https://docs.microsoft.com/rest/api/loganalytics/) .
+La configurazione della chiave Customer-Managed non è supportata in portale di Azure e il provisioning viene eseguito tramite [PowerShell](/powershell/module/az.operationalinsights/), l' [interfaccia](/cli/azure/monitor/log-analytics) della riga di comando o le richieste [Rest](/rest/api/loganalytics/) .
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operazioni asincrone e controllo dello stato
 
@@ -107,7 +107,7 @@ Queste impostazioni possono essere aggiornate in Key Vault tramite l'interfaccia
 
 ### <a name="create-cluster"></a>Creare cluster
 
-Seguire la procedura illustrata nell' [articolo sui cluster dedicati](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Copiare e salvare la risposta perché i dettagli saranno necessari nei passaggi successivi.
@@ -212,7 +212,7 @@ Per eseguire questa operazione, è necessario disporre delle autorizzazioni ' Wr
 
 Questa operazione è asincrona e può essere completata.
 
-Seguire la procedura illustrata nell' [articolo sui cluster dedicati](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## <a name="key-revocation"></a>Revoca della chiave
 

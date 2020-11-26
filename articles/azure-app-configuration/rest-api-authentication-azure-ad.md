@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 78344bd3896ca7d00c9f761c586b6f5142dc1e58
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 73d951b3e85c170cf068693bb9b374349516ca8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253406"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183482"
 ---
 # <a name="azure-active-directory-authentication"></a>Autenticazione di Azure Active Directory
 
@@ -54,7 +54,7 @@ L'autorità Azure AD è l'endpoint usato per acquisire un token di Azure AD. È 
 
 ### <a name="authentication-libraries"></a>Librerie di autenticazione
 
-Azure fornisce un set di librerie, denominate Azure Active Directory librerie di autenticazione, per semplificare il processo di acquisizione di un token di Azure AD. Azure compila queste librerie per più linguaggi. Per altre informazioni, vedere la [documentazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+Azure fornisce un set di librerie, denominate Azure Active Directory librerie di autenticazione, per semplificare il processo di acquisizione di un token di Azure AD. Azure compila queste librerie per più linguaggi. Per altre informazioni, vedere la [documentazione](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="errors"></a>Errors
 

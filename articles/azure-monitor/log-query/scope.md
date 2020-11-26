@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491376"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186100"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure
-Quando si esegue una [query su log](log-query-overview.md) in [Log Analytics nel portale di Azure](get-started-portal.md), il set di dati valutato dalla query dipende dall'ambito e dall'intervallo di tempo selezionati. Questo articolo descrive l'ambito e l'intervallo di tempo e spiega come impostarli in base alle esigenze. Illustra anche il comportamento dei diversi tipi di ambiti.
+Quando si esegue una [query su log](log-query-overview.md) in [Log Analytics nel portale di Azure](./log-analytics-tutorial.md), il set di dati valutato dalla query dipende dall'ambito e dall'intervallo di tempo selezionati. Questo articolo descrive l'ambito e l'intervallo di tempo e spiega come impostarli in base alle esigenze. Illustra anche il comportamento dei diversi tipi di ambiti.
 
 
 ## <a name="query-scope"></a>Ambito della query
@@ -75,7 +75,7 @@ Se si imposta un filtro nella query che utilizza la colonna ora solare come illu
 
 ![Query filtrata](media/scope/query-filtered.png)
 
-Se si usa l' [area di lavoro](workspace-expression.md) o il comando [app](app-expression.md) per recuperare dati da un'altra area di lavoro o un'applicazione classica, il selettore temporale può comportarsi in modo Se l'ambito è un'area di lavoro Log Analytics e si usa l' **app** o se l'ambito è un'applicazione di Application Insights classica e si usa l' **area di lavoro** , log Analytics potrebbe non comprendere che la colonna utilizzata nel filtro deve determinare il filtro temporale.
+Se si usa l' [area di lavoro](workspace-expression.md) o il comando [app](app-expression.md) per recuperare dati da un'altra area di lavoro o un'applicazione classica, il selettore temporale può comportarsi in modo Se l'ambito è un'area di lavoro Log Analytics e si usa l' **app** o se l'ambito è un'applicazione di Application Insights classica e si usa l' **area di lavoro**, log Analytics potrebbe non comprendere che la colonna utilizzata nel filtro deve determinare il filtro temporale.
 
 Nell'esempio seguente l'ambito è impostato su un'area di lavoro Log Analytics.  La query usa **workspace** per recuperare i dati di un'altra area di lavoro Log Analytics. Il selettore di ora cambia **in set in query** perché vede un filtro che usa la colonna **TimeGenerated** prevista.
 
@@ -87,5 +87,5 @@ Se la query usa l' **app** per recuperare i dati da un'applicazione Application 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](get-started-portal.md).
+- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](./log-analytics-tutorial.md).
 - Seguire un'[esercitazione sulla scrittura di query](get-started-queries.md).

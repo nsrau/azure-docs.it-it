@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9931dd9acb51e74c34a57b0475bca79fb9ba79cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578706"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184179"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per la cache di Azure per le risorse di calcolo Redis con capacità riservata
 
@@ -37,7 +37,7 @@ Si supponga, ad esempio, di eseguire due cache, una a 13 GB e l'altra a 26 GB. S
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Acquistare la cache di Azure per la capacità riservata di redis
 
-È possibile acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione.
+È possibile acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/prepare-buy-reservation.md) per acquistare la prenotazione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
@@ -53,11 +53,11 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 | Campo | Descrizione |
 | :------------ | :------- |
 | Subscription   | Sottoscrizione usata per pagare la riserva della capacità riservata di Azure per Redis. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione della capacità riservata di cache di Azure per Redis. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
-| Ambito | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso** , lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola** , lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in questa sottoscrizione. </br></br> **Gruppo di risorse singolo** , lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.
-| Area | Area di Azure coperta dalla cache di Azure per la prenotazione di capacità riservata di Redis.
+| Ambito | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.
+| Region | Area di Azure coperta dalla cache di Azure per la prenotazione di capacità riservata di Redis.
 | Piano tariffario | Livello di servizio per la cache di Azure per i server Redis.
 | Termine | Un anno o tre anni
-| Quantity | Quantità di risorse di calcolo acquistate nella cache di Azure per la prenotazione di capacità riservata di Redis. La quantità è un numero di cache nell'area di Azure selezionata e il livello di servizio che vengono riservati e otterranno lo sconto per la fatturazione. Se ad esempio si esegue o si prevede di eseguire una cache di Azure per i server Redis con la capacità totale della cache di 26 GB nell'area Stati Uniti orientali, è necessario specificare la quantità che offre l'equivalente di 26 GB per massimizzare il vantaggio per tutte le cache. Potrebbe trattarsi di una cache di 1 P3 o 2 P2.
+| Quantità | Quantità di risorse di calcolo acquistate nella cache di Azure per la prenotazione di capacità riservata di Redis. La quantità è un numero di cache nell'area di Azure selezionata e il livello di servizio che vengono riservati e otterranno lo sconto per la fatturazione. Se ad esempio si esegue o si prevede di eseguire una cache di Azure per i server Redis con la capacità totale della cache di 26 GB nell'area Stati Uniti orientali, è necessario specificare la quantità che offre l'equivalente di 26 GB per massimizzare il vantaggio per tutte le cache. Potrebbe trattarsi di una cache di 1 P3 o 2 P2.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 

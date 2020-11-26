@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793413"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183618"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -73,7 +73,7 @@ I requisiti minimi per un sistema Linux e un ruolo di lavoro ibrido per Runbook 
 È possibile aggiungere il computer di lavoro a un gruppo di ruolo di lavoro ibrido per Runbook in uno degli account di automazione. Per i computer che ospitano il ruolo di lavoro ibrido per Runbook di sistema gestito da Gestione aggiornamenti, possono essere aggiunti a un gruppo di lavoro ibrido per Runbook. È tuttavia necessario usare lo stesso account di automazione sia per Gestione aggiornamenti che per l'appartenenza al gruppo di lavoro ibrido per Runbook.
 
 >[!NOTE]
->Automazione di Azure [Gestione aggiornamenti](update-management/update-mgmt-overview.md) installa automaticamente il ruolo di lavoro ibrido per Runbook di sistema in un computer Azure o non Azure abilitato per l'gestione aggiornamenti. Questo ruolo di lavoro, tuttavia, non è registrato con alcun gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione. Per eseguire il manuali operativi in questi computer, è necessario aggiungerli a un gruppo di lavoro ibrido per Runbook. Seguire il passaggio 4 nella sezione [installare un ruolo di lavoro ibrido per Runbook di Linux](#install-a-linux-hybrid-runbook-worker) per aggiungerlo a un gruppo.
+>Automazione di Azure [Gestione aggiornamenti](./update-management/overview.md) installa automaticamente il ruolo di lavoro ibrido per Runbook di sistema in un computer Azure o non Azure abilitato per l'gestione aggiornamenti. Questo ruolo di lavoro, tuttavia, non è registrato con alcun gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione. Per eseguire il manuali operativi in questi computer, è necessario aggiungerli a un gruppo di lavoro ibrido per Runbook. Seguire il passaggio 4 nella sezione [installare un ruolo di lavoro ibrido per Runbook di Linux](#install-a-linux-hybrid-runbook-worker) per aggiungerlo a un gruppo.
 
 ## <a name="supported-linux-hardening"></a>Protezione avanzata Linux supportata
 

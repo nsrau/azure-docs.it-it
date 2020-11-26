@@ -3,12 +3,12 @@ title: Modalità di distribuzione
 description: Viene descritto come specificare se usare una modalità di distribuzione completa o incrementale con Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371584"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184043"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -29,7 +29,7 @@ Se il modello include una risorsa che non viene distribuita perché la [condizio
 
 Prestare attenzione usando la modalità completa con i [cicli di copia](copy-resources.md). Tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 
-Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](cross-scope-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
+Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](./deploy-to-resource-group.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
 
 Esistono alcune differenze nel modo in cui i tipi di risorse gestiscono le eliminazioni in modalità completa. Le risorse padre vengono eliminate automaticamente quando non sono specificate in un modello distribuito in modalità completa. Alcune risorse figlio non vengono eliminate automaticamente quando non sono specificate nel modello. Tuttavia, queste risorse figlio vengono eliminate se la risorsa padre viene eliminata.
 

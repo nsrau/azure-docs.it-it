@@ -4,12 +4,12 @@ description: Application Insights esegue un'analisi intelligente dei dati di tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321310"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186236"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -175,11 +175,10 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Profiler](profiler.md) 
 * [debugger snapshot](./snapshot-debugger.md)
-* [Analisi](../log-query/get-started-portal.md)
+* [Analisi](../log-query/log-analytics-tutorial.md)
 * [Diagnostica intelligenti di Analisi](../log-query/log-query-overview.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
 * [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
 * [Test Web di disponibilità](./monitor-web-app-availability.md)
-

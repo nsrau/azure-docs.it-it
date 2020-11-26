@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931837"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184468"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Raccomandazioni sui test di benchmark delle prestazioni per Azure NetApp Files
 
@@ -24,7 +24,7 @@ Per comprendere le caratteristiche di prestazioni di un volume di Azure NetApp F
 
 ### <a name="vm-instance-sizing"></a>Dimensioni delle istanze di VM
 
-Per ottenere risultati ottimali, assicurarsi di usare un'istanza di macchina virtuale (VM) opportunamente dimensionata per eseguire i test. Negli esempi seguenti viene utilizzata un'istanza di Standard_D32s_v3. Per altre informazioni sulle dimensioni delle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) per VM basate su Windows e [dimensioni per le macchine virtuali Linux in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) per VM basate su Linux.
+Per ottenere risultati ottimali, assicurarsi di usare un'istanza di macchina virtuale (VM) opportunamente dimensionata per eseguire i test. Negli esempi seguenti viene utilizzata un'istanza di Standard_D32s_v3. Per altre informazioni sulle dimensioni delle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per VM basate su Windows e [dimensioni per le macchine virtuali Linux in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per VM basate su Linux.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files il ridimensionamento del volume
 

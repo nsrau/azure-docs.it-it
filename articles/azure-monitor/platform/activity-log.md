@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772805"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186083"
 ---
 # <a name="azure-activity-log"></a>Log attività di Azure
-Il log attività è un [log di piattaforma](platform-logs-overview.md) in Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
+Il log attività è un [log della piattaforma](platform-logs-overview.md) presente in Azure che fornisce informazioni sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
 
 Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica, vedere [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](diagnostic-settings.md) .
 
@@ -23,7 +23,7 @@ Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica, 
 > Le voci nel log attività sono generate dal sistema e non possono essere modificate o eliminate.
 
 ## <a name="view-the-activity-log"></a>Visualizzare il log attività
-È possibile accedere al log attività dalla maggior parte dei menu nella portale di Azure. Il menu da cui viene aperto determina il filtro iniziale. Se viene aperto dal menu **monitoraggio** , l'unico filtro sarà nella sottoscrizione. Se viene aperto dal menu di una risorsa, il filtro verrà impostato su tale risorsa. È sempre possibile modificare il filtro se si desidera visualizzare tutte le altre voci. Fare clic su **Aggiungi filtro** per aggiungere ulteriori proprietà al filtro.
+È possibile accedere al log attività dalla maggior parte dei menu nel portale di Azure. Il menu da cui viene aperto ne determina il filtro iniziale. Se viene aperto dal menu **monitoraggio** , l'unico filtro sarà nella sottoscrizione. Se viene aperto dal menu di una risorsa, il filtro verrà impostato su tale risorsa. È sempre possibile modificare il filtro se si desidera visualizzare tutte le altre voci. Fare clic su **Aggiungi filtro** per aggiungere ulteriori proprietà al filtro.
 
 ![Visualizzare il log attività](./media/activity-logs-overview/view-activity-log.png)
 
@@ -58,9 +58,9 @@ Se sono presenti modifiche associate all'evento, viene visualizzato un elenco di
 - Archivia le voci del log attività per più di 90 giorni.
 - Nessun inserimento di dati o di conservazione dei dati per i dati del log attività archiviati in un'area di lavoro Log Analytics.
 
-[Creare un'impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics. È possibile inviare il log attività da una singola sottoscrizione a un massimo di cinque aree di lavoro. Per raccogliere i log tra i tenant è necessario [Azure Lighthouse](../../lighthouse/index.yml).
+[Creare un'impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics. È possibile inviare il log attività da una singola sottoscrizione a un massimo di cinque aree di lavoro. La raccolta dei log tra i tenant richiede il servizio [Azure Lighthouse](../../lighthouse/index.yml).
 
-I dati del log attività in un'area di lavoro Log Analytics vengono archiviati in una tabella denominata *AzureActivity* che è possibile recuperare con una [query di log](../log-query/log-query-overview.md) in [log Analytics](../log-query/get-started-portal.md). La struttura di questa tabella varia a seconda della [categoria della voce di log](activity-log-schema.md). Per una descrizione delle proprietà della tabella, vedere [informazioni di riferimento sui dati di monitoraggio di Azure](/azure/azure-monitor/reference/tables/azureactivity).
+I dati del log attività in un'area di lavoro Log Analytics vengono archiviati in una tabella denominata *AzureActivity* che è possibile recuperare con una [query di log](../log-query/log-query-overview.md) in [log Analytics](../log-query/log-analytics-tutorial.md). La struttura di questa tabella varia a seconda della [categoria della voce di log](activity-log-schema.md). Per una descrizione delle proprietà della tabella, vedere [informazioni di riferimento sui dati di monitoraggio di Azure](/azure/azure-monitor/reference/tables/azureactivity).
 
 Per visualizzare, ad esempio, un conteggio dei record del log attività per ogni categoria, utilizzare la query seguente.
 
@@ -199,14 +199,14 @@ Se esiste già un profilo di log, prima di tutto è necessario rimuovere il prof
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Proprietà | Obbligatoria | Description |
+    | Proprietà | Obbligatoria | Descrizione |
     | --- | --- | --- |
     | Nome |Sì |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'account di archiviazione in cui deve essere salvato il log attività. |
     | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Posizione |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
     | RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
-    | Category |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _Write_, _Delete_e _Action_. |
+    | Category |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _Write_, _Delete_ e _Action_. |
 
 ### <a name="example-script"></a>Script di esempio
 Di seguito è riportato uno script di PowerShell di esempio per creare un profilo di log che scrive il log attività in un account di archiviazione e in un hub eventi.
@@ -281,7 +281,7 @@ Le colonne nella tabella seguente sono state deprecate nello schema aggiornato. 
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> In alcuni casi, i valori in queste colonne possono essere tutti in lettere maiuscole. Se si dispone di una query che include queste colonne, è necessario utilizzare l' [operatore = ~](/azure/kusto/query/datatypes-string-operators) per eseguire un confronto senza distinzione tra maiuscole e minuscole.
+> In alcuni casi i valori in queste colonne saranno tutti in maiuscolo. In presenza di una query che include queste colonne, è necessario usare l'[operatore =~](/azure/kusto/query/datatypes-string-operators) per eseguire un confronto senza distinzione tra maiuscole e minuscole.
 
 La colonna seguente è stata aggiunta a *AzureActivity* nello schema aggiornato:
 

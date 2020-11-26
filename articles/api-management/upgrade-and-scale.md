@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010215"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183788"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -80,7 +80,7 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
 
 ## <a name="compute-isolation"></a>Isolamento del calcolo
-Se i requisiti di sicurezza includono l' [isolamento di calcolo](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), è possibile usare il piano tariffario **isolato** . Questo livello garantisce che le risorse di calcolo di un'istanza del servizio gestione API utilizzino l'intero host fisico e forniscano il livello di isolamento necessario per supportare, ad esempio, i carichi di lavoro IL5 (Department of Defense Impact Level 5) degli Stati Uniti. Per ottenere l'accesso al livello isolato, [creare un ticket di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Se i requisiti di sicurezza includono l' [isolamento di calcolo](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), è possibile usare il piano tariffario **isolato** . Questo livello garantisce che le risorse di calcolo di un'istanza del servizio gestione API utilizzino l'intero host fisico e forniscano il livello di isolamento necessario per supportare, ad esempio, i carichi di lavoro IL5 (Department of Defense Impact Level 5) degli Stati Uniti. Per ottenere l'accesso al livello isolato, [creare un ticket di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 

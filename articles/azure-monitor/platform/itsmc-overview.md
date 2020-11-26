@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428028"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186491"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -50,11 +50,11 @@ Per informazioni sulle condizioni legali e sull'informativa sulla privacy, veder
 
 Prima di poter creare una connessione, è necessario aggiungere connettore.
 
-1. Nella portale di Azure selezionare **Crea una risorsa** :
+1. Nella portale di Azure selezionare **Crea una risorsa**:
 
    ![Screenshot che mostra la voce di menu Crea una risorsa.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Cercare **IT Service Management Connector** in Azure Marketplace. Selezionare **Crea** :
+2. Cercare **IT Service Management Connector** in Azure Marketplace. Selezionare **Crea**:
 
    ![Screenshot che mostra il pulsante Crea in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -90,11 +90,11 @@ In base al prodotto ITSM a cui si sta effettuando la connessione, selezionare un
 
 Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per creare una connessione:
 
-1. In **tutte le risorse** cercare **ServiceDesk ( *nome dell'area di lavoro* )** :
+1. In **tutte le risorse** cercare **ServiceDesk (*nome dell'area di lavoro*)**:
 
    ![Screenshot che mostra le risorse recenti nel portale di Azure.](media/itsmc-overview/itsm-connections.png)
 
-1. In **origini dati dell'area di lavoro** nel riquadro sinistro selezionare **connessioni ITSM** :
+1. In **origini dati dell'area di lavoro** nel riquadro sinistro selezionare **connessioni ITSM**:
 
    ![Screenshot che mostra la voce di menu connessioni ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
    Questa pagina mostra l'elenco di connessioni.
@@ -129,7 +129,7 @@ I gruppi di azioni forniscono un metodo modulare e riutilizzabile per attivare l
 Usare la procedura seguente per creare elementi di lavoro:
 
 1. Nella portale di Azure selezionare  **avvisi**.
-2. Nel menu nella parte superiore della schermata selezionare **Gestisci azioni** :
+2. Nel menu nella parte superiore della schermata selezionare **Gestisci azioni**:
 
     ![Screenshot che mostra la voce di menu Gestisci azioni.](media/itsmc-overview/action-groups-selection-big.png)
 
@@ -145,9 +145,9 @@ Usare la procedura seguente per creare elementi di lavoro:
 
 7. Selezionare un tipo di **elemento di lavoro** .
 
-8. Se si desidera compilare i campi predefiniti con valori fissi, selezionare **Usa modello personalizzato**. In caso contrario, scegliere un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco dei **modelli** e immettere i valori fissi nei campi del modello.
+8. Se si desidera compilare i campi predefiniti con valori fissi, selezionare **Usa modello personalizzato**. In caso contrario, scegliere un [modello](#template-definitions) esistente nell'elenco dei **modelli** e immettere i valori fissi nei campi del modello.
 
-9. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni elemento di configurazione disporrà di un proprio elemento di lavoro. È presente un elemento di lavoro per ogni elemento di configurazione. Verrà aggiornato in base agli avvisi che verranno creati.
+9. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione**, ogni elemento di configurazione disporrà di un proprio elemento di lavoro. È presente un elemento di lavoro per ogni elemento di configurazione. Verrà aggiornato in base agli avvisi che verranno creati.
 
    * In caso di selezione nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso": se si deseleziona la casella di controllo **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro. Per ogni elemento di configurazione possono essere presenti più avvisi.
 
@@ -329,4 +329,3 @@ Per domande o commenti e suggerimenti su IT Service Management Connector, contat
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere prodotti/servizi ITSM a IT Service Management Connector](./itsmc-connections.md)
-

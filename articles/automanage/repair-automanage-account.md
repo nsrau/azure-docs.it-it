@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681840"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183703"
 ---
 # <a name="repair-an-automanage-account"></a>Ripristinare un account di gestione autogestita
 L' [account di gestione](./automanage-virtual-machines.md#automanage-account) automatica di Azure è il contesto di sicurezza o l'identità con cui si verificano le operazioni automatiche. Se è stata spostata di recente una sottoscrizione che contiene un account di gestione automaticamente in un nuovo tenant, è necessario riconfigurare l'account. Per riconfigurarlo, è necessario reimpostare il tipo di identità e assegnare i ruoli appropriati per l'account.
@@ -22,8 +22,8 @@ L' [account di gestione](./automanage-virtual-machines.md#automanage-account) au
 Reimpostare il tipo di identità dell'account automanage usando il modello di Azure Resource Manager (ARM) seguente. Salvare il file localmente come armdeploy.jso con un nome simile. Annotare il nome e il percorso dell'account di automanage perché sono parametri obbligatori nel modello ARM.
 
 1. Creare una distribuzione Gestione risorse usando il modello seguente. Usare `identityType = None`.
-    * È possibile creare la distribuzione nell'interfaccia della riga di comando di Azure usando `az deployment sub create` . Per ulteriori informazioni, vedere [AZ Deployment Sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * È possibile creare la distribuzione in PowerShell usando il `New-AzDeployment` modulo. Per ulteriori informazioni, vedere [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * È possibile creare la distribuzione nell'interfaccia della riga di comando di Azure usando `az deployment sub create` . Per ulteriori informazioni, vedere [AZ Deployment Sub](/cli/azure/deployment/sub).
+    * È possibile creare la distribuzione in PowerShell usando il `New-AzDeployment` modulo. Per ulteriori informazioni, vedere [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Eseguire di nuovo lo stesso modello ARM con `identityType = SystemAssigned` .
 
@@ -63,7 +63,7 @@ L'account automanage richiede i ruoli collaboratore e collaboratore criteri riso
 
 Se si usa un modello ARM o l'interfaccia della riga di comando di Azure, è necessario l'ID dell'entità (noto anche come ID oggetto) dell'account di automanage. (L'ID non è necessario se si usa il portale di Azure). È possibile trovare questo ID usando questi metodi:
 
-- [Interfaccia](https://docs.microsoft.com/cli/azure/ad/sp)della riga di comando di Azure: usare il comando `az ad sp list --display-name <name of your Automanage Account>` .
+- [Interfaccia](/cli/azure/ad/sp)della riga di comando di Azure: usare il comando `az ad sp list --display-name <name of your Automanage Account>` .
 
 - Portale di Azure: passare a **Azure Active Directory** e cercare l'account automanage in base al nome. In **applicazioni aziendali** selezionare il nome dell'account automanage quando viene visualizzato.
 

@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: b23f1d455610222ffa5713773a0bfb947f23ce34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fb0288d592af8bd23415b31ecf6a6e3448b92ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343775"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186032"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creare un avviso del log con un modello di Resource Manager
 
-Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/get-started-portal.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare l'esecuzione di una o più azioni mediante i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
+Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare l'esecuzione di una o più azioni mediante i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
 
 Questo articolo illustra come usare un modello di [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli [avvisi del log](alerts-unified-log.md) in monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi del log vengono creati nel `Microsoft.Insights/scheduledQueryRules` provider di risorse. Vedere le informazioni di riferimento sulle API per [le regole di query pianificate API](/rest/api/monitor/scheduledqueryrules/).
 
@@ -26,7 +26,7 @@ I passaggi di base sono i seguenti:
 4. Distribuire il modello usando un metodo di distribuzione qualsiasi.
 
 > [!NOTE]
-> I dati di log da un' [area di lavoro log Analytics](../log-query/get-started-portal.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
+> I dati di log da un' [area di lavoro log Analytics](../log-query/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
 
 > [!NOTE]
 > Avvisi di log per Log Analytics usati per essere gestiti tramite l' [API log Analytics Alert](api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions.md). [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](alerts-log-api-switch.md).

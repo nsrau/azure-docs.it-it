@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di distribuzione del servizio Web
+title: Risolvere i problemi di distribuzione del servizio Web remoto
 titleSuffix: Azure Machine Learning
 description: Informazioni su come aggirare, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure.
 services: machine-learning
@@ -8,19 +8,19 @@ ms.subservice: core
 author: gvashishtha
 ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 11/02/2020
+ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: dfbfea22738e6aeb0df31ad941b2ff10e53795a4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperfq4, devx-track-python, deploy, contperfq2
+ms.openlocfilehash: 0b8da0be16adc79b606b59f394b223b001453607
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311298"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185063"
 ---
 # <a name="troubleshoot-model-deployment"></a>Risolvere i problemi di distribuzione del modello
 
-Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Docker con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) con Azure Machine Learning.
+Informazioni su come risolvere e risolvere gli errori comuni di distribuzione di Docker remoti con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) usando Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,9 +28,6 @@ Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Do
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Estensione dell'interfaccia della riga di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Per eseguire il debug localmente, è necessario disporre di un'installazione Docker funzionante nel sistema locale.
-
-    Per verificare l'installazione Docker, usare il comando `docker run hello-world` da un terminale o da un prompt dei comandi. Per informazioni sull'installazione Docker o sulla risoluzione dei problemi relativi agli errori Docker, vedere la [Documentazione di Docker](https://docs.docker.com/).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Passaggi per la distribuzione di Docker dei modelli di Machine Learning
 
@@ -79,94 +76,8 @@ print(service.get_logs())
 
 ## <a name="debug-locally"></a>Eseguire il debug in locale
 
-Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi.
+Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi. Per risolvere i problemi relativi a una distribuzione in locale, vedere l' [articolo sulla risoluzione dei problemi locali](./how-to-troubleshoot-deployment-local.md).
 
-Per esplorare un esempio eseguibile, è possibile trovare un [notebook di distribuzione locale](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) di esempio nel repository  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) .
-
-> [!WARNING]
-> Le distribuzioni di servizi Web locali non sono supportate per gli scenari di produzione.
-
-Per eseguire la distribuzione localmente, modificare il codice per usare `LocalWebservice.deploy_configuration()` per creare una configurazione della distribuzione. Usare quindi `Model.deploy()` per distribuire il servizio. Nell'esempio seguente viene distribuito un modello (contenuto nella variabile del modello) come servizio Web locale:
-
-```python
-from azureml.core.environment import Environment
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.webservice import LocalWebservice
-
-
-# Create inference configuration based on the environment definition and the entry script
-myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
-
-Se si definisce una specifica conda specifica YAML, List azureml-defaults Version >= 1.0.45 come dipendenza PIP. Questo pacchetto è necessario per ospitare il modello come servizio Web.
-
-A questo punto, è possibile usare il servizio come di consueto. Nel codice seguente viene illustrato l'invio di dati al servizio:
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
-
-test_sample = bytes(test_sample, encoding='utf8')
-
-prediction = service.run(input_data=test_sample)
-print(prediction)
-```
-
-Per altre informazioni sulla personalizzazione dell'ambiente Python, vedere [Creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md). 
-
-### <a name="update-the-service"></a>Aggiornare il servizio
-
-Durante i test locali, potrebbe essere necessario aggiornare il file `score.py` per aggiungere la registrazione o tentare di risolvere eventuali problemi individuati. Per ricaricare le modifiche apportate al file di `score.py`, usare `reload()`. Il codice seguente, ad esempio, consente di ricaricare lo script per il servizio e quindi di inviarvi dati. Il punteggio dei dati viene assegnato tramite il file `score.py` aggiornato:
-
-> [!IMPORTANT]
-> Il metodo `reload` è disponibile solo per le distribuzioni locali. Per informazioni sull'aggiornamento di una distribuzione di a un'altra destinazione di calcolo, vedere [How to Update your webservice](how-to-deploy-update-web-service.md).
-
-```python
-service.reload()
-print(service.run(input_data=test_sample))
-```
-
-> [!NOTE]
-> Lo script viene ricaricato dalla posizione specificata dall'oggetto `InferenceConfig` usato dal servizio.
-
-Per modificare il modello, le dipendenze Conda o la configurazione della distribuzione, usare [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). Nell'esempio seguente viene aggiornato il modello usato dal servizio:
-
-```python
-service.update([different_model], inference_config, deployment_config)
-```
-
-### <a name="delete-the-service"></a>Eliminare il servizio
-
-Per eliminare il servizio, usare [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
-
-### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Esaminare il log Docker
-
-È possibile visualizzare i messaggi dettagliati del log del motore Docker dall'oggetto di servizio. È possibile visualizzare il log per ACI, AKS e distribuzioni locali. L'esempio seguente illustra come stampare i log.
-
-```python
-# if you already have the service object handy
-print(service.get_logs())
-
-# if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices['mysvc'].get_logs())
-```
-Se la riga si `Booting worker with pid: <pid>` verifica più volte nei log, significa che non è disponibile memoria sufficiente per avviare il thread di lavoro.
-È possibile risolvere l'errore aumentando il valore di `memory_gb` in `deployment_config`
- 
 ## <a name="container-cannot-be-scheduled"></a>Non è possibile pianificare il contenitore
 
 Quando si distribuisce un servizio in una destinazione di calcolo del servizio Kubernetes di Azure, Azure Machine Learning tenterà di pianificare il servizio con la quantità di risorse richiesta. Se non sono disponibili nodi nel cluster con la quantità appropriata di risorse dopo 5 minuti, la distribuzione avrà esito negativo. Il messaggio di errore è `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Per risolvere questo errore, è possibile aggiungere più nodi, modificare lo SKU dei nodi o modificare i requisiti di risorse del servizio. 
@@ -177,7 +88,7 @@ Il messaggio di errore indicherà in genere la risorsa necessaria. ad esempio, s
 
 Dopo aver creato correttamente l'immagine, il sistema tenta di avviare un contenitore usando la configurazione della distribuzione. Nell'ambito del processo di avvio del contenitore, il sistema richiama la funzione `init()` nello script di assegnazione dei punteggi. Se la funzione `init()` contiene eccezioni non rilevate, nel messaggio di errore potrebbe essere visualizzato l'errore **CrashLoopBackOff**.
 
-Usare le informazioni nella sezione [Esaminare il log di Docker](#dockerlog) per controllare i log.
+Usare le informazioni nell'articolo [esaminare il registro Docker](how-to-troubleshoot-deployment-local.md#dockerlog) .
 
 ## <a name="function-fails-get_model_path"></a>Errore della funzione: get_model_path()
 
@@ -211,7 +122,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Nota** : la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, non si dovrebbe restituire i messaggi di errore in questo modo in un ambiente di produzione.
+**Nota**: la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, non si dovrebbe restituire i messaggi di errore in questo modo in un ambiente di produzione.
 
 ## <a name="http-status-code-502"></a>Codice di stato HTTP 502
 
@@ -221,7 +132,7 @@ Un codice di stato 502 indica che il servizio ha generato un'eccezione o si è a
 
 Le distribuzioni del servizio Azure Kubernetes supportano il ridimensionamento automatico, che consente di aggiungere repliche per supportare un carico aggiuntivo. Il ridimensionamento automatico è progettato per gestire modifiche **graduali** del carico. Se si ricevono picchi elevati di richieste al secondo, i client potrebbero ricevere un codice di stato HTTP 503. Sebbene il ridimensionamento automatico reagisca rapidamente, il tempo necessario per la creazione di contenitori aggiuntivi richiede AKS.
 
-Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto). Per impostazione predefinita, l'utilizzo della destinazione per la scalabilità automatica è impostato su **70%** , il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) **fino al 30%**.
+Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto). Per impostazione predefinita, l'utilizzo della destinazione per la scalabilità automatica è impostato su **70%**, il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) **fino al 30%**.
 
 Esistono due elementi che consentono di prevenire codici di stato 503:
 
@@ -281,3 +192,4 @@ Altre informazioni sulla distribuzione:
 
 * [Come e dove distribuire modelli](how-to-deploy-and-where.md)
 * [Esercitazione: Eseguire il training e la distribuzione di modelli](tutorial-train-models-with-aml.md)
+* [Come eseguire ed eseguire il debug di esperimenti localmente](./how-to-debug-visual-studio-code.md)

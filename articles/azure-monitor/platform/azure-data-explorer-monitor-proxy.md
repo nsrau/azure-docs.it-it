@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491257"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185981"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Eseguire query sui dati in monitoraggio di Azure con Esplora dati di Azure (anteprima)
 Il cluster del proxy di Esplora dati di Azure consente di eseguire query tra prodotti tra Esplora dati di Azure, Log Analytics aree di lavoro e applicazioni Application Insights classiche in monitoraggio di Azure. È possibile eseguire il mapping delle aree di lavoro Log Analytics in monitoraggio di Azure o nelle app Application Insights classiche come cluster proxy. È quindi possibile eseguire una query sul cluster proxy usando gli strumenti Esplora dati di Azure e farvi riferimento in una query tra cluster. Questo articolo illustra come connettersi a un cluster proxy, aggiungere un cluster proxy ad Azure Esplora dati interfaccia utente Web ed eseguire query sulle aree di lavoro Log Analytics o sulle app di Application Insights classiche da Azure Esplora dati.
@@ -60,7 +60,7 @@ Una volta stabilita la connessione, il cluster Log Analytics o Application Insig
 > * Il nome del database deve avere lo stesso nome della risorsa specificata nel cluster proxy. I nomi fanno distinzione tra maiuscole e minuscole.
 > * In query tra cluster assicurarsi che la denominazione delle app Application Insights e delle aree di lavoro Log Analytics sia corretta.
 >     * Se i nomi contengono caratteri speciali, questi vengono sostituiti dalla codifica URL nel nome del cluster proxy. 
->     * Se i nomi includono caratteri che non soddisfano [le regole del nome dell'identificatore KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), vengono sostituiti dal carattere di tratteggio **-** .
+>     * Se i nomi includono caratteri che non soddisfano [le regole del nome dell'identificatore KQL](/azure/data-explorer/kusto/query/schema-entities/entity-names), vengono sostituiti dal carattere di tratteggio **-** .
 
 ### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Eseguire una query diretta dal cluster Log Analytics o Application Insights proxy
 
@@ -93,9 +93,9 @@ Le query tra tenant non sono supportate dal proxy di Esplora dati di Azure. È s
 
 Se la risorsa di Azure Esplora dati si trova nel tenant ' A ' e Log Analytics area di lavoro si trova nel tenant ' B ', usare uno dei due metodi seguenti:
 
-- Esplora dati di Azure consente di aggiungere ruoli per le entità in tenant diversi. Aggiungere l'ID utente nel tenant ' B ' come utente autorizzato nel cluster Esplora dati di Azure. Verificare che la proprietà *[' TrustedExternalTenant '](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* nel cluster Esplora dati di Azure contenga il tenant ' B '. Eseguire la query incrociata completamente nel tenant ' B '.
+- Esplora dati di Azure consente di aggiungere ruoli per le entità in tenant diversi. Aggiungere l'ID utente nel tenant ' B ' come utente autorizzato nel cluster Esplora dati di Azure. Verificare che la proprietà *[' TrustedExternalTenant '](/powershell/module/az.kusto/update-azkustocluster)* nel cluster Esplora dati di Azure contenga il tenant ' B '. Eseguire la query incrociata completamente nel tenant ' B '.
 
-- Usare [Lighthouse](/azure/lighthouse/) per proiettare la risorsa di monitoraggio di Azure nel tenant ' A '.
+- Usare [Lighthouse](../../lighthouse/index.yml) per proiettare la risorsa di monitoraggio di Azure nel tenant ' A '.
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Connettersi a cluster di Esplora dati di Azure da tenant diversi
 
@@ -124,7 +124,7 @@ Quando si chiamano i cluster Log Analytics o Application Insights, sono disponib
 
 |Descrizione della sintassi  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Database all'interno di un cluster che contiene solo la risorsa definita in questa sottoscrizione ( **scelta consigliata per le query tra cluster** ) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| Database all'interno di un cluster che contiene solo la risorsa definita in questa sottoscrizione (**scelta consigliata per le query tra cluster**) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | Cluster che contiene tutte le app e le aree di lavoro in questa sottoscrizione    |     cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |Cluster che contiene tutte le app e le aree di lavoro nella sottoscrizione e che sono membri di questo gruppo di risorse    |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |Cluster che contiene solo la risorsa definita in questa sottoscrizione      |    cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |
@@ -132,4 +132,4 @@ Quando si chiamano i cluster Log Analytics o Application Insights, sono disponib
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri di più sulla [struttura dei dati di log Analytics aree di lavoro e Application Insights](data-platform-logs.md).
-- Informazioni su come [scrivere query in Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Informazioni su come [scrivere query in Azure Esplora dati](/azure/data-explorer/write-queries).

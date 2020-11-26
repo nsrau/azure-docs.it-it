@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 26d6bcb52099b15aeeb73a36a7144c14bdf481d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ba27739ff9e9d992ffe6202629a1db19604b1409
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496937"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186117"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Panoramica delle Log Analytics di monitoraggio di Azure
 Log Analytics è uno strumento della portale di Azure usato per modificare ed eseguire query di log con dati nei log di monitoraggio di Azure. È possibile scrivere una query semplice che restituisce un set di record e quindi usare le funzionalità di Log Analytics per ordinarle, filtrarle e analizzarle. In alternativa, è possibile scrivere una query più avanzata per eseguire un'analisi statistica e visualizzare i risultati in un grafico per identificare una determinata tendenza. Se si lavora con i risultati delle query in modo interattivo o si usano le altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi o le cartelle di lavoro di query di log, Log Analytics è lo strumento che verrà usato per la scrittura e il test. 
 
 
 > [!TIP]
-> In questo articolo viene fornita una descrizione di Log Analytics e di ognuna delle relative funzionalità. Se si vuole passare direttamente a un'esercitazione, vedere [log Analytics esercitazione](get-started-portal.md).
+> In questo articolo viene fornita una descrizione di Log Analytics e di ognuna delle relative funzionalità. Se si vuole passare direttamente a un'esercitazione, vedere [log Analytics esercitazione](./log-analytics-tutorial.md).
 
 
 
@@ -91,5 +91,5 @@ Consente di visualizzare i risultati in uno dei più tipi di grafico disponibili
 Se si ha già familiarità con l'interfaccia utente Web di Azure Esplora dati, Log Analytics dovrebbe avere un aspetto familiare. Questo perché si basa su Azure Esplora dati e usa lo stesso linguaggio di query kusto (KQL). Log Analytics aggiunge funzionalità specifiche di monitoraggio di Azure, ad esempio l'applicazione di filtri in base all'intervallo di tempo e la possibilità di creare una regola di avviso da una query. Entrambi gli strumenti includono un visualizzatore che consente di analizzare la struttura delle tabelle disponibili, ma l'interfaccia utente Web di Azure Esplora dati funziona principalmente con le tabelle nei database Esplora dati di Azure, mentre Log Analytics funziona con le tabelle in un'area di lavoro Log Analytics. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](get-started-portal.md).
+- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](./log-analytics-tutorial.md).
 - Seguire un'[esercitazione sulla scrittura di query](get-started-queries.md).

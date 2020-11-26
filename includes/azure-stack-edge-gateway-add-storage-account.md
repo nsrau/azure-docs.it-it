@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 0b6a6cbf51ef2ff1f1ef53b53a2b84c7a4f9510d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376225"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185561"
 ---
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare la risorsa Azure Stack Edge e quindi passare a **Panoramica**. Il dispositivo dovrebbe essere online.
 
@@ -32,7 +32,7 @@ ms.locfileid: "93376225"
     e. Dopo aver specificato tutte le opzioni dell'account di archiviazione, selezionare **Aggiungi** per creare l'account di archiviazione Edge. Dopo la creazione dell'account di archiviazione Edge si riceverà una notifica. Il nuovo account di archiviazione Edge viene quindi visualizzato nell'elenco degli account di archiviazione nel portale di Azure. 
 
     
-4. Se si seleziona questo nuovo account di archiviazione e si passa a **Chiavi di accesso** , è possibile trovare l'endpoint servizio BLOB e il nome dell'account di archiviazione corrispondente. Copiare queste informazioni perché questi valori, unitamente alle chiavi di accesso, consentiranno di connettersi all'account di archiviazione Edge.
+4. Se si seleziona questo nuovo account di archiviazione e si passa a **Chiavi di accesso**, è possibile trovare l'endpoint servizio BLOB e il nome dell'account di archiviazione corrispondente. Copiare queste informazioni perché questi valori, unitamente alle chiavi di accesso, consentiranno di connettersi all'account di archiviazione Edge.
 
     ![Aggiungere un account di archiviazione 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 

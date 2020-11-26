@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744536"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184009"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Domande frequenti sui modelli ARM
 
@@ -68,7 +68,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **È possibile creare una sottoscrizione in un modello ARM?**
 
-  Sì. per altre informazioni, vedere [creare sottoscrizioni di Azure a livello di codice con le API più recenti](../../cost-management-billing/manage/programmatically-create-subscription.md).
+  Sì. per altre informazioni, vedere [creare sottoscrizioni di Azure a livello di codice con le API più recenti](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **Come è possibile testare il modello prima di distribuirlo?**
 
@@ -106,7 +106,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Come è possibile iniziare a usare la versione di anteprima delle specifiche dei modelli?**
 
-  Installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell, usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
+  Installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 * **Come sono correlate le specifiche di modello e i progetti di Azure?**
 

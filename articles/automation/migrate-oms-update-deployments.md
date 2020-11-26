@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987604"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183601"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Eseguire la migrazione delle distribuzioni di aggiornamento dei log di Monitoraggio di Azure al portale di Azure
 
@@ -19,7 +19,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 ## <a name="key-information"></a>Informazioni chiave
 
 * Le distribuzioni esistenti continueranno a funzionare. Dopo avere creato nuovamente la distribuzione in Azure, è possibile eliminare la distribuzione precedente.
-* Tutte le funzionalità esistenti in OMS sono disponibili in Azure. Per altre informazioni sulla gestione aggiornamenti, vedere [Gestione aggiornamenti in automazione di Azure](update-management/update-mgmt-overview.md).
+* Tutte le funzionalità esistenti in OMS sono disponibili in Azure. Per altre informazioni sulla gestione aggiornamenti, vedere [Gestione aggiornamenti in automazione di Azure](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -43,7 +43,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 Tutte le distribuzioni di aggiornamenti create nel portale di OMS hanno una [ricerca salvata](../azure-monitor/platform/computer-groups.md), definita anche gruppo di computer, con lo stesso nome della distribuzione di aggiornamenti esistente. La ricerca salvata contiene l'elenco dei computer per cui è stata pianificata la distribuzione di aggiornamenti.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot della pagina Gestione aggiornamenti.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot della pagina distribuzioni di aggiornamento con i campi nome e server evidenziati.":::
 
 Per usare la ricerca salvata esistente, seguire questa procedura:
 
@@ -59,7 +59,7 @@ Per usare la ricerca salvata esistente, seguire questa procedura:
     | --- | --- |
     |Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
     |Sistema operativo| Selezionare **Linux** o **Windows**.|
-    |Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
+    |Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
     |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie. CentOS non supporta questa operazione per impostazione predefinita.|
     |Aggiornamenti da escludere|Immettere gli aggiornamenti da escludere. Per Windows, immettere l'articolo della Knowledge Base senza il prefisso **KB**. Per Linux, immettere il nome del pacchetto o usare un carattere jolly.  |
     |Impostazioni di pianificazione|Selezionare l'ora di inizio e quindi selezionare **Una sola volta** o **Ricorrente** per la ricorrenza. | 
@@ -74,4 +74,4 @@ Per usare la ricerca salvata esistente, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Gestione aggiornamenti in Azure, vedere [Gestione aggiornamenti in automazione di Azure](update-management/update-mgmt-overview.md).
+Per altre informazioni su Gestione aggiornamenti in Azure, vedere [Gestione aggiornamenti in automazione di Azure](./update-management/overview.md).

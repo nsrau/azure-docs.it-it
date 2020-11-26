@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c8ed791fc9496e67acdcfbfafddad9170ac47535
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b19162636707b8d2cc8b7a9ef33c03738eb8e631
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522584"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184434"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Baseline della sicurezza di Azure per monitoraggio di Azure
 
@@ -154,7 +154,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introduzione alle query di Log Analytics](log-query/get-started-portal.md)
+- [Introduzione alle query di Log Analytics](./log-query/log-analytics-tutorial.md)
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](log-query/get-started-queries.md)
 
@@ -182,7 +182,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
+**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Per alcune risorse sono disponibili ruoli predefiniti, che possono essere inventariati o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure.
 
 - [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -381,7 +381,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 - [Raccolta, conservazione e archiviazione di dati in Application Insights](app/data-retention-privacy.md)
 
-- [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md) 
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -783,7 +783,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
 
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regole di ingaggio per i test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

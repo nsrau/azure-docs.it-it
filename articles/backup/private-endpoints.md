@@ -4,11 +4,11 @@ description: Informazioni sul processo di creazione di endpoint privati per back
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172235"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184749"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -77,7 +77,7 @@ Si consiglia di concedere al ruolo **collaboratore** per questi tre gruppi di ri
 
     ![Aggiungi un'assegnazione di ruolo](./media/private-endpoints/add-role-assignment.png)
 
-1. Nel riquadro **Aggiungi assegnazione ruolo** scegliere **collaboratore** come **ruolo**e usare il **nome** dell'insieme di credenziali come **entità**. Selezionare l'insieme di credenziali e selezionare **Salva** al termine.
+1. Nel riquadro **Aggiungi assegnazione ruolo** scegliere **collaboratore** come **ruolo** e usare il **nome** dell'insieme di credenziali come **entità**. Selezionare l'insieme di credenziali e selezionare **Salva** al termine.
 
     ![Scegliere il ruolo e l'entità](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -99,7 +99,7 @@ Questa sezione descrive il processo di creazione di un endpoint privato per l'in
 
 1. Una volta nel processo **Crea endpoint privato** , sarà necessario specificare i dettagli per la creazione della connessione all'endpoint privato.
 
-    1. **Nozioni**di base: inserire i dettagli di base per gli endpoint privati. L'area deve corrispondere all'insieme di credenziali e alla risorsa.
+    1. **Nozioni** di base: inserire i dettagli di base per gli endpoint privati. L'area deve corrispondere all'insieme di credenziali e alla risorsa.
 
         ![Inserire i dettagli di base](./media/private-endpoints/basic-details.png)
 
@@ -305,7 +305,7 @@ PrivateEndpointSubnetContributorRoleDef.js
 
 1. Passare alla cartella Home (ad esempio: `cd /home/user` )
 
-1. Eseguire lo script riportato di seguito:
+1. Eseguire lo script seguente:
 
     ```azurepowershell
     ./VaultMsiPrereqScript.ps1 -subscription <subscription-Id> -vaultPEResourceGroup <vaultPERG> -vaultPESubnetResourceGroup <subnetRG> -vaultMsiName <msiName>

@@ -3,20 +3,20 @@ title: Record DNS del Data Center di Azure usati da automazione di Azure | Micro
 description: Questo articolo fornisce i record DNS richiesti dalle funzionalità di automazione di Azure quando si limita la comunicazione a una specifica area di Azure che ospita l'account di automazione.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117182"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183720"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Record DNS per le aree di Azure usate da automazione di Azure
 
 Il servizio [automazione di Azure](../automation-intro.md) usa una serie di record DNS per le funzionalità di connessione al servizio. Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. Potrebbe essere necessario essere a conoscenza di questi record per consentire il funzionamento delle funzionalità di automazione seguenti quando è ospitato dietro un firewall:
 
-* ruolo di lavoro ibrido per runbook
+* Ruolo di lavoro ibrido per runbook
 * Configurazione dello stato
 * Webhook
 
@@ -84,11 +84,14 @@ Per supportare il [collegamento privato](../../private-link/private-link-overvie
 | US Gov Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-Sostituire `<accountId>` nel record DNS con GUID che rappresenta l'ID dell'account di automazione dall' **URL**del valore. È possibile ottenere l'ID richiesto dalle **chiavi** in **impostazioni account** nel portale di Azure.
+Sostituire `<accountId>` nel record DNS con GUID che rappresenta l'ID dell'account di automazione dall' **URL** del valore. È possibile ottenere l'ID richiesto dalle **chiavi** in **impostazioni account** nel portale di Azure.
 
 ![Pagina chiave primaria dell'account di automazione](./media/automation-region-dns-records/automation-account-keys.png)
 
 Copiare il valore dopo *accounts/* dal campo **URL** - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> Tutti i record DNS webhook e agentservice sono stati aggiornati con i nuovi record DNS di stile per il supporto del collegamento privato. Per i record DNS JRDS, sono supportati sia i record DNS vecchi che quelli nuovi. Se non si usa un collegamento privato, verranno visualizzati i record DNS di stile obsoleti, mentre quelli che usano il collegamento privato vedranno un nuovo stile di record DNS.
 
 È consigliabile usare gli indirizzi elencati quando si definiscono [eccezioni](../automation-runbook-execution.md#exceptions). Per un elenco degli indirizzi IP dell'area anziché dei nomi delle aree, scaricare il file JSON dall'area download Microsoft per gli ambienti cloud seguenti:
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c61287475eb82241aa5c9e1d1649e8b20e3b28c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327073"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185947"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
 
@@ -35,10 +35,10 @@ Quando si traccia la stessa metrica in [Esplora metriche](metrics-getting-starte
 
 - Tutte le dimensioni di **filtro** selezionate vengono convertite in clausole *where* aggiuntive.
 
-- La dimensione selezionata del **grafico suddiviso** viene convertita in una proprietà riepilogativa aggiuntiva. Se, ad esempio, si suddivide il grafico in base alla *posizione*e si esegue il tracciato utilizzando una granularità di 5 minuti, la clausola *riepilogativa* viene riepilogata *... per bin (timestamp, 5 m), location*.
+- La dimensione selezionata del **grafico suddiviso** viene convertita in una proprietà riepilogativa aggiuntiva. Se, ad esempio, si suddivide il grafico in base alla *posizione* e si esegue il tracciato utilizzando una granularità di 5 minuti, la clausola *riepilogativa* viene riepilogata *... per bin (timestamp, 5 m), location*.
 
 > [!NOTE]
-> Se non si ha familiarità con il linguaggio di query kusto, si inizia copiando e incollando istruzioni kusto nel riquadro Query Log Analytics senza apportare alcuna modifica. Fare clic su **Esegui** per visualizzare il grafico di base. Quando si inizia a comprendere la sintassi del linguaggio di query, è possibile iniziare a apportare piccole modifiche e vedere l'effetto della modifica. L'esplorazione dei propri dati è un ottimo modo per iniziare a realizzare tutta la potenza di [log Analytics](../log-query/get-started-portal.md) e [monitoraggio di Azure](../overview.md).
+> Se non si ha familiarità con il linguaggio di query kusto, si inizia copiando e incollando istruzioni kusto nel riquadro Query Log Analytics senza apportare alcuna modifica. Fare clic su **Esegui** per visualizzare il grafico di base. Quando si inizia a comprendere la sintassi del linguaggio di query, è possibile iniziare a apportare piccole modifiche e vedere l'effetto della modifica. L'esplorazione dei propri dati è un ottimo modo per iniziare a realizzare tutta la potenza di [log Analytics](../log-query/log-analytics-tutorial.md) e [monitoraggio di Azure](../overview.md).
 
 ## <a name="availability-metrics"></a>Metriche di disponibilità
 
@@ -98,7 +98,7 @@ Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -114,7 +114,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -130,7 +130,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -146,7 +146,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -162,7 +162,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -184,7 +184,7 @@ Questa metrica riflette il numero di eccezioni generate dal codice dell'applicaz
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -199,7 +199,7 @@ Numero di chiamate di dipendenza non riuscite.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 dependencies
@@ -492,4 +492,3 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-

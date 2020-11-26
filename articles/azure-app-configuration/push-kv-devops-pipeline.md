@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075876"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183499"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Inserire le impostazioni nella configurazione dell'app con Azure Pipelines
 
@@ -23,7 +23,7 @@ L'attività [push di configurazione app Azure](https://marketplace.visualstudio.
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - Risorsa di configurazione dell'app: crearne una gratuitamente nell' [portale di Azure](https://portal.azure.com).
 - Progetto DevOps di Azure- [crearne uno](https://go.microsoft.com/fwlink/?LinkId=2014881) gratuitamente
-- App Azure attività push di configurazione: scaricare gratuitamente dal [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.).
+- App Azure attività push di configurazione: scaricare gratuitamente dal [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
 
 ## <a name="create-a-service-connection"></a>Creare una connessione al servizio
 
@@ -49,7 +49,7 @@ Assegnare le assegnazioni di ruolo di configurazione dell'app appropriate alle c
 1. Passare all'archivio di configurazione dell'app di destinazione. 
 1. A sinistra selezionare controllo di **accesso (IAM)**.
 1. Nella parte superiore selezionare **+ Aggiungi** e scegliere **Aggiungi assegnazione ruolo**.
-1. In **ruolo**selezionare **proprietario dati di configurazione dell'app**. Questo ruolo consente all'attività di leggere e scrivere nell'archivio di configurazione dell'app. 
+1. In **ruolo** selezionare **proprietario dati di configurazione dell'app**. Questo ruolo consente all'attività di leggere e scrivere nell'archivio di configurazione dell'app. 
 1. Selezionare l'entità servizio associata alla connessione al servizio creata nella sezione precedente.
   
 ## <a name="use-in-builds"></a>Uso nelle compilazioni
@@ -87,7 +87,7 @@ I parametri seguenti vengono usati dall'attività push di configurazione dell'ap
 - **Label**: stringa aggiunta a ogni valore chiave come etichetta all'interno dell'archivio di configurazione dell'app.
 - **Tipo di contenuto**: stringa aggiunta a ogni valore chiave come tipo di contenuto all'interno dell'archivio di configurazione dell'app.
 - **Tags**: un oggetto JSON nel formato `{"tag1":"val1", "tag2":"val2"}` , che definisce i tag aggiunti a ogni chiave-valore inserito nell'archivio di configurazione dell'app.
-- **Elimina tutte le altre Key-Values nell'archivio con il prefisso e l'etichetta specificati: il**valore predefinito è **deselezionato**.
+- **Elimina tutte le altre Key-Values nell'archivio con il prefisso e l'etichetta specificati: il** valore predefinito è **deselezionato**.
   - **Checked**: rimuove tutti i valori di chiave nell'archivio di configurazione dell'app che corrispondono sia al prefisso specificato che all'etichetta prima di eseguire il push di nuovi valori di chiave dal file di configurazione.
   - **Deselezionato**: inserisce tutti i valori chiave dal file di configurazione nell'archivio di configurazione dell'app e lascia intatto tutto il resto nell'archivio di configurazione dell'app.
 

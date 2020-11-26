@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b5addd9d275e9367988dc10689c27fa035e97dd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4a9a4ed4ebba7f6f2470bb9e7000a899ebc26323
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951775"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185811"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gestire Azure Resource Manager gruppi di risorse usando l'interfaccia della riga di comando di Azure
 
@@ -135,7 +135,7 @@ Lo script Visualizza il modello nella console.  Copiare il codice JSON e salvarl
 
 La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Per altre informazioni, vedere [esportazione a più risorse e a modello in portale di Azure](../templates/export-template-portal.md).
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212790"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185114"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Binding di input Azure Cosmos DB per funzioni di Azure 2. x e versioni successive
 
@@ -20,7 +20,7 @@ L'associazione di input di Azure Cosmos DB usa l'API SQL per recuperare uno o pi
 Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Se la raccolta è [partizionata](../cosmos-db/partition-data.md#logical-partitions), è necessario che le operazioni di ricerca specifichino anche il valore della chiave di partizione.
+> Se la raccolta è [partizionata](../cosmos-db/partitioning-overview.md#logical-partitions), è necessario che le operazioni di ricerca specifichino anche il valore della chiave di partizione.
 >
 
 <a id="example" name="example"></a>
@@ -212,7 +212,7 @@ L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md)
 L'esempio illustra come usare un'espressione di associazione nel parametro `SqlQuery`. Si possono passare i dati della route al parametro `SqlQuery` come illustrato, ma attualmente [non è possibile passare valori di stringhe di query](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string-c), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-queries.md) delle query in base all'ID.
+> Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string-c), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-reads-writes.md) delle query in base all'ID.
 >
 
 ```cs
@@ -1315,7 +1315,7 @@ public class DocByIdFromRoute {
 L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa un parametro di route per specificare l'ID da ricercare. Questo ID viene usato per recuperare un documento dal database e dalla raccolta specificati, convertendo il set di risultati in ```ToDoItem[]```, dato che possono essere restituiti molti documenti, a seconda dei criteri di query.
 
 > [!NOTE]
-> Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-queries.md) delle query in base all'ID.
+> Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-reads-writes.md) delle query in base all'ID.
 >
 
 ```java
@@ -1442,7 +1442,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**id**    | **Id** | ID del documento da recuperare. Questa proprietà supporta le [espressioni di associazione](./functions-bindings-expressions-patterns.md). Non impostare entrambe le `id` proprietà e **sqlQuery** . Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta. |
 |**sqlQuery**  |**SqlQuery**  | Query SQL di Azure Cosmos DB usata per recuperare più documenti. La proprietà supporta le associazioni del runtime, come nell'esempio seguente: `SELECT * FROM c where c.departmentId = {departmentId}`. Non impostare entrambe le `id` `sqlQuery` proprietà e. Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Nome dell'impostazione app contenente la stringa di connessione di Azure Cosmos DB. |
-|**partitionKey**|**PartitionKey**|Specifica il valore della chiave di partizione per la ricerca. Può includere i parametri di associazione. È necessario per le ricerche nelle raccolte [partizionate](../cosmos-db/partition-data.md#logical-partitions) .|
+|**partitionKey**|**PartitionKey**|Specifica il valore della chiave di partizione per la ricerca. Può includere i parametri di associazione. È necessario per le ricerche nelle raccolte [partizionate](../cosmos-db/partitioning-overview.md#logical-partitions) .|
 |**preferredLocations**| **PreferredLocations**| Opzionale Definisce le posizioni preferite (aree) per gli account di database con replica geografica nel servizio Azure Cosmos DB. I valori devono essere separati da virgole. Ad esempio, "Stati Uniti orientali, Stati Uniti centro-meridionali, Europa settentrionale". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

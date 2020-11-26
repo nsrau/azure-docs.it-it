@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 7a7a3669c5462adba3828bb1fd6c2fc9c4b3213c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9d1aa54ba1e3f3a589df8f694e340909c4e24ecc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566164"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183686"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione per un cluster del servizio Azure Kubernetes esistente con un gateway applicazione esistente tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -35,16 +35,16 @@ In questa esercitazione verranno illustrate le procedure per:
 
  - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
- - Per registrare il flag di funzionalità *AKS-IngressApplicationGatewayAddon*, usare il comando [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) come illustrato nell'esempio seguente. È necessario eseguire questa operazione una sola volta per ogni sottoscrizione finché il componente aggiuntivo è disponibile in anteprima.
+ - Per registrare il flag di funzionalità *AKS-IngressApplicationGatewayAddon*, usare il comando [az feature register](/cli/azure/feature#az-feature-register) come illustrato nell'esempio seguente. È necessario eseguire questa operazione una sola volta per ogni sottoscrizione finché il componente aggiuntivo è disponibile in anteprima.
      ```azurecli-interactive
      az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
      ```
-    Potrebbe essere necessario attendere alcuni minuti prima che venga visualizzato lo stato Registered. È possibile controllare lo stato di registrazione usando il comando [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register):
+    Potrebbe essere necessario attendere alcuni minuti prima che venga visualizzato lo stato Registered. È possibile controllare lo stato di registrazione usando il comando [az feature list](/cli/azure/feature#az-feature-register):
      ```azurecli-interactive
      az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
      ```
 
- - Quando si è pronti, aggiornare la registrazione del provider di risorse Microsoft.ContainerService usando il comando [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register):
+ - Quando si è pronti, aggiornare la registrazione del provider di risorse Microsoft.ContainerService usando il comando [az provider register](/cli/azure/provider#az-provider-register):
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```

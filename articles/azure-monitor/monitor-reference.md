@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021440"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186695"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -189,7 +189,7 @@ Le soluzioni e i servizi elencati nella tabella seguente archiviano i dati in un
 
 | Prodotto o servizio | Descrizione |
 |:---|:---|
-| [Automazione di Azure](../automation/index.yml) | Gestisce gli aggiornamenti del sistema operativo e tiene traccia delle modifiche in computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking/overview.md) e [Gestione aggiornamenti](../automation/update-management/update-mgmt-overview.md). |
+| [Automazione di Azure](../automation/index.yml) | Gestisce gli aggiornamenti del sistema operativo e tiene traccia delle modifiche in computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking/overview.md) e [Gestione aggiornamenti](../automation/update-management/overview.md). |
 | [Azure Information Protection](/azure/information-protection/) | Classifica ed eventualmente protegge documenti e messaggi di posta elettronica. Vedere [Reporting centralizzato per Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro sicurezza di Azure](../security-center/index.yml) | Raccoglie e analizza gli eventi di sicurezza ed esegue l'analisi delle minacce. Vedere [Raccolta dati nel Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Si connette a varie origini, tra cui Office 365 e Amazon Web Services Cloud Trail. Vedere [Origini dati Connect](../sentinel/connect-data-sources.md). |
@@ -245,4 +245,3 @@ Monitoraggio di Azure può raccogliere dati da risorse esterne ad Azure usando i
 - Completare un'[esercitazione sulla scrittura di una query di log per analizzare i dati nei log di Monitoraggio di Azure](learn/tutorial-resource-logs.md).
 - Completare un'[esercitazione sulla creazione di un grafico delle metriche per analizzare i dati nelle metriche di Monitoraggio di Azure](learn/tutorial-metrics-explorer.md).
 
- 

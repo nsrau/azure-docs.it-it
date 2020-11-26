@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294292"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186593"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere gli avvisi del log in monitoraggio di Azure  
 
 Questo articolo illustra come risolvere i problemi comuni con gli avvisi del log in monitoraggio di Azure. Fornisce anche soluzioni ai problemi comuni relativi alla funzionalità e alla configurazione degli avvisi del log.
 
-Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/get-started-portal.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
+Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
 
 > [!NOTE]
 > Questo articolo non considera i casi in cui il portale di Azure Mostra una regola di avviso attivata e una notifica non viene eseguita da un gruppo di azione associato. Per questi casi, vedere i dettagli sulla risoluzione dei problemi [qui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -36,7 +36,7 @@ Il sistema ripete la valutazione degli avvisi più volte per attenuare la latenz
 
 L'intervallo di tempo della query è impostato nella definizione della condizione della regola. Questo campo è denominato **period** per le aree di lavoro e Application Insights e ha chiamato **l'intervallo di tempo della query di override** per tutti gli altri tipi di risorse. Analogamente a log Analytics, l'intervallo di tempo limita i dati delle query al periodo specificato. Anche se nella query viene usato il comando **fa** , verrà applicato l'intervallo di tempo. 
 
-Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica **Period**dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
+Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica **Period** dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
 
 ![Periodo di tempo](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 
@@ -131,7 +131,7 @@ Se è stato raggiunto il limite di quota, i passaggi seguenti possono contribuir
 
     - ID di sottoscrizione e ID di risorsa per i quali è necessario aumentare il limite di quota.
     - Motivo dell'aumento della quota.
-    - Tipo di risorsa per l'aumento della quota: **log Analytics**, **Application Insights**e così via.
+    - Tipo di risorsa per l'aumento della quota: **log Analytics**, **Application Insights** e così via.
     - Limite di quota richiesto.
 
 

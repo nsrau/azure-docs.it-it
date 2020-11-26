@@ -4,12 +4,12 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832899"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186372"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -59,7 +59,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
  
  Di seguito è riportato un riepilogo dei dati raccolti per ogni route:
         
-| Data | Raccolta ASP.NET Basic | Raccolta consigliata ASP.NET |
+| Dati | Raccolta ASP.NET Basic | Raccolta consigliata ASP.NET |
 | --- | --- | --- |
 | Aggiunge le tendenze di utilizzo della CPU, della memoria e delle operazioni di I/O |Sì |Sì |
 | Raccoglie le tendenze di utilizzo e consente la correlazione dei risultati di disponibilità con le transazioni | Sì |Sì |
@@ -372,7 +372,7 @@ Di seguito è riportata una guida dettagliata per la risoluzione dei problemi pe
 
     * Verificare che non siano presenti voci per `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` e `AppContainsAspNetTelemetryCorrelationAssembly` .
         * Se una di queste voci esiste, rimuovere i pacchetti seguenti dall'applicazione: `Microsoft.ApplicationInsights` , `System.Diagnostics.DiagnosticSource` e `Microsoft.AspNet.TelemetryCorrelation` .
-        * Solo per le app ASP.NET Core: nel caso in cui l'applicazione faccia riferimento a tutti i pacchetti di Application Insights, ad esempio se in precedenza è stato instrumentato (o si è provato a instrumentare) l'app con l' [SDK ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), l'abilitazione dell'integrazione del servizio app potrebbe non essere applicata e i dati potrebbero non essere visualizzati in Application Insights. Per risolvere il problema, nel portale attivare l'interoperabilità con Application Insights SDK e iniziare a visualizzare i dati in Application Insights 
+        * Solo per le app ASP.NET Core: nel caso in cui l'applicazione faccia riferimento a tutti i pacchetti di Application Insights, ad esempio se in precedenza è stato instrumentato (o si è provato a instrumentare) l'app con l' [SDK ASP.NET Core](./asp-net-core.md), l'abilitazione dell'integrazione del servizio app potrebbe non essere applicata e i dati potrebbero non essere visualizzati in Application Insights. Per risolvere il problema, nel portale attivare l'interoperabilità con Application Insights SDK e iniziare a visualizzare i dati in Application Insights 
         > [!IMPORTANT]
         > Questa funzionalità è in anteprima 
 
@@ -432,4 +432,3 @@ Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla
 * [Ricevere notifiche di avviso](../platform/alerts-overview.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
 * Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](javascript.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
 * [Monitorare la disponibilità e la velocità di risposta dei siti Web](monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
-

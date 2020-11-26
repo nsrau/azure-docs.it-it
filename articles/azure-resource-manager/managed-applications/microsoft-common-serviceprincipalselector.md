@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745763"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184451"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento Microsoft. Common. ServicePrincipalSelector dell'interfaccia utente
 
-Controllo che consente agli utenti di selezionare un' [entità servizio](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) esistente o di registrare una nuova applicazione. Quando si seleziona **Crea nuovo**, seguire i passaggi per registrare una nuova applicazione. Quando si seleziona un'applicazione esistente, il controllo fornisce una casella di testo per l'immissione di una password o di un'identificazione personale del certificato.
+Controllo che consente agli utenti di selezionare un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) esistente o di registrare una nuova applicazione. Quando si seleziona **Crea nuovo**, seguire i passaggi per registrare una nuova applicazione. Quando si seleziona un'applicazione esistente, il controllo fornisce una casella di testo per l'immissione di una password o di un'identificazione personale del certificato.
 
 ## <a name="ui-samples"></a>Esempi di interfaccia utente
 
@@ -71,7 +71,7 @@ Per usare un'applicazione esistente, scegliere **Seleziona esistente** , quindi 
 }
 ```
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 - Di seguito sono riportate le proprietà obbligatorie:
   - `name`

@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fa1701c59f099f5222ab6454cc67b9dc20d1e7e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104802"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186678"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gestire gli stati di avvisi e gruppi intelligenti
 
-Gli avvisi in Monitoraggio di Azure ora dispongono di uno [stato di avviso e di una condizione di monitoraggio](./alerts-overview.md) e, analogamente, i gruppi intelligenti dispongono di uno [stato del gruppo intelligente](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). Le modifiche allo stato ora vengono acquisite nella cronologia associata al rispettivo gruppo di avvisi o gruppo intelligente. Questo articolo illustra il processo di modifica dello stato per un avviso e per un gruppo intelligente.
+Gli avvisi in Monitoraggio di Azure ora dispongono di uno [stato di avviso e di una condizione di monitoraggio](./alerts-overview.md) e, analogamente, i gruppi intelligenti dispongono di uno [stato del gruppo intelligente](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json). Le modifiche allo stato ora vengono acquisite nella cronologia associata al rispettivo gruppo di avvisi o gruppo intelligente. Questo articolo illustra il processo di modifica dello stato per un avviso e per un gruppo intelligente.
 
 ## <a name="change-the-state-of-an-alert"></a>Modificare lo stato di un avviso
 

@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030017"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186542"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Eseguire query sui dati esportati da monitoraggio di Azure con Esplora dati di Azure (anteprima)
 L'esportazione di dati da monitoraggio di Azure a un account di archiviazione di Azure consente la conservazione a basso costo e la possibilità di riallocare i log in aree diverse. Usare Esplora dati di Azure per eseguire query sui dati esportati dalle aree di lavoro di Log Analytics. Una volta configurate, le tabelle supportate inviate dalle aree di lavoro a un account di archiviazione di Azure saranno disponibili come origine dati per Esplora dati di Azure.
@@ -136,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [scrivere query in Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Informazioni su come [scrivere query in Azure Esplora dati](/azure/data-explorer/write-queries)

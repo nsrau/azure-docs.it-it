@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031294"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185080"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -25,7 +25,7 @@ Per l'area di lavoro di Azure sinapsi, l'integrazione e la distribuzione continu
 
 Questo articolo descrive come usare la pipeline di rilascio di Azure per automatizzare la distribuzione di un'area di lavoro sinapsi in più ambienti.
 
-## <a name="pre-requirements"></a>Requisiti preliminari
+## <a name="prerequisites"></a>Prerequisiti
 
 -   L'area di lavoro usata per lo sviluppo è stata configurata con un repository git in studio, vedere [controllo del codice sorgente in sinapsi Studio](source-control.md).
 -   Un progetto DevOps di Azure è stato preparato per l'esecuzione della pipeline di rilascio.
@@ -82,7 +82,7 @@ Aggiungere un'attività di distribuzione Azure Resource Manager per creare o agg
     
     ![distribuzione di area di lavoro e pool](media/pools-resource-deploy.png)
 
-1. Opzionale Aggiungere **Azure PowerShell** per l'assegnazione del ruolo dell'area di lavoro Concedi e aggiorna. Se si usa la pipeline di versione per creare un'area di lavoro sinapsi, è necessario aggiungere l'entità servizio della pipeline come amministratore dell'area di lavoro predefinito. È possibile eseguire PowerShell per concedere ad altri account l'accesso all'area di lavoro. 
+1. Opzionale Aggiungere **Azure PowerShell** per l'assegnazione del ruolo dell'area di lavoro Concedi e aggiorna. Se si usa la pipeline di versione per creare un'area di lavoro sinapsi, l'entità servizio della pipeline viene aggiunta come amministratore dell'area di lavoro predefinito. È possibile eseguire PowerShell per concedere ad altri account l'accesso all'area di lavoro. 
     
     ![Concedi autorizzazione](media/release-creation-grant-permission.png)
 
@@ -115,12 +115,8 @@ Dopo aver salvato tutte le modifiche, è possibile selezionare **Crea versione**
 Se si usa l'integrazione git con l'area di lavoro sinapsi e si ha una pipeline di integrazione continua/distribuzione continua che sposta le modifiche dallo sviluppo al test e quindi alla produzione, è consigliabile eseguire le procedure consigliate seguenti:
 
 -   **Integrazione di Git**. Configurare solo l'area di lavoro sinapsi di sviluppo con l'integrazione git. Le modifiche alle aree di lavoro di test e produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione git.
--   **Preparare i pool prima della migrazione degli artefatti**. Se si alleghino pool allo script SQL o al notebook nell'area di lavoro di sviluppo, è previsto lo stesso nome dei pool in ambienti diversi. 
--   **Altre**. Vedere [altre procedure consigliate](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Preparare i pool prima della migrazione degli artefatti**. Se è presente un notebook o uno script SQL collegato ai pool nell'area di lavoro di sviluppo, è previsto lo stesso nome dei pool in ambienti diversi. 
+-   **Infrastruttura come codice (IaC)**. La gestione dell'infrastruttura (reti, macchine virtuali, bilanciamenti del carico e topologia di connessione) in un modello descrittivo usa lo stesso controllo delle versioni usato dal team di DevOps per il codice sorgente. 
+-   **Altre**. Vedere le [procedure consigliate per gli artefatti ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
-## <a name="unsupported-features"></a>Funzionalità non supportate
-
-- Sinapsi Studio non consente il cherry-picking di commit o la pubblicazione selettiva delle risorse. 
-- Sinapsi Studio non supporta la personalizzazione del messaggio di commit.
-- Per impostazione predefinita, verrà eseguito il commit dell'azione Delete direttamente in git
 

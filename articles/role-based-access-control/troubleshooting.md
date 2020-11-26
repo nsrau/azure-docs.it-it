@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490747"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184264"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -151,7 +151,7 @@ Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia del
 }
 ```
 
-Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-role-assignment)
+Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-a-role-assignment)
 
 In PowerShell, se si tenta di rimuovere le assegnazioni di ruolo utilizzando l'ID oggetto e il nome della definizione di ruolo e più di un'assegnazione di ruolo corrisponde ai parametri, verrà visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo". L'output seguente mostra un esempio del messaggio di errore:
 
@@ -223,14 +223,14 @@ Analogamente a quanto accade con le app Web, alcune funzionalità del blade dell
 
 Le macchine virtuali sono correlate a nomi di dominio, reti virtuali, account di archiviazione e regole di avviso.
 
-Gli elementi seguenti richiedono accesso **in scrittura** alla **macchina virtuale** :
+Gli elementi seguenti richiedono accesso **in scrittura** alla **macchina virtuale**:
 
 * Endpoint  
 * Indirizzi IP  
 * Dischi  
 * Estensioni  
 
-Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina virtuale** che al **gruppo di risorse** , così come al nome di dominio a cui appartiene:  
+Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina virtuale** che al **gruppo di risorse**, così come al nome di dominio a cui appartiene:  
 
 * Set di disponibilità  
 * Set con carico bilanciato  

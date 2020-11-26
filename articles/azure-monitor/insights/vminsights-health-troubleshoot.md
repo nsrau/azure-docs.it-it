@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 048230bb85d2ac599efc6bd3fb326f98038cce57
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2aa83a861697882127c75eb696807f604c3061f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687023"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184553"
 ---
 # <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Risolvere i problemi di Monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)
 Questo articolo descrive le procedure di risoluzione dei problemi che è possibile eseguire in caso di problemi con Monitoraggio di Azure per le macchine virtuali integrità.
@@ -42,7 +42,7 @@ Verificare che l'identità assegnata dal sistema sia abilitata nella macchina vi
 Verificare che la regola di raccolta dati che specifica l'estensione di integrità come origine dati sia associata alla macchina virtuale.
 
 ## <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>Messaggio di errore per una richiesta non valida a causa di autorizzazioni insufficienti
-Questo errore indica che il provider di risorse **Microsoft. WorkloadMonitor** non è stato registrato nella sottoscrizione. Per informazioni dettagliate sulla registrazione del provider di risorse, vedere [provider e tipi di risorse di Azure](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) . 
+Questo errore indica che il provider di risorse **Microsoft. WorkloadMonitor** non è stato registrato nella sottoscrizione. Per informazioni dettagliate sulla registrazione del provider di risorse, vedere [provider e tipi di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) . 
 
 ![Richiesta non valida](media/vminsights-health-troubleshoot/bad-request.png)
 

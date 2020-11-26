@@ -3,12 +3,12 @@ title: Rilevamento intelligente in Azure Application Insights | Microsoft Docs
 description: Application Insights esegue automaticamente un'analisi approfondita dei dati di telemetria dell'app e segnala potenziali problemi.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 24ed8eefb7e07930cbd123fbe4081d555f0c27c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305874"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186253"
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights
  Il rilevamento intelligente segnala automaticamente i potenziali problemi di prestazioni e le anomalie degli errori nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](./app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
@@ -55,10 +55,9 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Esplora metriche](../platform/metrics-charts.md)
 * [Esplora ricerche](./diagnostic-search.md)
-* [Linguaggio avanzato di query di Analisi](../log-query/get-started-portal.md)
+* [Linguaggio avanzato di query di Analisi](../log-query/log-analytics-tutorial.md)
 
 Il rilevamento intelligente è completamente automatico, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
 * [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
-* [Test Web di disponibilità](./monitor-web-app-availability.md) 
-
+* [Test Web di disponibilità](./monitor-web-app-availability.md)

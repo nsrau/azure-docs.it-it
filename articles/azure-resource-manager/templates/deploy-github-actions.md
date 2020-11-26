@@ -4,12 +4,12 @@ description: Viene illustrato come distribuire modelli di Azure Resource Manager
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf705f68544c4c4e0db55d4a375e1e50530c8957
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905260"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185709"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuire modelli di Azure Resource Manager tramite GitHub Actions
 
@@ -151,10 +151,10 @@ Dato che il flusso di lavoro è configurato per essere attivato dal file del flu
 1. Selezionare il flusso di lavoro per aprirlo.
 1. Selezionare **Esegui ARM deploy** dal menu per verificare la distribuzione.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 Quando il gruppo di risorse e il repository non sono più necessari, pulire le risorse distribuite eliminando il gruppo di risorse e il repository GitHub. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare il primo modello ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Creare il primo modello ARM](./template-tutorial-create-first-template.md)

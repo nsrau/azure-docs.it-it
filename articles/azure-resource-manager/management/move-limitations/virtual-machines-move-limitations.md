@@ -2,13 +2,13 @@
 title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in un gruppo di risorse
 description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: ace1fb6bf3944df539ec8f7301357e67d2b315a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317107"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184077"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -19,7 +19,6 @@ Questo articolo descrive gli scenari attualmente non supportati e i passaggi per
 Non sono ancora supportati gli scenari seguenti:
 
 * Non è possibile spostare i set di scalabilità di macchine virtuali con SKU standard Load Balancer o IP pubblico dello SKU standard.
-* Le macchine virtuali create dalle risorse del Marketplace con i piani collegati non possono essere spostate tra le sottoscrizioni. Effettuare il deprovisioning della macchina virtuale nella sottoscrizione corrente e ridistribuirla nella nuova sottoscrizione.
 * Non è possibile spostare le macchine virtuali in una rete virtuale esistente in una nuova sottoscrizione quando non si spostano tutte le risorse nella rete virtuale.
 * Le macchine virtuali con priorità bassa e i set di scalabilità di macchine virtuali con priorità bassa non possono essere spostati tra gruppi di risorse o sottoscrizioni.
 * Non è possibile spostare le macchine virtuali in un set di disponibilità singolarmente.
@@ -36,6 +35,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
 
+## <a name="virtual-machines-with-marketplace-plans"></a>Macchine virtuali con piani di Marketplace
+
+Le macchine virtuali create dalle risorse del Marketplace con i piani collegati non possono essere spostate tra le sottoscrizioni. Per ovviare a questa limitazione, è possibile effettuare il deprovisioning della macchina virtuale nella sottoscrizione corrente e distribuirla nuovamente nella nuova sottoscrizione. La procedura seguente consente di ricreare la macchina virtuale nella nuova sottoscrizione. Tuttavia, potrebbero non funzionare per tutti gli scenari. Se il piano non è più disponibile nel Marketplace, questa procedura non funzionerà.
+
+1. Copiare le informazioni relative al piano.
+
+1. Clonare il disco del sistema operativo nella sottoscrizione di destinazione oppure spostare il disco originale dopo l'eliminazione della macchina virtuale dalla sottoscrizione di origine.
+
+1. Nella sottoscrizione di destinazione accettare le condizioni del Marketplace per il piano. È possibile accettare i termini eseguendo il comando PowerShell seguente:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   In alternativa, è possibile creare una nuova istanza di una macchina virtuale con il piano tramite il portale. È possibile eliminare la macchina virtuale dopo aver accettato i termini nella nuova sottoscrizione.
+
+1. Nella sottoscrizione di destinazione ricreare la macchina virtuale dal disco del sistema operativo clonato usando PowerShell, l'interfaccia della riga di comando o un modello di Azure Resource Manager. Includere il piano del Marketplace collegato al disco. Le informazioni sul piano devono corrispondere al piano acquistato nella nuova sottoscrizione.
+
 ## <a name="virtual-machines-with-azure-backup"></a>Macchine virtuali con backup di Azure
 
 Per spostare le macchine virtuali configurate con backup di Azure, è necessario eliminare i punti di ripristino dall'insieme di credenziali.
@@ -44,7 +61,7 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
 
 ### <a name="portal"></a>Portale
 
-1. Arrestare temporaneamente il backup e conservare i dati di backup.
+1. Arrestare temporaneamente il backup e salvare i dati di backup.
 2. Per spostare le macchine virtuali configurate con backup di Azure, seguire questa procedura:
 
    1. Trovare il percorso della macchina virtuale.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea2b8deb07a899ab35ddd761df3e3ddb413dd45d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509071"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183771"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -29,7 +29,7 @@ Esistono due tipi di Runbook Worker: sistema e utente. La tabella seguente descr
 
 Un ruolo di lavoro ibrido per Runbook può essere eseguito nel sistema operativo Windows o Linux e questo ruolo si basa sull' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) che invia report a un' [area di lavoro log Analytics](../azure-monitor/platform/design-logs-deployment.md)di monitoraggio di Azure. L'area di lavoro non solo consente di monitorare il computer per il sistema operativo supportato, ma anche di scaricare i componenti necessari per installare il ruolo di lavoro ibrido per Runbook.
 
-Quando [Gestione aggiornamenti](update-management/update-mgmt-overview.md) di automazione di Azure è abilitata, tutti i computer connessi all'area di lavoro log Analytics vengono automaticamente configurati come ruolo di lavoro ibrido per Runbook di sistema.
+Quando [Gestione aggiornamenti](./update-management/overview.md) di automazione di Azure è abilitata, tutti i computer connessi all'area di lavoro log Analytics vengono automaticamente configurati come ruolo di lavoro ibrido per Runbook di sistema.
 
 Ogni utente Hybrid Runbook Worker è membro di un gruppo di ruolo di lavoro ibrido per Runbook specificato durante l'installazione del ruolo di lavoro. Un gruppo può includere un solo thread di lavoro, ma è possibile includere più ruoli di lavoro in un gruppo per la disponibilità elevata. Ogni computer può ospitare un ruolo di lavoro ibrido per Runbook per un account di automazione. non è possibile registrare il ruolo di lavoro ibrido tra più account di automazione. Questo perché un ruolo di lavoro ibrido può restare in ascolto solo di processi da un singolo account di automazione. Per i computer che ospitano il ruolo di lavoro ibrido per Runbook di sistema gestito da Gestione aggiornamenti, possono essere aggiunti a un gruppo di lavoro ibrido per Runbook. È tuttavia necessario usare lo stesso account di automazione sia per Gestione aggiornamenti che per l'appartenenza al gruppo di lavoro ibrido per Runbook.
 
@@ -99,7 +99,7 @@ Il ruolo di lavoro ibrido per Runbook di automazione di Azure può essere usato 
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Indirizzi di Gestione aggiornamenti per i ruoli di lavoro ibridi per runbook
 
-Oltre agli indirizzi e alle porte standard richiesti per il ruolo di lavoro ibrido per Runbook, Gestione aggiornamenti dispone di requisiti di configurazione di rete aggiuntivi descritti nella sezione relativa alla [pianificazione della rete](update-management/update-mgmt-overview.md#ports) .
+Oltre agli indirizzi e alle porte standard richiesti per il ruolo di lavoro ibrido per Runbook, Gestione aggiornamenti dispone di requisiti di configurazione di rete aggiuntivi descritti nella sezione relativa alla [pianificazione della rete](./update-management/overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>State Configuration di Automazione di Azure in un ruolo di lavoro ibrido per runbook
 

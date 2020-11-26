@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ec40e209d522daf882b8c704c7de6a1fb6aa29f9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676089"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183941"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articoli su come connettersi al database SQL di Azure e all'istanza gestita di SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Il documento seguente include collegamenti ad esempi di Azure che mostrano come 
 | Guida introduttiva | Descrizione |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Questa guida di avvio rapido illustra come usare SSMS per connettersi a un database e quindi usare istruzioni Transact-SQL per eseguire query e inserire, eliminare e aggiornare dati nel database.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Questa guida di avvio rapido illustra come usare Azure Data Studio per connettersi a un database e quindi usare istruzioni Transact-SQL (T-SQL) per creare il database TutorialDB usato nelle esercitazioni di Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Questa guida di avvio rapido illustra come usare Azure Data Studio per connettersi a un database e quindi usare istruzioni Transact-SQL (T-SQL) per creare il database TutorialDB usato nelle esercitazioni di Azure Data Studio.|
 |[Azure portal](connect-query-portal.md)|Questa guida di avvio rapido illustra come usare l'editor di query per connettersi a un database (solo database SQL di Azure) e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[Visual Studio Code](connect-query-vscode.md)|Questa guida di avvio rapido illustra come usare Visual Studio Code per connettersi a un database e quindi come usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[.NET con Visual Studio](connect-query-dotnet-visual-studio.md)|Questa guida di avvio rapido illustra come usare .NET Framework per creare un programma C# con Visual Studio per connettersi a un database e usare istruzioni Transact-SQL per eseguire query sui dati.|

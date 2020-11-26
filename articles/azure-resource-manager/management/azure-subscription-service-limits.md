@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577839"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186202"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -96,7 +96,7 @@ I piano tariffari determinano la capacità e i limiti del servizio di ricerca. S
 
 * Il servizio multi-tenant **gratuito** , condiviso con altri Sottoscrittori di Azure, è destinato a progetti di valutazione e di sviluppo di piccole dimensioni.
 * **Basic** fornisce risorse di calcolo dedicate per i carichi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query a disponibilità elevata.
-* **Standard** , che include S1, S2, S3 e S3 High Density, è destinato a carichi di lavoro di produzione di dimensioni maggiori. All'interno del livello standard esistono più livelli, in modo che sia possibile scegliere una configurazione di risorsa più adatta al proprio profilo di carico di lavoro.
+* **Standard**, che include S1, S2, S3 e S3 High Density, è destinato a carichi di lavoro di produzione di dimensioni maggiori. All'interno del livello standard esistono più livelli, in modo che sia possibile scegliere una configurazione di risorsa più adatta al proprio profilo di carico di lavoro.
 
 **Limiti per ogni sottoscrizione**
 
@@ -398,7 +398,7 @@ Per altre informazioni, vedere [dimensioni delle macchine virtuali](../../virtua
 
 #### <a name="disk-encryption-sets"></a>Set di crittografia del disco
 
-Esiste una limitazione di 50 set di crittografia del disco per area, per sottoscrizione. Per ulteriori informazioni, vedere la documentazione sulla crittografia per le macchine virtuali [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) . Se è necessario aumentare la quota, contattare il supporto tecnico di Azure.
+Esiste una limitazione di 50 set di crittografia del disco per area, per sottoscrizione. Per ulteriori informazioni, vedere la documentazione sulla crittografia per le macchine virtuali [Linux](../../virtual-machines/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/disk-encryption.md#restrictions) . Se è necessario aumentare la quota, contattare il supporto tecnico di Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Dischi delle macchine virtuali gestiti
 

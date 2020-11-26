@@ -3,12 +3,12 @@ title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370125"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184026"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -18,7 +18,7 @@ I tipi di risorsa contrassegnati con **Sì** vengono eliminati quando il tipo no
 
 I tipi di risorsa contrassegnati con No non vengono eliminati automaticamente quando non sono **presenti** nel modello; Tuttavia, vengono eliminati se la risorsa padre viene eliminata. Per una descrizione completa del comportamento, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 
-Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](cross-scope-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
+Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](./deploy-to-resource-group.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
 
 Le risorse sono elencate in base allo spazio dei nomi del provider di risorse. Per associare uno spazio dei nomi del provider di risorse al nome del servizio di Azure, vedere [provider di risorse per i servizi di Azure](../management/azure-services-resource-providers.md).
 

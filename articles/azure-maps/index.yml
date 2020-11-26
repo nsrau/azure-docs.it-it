@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 30606a38660e3113c6dfce4607333ef77584040f
-  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+  ms.openlocfilehash: 0038fff540df95f6c6e24275eb39ef6bc1ecbe75
+  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92927465"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96186321"
 landingContent:
 - title: Informazioni su Mappe di Azure
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Copertura di Mappe di Azure
-      url: render-coverage.md
+      url: geographic-coverage.md
     - text: Supporto della localizzazione
       url: supported-languages.md
     - text: Stili di mappa supportati

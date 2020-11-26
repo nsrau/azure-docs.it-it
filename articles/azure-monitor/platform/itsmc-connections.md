@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842295"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186066"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -46,7 +46,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 > [!NOTE]
 > 
 > - Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
-> - Per usare i [modelli](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
+> - Per usare i [modelli](./itsmc-overview.md#template-definitions) personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
@@ -432,4 +432,3 @@ Per generare l'ID client o la chiave per Cherwell, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

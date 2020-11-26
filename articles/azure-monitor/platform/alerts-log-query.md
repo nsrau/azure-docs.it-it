@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c9c76816b5d1ee2eedfb7e54645e056906feef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294360"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186627"
 ---
 # <a name="optimizing-log-alert-queries"></a>Ottimizzazione delle query di avviso del log
 Questo articolo descrive come scrivere e convertire le query di [Avviso del log](alerts-unified-log.md) per ottenere prestazioni ottimali. Le query ottimizzate riducono la latenza e il carico degli avvisi che vengono eseguiti di frequente.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Come iniziare a scrivere una query del log degli avvisi
 
-Le query di avviso iniziano a [eseguire query sui dati di log in log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) che indica il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/saved-queries.md) per comprendere cosa è possibile individuare. È anche possibile [iniziare a scrivere una query personalizzata](../log-query/get-started-portal.md). 
+Le query di avviso iniziano a [eseguire query sui dati di log in log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) che indica il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) per comprendere cosa è possibile individuare. È anche possibile [iniziare a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Query che indicano il problema e non l'avviso
 

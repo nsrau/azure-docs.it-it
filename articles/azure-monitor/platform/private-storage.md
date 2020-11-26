@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908252"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184094"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
 
@@ -64,7 +64,7 @@ Archiviazione di Azure crittografa tutti i dati inattivi in un account di archiv
 L'account di archiviazione e l'insieme di credenziali chiave devono essere nella stessa area, ma possono appartenere a sottoscrizioni diverse. Per altre informazioni sulla crittografia di archiviazione di Azure e sulla gestione delle chiavi, vedere [crittografia di archiviazione di Azure per dati](../../storage/common/storage-service-encryption.md)inattivi.
 
 ##### <a name="apply-cmk-to-your-storage-accounts"></a>Applicare CMK agli account di archiviazione
-Per configurare l'account di archiviazione di Azure in modo da usare chiavi gestite dal cliente con Azure Key Vault, usare il [portale di Azure](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) o l' [interfaccia](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)della riga di comando. 
+Per configurare l'account di archiviazione di Azure in modo da usare chiavi gestite dal cliente con Azure Key Vault, usare il [portale di Azure](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o l' [interfaccia](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)della riga di comando. 
 
 ## <a name="managing-linked-storage-accounts"></a>Gestione degli account di archiviazione collegati
 

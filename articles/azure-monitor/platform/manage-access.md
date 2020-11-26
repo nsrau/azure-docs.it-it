@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 234ef58920a9f896d3e8ebcc561562ea7ceb2708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536677"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186423"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -48,7 +48,7 @@ Per comprendere i concetti relativi ai log relativi alle strategie di accesso e 
 
 ![Modificare la modalità di accesso all'area di lavoro](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+### <a name="using-powershell"></a>Uso di PowerShell
 
 Usare il comando seguente per esaminare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione:
 
@@ -106,7 +106,7 @@ A ogni area di lavoro possono essere associati più account, ognuno dei quali pu
 
 Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
-|Azione |Autorizzazioni di Azure necessarie |Note |
+|Operazione |Autorizzazioni di Azure necessarie |Note |
 |-------|-------------------------|------|
 | Aggiunta e rimozione di soluzioni di monitoraggio | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Queste autorizzazioni devono essere concesse a livello di gruppo di risorse o di sottoscrizione. |
 | Modifica del piano tariffario | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -137,9 +137,9 @@ Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 | Type    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
-| Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Azione | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Azione | `Microsoft.Support/*` | Consente di aprire casi di supporto |
+| Operazione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Operazione | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Operazione | `Microsoft.Support/*` | Consente di aprire casi di supporto |
 |Non azione | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impedisce la lettura della chiave dell'area di lavoro, necessaria per l'uso dell'API di raccolta dati e per l'installazione degli agenti. Ciò impedisce all'utente di aggiungere nuove risorse all'area di lavoro |
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
@@ -285,7 +285,7 @@ Gli esempi precedenti definiscono un elenco di tabelle consentite. Questo esempi
 
 ### <a name="custom-logs"></a>Log personalizzati
 
- I log personalizzati vengono creati dalle origini dati, ad esempio i log personalizzati e l'API dell'agente di raccolta dati HTTP. Il modo più semplice per identificare il tipo di log consiste nel controllare le tabelle elencate [in log personalizzati nello schema del log](../log-query/get-started-portal.md#understand-the-schema).
+ I log personalizzati vengono creati dalle origini dati, ad esempio i log personalizzati e l'API dell'agente di raccolta dati HTTP. Il modo più semplice per identificare il tipo di log consiste nel controllare le tabelle elencate [in log personalizzati nello schema del log](../log-query/log-analytics-tutorial.md#table-schema).
 
  Non è possibile concedere l'accesso ai singoli log personalizzati, ma è possibile concedere l'accesso a tutti i log personalizzati. Per creare un ruolo con accesso a tutti i log personalizzati, creare un ruolo personalizzato utilizzando le azioni seguenti:
 

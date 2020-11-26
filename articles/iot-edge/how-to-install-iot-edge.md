@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109001"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185097"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installare o disinstallare il runtime di Azure IoT Edge
 
@@ -51,7 +51,7 @@ Preparare il dispositivo per l'accesso ai pacchetti di installazione Microsoft.
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Estensione Raspbian**:
+   * **Estensione del sistema operativo Raspberry Pi**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list

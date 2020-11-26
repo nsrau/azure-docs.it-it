@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9111a16a4264c4b225eaf0888fc09bd1bba07ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6672fd41dbd199940d663c4f7e1cb7f3b1936ce9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372120"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185777"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gestire le risorse di Azure usando l'interfaccia della riga di comando
 
@@ -61,7 +61,7 @@ Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Re
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Distribuire le risorse a più sottoscrizioni o gruppi di risorse
 
-In genere si distribuiscono tutte le risorse del modello in un unico gruppo di risorse, ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Per altre informazioni, vedere [distribuire risorse di Azure a più sottoscrizioni o gruppi di risorse](../templates/cross-scope-deployment.md).
+In genere si distribuiscono tutte le risorse del modello in un unico gruppo di risorse, ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Per altre informazioni, vedere [distribuire risorse di Azure a più sottoscrizioni o gruppi di risorse](../templates/deploy-to-resource-group.md).
 
 ## <a name="delete-resources"></a>Eliminare le risorse
 

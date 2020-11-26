@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107947"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186525"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
 Monitoraggio di Azure è basato su una [piattaforma di dati di monitoraggio comune](data-platform.md) che include [log](data-platform-logs.md) e [metriche](data-platform-metrics.md). La raccolta dei dati in questa piattaforma consente di analizzare i dati di più risorse insieme usando un set comune di strumenti in monitoraggio di Azure. I dati di monitoraggio possono anche essere inviati ad altre posizioni per supportare determinati scenari e alcune risorse possono scrivere in altre posizioni prima di poter essere raccolti in log o metriche.
@@ -164,7 +164,7 @@ Quando si abilita Application Insights per un'applicazione mediante l'installazi
 |            | I dati di snapshot di debug acquisiti per un subset di eccezioni vengono archiviati in archiviazione di Azure. Usare Application Insights nel portale di Azure per eseguire il download per l'analisi locale.  | [Funzionamento degli snapshot](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>Soluzioni di monitoraggio e informazioni dettagliate
-Il [monitoraggio delle soluzioni](../insights/solutions.md) e delle [informazioni dettagliate](../insights/insights-overview.md) raccoglie i dati per fornire informazioni aggiuntive sul funzionamento di un servizio o di un'applicazione specifica. Possono indirizzare le risorse in diversi livelli di applicazione e anche più livelli.
+Il [monitoraggio delle soluzioni](../insights/solutions.md) e delle [informazioni dettagliate](../monitor-reference.md) raccoglie i dati per fornire informazioni aggiuntive sul funzionamento di un servizio o di un'applicazione specifica. Possono indirizzare le risorse in diversi livelli di applicazione e anche più livelli.
 
 ### <a name="monitoring-solutions"></a>Soluzioni di monitoraggio
 
@@ -199,7 +199,7 @@ Oltre ai livelli standard di un'applicazione, potrebbe essere necessario monitor
 ## <a name="other-services"></a>Altri servizi
 Altri servizi in Azure scrivono i dati nella piattaforma dati di monitoraggio di Azure. Ciò consente di analizzare i dati raccolti da questi servizi con i dati raccolti da monitoraggio di Azure e di sfruttare gli stessi strumenti di analisi e visualizzazione.
 
-| Servizio | Destination | Descrizione | Informazioni di riferimento |
+| Service | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|:---|
 | [Centro sicurezza di Azure](../../security-center/index.yml) | Log di Monitoraggio di Azure | Il Centro sicurezza di Azure archivia i dati di sicurezza raccolti in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di log raccolti da monitoraggio di Azure.  | [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../../sentinel/index.yml) | Log di Monitoraggio di Azure | Azure Sentinel archivia i dati raccolti da origini dati diverse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di log raccolti da monitoraggio di Azure.  | [Connettere le origini dati](../../sentinel/quickstart-onboard.md) |
