@@ -13,7 +13,7 @@
       href: whats-new-microsoft-365-government.md
     - name: Archivio delle novità di Azure AD
       href: whats-new-archive.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Accedere al portale e creare un tenant
@@ -79,6 +79,46 @@
               href: sync-ldap.md
             - name: Sincronizzazione SCIM
               href: sync-scim.md
+        - name: Sviluppare per la resilienza
+          items:
+            - name: Panoramica
+              href: resilience-overview.md
+            - name: Linee guida per l'infrastruttura
+              items:
+                - name: Panoramica dell'infrastruttura
+                  href: resilience-in-infrastructure.md
+                - name: Gestione delle credenziali
+                  href: resilience-in-credentials.md
+                - name: Stati del dispositivo
+                  href: resilience-with-device-states.md
+                - name: Valutazione continua dell'accesso
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: Autenticazione di utenti esterni
+                  href: resilience-b2b-authentication.md
+                - name: Autenticazione ibrida
+                  href: resilience-in-hybrid.md
+                - name: Proxy dell'applicazione
+                  href: resilience-on-premises-access.md
+            - name: Linee guida per Azure AD B2C
+              items:
+                - name: Introduzione alla resilienza di Azure AD B2C
+                  href: resilience-b2c.md
+                - name: Esperienza utente finale
+                  href: resilient-end-user-experience.md
+                - name: Interfacce con processi esterni
+                  href: resilient-external-processes.md
+                - name: Procedure consigliate per sviluppatori di Azure AD B2C
+                  href: resilience-b2c-developer-best-practices.md
+                - name: Monitoraggio e analisi
+                  href: resilience-with-monitoring-alerting.md
+            - name: Linee guida per lo sviluppo di applicazioni
+              items:
+                - name: Cenni preliminari sullo sviluppo
+                  href: resilience-app-development-overview.md
+                - name: Applicazioni client
+                  href: resilience-client-app.md
+                - name: Applicazioni daemon
+                  href: resilience-daemon-app.md
         - name: Autorità di certificazione usate in Azure
           href: certificate-authorities.md
     - name: Guida alla distribuzione

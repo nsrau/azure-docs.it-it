@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 07a80fcd1ec62b051a660bdac696f89e3b7c42b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93353991"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002460"
 ---
 1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Selezionare Cache di Azure per Redis.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="L'opzione Crea una risorsa evidenziata nel riquadro di spostamento sinistro.":::
 
    
 1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Selezionare Cache di Azure per Redis.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="L'opzione Database evidenziata in Nuovo e l'opzione Cache di Azure per Redis evidenziata.":::
    
 1. Nella pagina **Nuova cache Redis** configurare le impostazioni per la nuova cache.
    
@@ -54,4 +54,4 @@ ms.locfileid: "93353991"
 
 1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso. 
