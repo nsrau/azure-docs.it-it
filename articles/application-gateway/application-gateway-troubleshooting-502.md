@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d44f9109540c3899ab50bd5c4c02afa19045bafb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397706"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182938"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
@@ -95,7 +95,7 @@ Nella tabella seguente sono elencati i valori associati al Probe di integrità p
 * Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta.
 * La chiamata a `http://127.0.0.1:port` deve restituire un codice risultato HTTP di 200. Questa operazione deve essere restituita entro il periodo di timeout di 30 secondi.
 * Verificare che la porta configurata sia aperta e che non siano presenti regole firewall o gruppi di sicurezza di rete di Azure, che bloccano il traffico in ingresso o in uscita sulla porta configurata.
-* Se le macchine virtuali classiche di Azure o il servizio cloud viene usato con un nome di dominio completo o un indirizzo IP pubblico, assicurarsi che venga aperto l' [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) corrispondente.
+* Se le macchine virtuali classiche di Azure o il servizio cloud viene usato con un nome di dominio completo o un indirizzo IP pubblico, assicurarsi che venga aperto l' [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente.
 * Se la macchina virtuale viene configurata tramite Azure Resource Manager ed è all'esterno della VNet in cui viene distribuito il gateway applicazione, è necessario configurare un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md) per consentire l'accesso alla porta desiderata.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemi con il probe di integrità personalizzato

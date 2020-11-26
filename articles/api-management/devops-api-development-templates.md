@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088880"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183159"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Integrazione continua/distribuzione continua per gestione API con modelli di Azure Resource Manager
 
@@ -36,19 +36,19 @@ Nell'immagine seguente viene illustrato l'approccio proposto.
 
 :::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="Diagramma che illustra DevOps con gestione API.":::
 
-In questo esempio sono disponibili due ambienti di distribuzione: *sviluppo* e *produzione* . Ognuno ha una propria istanza di gestione API. 
+In questo esempio sono disponibili due ambienti di distribuzione: *sviluppo* e *produzione*. Ognuno ha una propria istanza di gestione API. 
 
 * Gli sviluppatori di API hanno accesso all'istanza di sviluppo e possono usarlo per lo sviluppo e il test delle API. 
 * Un team designato denominato *editori API* gestisce l'istanza di produzione.
 
-La chiave di questo approccio proposto consiste nel proteggere tutte le configurazioni di gestione API nei [modelli Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). L'organizzazione deve tenere questi modelli in un sistema di controllo del codice sorgente come Git. Come illustrato nell'immagine, un repository del server di pubblicazione contiene tutte le configurazioni dell'istanza di gestione API di produzione in una raccolta di modelli:
+La chiave di questo approccio proposto consiste nel proteggere tutte le configurazioni di gestione API nei [modelli Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). L'organizzazione deve tenere questi modelli in un sistema di controllo del codice sorgente come Git. Come illustrato nell'immagine, un repository del server di pubblicazione contiene tutte le configurazioni dell'istanza di gestione API di produzione in una raccolta di modelli:
 
 |Modello  |Descrizione  |
 |---------|---------|
 |Modello di servizio     | Configurazioni a livello di servizio dell'istanza di gestione API, ad esempio il piano tariffario e i domini personalizzati.         |
 |Modelli condivisi     |  Risorse condivise in un'istanza di gestione API, ad esempio gruppi, prodotti e logger.    |
 |Modelli API     |  Configurazioni di API e relative sottorisorse: operazioni, criteri, impostazioni di diagnostica.        |
-|Modello master (Main)     |   Associa tutti gli elementi tramite il [collegamento](../azure-resource-manager/resource-group-linked-templates.md) a tutti i modelli e la loro distribuzione in ordine. Per distribuire tutte le configurazioni in un'istanza di gestione API, distribuire il modello principale. È anche possibile distribuire ogni modello singolarmente.       |
+|Modello master (Main)     |   Associa tutti gli elementi tramite il [collegamento](../azure-resource-manager/templates/linked-templates.md) a tutti i modelli e la loro distribuzione in ordine. Per distribuire tutte le configurazioni in un'istanza di gestione API, distribuire il modello principale. È anche possibile distribuire ogni modello singolarmente.       |
 
 Gli sviluppatori di API potranno creare un fork del repository del server di pubblicazione in un repository per sviluppatori e usare le modifiche per le API. Nella maggior parte dei casi, si concentrano sui modelli di API per le API e non è necessario modificare i modelli di servizio o condivisi.
 

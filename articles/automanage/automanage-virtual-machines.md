@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891503"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182853"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -28,7 +28,7 @@ Questo articolo illustra le informazioni relative a gestione automatici di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Gestione automatica di Azure per le macchine virtuali è un servizio che elimina la necessità di individuare, sapere come eseguire l'onboarding e come configurare determinati servizi in Azure che potrebbero trarre vantaggio dalla macchina virtuale. Questi servizi consentono di migliorare l'affidabilità, la sicurezza e la gestione per le macchine virtuali e sono considerati servizi di procedure consigliate di Azure, ad esempio [azure gestione aggiornamenti](../automation/update-management/update-mgmt-overview.md) e [backup di Azure](../backup/backup-overview.md) , solo per citarne alcuni.
+Gestione automatica di Azure per le macchine virtuali è un servizio che elimina la necessità di individuare, sapere come eseguire l'onboarding e come configurare determinati servizi in Azure che potrebbero trarre vantaggio dalla macchina virtuale. Questi servizi consentono di migliorare l'affidabilità, la sicurezza e la gestione per le macchine virtuali e sono considerati servizi di procedure consigliate di Azure, ad esempio [azure gestione aggiornamenti](../automation/update-management/overview.md) e [backup di Azure](../backup/backup-overview.md) , solo per citarne alcuni.
 
 Dopo l'onboarding delle macchine virtuali in gestione automatica di Azure, ogni servizio Best Practice viene configurato automaticamente sulle impostazioni consigliate. Le procedure consigliate sono diverse per ogni servizio. Un esempio potrebbe essere backup di Azure, in cui la procedura consigliata potrebbe consistere nel eseguire il backup della macchina virtuale una volta al giorno e avere un periodo di conservazione di sei mesi.
 
@@ -69,7 +69,7 @@ Per tutti questi servizi, verrà eseguito automaticamente il caricamento, la con
 
 Nella portale di Azure è possibile abilitare la gestione automatica in una macchina virtuale esistente o quando si crea una nuova macchina virtuale. Per i passaggi concisi di questo processo, vedere la [Guida introduttiva alla gestione delle macchine virtuali](quick-create-virtual-machines-portal.md).
 
-Se è la prima volta che si Abilita la gestione automatica per la macchina virtuale, è possibile eseguire la ricerca nella portale di Azure per le **procedure consigliate per la gestione automatica-macchine virtuali di Azure** . Fare clic su **Abilita in una macchina virtuale esistente** , selezionare le macchine virtuali da caricare, fare clic su **Seleziona** , **Abilita** e termina.
+Se è la prima volta che si Abilita la gestione automatica per la macchina virtuale, è possibile eseguire la ricerca nella portale di Azure per le **procedure consigliate per la gestione automatica-macchine virtuali di Azure**. Fare clic su **Abilita in una macchina virtuale esistente**, selezionare le macchine virtuali da caricare, fare clic su **Seleziona**, **Abilita** e termina.
 
 L'unica volta in cui potrebbe essere necessario interagire con questa macchina virtuale per gestire questi servizi si trova nel caso in cui si sia tentato di correggere la macchina virtuale, ma non è stato possibile eseguire questa operazione. Se la macchina virtuale è stata risolta correttamente, verrà ripristinata la conformità senza avvisare dell'utente.
 
@@ -114,7 +114,7 @@ Nel portale di Azure esperienza, quando si Abilita la funzionalità di gestione 
 
 Nella portale di Azure passare alla pagina Gestione automatica **-procedure consigliate per macchine virtuali di Azure** in cui sono elencate tutte le macchine virtuali gestite automaticamente. Qui viene visualizzato lo stato complessivo di ogni macchina virtuale.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Onboarding intelligente dei servizi.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Elenco delle macchine virtuali configurate.":::
 
 Per ogni macchina virtuale elencata vengono visualizzati i dettagli seguenti: nome, profilo di configurazione, preferenza di configurazione, stato, account, sottoscrizione e gruppo di risorse.
 
@@ -123,7 +123,7 @@ Nella colonna **stato** possono essere visualizzati gli Stati seguenti:
 - *Configurato* : la macchina virtuale è configurata e non viene rilevata alcuna deviazione
 - *Non riuscito* : la macchina virtuale è stata spostata e non è stato possibile correggere
 
-Se lo **stato** viene visualizzato come *non riuscito* , è possibile risolvere i problemi di distribuzione tramite il gruppo di risorse in cui si trova la macchina virtuale. Passare a **gruppi di risorse** , selezionare il gruppo di risorse, fare clic su **distribuzioni** e vedere lo stato *non riuscito* insieme ai dettagli dell'errore.
+Se lo **stato** viene visualizzato come *non riuscito*, è possibile risolvere i problemi di distribuzione tramite il gruppo di risorse in cui si trova la macchina virtuale. Passare a **gruppi di risorse**, selezionare il gruppo di risorse, fare clic su **distribuzioni** e vedere lo stato *non riuscito* insieme ai dettagli dell'errore.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Disabilitazione di automanage per le macchine virtuali
@@ -132,9 +132,9 @@ Se lo **stato** viene visualizzato come *non riuscito* , è possibile risolvere 
 
 Per eseguire questa operazione nella portale di Azure, passare alla pagina **gestione automatica-procedure consigliate per macchine virtuali di Azure** in cui sono elencate tutte le macchine virtuali gestite automaticamente. Selezionare la casella di controllo accanto alla macchina virtuale che si vuole disabilitare da gestione automatica, quindi fare clic sul pulsante **Disabilita automanage** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Onboarding intelligente dei servizi.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabilitazione di Gestione automatica in una macchina virtuale.":::
 
-Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare clic su **Disabilita** .
+Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare clic su **Disabilita**.
 
 > [!NOTE]
 > La disabilitazione della gestione in una macchina virtuale comporta il comportamento seguente:

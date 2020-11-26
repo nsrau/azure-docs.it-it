@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d73cf3336afad83fadf6f56606161f523e202280
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003022"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180541"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso di Azure AD Application Proxy per pubblicare app locali per gli utenti remoti
 
@@ -95,7 +95,7 @@ Application Proxy funziona con le app che usano il protocollo di autenticazione 
 
 Application Proxy supporta anche i protocolli di autenticazione seguenti con integrazione di terze parti o in scenari di configurazione specifici:
 
-* [**Autenticazione basata su intestazione**](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers). Questo metodo di accesso usa un servizio di autenticazione di terze parti chiamato PingAccess e viene usato quando l'applicazione usa le intestazioni per l'autenticazione. In questo scenario l'autenticazione viene gestita da PingAccess.
+* [**Autenticazione basata su intestazione**](./application-proxy-configure-single-sign-on-with-headers.md). Questo metodo di accesso usa un servizio di autenticazione di terze parti chiamato PingAccess e viene usato quando l'applicazione usa le intestazioni per l'autenticazione. In questo scenario l'autenticazione viene gestita da PingAccess.
 * [**Autenticazione basata su moduli o su password**](application-proxy-configure-single-sign-on-password-vaulting.md). Con questo metodo di autenticazione, gli utenti eseguono la procedura di accesso all'applicazione con nome utente e password solo la prima volta. Agli accessi successivi sarà Azure AD a indicare il nome utente e la password all'applicazione. In questo scenario l'autenticazione viene gestita da Azure AD.
 * [**Autenticazione SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). L'accesso Single Sign-On basato su SAML è supportato per le applicazioni che usano protocolli SAML 2.0 o WS-Federation. Con l'accesso Single Sign-On SAML, Azure AD esegue l'autenticazione all'applicazione usando l'account Azure AD dell'utente.
 

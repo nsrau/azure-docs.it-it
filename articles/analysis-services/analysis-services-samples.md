@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 920cc5142d14308fce412ad44543ddc46dc1663e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 24c2fe9b6bbb0b5a40edd395bfe669abfc8c9adc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324374"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183176"
 ---
 # <a name="azure-analysis-services-samples"></a>Esempi di Azure Analysis Services
 
@@ -28,7 +28,7 @@ Il repository di [Analysis Services](https://github.com/Microsoft/Analysis-Servi
 
 ## <a name="sample-database-on-azure"></a>Database di esempio in Azure
 
-Azure sinapsi Analytics (in precedenza SQL Data Warehouse) fornisce un database AdventureWorksDW di esempio che può essere incluso in una risorsa di cui è stato effettuato il provisioning. Per altre informazioni, vedere [Guida introduttiva: creare ed eseguire query in un pool SQL dedicato in Azure sinapsi Analytics ](/azure/sql-data-warehouse/create-data-warehouse-portal).
+Azure sinapsi Analytics (in precedenza SQL Data Warehouse) fornisce un database AdventureWorksDW di esempio che può essere incluso in una risorsa di cui è stato effettuato il provisioning. Per altre informazioni, vedere [Guida introduttiva: creare ed eseguire query in un pool SQL dedicato in Azure sinapsi Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Database di esempio su GitHub
 

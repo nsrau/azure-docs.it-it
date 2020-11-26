@@ -4,12 +4,12 @@ description: Informazioni su come creare una funzione di Azure da una sottoscriz
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386963"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182530"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creare una funzione usando Azure for Students Starter
 
@@ -100,7 +100,7 @@ Azure for Students Starter offre l'accesso alla maggior parte delle funzionalit�
 È stata completata la creazione di un'app per le funzioni con una funzione Trigger HTTP semplice. È possibile ora esplorare gli strumenti locali, altri linguaggi, funzionalità di monitoraggio e integrazioni.
 
  * [Creare la prima funzione con Visual Studio](./functions-create-your-first-function-visual-studio.md)
- * [Creare la prima funzione con Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Creare la prima funzione con Visual Studio Code](./create-first-function-vs-code-csharp.md)
  * [Guida per gli sviluppatori JavaScript di Funzioni di Azure](./functions-reference-node.md)
  * [Usare Funzioni di Azure per connettersi al database SQL di Azure](./functions-scenario-database-table-cleanup.md)
  * [Trigger e associazioni HTTP di Funzioni di Azure](./functions-bindings-http-webhook.md)

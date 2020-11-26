@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e090b4c3b4ecc3870f060aba4b03be3abe2942ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83997010"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180711"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 
@@ -179,7 +179,7 @@ Pipeline e trigger hanno una relazione molti-a-molti (ad eccezione del trigger d
 ## <a name="schedule-trigger"></a>Trigger di pianificazione
 Un trigger di pianificazione esegue le pipeline con una pianificazione basata sul tempo reale. Questo trigger supporta opzioni di calendario periodiche e avanzate. Il trigger supporta, ad esempio, intervalli come "settimanale" o "Lunedì alle 17:00 e giovedì alle 21:00". Il trigger di pianificazione è flessibile perché il criterio del set di dati è indipendente e il trigger non distingue tra dati di serie temporali e non temporali.
 
-Per altre informazioni sui trigger di pianificazione e, per esempi, vedere [creare un trigger di pianificazione](how-to-create-schedule-trigger.md).
+Per ulteriori informazioni sui trigger di pianificazione e, per gli esempi, vedere [creare un trigger che esegue una pipeline in base a una pianificazione](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definizione del trigger di pianificazione
 Quando si crea un trigger di pianificazione, si specificano la pianificazione e la ricorrenza usando una definizione JSON.
@@ -239,9 +239,9 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 | --- | --- |
 | **startTime** | Valore data-ora. Per le pianificazioni di base, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. <!-- This property is optional. --> |
-| **Fuso orario** | Fuso orario. È attualmente supportato solo il fuso orario UTC. |
+| **Fuso orario** | Fuso orario. Per un elenco dei fusi orari supportati, vedere [creare un trigger per l'esecuzione di una pipeline in base a una pianificazione](how-to-create-schedule-trigger.md#time-zone-option). |
 | **ricorrenza** | Oggetto recurrence che specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando viene definito un oggetto recurrence, l'elemento **frequency** è obbligatorio. Gli altri elementi dell'oggetto recurrence sono facoltativi. |
-| **frequenza** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
+| **frequency** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
 | **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**. Il valore **frequency** determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni tre settimane. |
 | **pianificazione** | Pianificazione della ricorrenza per il trigger. Un trigger con un valore **frequency** specificato modifica la ricorrenza in base a una pianificazione di ricorrenza. La proprietà **schedule** contiene modifiche per la ricorrenza basate su minuti, ore, giorni della settimana, giorni del mese e numero della settimana. |
 
@@ -283,10 +283,10 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 | --- | --- | --- | --- | --- | --- |
-| **startTime** | string | Sì | Nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **ricorrenza** | object | Sì | Nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervallo** | d'acquisto | No | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **startTime** | string | Sì | nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **ricorrenza** | object | Sì | nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervallo** | Numero | No | 1 | Da 1 a 1000 | `"interval":10` |
+| **endTime** | string | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **pianificazione** | object | No | nessuno | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
@@ -375,7 +375,7 @@ Il trigger di finestra a cascata e il trigger di pianificazione funzionano entra
 
 La tabella seguente contiene un confronto del trigger di finestra a cascata e del trigger di pianificazione:
 
-| Item | Trigger di finestra a cascata | Trigger di pianificazione |
+| Elemento | Trigger di finestra a cascata | Trigger di pianificazione |
 | --- | --- | --- |
 | **Scenari di recupero delle informazioni** | Supportata. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportata. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
 | **Affidabilità** | 100% di affidabilità. Le esecuzioni della pipeline possono essere pianificate per tutte le finestre da una data di inizio specificata senza intervalli. | Meno affidabile. |

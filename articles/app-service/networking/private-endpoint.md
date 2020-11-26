@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183040"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso di endpoint privati per l'app Web di Azure
 
@@ -72,7 +72,7 @@ Ad esempio, la risoluzione dei nomi sarà:
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
-|cloudservicename.cloudapp.net|Una|40.122.110.154| 
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
 
 
 Quando si distribuisce un endpoint privato, la voce DNS viene aggiornata in modo che punti al nome canonico mywebapp.privatelink.azurewebsites.net.
@@ -83,7 +83,7 @@ Ad esempio, la risoluzione dei nomi sarà:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
-|cloudservicename.cloudapp.net|Una|40.122.110.154|<: questo IP pubblico non è l'endpoint privato. verrà visualizzato un errore 403.|
+|cloudservicename.cloudapp.net|A|40.122.110.154|<: questo IP pubblico non è l'endpoint privato. verrà visualizzato un errore 403.|
 
 È necessario configurare un server DNS privato o una zona privata di DNS di Azure, per i test è possibile modificare la voce host del computer di test.
 La zona DNS che è necessario creare è: **privatelink.azurewebsites.NET**. Registrare il record per l'app Web con un record A e l'IP dell'endpoint privato.
@@ -92,7 +92,7 @@ Ad esempio, la risoluzione dei nomi sarà:
 |Nome |Type |valore |Commento |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<: Azure crea questa voce nel DNS pubblico di Azure per puntare il servizio app al privatelink e questo è gestito da Microsoft|
-|mywebapp.privatelink.azurewebsites.net|Una|10.10.10.8|<: si gestisce questa voce nel sistema DNS per puntare all'indirizzo IP dell'endpoint privato|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<: si gestisce questa voce nel sistema DNS per puntare all'indirizzo IP dell'endpoint privato|
 
 Dopo questa configurazione DNS, è possibile raggiungere l'app Web privata con il nome predefinito mywebappname.azurewebsites.net. È necessario utilizzare questo nome, perché il certificato predefinito viene emesso per *. azurewebsites.net.
 
@@ -103,8 +103,8 @@ Per la console Kudu o l'API REST Kudu (distribuzione con gli agenti self-hosted 
 
 | Nome | Type | valore |
 |-----|-----|-----|
-| mywebapp.privatelink.azurewebsites.net | Una | PrivateEndpointIP | 
-| mywebapp.scm.privatelink.azurewebsites.net | Una | PrivateEndpointIP | 
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
 
 
@@ -144,7 +144,7 @@ Vengono introdotti regolarmente miglioramenti per la funzionalità di collegamen
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md

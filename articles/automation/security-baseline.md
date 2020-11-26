@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833300"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182751"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -80,7 +80,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 È possibile usare l'accesso just-in-time alla rete del Centro sicurezza di Azure per limitare l'esposizione delle macchine virtuali Windows agli indirizzi IP approvati per un periodo di tempo limitato. Usare anche le raccomandazioni per la protezione avanzata della rete adattiva del Centro sicurezza di Azure per le configurazioni NSG per limitare le porte e gli indirizzi IP di origine basati sul traffico effettivo e sull'Intelligence per le minacce
 
-* [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
+* [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -220,7 +220,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 * [Aree supportate per l'area di lavoro Log Analytics collegata](./how-to/region-mappings.md)
 
-* [Log di query Gestione aggiornamenti](./update-management/update-mgmt-query-logs.md)
+* [Log di query Gestione aggiornamenti](./update-management/query-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -270,7 +270,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 * [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Informazioni sulle query di log in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md)
+* [Informazioni sulle query di log in monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -600,7 +600,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 Quando si usano i ruoli di lavoro ibridi per Runbook, i dischi virtuali delle macchine virtuali vengono crittografati a riposo usando la crittografia lato server o la crittografia dischi di Azure (ADE). Crittografia dischi di Azure sfrutta la funzionalità BitLocker di Windows per crittografare i dischi gestiti con chiavi gestite dal cliente all'interno della macchina virtuale guest. La crittografia lato server con chiavi gestite dal cliente migliora la funzionalità Crittografia dischi di Azure poiché consente di usare qualsiasi tipo e immagine di sistema operativo per le macchine virtuali crittografando i dati nel servizio di archiviazione.
 
-* [Crittografia lato server di Azure Managed Disks](../virtual-machines/windows/disk-encryption.md)
+* [Crittografia lato server di Azure Managed Disks](../virtual-machines/disk-encryption.md)
 
 * [Crittografia dischi di Azure per macchine virtuali Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -646,9 +646,9 @@ Quando si usano i ruoli di lavoro ibridi per Runbook, i dischi virtuali delle ma
 
 Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali di Azure, usare Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Strumenti come System Center Updates Publisher (Updates Publisher) consentono di pubblicare aggiornamenti personalizzati in Windows Server Update Services (WSUS). Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
 
-* [Gestione aggiornamenti in Azure](./update-management/update-mgmt-overview.md)
+* [Gestione aggiornamenti in Azure](./update-management/overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](./update-management/manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -660,9 +660,9 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali di Azure, è possibile usare Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Strumenti come System Center Updates Publisher (Updates Publisher) consentono di pubblicare aggiornamenti personalizzati in Windows Server Update Services (WSUS). Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
 
-* [Soluzione Gestione aggiornamenti in Azure](./update-management/update-mgmt-overview.md)
+* [Soluzione Gestione aggiornamenti in Azure](./update-management/overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./update-management/manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1280,9 +1280,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
+**Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia Microsoft e l'esecuzione dei test di penetrazione del sito live e Red Teaming sull'infrastruttura cloud gestita da Microsoft, sui servizi e sulle applicazioni.
 
-* [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regole di ingaggio per i test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

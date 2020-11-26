@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683374"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182921"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Supporto del traffico elevato nel gateway applicazione
 
@@ -23,7 +23,7 @@ ms.locfileid: "94683374"
 
 È importante ridimensionare il gateway applicazione in base al traffico e con una quantità di buffer in modo da prepararsi a eventuali picchi di traffico o picchi e ridurre al minimo l'effetto che può avere nel QoS. I suggerimenti seguenti consentono di configurare il gateway applicazione con WAF per gestire il traffico aggiuntivo.
 
-Per l'elenco completo delle metriche offerte dal gateway applicazione, vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) . Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) per informazioni su come impostare gli avvisi per le metriche.
+Per l'elenco completo delle metriche offerte dal gateway applicazione, vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) . Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md) per informazioni su come impostare gli avvisi per le metriche.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Scalabilità per lo SKU del gateway applicazione V1 (SKU standard/WAF)
 
@@ -65,7 +65,7 @@ Controllare la metrica dell'unità di calcolo per l'ultimo mese. Metrica unità 
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Per ricevere notifiche relative a traffico o anomalie di utilizzo, è possibile configurare avvisi per determinate metriche. Vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) per l'elenco completo delle metriche offerte dal gateway applicazione. Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) per informazioni su come impostare gli avvisi per le metriche.
+Per ricevere notifiche relative a traffico o anomalie di utilizzo, è possibile configurare avvisi per determinate metriche. Vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) per l'elenco completo delle metriche offerte dal gateway applicazione. Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md) per informazioni su come impostare gli avvisi per le metriche.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Avvisi per lo SKU del gateway applicazione V1 (standard/WAF)
 

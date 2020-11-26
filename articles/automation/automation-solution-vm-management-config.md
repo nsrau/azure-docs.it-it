@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987214"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182802"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -63,7 +63,7 @@ In un ambiente che include due o più componenti su più macchine virtuali che s
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Destinare le azioni di avvio e arresto a una sottoscrizione e un gruppo di risorse
 
-1. Aggiungere un tag `sequencestart` e `sequencestop` con valori interi positivi alle macchine virtuali indicate nelle variabili `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. Le azioni di avvio e arresto vengono eseguite in ordine crescente. Per informazioni su come assegnare un tag a una macchina virtuale, vedere [Assegnare un tag a una macchina virtuale Windows in Azure](../virtual-machines/windows/tag.md) e [Assegnare un tag a una macchina virtuale Linux in Azure](../virtual-machines/linux/tag.md).
+1. Aggiungere un tag `sequencestart` e `sequencestop` con valori interi positivi alle macchine virtuali indicate nelle variabili `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. Le azioni di avvio e arresto vengono eseguite in ordine crescente. Per informazioni su come assegnare un tag a una macchina virtuale, vedere [Assegnare un tag a una macchina virtuale Windows in Azure](../virtual-machines/tag-portal.md) e [Assegnare un tag a una macchina virtuale Linux in Azure](../virtual-machines/tag-cli.md).
 
 2. Modificare le pianificazioni **Sequenced-StartVM** e **Sequenced-StopVM** impostandole sulla data e ora che soddisfano i requisiti e abilitano la pianificazione.
 
@@ -143,13 +143,13 @@ Per modificare le notifiche tramite posta elettronica dopo la distribuzione di A
 
 2. Nella pagina StartStop_VM_Notification fare clic su **Modifica dettagli** in **Dettagli**. Si aprirà la pagina Email/SMS/Push/Voice (Posta elettronica/SMS/Push/Voce). Aggiornare l'indirizzo di posta elettronica e fare clic su **OK** per salvare le modifiche.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot della pagina Monitoraggio-gruppi di azione.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot della pagina posta elettronica/SMS/push/Voice che mostra un esempio di indirizzo di posta elettronica aggiornato.":::
 
     In alternativa è possibile aggiungere azioni aggiuntive al gruppo di azione, per altre informazioni sui gruppi di azioni, vedere [gruppi di azioni](../azure-monitor/platform/action-groups.md)
 
 Di seguito è riportato un messaggio di posta elettronica di esempio che viene inviato quando la funzionalità arresta macchine virtuali.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot della pagina Monitoraggio-gruppi di azione.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot di un messaggio di posta elettronica di esempio inviato quando la funzionalità arresta le macchine virtuali.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Aggiungere o escludere macchine virtuali
 

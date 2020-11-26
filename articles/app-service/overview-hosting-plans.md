@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200849"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183006"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -27,7 +27,7 @@ Quando si crea un piano di servizio app in una determinata area (ad esempio, Eur
 Il _piano tariffario_ di un piano di servizio app determina le funzionalità del servizio app disponibili e il costo del piano. Esistono alcune categorie di piani tariffari:
 
 - **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa VM di Azure delle altre app del servizio app, incluse le app di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
-- **Calcolo dedicato**: i livelli **Basic**, **standard**, **Premium**, **PremiumV2**e **PremiumV3** eseguono app in macchine virtuali di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
+- **Calcolo dedicato**: i livelli **Basic**, **standard**, **Premium**, **PremiumV2** e **PremiumV3** eseguono app in macchine virtuali di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
 - **Isolated**: questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per lo scale-out.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -37,13 +37,13 @@ Ogni piano fornisce anche un subset specifico di funzionalità del servizio app.
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Il nuovo piano tariffario **PremiumV3** garantisce ai computer con processori più veloci (minimo 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) per CPU virtuale), archiviazione SSD e rapporto quadruplo tra memoria e Core rispetto al livello **standard** . **PremiumV3** supporta anche una scalabilità superiore tramite un numero maggiore di istanze, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel livello **standard** . Tutte le funzionalità disponibili nel livello **PremiumV2** esistente sono incluse in **PremiumV3**.
+> Il nuovo piano tariffario **PremiumV3** garantisce ai computer con processori più veloci (minimo 195 [ACU](../virtual-machines/acu.md) per CPU virtuale), archiviazione SSD e rapporto quadruplo tra memoria e Core rispetto al livello **standard** . **PremiumV3** supporta anche una scalabilità superiore tramite un numero maggiore di istanze, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel livello **standard** . Tutte le funzionalità disponibili nel livello **PremiumV2** esistente sono incluse in **PremiumV3**.
 >
 > Analogamente ad altri livelli dedicati, per questo livello sono disponibili tre dimensioni di macchina virtuale:
 >
 > - Piccolo (2 core CPU, 8 GiB di memoria) 
 > - Media (4 core CPU, 16 GiB di memoria) 
-> - Grande (8 core CPU, 32 GiB di memoria)  
+> - Grande (8 core CPU, 32 GiB di memoria)  
 >
 > Per informazioni sui prezzi di **PremiumV3** , vedere [prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 >

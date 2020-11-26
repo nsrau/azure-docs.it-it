@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 907836b0e45ccc9e9481e605b1ebf4180f7650d6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829840"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182581"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Nella pagina **Nuova funzione** immettere `cosmos` nel campo di ricerca e quindi scegliere il modello del **trigger Azure Cosmos DB**.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Codice di Azure Cosmos DB":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Pagina Funzioni nel portale di Azure":::
 
 
 1. Configurare il nuovo trigger con le impostazioni specificate nella tabella seguente:
@@ -64,7 +64,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     | **Nome della raccolta per i lease** | Lease | Nome della raccolta per l'archiviazione dei lease. |
     | **Crea raccolta di lease se non esiste** | Sì | Verifica l'esistenza della raccolta di lease e la crea automaticamente. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Codice di Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Creare la funzione attivata da Azure Cosmos DB":::
 
 1. Selezionare **Crea funzione**. 
 
@@ -72,7 +72,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Per visualizzare il codice della funzione basato sul modello, selezionare **Codice e test**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Codice di Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modello di funzione di Cosmos DB in C#":::
 
     Questo modello di funzione scrive il numero di documenti e l'ID del primo documento nei log.
 
@@ -100,7 +100,7 @@ Successivamente, connettersi al proprio account Azure Cosmos DB e creare il cont
     | ---|---|--- |
     | **ID database** | Attività |Nome del nuovo database. Deve corrispondere al nome definito nell'associazione della funzione. |
     | **ID contenitore** | Items | Il nome del nuovo contenitore. Deve corrispondere al nome definito nell'associazione della funzione.  |
-    | **[Chiave di partizione](../cosmos-db/partition-data.md)** | /category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea un contenitore a elevate prestazioni, è importante selezionare la chiave di partizione corretta. | 
+    | **[Chiave di partizione](../cosmos-db/partitioning-overview.md)** | /category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea un contenitore a elevate prestazioni, è importante selezionare la chiave di partizione corretta. | 
     | **Velocità effettiva** |400 UR| Usare il valore predefinito. Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento. |    
 
 1. Fare clic su **OK** per creare il contenitore Items. La creazione del contenitore potrebbe richiedere del tempo.
@@ -111,7 +111,15 @@ Dopo aver creato il contenitore specificato nel binding della funzione, è possi
 
 1. In Esplora dati espandere il nuovo contenitore **Items**, scegliere **Items**, quindi selezionare **Nuovo elemento**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Codice di Azure Cosmos DB"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Creare un elemento nel contenitore Items":::
+
+1. Sostituire il contenuto del nuovo elemento con il contenuto seguente, quindi scegliere **Salva**.
+
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
     }
     ```
 

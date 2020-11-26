@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997045"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183193"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Esercitazione: Monitorare le API pubblicate
 
@@ -149,7 +149,7 @@ Se si abilita la raccolta dei log o delle metriche del gateway in un'area di lav
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot della voce Log nel menu Monitoraggio":::
 
-Eseguire query per visualizzare i dati. Sono disponibili numerose [query di esempio](../azure-monitor/log-query/saved-queries.md) oppure eseguire una query personalizzata. Ad esempio, la query seguente recupera le ultime 24 ore di dati dalla tabella GatewayLogs:
+Eseguire query per visualizzare i dati. Sono disponibili numerose [query di esempio](../azure-monitor/log-query/example-queries.md) oppure eseguire una query personalizzata. Ad esempio, la query seguente recupera le ultime 24 ore di dati dalla tabella GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Per altre informazioni sull'utilizzo dei log delle risorse per Gestione API, vedere:
 
-* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md) oppure provare l'[ambiente demo di Log Analytics](https://portal.loganalytics.io/demo).
+* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md) oppure provare l'[ambiente demo di Log Analytics](https://portal.loganalytics.io/demo).
 
 * [Panoramica delle query su log in Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
 

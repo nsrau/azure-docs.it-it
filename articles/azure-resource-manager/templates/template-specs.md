@@ -2,15 +2,15 @@
 title: Cenni preliminari sulle specifiche del modello
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e919db24a70b0ed69aca6977865cc76c0c9c5845
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747401"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182462"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
@@ -21,7 +21,7 @@ Una specifica del modello è un tipo di risorsa per l'archiviazione di un modell
 Per distribuire la specifica del modello, si usano strumenti standard di Azure come PowerShell, l'interfaccia della riga di comando di Azure, portale di Azure, REST e altri SDK e client supportati. Usare gli stessi comandi come per il modello.
 
 > [!NOTE]
-> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo, è necessario installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell, usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla, è necessario installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Perché usare le specifiche del modello?
 
@@ -73,7 +73,7 @@ Creare una specifica del modello usando:
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0a -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -81,7 +81,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 ```azurecli
 az ts create \
   --name storageSpec \
-  --version "1.0" \
+  --version "1.0a" \
   --resource-group templateSpecRG \
   --location "westus2" \
   --template-file "./mainTemplate.json"
@@ -119,7 +119,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
-    --version "1.0"
+    --version "1.0a"
 ```
 
 ---
@@ -134,14 +134,14 @@ Anziché passare un percorso o un URI per un modello, è necessario distribuire 
 
 **/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Resources/templateSpecs/{template-spec-name}/versions/{template-spec-version}**
 
-Si noti che l'ID risorsa include un numero di versione per la specifica del modello.
+Si noti che l'ID risorsa include un nome di versione per la specifica del modello.
 
 Ad esempio, si distribuisce una specifica del modello con il comando seguente.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -151,7 +151,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \
@@ -160,12 +160,12 @@ az deployment group create \
 
 ---
 
-In pratica, in genere si esegue `Get-AzTemplateSpec` per ottenere l'ID della specifica del modello che si vuole distribuire.
+In pratica, in genere si eseguirà `Get-AzTemplateSpec` o `az ts show` per ottenere l'ID della specifica del modello che si desidera distribuire.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0a).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -175,7 +175,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0a" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
@@ -309,7 +309,7 @@ L'esempio seguente è simile all'esempio precedente, ma si usa la `id` propriet�
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
         }
       }
     },
@@ -321,7 +321,7 @@ L'esempio seguente è simile all'esempio precedente, ma si usa la `id` propriet�
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
         }
       }
     }
@@ -334,7 +334,7 @@ Per altre informazioni sul collegamento delle specifiche dei modelli, vedere [es
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Quando si crea una specifica del modello, è necessario specificare un numero di versione. Quando si esegue l'iterazione del codice del modello, è possibile aggiornare una versione esistente (per gli hotfix) o pubblicare una nuova versione. La versione è una stringa di testo. È possibile scegliere di seguire qualsiasi sistema di controllo delle versioni, incluso il controllo delle versioni semantico. Gli utenti della specifica del modello possono fornire il numero di versione che si desidera utilizzare per la distribuzione.
+Quando si crea una specifica del modello, si specifica il nome della versione. Quando si esegue l'iterazione del codice del modello, è possibile aggiornare una versione esistente (per gli hotfix) o pubblicare una nuova versione. La versione è una stringa di testo. È possibile scegliere di seguire qualsiasi sistema di controllo delle versioni, incluso il controllo delle versioni semantico. Gli utenti della specifica del modello possono fornire il nome della versione che desiderano usare durante la distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

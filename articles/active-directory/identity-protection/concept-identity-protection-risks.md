@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0da8755199645b12e9c6ed75a42881fe86e70b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023038"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180643"
 ---
 # <a name="what-is-risk"></a>Che cosa sono i rischi?
 
@@ -74,7 +74,7 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 
 ### <a name="risk-levels"></a>Livelli di rischio
 
-Identity Protection classifica il rischio in tre livelli: basso, medio e alto. Quando si configurano i [criteri di Identity Protection personalizzati](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy), è anche possibile configurarli in modo che vengano attivati a livello di **rischio** Nessun rischio indica che l'identità dell'utente è stata compromessa.
+Identity Protection classifica il rischio in tre livelli: basso, medio e alto. Quando si configurano i [criteri di Identity Protection personalizzati](./concept-identity-protection-policies.md#custom-conditional-access-policy), è anche possibile configurarli in modo che vengano attivati a livello di **rischio** Nessun rischio indica che l'identità dell'utente è stata compromessa.
 
 Microsoft non fornisce dettagli specifici sul modo in cui viene calcolato il rischio, ma ogni livello comporta una maggiore probabilità che l'utente o l'accesso sia compromesso. Ad esempio, un'istanza di proprietà di accesso insolite per un utente potrebbe non essere pericolosa quanto le credenziali perse per un altro utente.
 

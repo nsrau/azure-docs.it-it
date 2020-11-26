@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340377"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182309"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -25,7 +25,7 @@ Gli avvisi di sicurezza vengono attivati da rilevamenti avanzati e sono disponib
 
 ## <a name="respond-to-todays-threats"></a>Rispondi alle minacce <a name="respond-threats"> </a> attuali
 
-Negli ultimi 20 anni sono state introdotte modifiche significative nel panorama delle minacce . In passato, le aziende dovevano in genere preoccuparsi solo del danneggiamento del sito Web da parte di singoli utenti malintenzionati, interessati soprattutto a dar prova di sé. Oggi gli utenti malintenzionati sono molto più sofisticati e organizzati. Hanno spesso obiettivi finanziari e strategici specifici, inoltre hanno a disposizione più risorse, perché possono essere finanziati da stati o da organizzazioni criminali.
+Negli ultimi 20 anni sono state introdotte modifiche significative nel panorama delle minacce . In passato, le aziende dovevano in genere preoccuparsi solo del danneggiamento del sito Web da parte di singoli utenti malintenzionati, interessati soprattutto a dar prova di sé. Oggi gli utenti malintenzionati sono molto più sofisticati e organizzati. Hanno spesso obiettivi finanziari e strategici specifici, Hanno inoltre a disposizione più risorse, in quanto potrebbero essere finanziate in base a stati di nazione o crimini organizzati.
 
 Queste nuove realtà hanno portato a un livello di professionalità senza precedenti nelle schiere di utenti malintenzionati. Non sono più interessati al danneggiamento del Web. Ora sono interessati al furto di informazioni, conti finanziari e dati privati, che possono usare per generare liquidità nel mercato aperto o per sfruttare una particolare posizione aziendale, politica o militare. Ancora più preoccupanti di quelli con un obiettivo finanziario sono gli utenti malintenzionati che violano le reti per danneggiare l'infrastruttura e le persone.
 
@@ -67,12 +67,12 @@ Il Centro sicurezza assegna una gravità agli avvisi, in modo da assegnare una p
 > La gravità degli avvisi viene visualizzata in modo diverso nel portale e nelle versioni dell'API REST precedenti a 01-01-2019. Se si usa una versione precedente dell'API, eseguire l'aggiornamento per un'esperienza coerente, come descritto di seguito.
 
 - **Alta:** esiste una forte probabilità che la risorsa sia compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali.
-- **Media:** si tratta di una probabile attività sospetta che potrebbe indicare che una risorsa è compromessa.
+- **Media:** Si tratta probabilmente di un'attività sospetta che può indicare la compromissione di una risorsa.
 La fiducia del Centro sicurezza nell'analisi o nella conclusione è media e la certezza delle finalità dannose è da media a elevata. Si tratta in genere di rilevamenti basati su anomalie o sull'apprendimento automatico, ad esempio un tentativo di accesso da una posizione anomala.
 - **Bassa:** potrebbe trattarsi di un falso positivo o di un attacco bloccato.
-   * Il Centro sicurezza non è del tutto certo che l'intento sia dannoso e che l'attività possa essere inoffensiva. La cancellazione di un log, ad esempio, è un'azione che può verificarsi quando un utente malintenzionato cerca di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori.
+   * Il Centro sicurezza non è sufficientemente sicuro che lo scopo sia dannoso e l'attività potrebbe essere innocente. Ad esempio, log Clear è un'azione che può verificarsi quando un utente malintenzionato tenta di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori.
    * Il Centro sicurezza non segnala in genere quando sono stati bloccati attacchi, a meno che non si tratti di un caso interessante che è consigliabile esaminare. 
-- **Informativo:** gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita. 
+- **Informativo:** gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da un certo numero di avvisi, alcuni dei quali potrebbero apparire in modo autonomo come solo informativo, ma nel contesto degli altri avvisi può essere degno di un aspetto più vicino. 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Monitoraggio e valutazioni continui
 

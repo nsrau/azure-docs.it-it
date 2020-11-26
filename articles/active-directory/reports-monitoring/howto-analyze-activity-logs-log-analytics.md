@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056141"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181170"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure
 
@@ -104,9 +104,9 @@ AuditLogs
 
 Le cartelle di lavoro di forniscono diversi report correlati a scenari comuni che coinvolgono gli eventi di controllo, di accesso e di provisioning. È possibile anche impostare un avviso per tutti i dati disponibili nei report, seguendo la procedura descritta nella sezione precedente.
 
-* **Analisi del provisioning**: questa [cartella di lavoro](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) Mostra i report relativi alle attività di provisioning di controllo, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e il provisioning degli errori, il numero di utenti aggiornati e gli errori di aggiornamento e il numero di utenti di cui è stato effettuato il deprovisioning e gli errori    
+* **Analisi del provisioning**: questa [cartella di lavoro](../app-provisioning/application-provisioning-log-analytics.md) Mostra i report relativi alle attività di provisioning di controllo, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e il provisioning degli errori, il numero di utenti aggiornati e gli errori di aggiornamento e il numero di utenti di cui è stato effettuato il deprovisioning e gli errori    
 * **Eventi di accesso**: questa cartella di lavoro Mostra i report più rilevanti correlati al monitoraggio dell'attività di accesso, ad esempio accessi in base all'applicazione, all'utente, al dispositivo, oltre a una visualizzazione riepilogativa che verifica il numero di accessi nel tempo.
-* **Informazioni dettagliate sull'accesso condizionale**: la [cartella di lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) di report e informazioni sull'accesso condizionale consente di comprendere l'effetto dei criteri di accesso condizionale nell'organizzazione nel tempo. 
+* **Informazioni dettagliate sull'accesso condizionale**: la [cartella di lavoro](../conditional-access/howto-conditional-access-insights-reporting.md) di report e informazioni sull'accesso condizionale consente di comprendere l'effetto dei criteri di accesso condizionale nell'organizzazione nel tempo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

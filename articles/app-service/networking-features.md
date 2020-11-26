@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39a511601606118228ee5fbd9dcf68b6707ede47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288344"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183057"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -43,7 +43,7 @@ Oltre alle eccezioni indicate, è possibile utilizzare tutte queste funzionalit�
 
 Per qualsiasi caso d'uso specifico, potrebbero essere disponibili alcuni modi per risolvere il problema. La scelta della funzionalità migliore a volte va oltre il caso d'uso. I seguenti casi di utilizzo in ingresso suggeriscono come usare le funzionalità di rete del servizio app per risolvere i problemi relativi al controllo del traffico verso l'app:
  
-| Caso di utilizzo in ingresso | Funzionalità |
+| Caso di utilizzo in ingresso | Feature |
 |---------------------|-------------------|
 | Supportare le esigenze SSL basate su IP per l'app | Indirizzo assegnato dall'app |
 | Supporto dell'indirizzo in ingresso dedicato non condiviso per l'app | Indirizzo assegnato dall'app |
@@ -56,7 +56,7 @@ Per qualsiasi caso d'uso specifico, potrebbero essere disponibili alcuni modi pe
 
 I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità di rete del servizio app per risolvere le esigenze di accesso in uscita per l'app:
 
-| Caso di utilizzo in uscita | Funzionalità |
+| Caso di utilizzo in uscita | Feature |
 |---------------------|-------------------|
 | Accedere alle risorse in una rete virtuale di Azure nella stessa area | Integrazione rete virtuale </br> ASE |
 | Accedere alle risorse in una rete virtuale di Azure in un'area diversa | Integrazione rete virtuale richiesta dal gateway </br> Ambiente del servizio app e peering di rete virtuale |
@@ -243,7 +243,7 @@ Questo stile di distribuzione non fornisce un indirizzo dedicato per il traffico
 
 ### <a name="create-multitier-applications"></a>Creare applicazioni multilivello
 
-Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una rete virtuale. Questa operazione consentirà all'app Web di effettuare chiamate alla rete virtuale. Dopo che l'app front-end è connessa alla rete virtuale, è necessario decidere come bloccare l'accesso all'applicazione per le API. È possibile:
+Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una rete virtuale. Questa operazione consentirà all'app Web di effettuare chiamate alla rete virtuale. Dopo che l'app front-end è connessa alla rete virtuale, è necessario decidere come bloccare l'accesso all'applicazione per le API. È possibile scegliere:
 
 * Ospitare sia il front-end che l'app per le API nello stesso ambiente del servizio app ILB ed esporre l'app front-end a Internet usando un gateway applicazione.
 * Ospitare il front-end nel servizio multi-tenant e il back-end in un ambiente del servizio app ILB.
@@ -290,12 +290,12 @@ Se si analizza il servizio app, sono disponibili diverse porte esposte per le co
 |  Uso dell'infrastruttura | 7654, 1221 |
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
-[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
-[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
-[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[appassignedaddress]: ./configure-ssl-certificate.md
+[iprestrictions]: ./app-service-ip-restrictions.md
+[serviceendpoints]: ./app-service-ip-restrictions.md
+[hybridconn]: ./app-service-hybrid-connections.md
+[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
+[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[networkinfo]: ./environment/network-info.md
+[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
+[privateendpoints]: ./networking/private-endpoint.md

@@ -10,14 +10,14 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616196"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183142"
 ---
-# <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app java per il servizio app Azure
+# <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app Java per il servizio app di Azure
 
 App Azure servizio consente agli sviluppatori Java di creare, distribuire e ridimensionare rapidamente le applicazioni Web Java SE, Tomcat e JBoss EAP in un servizio completamente gestito. Distribuire le applicazioni con i plug-in Maven, dalla riga di comando o in Editor come IntelliJ, Eclipse o Visual Studio Code.
 
@@ -231,7 +231,7 @@ Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di proce
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticare gli utenti (Easy Auth)
 
-Configurare l'autenticazione dell'app nel portale di Azure con l'opzione **Autenticazione e autorizzazione** , che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione. Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md) e gli articoli correlati per gli altri provider di identità. Se è necessario abilitare più provider di accesso, seguire le istruzioni dell'articolo [Personalizzare l'autenticazione nel servizio app](app-service-authentication-how-to.md).
+Configurare l'autenticazione dell'app nel portale di Azure con l'opzione **Autenticazione e autorizzazione**, che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione. Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md) e gli articoli correlati per gli altri provider di identità. Se è necessario abilitare più provider di accesso, seguire le istruzioni dell'articolo [Personalizzare l'autenticazione nel servizio app](app-service-authentication-how-to.md).
 
 #### <a name="java-se"></a>Java SE
 
@@ -338,7 +338,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
     - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Per **Tomcat** , creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **Tomcat**, creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -352,7 +352,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
    
     - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Per **Tomcat** , creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **Tomcat**, creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -398,7 +398,7 @@ Per connettersi alle origini dati nelle applicazioni Spring Boot, è consigliabi
 
     Questa stringa di connessione è accessibile all'applicazione come variabile di ambiente denominata `CUSTOMCONNSTR_<your-string-name>`. Ad esempio, la stringa di connessione creata in precedenza verrà denominata `CUSTOMCONNSTR_exampledb`.
 
-2. Nel file *application.properties* , fare riferimento a questa stringa di connessione con il nome della variabile di ambiente. Per questo esempio, si userà il codice seguente.
+2. Nel file *application.properties*, fare riferimento a questa stringa di connessione con il nome della variabile di ambiente. Per questo esempio, si userà il codice seguente.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
@@ -700,7 +700,7 @@ JBoss EAP è disponibile solo per le opzioni hardware Premium e isolated. Per ev
 
 ### <a name="jdk-versions-and-maintenance"></a>Versioni di JDK e manutenzione
 
-Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornito da [Azul Systems](https://www.azul.com/). Le build Azul Zulu Enterprise di OpenJDK sono distribuzioni di OpenJDK gratuite, multipiattaforma e pronte per la produzione per Azure e Azure Stack, supportate da Microsoft e Azul Systems. Contengono tutti i componenti necessari per compilare ed eseguire applicazioni Java SE. È possibile installare JDK da [Installazione di Java JDK](https://aka.ms/azure-jdks).
+Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornito da [Azul Systems](https://www.azul.com/). Le build Azul Zulu Enterprise di OpenJDK sono distribuzioni di OpenJDK gratuite, multipiattaforma e pronte per la produzione per Azure e Azure Stack, supportate da Microsoft e Azul Systems. Contengono tutti i componenti necessari per compilare ed eseguire applicazioni Java SE. È possibile installare JDK da [Installazione di Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 Gli aggiornamenti delle versioni principali verranno forniti tramite nuove opzioni di runtime nel servizio app Azure. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
 

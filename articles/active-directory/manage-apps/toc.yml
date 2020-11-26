@@ -263,7 +263,7 @@
             - name: Configurare la delega vincolata di Kerberos
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: Configurare con PingAccess
-              href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
+              href: ./application-proxy-ping-access-publishing-guide.md
             - name: Errore di accesso all'applicazione aziendale
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: Problemi di installazione del connettore dell'agente proxy dell'applicazione

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95891283"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182836"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di attestazione Microsoft Azure
 
@@ -95,7 +95,7 @@ b. Verificare le impostazioni di assegnazione di ruolo di Azure
  
   ```
 
-c. Se nell'elenco non è presente un'assegnazione di ruolo appropriata, seguire le istruzioni riportate in [qui](/azure/role-based-access-control/role-assignments-powershell) .
+c. Se nell'elenco non è presente un'assegnazione di ruolo appropriata, seguire le istruzioni riportate in [qui](../role-based-access-control/role-assignments-powershell.md) .
 
 ## <a name="2-http--400-errors"></a>2. HTTP – 400 errori
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 Inviare una richiesta all'API di attestazione fornendo il testo del criterio nel parametro "draftPolicyForAttestation". L'API AttestSgxEnclave utilizzerà questo documento di criteri durante la chiamata di attestazione e può essere usato per testare i criteri di attestazione prima che vengano utilizzati. Il token di attestazione generato quando questo campo è presente non sarà protetto.
 
-Vedere [esempi di criteri di attestazione](/azure/attestation/policy-examples)
+Vedere [esempi di criteri di attestazione](./policy-examples.md)
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Errore di attestazione dovuto a un input non valido
 
@@ -163,7 +163,7 @@ Verificare che l'estensione dei vincoli di base del certificato radice sia impos
 
 In caso contrario, la catena di certificati è considerata non valida.
 
-Vedere gli esempi di [criteri](/azure/attestation/policy-examples) e [firmatari](/azure/attestation/policy-signer-examples) 
+Vedere gli esempi di [criteri](./policy-examples.md) e [firmatari](./policy-signer-examples.md) 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. Errore del firmatario del criterio di aggiunta/eliminazione
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Procedura per la risoluzione dei problemi** Per aggiungere o eliminare un nuovo certificato del firmatario dei criteri, usare RFC7519 JSON Web Token (JWT) con un'attestazione denominata "x-ms-policyCertificate". Il valore dell'attestazione è una chiave Web JSON RFC7517 che contiene il certificato da aggiungere. JWT deve essere firmato con la chiave privata di uno dei certificati di firma dei criteri validi associati al provider. Vedere [esempi di firmatari dei criteri](/azure/attestation/policy-signer-examples).
+**Procedura per la risoluzione dei problemi** Per aggiungere o eliminare un nuovo certificato del firmatario dei criteri, usare RFC7519 JSON Web Token (JWT) con un'attestazione denominata "x-ms-policyCertificate". Il valore dell'attestazione è una chiave Web JSON RFC7517 che contiene il certificato da aggiungere. JWT deve essere firmato con la chiave privata di uno dei certificati di firma dei criteri validi associati al provider. Vedere [esempi di firmatari dei criteri](./policy-signer-examples.md).
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Errore di configurazione dei criteri di attestazione
 
@@ -255,7 +255,7 @@ Per configurare un criterio in formato testo, specificare direttamente il testo 
 
 In PowerShell specificare PolicyFormat come JWT per configurare i criteri in formato JWT. Il formato predefinito del criterio è testo.
 
-Vedere esempi di [criteri](/azure/attestation/policy-examples) di attestazione e [come creare un criterio di attestazione](/azure/attestation/author-sign-policy) 
+Vedere esempi di [criteri](./policy-examples.md) di attestazione e [come creare un criterio di attestazione](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. AZ. Certification problemi di installazione in PowerShell
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 Se le versioni non sono corrispondenti al requisito minimo, eseguire Update-Module comandi
 
 ad esempio,-Update-Module-Name AZ. Attestation
-

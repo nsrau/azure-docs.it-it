@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253355"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182632"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticazione HMAC: informazioni di riferimento sull'API REST
 
@@ -22,7 +22,7 @@ ms.locfileid: "95253355"
 - **Credenziali** - \<Access Key ID\>
 - Valore della chiave di accesso con decodifica **Secret** -Base64. ``base64_decode(<Access Key Value>)``
 
-I valori per Credential (chiamato anche `id` ) e Secret (chiamato anche `value` ) devono essere ottenuti dall'istanza di app Azure configurazione. A tale scopo, è possibile usare l'interfaccia della riga di comando [portale di Azure](https://portal.azure.com) o [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+I valori per Credential (chiamato anche `id` ) e Secret (chiamato anche `value` ) devono essere ottenuti dall'istanza di app Azure configurazione. A tale scopo, è possibile usare l'interfaccia della riga di comando [portale di Azure](https://portal.azure.com) o [Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest).
 
 Fornire ogni richiesta con tutte le intestazioni HTTP necessarie per l'autenticazione. Il valore minimo richiesto è:
 

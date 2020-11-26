@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d813757d5adb8cee9b83e0486baed80ae1bac874
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180932"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Esercitazione: Configurare DocuSign per il provisioning utenti automatico
 
@@ -95,7 +95,7 @@ Viene avviata la sincronizzazione iniziale di tutti gli utenti assegnati a DocuS
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
-* Per eseguire il provisioning del profilo di un ruolo o di autorizzazione per un utente in DocuSign, è possibile usare un'espressione nei mapping degli attributi usando le funzioni [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) e [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment). Nell'espressione seguente, ad esempio, viene eseguito il provisioning dell'ID "8032066" quando a un utente è assegnato il ruolo di "Amministratore DS" in Azure AD. Non verrà effettuato il provisioning di alcun profilo di autorizzazione se all'utente non è assegnato un ruolo sul lato Azure AD. È possibile recuperare l'ID dal portale [DocuSign](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
+* Per eseguire il provisioning del profilo di un ruolo o di autorizzazione per un utente in DocuSign, è possibile usare un'espressione nei mapping degli attributi usando le funzioni [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) e [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment). Nell'espressione seguente, ad esempio, viene eseguito il provisioning dell'ID "8032066" quando a un utente è assegnato il ruolo di "Amministratore DS" in Azure AD. Non verrà effettuato il provisioning di alcun profilo di autorizzazione se all'utente non è assegnato un ruolo sul lato Azure AD. È possibile recuperare l'ID dal portale [DocuSign](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
 
 Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
 
