@@ -3,12 +3,12 @@ title: Informazioni sul backup del database SAP HANA nelle macchine virtuali di 
 description: Questo articolo illustra come eseguire il backup di SAP HANA database in esecuzione in macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022310"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296455"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informazioni sul backup del database SAP HANA nelle macchine virtuali di Azure
 
@@ -60,15 +60,12 @@ Oltre a usare il backup SAP HANA in Azure che fornisce backup e ripristino a liv
 
 Per il backup e il ripristino del database è possibile usare la [soluzione di backup di Azure SAP Hana certificata Backint](#backup-architecture) .
 
-Il [backup delle VM di Azure](backup-azure-vms-introduction.md) può essere usato per eseguire il backup del sistema operativo e di altri dischi non di database. Il backup della macchina virtuale viene eseguito una volta al giorno e viene eseguito il backup di tutti i dischi, ad eccezione dei dischi **acceleratore di scrittura (WA)** e dei dischi **ultra**. Poiché viene eseguito il backup del database con la soluzione Azure SAP HANA backup, è possibile eseguire un backup coerente con i file solo del sistema operativo e dei dischi non di database usando la funzionalità di [backup e ripristino del disco selettivo per le VM di Azure](selective-disk-backup-restore.md) .
-
->[!NOTE]
-> L'uso degli script pre-post con il backup delle macchine virtuali di Azure consentirà backup coerenti con l'app dei volumi di dati del database. Tuttavia, se l'area del log risiede nei dischi WA, l'esecuzione di uno snapshot di questi dischi potrebbe non garantire la coerenza dell'area di log. HANA dispone di un modo esplicito per generare backup del log per questo motivo esatto. Abilitare lo stesso nell'SAP HANA e il backup può essere eseguito tramite il backup SAP HANA di Azure.
+Il [backup delle VM di Azure](backup-azure-vms-introduction.md) può essere usato per eseguire il backup del sistema operativo e di altri dischi non di database. Il backup della macchina virtuale viene eseguito una volta al giorno e il backup di tutti i dischi (eccetto **acceleratore di scrittura (WA) dischi del sistema operativo** e **dischi Ultra**). Poiché viene eseguito il backup del database con la soluzione Azure SAP HANA backup, è possibile eseguire un backup coerente con i file solo del sistema operativo e dei dischi non di database usando la funzionalità di [backup e ripristino del disco selettivo per le VM di Azure](selective-disk-backup-restore.md) .
 
 Per ripristinare una macchina virtuale che esegue SAP HANA, attenersi alla procedura seguente:
 
 * [Ripristinare una nuova macchina virtuale dal backup della macchina virtuale di Azure](backup-azure-arm-restore-vms.md) dal punto di ripristino più recente. In alternativa, creare una nuova VM vuota e alleghi i dischi dal punto di ripristino più recente.
-* Poiché non viene eseguito il backup dei dischi WA, non vengono ripristinati. Creare dischi WA vuoti e un'area di log.
+* Se i dischi WA sono esclusi, non vengono ripristinati. In questo caso, creare dischi WA vuoti e un'area di log.
 * Dopo aver impostato tutte le altre configurazioni (ad esempio IP, nome di sistema e così via), la macchina virtuale è impostata in modo da ricevere i dati del database da backup di Azure.
 * Ripristinare ora il database nella macchina virtuale dal [backup del database di Azure SAP Hana](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) al momento desiderato.
 

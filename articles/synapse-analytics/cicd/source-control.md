@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188123"
+ms.locfileid: "96297058"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controllo del codice sorgente in Azure sinapsi Studio
 
@@ -30,17 +30,17 @@ Per fornire funzionalità di controllo del codice sorgente, sinapsi Studio conse
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Configurare il repository git in sinapsi Studio 
 
-Dopo l'avvio di sinapsi studio, è possibile configurare il repository git nell'area di lavoro. Un'area di lavoro di sinapsi Studio può essere associata solo a un repository git alla volta. 
+Dopo l'avvio di sinapsi studio, è possibile configurare un repository git nell'area di lavoro. Un'area di lavoro di sinapsi Studio può essere associata solo a un repository git alla volta. 
 
-### <a name="configuration-method-1-authoring-canvas"></a>Metodo di configurazione 1: creazione dell'area di disegno
+### <a name="configuration-method-1-global-bar"></a>Metodo di configurazione 1: barra globale
 
-Nell'area di disegno della creazione di sinapsi Studio selezionare il menu a discesa **sinapsi Live** , quindi selezionare **Configura repository di codice**.
+Nella barra globale di sinapsi Studio selezionare il menu a discesa **sinapsi Live** , quindi selezionare **Configura repository di codice**.
 
 ![Configurare le impostazioni del repository di codice dalla creazione](media/configure-repo-1.png)
 
 ### <a name="configuration-method-2-manage-hub"></a>Metodo di configurazione 2: gestire l'hub
 
-Passare all'hub di gestione di sinapsi Studio. Selezionare **configurazione git** nella sezione **controllo del codice sorgente** . Se non si dispone di un repository connesso, fare clic su **Configura**.
+Passare all'hub Gestisci di sinapsi Studio. Selezionare **configurazione git** nella sezione **controllo del codice sorgente** . Se non si dispone di un repository connesso, fare clic su **Configura**.
 
 ![Configurare le impostazioni del repository di codice dall'hub di gestione](media/configure-repo-2.png)
 
@@ -51,11 +51,11 @@ Passare all'hub di gestione di sinapsi Studio. Selezionare **configurazione git*
 
 ## <a name="connect-with-azure-devops-git"></a>Connettersi con Azure DevOps git 
 
-È possibile associare un'area di lavoro sinapsi a un repository Azure DevOps per il controllo del codice sorgente, la collaborazione, il controllo delle versioni e così via. Se non si dispone di un repository Azure DevOps, seguire [queste istruzioni](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) per creare prima le risorse del repository.
+È possibile associare un'area di lavoro sinapsi a un repository Azure DevOps per il controllo del codice sorgente, la collaborazione, il controllo delle versioni e così via. Se non si dispone di un repository Azure DevOps, seguire [queste istruzioni](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) per creare le risorse del repository.
 
 ### <a name="azure-devops-git-repository-settings"></a>Impostazioni del repository git di Azure DevOps
 
-Quando ci si connette al repository git, selezionare prima di tutto il tipo di repository come Azure DevOps git e quindi selezionare un Azure AD tenant dall'elenco a discesa e fare clic su **continue (continua**).
+Quando ci si connette al repository git, selezionare prima di tutto il tipo di repository come Azure DevOps git e quindi selezionare un tenant Azure AD dall'elenco a discesa e fare clic su **continue (continua**).
 
 ![Configurare le impostazioni del repository di codice](media/connect-with-azuredevops-repo-selected.png)
 
@@ -94,7 +94,7 @@ Per usare un account Microsoft personale per l'integrazione con Git, è possibil
 
 Dopo questi passaggi di configurazione, il repository personale è disponibile quando si configura l'integrazione git in sinapsi Studio.
 
-Per altre informazioni sulla connessione di Azure Repos all'istanza di Active Directory dell'organizzazione, vedere [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad) (Connettere un'organizzazione di Azure DevOps ad Azure Active Directory).
+Per ulteriori informazioni sulla connessione di Azure Repos alla Active Directory dell'organizzazione, vedere [connettere l'organizzazione a Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="connect-with-github"></a>Connettersi con GitHub 
 

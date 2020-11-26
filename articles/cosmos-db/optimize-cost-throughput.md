@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097465"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296540"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Offrendo il modello di velocità effettiva con provisioning, Azure Cosmos DB gar
 
 Di seguito sono riportate alcune linee guida per scegliere una strategia di velocità effettiva con provisioning:
 
-**Prendere in considerazione il provisioning della velocità effettiva in un database di Azure Cosmos (contenente un set di contenitori) se** :
+**Prendere in considerazione il provisioning della velocità effettiva in un database di Azure Cosmos (contenente un set di contenitori) se**:
 
 1. Si dispone di qualche dozzina di contenitori Azure Cosmos e si desidera condividere la velocità effettiva in tutti o in alcuni di loro. 
 
@@ -55,7 +55,7 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 Come illustrato nella tabella seguente, a seconda della scelta dell'API, è possibile effettuare il provisioning della velocità effettiva con livelli diversi di granularità.
 
-|API|Per la velocità effettiva **condivisa** , configurare |Per la velocità effettiva **dedicata** , configurare |
+|API|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
 |----|----|----|
 |API SQL|Database|Contenitore|
 |API Azure Cosmos DB per MongoDB|Database|Raccolta|
@@ -137,7 +137,7 @@ Poiché si paga la velocità effettiva con provisioning, è possibile combinarla
 
 Per determinare la velocità effettiva con provisioning per un nuovo carico di lavoro, è possibile usare la procedura seguente: 
 
-1. Eseguire una valutazione iniziale approssimativa usando Capacity Planner e regolare le stime con l'aiuto di Azure Cosmos Explorer nel portale di Azure. 
+1. Eseguire una valutazione iniziale e approssimativa usando Capacity Planner e modificare le stime con la Guida di Azure Cosmos DB Explorer nel portale di Azure. 
 
 2. È consigliabile creare i contenitori con una velocità effettiva superiore al previsto e poi ridurla in base alle esigenze. 
 

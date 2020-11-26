@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368087"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296812"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -41,10 +41,10 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 | Aspetto                          | Dettagli                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
-| Prezzi:                        | È necessario [Azure Defender per server](security-center-pricing.md)                                                                                                                                                                                                                                             |
+| Prezzi:                        | Richiede [Azure Defender per server](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Piattaforme supportate:            | ![Sì](./media/icons/yes-icon.png) Macchine virtuali di Azure che eseguono Windows<br>![Sì](./media/icons/yes-icon.png) Computer Azure Arc che eseguono Windows|
 | Versioni supportate di Windows:  | Defender for endpoint è integrato in Windows 10 1703 (e versioni successive) e Windows Server 2019.<br>Il Centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1.<br>Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC. |
-| Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione**o **collaboratore della sottoscrizione**                         |
+| Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**                         |
 | Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali.<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure globali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
@@ -61,7 +61,7 @@ Microsoft Defender per endpoint offre:
 
 Integrando Defender for endpoint con il Centro sicurezza, sarà possibile usufruire delle funzionalità aggiuntive seguenti:
 
-- **Onboarding automatico**. Il Centro sicurezza abilita automaticamente Microsoft Defender per l'endpoint Sensor per tutti i server Windows monitorati dal centro sicurezza (a meno che non esegua Windows Server 2019).
+- **Onboarding automatico**. Il Centro sicurezza abilita automaticamente Microsoft Defender per l'endpoint Sensor per tutti i server Windows monitorati dal centro sicurezza. Ad eccezione di quelli che eseguono Windows Server 2019, che devono essere caricati tramite script locali, oggetto Criteri di gruppo (GPO) o [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (in precedenza SCCM).
 
 - **Riquadro singolo di vetro**. Nella console del Centro sicurezza viene visualizzato Microsoft Defender per gli avvisi degli endpoint. Per approfondire l'analisi, utilizzare Microsoft Defender per le pagine del portale dell'endpoint in cui verranno visualizzate informazioni aggiuntive, ad esempio l'albero del processo di avviso e il grafico dell'evento imprevisto. È anche possibile visualizzare una sequenza temporale dettagliata che mostra ogni comportamento per un determinato periodo, fino a un massimo di sei mesi.
 
@@ -85,9 +85,9 @@ Dopo aver configurato il percorso, non è possibile modificarlo. Se è necessari
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 1. Selezionare la sottoscrizione da modificare.
 1. Selezionare **Rilevamento delle minacce**.
-1. Selezionare **Consenti a Microsoft Defender per l'endpoint di accedere ai dati**e selezionare **Salva**.
+1. Selezionare **Consenti a Microsoft Defender per l'endpoint di accedere ai dati** e selezionare **Salva**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Microsoft Defender per il proprio Centro sicurezza di endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Abilitare l'integrazione tra il Centro sicurezza di Azure e la soluzione EDR Microsoft, Microsoft Defender per endpoint":::
 
     Il Centro sicurezza di Azure effettuerà automaticamente l'onboarding dei server a Microsoft Defender per l'endpoint. Il caricamento potrebbe richiedere fino a 24 ore.
 
@@ -112,10 +112,10 @@ Per generare un avviso di prova di Microsoft Defender per l'endpoint:
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Microsoft Defender per il proprio Centro sicurezza di endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Finestra del prompt dei comandi con il comando per generare un avviso di test.":::
 
 1. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso nel dashboard del Centro sicurezza di Azure e in Microsoft Defender per l'endpoint Portal. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
-1. Per esaminare l'avviso nel centro sicurezza, passare a **avvisi di sicurezza**riga di comando di  >  **PowerShell sospetti**.
+1. Per esaminare l'avviso nel centro sicurezza, passare a **avvisi di sicurezza** riga di comando di  >  **PowerShell sospetti**.
 1. Dalla finestra di analisi selezionare il collegamento per passare a Microsoft Defender per endpoint Portal.
 
 

@@ -426,7 +426,5 @@
           href: sql-data-warehouse-partner-machine-learning-ai.md
         - name: Integrazione del sistema
           href: sql-data-warehouse-partner-system-integration.md
-        - name: Partner dell'anteprima pubblica
-          href: sql-data-warehouse-partner-launch.md
         - name: Problemi di compatibilità con applicazioni di terze parti
           href: sql-data-warehouse-partner-compatibility-issues.md

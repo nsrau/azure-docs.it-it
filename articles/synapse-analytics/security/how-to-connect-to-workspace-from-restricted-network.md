@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024466"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296686"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Connettersi alle risorse dell'area di lavoro da una rete con restrizioni
 
@@ -46,14 +46,11 @@ Per altre informazioni, vedere [Cenni preliminari sui tag di servizio](/azure/vi
 
 Successivamente, creare hub di collegamento privati dal portale di Azure. Per trovarlo nel portale, cercare *Azure sinapsi Analytics (hub collegamento privato)*, quindi immettere le informazioni necessarie per crearlo. 
 
-> [!Note]
-> Verificare che il valore **Region** sia uguale a quello in cui si trova l'area di lavoro di Azure sinapsi Analytics.
-
 ![Screenshot della creazione di un hub di collegamento privato sinapsi.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Passaggio 3: creare un endpoint privato per il gateway
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>Passaggio 3: creare un endpoint privato per sinapsi Studio
 
-Per accedere al gateway di Azure sinapsi Analytics studio, è necessario creare un endpoint privato dal portale di Azure. Per trovarlo nel portale, cercare il *collegamento privato*. Nel **centro collegamenti privati** selezionare **Crea endpoint privato** e quindi immettere le informazioni necessarie per crearlo. 
+Per accedere ad Azure sinapsi Analytics studio, è necessario creare un endpoint privato dal portale di Azure. Per trovarlo nel portale, cercare il *collegamento privato*. Nel **centro collegamenti privati** selezionare **Crea endpoint privato** e quindi immettere le informazioni necessarie per crearlo. 
 
 > [!Note]
 > Verificare che il valore **Region** sia uguale a quello in cui si trova l'area di lavoro di Azure sinapsi Analytics.
@@ -118,6 +115,43 @@ Se si vuole che il notebook acceda alle risorse di archiviazione collegate in un
 Dopo aver creato l'endpoint, lo stato di approvazione Mostra lo stato **in sospeso**. Richiedere l'approvazione da parte del proprietario di questo account di archiviazione, nella scheda **connessioni endpoint privato** di questo account di archiviazione nell'portale di Azure. Una volta approvata, il notebook può accedere alle risorse di archiviazione collegate in questo account di archiviazione.
 
 A questo punto, tutti impostati. È possibile accedere alla risorsa dell'area di lavoro di Azure sinapsi Analytics Studio.
+
+## <a name="appendix-dns-registration-for-private-endpoint"></a>Appendice: registrazione DNS per l'endpoint privato
+
+Se la "integrazione con la zona DNS privata" non è abilitata durante la creazione dell'endpoint privato come screenshot seguente, è necessario creare la "**zona DNS privato**" per ognuno degli endpoint privati.
+![Screenshot della creazione di una zona DNS privata 1 della sinapsi.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+Per trovare la **zona di DNS privato** nel portale, cercare *DNS privato zona*. Nella **zona DNS privato** compilare le informazioni richieste di seguito per crearlo.
+
+* Per **nome** immettere il nome dedicato della zona DNS privata per un endpoint privato specifico, come indicato di seguito:
+  * **`privatelink.azuresynapse.net`** è per l'endpoint privato dell'accesso al gateway di Azure sinapsi Analytics Studio. Vedere questo tipo di creazione di endpoint privati nel passaggio 3.
+  * **`privatelink.sql.azuresynapse.net`** è per questo tipo di endpoint privato dell'esecuzione di query SQL nel pool SQL e nel pool predefinito. Vedere la creazione dell'endpoint nel passaggio 4.
+  * **`privatelink.dev.azuresynapse.net`** per questo tipo di endpoint privato è possibile accedere a tutti gli altri elementi all'interno delle aree di lavoro di Azure sinapsi Analytics Studio. Vedere questo tipo di creazione di endpoint privati nel passaggio 4.
+  * **`privatelink.dfs.core.windows.net`** è per l'endpoint privato di accesso all'area di lavoro collegata Azure Data Lake Storage Gen2. Vedere questo tipo di creazione di endpoint privati nel passaggio 5.
+  * **`privatelink.blob.core.windows.net`** è per l'endpoint privato dell'accesso all'area di lavoro collegata all'archivio BLOB di Azure. Vedere questo tipo di creazione di endpoint privati nel passaggio 5.
+
+![Screenshot della creazione di una zona DNS privata 2 della sinapsi.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+Dopo aver creato la **zona di DNS privato** , immettere la zona DNS privata creata e selezionare i **collegamenti alla rete virtuale** per aggiungere il collegamento alla rete virtuale. 
+
+![Screenshot della creazione di una zona DNS privata 3 per la sinapsi.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Compilare i campi obbligatori come indicato di seguito:
+* Per **nome collegamento** immettere il nome del collegamento.
+* In **rete virtuale** selezionare la rete virtuale.
+
+![Screenshot della creazione di una zona DNS privata 4 della sinapsi.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+Una volta aggiunto il collegamento alla rete virtuale, è necessario aggiungere il set di record DNS nella **zona DNS privato** creata in precedenza.
+
+* Per **nome** immettere le stringhe del nome dedicate per un endpoint privato diverso: 
+  * il **sito Web** è relativo all'endpoint privato di accesso ad Azure sinapsi Analytics Studio.
+  * "***NomeAreadilavoro * * _" è per l'endpoint privato dell'esecuzione di query SQL nel pool SQL e anche per l'endpoint privato di accesso a tutto il resto nelle aree di lavoro di Azure sinapsi Analytics Studio. _ "*** NomeAreadilavoro *-OnDemand * *" è per l'endpoint privato dell'esecuzione di query SQL nel pool incorporato.
+* Per **tipo** selezionare solo il tipo di record DNS **a** . 
+* Per **indirizzo IP** immettere l'indirizzo IP corrispondente di ogni endpoint privato. È possibile ottenere l'indirizzo IP nell' **interfaccia di rete** dalla panoramica dell'endpoint privato.
+
+![Screenshot della creazione di una zona DNS privata 5 della sinapsi.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

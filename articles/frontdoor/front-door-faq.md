@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abc4529d6076496b34859eec2b931a8dcbd1ce93
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488980"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296591"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -24,7 +24,7 @@ Questo articolo risponde alle domande più comuni sulle funzionalità e sulle fu
 
 1. Sezione dei commenti di questo articolo.
 2. [UserVoice di Azure front door](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Supporto tecnico Microsoft:** Per creare una nuova richiesta di supporto, nella portale di Azure della scheda **Guida** selezionare il pulsante Guida e **supporto** e quindi selezionare **nuova richiesta di supporto** .
+3. **Supporto tecnico Microsoft:** Per creare una nuova richiesta di supporto, nella portale di Azure della scheda **Guida** selezionare il pulsante Guida e **supporto** e quindi selezionare **nuova richiesta di supporto**.
 
 ## <a name="general"></a>Generale
 
@@ -97,7 +97,7 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
     > [!WARNING]
     > Lo spazio IP back-end della porta anteriore potrebbe cambiare in un secondo momento, tuttavia, prima che ciò accada, avremmo integrato gli [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) per eventuali modifiche o aggiornamenti.
 
--    Eseguire un'operazione GET sulla porta anteriore con la versione API `2020-01-01` o successiva. Nella chiamata API cercare il `frontdoorID` campo. Filtrare in base all'intestazione in ingresso ' **X-Azure-FDID** ' inviata dalla porta anteriore al back-end con il valore come quello del campo `frontdoorID` . È anche possibile trovare `Front Door ID` il valore nella sezione Panoramica della pagina del portale di porta anteriore. 
+-    Eseguire un'operazione GET sulla porta anteriore con la versione API `2020-01-01` o successiva. Nella chiamata API cercare il `frontdoorID` campo. Filtrare in base all'intestazione in ingresso '**X-Azure-FDID**' inviata dalla porta anteriore al back-end con il valore come quello del campo `frontdoorID` . È anche possibile trovare `Front Door ID` il valore nella sezione Panoramica della pagina del portale di porta anteriore. 
 
 - Applicare il filtro regole nel server Web back-end per limitare il traffico in base al valore dell'intestazione ' X-Azure-FDID ' risultante.
 
@@ -241,16 +241,16 @@ Sì, la porta anteriore di Azure supporta l'offload TLS/SSL e il protocollo TLS 
 
 No, i certificati autofirmati non sono supportati nella porta anteriore e la restrizione si applica a entrambi:
 
-1. **Backend** : non è possibile usare certificati autofirmati quando si esegue l'inoltro del traffico come probe di integrità HTTPS o HTTPS o si compila la cache per da origine per le regole di routing con la memorizzazione nella cache abilitata.
-2. Front- **end** : non è possibile usare certificati autofirmati quando si usa un certificato TLS/SSL personalizzato per abilitare HTTPS nel dominio personalizzato.
+1. **Backend**: non è possibile usare certificati autofirmati quando si esegue l'inoltro del traffico come probe di integrità HTTPS o HTTPS o si compila la cache per da origine per le regole di routing con la memorizzazione nella cache abilitata.
+2. Front- **end**: non è possibile usare certificati autofirmati quando si usa un certificato TLS/SSL personalizzato per abilitare HTTPS nel dominio personalizzato.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>Perché il traffico HTTPS verso il back-end non riesce?
 
 Per avere correttamente le connessioni HTTPS al back-end, sia per i probe di integrità che per le richieste di invio, potrebbero verificarsi due motivi per cui il traffico HTTPS potrebbe non riuscire:
 
-1. **Mancata corrispondenza del nome del soggetto del certificato** : per le connessioni HTTPS, la porta anteriore prevede che il back-end presenti un certificato da una CA valida con i nomi di soggetto corrispondenti al nome host del back-end. Ad esempio, se il nome host del back-end è impostato su `myapp-centralus.contosonews.net` e il certificato presentato dal back-end durante l'handshake TLS non ha `myapp-centralus.contosonews.net` né `*myapp-centralus*.contosonews.net` nel nome del soggetto, la porta anteriore rifiuterà la connessione e restituirà un errore. 
-    1. **Soluzione** : Sebbene non sia consigliabile dal punto di vista della conformità, è possibile risolvere questo errore disabilitando la verifica del nome del soggetto del certificato per la porta anteriore. Questo è presente in impostazioni in portale di Azure e in BackendPoolsSettings nell'API.
-2. **Certificato di hosting back-end da autorità di certificazione non valida** : solo i certificati delle [autorità di certificazione valide](./front-door-troubleshoot-allowed-ca.md) possono essere usati nel back-end con sportello anteriore. I certificati da autorità di certificazione interne o certificati autofirmati non sono consentiti.
+1. **Mancata corrispondenza del nome del soggetto del certificato**: per le connessioni HTTPS, la porta anteriore prevede che il back-end presenti un certificato da una CA valida con i nomi di soggetto corrispondenti al nome host del back-end. Ad esempio, se il nome host del back-end è impostato su `myapp-centralus.contosonews.net` e il certificato presentato dal back-end durante l'handshake TLS non ha `myapp-centralus.contosonews.net` né `*myapp-centralus*.contosonews.net` nel nome del soggetto, la porta anteriore rifiuterà la connessione e restituirà un errore. 
+    1. **Soluzione**: Sebbene non sia consigliabile dal punto di vista della conformità, è possibile risolvere questo errore disabilitando la verifica del nome del soggetto del certificato per la porta anteriore. Questo è presente in impostazioni in portale di Azure e in BackendPoolsSettings nell'API.
+2. **Certificato di hosting back-end da autorità di certificazione non valida**: solo i certificati delle [autorità di certificazione valide](./front-door-troubleshoot-allowed-ca.md) possono essere usati nel back-end con sportello anteriore. I certificati da autorità di certificazione interne o certificati autofirmati non sono consentiti.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>È possibile usare l'autenticazione client/reciproca con lo sportello anteriore di Azure?
 

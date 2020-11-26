@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925578"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296064"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -87,11 +87,11 @@ Sì, backup di Azure supporta [dischi gestiti SSD standard](https://docs.microso
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>È possibile eseguire il backup di una macchina virtuale con un disco con acceleratore di scrittura?
 
-Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il servizio Backup di Azure, tuttavia, può escludere questo disco dal backup.
+Gli snapshot possono essere effettuati solo sui dischi dati che sono abilitati per WA e non per i dischi del sistema operativo. Quindi, solo i dischi dati che sono abilitati per la funzionalità WA possono essere protetti.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>In una macchina virtuale sono presenti dischi con acceleratore di scrittura ed è installato SAP HANA. In che modo è possibile eseguire il backup?
 
-Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
+Backup di Azure può eseguire il backup del disco dati abilitato per WA. Tuttavia, il backup non fornirà la coerenza del database.
 
 Backup di Azure offre una soluzione di backup di flusso per database di SAP HANA con un RPO di 15 minuti. Backint è certificata da SAP per offrire un supporto di backup nativo che sfrutta le API native di SAP HANA. Altre informazioni [sul backup di SAP Hana database nelle VM di Azure](./sap-hana-db-about.md).
 
@@ -149,7 +149,7 @@ Sì. Anche se si elimina la macchina virtuale, è possibile passare all'elemento
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Ricerca per categorie ripristinare una macchina virtuale negli stessi set di disponibilità?
 
-Per le macchine virtuali di Azure con dischi gestiti, il ripristino dei set di disponibilità viene abilitato fornendo un'opzione nel modello durante il ripristino come Managed Disks. Il parametro di input di questo modello è denominato **Set di disponibilità** .
+Per le macchine virtuali di Azure con dischi gestiti, il ripristino dei set di disponibilità viene abilitato fornendo un'opzione nel modello durante il ripristino come Managed Disks. Il parametro di input di questo modello è denominato **Set di disponibilità**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>In che modo si ottengono migliori prestazioni di ripristino?
 
@@ -185,7 +185,7 @@ Il backup della macchina virtuale viene eseguito usando le impostazioni di conse
 
    1. Trovare il percorso della macchina virtuale.
    2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` . Ad esempio, *AzureBackupRG_westus2_1*
-   3. Nella portale di Azure selezionare **Mostra tipi nascosti** .
+   3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
    4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
    6. Al termine dell'operazione di eliminazione, è possibile spostare la macchina virtuale.

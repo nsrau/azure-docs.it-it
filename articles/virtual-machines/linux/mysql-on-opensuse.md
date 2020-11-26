@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7fbdeda4cce737a6220d42642473e5f86ef8e525
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96295962"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -117,7 +117,7 @@ mysql_secure_installation
 Ora è possibile accedere ed entrare nel prompt di MySQL.
 
 ```bash  
-mysql -u root -p
+sudo mysql -u root -p
 ```
 Questo comando consente di passare prompt di MySQL, in cui è possibile eseguire istruzioni SQL per interagire con il database.
 

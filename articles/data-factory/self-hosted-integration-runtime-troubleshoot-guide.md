@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013461"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296955"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -167,7 +167,7 @@ Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscont
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Ad esempio: 
+Esempio: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -458,6 +458,22 @@ Prima e dopo la conversione:
 ![Prima della modifica del certificato](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
 
 ![Dopo la modifica del certificato](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+### <a name="self-hosted-integration-runtime-version-5x"></a>Self-Hosted Integration Runtime versione 5. x
+Per l'aggiornamento alla versione 5. x di Azure Data Factory runtime di integrazione self-hosted, è necessario **4.7.2 di runtime di .NET Framework** o versione successiva. Nella pagina di download sono disponibili collegamenti di download per la versione 4. x più recente e le due versioni 5. x più recenti. 
+
+
+Per i clienti di ADF V2:
+- Se l'aggiornamento automatico è acceso ed è già stato eseguito l'aggiornamento del runtime di .NET Framework a 4.7.2 o versione successiva, il runtime di integrazione self-hosted verrà aggiornato automaticamente alla versione 5. x più recente.
+- Se l'aggiornamento automatico è acceso e non è stato eseguito l'aggiornamento del runtime di .NET Framework a 4.7.2 o versione successiva, il runtime di integrazione self-hosted non verrà aggiornato automaticamente alla versione 5. x più recente. Il runtime di integrazione self-hosted resterà nella versione 4. x corrente. È possibile visualizzare un avviso relativo all'aggiornamento del runtime di .NET Framework nel portale e nel client del runtime di integrazione self-hosted.
+- Se l'aggiornamento automatico è disattivato ed è già stato eseguito l'aggiornamento del runtime di .NET Framework a 4.7.2 o versione successiva, è possibile scaricare manualmente la versione 5. x più recente e installarla nel computer.
+- Se l'aggiornamento automatico è disattivato e non è stato eseguito l'aggiornamento del runtime di .NET Framework a 4.7.2 o versione successiva. Quando si tenta di installare manualmente la chiave di sistema 5. x e si registra la chiave, sarà necessario aggiornare prima il runtime di .NET Framework.
+
+
+Per i clienti di ADF V1:
+- Il runtime di integrazione self-hosted 5. X non supporta ADF V1.
+- Il runtime di integrazione self-hosted verrà aggiornato automaticamente alla versione più recente di 4. x. E l'ultima versione di 4. x non scadrà. 
+- Se si prova a installare manualmente il runtime di integrazione self-hosted 5. x e si registra la chiave, viene indicato che il runtime di integrazione self-hosted 5. x non supporta V1.
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemi di connettività IR self-hosted
@@ -757,6 +773,7 @@ In caso contrario, scaricarlo da [qui](http://cacerts.digicert.com/DigiCertGloba
 #### <a name="cause"></a>Causa
 
 Il runtime di integrazione self-hosted non può essere condiviso tra tenant.
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

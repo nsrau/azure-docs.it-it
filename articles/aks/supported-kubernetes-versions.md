@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042126"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296115"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 È possibile usare una versione secondaria precedente o successiva `kubectl` rispetto alla versione di *Kube-apiserver* , coerente con i [criteri di supporto di Kubernetes per kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Se, ad esempio, *Kube-apiserver* è in *1,17* , è possibile usare le versioni da *1,16* a *1,18* di `kubectl` con tale *Kube-apiserver* .
+Se, ad esempio, *Kube-apiserver* è in *1,17*, è possibile usare le versioni da *1,16* a *1,18* di `kubectl` con tale *Kube-apiserver*.
 
 Per installare o aggiornare la versione di `kubectl` , eseguire `az aks install-cli` .
 
@@ -106,6 +106,9 @@ Per installare o aggiornare la versione di `kubectl` , eseguire `az aks install-
 Per le nuove versioni **secondarie** di Kubernetes
 1. AKS pubblica un annuncio preliminare con la data pianificata di una nuova versione della versione e la relativa deprecazione obsoleta nelle note sulla versione di [AKS](https://aka.ms/aks/releasenotes) almeno 30 giorni prima della rimozione.
 2. AKS pubblica una [notifica sull'integrità del servizio](../service-health/service-health-overview.md) disponibile per tutti gli utenti con accesso AKS e Portal e invia un messaggio di posta elettronica agli amministratori della sottoscrizione con le date di rimozione della versione pianificata.
+````
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+````
 3. Gli utenti hanno **30 giorni** dalla rimozione della versione per eseguire l'aggiornamento a una versione secondaria supportata per continuare a ricevere supporto.
 
 Per le nuove versioni di **patch** di Kubernetes
@@ -121,9 +124,9 @@ AKS si riserva il diritto di aggiungere o rimuovere le versioni nuove/esistenti 
 
 ## <a name="azure-portal-and-cli-versions"></a>Versioni di portale di Azure e CLI
 
-Quando si distribuisce un cluster del servizio contenitore di Azure nel portale o con l'interfaccia della riga di comando di Azure, per impostazione predefinita viene impostato il valore di N-1 versione secondaria e la patch più recente. Ad esempio, se AKS supporta *1.17. a* , *1.17. b* , *1.16. c* , *1.16. d* , *1.15. e* e *1.15. f* , la versione predefinita selezionata è *1.16. c* .
+Quando si distribuisce un cluster del servizio contenitore di Azure nel portale o con l'interfaccia della riga di comando di Azure, per impostazione predefinita viene impostato il valore di N-1 versione secondaria e la patch più recente. Ad esempio, se AKS supporta *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e* e *1.15. f*, la versione predefinita selezionata è *1.16. c*.
 
-Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e l'area in uso, usare il comando [az servizio Azure Kubernetes get-versions][az-aks-get-versions]. L'esempio seguente elenca le versioni di Kubernetes disponibili per l'area *EastUS* :
+Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e l'area in uso, usare il comando [az servizio Azure Kubernetes get-versions][az-aks-get-versions]. L'esempio seguente elenca le versioni di Kubernetes disponibili per l'area *EastUS*:
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -152,7 +155,7 @@ Con la dichiarazione di Kubernetes 1,19, la [community open source ha esteso il 
 
 **Cosa accade quando un utente aggiorna un cluster Kubernetes con una versione secondaria non supportata?**
 
-Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. Ad esempio:
+Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. Esempio:
 
 - Se la versione più recente di AKS supportata è *1.15. a* e l'utente si trova su *1.14. b* o versioni precedenti, l'utente non è più supportato.
 - Quando l'aggiornamento da *1.14. b* a *1.15. a* o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.
@@ -177,9 +180,9 @@ Il piano di controllo deve trovarsi all'interno di una finestra di versioni di t
 
 **È possibile ignorare più versioni AKS durante l'aggiornamento del cluster?**
 
-Quando si aggiorna un cluster AKS supportato, non è possibile ignorare le versioni secondarie di Kubernetes. Ad esempio, gli aggiornamenti compresi tra *1.12. x*  ->  *1.13. x* o *1.13. x*  ->  *1.14.* x sono consentiti, tuttavia *1.12* . x  ->  *1.14. x* non lo è.
+Quando si aggiorna un cluster AKS supportato, non è possibile ignorare le versioni secondarie di Kubernetes. Ad esempio, gli aggiornamenti compresi tra *1.12. x*  ->  *1.13. x* o *1.13. x*  ->  *1.14.* x sono consentiti, tuttavia *1.12*. x  ->  *1.14. x* non lo è.
 
-Per eseguire l'aggiornamento, da *1.12. x*  ->  *1.14. x* , eseguire prima l'aggiornamento da *1.12.* x  ->  *1.13. x* , quindi eseguire l'aggiornamento da *1.13. x*  ->  *1.14. x* .
+Per eseguire l'aggiornamento, da *1.12. x*  ->  *1.14. x*, eseguire prima l'aggiornamento da *1.12.* x  ->  *1.13. x*, quindi eseguire l'aggiornamento da *1.13. x*  ->  *1.14. x*.
 
 È possibile ignorare più versioni solo quando si effettua l'aggiornamento da una versione non supportata di nuovo in una versione supportata. Ad esempio, è possibile eseguire l'aggiornamento da un valore *1,10. x* non supportato--> è possibile completare un valore *1.15. x* supportato.
 
