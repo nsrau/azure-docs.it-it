@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024722"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187239"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -20,7 +20,7 @@ I dispositivi gemelli digitali di Azure sono dotati di API del **piano di contro
 * Le API del piano di controllo sono [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) e coprono le operazioni di gestione delle risorse come la creazione e l'eliminazione dell'istanza. 
 * Le API del piano dati sono API per i dispositivi gemelli digitali di Azure e vengono usate per operazioni di gestione dati come la gestione di modelli, gemelli e Graph.
 
-Questo articolo fornisce una panoramica delle API disponibili e i metodi per interagire con essi. È possibile usare le API REST direttamente con le loro spavalderia associate oppure tramite un SDK.
+Questo articolo fornisce una panoramica delle API disponibili e i metodi per interagire con essi. È possibile usare le API REST direttamente con le loro spavalderia associate (tramite uno strumento come il [postazione](how-to-use-postman.md)) o tramite un SDK.
 
 ## <a name="overview-control-plane-apis"></a>Panoramica: API del piano di controllo
 
@@ -32,7 +32,7 @@ Per usare le API del piano di controllo:
 * È possibile chiamare direttamente le API facendo riferimento all'oggetto spavalderia più recente nella [cartella spavalderia del piano di controllo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Questo repository include anche una cartella di esempi che illustrano l'utilizzo.
 * È attualmente possibile accedere ad SDK per le API di controllo in...
   - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([riferimento [generato automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([origine](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([riferimento [generato automaticamente]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([origine](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([riferimento [generato automaticamente]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([origine](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([origine](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([origine](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([origine](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -279,6 +279,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 L'elenco seguente fornisce informazioni aggiuntive e linee guida generali per l'uso delle API e degli SDK.
 
+* È possibile usare uno strumento di testing HTTP REST, ad esempio il post per effettuare chiamate dirette alle API dei dispositivi gemelli digitali di Azure. Per ulteriori informazioni su questo processo, vedere [*procedura: effettuare richieste con il post*](how-to-use-postman.md).
 * Per usare l'SDK, creare un'istanza della `DigitalTwinsClient` classe. Il costruttore richiede credenziali che possono essere ottenute con diversi metodi di autenticazione nel `Azure.Identity` pacchetto. Per ulteriori informazioni `Azure.Identity` , vedere la relativa [documentazione dello spazio dei nomi](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet). 
 * Potrebbe risultare `InteractiveBrowserCredential` utile durante l'introduzione, ma sono disponibili diverse altre opzioni, incluse le credenziali per l' [identità gestita](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), che è possibile usare per autenticare le [funzioni di Azure configurate con MSI](../app-service/overview-managed-identity.md?tabs=dotnet) nei dispositivi gemelli digitali di Azure. Per ulteriori informazioni su `InteractiveBrowserCredential` , vedere la relativa documentazione relativa alla [classe](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet).
 * Tutte le chiamate all'API del servizio sono esposte come funzioni membro sulla `DigitalTwinsClient` classe.
@@ -303,8 +304,8 @@ Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere come usare le API per configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione:
-* [*Procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-cli.md)
+Per informazioni su come inviare richieste dirette alle API, vedere l'articolo:
+* [*Procedura: effettuare richieste con il post*](how-to-use-postman.md)
 
-In alternativa, esaminare i passaggi per creare un'app client come quella usata in questa procedura:
+In alternativa, provare a usare .NET SDK creando un'app client con questa esercitazione:
 * [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

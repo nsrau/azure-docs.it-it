@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738102"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186899"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure
 Questo articolo descrive come usare Monitoraggio di Azure per raccogliere e analizzare i dati di monitoraggio generati dalle macchine virtuali di Azure e mantenerne l'integrità. Con Monitoraggio di Azure è possibile monitorare la disponibilità e le prestazioni delle macchine virtuali come per qualsiasi [altra risorsa di Azure](monitor-azure-resource.md). Le macchine virtuali sono però diverse rispetto ad altre risorse perché è necessario monitorare anche il sistema operativo guest e i carichi di lavoro in esecuzione in esso. 
@@ -64,7 +64,7 @@ Per abilitare tutte le funzionalità di Monitoraggio di Azure per il monitoraggi
 Ognuno di questi passaggi di configurazione viene descritto nelle sezioni seguenti.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Abilita Monitoraggio di Azure per le macchine virtuali
-[Monitoraggio di Azure per le macchine virtuali](vminsights-overview.md) è una [funzionalità](insights-overview.md) di Monitoraggio di Azure. È lo strumento principale per il monitoraggio delle macchine virtuali in Monitoraggio di Azure. Rispetto alle funzionalità standard di Monitoraggio di Azure, offre il valore aggiuntivo descritto di seguito.
+[Monitoraggio di Azure per le macchine virtuali](vminsights-overview.md) è una [funzionalità](../monitor-reference.md) di Monitoraggio di Azure. È lo strumento principale per il monitoraggio delle macchine virtuali in Monitoraggio di Azure. Rispetto alle funzionalità standard di Monitoraggio di Azure, offre il valore aggiuntivo descritto di seguito.
 
 - Onboarding semplificato dell'agente di Log Analytics e di Dependency Agent per abilitare il monitoraggio di un sistema operativo guest e dei carichi di lavoro di una macchina virtuale. 
 - Grafici sulle prestazioni di tendenza e cartelle di lavoro predefiniti che consentono di analizzare le metriche delle prestazioni di base dal sistema operativo guest della macchina virtuale.
@@ -140,7 +140,7 @@ Dopo aver configurato la raccolta dei dati di monitoraggio per una macchina virt
 | Impostazioni di diagnostica | Consente di abilitare e configurare l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per la macchina virtuale corrente. |
 | Elementi consigliati di Advisor | Raccomandazioni di [Azure Advisor](../../advisor/index.yml) per la macchina virtuale corrente. |
 | Log | Aprire [Log Analytics](../log-query/log-analytics-overview.md) con l'[ambito](../log-query/scope.md) impostato sulla macchina virtuale corrente. |
-| Monitoraggio connessione | Apre [Monitoraggio connessione di Network Watcher](../../network-watcher/connection-monitor-preview.md) per monitorare le connessioni tra la macchina virtuale corrente e altre macchine virtuali. |
+| Monitoraggio connessione | Apre [Monitoraggio connessione di Network Watcher](../../network-watcher/connection-monitor-overview.md) per monitorare le connessioni tra la macchina virtuale corrente e altre macchine virtuali. |
 
 
 ## <a name="analyzing-metric-data"></a>Analisi dei dati delle metriche
@@ -242,4 +242,3 @@ Per informazioni dettagliate sulla connessione del gruppo di gestione Operations
 
 * [Informazioni su come analizzare i dati nei log di Monitoraggio di Azure usando le query su log.](../log-query/get-started-queries.md)
 * [Informazioni sugli avvisi su metriche e log in Monitoraggio di Azure.](../platform/alerts-overview.md)
-

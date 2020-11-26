@@ -4,12 +4,12 @@ description: Avvisa sui cambiamenti insoliti nella frequenza delle richieste non
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f5bc6f5c3523bc76876f946474eaeb897cfe9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565838"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186967"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](./app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, i dettagli della notifica includono un'analisi delle caratteristiche degli errori e i dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -73,11 +73,11 @@ Questa regola di avviso viene creata con un [gruppo di azioni](../platform/actio
 
 Aprire la pagina degli avvisi. Le regole di avviso di anomalie degli errori sono disponibili con gli eventuali avvisi impostati manualmente e si può vedere se attualmente sono in uno stato di avviso.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Nella pagina risorsa Application Insights fare clic sul riquadro avvisi, quindi su Gestisci regole di avviso." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Fare clic sull'avviso per configurarlo.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Schermata di configurazione della regola." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Si ricorda che è possibile disabilitare o eliminare una regola di avviso di anomalie degli errori, ma non è possibile crearne un'altra nella stessa risorsa di Application Insights.
 
@@ -299,7 +299,7 @@ Per approfondire l'analisi, fare clic su "Visualizza dettagli completi in Applic
 
 Facendo clic su "Diagnostica errori", sarà possibile ottenere altri dettagli e risolvere il problema.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Ricerca diagnostica." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente si ha una percentuale di errori del 78,5% rispetto alla percentuale normale del 2,2% e ciò evidenzia sicuramente un'anomalia. D'altra parte, solo 46 utenti sono stati interessati. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
 
@@ -307,13 +307,13 @@ In molti casi è possibile diagnosticare rapidamente il problema in base al nome
 
 In questo esempio è stata generata un'eccezione dal database SQL a causa del raggiungimento del limite di richieste.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Dettagli della richiesta non riuscita." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Esaminare gli avvisi recenti
 
 Fare clic su **Avvisi** nella pagina delle risorse di Application Insights per ottenere gli avvisi generati più recentemente:
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Riepilogo degli avvisi." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Qual è la differenza
 Il rilevamento intelligente delle anomalie degli errori integra altre funzionalità simili ma distinte di Application Insights.
@@ -356,10 +356,9 @@ Gli strumenti di diagnostica seguenti consentono di controllare i dati dall'app:
 
 * [Esplora metriche](../platform/metrics-charts.md)
 * [Esplora ricerche](./diagnostic-search.md)
-* [Linguaggio avanzato di query di Analisi](../log-query/get-started-portal.md)
+* [Linguaggio avanzato di query di Analisi](../log-query/log-analytics-tutorial.md)
 
 Gli avvisi di rilevamento intelligente sono automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
 * [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
 * [Test Web di disponibilità](./monitor-web-app-availability.md)
-

@@ -9,11 +9,11 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
 ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188752"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Come rivedere e pubblicare un'offerta nel Marketplace commerciale
 
@@ -42,7 +42,7 @@ Quando si è pronti per inviare un'offerta per la pubblicazione, selezionare **r
    - **Incompleto** : nella pagina mancano le informazioni necessarie o sono presenti errori che devono essere corretti. È necessario tornare alla pagina e aggiornarla.
    - **Completato** : la pagina è stata completata. Sono stati forniti tutti i dati necessari e non sono presenti errori.
 
-Se una delle pagine presenta uno stato diverso da **completo** , è necessario correggere il problema in tale pagina, quindi tornare alla pagina **revisione e pubblicazione** per confermare che lo stato è ora **completo** . Per alcuni tipi di offerta è necessario eseguire il test. In tal caso, viene visualizzato un campo **Note per la certificazione** in cui è necessario fornire istruzioni di test al team di certificazione ed eventuali note supplementari utili per comprendere l'app.
+Se una delle pagine presenta uno stato diverso da **completo**, è necessario correggere il problema in tale pagina, quindi tornare alla pagina **revisione e pubblicazione** per confermare che lo stato è ora **completo**. Per alcuni tipi di offerta è necessario eseguire il test. In tal caso, viene visualizzato un campo **Note per la certificazione** in cui è necessario fornire istruzioni di test al team di certificazione ed eventuali note supplementari utili per comprendere l'app.
 
 Una volta completate tutte le pagine e immesse le note di test applicabili, selezionare **pubblica** per avviare i processi di convalida e pubblicazione. Le fasi e la sequenza complessiva possono variare a seconda del tipo di offerta che si sta pubblicando. La tabella seguente illustra un possibile flusso di pubblicazione. Ogni fase è illustrata più dettagliatamente nelle sezioni seguenti.
 
@@ -137,7 +137,7 @@ Per annullare un'offerta con lo stato **pubblicazione in corso** :
 Se si vuole pubblicare l'offerta in un secondo momento, è necessario avviare il processo di pubblicazione.
 
 > [!NOTE]
-> È possibile arrestare la pubblicazione di un'offerta solo se l'offerta non è ancora progredita nel passaggio di approvazione dell'editore. Dopo aver selezionato **Go Live** , non sarà più possibile annullare la pubblicazione.
+> È possibile arrestare la pubblicazione di un'offerta solo se l'offerta non è ancora progredita nel passaggio di approvazione dell'editore. Dopo aver selezionato **Go Live**, non sarà più possibile annullare la pubblicazione.
 
 ## <a name="publisher-sign-off-phase"></a>Fase di approvazione dell'editore
 
@@ -156,7 +156,7 @@ Nella pagina **Panoramica dell'offerta** verranno visualizzati i collegamenti di
 
 Dopo aver approvato l'anteprima, selezionare **Go Live** per pubblicare l'offerta in diretta nel Marketplace commerciale. 
 
-Se si desidera apportare modifiche dopo l'anteprima dell'offerta, è possibile modificare e inviare nuovamente la richiesta di pubblicazione. Se l'offerta è già attiva e disponibile per il pubblico nel Marketplace, gli eventuali aggiornamenti non verranno attivati fino a quando non si seleziona * *Go Live* . Per ulteriori informazioni, vedere [l'aggiornamento di un'offerta esistente nel Marketplace commerciale](partner-center-portal/update-existing-offer.md)
+Se si desidera apportare modifiche dopo l'anteprima dell'offerta, è possibile modificare e inviare nuovamente la richiesta di pubblicazione. Se l'offerta è già attiva e disponibile per il pubblico nel Marketplace, gli eventuali aggiornamenti non verranno attivati fino a quando non si seleziona **Go Live*. Per ulteriori informazioni, vedere [l'aggiornamento di un'offerta esistente nel Marketplace commerciale](partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Fase di pubblicazione
 
@@ -191,24 +191,24 @@ La pagina **cronologia** nel centro per i partner Mostra gli eventi di pubblicaz
 Per visualizzare la cronologia dell'offerta:
 
 1.    Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2.    Nel menu di navigazione a sinistra selezionare **Commercial Marketplace**  >  **Overview** .
+2.    Nel menu di navigazione a sinistra selezionare **Commercial Marketplace**  >  **Overview**.
 3.    Selezionare l'offerta.
 4.    Selezionare la scheda **cronologia** nel menu di navigazione a sinistra. La pagina fornisce informazioni dettagliate per gli eventi seguenti, in modo applicabile all'offerta:
 
 |Event    |Descrizione    |
 |---------|---------------|
-|Offerta creata    |L'offerta è stata creata nel centro per i partner. Un utente ha selezionato il tipo di offerta, l'ID offerta e l'alias offerta in panoramica sul **Marketplace commerciale**  >  **Overview** .    |
-|Piano creato: *nome del piano*    |Un utente ha creato un nuovo piano immettendo l'ID del piano e il nome del piano nella scheda **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani* .    |
-|Piano eliminato    |Un utente ha eliminato un piano bozza che non è stato pubblicato selezionando **Elimina bozza** dalla pagina **panoramica piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani* .    |
-|Piano di interruzione vendita avviato: *nome del piano*    |Un utente ha avviato un piano stop-sell selezionando **stop selling** dalla pagina di **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani* .    |
-|Annulla piano di interruzione vendita: *nome piano*    |Un utente ha annullato un piano stop-sell selezionando **Annulla la vendita** dalla pagina **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani* .    |
+|Offerta creata    |L'offerta è stata creata nel centro per i partner. Un utente ha selezionato il tipo di offerta, l'ID offerta e l'alias offerta in panoramica sul **Marketplace commerciale**  >  **Overview**.    |
+|Piano creato: *nome del piano*    |Un utente ha creato un nuovo piano immettendo l'ID del piano e il nome del piano nella scheda **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Piano eliminato    |Un utente ha eliminato un piano bozza che non è stato pubblicato selezionando **Elimina bozza** dalla pagina **panoramica piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Piano di interruzione vendita avviato: *nome del piano*    |Un utente ha avviato un piano stop-sell selezionando **stop selling** dalla pagina di **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Annulla piano di interruzione vendita: *nome piano*    |Un utente ha annullato un piano stop-sell selezionando **Annulla la vendita** dalla pagina **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
 |Offerta inviata all'anteprima    |Un utente ha inviato l'offerta all'anteprima selezionando **pubblica** nella pagina **Verifica e pubblica** .    |
-|Invio avviato per l'annullamento dell'anteprima    |Un utente ha richiesto di annullare la pubblicazione dell'offerta in anteprima selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'invio in anteprima.</br>*Questo evento viene visualizzato durante l'elaborazione della richiesta di annullamento* .    |
-|L'invio all'anteprima è stato annullato    |Un utente ha annullato la pubblicazione dell'offerta in anteprima selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'invio all'anteprima.</br>*Questo evento viene visualizzato dopo l'elaborazione corretta della richiesta di annullamento* .    |
+|Invio avviato per l'annullamento dell'anteprima    |Un utente ha richiesto di annullare la pubblicazione dell'offerta in anteprima selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'invio in anteprima.</br>*Questo evento viene visualizzato durante l'elaborazione della richiesta di annullamento*.    |
+|L'invio all'anteprima è stato annullato    |Un utente ha annullato la pubblicazione dell'offerta in anteprima selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'invio all'anteprima.</br>*Questo evento viene visualizzato dopo l'elaborazione corretta della richiesta di annullamento*.    |
 |Accedi per andare in diretta    |Un utente ha pubblicato l'offerta nel Marketplace commerciale selezionando **Go Live** dalla pagina **Panoramica dell'offerta** .    |
-|Annullamento della pubblicazione nel Marketplace avviato    |Un utente ha richiesto di annullare la pubblicazione dell'offerta selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'accesso.</br>*Questo evento viene visualizzato durante l'elaborazione della richiesta di annullamento* .    |
-|Pubblicazione annullata nel Marketplace commerciale    |Un utente ha annullato la pubblicazione dell'offerta selezionando **Annulla pubblicazione** nella pagina **Panoramica offerta** dopo l'approvazione.</br>*Questo evento viene visualizzato dopo l'elaborazione corretta della richiesta di annullamento* .    |
-|Sincronizzare i destinatari privati    |Un utente ha aggiornato e sincronizzato il pubblico privato selezionando **Sincronizza destinatari privati** dalla pagina **panoramica piano** o dalla pagina di **disponibilità piano prezzi &** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani privati* .    |
+|Annullamento della pubblicazione nel Marketplace avviato    |Un utente ha richiesto di annullare la pubblicazione dell'offerta selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'accesso.</br>*Questo evento viene visualizzato durante l'elaborazione della richiesta di annullamento*.    |
+|Pubblicazione annullata nel Marketplace commerciale    |Un utente ha annullato la pubblicazione dell'offerta selezionando **Annulla pubblicazione** nella pagina **Panoramica offerta** dopo l'approvazione.</br>*Questo evento viene visualizzato dopo l'elaborazione corretta della richiesta di annullamento*.    |
+|Sincronizzare i destinatari privati    |Un utente ha aggiornato e sincronizzato il pubblico privato selezionando **Sincronizza destinatari privati** dalla pagina **panoramica piano** o dalla pagina di **disponibilità piano prezzi &** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani privati*.    |
 |Interrompi vendita offerta    |Un utente ha smesso di vendere l'offerta selezionando **Interrompi la vendita** dalla pagina **Panoramica dell'offerta** .    |
 
 > [!NOTE]

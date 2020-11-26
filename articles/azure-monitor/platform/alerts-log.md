@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018206"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186780"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/get-started-portal.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
+Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
 
 Questo articolo illustra come creare e gestire gli avvisi di log con monitoraggio di Azure. Le regole di avviso sono definite da tre componenti:
 - Target: una risorsa di Azure specifica da monitorare.
@@ -27,7 +27,7 @@ Questo articolo illustra come creare e gestire gli avvisi di log con monitoraggi
 È anche possibile creare regole di avviso del log usando Azure Resource Manager modelli, descritti in [un articolo separato](alerts-log-create-templates.md).
 
 > [!NOTE]
-> I dati di log da un' [area di lavoro log Analytics](../log-query/get-started-portal.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
+> I dati di log da un' [area di lavoro log Analytics](../log-query/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Creare una regola per gli avvisi relativi ai log con il portale di Azure
 
@@ -35,7 +35,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Passare alla risorsa su cui si vuole inviare l'avviso.
 1. In **monitoraggio** selezionare **log**.
-1. Eseguire una query sui dati del log che possono indicare il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/saved-queries.md) per capire cosa è possibile individuare o [iniziare a scrivere una query personalizzata](../log-query/get-started-portal.md). È anche possibile trovare [informazioni su come creare query di avviso ottimizzate](alerts-log-query.md).
+1. Eseguire una query sui dati del log che possono indicare il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) per capire cosa è possibile individuare o [iniziare a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md). È anche possibile trovare [informazioni su come creare query di avviso ottimizzate](alerts-log-query.md).
 1. Premere il pulsante "+ nuovo regola di avviso" per avviare il flusso di creazione dell'avviso.
 
     ![Log Analytics - Imposta avviso](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -327,4 +327,3 @@ Al completamento della creazione, viene restituito 201. In seguito all'esito pos
 * Creare avvisi del log usando [modelli di Azure Resource Manager](./alerts-log-create-templates.md).
 * Informazioni sulle [azioni webhook per gli avvisi del log](./alerts-log-webhook.md).
 * Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
-

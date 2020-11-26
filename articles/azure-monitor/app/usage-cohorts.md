@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d12244bce117d6a631fdb67dc460af18bc77028c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995746"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186950"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
 
@@ -43,7 +43,7 @@ In base alla definizione elaborata dal team, un utente attivo è chi usa l'app c
     * **Period**, la definizione di un mese.
     * **UsedAtLeastCustom**, il numero di volte in cui gli utenti devono usare qualcosa in un periodo di tempo per conteggiare come occupato.
 
-4. Modificare il valore di **UsedAtLeastCustom** in **5 + giorni**e lasciare il **periodo** sul valore predefinito di 28 giorni.
+4. Modificare il valore di **UsedAtLeastCustom** in **5 + giorni** e lasciare il **periodo** sul valore predefinito di 28 giorni.
 
     ![Utenti attivi](./media/usage-cohorts/003.png)
 
@@ -131,7 +131,7 @@ Le coorti e i filtri sono diversi. Si supponga di avere una coorte di utenti del
 
 ## <a name="learn-more"></a>Altre informazioni
 
-* [Linguaggio di query di Analytics](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+* [Linguaggio di query di Analytics](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Utenti, sessioni, eventi](usage-segmentation.md)
-* [Flussi utente](usage-flows.md)
+* [Flussi degli utenti](usage-flows.md)
 * [Panoramica sull'uso](usage-overview.md)

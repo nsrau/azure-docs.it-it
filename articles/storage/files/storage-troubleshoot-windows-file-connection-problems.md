@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630159"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188718"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
@@ -176,7 +176,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossibile eliminare un file o una directory in una condivisione file di Azure
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Impossibile modificare, spostare, rinominare o eliminare un file o una directory
 Uno degli scopi chiave di una condivisione file è che più utenti e applicazioni possono interagire simultaneamente con i file e le directory nella condivisione. Per supportare questa interazione, le condivisioni file forniscono diversi modi per mediare l'accesso a file e directory.
 
 Quando si apre un file da una condivisione file di Azure montata su SMB, l'applicazione o il sistema operativo richiede un handle di file, ovvero un riferimento al file. Tra le altre cose, l'applicazione specifica una modalità di condivisione file quando richiede un handle di file, che specifica il livello di esclusività dell'accesso al file applicato da File di Azure: 

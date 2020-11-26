@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896345"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187035"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -132,7 +132,7 @@ L'API di geocodifica inversa di Mappe di Azure include alcune funzionalità aggi
 È possibile cercare i dati del punto di interesse in Google Maps usando l'API di ricerca luoghi. Questa API offre tre modi diversi per cercare i punti di interesse:
 
 - **Ricerca di un luogo dal testo:** cerca un punto di interesse in base al nome, all'indirizzo o al numero di telefono.
-- **Ricerca nelle vicinanze** : cerca i punti di interesse che si trovano entro una certa distanza da una posizione.
+- **Ricerca nelle vicinanze**: cerca i punti di interesse che si trovano entro una certa distanza da una posizione.
 - **Ricerca testuale:** cerca i luoghi usando un testo in formato libero contenente informazioni sul punto di interesse e sulla posizione. Ad esempio: "pizza a New York" o "ristoranti vicino a Main St".
 
 Mappe di Azure offre numerose API di ricerca per i punti di interesse:
@@ -219,11 +219,11 @@ La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e 
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *N/D* : si tratta di una funzionalità relativa alla geocodifica. Usare il parametro *countrySet* quando si usa l'API di geocodifica di Mappe di Azure.  |
-| `traffic_model`               | *N/D* : può specificare solo se usare o meno i dati del traffico con il parametro *traffic* . |
+| `region`                       | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro *countrySet* quando si usa l'API di geocodifica di Mappe di Azure.  |
+| `traffic_model`               | *N/D*: può specificare solo se usare o meno i dati del traffico con il parametro *traffic*. |
 | `transit_mode`                | Vedere la [documentazione dei servizi di mobilità](/rest/api/maps/mobility) |
 | `transit_routing_preference` | Vedere la [documentazione dei servizi di mobilità](/rest/api/maps/mobility) |
-| `units`                        | *N/D* : Mappe di Azure usa solo il sistema metrico.  |
+| `units`                        | *N/D*: Mappe di Azure usa solo il sistema metrico.  |
 | `waypoints`                    | `query`                            |
 
 > [!TIP]
@@ -264,7 +264,7 @@ La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e 
 | `maptype`                   | `layer` e `style`: vedere la documentazione relativa agli [stili mappa supportati](supported-map-styles.md). |
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
-| `region`                    | *N/D* : si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure.  |
+| `region`                    | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure.  |
 | `scale`                     | *N/D*                              |
 | `size`                      | `width` e `height`: dimensioni massime fino a 8192x8192. |
 | `style`                     | *N/D*                              |
@@ -443,11 +443,11 @@ Questa tabella offre un riferimento incrociato dei parametri dell'API Google Map
 | `language`                     | `language`: vedere la documentazione relativa alle [lingue supportate](supported-languages.md).  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins`: specificare nel corpo della richiesta POST come GeoJSON.  |
-| `region`                       | *N/D* : si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure. |
-| `traffic_model`                | *N/D* : può specificare solo se usare o meno i dati del traffico con il parametro `traffic`. |
-| `transit_mode`                 | *N/D* : le matrici di distanze basate su transito non sono attualmente supportate.  |
-| `transit_routing_preference`   | *N/D* : le matrici di distanze basate su transito non sono attualmente supportate.  |
-| `units`                        | *N/D* : Mappe di Azure usa solo il sistema metrico. |
+| `region`                       | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure. |
+| `traffic_model`                | *N/D*: può specificare solo se usare o meno i dati del traffico con il parametro `traffic`. |
+| `transit_mode`                 | *N/D*: le matrici di distanze basate su transito non sono attualmente supportate.  |
+| `transit_routing_preference`   | *N/D*: le matrici di distanze basate su transito non sono attualmente supportate.  |
+| `units`                        | *N/D*: Mappe di Azure usa solo il sistema metrico. |
 
 > [!TIP]
 > Tutte le opzioni di pianificazione percorso avanzate disponibili nell'API di pianificazione percorso di Mappe di Azure sono supportate nell'API della matrice di distanze di Mappe di Azure. Le opzioni di pianificazione percorso avanzate includono: percorso autocarro, specifiche del motore e così via.
@@ -501,10 +501,10 @@ Altre informazioni sui servizi REST di Mappe di Azure:
 > [Procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
+> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Esempi di codice](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992166"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187103"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -376,7 +376,7 @@ La separazione dei compiti non è limitata ai dati in un database, ma include il
 
 - Assicurarsi di essere a conoscenza di tutte le origini di modifiche del codice. Il codice può essere in script T-SQL. Può essere l'esecuzione o la distribuzione di comandi ad hoc in forme di viste, funzioni, trigger e stored procedure. Può far parte delle definizioni dei processi di SQL Agent (passaggi). Può anche essere eseguita dall'interno di pacchetti SSIS, Azure Data Factory e altri servizi.
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 La protezione dei dati è un set di funzionalità per salvaguardare le informazioni importanti dalla compromissione mediante crittografia o offuscamento.
 
@@ -614,7 +614,7 @@ Gli attacchi Distributed Denial of Service (DDoS) sono tentativi da parte di un 
 
 La protezione DDoS viene abilitata automaticamente come parte della piattaforma Azure. Include il monitoraggio del traffico always on e la mitigazione in tempo reale degli attacchi a livello di rete sugli endpoint pubblici.
 
-- Usare la [protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md) per monitorare gli indirizzi IP pubblici associati alle risorse distribuite nelle reti virtuali.
+- Usare la [protezione DDoS di Azure](../../ddos-protection/ddos-protection-overview.md) per monitorare gli indirizzi IP pubblici associati alle risorse distribuite nelle reti virtuali.
 
 - Usare [Advanced Threat Protection per il database SQL di Azure](threat-detection-overview.md) per rilevare gli attacchi Denial of Service (DOS) contro i database.
 

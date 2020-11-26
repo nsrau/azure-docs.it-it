@@ -3,18 +3,18 @@ title: Utilizzo della funzionalità Ricerca in Azure Application Insights | Micr
 description: Ricercare e filtrare elementi di telemetria non elaborata inviata da App Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324455"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187018"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 
 Ricerca è una funzionalità di [Application Insights](./app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
 
-Per le query più complesse sui dati, utilizzare [Analytics](../log-query/get-started-portal.md).
+Per le query più complesse sui dati, utilizzare [Analytics](../log-query/log-analytics-tutorial.md).
 
 ## <a name="where-do-you-see-search"></a>Dove si trova Ricerca?
 
@@ -81,7 +81,7 @@ Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli 
 ## <a name="search-the-data"></a>Eseguire ricerche nei dati
 
 > [!NOTE]
-> Per scrivere query più complesse, aprire [**logs (Analytics)**](../log-query/get-started-portal.md) nella parte superiore del pannello Search (Cerca).
+> Per scrivere query più complesse, aprire [**logs (Analytics)**](../log-query/log-analytics-tutorial.md) nella parte superiore del pannello Search (Cerca).
 >
 
 È possibile cercare i termini in uno dei valori delle proprietà. Questa operazione è utile se sono stati scritti [eventi personalizzati](./api-custom-events-metrics.md) con valori di proprietà.
@@ -145,8 +145,7 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
 ## <a name="next-steps"></a><a name="add"></a>Passaggi successivi
 
-* [Scrivere query complesse in Analytics](../log-query/get-started-portal.md)
+* [Scrivere query complesse in Analytics](../log-query/log-analytics-tutorial.md)
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](./asp-net-trace-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](./monitor-web-app-availability.md)
 * [Risoluzione dei problemi](../faq.md)
-

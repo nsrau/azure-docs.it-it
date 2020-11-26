@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: dapine
 ms.openlocfilehash: 68a06bcb96e201efba5e8b394486e62702f9199e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86035874"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187562"
 ---
 > [!IMPORTANT]
 > Scaricando uno dei componenti Speech SDK di Servizi cognitivi, si accetta la relativa licenza. Per altre informazioni, vedere:

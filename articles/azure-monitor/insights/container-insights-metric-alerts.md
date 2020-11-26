@@ -3,12 +3,12 @@ title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori
 description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 16995246578dc8d3c009253d8384c6d7ff3911d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927822"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186882"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
 
@@ -29,7 +29,7 @@ Prima di iniziare, verificare quanto segue:
     Per verificare che il cluster esegua la versione più recente dell'agente, è possibile effettuare una delle operazioni seguenti:
 
     * Eseguire il comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . Nello stato restituito prendere nota del valore in **immagine** per omsagent nella sezione *contenitori* dell'output. 
-    * Nella scheda **nodi** selezionare il nodo del cluster e nel riquadro **Proprietà** a destra, annotare il valore in **tag immagine agente** .
+    * Nella scheda **nodi** selezionare il nodo del cluster e nel riquadro **Proprietà** a destra, annotare il valore in **tag immagine agente**.
 
     Il valore visualizzato per AKS deve essere **ciprod05262020** o versione successiva. Il valore visualizzato per il cluster Kubernetes abilitato per Azure ARC deve essere **ciprod09252020** o versione successiva. Se il cluster ha una versione precedente, vedere [How to upgrade the Azure Monitor for container Agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) per i passaggi da seguire per ottenere la versione più recente.
 
@@ -74,15 +74,15 @@ Le metriche basate sugli avvisi seguenti hanno caratteristiche di comportamento 
 
 * la metrica *oomKilledContainerCount* viene inviata solo quando sono presenti contenitori uccisi da memoria insufficiente.
 
-* le metriche *cpuExceededPercentage* , *memoryRssExceededPercentage* e *memoryWorkingSetExceededPercentage* vengono inviate quando i valori della CPU, della memoria RSS e del working set della memoria superano la soglia configurata (la soglia predefinita è 95%). Queste soglie sono esclusive della soglia della condizione di avviso specificata per la regola di avviso corrispondente. Ciò significa che se si vuole raccogliere queste metriche e analizzarle da [Esplora metriche](../platform/metrics-getting-started.md), è consigliabile configurare la soglia su un valore inferiore a quello della soglia di avviso. È possibile eseguire l'override della configurazione relativa alle impostazioni di raccolta per le soglie di utilizzo delle risorse del contenitore nel file ConfigMaps nella sezione `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Vedere la sezione [configurare le metriche per gli avvisi ConfigMaps](#configure-alertable-metrics-in-configmaps) per informazioni dettagliate sulla configurazione del file di configurazione di ConfigMap.
+* le metriche *cpuExceededPercentage*, *memoryRssExceededPercentage* e *memoryWorkingSetExceededPercentage* vengono inviate quando i valori della CPU, della memoria RSS e del working set della memoria superano la soglia configurata (la soglia predefinita è 95%). Queste soglie sono esclusive della soglia della condizione di avviso specificata per la regola di avviso corrispondente. Ciò significa che se si vuole raccogliere queste metriche e analizzarle da [Esplora metriche](../platform/metrics-getting-started.md), è consigliabile configurare la soglia su un valore inferiore a quello della soglia di avviso. È possibile eseguire l'override della configurazione relativa alle impostazioni di raccolta per le soglie di utilizzo delle risorse del contenitore nel file ConfigMaps nella sezione `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Vedere la sezione [configurare le metriche per gli avvisi ConfigMaps](#configure-alertable-metrics-in-configmaps) per informazioni dettagliate sulla configurazione del file di configurazione di ConfigMap.
 
-* la metrica *pvUsageExceededPercentage* viene inviata quando la percentuale di utilizzo del volume persistente supera la soglia configurata (la soglia predefinita è 60%). Questa soglia è esclusiva della soglia della condizione di avviso specificata per la regola di avviso corrispondente. Ciò significa che se si vuole raccogliere queste metriche e analizzarle da [Esplora metriche](../platform/metrics-getting-started.md), è consigliabile configurare la soglia su un valore inferiore a quello della soglia di avviso. La configurazione correlata alle impostazioni di raccolta per le soglie di utilizzo dei volumi permanenti può essere sostituita nel file ConfigMaps nella sezione `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Vedere la sezione [configurare le metriche per gli avvisi ConfigMaps](#configure-alertable-metrics-in-configmaps) per informazioni dettagliate sulla configurazione del file di configurazione di ConfigMap. La raccolta di metriche del volume permanente con attestazioni nello spazio dei nomi *Kube-System* è esclusa per impostazione predefinita. Per abilitare la raccolta in questo spazio dei nomi, usare la sezione `[metric_collection_settings.collect_kube_system_pv_metrics]` nel file ConfigMap. Per informazioni dettagliate, vedere [impostazioni della raccolta metrica](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) .
+* la metrica *pvUsageExceededPercentage* viene inviata quando la percentuale di utilizzo del volume persistente supera la soglia configurata (la soglia predefinita è 60%). Questa soglia è esclusiva della soglia della condizione di avviso specificata per la regola di avviso corrispondente. Ciò significa che se si vuole raccogliere queste metriche e analizzarle da [Esplora metriche](../platform/metrics-getting-started.md), è consigliabile configurare la soglia su un valore inferiore a quello della soglia di avviso. La configurazione correlata alle impostazioni di raccolta per le soglie di utilizzo dei volumi permanenti può essere sostituita nel file ConfigMaps nella sezione `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Vedere la sezione [configurare le metriche per gli avvisi ConfigMaps](#configure-alertable-metrics-in-configmaps) per informazioni dettagliate sulla configurazione del file di configurazione di ConfigMap. La raccolta di metriche del volume permanente con attestazioni nello spazio dei nomi *Kube-System* è esclusa per impostazione predefinita. Per abilitare la raccolta in questo spazio dei nomi, usare la sezione `[metric_collection_settings.collect_kube_system_pv_metrics]` nel file ConfigMap. Per informazioni dettagliate, vedere [impostazioni della raccolta metrica](./container-insights-agent-config.md#metric-collection-settings) .
 
 ## <a name="metrics-collected"></a>Metriche raccolte
 
 Le metriche seguenti sono abilitate e raccolte, se non diversamente specificato, come parte di questa funzionalità:
 
-|Spazio dei nomi delle metriche |Metrica |Descrizione |
+|Spazio dei nomi delle metriche |Metric |Descrizione |
 |---------|----|------------|
 |Insights. contenitore/nodi |cpuUsageMillicores |Utilizzo della CPU in millicore da host.|
 |Insights. contenitore/nodi |cpuUsagePercentage |Percentuale di utilizzo della CPU per nodo.|
@@ -114,11 +114,11 @@ Questa sezione illustra l'abilitazione di monitoraggio di Azure per l'avviso del
 
 2. L'accesso alla funzionalità di avviso delle metriche di monitoraggio di Azure per i contenitori (anteprima) è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro a sinistra nel portale di Azure.
 
-3. Nella barra dei comandi selezionare **avvisi consigliati** .
+3. Nella barra dei comandi selezionare **avvisi consigliati**.
 
     ![Opzione avvisi consigliati in monitoraggio di Azure per i contenitori](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
-4. Il riquadro delle proprietà **avvisi consigliati** viene visualizzato automaticamente sul lato destro della pagina. Per impostazione predefinita, tutte le regole di avviso nell'elenco sono disabilitate. Dopo aver selezionato **Abilita** , la regola di avviso viene creata e il nome della regola viene aggiornato per includere un collegamento alla risorsa avviso.
+4. Il riquadro delle proprietà **avvisi consigliati** viene visualizzato automaticamente sul lato destro della pagina. Per impostazione predefinita, tutte le regole di avviso nell'elenco sono disabilitate. Dopo aver selezionato **Abilita**, la regola di avviso viene creata e il nome della regola viene aggiornato per includere un collegamento alla risorsa avviso.
 
     ![Riquadro Proprietà avvisi consigliati](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
@@ -126,7 +126,7 @@ Questa sezione illustra l'abilitazione di monitoraggio di Azure per l'avviso del
 
     ![Abilitare una regola di avviso](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Le regole di avviso non sono associate a un [gruppo di azioni](../platform/action-groups.md) per notificare agli utenti che è stato attivato un avviso. Selezionare **nessun gruppo di azione assegnato** e nella pagina **gruppi di azioni** specificare un gruppo esistente o creare un gruppo di azioni selezionando **Aggiungi** o **Crea** .
+5. Le regole di avviso non sono associate a un [gruppo di azioni](../platform/action-groups.md) per notificare agli utenti che è stato attivato un avviso. Selezionare **nessun gruppo di azione assegnato** e nella pagina **gruppi di azioni** specificare un gruppo esistente o creare un gruppo di azioni selezionando **Aggiungi** o **Crea**.
 
     ![Selezionare un gruppo di azioni](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ I passaggi di base sono i seguenti:
 
 2. Per distribuire un modello personalizzato tramite il portale, selezionare **Crea una risorsa** dal [portale di Azure](https://portal.azure.com).
 
-3. Cercare il **modello** , quindi selezionare **distribuzione modelli** .
+3. Cercare il **modello**, quindi selezionare **distribuzione modelli**.
 
-4. Selezionare **Crea** .
+4. Selezionare **Crea**.
 
-5. Sono disponibili diverse opzioni per la creazione di un modello, selezionare **Compila un modello personalizzato nell'editor** .
+5. Sono disponibili diverse opzioni per la creazione di un modello, selezionare **Compila un modello personalizzato nell'editor**.
 
 6. Nella **pagina Modifica modello** selezionare **Carica file** e quindi selezionare il file modello.
 
-7. Nella pagina **modifica modello** selezionare **Salva** .
+7. Nella pagina **modifica modello** selezionare **Salva**.
 
 8. Nella pagina **distribuzione personalizzata** specificare gli elementi seguenti e quindi, al termine, selezionare **Acquista** per distribuire il modello e creare la regola di avviso.
 
@@ -200,14 +200,14 @@ I passaggi di base sono i seguenti:
 
 È possibile visualizzare e gestire le regole di avviso di monitoraggio di Azure per contenitori per modificare la soglia o configurare un [gruppo di azioni](../platform/action-groups.md) per il cluster AKS. Sebbene sia possibile eseguire queste azioni dal portale di Azure e dall'interfaccia della riga di comando di Azure, è possibile eseguire queste azioni anche direttamente dal cluster AKS in monitoraggio di Azure per i contenitori.
 
-1. Nella barra dei comandi selezionare **avvisi consigliati** .
+1. Nella barra dei comandi selezionare **avvisi consigliati**.
 
 2. Per modificare la soglia, nel riquadro **avvisi consigliati** selezionare l'avviso attivato. Nella **regola di modifica** selezionare i **criteri di avviso** che si desidera modificare.
 
-    * Per modificare la soglia della regola di avviso, selezionare la **condizione** .
+    * Per modificare la soglia della regola di avviso, selezionare la **condizione**.
     * Per specificare un gruppo di azioni esistente o crearne uno, selezionare **Aggiungi** o **Crea** in **gruppo di azioni**
 
-Per visualizzare gli avvisi creati per le regole abilitate, nel riquadro **avvisi consigliati** selezionare **Visualizza negli avvisi** . Si viene reindirizzati al menu avviso per il cluster AKS, in cui è possibile visualizzare tutti gli avvisi attualmente creati per il cluster.
+Per visualizzare gli avvisi creati per le regole abilitate, nel riquadro **avvisi consigliati** selezionare **Visualizza negli avvisi**. Si viene reindirizzati al menu avviso per il cluster AKS, in cui è possibile visualizzare tutti gli avvisi attualmente creati per il cluster.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurare la metrica per gli avvisi in ConfigMaps
 

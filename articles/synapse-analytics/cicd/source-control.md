@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b7248a3a66e0eeca4d86568f80af82bf2d89701f
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031236"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188123"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controllo del codice sorgente in Azure sinapsi Studio
 
@@ -38,7 +38,7 @@ Nell'area di disegno della creazione di sinapsi Studio selezionare il menu a dis
 
 ![Configurare le impostazioni del repository di codice dalla creazione](media/configure-repo-1.png)
 
-### <a name="configuration-method-2-management-hub"></a>Metodo di configurazione 2: Hub di gestione
+### <a name="configuration-method-2-manage-hub"></a>Metodo di configurazione 2: gestire l'hub
 
 Passare all'hub di gestione di sinapsi Studio. Selezionare **configurazione git** nella sezione **controllo del codice sorgente** . Se non si dispone di un repository connesso, fare clic su **Configura**.
 
@@ -197,7 +197,7 @@ Dopo la rimozione dell'associazione con il repository corrente, è possibile con
 -   **Modalità Live sinapsi**. Dopo la pubblicazione in modalità git, tutte le modifiche verranno riflesse in modalità Live sinapsi. In modalità Live sinapsi la pubblicazione è disabilitata. È possibile visualizzare ed eseguire gli artefatti in modalità Live se è stata concessa l'autorizzazione appropriata. 
 -   **Modificare gli artefatti in studio**. Sinapsi studio è l'unica posizione in cui è possibile abilitare il controllo del codice sorgente dell'area di lavoro e sincronizzare automaticamente le modifiche in git. Qualsiasi modifica tramite SDK, PowerShell, non verrà sincronizzata con git. È consigliabile modificare sempre l'artefatto in studio quando Git è abilitato.
 
-## <a name="troubleshooting-git-integration"></a>Risoluzione dei problemi di integrazione con Git
+## <a name="troubleshooting-git-integration"></a>Risoluzione dei problemi di integrazione con git
 
 ### <a name="access-to-git-mode"></a>Accesso alla modalità git 
 
@@ -217,6 +217,11 @@ Se il ramo di pubblicazione non è sincronizzato con il ramo collaborazione e co
 
 1. Creare una richiesta pull per unire le modifiche al ramo di collaborazione 
 
+## <a name="unsupported-features"></a>Funzionalità non supportate
+
+- Sinapsi Studio non consente il cherry-picking di commit o la pubblicazione selettiva delle risorse. 
+- Sinapsi Studio non supporta la personalizzazione del messaggio di commit.
+- Per impostazione predefinita, l'azione di eliminazione in studio verrà sottoposta a commit direttamente in git
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
-ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426419"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187341"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica da Azure ad Azure
 
@@ -63,13 +63,13 @@ Quando si Abilita la replica per una macchina virtuale a partire [dalla visualiz
 
 1. Selezionare **Salva**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Impostazioni estensione":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Impostazioni di aggiornamento dell'estensione":::
 
 > [!IMPORTANT]
 > Quando si sceglie **consenti Site Recovery di gestire**, l'impostazione viene applicata a tutte le macchine virtuali nell'insieme di credenziali.
 
 > [!NOTE]
-> Entrambe le opzioni inviano una notifica all'utente dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, per impostazione predefinita viene creato un nuovo account di automazione. In alternativa, è possibile personalizzare l'impostazione e scegliere un account di automazione esistente. Per abilitare la replica nello stesso insieme di credenziali viene usato l'account di automazione creato in precedenza. Attualmente, nel menu a discesa verranno elencati solo gli account di automazione che si trovano nello stesso gruppo di risorse dell'insieme di credenziali.
+> Entrambe le opzioni inviano una notifica all'utente dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, per impostazione predefinita viene creato un nuovo account di automazione. In alternativa, è possibile personalizzare l'impostazione e scegliere un account di automazione esistente. Una volta definite, tutte le azioni successive per abilitare la replica nello stesso insieme di credenziali utilizzeranno l'account di automazione selezionato. Attualmente, nel menu a discesa verranno elencati solo gli account di automazione che si trovano nello stesso gruppo di risorse dell'insieme di credenziali.
 
 > [!IMPORTANT]
 > È necessario eseguire lo script seguente nel contesto di un account di automazione.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Se sono presenti nuovi aggiornamenti per il servizio Mobility installato nelle VM, verrà visualizzata la notifica seguente: **è disponibile la nuova Site Recovery aggiornamento dell'agente di replica. Fare clic per installare.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Impostazioni estensione":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Finestra Elementi replicati":::
 
 1. Selezionare la notifica per aprire la pagina di selezione della macchina virtuale.
 1. Scegliere le macchine virtuali da aggiornare e quindi fare clic su **OK**. Il servizio di aggiornamento Mobility si avvierà per ogni macchina virtuale selezionata.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Impostazioni estensione":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Elenco delle macchine virtuali in Elementi replicati":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Problemi comuni e risoluzione dei problemi
 
@@ -479,7 +479,7 @@ Se non è possibile abilitare gli aggiornamenti automatici, vedere gli errori co
 
   Per risolvere la maggior parte dei problemi dopo aver abilitato gli aggiornamenti automatici, selezionare **Ripristina**. Se il pulsante Ripristina non è disponibile, vedere il messaggio di errore visualizzato nel riquadro Impostazioni aggiornamento estensioni.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Impostazioni estensione":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Pulsante di ripristino del servizio Site Recovery nelle impostazioni di aggiornamento dell'estensione":::
 
 - **Errore**: l'account RunAs non ha l'autorizzazione per accedere alla risorsa dei servizi di ripristino.
 
@@ -495,7 +495,7 @@ Se non è possibile abilitare gli aggiornamenti automatici, vedere gli errori co
 
   **Azione consigliata**: per risolvere il problema, selezionare **Ripristina** , quindi **Rinnova certificato**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Impostazioni estensione":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="rinnovo-certificato":::
 
   > [!NOTE]
   > Dopo aver rinnovato il certificato, aggiornare la pagina per visualizzare lo stato corrente.

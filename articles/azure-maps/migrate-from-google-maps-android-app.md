@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b096b24acd5cf65f6ad3e9eabb1d536b3aae0168
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503556"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187069"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Esercitazione - Eseguire la migrazione di un'app Android da Google Maps
 
@@ -65,7 +65,7 @@ Per visualizzare una mappa con Google Maps SDK per Android, occorre seguire ques
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-3. Aggiungere una chiave API di Google Maps all'interno della sezione application del file **google\_maps\_api.xml** :
+3. Aggiungere una chiave API di Google Maps all'interno della sezione application del file **google\_maps\_api.xml**:
 
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -163,7 +163,7 @@ Quando si esegue un'applicazione, il controllo mappa viene caricato come illustr
 
 Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire questa procedura:
 
-1. Aprire il file di primo livello **build.gradle** e aggiungere il codice seguente alla sezione del blocco **all projects** :
+1. Aprire il file di primo livello **build.gradle** e aggiungere il codice seguente alla sezione del blocco **all projects**:
 
     ```JAVA
     maven {
@@ -322,7 +322,7 @@ Se si esegue l'applicazione, il controllo mappa viene caricato come illustrato n
 Si noti che il controllo Mappe di Azure supporta maggiormente lo zoom indietro e offre una più ampia visualizzazione del mondo.
 
 > [!TIP]
-> Se si usa un emulatore Android in un computer Windows, potrebbe essere impossibile eseguire il rendering della mappa a causa di conflitti con il rendering della grafica OpenGL e con accelerazione software. In alcuni casi, la soluzione seguente ha consentito di risolvere il problema. aprire AVD Manager e selezionare il dispositivo virtuale da modificare. Scorrere verso il basso nel pannello **Verify Configuration** (Verifica configurazione). Nella sezione **Emulated Performance** (Prestazioni emulate) impostare l'opzione **Graphics** (Grafica) su **Hardware** .
+> Se si usa un emulatore Android in un computer Windows, potrebbe essere impossibile eseguire il rendering della mappa a causa di conflitti con il rendering della grafica OpenGL e con accelerazione software. In alcuni casi, la soluzione seguente ha consentito di risolvere il problema. aprire AVD Manager e selezionare il dispositivo virtuale da modificare. Scorrere verso il basso nel pannello **Verify Configuration** (Verifica configurazione). Nella sezione **Emulated Performance** (Prestazioni emulate) impostare l'opzione **Graphics** (Grafica) su **Hardware**.
 
 ## <a name="localizing-the-map"></a>Localizzare la mappa
 
@@ -769,7 +769,7 @@ Altre informazioni su Azure Maps Android SDK:
 > [Aggiungere un livello simbolo a una mappa Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere forme a una mappa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Aggiungere forme a una mappa Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Cambiare gli stili della mappa nelle mappe Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Cambiare gli stili della mappa nelle mappe Android](./set-android-map-styles.md)
