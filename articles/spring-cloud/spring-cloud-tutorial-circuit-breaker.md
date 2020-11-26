@@ -7,18 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0edcdbfec07c032f095cc03eb91be8cf0785b58a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844847"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024280"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Usare Circuit Breaker Dashboard con Azure Spring Cloud
 
 **Questo articolo si applica a:** ✔️ Java
 
-::: zone pivot="programming-language-java"
 [Spring Cloud Netflix Turbine](https://github.com/Netflix/Turbine) è ampiamente usato per aggregare più flussi di metriche [Hystrix](https://github.com/Netflix/Hystrix) in modo da poter monitorare i flussi in un'unica vista usando il dashboard di Hystrix. Questa esercitazione illustra come usarli in Azure Spring Cloud.
 > [!NOTE]
 > Netflix Hystrix è ampiamente usato in molte app Spring Cloud esistenti, ma non è più in fase di sviluppo attivo. Se si sta sviluppando un nuovo progetto, usare al suo posto implementazioni di Spring Cloud Circuit Breaker come [resilience4j](https://github.com/resilience4j/resilience4j). A differenza del framework Turbine illustrato in questa esercitazione, il nuovo framework Spring Cloud Circuit Breaker unifica tutte le implementazioni della pipeline di dati di metriche in Micrometer. Il supporto di Micrometer in Azure Spring Cloud è ancora in fase di elaborazione, quindi non verrà trattato in questa esercitazione.
@@ -84,4 +83,4 @@ Come app Web, il dashboard di Hystrix dovrebbe funzionare su `test-endpoint`. Se
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il provisioning di un'istanza del servizio nell'interfaccia della riga di comando di Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
-::: zone-end
+

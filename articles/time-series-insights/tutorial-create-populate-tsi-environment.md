@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518110"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023225"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Esercitazione: Creare un ambiente Azure Time Series Insights Gen1
 
@@ -101,7 +101,7 @@ Creare quindi un ambiente Azure Time Series Insights nella sottoscrizione di Azu
 
    Parametro|Descrizione
    ---|---
-   **Nome ambiente** | Scegliere un nome univoco per l'ambiente Azure Time Series Insights. I nomi vengono usati dallo strumento di esplorazione di Azure Time Series Insights e dalle [API di query](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Nome ambiente** | Scegliere un nome univoco per l'ambiente Azure Time Series Insights. I nomi vengono usati dallo strumento di esplorazione di Azure Time Series Insights e dalle [API di query](/rest/api/time-series-insights/gen1-query).
    **Sottoscrizione** | Le sottoscrizioni sono contenitori per le risorse di Azure. Scegliere una sottoscrizione per creare l'ambiente Azure Time Series Insights.
    **Gruppo di risorse** | Un gruppo di risorse è un contenitore per le risorse di Azure. Scegliere un gruppo di risorse esistente o crearne uno nuovo per la risorsa dell'ambiente Azure Time Series Insights.
    **Posizione** | Scegliere un'area del data center per l'ambiente Azure Time Series Insights. Per evitare un aumento della latenza, creare l'ambiente Azure Time Series Insights nella stessa area delle altre risorse IoT.
@@ -162,7 +162,7 @@ In questa sezione finale verrà verificato che i dati di telemetria siano stati 
 
    [![Gruppo di risorse e ambiente dell'ambiente Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. Nella pagina **Panoramica** dell'ambiente Azure Time Series Insights selezionare l' **URL dello strumento di esplorazione di Azure Time Series Insights** per aprire tale strumento.
+1. Nella pagina **Panoramica** dell'ambiente Azure Time Series Insights selezionare l'**URL dello strumento di esplorazione di Azure Time Series Insights** per aprire tale strumento.
 
    [![Strumento di esplorazione di Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
@@ -184,9 +184,9 @@ Questa esercitazione consente di creare diversi servizi di Azure in esecuzione p
 
 Dal menu a sinistra nel portale di Azure:
 
-1. Selezionare l'icona **Gruppi di risorse**. Selezionare quindi il gruppo di risorse creato per l'ambiente Azure Time Series Insights. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse** , immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
+1. Selezionare l'icona **Gruppi di risorse**. Selezionare quindi il gruppo di risorse creato per l'ambiente Azure Time Series Insights. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse**, immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
 
-1. Selezionare l'icona **Gruppi di risorse**. Quindi selezionare il gruppo di risorse creato dall'acceleratore di soluzione per la simulazione del dispositivo. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse** , immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
+1. Selezionare l'icona **Gruppi di risorse**. Quindi selezionare il gruppo di risorse creato dall'acceleratore di soluzione per la simulazione del dispositivo. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse**, immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

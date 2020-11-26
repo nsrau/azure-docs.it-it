@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901245"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -113,7 +113,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Screenshot della sezione Certificato di firma SAML, in cui è evidenziata la voce Scarica](common/certificatebase64.png)
 
-   a. Fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e incollarlo nel Blocco note. Questo URL verrà usato più avanti nell'esercitazione.
+   a. Fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note. Questo URL verrà usato più avanti nell'esercitazione.
 
     b. Fare clic su **Scarica** per scaricare il **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -165,7 +165,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Per **Identificatore (ID entità)** immettere un URL con il modello seguente: `https://<instance-name>.service-now.com`
 
-    c. Per **URL di risposta** , immettere uno degli URL seguenti:
+    c. Per **URL di risposta**, immettere uno degli URL seguenti:
 
     | URL di risposta |
     |-----------|
@@ -246,7 +246,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     1. Accedere all'applicazione ServiceNow come amministratore.
 
-       * Nella configurazione automatica tutte le impostazioni necessarie sono configurate sul lato **ServiceNow** , ma l'opzione **Certificato X.509** non è abilitata per impostazione predefinita, quindi specificare **MultiSSOv2_SAML2_custom** come valore di **Single Sign-On Script** (Script Single Sign-On). È necessario eseguirne manualmente il mapping al provider di identità in ServiceNow. A tale scopo, seguire questa procedura:
+       * Nella configurazione automatica tutte le impostazioni necessarie sono configurate sul lato **ServiceNow**, ma l'opzione **Certificato X.509** non è abilitata per impostazione predefinita, quindi specificare **MultiSSOv2_SAML2_custom** come valore di **Single Sign-On Script** (Script Single Sign-On). È necessario eseguirne manualmente il mapping al provider di identità in ServiceNow. A tale scopo, seguire questa procedura:
 
          1. Nel riquadro sinistro cercare la sezione **Multi-Provider SSO** dalla casella di ricerca e selezionare **Identity Providers** (Provider di identità).
 
@@ -265,7 +265,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
                b. Copiare il valore **ServiceNow Homepage** (Home page di ServiceNow) e incollarlo in **URL di accesso** nella sezione **Configurazione SAML di base di ServiceNow** del portale di Azure.
 
                 > [!NOTE]
-                > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell' **URL del tenant di ServiceNow** e **/navpage.do** , ad esempio `https://fabrikam.service-now.com/navpage.do`.
+                > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio `https://fabrikam.service-now.com/navpage.do`.
 
               c. Copiare il valore **Entity ID / Issuer** (ID entità/emittente) e incollarlo in **Identificatore** nella sezione **Configurazione SAML di base di ServiceNow** del portale di Azure.
 
@@ -316,7 +316,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
         ![Screenshot di Import Identity Provider Metadata (Importa metadati provider di identità), in cui sono evidenziate le voci URL e Import (Importa)](./media/servicenow-tutorial/idp.png "Configura accesso Single Sign-On")
 
-        1. Immettere l' **URL dei metadati di federazione dell'app** copiato dal portale di Azure.
+        1. Immettere l'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
         1. Selezionare **Importa**.
 
@@ -329,7 +329,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
         b. Copiare il valore **ServiceNow Homepage** (Home page di ServiceNow). Incollarlo in **URL di accesso** nella sezione **Configurazione SAML di base di ServiceNow** del portale di Azure.
 
         > [!NOTE]
-        > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell' **URL del tenant di ServiceNow** e **/navpage.do** , ad esempio `https://fabrikam.service-now.com/navpage.do`.
+        > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio `https://fabrikam.service-now.com/navpage.do`.
 
         c. Copiare il valore **Entity ID / Issuer** (ID entità/emittente). Incollarlo in **Identificatore** nella sezione **Configurazione SAML di base di ServiceNow** del portale di Azure.
 
@@ -433,7 +433,7 @@ Questa sezione descrive come creare un utente di nome B.Simon in ServiceNow. Ser
     a. Per **ServiceNow Homepage** (Home page di ServiceNow) immettere l'URL della home page dell'istanza di ServiceNow.
 
     > [!NOTE]
-    > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell' **URL del tenant di ServiceNow** e **/navpage.do** , ad esempio `https://fabrikam.service-now.com/navpage.do`.
+    > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio `https://fabrikam.service-now.com/navpage.do`.
 
     b. Per **Entity ID / Issuer** (ID entità/emittente) immettere l'URL del tenant di ServiceNow.
 

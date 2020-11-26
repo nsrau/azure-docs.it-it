@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521289"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020930"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Esercitazione: Configurare un ambiente Azure Time Series Insights Gen2
 
@@ -91,7 +91,7 @@ Questa sezione descrive come creare un ambiente Azure Time Series Insights Gen2 
     | **Gruppo di risorse** | Selezionare un gruppo di risorse esistente per la risorsa dell'ambiente Azure Time Series Insights Gen2 oppure creare un gruppo di risorse nuovo. Un gruppo di risorse è un contenitore per le risorse di Azure. È consigliabile usare lo stesso gruppo di risorse delle altre risorse IoT create dal simulatore di dispositivi. |
     | **Posizione** | Selezionare un'area del data center per l'ambiente Azure Time Series Insights Gen2. Per evitare un aumento della latenza, è consigliabile creare l'ambiente Azure Time Series Insights Gen2 nella stessa area dell'hub IoT creato dal simulatore di dispositivo. |
     | **Livello** |  Selezionare **Gen2(L1)** . Si tratta dello SKU del prodotto Azure Time Series Insights Gen2. |
-    | **Nome proprietà ID serie temporale** | Immettere il nome di una proprietà contenente valori che identificano in modo univoco le istanze della serie temporale. Il valore immesso nella casella **Nome proprietà** come ID della serie temporale non può essere modificato successivamente. Per questa esercitazione immettere * *_iothub-connection-device-id_* _. Per altre informazioni sull'ID serie temporale, incluso l'ID serie temporale composito, vedere [Procedure consigliate per la scelta di un ID serie temporale](./time-series-insights-update-how-to-id.md). |
+    | **Nome proprietà ID serie temporale** | Immettere il nome di una proprietà contenente valori che identificano in modo univoco le istanze della serie temporale. Il valore immesso nella casella **Nome proprietà** come ID della serie temporale non può essere modificato successivamente. Per questa esercitazione immettere **_iothub-connection-device-id_* _. Per altre informazioni sull'ID serie temporale, incluso l'ID serie temporale composito, vedere [Procedure consigliate per la scelta di un ID serie temporale](./how-to-select-tsid.md). |
     | _ *Nome dell'account di archiviazione** | Immettere un nome univoco globale per un nuovo account di archiviazione.|
     | **Tipo di account di archiviazione** | Selezionare il tipo di archiviazione per un nuovo account di archiviazione. Il tipo consigliato è Archiviazione V2|
     | **Replica dell'account di archiviazione** | Selezionare il tipo di archiviazione per un nuovo account di archiviazione. In base alla selezione della località, è possibile scegliere tra Archiviazione con ridondanza locale, Archiviazione con ridondanza geografica e Archiviazione con ridondanza della zona. Per questa esercitazione è possibile selezionare Archiviazione con ridondanza locale.|
@@ -116,7 +116,7 @@ Questa sezione descrive come creare un ambiente Azure Time Series Insights Gen2 
    | **Sottoscrizione** | Selezionare la sottoscrizione usata per il simulatore di dispositivo. |
    | **Nome hub IoT** | Selezionare il nome dell'hub IoT creato per il simulatore di dispositivo. |
    | **Criteri di accesso dell'hub IoT** | selezionare **iothubowner**. |
-   | **Gruppo di consumer dell'hub IoT** | Selezionare **Nuovo** , immettere un nome univoco e quindi selezionare **+ Aggiungi**. Il gruppo di consumer deve essere un valore univoco in Azure Time Series Insights Gen2. |
+   | **Gruppo di consumer dell'hub IoT** | Selezionare **Nuovo**, immettere un nome univoco e quindi selezionare **+ Aggiungi**. Il gruppo di consumer deve essere un valore univoco in Azure Time Series Insights Gen2. |
    | **Timestamp property** (Proprietà timestamp) | Questo valore viene usato per identificare la proprietà **Timestamp** nei dati di telemetria in ingresso. Per questa esercitazione, lasciare vuota questa casella. Questo simulatore usa il timestamp in ingresso dall'hub IoT predefinito di Azure Time Series Insights Gen2. |
 
 1. Selezionare **Rivedi e crea**.
@@ -137,13 +137,13 @@ Questa sezione descrive come creare un ambiente Azure Time Series Insights Gen2 
 
       [![Selezionare e visualizzare l'ambiente.](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
-   1. Nella pagina Azure Time Series Insights Gen2 selezionare **Criteri di accesso ai dati** :
+   1. Nella pagina Azure Time Series Insights Gen2 selezionare **Criteri di accesso ai dati**:
 
       [![Verificare i criteri di accesso ai dati.](media/v2-update-provision/tsi-data-access-panel.png)](media/v2-update-provision/tsi-data-access-panel.png#lightbox)
 
    1. Verificare che le credenziali siano elencate:
 
-      Se le credenziali non sono elencate, è necessario concedere a se stessi l'autorizzazione per accedere all'ambiente selezionando Aggiungi e cercando le proprie credenziali. Per altre informazioni sull'impostazione delle autorizzazioni, leggere [Concedere l'accesso ai dati](./time-series-insights-data-access.md).
+      Se le credenziali non sono elencate, è necessario concedere a se stessi l'autorizzazione per accedere all'ambiente selezionando Aggiungi e cercando le proprie credenziali. Per altre informazioni sull'impostazione delle autorizzazioni, leggere [Concedere l'accesso ai dati](./concepts-access-policies.md).
 
 ## <a name="stream-data"></a>Trasmettere i dati
 
@@ -166,7 +166,7 @@ Ora che l'ambiente Time Series Insights Gen2 è stato distribuito, si può inizi
         | **Nome** | Immettere un nome univoco per un simulatore. |
         | **Descrizione** | Immettere una definizione. |
         | **Simulation duration** (Durata simulazione) | Impostare su **Run indefinitely** (Esecuzione a tempo indefinito). |
-        | **Device model** (Modello del dispositivo) | Fare clic su + **Add a device type** (Aggiungi un tipo di dispositivo) <br />**Name** : immettere **Elevator** (Ascensore). <br />**Amount** (Quantità): immettere **3**. <br /> Lasciare i valori predefiniti restanti |
+        | **Device model** (Modello del dispositivo) | Fare clic su + **Add a device type** (Aggiungi un tipo di dispositivo) <br />**Name**: immettere **Elevator** (Ascensore). <br />**Amount** (Quantità): immettere **3**. <br /> Lasciare i valori predefiniti restanti |
         | **Target IoT Hub** (Hub IoT di destinazione) | Impostare su **Use pre-provisioned IoT Hub** (Usa l'hub IoT di cui è già stato eseguito il provisioning). |
 
         [![Configurare i parametri e avviare.](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
@@ -177,7 +177,7 @@ Ora che l'ambiente Time Series Insights Gen2 è stato distribuito, si può inizi
 
 ## <a name="analyze-data"></a>Analizzare i dati
 
-In questa sezione verranno eseguite attività di analisi di base sui dati delle serie temporali usando [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+In questa sezione verranno eseguite attività di analisi di base sui dati delle serie temporali usando [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 1. Passare ad Azure Time Series Insights Gen2 Explorer selezionando l'URL nella pagina delle risorse nel [portale di Azure](https://portal.azure.com/).
 
@@ -193,7 +193,7 @@ In questa sezione verranno eseguite attività di analisi di base sui dati delle 
 
     [![Istanza della serie temporale selezionata con il comando di menu per visualizzare la temperatura media.](media/v2-update-provision/select-instance-and-temperature.png)](media/v2-update-provision/select-instance-and-temperature.png#lightbox)
 
-    Viene visualizzato un grafico della serie temporale. Modificare l' **intervallo** impostandolo su **30s**.
+    Viene visualizzato un grafico della serie temporale. Modificare l'**intervallo** impostandolo su **30s**.
 
 1. Ripetere il passaggio precedente per le altre due istanze della serie temporale in modo da visualizzarle tutte e tre, come illustrato in questo grafico:
 
@@ -209,7 +209,7 @@ In questa sezione verranno eseguite attività di analisi di base sui dati delle 
 
 In questa sezione si applica un modello per strutturare i dati. Per completare il modello, vengono definiti i tipi, le gerarchie e le istanze. Per altre informazioni sulla modellazione dei dati, vedere [Modello di serie temporale](./concepts-model-overview.md).
 
-1. In Explorer selezionare la scheda **Modello** :
+1. In Explorer selezionare la scheda **Modello**:
 
    [![Visualizzare la scheda Modello in Explorer.](media/v2-update-provision/tsi-select-model-view.png)](media/v2-update-provision/tsi-select-model-view.png#lightbox)
 

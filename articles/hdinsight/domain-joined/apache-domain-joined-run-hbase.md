@@ -8,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544954"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993636"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package
 
@@ -45,7 +45,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="create-domain-users"></a>Creare utenti del dominio
 
-Vedere [Creare un cluster HDInsight con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) per informazioni su come creare gli utenti di dominio **sales_user1** e **marketing_user1** . In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
+Vedere [Creare un cluster HDInsight con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) per informazioni su come creare gli utenti di dominio **sales_user1** e **marketing_user1**. In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Creare tabelle HBase e importare dati di esempio
 
@@ -93,9 +93,9 @@ Vedere [Creare un cluster HDInsight con Enterprise Security Package](./apache-do
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
 
-Creare un criterio di Ranger per **sales_user1** e **marketing_user1** .
+Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
 
-1. Aprire l’ **interfaccia utente di amministrazione di Ranger** . Fare clic su **\<ClusterName>_hbase** in **HBase** .
+1. Aprire l’**interfaccia utente di amministrazione di Ranger**. Fare clic su **\<ClusterName>_hbase** in **HBase**.
 
    ![Interfaccia utente di amministrazione di Apache Ranger di HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
@@ -123,11 +123,11 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1** .
    ![Criteri di Apache Ranger - Creazione di sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente** .
+   >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
 
 4. Fare clic su **Aggiungi** per salvare il criterio.
 
-5. Fare clic su **Aggiungi nuovo criterio** , quindi immettere i valori seguenti:
+5. Fare clic su **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |
    |---------|---------|
@@ -191,7 +191,7 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
 
 ### <a name="access-data-as-marketing_user1"></a>Accedere ai dati come marketing_user1
 
-1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere come **marketing_user1** :
+1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere come **marketing_user1**:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
 Se non si intende continuare a usare questa applicazione, eliminare il cluster HBase creato con i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nella casella **Ricerca** in alto digitare **HDInsight** . 
-1. Selezionare **Cluster HDInsight** in **Servizi** .
+2. Nella casella **Ricerca** in alto digitare **HDInsight**. 
+1. Selezionare **Cluster HDInsight** in **Servizi**.
 1. Nell'elenco di cluster HDInsight visualizzato, fare clic su **...** accanto al cluster creato per questa esercitazione. 
-1. Fare clic su **Elimina** . Fare clic su **Sì** .
+1. Fare clic su **Elimina**. Fare clic su **Sì**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

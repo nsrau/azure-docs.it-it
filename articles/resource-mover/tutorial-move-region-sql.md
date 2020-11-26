@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061606"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542814"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Esercitazione: Spostare risorse del database SQL di Azure in un'altra area
 
@@ -43,22 +43,22 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 -  Verificare di avere accesso come *Proprietario* nella sottoscrizione che contiene le risorse da spostare.
     - La prima volta che si aggiunge una risorsa per una coppia di origine e destinazione specifica in una sottoscrizione di Azure, Spostamento risorse crea un'[identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (nota in precedenza come identità del servizio gestita) che viene considerata attendibile dalla sottoscrizione.
     - Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
-- La quota disponibile nella sottoscrizione deve essere sufficiente per creare le risorse che si intende spostare nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- La quota disponibile nella sottoscrizione deve essere sufficiente per creare le risorse che si intende spostare nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le risorse. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
     
 
 ## <a name="check-sql-requirements"></a>Controllare i requisiti di SQL
 
 1. [Controllare](support-matrix-move-region-sql.md) quali funzionalità di database/pool elastici sono supportate per lo spostamento in un'altra area.
-2. Nell'area di destinazione creare un server di destinazione per ogni server di origine. [Altre informazioni](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users)
+2. Nell'area di destinazione creare un server di destinazione per ogni server di origine. [Altre informazioni](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users)
 4. Se i database sono crittografati con la tecnologia TDE (Transparent Data Encryption) e si usa una chiave di crittografia personale in Azure Key Vault, vedere [come](../key-vault/general/move-region.md) spostare gli insiemi di credenziali delle chiavi in un'altra area.
 5. Se la sincronizzazione dei dati SQL è abilitata, lo spostamento dei database membro è supportato. Dopo lo spostamento è necessario configurare la sincronizzazione dei dati SQL per il nuovo database di destinazione.
-6. Rimuovere le impostazioni di Sicurezza dei dati avanzata prima dello spostamento. Dopo lo spostamento [configurare le impostazioni](/azure/sql-database/sql-database-advanced-data-security) a livello di SQL Server nell'area di destinazione.
-7. Se il controllo è abilitato, i criteri vengono reimpostati sull'impostazione predefinita dopo lo spostamento. [Configurare di nuovo il controllo](/azure/sql-database/sql-database-auditing) dopo lo spostamento.
-7. I criteri di conservazione backup per il database di origine vengono trasferiti al database di destinazione. [Altre informazioni](/azure/sql-database/sql-database-long-term-backup-retention-configure ) sulla modifica delle impostazioni dopo lo spostamento.
-8. Rimuovere le regole del firewall a livello di server prima dello spostamento. Le regole del firewall a livello di database vengono copiate dal server di origine a quello di destinazione durante lo spostamento. Dopo lo spostamento [configurare le regole del firewall](/azure/sql-database/sql-database-server-level-firewall-rule) per SQL Server nell'area di destinazione.
-9. Rimuovere le impostazioni di ottimizzazione automatica prima dello spostamento. [Configurare di nuovo l'ottimizzazione automatica](/azure/sql-database/sql-database-automatic-tuning-enable) dopo lo spostamento.
-10. Rimuovere le impostazioni degli avvisi di database prima dello spostamento. [Reimpostarli](/azure/sql-database/sql-database-insights-alerts-portal) dopo lo spostamento.
+6. Rimuovere le impostazioni di Sicurezza dei dati avanzata prima dello spostamento. Dopo lo spostamento [configurare le impostazioni](../azure-sql/database/azure-defender-for-sql.md) a livello di SQL Server nell'area di destinazione.
+7. Se il controllo è abilitato, i criteri vengono reimpostati sull'impostazione predefinita dopo lo spostamento. [Configurare di nuovo il controllo](../azure-sql/database/auditing-overview.md) dopo lo spostamento.
+7. I criteri di conservazione backup per il database di origine vengono trasferiti al database di destinazione. [Altre informazioni](../azure-sql/database/long-term-backup-retention-configure.md) sulla modifica delle impostazioni dopo lo spostamento.
+8. Rimuovere le regole del firewall a livello di server prima dello spostamento. Le regole del firewall a livello di database vengono copiate dal server di origine a quello di destinazione durante lo spostamento. Dopo lo spostamento [configurare le regole del firewall](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) per SQL Server nell'area di destinazione.
+9. Rimuovere le impostazioni di ottimizzazione automatica prima dello spostamento. [Configurare di nuovo l'ottimizzazione automatica](../azure-sql/database/automatic-tuning-enable.md) dopo lo spostamento.
+10. Rimuovere le impostazioni degli avvisi di database prima dello spostamento. [Reimpostarli](../azure-sql/database/alerts-insights-configure-portal.md) dopo lo spostamento.
     
 ## <a name="select-resources"></a>Selezionare le risorse
 

@@ -1,15 +1,15 @@
 ---
 title: Elenco di definizioni di criteri predefiniti
 description: Elenco di definizioni di criteri predefiniti per Criteri di Azure. Le categorie includono Tag, Conformità alle normative, Key Vault, Kubernetes, Configurazione guest e altro ancora.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c1627c05e041b2b4a91f5fb5ad44d79641cb9756
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 66563a4754d706f2c73e90ad3c2e8e0f4fe7d3a0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311969"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007835"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definizioni di criteri predefiniti di Criteri di Azure
 
@@ -44,6 +44,10 @@ Il nome di ogni criterio predefinito include un collegamento all'origine della d
 ## <a name="automation"></a>Automazione
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
+
+## <a name="azure-data-explorer"></a>Esplora dati di Azure
+
+[!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
 
 ## <a name="backup"></a>Backup
 
@@ -133,6 +137,10 @@ Il nome di ogni criterio predefinito include un collegamento all'origine della d
 
 [!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
+## <a name="portal"></a>Portale
+
+[!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
+
 ## <a name="search"></a>Ricerca
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
@@ -164,6 +172,10 @@ Il nome di ogni criterio predefinito include un collegamento all'origine della d
 ## <a name="stream-analytics"></a>Analisi di flusso
 
 [!INCLUDE [azure-policy-reference-policies-stream-analytics](../../../../includes/policy/reference/bycat/policies-stream-analytics.md)]
+
+## <a name="synapse"></a>Synapse
+
+[!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
 ## <a name="tags"></a>Tag
 

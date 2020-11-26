@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986325"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966531"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -111,7 +111,7 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
 
 9. Selezionare l'account di archiviazione creato al passaggio 3.
    > [!NOTE]
-   > I log del flusso del gruppo di sicurezza di rete non funzionano con gli account di archiviazione in cui è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
+   > I log del flusso del gruppo di sicurezza di rete non funzionano con gli account di archiviazione in cui è abilitato lo [spazio dei nomi gerarchico](../storage/blobs/data-lake-storage-namespace.md).
 1. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 10. Impostare **Conservazione (giorni)** su 5 e poi selezionare **Salva**.
 

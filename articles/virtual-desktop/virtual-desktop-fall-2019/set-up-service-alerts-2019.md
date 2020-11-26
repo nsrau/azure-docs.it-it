@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f4f52acaa5b461e2b058f112f26dafda86dcb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005503"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025028"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Esercitazione: Configurare gli avvisi del servizio per Desktop virtuale Windows (versione classica)
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Creare e configurare avvisi del servizio.
 
-Per altre informazioni sull'integrità dei servizi di Azure, vedere la [documentazione del servizio di integrità dei servizi di Azure](https://docs.microsoft.com/azure/service-health/).
+Per altre informazioni sull'integrità dei servizi di Azure, vedere la [documentazione del servizio di integrità dei servizi di Azure](../../service-health/index.yml).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +52,7 @@ Per configurare avvisi del servizio:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Integrità dei servizi**.
-3. Usare le istruzioni in [Creare gli avvisi del log attività per le notifiche del servizio](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) per configurare gli avvisi e le notifiche.
+3. Usare le istruzioni in [Creare gli avvisi del log attività per le notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) per configurare gli avvisi e le notifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

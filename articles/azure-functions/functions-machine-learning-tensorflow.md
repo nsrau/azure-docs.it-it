@@ -7,11 +7,11 @@ ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994605"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Esercitazione: Applicare modelli di Machine Learning in Funzioni di Azure con Python e TensorFlow
 
@@ -133,12 +133,12 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py* , che contiene il codice della funzione, e *function.json* , che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./create-first-function-cli-python.md#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
+    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py*, che contiene il codice della funzione, e *function.json*, che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./create-first-function-cli-python.md#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-1. Avviare la funzione avviando l'host di runtime locale di Funzioni di Azure nella cartella *start* :
+1. Avviare la funzione avviando l'host di runtime locale di Funzioni di Azure nella cartella *start*:
 
     ```
     func start
@@ -182,7 +182,7 @@ Per creare un modello personalizzato usando il livello gratuito del servizio Vis
     
 1. Verificare che la cartella *classify* contenga i file denominati *model.pb* e *labels.txt*. In caso contrario, verificare che il comando sia stato eseguito nella cartella *start*.
 
-1. Nella cartella *start* eseguire il comando seguente per copiare un file con codice helper nella cartella *classify* :
+1. Nella cartella *start* eseguire il comando seguente per copiare un file con codice helper nella cartella *classify*:
 
     # <a name="bash"></a>[Bash](#tab/bash)
     
@@ -229,7 +229,7 @@ Per creare un modello personalizzato usando il livello gratuito del servizio Vis
 
 ## <a name="update-the-function-to-run-predictions"></a>Aggiornare la funzione per generare previsioni
 
-1. Aprire *classify/\_\_init\_\_.py* in un editor di testo e aggiungere le righe seguenti dopo le istruzioni `import` esistenti per importare la libreria JSON standard e gli helper di *predict* :
+1. Aprire *classify/\_\_init\_\_.py* in un editor di testo e aggiungere le righe seguenti dopo le istruzioni `import` esistenti per importare la libreria JSON standard e gli helper di *predict*:
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Automazione di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Automazione di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: mgoedtel
 ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6a0374682f7c4b56c81825e03270e289dfdf9c49
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 0bb28f54f492deebbe50513e2929104b548a7185
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698725"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991613"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Controlli di conformità alle normative di Criteri di Azure per Automazione di Azure
 

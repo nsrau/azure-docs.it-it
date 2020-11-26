@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676784"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544786"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Attivare le metriche e la registrazione
 
-Nel menu a sinistra selezionare **Gruppi di risorse** , scegliere **myResourceGroup** , quindi selezionare l'account di archiviazione nell'elenco di risorse.
+Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
 
 In **Impostazioni di diagnostica (versione classica)** impostare **Stato** su **Attivo**. Assicurarsi che tutte le opzioni in **Proprietà BLOB** siano abilitate.
 
@@ -83,11 +83,11 @@ L'immagine seguente è un avviso di esempio che si basa sull'errore simulato ese
 
 I log di archiviazione archiviano i dati in un set di BLOB in un contenitore BLOB denominato **$logs** nell'account di archiviazione. Questo contenitore non mostra se si elencano tutti i contenitori BLOB nell'account, ma è possibile visualizzarne il contenuto se vi si accede direttamente.
 
-In questo scenario usare [Analizzatore messaggi di Microsoft](https://technet.microsoft.com/library/jj649776.aspx) per interagire con l'account di archiviazione di Azure.
+In questo scenario usare [Analizzatore messaggi di Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide) per interagire con l'account di archiviazione di Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Scaricare Analizzatore messaggi di Microsoft
 
-Scaricare [Analizzatore messaggi di Microsoft](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) e installare l'applicazione.
+Scaricare [Analizzatore messaggi di Microsoft](/message-analyzer/installing-and-upgrading-message-analyzer) e installare l'applicazione.
 
 Avviare l'applicazione e scegliere **File** > **Apri** > **From Other File Sources** (Da altre origini file).
 

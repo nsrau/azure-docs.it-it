@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per il controllo degli accessi in base al ruolo di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per il controllo degli accessi in base al ruolo (RBAC) di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e4a7c712c5527e2bb07be2b53e679a0d4d442098
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 06cb91b317bfc1e9d3b6f03211698f4b0f9f56c6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699040"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988689"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Controlli di conformità alle normative di Criteri di Azure per il controllo degli accessi in base al ruolo di Azure
 

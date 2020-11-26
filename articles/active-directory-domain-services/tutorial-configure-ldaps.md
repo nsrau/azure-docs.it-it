@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
 ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967478"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994027"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -173,7 +173,7 @@ In questa esercitazione viene usato un certificato autofirmato e viene generato 
 
 Il file di certificato *CER* può ora essere distribuito ai computer client che devono considerare attendibile la connessione LDAP sicura al dominio gestito. Installare il certificato nel computer locale.
 
-1. Aprire Esplora file e passare al percorso in cui è stato salvato il file di certificato *CER*, ad esempio*C:\Users\accountname\azure-ad-ds-client.cer*.
+1. Aprire Esplora file e passare al percorso in cui è stato salvato il file di certificato *CER*, ad esempio *C:\Users\accountname\azure-ad-ds-client.cer*.
 1. Fare clic con il pulsante destro del mouse sul file di certificato *CER*, quindi scegliere **Installa certificato**.
 1. Nella **Importazione guidata certificati** scegliere di archiviare il certificato nel *Computer locale*, quindi fare clic su **Avanti**:
 

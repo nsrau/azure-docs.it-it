@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013837"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Esercitazione: Aggiungere il completamento automatico e i suggerimenti con .NET SDK
 
@@ -151,7 +151,7 @@ Per iniziare, verrà esaminato il caso più semplice di offerta di alternative a
 
 4. Nello script di visualizzazione impostare **&fuzzy** su true ed eseguire di nuovo l'app. A questo punto, immettere "po". Si noti che la ricerca presuppone che una lettera sia errata.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="La digitazione di *po* visualizza due suggerimenti" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Digitazione di *pa* con fuzzy impostato su true" border="false":::
 
     Se si è interessati, nell'articolo [Sintassi di query Lucene in Ricerca cognitiva di Azure](./query-lucene-syntax.md) è descritta in dettaglio la logica usata nelle ricerche fuzzy.
 
@@ -196,7 +196,7 @@ Per migliorare l'aspetto dei suggerimenti per l'utente, è possibile impostare i
 
 1. Eseguire di nuovo l'app. Il testo immesso verrà ora visualizzato in grassetto nei suggerimenti. Provare a digitare "pa".
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="La digitazione di *po* visualizza due suggerimenti" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Digitazione di *pa* con evidenziazione" border="false":::
 
    La logica usata nello script di evidenziazione precedente non è infallibile. Se si immette un termine che è presente due volte nello stesso nome, i risultati in grassetto non corrispondono a quelli previsti. Provare a digitare "mo".
 
@@ -255,7 +255,7 @@ Un'altra variante, leggermente diversa dai suggerimenti, è il completamento aut
 
 1. Eseguire l'app. Notare che le opzioni visualizzate nell'elenco a discesa sono singole parole. Provare a digitare parole che iniziano con "re". Notare che il numero di opzioni si riduce via via che si digitano le lettere.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="La digitazione di *po* visualizza due suggerimenti" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Digitazione con completamento automatico di base" border="false":::
 
     Allo stato attuale, lo script dei suggerimenti eseguito in precedenza è probabilmente più utile di questo script di completamento automatico. Per rendere il completamento automatico più intuitivo, è consigliabile usarlo con i risultati suggeriti.
 
@@ -451,7 +451,7 @@ Sono disponibili librerie che offrono questa funzionalità, nota spesso come "co
 
 1. A questo punto, eseguire l'app. Immettere "pa" nella casella di ricerca. Si ottiene "palace" come suggerimento del completamento automatico, unitamente ai due nomi di albergo che includono le lettere "pa"?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="La digitazione di *po* visualizza due suggerimenti" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Digitazione con suggerimenti e completamento automatico inline" border="false":::
 
 1. Provare a premere TAB per accettare il suggerimento del completamento automatico, quindi provare a selezionare i suggerimenti con i tasti di direzione e TAB, infine provare di nuovo usando il mouse e un singolo clic. Verificare che lo script gestisca in modo accurato tutte queste situazioni.
 

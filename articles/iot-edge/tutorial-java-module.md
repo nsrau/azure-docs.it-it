@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045602"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968061"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in Java per dispositivi Linux
 
@@ -34,7 +34,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Ambito della soluzione
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione illustra come sviluppare un modulo in **Java** usando **Visual Studio Code** e come distribuirlo in un **dispositivo Linux**. IoT Edge non supporta i moduli Java per dispositivi Windows.
 
@@ -44,8 +44,6 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Usare Visual Studio Code per i moduli Java su Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Usare Visual Studio Code per i moduli Java su Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando una delle due esercitazioni, saranno soddisfatti i prerequisiti seguenti:
 

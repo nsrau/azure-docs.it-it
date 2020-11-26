@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2bd06491b5488223b9a8eba50839a7fdf0cd61b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 480af87519f8e11c14f009058b0f518bdfc34a1b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478542"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026268"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un dashboard di analisi in tempo reale usando Database di Azure per PostgreSQL - Hyperscale (Citus)
 
@@ -227,4 +227,4 @@ Nei passaggi precedenti sono state create risorse di Azure in un gruppo di serve
 In questa esercitazione è stato illustrato come effettuare il provisioning di un gruppo di server Hyperscale (Citus). È stata stabilita la connessione al gruppo con psql, è stato creato uno schema e sono stati distribuiti i dati. È stato illustrato come eseguire query sui dati in formato non elaborato, aggregare regolarmente i dati, eseguire query sulle tabelle aggregate e impostare come scaduti i dati meno recenti.
 
 - Ottenere informazioni sui [tipi di nodo](./concepts-hyperscale-nodes.md) del gruppo di server
-- Determinare le [dimensioni iniziali](howto-hyperscale-scaling.md#picking-initial-size) ottimali per il gruppo di server
+- Determinare le [dimensioni iniziali](howto-hyperscale-scale-initial.md) ottimali per il gruppo di server

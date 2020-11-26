@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 3225aa9eaff5c3cd0acca99261935feb9774810f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520677"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Esercitazione: Integrazione di Azure Active Directory con RolePoint
 
@@ -52,7 +52,7 @@ Per configurare l'integrazione di RolePoint in Azure AD, è necessario aggiunger
 
     ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni** :
+2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni**:
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -84,7 +84,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con RolePoint, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione RolePoint nel [portale di Azure](https://portal.azure.com/) selezionare l'accesso **Single Sign-On** :
+1. Nella pagina di integrazione dell'applicazione RolePoint nel [portale di Azure](https://portal.azure.com/) selezionare l'accesso **Single Sign-On**:
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RolePoint, seguire ques
 
     ![Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** :
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
 
     ![Icona Modifica](common/edit-urls.png)
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On sul lato RolePoint, è necessario colla
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** :
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**:
 
     ![Selezionare Tutti gli utenti](common/users.png)
 
@@ -158,7 +158,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
 In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a RolePoint.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **RolePoint**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **RolePoint**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -166,7 +166,7 @@ In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Nel riquadro sinistro selezionare **Utenti e gruppi** :
+3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 

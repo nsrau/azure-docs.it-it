@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999531"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010895"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcolare le dimensioni di fatturazione totali di un contenitore BLOB
 
@@ -31,7 +31,7 @@ Questo script calcola le dimensioni di un contenitore nell'archivio BLOB di Azur
 
 La dimensione totale del contenitore BLOB include la dimensione del contenitore stesso e di tutti i BLOB in esso contenuti.
 
-Nelle sezioni seguenti viene illustrata la modalità di calcolo della capacità di archiviazione per i contenitori BLOB e i BLOB. Nella sezione seguente Len(X) indica il numero di caratteri nella stringa.
+Nelle sezioni seguenti viene illustrata la modalità di calcolo della capacità di archiviazione per i contenitori BLOB e i BLOB.  Nella sezione seguente Len(X) indica il numero di caratteri nella stringa.
 
 ### <a name="blob-containers"></a>Contenitori BLOB
 
@@ -120,6 +120,6 @@ I dettagli sono indicati di seguito:
 
 - Per altre informazioni sulla fatturazione dell'Archiviazione di Azure, vedere [Informazioni sulla fatturazione dell'Archiviazione di Microsoft Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 - Sono disponibili altri esempi di script di archiviazione di PowerShell in [PowerShell samples for Azure Blob storage](../blobs/storage-samples-blobs-powershell.md) (Esempi di PowerShell per Archiviazione di Azure).

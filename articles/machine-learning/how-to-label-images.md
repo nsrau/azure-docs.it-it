@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542185"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984448"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
@@ -133,7 +133,7 @@ Se il progetto è di tipo "Instance Segmentation (Polygon)" (Segmentazione istan
 
 1. Selezionare un tag per il poligono da creare.
 1. Selezionare lo strumento **Draw polygon region** (Disegna area poligono) ![strumento Draw polygon region](./media/how-to-label-images/polygon-tool.png) oppure selezionare "P."
-3. Fare clic su ogni punto del poligono.  Dopo aver completato la forma, fare doppio clic per terminare.
+1. Fare clic su ogni punto del poligono.  Dopo aver completato la forma, fare doppio clic per terminare.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Creare poligoni per gatto e cane":::
 
@@ -158,3 +158,5 @@ Al termine dell'etichettatura, selezionare il proprio nome nell'angolo in alto a
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [eseguire il training di modelli di classificazione delle immagini in Azure](./tutorial-train-models-with-aml.md)
+
+

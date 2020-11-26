@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421040"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953101"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure AD B2C
 
@@ -53,7 +53,7 @@ In più, nell'ambiente di sviluppo locale devono anche essere installati gli ele
 
 Nella [seconda esercitazione](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) completata come parte dei prerequisiti è stata registrata un'applicazione a pagina singola in Azure AD B2C. Per consentire la comunicazione con l'esempio in questa esercitazione, aggiungere un URL di risposta (anche noto come URI di reindirizzamento) alla registrazione dell'applicazione.
 
-Per aggiornare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
+Per aggiornare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations-auth-code-flow"></a>[Registrazioni app (flusso del codice di autorizzazione)](#tab/app-reg-auth/)
 

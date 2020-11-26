@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298849"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953152"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Per chiamare un'API Web protetta da un'applicazione client nativa, è necessario
 
 Nell'esercitazione sui prerequisiti è stata registrata un'applicazione client nativa denominata *nativeapp1*. I passaggi seguenti consentono di configurare la registrazione dell'applicazione nativa con gli ambiti dell'API esposti per *webapi1* nella sezione precedente. Ciò consente all'applicazione desktop di ottenere un token di accesso da Azure AD B2C che l'API Web può usare per verificare e fornire l'accesso con ambito alle relative risorse. Gli esempi di codice dell'applicazione desktop e dell'API Web vengono configurati ed eseguiti più avanti nell'esercitazione.
 
-Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458383"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544446"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare BLOB con Azure Key Vault
 
@@ -236,8 +236,8 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso di Archiviazione di Microsoft Azure con C#, vedere [Libreria client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Per altre informazioni sull'uso di Archiviazione di Microsoft Azure con C#, vedere [Libreria client di archiviazione di Microsoft Azure per .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
-Per altre informazioni sull'API REST per i BLOB, vedere [API REST del servizio BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+Per altre informazioni sull'API REST per i BLOB, vedere [API REST del servizio BLOB](/rest/api/storageservices/Blob-Service-REST-API).
 
-Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare il [blog del relativo team](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).
+Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare il [blog del relativo team](/archive/blogs/windowsazurestorage/).

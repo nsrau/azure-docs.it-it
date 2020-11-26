@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421465"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500272"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Esercitazione: Connettere un modulo Plug and Play IoT (C#)
 
 Questa esercitazione illustra come connettere un [modulo](../iot-hub/iot-hub-devguide-module-twins.md) Plug and Play IoT generico.
 
-Un dispositivo si definisce di tipo Plug and Play IoT se pubblica il proprio ID modello quando si connette a un hub IoT e implementa le proprietà e i metodi descritti nel modello DTDL (Digital Twin Definition Language) identificato dall'ID modello. Per altre informazioni su come vengono usati i modelli DTDL e gli ID modello nei dispositivi, vedere [Guida per sviluppatori di Plug and Play IoT](./concepts-developer-guide-device-csharp.md). I moduli usano gli ID modello e i modelli DTDL allo stesso modo.
+Un dispositivo si definisce di tipo Plug and Play IoT se pubblica il proprio ID modello quando si connette a un hub IoT e implementa le proprietà e i metodi descritti nel modello DTDL (Digital Twin Definition Language) identificato dall'ID modello. Per altre informazioni su come vengono usati i modelli DTDL e gli ID modello nei dispositivi, vedere [Guida per sviluppatori di Plug and Play IoT](./concepts-developer-guide-device.md). I moduli usano gli ID modello e i modelli DTDL allo stesso modo.
 
 Per illustrare come implementare un modulo Plug and Play IoT, questa esercitazione descrive come convertire l'esempio del dispositivo termostato in C# in un modulo generico.
 
@@ -238,4 +238,4 @@ Per informazioni su come distribuire il modulo in contenitori, vedere:
 In questa esercitazione si è appreso come connettere un dispositivo Plug and Play IoT con moduli a un hub IoT. Per altre informazioni sui modelli di dispositivo Plug and Play IoT, vedere:
 
 > [!div class="nextstepaction"]
-> [Guida per sviluppatori alla modellazione di Plug and Play IoT](./concepts-developer-guide-device-csharp.md)
+> [Guida per sviluppatori alla modellazione di Plug and Play IoT](./concepts-developer-guide-device.md)

@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4c2505f210b1a2b52b64c25b4ffa0c26bb30d7ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 470f82026cc27431555336570ef6f41063442c1e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044684"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964542"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Linux
 
@@ -33,7 +33,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Ambito della soluzione
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione illustra come sviluppare un modulo in **C** usando **Visual Studio Code** e come distribuirlo in un **dispositivo Linux**. Se si sviluppano moduli per dispositivi Windows, vedere invece [Sviluppare un modulo IoT Edge in C per dispositivi Windows](tutorial-c-module-windows.md).
 
@@ -43,8 +43,6 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Usare Visual Studio Code per i moduli C su Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Usare Visual Studio per i moduli C su Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Usare Visual Studio Code per i moduli C su Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Usare Visual Studio per i moduli C su Linux ARM32](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 

@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044650"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964440"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Windows
 
@@ -33,7 +33,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Ambito della soluzione
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione illustra come sviluppare un modulo in **C#** usando **Visual Studio 2019** e distribuirlo in un **dispositivo Windows**. Se si sviluppano moduli per dispositivi Linux, vedere invece [Sviluppare un modulo IoT Edge in C# per dispositivi Linux](tutorial-csharp-module.md).
 
@@ -43,8 +43,6 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | -- | ------------------ | ------------------ |
 | **Sviluppo di Windows AMD64** | ![Sviluppare moduli C# per WinAMD64 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![Sviluppare moduli C# per WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Debug di Windows AMD64** |   | ![Eseguire il debug di moduli C# per WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo, [Sviluppare un modulo IoT Edge per un dispositivo Windows](tutorial-develop-for-windows.md). Dopo aver completato questa esercitazione, saranno già stati soddisfatti i prerequisiti seguenti:
 
@@ -152,7 +150,7 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
     }
     ```
 
-5. Trovare il metodo **Init**. Questo metodo crea e configura l'oggetto **ModuleClient**, che consente al modulo di connettersi al runtime locale di Azure IoT Edge per inviare e ricevere messaggi. Il codice registra anche un callback per la ricezione di messaggi da un hub IoT Edge tramite l'endpoint**input1**.
+5. Trovare il metodo **Init**. Questo metodo crea e configura l'oggetto **ModuleClient**, che consente al modulo di connettersi al runtime locale di Azure IoT Edge per inviare e ricevere messaggi. Il codice registra anche un callback per la ricezione di messaggi da un hub IoT Edge tramite l'endpoint **input1**.
 
    Sostituire l'intero metodo Init con il codice seguente:
 

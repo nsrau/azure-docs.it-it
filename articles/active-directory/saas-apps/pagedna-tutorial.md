@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513827"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Esercitazione: Integrazione di Azure Active Directory con PageDNA
 
@@ -52,11 +52,11 @@ PageDNA supporta le funzionalità seguenti:
 Per configurare l'integrazione di PageDNA in Azure AD, è necessario aggiungere PageDNA da Azure Marketplace all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com?azure-portal=true).
-1. Nel riquadro sinistro selezionare **Azure Active Directory** .
+1. Nel riquadro sinistro selezionare **Azure Active Directory**.
 
     ![Opzione Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -64,13 +64,13 @@ Per configurare l'integrazione di PageDNA in Azure AD, è necessario aggiungere 
 
     ![Opzione Applicazione nuova](common/add-new-app.png)
 
-1. Nella casella di ricerca immettere **PageDNA** . Nei risultati della ricerca selezionare **PageDNA** , quindi selezionare **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca immettere **PageDNA**. Nei risultati della ricerca selezionare **PageDNA**, quindi selezionare **Aggiungi** per aggiungere l'applicazione.
 
     ![PageDNA nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con PageDNA usando un utente di test di nome **Britta Simon** . Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilito un collegamento tra un utente di Azure AD e l'utente correlato in PageDNA.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con PageDNA usando un utente di test di nome **Britta Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilito un collegamento tra un utente di Azure AD e l'utente correlato in PageDNA.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con PageDNA, è necessario completare le procedure di base seguenti:
 
@@ -87,7 +87,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con PageDNA, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **PageDNA** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **PageDNA** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
@@ -95,7 +95,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PageDNA, seguire questa
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base** .
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PageDNA, seguire questa
     > [!NOTE]
     > Poiché questi non sono i valori reali, Aggiornare questi valori con URL di accesso e identificatore effettivi. Per ottenere questi valori, contattare il [team di supporto di PageDNA](mailto:success@pagedna.com). È anche possibile fare riferimento ai modelli mostrati nel riquadro **Configurazione SAML di base** del portale di Azure.
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , selezionare **Scarica** per scaricare il file **Certificato (base)** dalle opzioni specificate e salvarlo nel computer.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** per scaricare il file **Certificato (base)** dalle opzioni specificate e salvarlo nel computer.
 
     ![Opzione di download Certificato (base)](common/certificateraw.png)
 
@@ -142,7 +142,7 @@ Per configurare l'accesso Single Sign-On sul lato PageDNA, è necessario inviare
 
 In questa sezione viene creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro di sinistra del portale di Azure selezionare **Azure Active Directory**   > **Utenti** > **Tutti gli utenti** .
+1. Nel riquadro di sinistra del portale di Azure selezionare **Azure Active Directory**   > **Utenti** > **Tutti gli utenti**.
 
     ![Opzioni "Utenti" e "Tutti gli utenti"](common/users.png)
 
@@ -154,31 +154,31 @@ In questa sezione viene creato un utente di test di nome Britta Simon nel portal
 
     ![Riquadro Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon** .
+    1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Ad esempio, **BrittaSimon\@contoso.com** .
+    1. Nella casella **Nome utente** immettere **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Ad esempio, **BrittaSimon\@contoso.com**.
 
-    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Crea** .
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita l'utente di nome Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PageDNA.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **PageDNA** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **PageDNA**.
 
     ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
-1. Nell'elenco delle applicazioni selezionare **PageDNA** .
+1. Nell'elenco delle applicazioni selezionare **PageDNA**.
 
     ![PageDNA nell'elenco delle applicazioni](common/all-applications.png)
 
-1. Nel riquadro sinistro in **GESTISCI** fare clic su **Utenti e gruppi** .
+1. Nel riquadro sinistro in **GESTISCI** fare clic su **Utenti e gruppi**.
 
     ![Opzione Utenti e gruppi](common/users-groups-blade.png)
 
-1. Selezionare **+Aggiungi utente** e quindi **Utenti e gruppi** nel riquadro **Aggiungi assegnazione** .
+1. Selezionare **+Aggiungi utente** e quindi **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -186,7 +186,7 @@ In questa sezione si abilita l'utente di nome Britta Simon all'uso dell'accesso 
 
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere **Seleziona** nella parte inferiore del riquadro.
 
-1. Nel riquadro **Aggiungi assegnazione** selezionare **Assegna** .
+1. Nel riquadro **Aggiungi assegnazione** selezionare **Assegna**.
 
 ### <a name="create-a-pagedna-test-user"></a>Creare l'utente di test di PageDNA
 

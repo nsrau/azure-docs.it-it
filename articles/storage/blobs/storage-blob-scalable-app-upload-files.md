@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc1f8b8a7c46a3d6ad6f62d93bc91753e42c3ae
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75371939"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545041"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
@@ -62,7 +62,7 @@ Digitare `dotnet run` per eseguire l'applicazione. Alla prima esecuzione di `dot
 dotnet run
 ```
 
-L'applicazione crea cinque contenitori con nome casuale e inizia a caricare i file della directory di staging nell'account di archiviazione. L'applicazione imposta il numero minimo di thread su 100 e il valore di [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) su 100 in modo da consentire un elevato numero di connessioni simultanee durante l'esecuzione dell'applicazione.
+L'applicazione crea cinque contenitori con nome casuale e inizia a caricare i file della directory di staging nell'account di archiviazione. L'applicazione imposta il numero minimo di thread su 100 e il valore di [DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) su 100 in modo da consentire un elevato numero di connessioni simultanee durante l'esecuzione dell'applicazione.
 
 Oltre alle impostazioni relative ai limiti per connessioni e threading, viene configurata la classe [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) per il metodo [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) in modo da usare il parallelismo e disabilitare la convalida dell'hash MD5. I file vengono caricati in blocchi di 100 MB. Questa configurazione offre prestazioni superiori, ma può risultare costosa se si usa una rete con prestazioni scarse perché in caso di errore viene eseguito un nuovo tentativo per l'intero blocco di 100 MB.
 

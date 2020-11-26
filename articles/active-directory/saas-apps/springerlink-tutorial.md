@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
 ms.openlocfilehash: 3c03bb91320e79d5ea54ad43802073795bfbd4cb
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008379"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-springer-link"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Springer Link
 
@@ -72,7 +72,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare l'URL: `https://fsso.springer.com`
 
@@ -82,12 +82,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     d. Nella casella di testo **Stato dell'inoltro** digitare l'URL: `https://link.springer.com`
 
-5. Per configurare l'applicazione in modalità avviata da **SP** , seguire questa procedura:
+5. Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
     > [!NOTE]
-    > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. `<entityID>` è l'identificatore Azure AD copiato dalla sezione **Configura Springer Link** , descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. `<entityID>` è l'identificatore Azure AD copiato dalla sezione **Configura Springer Link**, descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona di copia per copiare il valore di **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
@@ -97,7 +97,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -119,7 +119,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-springer-link-sso"></a>Configurare l'accesso SSO per Springer Link
 
-Per configurare l'accesso Single Sign-On in **Springer Link** , è necessario inviare l' **URL dei metadati di federazione dell'app** copiato al [team di supporto di Springer Link](mailto:onlineservice@springernature.com). Il team di supporto di Springer Link usa questo URL per configurare correttamente la connessione SSO SAML su entrambi i lati.
+Per configurare l'accesso Single Sign-On in **Springer Link**, è necessario inviare l'**URL dei metadati di federazione dell'app** copiato al [team di supporto di Springer Link](mailto:onlineservice@springernature.com). Il team di supporto di Springer Link usa questo URL per configurare correttamente la connessione SSO SAML su entrambi i lati.
 
 ### <a name="create-springer-link-test-user"></a>Creare l'utente di test di Springer Link
 

@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b46ce20b868f8756f6ad91795a27328abcb2fbdf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 71bfc84eb50521aef72f78b482bddda112c00c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044208"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964372"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Linux
 
@@ -33,7 +33,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Ambito della soluzione
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione illustra come sviluppare un modulo in **C#** usando **Visual Studio Code** e distribuirlo in un **dispositivo Linux**. Se si sviluppano moduli per dispositivi Windows, vedere invece [Sviluppare un modulo IoT Edge in C# per dispositivi Windows](tutorial-csharp-module-windows.md).
 
@@ -46,8 +46,6 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 
 >[!NOTE]
 >Il supporto per i dispositivi Linux ARM64 è disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [Sviluppare ed eseguire il debug di moduli IoT Edge ARM64 in Visual Studio Code (anteprima)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
-## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo, [Sviluppare un modulo IoT Edge per un dispositivo Linux](tutorial-develop-for-linux.md). Dopo aver completato questa esercitazione, saranno già stati soddisfatti i prerequisiti seguenti:
 
@@ -143,7 +141,7 @@ Attualmente, Visual Studio Code può sviluppare moduli C# per dispositivi Linux 
     }
     ```
 
-5. Trovare la funzione **Init**. Questa funzione crea e configura l'oggetto **ModuleClient**, che consente al modulo di connettersi al runtime locale di Azure IoT Edge per inviare e ricevere messaggi. Dopo la creazione di **ModuleClient**, il codice legge il valore **temperatureThreshold** dalle proprietà desiderate del modulo gemello. Il codice registra un callback per la ricezione di messaggi da un hub IoT Edge tramite l'endpoint**input1**. Sostituire il metodo **SetInputMessageHandlerAsync** con un nuovo metodo e aggiungere un metodo **SetDesiredPropertyUpdateCallbackAsync** per gli aggiornamenti alle proprietà desiderate. Per apportare questa modifica, sostituire l'ultima riga del metodo **Init** con il codice seguente:
+5. Trovare la funzione **Init**. Questa funzione crea e configura l'oggetto **ModuleClient**, che consente al modulo di connettersi al runtime locale di Azure IoT Edge per inviare e ricevere messaggi. Dopo la creazione di **ModuleClient**, il codice legge il valore **temperatureThreshold** dalle proprietà desiderate del modulo gemello. Il codice registra un callback per la ricezione di messaggi da un hub IoT Edge tramite l'endpoint **input1**. Sostituire il metodo **SetInputMessageHandlerAsync** con un nuovo metodo e aggiungere un metodo **SetDesiredPropertyUpdateCallbackAsync** per gli aggiornamenti alle proprietà desiderate. Per apportare questa modifica, sostituire l'ultima riga del metodo **Init** con il codice seguente:
 
     ```csharp
     // Register a callback for messages that are received by the module.

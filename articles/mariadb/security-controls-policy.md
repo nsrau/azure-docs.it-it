@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Database di Azure per MariaDB
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Database di Azure per MariaDB. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 542c65e369edbb0e5523ddad06be03637657e6f5
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6b7f7a1cae3ba0b9d2a8404b849cf4013b22a1b1
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700264"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988536"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Controlli di conformità alle normative di Criteri di Azure per Database di Azure per MariaDB
 

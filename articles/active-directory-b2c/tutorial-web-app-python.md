@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844627"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953017"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione Web Python con Azure AD B2C
 
@@ -49,7 +49,7 @@ In più, nell'ambiente di sviluppo locale devono anche essere installati gli ele
 
 Nella seconda esercitazione completata come parte dei prerequisiti è stata registrata un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio in questa esercitazione, aggiungere un URL di risposta (anche noto come URI di reindirizzamento) alla registrazione dell'applicazione.
 
-Per aggiornare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
+Per aggiornare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
@@ -162,13 +162,13 @@ Questa applicazione di esempio supporta l'iscrizione, l'accesso e la reimpostazi
 
     Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Web browser che mostra un'applicazione Web Python Flask eseguita in locale":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Pagina di iscrizione visualizzata dal flusso utente di Azure AD B2C":::
 
 1. Selezionare **Crea** per creare un account locale nella directory di Azure AD B2C.
 
 Quando si seleziona **Crea**, l'applicazione visualizza il nome dell'utente che ha eseguito l'accesso.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Web browser che mostra un'applicazione Web Python Flask eseguita in locale":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Web browser che mostra un'applicazione Web Python Flask con l'utente connesso":::
 
 Se si vuole testare l'accesso, selezionare il collegamento **Disconnetti**, quindi selezionare **Accedi** e accedere con l'indirizzo di posta elettronica e la password immessi al momento dell'iscrizione.
 

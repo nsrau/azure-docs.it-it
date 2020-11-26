@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912519"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Esercitazione: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
@@ -35,20 +35,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
   Vedere [Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Verificare che all'account utente sia assegnato il [ruolo di collaboratore ai dati del BLOB di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
+* Verificare che all'account utente sia assegnato il [ruolo di collaboratore ai dati del BLOB di archiviazione](../common/storage-auth-aad-rbac-portal.md).
 
-* Installare AzCopy v10. Vedere [Trasferire dati con AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* Installare AzCopy v10. Vedere [Trasferire dati con AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-* Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
 
-  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
+  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
 
   > [!IMPORTANT]
   > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
 
-  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e segreto client in un file di testo. Saranno necessari a breve.
+  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e segreto client in un file di testo. Saranno necessari a breve.
 
 ### <a name="download-the-flight-data"></a>Scaricare i dati relativi ai voli
 

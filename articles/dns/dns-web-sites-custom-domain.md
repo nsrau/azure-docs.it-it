@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 151d5f083fe0e945b330d65095c908be93e3330f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316386"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952914"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Esercitazione: Creare record DNS in un dominio personalizzato per un'app Web 
 
@@ -49,7 +49,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Creare una zona DNS in DNS di Azure e delegare la zona nel registrar a DNS di Azure.
 
-   1. Per creare una zona DNS, seguire i passaggi in [Creare una zona DNS](dns-getstarted-create-dnszone.md).
+   1. Per creare una zona DNS, seguire i passaggi in [Creare una zona DNS](./dns-getstarted-powershell.md).
    2. Per delegare la zona a DNS di Azure, seguire i passaggi nell'articolo relativo alla [delega del dominio DNS](dns-delegate-domain-azure-dns.md).
 
 Dopo la creazione di una zona e la relativa delega a DNS di Azure, è quindi possibile creare record per il dominio personalizzato.

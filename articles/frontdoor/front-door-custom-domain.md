@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
 ms.openlocfilehash: e153edd807dcb119c34f60dc34e33fed510916bb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011524"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Esercitazione: Aggiungere un dominio personalizzato alla frontdoor
 Questa esercitazione mostra come aggiungere un dominio personalizzato alla propria frontdoor. Quando si usa il servizio Frontdoor di Azure per la distribuzione dell'applicazione, un dominio personalizzato è necessario se si vuole che il nome di dominio sia visibile nella richiesta dell'utente finale. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione.

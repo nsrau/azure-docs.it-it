@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2939b3b3beac55b537c1dcf844f702a0ad73f06e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478610"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026200"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
 
@@ -276,4 +276,4 @@ Nei passaggi precedenti sono state create risorse di Azure in un gruppo di serve
 In questa esercitazione è stato illustrato come effettuare il provisioning di un gruppo di server Hyperscale (Citus). È stata stabilita la connessione al gruppo con psql, è stato creato uno schema e sono stati distribuiti i dati. Si è inoltre appreso come eseguire query sui dati sia all'interno dei tenant sia tra più tenant e come personalizzare lo schema per ogni tenant.
 
 - Ottenere informazioni sui [tipi di nodo](./concepts-hyperscale-nodes.md) del gruppo di server
-- Determinare le [dimensioni iniziali](howto-hyperscale-scaling.md#picking-initial-size) ottimali per il gruppo di server
+- Determinare le [dimensioni iniziali](howto-hyperscale-scale-initial.md) ottimali per il gruppo di server
