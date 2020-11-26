@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968090"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175220"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -104,11 +104,11 @@ Un dominio gestito crea alcune risorse di rete durante la distribuzione. Queste 
 
 ## <a name="network-security-groups-and-required-ports"></a>Gruppi di sicurezza di rete e porte obbligatorie
 
-Un [gruppo di sicurezza di rete (NSG)](../virtual-network/security-overview.md) contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure. Un gruppo di sicurezza di rete viene creato quando si distribuisce un dominio gestito che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e di gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet della rete virtuale in cui è distribuito il dominio gestito.
+Un [gruppo di sicurezza di rete (NSG)](../virtual-network/network-security-groups-overview.md) contiene un elenco di regole per consentire o negare il traffico di rete indirizzato al traffico in una rete virtuale di Azure. Un gruppo di sicurezza di rete viene creato quando si distribuisce un dominio gestito che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e di gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet della rete virtuale in cui è distribuito il dominio gestito.
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie affinché il dominio gestito fornisca servizi di autenticazione e gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito.
 
-| Numero della porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Obbligatoria | Scopo |
+| Numero della porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Obbligatorio | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
@@ -123,7 +123,7 @@ Se necessario, è possibile [creare il gruppo di sicurezza di rete e le regole n
 >
 > Se si usa l'accesso LDAP sicuro, è possibile aggiungere la regola della porta TCP 636 necessaria per consentire il traffico esterno, se necessario. Se si aggiunge questa regola, le regole del gruppo di sicurezza di rete non vengono inserite in uno stato non supportato. Per altre informazioni, vedere [bloccare l'accesso LDAP sicuro tramite Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
-> Per il gruppo di sicurezza di rete esistono anche le regole predefinite per *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*e *DenyAllOutBound* . Non modificare o eliminare queste regole predefinite.
+> Per il gruppo di sicurezza di rete esistono anche le regole predefinite per *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound* e *DenyAllOutBound* . Non modificare o eliminare queste regole predefinite.
 >
 > Il contratto di servizio di Azure non si applica alle distribuzioni in cui sono stati applicati un gruppo di sicurezza di rete configurato in modo non corretto e/o tabelle di route definite dall'utente che impedisce a Azure AD DS di aggiornare e gestire il dominio.
 
@@ -140,7 +140,7 @@ Se necessario, è possibile [creare il gruppo di sicurezza di rete e le regole n
 * La regola del gruppo di sicurezza di rete predefinito usa il tag del servizio *CorpNetSaw* per limitare ulteriormente il traffico.
     * Questo tag di servizio consente solo alle workstation con accesso sicuro nella rete aziendale Microsoft di usare desktop remoto per il dominio gestito.
     * L'accesso è consentito solo con la motivazione aziendale, ad esempio per gli scenari di gestione o di risoluzione dei problemi.
-* Questa regola può essere impostata su *Deny*e impostata su *Consenti* solo quando richiesto. La maggior parte delle attività di gestione e monitoraggio viene eseguita usando la comunicazione remota di PowerShell. Il protocollo RDP viene usato solo nel raro caso in cui Microsoft debba connettersi in remoto al dominio gestito per la risoluzione dei problemi avanzata.
+* Questa regola può essere impostata su *Deny* e impostata su *Consenti* solo quando richiesto. La maggior parte delle attività di gestione e monitoraggio viene eseguita usando la comunicazione remota di PowerShell. Il protocollo RDP viene usato solo nel raro caso in cui Microsoft debba connettersi in remoto al dominio gestito per la risoluzione dei problemi avanzata.
 
 > [!NOTE]
 > Se si tenta di modificare questa regola del gruppo di sicurezza di rete, non è possibile selezionare manualmente il tag del servizio *CorpNetSaw* dal portale. È necessario usare Azure PowerShell o l'interfaccia della riga di comando di Azure per configurare manualmente una regola che usa il tag del servizio *CorpNetSaw* .
@@ -154,7 +154,7 @@ Se necessario, è possibile [creare il gruppo di sicurezza di rete e le regole n
 * Consente di eseguire attività di gestione tramite la comunicazione remota di PowerShell nel dominio gestito.
 * Senza l'accesso a questa porta, il dominio gestito non può essere aggiornato, configurato, sottoposto a backup o monitorato.
 * Per i domini gestiti che usano una rete virtuale basata su Gestione risorse, è possibile limitare l'accesso in ingresso a questa porta al tag del servizio *AzureActiveDirectoryDomainServices* .
-    * Per i domini gestiti legacy che usano una rete virtuale basata su classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
+    * Per i domini gestiti legacy che usano una rete virtuale basata su classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18* e *104.40.87.209*.
 
     > [!NOTE]
     > In 2017 Azure AD Domain Services è diventato disponibile per ospitare in una rete Azure Resource Manager. Da allora, siamo riusciti a creare un servizio più sicuro usando le funzionalità moderne del Azure Resource Manager. Poiché le distribuzioni di Azure Resource Manager sostituiscono completamente le distribuzioni classiche, le distribuzioni di rete virtuale di Azure AD DS classico verranno ritirate il 1 ° marzo 2023.
@@ -176,4 +176,4 @@ Per ulteriori informazioni su alcune risorse di rete e sulle opzioni di connessi
 
 * [Peering di rete virtuale di Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Gruppi di sicurezza di rete di Azure](../virtual-network/security-overview.md)
+* [Gruppi di sicurezza di rete di Azure](../virtual-network/network-security-groups-overview.md)

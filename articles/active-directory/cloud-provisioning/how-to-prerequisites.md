@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f6c5985c16875e263f2494f56636abb4d4e980d
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237256"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173703"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti del provisioning cloud di Azure AD Connect
 Questo articolo fornisce indicazioni su come scegliere e usare il provisioning cloud di Azure Active Directory (Azure AD) Connect come soluzione di identità.
@@ -30,11 +30,11 @@ Per usare il provisioning cloud di Azure AD Connect, è necessario quanto segue:
 - Configurazione del firewall locale.
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-Un account del servizio gestito del gruppo è un account di dominio gestito che offre la gestione automatica delle password, la gestione semplificata del nome dell'entità servizio (SPN), la possibilità di delegare la gestione ad altri amministratori e anche di estendere questa funzionalità su più server.  Azure AD Connect Cloud Sync supporta e usa un gMSA per l'esecuzione dell'agente.  Verranno richieste le credenziali amministrative durante l'installazione, per creare questo account.  L'account verrà visualizzato come (domain\provAgentgMSA $).  Per altre informazioni su un gMSA, vedere [account del servizio gestito del gruppo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+Un account del servizio gestito del gruppo è un account di dominio gestito che offre la gestione automatica delle password, la gestione semplificata del nome dell'entità servizio (SPN), la possibilità di delegare la gestione ad altri amministratori e anche di estendere questa funzionalità su più server.  Azure AD Connect Cloud Sync supporta e usa un gMSA per l'esecuzione dell'agente.  Verranno richieste le credenziali amministrative durante l'installazione, per creare questo account.  L'account verrà visualizzato come (domain\provAgentgMSA $).  Per altre informazioni su un gMSA, vedere [account del servizio gestito del gruppo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Prerequisiti per gMSA:
 1.  È necessario aggiornare lo schema Active Directory nella foresta del dominio gMSA a Windows Server 2012
-2.  [Moduli amministrazione remota di PowerShell](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) in un controller di dominio
+2.  [Moduli amministrazione remota di PowerShell](/windows-server/remote/remote-server-administration-tools) in un controller di dominio
 3.  Almeno un controller di dominio nel dominio deve eseguire Windows Server 2012.
 4.  Un server aggiunto a un dominio in cui è installato l'agente deve essere Windows Server 2012 o versione successiva.
 

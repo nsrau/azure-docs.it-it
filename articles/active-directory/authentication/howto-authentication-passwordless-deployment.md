@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839574"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174137"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -82,7 +82,7 @@ I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuz
 
 Gli utenti registrano il proprio metodo con password come parte della Azure AD Multi-Factor Authentication flusso di registrazione. L'autenticazione a più fattori con un nome utente e una password insieme a un altro metodo registrato può essere usata come fallback nel caso in cui non possano usare il telefono o la chiave di sicurezza in alcuni scenari.
 
-### <a name="licensing"></a>Gestione delle licenze 
+### <a name="licensing"></a>Licenza 
 Non sono previsti costi aggiuntivi per l'autenticazione senza password, sebbene alcuni prerequisiti possano richiedere una sottoscrizione Premium. Per informazioni dettagliate sulle funzionalità e sulle licenze nella [pagina Azure Active Directory Licensing](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Sviluppare un piano
@@ -126,7 +126,7 @@ Quando si distribuisce l'autenticazione con password, è necessario abilitare pr
 
 I gruppi possono essere sincronizzati da una directory locale o da Azure AD. Quando si è soddisfatti dei risultati del progetto pilota, è possibile attivare l'autenticazione senza password per tutti gli utenti.
 
-Vedere le [procedure consigliate per un progetto pilota](https://aka.ms/deploymentplans) nella pagina piani di distribuzione.
+Vedere le [procedure consigliate per un progetto pilota](../fundamentals/active-directory-deployment-plans.md) nella pagina piani di distribuzione.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Pianificare l'autenticazione senza password con l'app Microsoft Authenticator
 

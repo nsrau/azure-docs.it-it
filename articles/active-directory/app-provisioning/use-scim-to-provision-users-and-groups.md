@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695266"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174816"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Esercitazione: Creare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
 
@@ -154,7 +154,7 @@ Nell'ambito della [specifica del protocollo SCIM 2.0](http://www.simplecloud.inf
 * Supportare l'esecuzione di query su utenti o gruppi, come indicato nella [sezione 3.4.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Per impostazione predefinita, gli utenti vengono recuperati in base al valore di `id` e le query vengono eseguite in base a `username` e `externalId` per gli utenti e in base a `displayName` per i gruppi.  
 * Supportare query sugli utenti in base all'ID o al manager, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Supportare query sui gruppi in base all'ID e ai membri, come indicato nella sezione 3.4.2 del protocollo SCIM.  
-* Supportare il filtro [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) quando si eseguono query sulla risorsa del gruppo, come indicato nella sezione 3.4.2.5 del protocollo SCIM.
+* Supportare il filtro [excludedAttributes=members](#get-group) quando si eseguono query sulla risorsa del gruppo, come indicato nella sezione 3.4.2.5 del protocollo SCIM.
 * Accettare un singolo token di connessione per l'autenticazione e l'autorizzazione di Azure AD per l'applicazione.
 * Supportare l'eliminazione temporanea di un utente `active=false` e il ripristino dell'utente `active=true` (l'oggetto utente dovrà essere restituito in una richiesta, che sia attivo o meno). L'unica volta in cui l'utente non deve essere restituito è quando viene eliminato definitivamente dall'applicazione. 
 
@@ -1173,7 +1173,7 @@ Dopo l'avvio del ciclo iniziale, è possibile selezionare la scheda **Log di pro
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Passaggio 5: Pubblicare l'applicazione nella raccolta di applicazioni di Azure AD
 
-Se si crea un'applicazione che verrà usata da più tenant, è possibile renderla disponibile nella raccolta di applicazioni di Azure AD. In questo modo, le organizzazioni potranno individuare l'applicazione e configurare il provisioning con facilità. Pubblicare l'app nella raccolta di Azure AD e rendere il provisioning disponibile ad altri è semplice. Consultare i passaggi [qui](../azuread-dev/howto-app-gallery-listing.md) Microsoft collaborerà all'integrazione dell'applicazione nella raccolta, al test dell'endpoint e al rilascio di [documentazione](../saas-apps/tutorial-list.md) sull'onboarding utilizzabile dai clienti. 
+Se si crea un'applicazione che verrà usata da più tenant, è possibile renderla disponibile nella raccolta di applicazioni di Azure AD. In questo modo, le organizzazioni potranno individuare l'applicazione e configurare il provisioning con facilità. Pubblicare l'app nella raccolta di Azure AD e rendere il provisioning disponibile ad altri è semplice. Consultare i passaggi [qui](../develop/v2-howto-app-gallery-listing.md) Microsoft collaborerà all'integrazione dell'applicazione nella raccolta, al test dell'endpoint e al rilascio di [documentazione](../saas-apps/tutorial-list.md) sull'onboarding utilizzabile dai clienti.
 
 ### <a name="gallery-onboarding-checklist"></a>Elenco di controllo per l'onboarding nella raccolta
 Seguire questo elenco di controllo per completare rapidamente l'onboarding dell'applicazione e offrire ai clienti un'esperienza di distribuzione ottimale. Queste informazioni verranno raccolte durante l'onboarding nella raccolta. 

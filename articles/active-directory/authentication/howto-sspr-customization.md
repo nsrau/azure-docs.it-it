@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363709"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173995"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizzare l'esperienza utente per la reimpostazione della password self-service Azure Active Directory
 
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Per informazioni sull'utilizzo di SSPR nell'ambiente, vedere [Opzioni di Reporting per la gestione delle password Azure ad](howto-sspr-reporting.md).
 
-Se gli utenti hanno problemi con SSPR, vedere risolvere i problemi di [reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+Se gli utenti hanno problemi con SSPR, vedere risolvere i problemi di [reimpostazione della password self-service](./troubleshoot-sspr.md)

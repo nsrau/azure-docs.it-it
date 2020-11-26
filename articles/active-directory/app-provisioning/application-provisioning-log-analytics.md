@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145581"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175101"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Informazioni sul modo in cui il provisioning si integra con i log di monitoraggio di Azure
 
@@ -30,13 +30,13 @@ Dopo aver configurato il monitoraggio di Azure, è possibile abilitare i log per
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Abilitare i log di provisioning dell'applicazione" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Se è stato appena eseguito il provisioning di un'area di lavoro, è possibile che sia necessario un po' di tempo prima di inviare i log. Se viene visualizzato un messaggio di errore che indica che la sottoscrizione non è registrata per l'uso di *Microsoft. Insights* , quindi controlla di nuovo dopo alcuni minuti.
  
 ## <a name="understanding-the-data"></a>Informazioni sui dati
-Il flusso di dati sottostante che esegue il provisioning invia i visualizzatori log è quasi identico. I log di monitoraggio di Azure ricevono quasi lo stesso flusso dell'interfaccia utente portale di Azure e dell'API di Azure. Esistono solo alcune **differenze** nei campi del log, come illustrato nella tabella seguente. Per ulteriori informazioni su questi campi, vedere [List provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+Il flusso di dati sottostante che esegue il provisioning invia i visualizzatori log è quasi identico. I log di monitoraggio di Azure ricevono quasi lo stesso flusso dell'interfaccia utente portale di Azure e dell'API di Azure. Esistono solo alcune **differenze** nei campi del log, come illustrato nella tabella seguente. Per ulteriori informazioni su questi campi, vedere [List provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Log di Monitoraggio di Azure   |Interfaccia utente del portale di Azure   |API di Azure |
 |----------|-----------|------------|
@@ -45,15 +45,15 @@ Il flusso di dati sottostante che esegue il provisioning invia i visualizzatori 
 |activityDateTime |TimeGenerated |TimeGenerated |
 
 
-## <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di monitoraggio di Azure
+## <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
 Le cartelle di lavoro di monitoraggio di Azure offrono un Canvas flessibile per l'analisi dei dati. Forniscono inoltre la creazione di report visivi avanzati all'interno del portale di Azure. Per altre informazioni, vedere [Cenni preliminari sulle cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md).
 
 Il provisioning dell'applicazione viene fornito con un set di cartelle di lavoro predefinite. È possibile trovarli nella pagina cartelle di lavoro. Per visualizzare i dati, è necessario assicurarsi che tutti i filtri (timeRange, jobID, appName) siano popolati. Sarà anche necessario assicurarsi di avere effettuato il provisioning di un'app, in caso contrario non saranno presenti dati nei log.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Cartelle di lavoro di provisioning delle applicazioni" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Dashboard del provisioning delle applicazioni" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Query personalizzate
 
@@ -100,15 +100,15 @@ Per altre informazioni sugli avvisi, vedere [rispondere agli eventi con gli avvi
 
 Avvisa in caso di picchi di errori. Sostituire jobID con il jobID per l'applicazione.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Avvisa in caso di picchi di errori." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Potrebbe essersi verificato un problema che ha causato l'arresto dell'esecuzione del servizio di provisioning. Usare l'avviso seguente per rilevare se non sono presenti eventi di provisioning durante un determinato intervallo di tempo.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Potrebbe essersi verificato un problema che ha causato l'arresto dell'esecuzione del servizio di provisioning." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Avvisa in caso di picchi in Disabilita o Elimina.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Accedere alle impostazioni di diagnostica" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Avvisa in caso di picchi in Disabilita o Elimina." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Contributi della community
@@ -121,4 +121,4 @@ Stiamo adottando un approccio open source e basato sulla community per le query 
 - [Introduzione alle query nei log di Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
 - [Creare e gestire gruppi di azione nel portale di Azure](../../azure-monitor/platform/action-groups.md)
 - [Installare e usare le viste di analisi dei log per Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API dei log di provisioning](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [API dei log di provisioning](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

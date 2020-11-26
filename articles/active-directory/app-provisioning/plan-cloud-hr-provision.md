@@ -11,45 +11,45 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363658"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174901"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
-In passato, il personale IT si fidava di metodi manuali per creare, aggiornare ed eliminare i dipendenti. Hanno usato metodi come il caricamento di file CSV o script personalizzati per sincronizzare i dati dei dipendenti. Questi processi di provisioning sono soggetti a errori, non sicuri e difficili da gestire.
+In passato, il personale IT si affidava a metodi manuali per creare, aggiornare ed eliminare dipendenti. Usava metodi come il caricamento di file CSV o l'esecuzione di script personalizzati per sincronizzare i dati dei dipendenti. Questi processi di provisioning sono soggetti a errori, non sono sicuri e sono difficili da gestire.
 
-Per gestire i cicli di vita delle identità di dipendenti, fornitori o lavoratori dipendenti, il [servizio di provisioning utenti Azure Active Directory (Azure ad)](../app-provisioning/user-provisioning.md) offre l'integrazione con applicazioni HR (Human Resources) basate sul cloud. Esempi di applicazioni includono giorni lavorativi o SuccessFactors.
+Per gestire i cicli di vita delle identità di dipendenti, fornitori o lavoratori occasionali, il [servizio di provisioning di Azure Active Directory (Azure AD)](../app-provisioning/user-provisioning.md) offre l'integrazione con applicazioni per la gestione delle risorse umane (HR) basate sul cloud, come Workday o SuccessFactors.
 
-Azure AD usa questa integrazione per abilitare i flussi di lavoro delle applicazioni HR cloud (app) seguenti:
+Azure AD usa questa integrazione per abilitare i flussi di lavoro seguenti per le applicazioni HR basate sul cloud:
 
-- **Effettuare il provisioning degli utenti per Active Directory:** Effettuare il provisioning di set di utenti selezionati da un'app Cloud HR in uno o più domini Active Directory.
-- **Effettuare il provisioning degli utenti solo cloud per Azure ad:** Negli scenari in cui non viene usato Active Directory, effettuare il provisioning degli utenti direttamente dall'app Cloud HR al Azure AD.
-- **Scrivere nuovamente nell'app Cloud HR:** Scrivere gli indirizzi di posta elettronica e gli attributi del nome utente dal Azure AD di nuovo all'app HR cloud.
+- **Provisioning di utenti in Active Directory:** effettuare il provisioning di gruppi di utenti selezionati da un'app HR basata sul cloud in uno o più domini di Active Directory.
+- **Provisioning dei soli utenti cloud in Azure AD:** negli scenari in cui Active Directory non viene usato, effettuare il provisioning degli utenti direttamente dall'app HR basata sul cloud ad Azure AD.
+- **Writeback nell'app HR basata sul cloud:** scrivere gli attributi di nome utente e indirizzo di posta elettronica da Azure AD all'app HR basata sul cloud.
 
 > [!NOTE]
 > Questo piano di distribuzione illustra come distribuire i flussi di lavoro delle app HR cloud con Azure AD provisioning degli utenti. Per informazioni su come distribuire il provisioning utenti automatico in app SaaS (Software as a Service), vedere [pianificare una distribuzione automatica del provisioning utenti](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Scenari HR abilitati
 
-Il servizio di provisioning utenti Azure AD consente l'automazione dei seguenti scenari di gestione del ciclo di vita delle identità basati sulle risorse umane:
+Il servizio di provisioning utenti di Azure AD consente l'automazione dei seguenti scenari di gestione del ciclo di vita delle identità basati sulle risorse umane:
 
-- **Assunzione di nuovi dipendenti:** Quando un nuovo dipendente viene aggiunto all'app Cloud HR, viene creato automaticamente un account utente in Active Directory e Azure AD con l'opzione per riscrivere l'indirizzo di posta elettronica e gli attributi del nome utente nell'app HR cloud.
-- **Aggiornamenti del profilo e dell'attributo del dipendente:** Quando un record dipendente, ad esempio nome, titolo o Manager, viene aggiornato nell'app HR cloud, il relativo account utente viene aggiornato automaticamente in Active Directory e Azure AD.
-- **Interruzioni dei dipendenti:** Quando un dipendente viene terminato nell'app HR cloud, il relativo account utente viene disabilitato automaticamente in Active Directory e Azure AD.
-- **Riassunzioni dei dipendenti:** Quando un dipendente viene riassunto nell'app Cloud HR, il relativo account precedente può essere riattivato automaticamente o sottoposto a provisioning per Active Directory e Azure AD.
+- **Assunzione di nuovi dipendenti:** quando un nuovo dipendente viene aggiunto all'app HR basata sul cloud, viene creato automaticamente un account utente in Active Directory e Azure AD con l'opzione di writeback degli attributi di nome utente e indirizzo di posta elettronica nell'app HR.
+- **Aggiornamento dei profili e degli attributi dei dipendenti:** quando un record di un dipendente, ad esempio il nome, la posizione professionale o il manager, viene aggiornato nell'app HR basata sul cloud, il relativo account utente viene aggiornato automaticamente in Active Directory e Azure AD.
+- **Termine del rapporto con i dipendenti:** quando un dipendente viene eliminato dall'app HR basata sul cloud, il relativo account utente viene disabilitato automaticamente in Active Directory e Azure AD.
+- **Riassunzioni di dipendenti:** quando un dipendente viene nuovamente aggiunto nell'app HR basata sul cloud, il relativo account utente precedente può essere automaticamente riattivato o sottoposto di nuovo a provisioning in Active Directory e Azure AD.
 
-## <a name="who-is-this-integration-best-suited-for"></a>Per chi è questa integrazione più adatta?
+## <a name="who-is-this-integration-best-suited-for"></a>Per chi è più adatta questa integrazione?
 
-L'integrazione delle app HR cloud con Azure AD provisioning degli utenti è particolarmente adatta per le organizzazioni che:
+L'integrazione dell'app HR basata sul cloud con il servizio di provisioning utenti di Azure AD è particolarmente adatta per le organizzazioni che:
 
-- Si vuole una soluzione predefinita basata sul cloud per il provisioning utenti cloud HR.
-- Richiedere il provisioning utenti diretto dall'app Cloud HR per Active Directory o Azure AD.
-- Richiedere il provisioning degli utenti usando i dati ottenuti dall'app Cloud HR.
-- Richiedere l'Unione, lo stato di trasferimento e l'uscita degli utenti per la sincronizzazione in uno o più Active Directory foreste, domini e unità organizzative basate solo sulle informazioni sulle modifiche rilevate nell'app Cloud HR.
+- Vogliono una soluzione predefinita basata sul cloud per il provisioning degli utenti nell'app HR basata sul cloud.
+- Hanno l'esigenza di effettuare il provisioning degli utenti direttamente dall'app HR basata sul cloud ad Active Directory o Azure AD.
+- Hanno l'esigenza di effettuare il provisioning degli utenti usando i dati ottenuti dall'app HR basata sul cloud.
+- Vogliono che le operazioni di aggiunta, spostamento ed eliminazione di utenti siano sincronizzate con uno o più domini, foreste o unità organizzative di Active Directory solo in base alle informazioni modificate rilevate nell'app HR basata sul cloud.
 - Usare Microsoft 365 per la posta elettronica.
 
 ## <a name="learn"></a>Learn
@@ -66,14 +66,14 @@ Questo articolo usa i termini seguenti:
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
-Questa funzionalità del provisioning IT basato su HR offre i vantaggi aziendali seguenti:
+Il provisioning IT basato su risorse umane offre alle aziende gli importanti vantaggi seguenti:
 
-- **Aumentare la produttività:** È ora possibile automatizzare l'assegnazione degli account utente e Microsoft 365 licenze e fornire l'accesso ai gruppi di chiavi. Automatizzando le assegnazioni, i nuovi assunti hanno accesso immediato ai propri strumenti di lavoro e aumentano la produttività.
-- **Gestisci i rischi:** Per aumentare la sicurezza, è possibile automatizzare le modifiche in base allo stato dei dipendenti o alle appartenenze ai gruppi con dati provenienti dall'app Cloud HR. L'automazione delle modifiche garantisce che le identità degli utenti e l'accesso alle app principali vengano aggiornate automaticamente quando gli utenti passano o lasciano l'organizzazione.
-- **Conformità e governance degli indirizzi:** Azure AD supporta i log di controllo nativi per le richieste di provisioning degli utenti eseguite dalle app del sistema di origine e di destinazione. Con il controllo è possibile tenere traccia degli utenti che hanno accesso alle app da un'unica schermata.
-- **Gestione dei costi:** Il provisioning automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate sviluppate nel tempo usando piattaforme legacy e obsolete.
+- **Aumentare la produttività:** È ora possibile automatizzare l'assegnazione degli account utente e Microsoft 365 licenze e fornire l'accesso ai gruppi di chiavi. L'automazione delle assegnazioni consente ai nuovi assunti di accedere immediatamente ai propri strumenti di lavoro, aumentando la produttività.
+- **Gestione dei rischi:** è possibile aumentare la sicurezza automatizzando le modifiche in base allo stato dei dipendenti o alle appartenenze ai gruppi con i flussi di dati provenienti dall'app HR basata sul cloud. L'automazione delle modifiche garantisce che le identità degli utenti e l'accesso alle app principali vengano aggiornati automaticamente quando gli utenti entrano o escono dall'organizzazione.
+- **Gestione della conformità e della governance:** Azure AD supporta i log di controllo nativi per le richieste di provisioning utenti eseguite dalle app dei sistemi di origine e di destinazione. La funzionalità di controllo consente di monitorare chi ha accesso alle app da un'unica schermata.
+- **Gestione dei costi:** il provisioning automatico riduce i costi evitando le inefficienze e gli errori umani associati ai processi di provisioning manuali. Riduce inoltre la necessità di usare soluzioni di provisioning utenti personalizzate sviluppate nel tempo usando piattaforme legacy e obsolete.
 
-### <a name="licensing"></a>Gestione delle licenze
+### <a name="licensing"></a>Licenza
 
 Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degli utenti, è necessario disporre di una [licenza Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) valida e di una licenza per l'app HR cloud, ad esempio giornata lavorativa o SuccessFactors.
 
@@ -303,7 +303,7 @@ Si tratta di un requisito comune per inserire gli account utente Active Director
 
 Utilizzare la funzione [Switch ()](../app-provisioning/functions-for-customizing-application-data.md#switch) per configurare la logica di business per l'assegnazione dell'unità organizzativa ed eseguirne il mapping all'attributo Active Directory **parentDistinguishedName**.
 
-Se, ad esempio, si desidera creare utenti in un'unità organizzativa basata sul **comune**degli attributi HR, è possibile utilizzare l'espressione seguente:
+Se, ad esempio, si desidera creare utenti in un'unità organizzativa basata sul **comune** degli attributi HR, è possibile utilizzare l'espressione seguente:
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
@@ -404,9 +404,9 @@ Per risolvere eventuali problemi che potrebbero verificarsi durante il provision
 
 - [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](application-provisioning-config-problem.md)
 - [Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione](user-provisioning-sync-attributes-for-mapping.md)
-- [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](./user-provisioning.md)
 - [Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
-- [È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD](../manage-apps/add-application-portal-assign-users.md)
 - [Configurazione di Visualizzatore eventi di Windows per la risoluzione dei problemi dell'agente](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Configurazione dei log di controllo del portale di Azure per la risoluzione dei problemi di servizio](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Riconoscimento di log per operazioni di creazione per l'account utente di AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992786"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173686"
 ---
 # <a name="conditional-access-programmatic-access"></a>Accesso condizionale: accesso a livello di codice
 
@@ -62,7 +62,7 @@ Questo esempio fornisce un meccanismo per eseguire gradualmente i criteri di acc
 
 - [Distribuire i criteri di accesso condizionale in ambienti di produzione con flussi di lavoro di approvazione](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitoraggio
+## <a name="monitor"></a>Monitorare
 
 Questo esempio fornisce un meccanismo per monitorare le modifiche ai criteri di accesso condizionale nel tempo e può attivare avvisi quando vengono modificati i criteri chiave.
 
@@ -78,7 +78,7 @@ Automatizzare il backup e il ripristino dei criteri di accesso condizionale con 
 
 ### <a name="emergency-access-accounts"></a>Account di accesso di emergenza
 
-Più amministratori possono creare criteri di accesso condizionale e potrebbero dimenticare di aggiungere gli [account di accesso di emergenza](../users-groups-roles/directory-emergency-access.md) come esclusione di tali criteri. Questo esempio garantisce che tutti i criteri vengano aggiornati in modo da includere gli account di accesso di emergenza designati.
+Più amministratori possono creare criteri di accesso condizionale e potrebbero dimenticare di aggiungere gli [account di accesso di emergenza](../roles/security-emergency-access.md) come esclusione di tali criteri. Questo esempio garantisce che tutti i criteri vengano aggiornati in modo da includere gli account di accesso di emergenza designati.
 
 - [Gestire l'assegnazione degli account di accesso di emergenza ai criteri di accesso condizionale usando le chiamate API Microsoft Graph](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

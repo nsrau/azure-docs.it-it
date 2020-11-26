@@ -12,14 +12,14 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116802"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173567"
 ---
-# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per la piattaforma di identità Microsoft
+# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per Microsoft Identity Platform
 
 Questo articolo evidenzia le procedure consigliate, le raccomandazioni e le supervisione comuni per l'integrazione con la piattaforma di identità Microsoft.  Questo elenco di controllo ti guiderà a un'integrazione sicura e di alta qualità. Esaminare regolarmente questo elenco per assicurarsi di mantenere la qualità e la sicurezza dell'integrazione dell'app con la piattaforma di identità. L'elenco di controllo non è destinato a esaminare l'intera applicazione. Il contenuto dell'elenco di controllo è soggetto a modifiche apportate per migliorare la piattaforma.
 
@@ -30,15 +30,15 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 > [!TIP]
 > *Integration Assistant* nella portale di Azure può essere utile per applicare molti di questi consigli e procedure consigliate. Selezionare una delle registrazioni per l' [app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure, quindi selezionare la voce di menu **Integration Assistant (anteprima)** per iniziare a usare l'assistente.
 
-## <a name="basics"></a>Nozioni di base
+## <a name="basics"></a>Operazioni di base
 
-![casella ](./media/active-directory-integration-checklist/checkbox-two.svg) di controllo leggere e comprendere i [criteri della piattaforma Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Assicurarsi che l'applicazione soddisfi le condizioni descritte in quanto sono progettate per proteggere gli utenti e la piattaforma.
+![casella ](./media/active-directory-integration-checklist/checkbox-two.svg) di controllo leggere e comprendere i [criteri della piattaforma Microsoft](/legal/microsoft-identity-platform/terms-of-use). Assicurarsi che l'applicazione soddisfi le condizioni descritte in quanto sono progettate per proteggere gli utenti e la piattaforma.
 
 ## <a name="ownership"></a>Proprietario
 
 ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) Assicurarsi che le informazioni associate all'account usato per registrare e gestire le app siano aggiornate.
 
-## <a name="branding"></a>Personalizzazione
+## <a name="branding"></a>Marchio
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)osservare le [linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md).
 

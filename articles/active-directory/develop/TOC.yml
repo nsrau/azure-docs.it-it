@@ -490,7 +490,7 @@
         - name: Scenari comuni di provisioning
           href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatizzare la configurazione con MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+          href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
     - name: Articoli della Guida del portale di Azure
       items:
         - name: Impostazioni predefinite per la durata del token per un'applicazione personalizzata

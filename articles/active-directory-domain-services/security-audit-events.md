@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967733"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175169"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -95,7 +95,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
 1. Creare la risorsa di destinazione per gli eventi di controllo di sicurezza.
 
     * **Archiviazione**  -  di Azure [Creare un account di archiviazione usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * Hub eventi di **Azure**  -  [Creare un hub eventi usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Potrebbe anche essere necessario usare il cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) per creare una regola di autorizzazione che conceda le autorizzazioni di Azure AD DS allo *spazio dei nomi*dell'hub eventi. La regola di autorizzazione deve includere i diritti di **gestione**, **ascolto**e **trasmissione** .
+    * Hub eventi di **Azure**  -  [Creare un hub eventi usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Potrebbe anche essere necessario usare il cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) per creare una regola di autorizzazione che conceda le autorizzazioni di Azure AD DS allo *spazio dei nomi* dell'hub eventi. La regola di autorizzazione deve includere i diritti di **gestione**, **ascolto** e **trasmissione** .
 
         > [!IMPORTANT]
         > Assicurarsi di impostare la regola di autorizzazione nello spazio dei nomi dell'hub eventi e non nell'hub eventi stesso.
@@ -141,7 +141,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
 Le aree di lavoro di analisi dei log consentono di visualizzare e analizzare gli eventi di controllo di sicurezza usando monitoraggio di Azure e il linguaggio di query kusto. Questo linguaggio di query è progettato per l'utilizzo di sola lettura che offre funzionalità di analisi del risparmio energia con una sintassi di facile lettura. Per altre informazioni su come iniziare a usare i linguaggi di query kusto, vedere gli articoli seguenti:
 
 * [Documentazione di Monitoraggio di Azure](../azure-monitor/index.yml)
-* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md)
+* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Introduzione alle query su log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 * [Creare e condividere i dashboard dei dati di Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

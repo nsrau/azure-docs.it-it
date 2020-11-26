@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334540"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175934"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -63,7 +63,7 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) o allo strumento di esplorazione di [Azure Cosmos](https://cosmos.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/) o al [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
 
@@ -75,7 +75,7 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 1. Selezionare **OK** per creare un contenitore Azure Cosmos abilitato per l'archivio analitico.
 
-1. Dopo aver creato il contenitore, verificare che l'archivio analitico sia stato abilitato facendo clic su **Impostazioni** , al di sotto dei documenti Esplora dati e controllare se l'opzione **durata dell'archivio analitico** è attivata.
+1. Dopo aver creato il contenitore, verificare che l'archivio analitico sia stato abilitato facendo clic su **Impostazioni**, al di sotto dei documenti Esplora dati e controllare se l'opzione **durata dell'archivio analitico** è attivata.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -171,7 +171,7 @@ Dopo aver abilitato l'archivio analitico con un valore specifico di TTL, è poss
 
 Se è stato creato un contenitore abilitato per l'archivio analitico tramite il portale di Azure, conterrà il valore predefinito -1 del TTL per i dati analitici. Per aggiornare questo valore, usare la procedura seguente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) o allo strumento di esplorazione di [Azure Cosmos](https://cosmos.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/) o al [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
 

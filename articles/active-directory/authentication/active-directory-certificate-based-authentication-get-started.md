@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965625"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174565"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -31,7 +31,7 @@ La configurazione di questa funzionalità elimina la necessità di immettere una
 In questo argomento:
 
 - Viene descritto come configurare e usare l'autenticazione basata su certificati per gli utenti dei tenant nei piani Office 365 Enterprise, Business, Education e US Government. Questa funzionalità è disponibile in anteprima nei piani Office 365 China, US Government Defense e US Government Federal.
-- Si presuppone che siano già configurati un'[infrastruttura a chiave pubblica (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [AD FS](../hybrid/how-to-connect-fed-whatis.md).
+- Si presuppone che siano già configurati un'[infrastruttura a chiave pubblica (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) e [AD FS](../hybrid/how-to-connect-fed-whatis.md).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -133,7 +133,7 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 ```
 
-### <a name="remove"></a>Rimuovere
+### <a name="remove"></a>Rimuovi
 
 Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
@@ -154,7 +154,7 @@ Per modificare un'autorità di certificazione attendibile, usare il cmdlet [Set-
 
 ## <a name="step-3-configure-revocation"></a>Passaggio 3: Configurare la revoca
 
-Per revocare un certificato client, Azure Active Directory recupera l'elenco di revoche di certificati (Certificate Revocation List o CRL) dagli URL caricati come parte delle informazioni sull'autorità di certificazione e li memorizza nella cache. L'ultimo timestamp di pubblicazione, ovvero la proprietà**Effective Date** (Data di validità), in CRL viene usato per assicurare la validità di CRL. Il CRL viene referenziato periodicamente per revocare l'accesso ai certificati che fanno parte dell'elenco.
+Per revocare un certificato client, Azure Active Directory recupera l'elenco di revoche di certificati (Certificate Revocation List o CRL) dagli URL caricati come parte delle informazioni sull'autorità di certificazione e li memorizza nella cache. L'ultimo timestamp di pubblicazione, ovvero la proprietà **Effective Date** (Data di validità), in CRL viene usato per assicurare la validità di CRL. Il CRL viene referenziato periodicamente per revocare l'accesso ai certificati che fanno parte dell'elenco.
 
 Se è necessaria una revoca più immediata (ad esempio in caso di smarrimento del dispositivo da parte di un utente), il token di autorizzazione dell'utente può essere annullato. Per annullare il token di autorizzazione, impostare il campo **StsRefreshTokenValidFrom** per questo particolare utente usando Windows PowerShell. È necessario aggiornare il campo **StsRefreshTokenValidFrom** per ogni utente a cui revocare l'accesso.
 

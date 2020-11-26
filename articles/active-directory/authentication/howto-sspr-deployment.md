@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994163"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173937"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
@@ -123,7 +123,7 @@ Considerare le esigenze organizzative quando si determina la strategia per la di
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans) e che i ruoli degli stakeholder nel progetto vengano compresi in modo esatto, documentando le informazioni sugli stakeholder e sui rispettivi input e responsabilità in merito al progetto.
+Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](../fundamentals/active-directory-deployment-plans.md) e che i ruoli degli stakeholder nel progetto vengano compresi in modo esatto, documentando le informazioni sugli stakeholder e sui rispettivi input e responsabilità in merito al progetto.
 
 #### <a name="required-administrator-roles"></a>Ruoli di amministratore obbligatori
 
@@ -325,7 +325,7 @@ L' [utilizzo e le informazioni dettagliate](./howto-authentication-methods-usage
 
 ### <a name="troubleshoot"></a>Risolvere problemi
 
-* Vedere [Risolvere i problemi di reimpostazione della password self-service](./active-directory-passwords-troubleshoot.md) 
+* Vedere [Risolvere i problemi di reimpostazione della password self-service](./troubleshoot-sspr.md) 
 
 * Vedere [Domande frequenti sulla gestione delle password](./active-directory-passwords-faq.md) 
 

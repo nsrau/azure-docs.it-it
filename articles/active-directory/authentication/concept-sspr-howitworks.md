@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994265"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174531"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -106,7 +106,7 @@ Per SSPR sono disponibili i metodi di autenticazione seguenti:
 
 * Notifica dell'app per dispositivi mobili
 * Codice app per dispositivi mobili
-* E-mail
+* Posta elettronica
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -195,9 +195,9 @@ Azure AD verifica la connettività ibrida corrente e fornisce uno dei messaggi s
 * Il client di writeback locale è attivo e in esecuzione.
 * Azure AD è online e connesso al client di writeback locale. Tuttavia sembra che la versione installata di Azure AD Connect non sia aggiornata. Prendere in considerazione l'[aggiornamento di Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) per assicurarsi di disporre delle funzionalità di connettività più recenti e di importanti correzioni di bug.
 * Sfortunatamente, non è possibile controllare lo stato del client di writeback locale perché la versione installata di Azure AD Connect è obsoleta. [Aggiornare Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) per essere in grado di controllare lo stato della connessione.
-* Purtroppo al momento non è possibile connettersi al client di writeback locale. [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
+* Purtroppo al momento non è possibile connettersi al client di writeback locale. [Risoluzione dei problemi di Azure AD Connect](./troubleshoot-sspr-writeback.md) per ripristinare la connessione.
 * Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](./tutorial-enable-sspr-writeback.md) per ripristinare la connessione.
-* Purtroppo al momento non è possibile connettersi al client di writeback locale. Ciò può essere dovuto a errori temporanei nel sistema. Se il problema persiste, vedere [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
+* Purtroppo al momento non è possibile connettersi al client di writeback locale. Ciò può essere dovuto a errori temporanei nel sistema. Se il problema persiste, vedere [Risoluzione dei problemi di Azure AD Connect](./troubleshoot-sspr-writeback.md) per ripristinare la connessione.
 
 Per iniziare a usare il writeback della reimpostazione della password self-service, completare l'esercitazione seguente:
 

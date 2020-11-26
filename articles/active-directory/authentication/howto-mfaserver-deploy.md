@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eca3b8f1cd8f27c193e8f8235887e21230f60611
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 611107ed02aeb4dc75302f519681c932980f612e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838621"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174171"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
@@ -58,7 +58,7 @@ Verificare che il server usato per Azure Multi-Factor Authentication soddisfi i 
 | Requisiti del server Azure Multi-Factor Authentication | Descrizione |
 |:--- |:--- |
 | Hardware |<li>200 MB di spazio su disco rigido</li><li>processore idoneo per x32 o x64</li><li>1 GB o più di RAM</li> |
-| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 [(solo con](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) la sola unità di stato)</li><li>Windows 10</li><li>Windows 8.1, tutte le edizioni</li><li>Windows 8, tutte le edizioni</li><li>Windows 7, [tutte le edizioni (solo con](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) la sola unità di stato)</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o versione successiva se si installa il portale utenti o l'SDK servizi Web</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 [(solo con](/lifecycle/faq/extended-security-updates) la sola unità di stato)</li><li>Windows 10</li><li>Windows 8.1, tutte le edizioni</li><li>Windows 8, tutte le edizioni</li><li>Windows 7, [tutte le edizioni (solo con](/lifecycle/faq/extended-security-updates) la sola unità di stato)</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o versione successiva se si installa il portale utenti o l'SDK servizi Web</li> |
 | Autorizzazioni | Account di amministratore del dominio o dell'organizzazione per la registrazione con Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Componenti del server Azure MFA

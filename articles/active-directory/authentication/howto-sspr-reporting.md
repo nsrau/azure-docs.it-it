@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3f2c5b37c713b69df56e938fdaa2a9134402d765
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363607"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173903"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -181,7 +181,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](./tutorial-enable-sspr-writeback.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](./troubleshoot-sspr.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Esempio di log di controllo delle attività di reimpostazione password self-service in Azure AD"

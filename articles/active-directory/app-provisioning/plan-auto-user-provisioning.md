@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041114"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174918"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -34,13 +34,13 @@ Il provisioning degli utenti crea una base per la governance delle identità in 
 
 I vantaggi principali dell'abilitazione del provisioning utenti automatico sono:
 
-* **Maggiore produttività** . È possibile gestire le identità degli utenti in applicazioni SaaS con un'unica interfaccia di gestione del provisioning degli utenti. Questa interfaccia dispone di un singolo set di criteri di provisioning.
+* **Maggiore produttività**. È possibile gestire le identità degli utenti in applicazioni SaaS con un'unica interfaccia di gestione del provisioning degli utenti. Questa interfaccia dispone di un singolo set di criteri di provisioning.
 
-* **Gestire i rischi** . È possibile aumentare la sicurezza automatizzando le modifiche in base allo stato dei dipendenti o all'appartenenza a gruppi che definiscono i ruoli e/o l'accesso.
+* **Gestire i rischi**. È possibile aumentare la sicurezza automatizzando le modifiche in base allo stato dei dipendenti o all'appartenenza a gruppi che definiscono i ruoli e/o l'accesso.
 
-* **Conformità e governance degli indirizzi** . Azure AD supporta i log di controllo nativi per ogni richiesta di provisioning dell'utente. Le richieste vengono eseguite in entrambi i sistemi di origine e di destinazione. In questo modo è possibile tenere traccia degli utenti che hanno accesso alle applicazioni da un'unica schermata.
+* **Conformità e governance degli indirizzi**. Azure AD supporta i log di controllo nativi per ogni richiesta di provisioning dell'utente. Le richieste vengono eseguite in entrambi i sistemi di origine e di destinazione. In questo modo è possibile tenere traccia degli utenti che hanno accesso alle applicazioni da un'unica schermata.
 
-* **Ridurre i costi** . Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
+* **Ridurre i costi**. Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
 
 ### <a name="licensing"></a>Licenza
 
@@ -83,7 +83,7 @@ Il servizio di provisioning Azure AD esegue il provisioning degli utenti nelle a
 
 In questo esempio, gli utenti e i gruppi vengono creati in un database HR connesso a una directory locale. Il servizio di provisioning di Azure AD gestisce il provisioning utenti automatico per le applicazioni SaaS di destinazione.
 
- ![Provisioning utenti](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![provisioning utenti](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **Descrizione del flusso di lavoro:**
 
@@ -157,7 +157,7 @@ I passaggi necessari per abilitare e configurare il provisioning automatico vari
 
 In caso contrario, attenersi alla procedura seguente:
 
-1. [Creare una richiesta](../azuread-dev/howto-app-gallery-listing.md) per un connettore di provisioning utenti pre-integrato. Il nostro team collaborerà con te e lo sviluppatore di applicazioni per caricare la tua applicazione sulla nostra piattaforma se supporta SCIM.
+1. [Creare una richiesta](../develop/v2-howto-app-gallery-listing.md) per un connettore di provisioning utenti pre-integrato. Il nostro team collaborerà con te e lo sviluppatore di applicazioni per caricare la tua applicazione sulla nostra piattaforma se supporta SCIM.
 
 1. Usare il supporto del provisioning utenti generico di [BYOA scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) per l'app. Si tratta di un requisito per Azure AD di eseguire il provisioning degli utenti nell'app senza un connettore di provisioning pre-integrato.
 
@@ -300,11 +300,11 @@ Per risolvere eventuali problemi che possono verificarsi durante il provisioning
 
 * [Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](./user-provisioning.md)
 
 * [Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Documentazione utile
 

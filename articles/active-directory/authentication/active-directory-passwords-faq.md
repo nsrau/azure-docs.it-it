@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840101"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174497"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Domande frequenti sulla reimpostazione della password self-service
 
@@ -289,4 +289,4 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * [Panoramica del writeback delle password](./tutorial-enable-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](./troubleshoot-sspr.md)

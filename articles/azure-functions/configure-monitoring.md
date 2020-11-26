@@ -4,12 +4,12 @@ description: Informazioni su come connettere l'app per le funzioni a Application
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833079"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175747"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -28,7 +28,7 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 
 # <a name="v2x"></a>[V2. x +](#tab/v2)
 
-| Categoria | Tabella | Descrizione |
+| Category | Tabella | Descrizione |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **dipendenze**| I dati sulle dipendenze vengono raccolti automaticamente per alcuni servizi. Per le esecuzioni riuscite, questi log sono al `Information` livello. Per altre informazioni, vedere [dipendenze](functions-monitoring.md#dependencies). Le eccezioni vengono registrate a `Error` livello di. Il runtime crea anche `Warning` log di livello, ad esempio quando i messaggi della coda vengono inviati alla [coda non elaborabile](functions-bindings-storage-queue-trigger.md#poison-messages). | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | Gli SDK C# e JavaScript consentono di raccogliere metriche personalizzate e registrare eventi personalizzati. Per altre informazioni, vedere [dati di telemetria personalizzati](functions-monitoring.md#custom-telemetry-data).|
@@ -41,7 +41,7 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
-| Categoria | Tabella | Descrizione |
+| Category | Tabella | Descrizione |
 | ----- | ----- | ----- |
 | **`Function`** | **traces**| Log generati dall'utente, che possono essere a qualsiasi livello di log. Per altre informazioni sulla scrittura nei log delle funzioni, vedere [scrittura nei log](functions-monitoring.md#writing-to-logs). | 
 | **`Host.Aggregator`** | **customMetrics** | Questi log generati in fase di esecuzione forniscono conteggi e medie delle chiamate di funzione in un periodo di tempo [configurabile](#configure-the-aggregator) . Il periodo predefinito è 30 secondi o 1000 risultati, ovvero quello che viene prima. Gli esempi indicano il numero di esecuzioni, la percentuale di riuscita e la durata. Tutti questi log vengono scritti al livello `Information`. Se si filtra per `Warning` o categoria successiva, non verrà visualizzato alcun dato. |
@@ -230,7 +230,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 Affinché un'app per le funzioni invii dati ad Application Insights, è necessario conoscere la chiave di strumentazione di una risorsa di Application Insights. La chiave deve essere specificata in un'impostazione dell'app denominata **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Quando si crea un'app per le funzioni [nel portale di Azure](functions-create-first-azure-function.md) usando [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) o [Visual Studio Code](functions-create-first-function-vs-code.md) nella riga di comando, l'integrazione con Application Insights viene abilitata per impostazione predefinita. La risorsa di Application Insights prende lo stesso nome dell'app per le funzioni e viene creata nella stessa area o nell'area più vicina.
+Quando si crea un'app per le funzioni [nel portale di Azure](functions-create-first-azure-function.md) usando [Azure Functions Core Tools](./create-first-function-cli-csharp.md) o [Visual Studio Code](./create-first-function-vs-code-csharp.md) nella riga di comando, l'integrazione con Application Insights viene abilitata per impostazione predefinita. La risorsa di Application Insights prende lo stesso nome dell'app per le funzioni e viene creata nella stessa area o nell'area più vicina.
 
 ### <a name="new-function-app-in-the-portal"></a>Nuova app per le funzioni nel portale
 

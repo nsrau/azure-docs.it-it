@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5322e5ce1bb124387931eac666cf9e5510cb2463
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237638"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173971"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 Questo documento illustra il processo di installazione per l'Agente provisioning di Microsoft Azure Active Directory Connect (Azure AD) e come configurarlo inizialmente nel portale di Azure.
@@ -32,7 +32,7 @@ Per installare e configurare il provisioning di Azure AD Connect sono necessari 
 
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-Un account del servizio gestito del gruppo è un account di dominio gestito che offre la gestione automatica delle password, la gestione semplificata del nome dell'entità servizio (SPN), la possibilità di delegare la gestione ad altri amministratori e anche di estendere questa funzionalità su più server.  Azure AD Connect Cloud Sync supporta e consiglia l'uso di un account del servizio gestito del gruppo per l'esecuzione dell'agente.  Per altre informazioni su un gMSA, vedere [account del servizio gestito del gruppo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+Un account del servizio gestito del gruppo è un account di dominio gestito che offre la gestione automatica delle password, la gestione semplificata del nome dell'entità servizio (SPN), la possibilità di delegare la gestione ad altri amministratori e anche di estendere questa funzionalità su più server.  Azure AD Connect Cloud Sync supporta e consiglia l'uso di un account del servizio gestito del gruppo per l'esecuzione dell'agente.  Per altre informazioni su un gMSA, vedere [account del servizio gestito del gruppo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Aggiornamento di un agente esistente per l'utilizzo dell'account gMSA
@@ -107,4 +107,3 @@ Per verificare se l'agente è in esecuzione, seguire questa procedura.
 
 - [Cos'è il provisioning?](what-is-provisioning.md)
 - [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
- 

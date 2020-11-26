@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987338"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176002"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -38,7 +38,7 @@ Se si è un cliente Azure AD Identity Protection, passare alla visualizzazione [
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Perché l'accesso è stato bloccato ma la protezione delle identità non ha generato un rilevamento del rischio?
 Gli accessi possono essere bloccati per diversi motivi. È importante notare che Identity Protection genera solo rilevamenti di rischio quando nella richiesta di autenticazione vengono usate le credenziali corrette. Se un utente utilizza credenziali non corrette, non verrà contrassegnato da Identity Protection poiché non si verifica alcun rischio di compromissione delle credenziali, a meno che un attore non valido utilizzi le credenziali corrette. Alcuni motivi per cui un utente può essere bloccato dalla firma che non genererà un rilevamento di Identity Protection includono:
 * L' **IP può essere bloccato** a causa di attività dannose dall'indirizzo IP. Il messaggio IP bloccato non distingue se le credenziali sono corrette o meno. Se l'indirizzo IP è bloccato e non vengono usate le credenziali corrette, non verrà generato un rilevamento di Identity Protection
-* Il blocco **[intelligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** può impedire l'accesso dell'account dopo più tentativi non riusciti
+* Il blocco **[intelligente](../authentication/howto-password-smart-lockout.md)** può impedire l'accesso dell'account dopo più tentativi non riusciti
 * È possibile applicare un **criterio di accesso condizionale** che usa condizioni diverse dal livello di rischio per bloccare una richiesta di autenticazione
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Come è possibile ottenere un report dei rilevamenti di un tipo specifico?
@@ -93,6 +93,4 @@ Dato che i rischi per l'utente sono cumulativi e non scadono, un utente può ave
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Cause per cui un accesso presenta un punteggio Elevato di "rischio di accesso (aggregato)" quando l'attività di rilevamento associata presenta un rischio basso o medio.
 
-Il punteggio elevato di rischio aggregato potrebbe essere basato su altre funzionalità di accesso o sul fatto che sono stati generati più rilevamenti per tale accesso. E viceversa, un accesso potrebbe avere un rischio di accesso (aggregato) di livello Medio anche se i rilevamenti associati a tale accesso sono di rischio Elevato. 
-
-
+Il punteggio elevato di rischio aggregato potrebbe essere basato su altre funzionalità di accesso o sul fatto che sono stati generati più rilevamenti per tale accesso. E viceversa, un accesso potrebbe avere un rischio di accesso (aggregato) di livello Medio anche se i rilevamenti associati a tale accesso sono di rischio Elevato.

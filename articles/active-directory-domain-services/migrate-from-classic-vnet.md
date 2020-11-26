@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: joflore
-ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968175"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175373"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Eseguire la migrazione Azure Active Directory Domain Services dal modello di rete virtuale classica a Gestione risorse
 
@@ -174,7 +174,7 @@ Prima di iniziare il processo di migrazione, completare i controlli e gli aggior
 
     Assicurarsi che le impostazioni di rete non blocchino le porte necessarie per Azure AD DS. Le porte devono essere aperte sia nella rete virtuale classica che nella rete virtuale Gestione risorse. Queste impostazioni includono le tabelle di route (anche se non è consigliabile usare le tabelle di route) e i gruppi di sicurezza di rete.
 
-    Azure AD DS necessita di un gruppo di sicurezza di rete per proteggere le porte necessarie per il dominio gestito e bloccare tutto il traffico in ingresso. Questo gruppo di sicurezza di rete funge da livello aggiuntivo di protezione per bloccare l'accesso al dominio gestito. Per visualizzare le porte necessarie, vedere [gruppi di sicurezza di rete e porte obbligatorie][network-ports].
+    Azure Active Directory Domain Services richiede un gruppo di sicurezza di rete per proteggere le porte necessarie per il dominio gestito e bloccare tutto l'altro traffico in ingresso. Questo gruppo di sicurezza di rete funge da livello aggiuntivo di protezione per bloccare l'accesso al dominio gestito. Per visualizzare le porte obbligatorie, vedere [Gruppi di sicurezza di rete e porte obbligatorie][network-ports].
 
     Se si usa l'accesso LDAP sicuro, aggiungere una regola al gruppo di sicurezza di rete per consentire il traffico in ingresso per la porta *TCP* *636*. Per altre informazioni, vedere [bloccare l'accesso LDAP sicuro tramite Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 
@@ -302,7 +302,7 @@ Se necessario, è possibile aggiornare i criteri granulari per le password in mo
 
 1. [Configurare i criteri password][password-policy] per un minor numero di restrizioni sul dominio gestito e osservare gli eventi nei log di controllo.
 1. Se gli account del servizio utilizzano password scadute, come indicato nei log di controllo, aggiornare tali account con la password corretta.
-1. Se una macchina virtuale è esposta a Internet, verificare la presenza di nomi di account generici come *amministratore*, *utente*o *Guest* con tentativi di accesso elevati. Laddove possibile, aggiornare le macchine virtuali in modo da usare account meno denominati in modo generico.
+1. Se una macchina virtuale è esposta a Internet, verificare la presenza di nomi di account generici come *amministratore*, *utente* o *Guest* con tentativi di accesso elevati. Laddove possibile, aggiornare le macchine virtuali in modo da usare account meno denominati in modo generico.
 1. Usare una traccia di rete nella macchina virtuale per individuare l'origine degli attacchi e impedire a tali indirizzi IP di provare a eseguire accessi.
 1. Quando si verificano problemi di blocco minimi, aggiornare i criteri granulari per le password in modo che siano più restrittivi in base alle esigenze.
 
@@ -360,7 +360,7 @@ Con il dominio gestito migrato al modello di distribuzione Gestione risorse, [cr
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

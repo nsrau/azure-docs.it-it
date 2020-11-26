@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930153"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173516"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Identity Web Authentication Library
 
@@ -58,14 +58,14 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 Il diagramma seguente mostra una visualizzazione di alto livello dei tipi di app supportati e dei relativi argomenti rilevanti:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagramma dei modelli di progetto dell'interfaccia della riga di comando per i punti di rete disponibili per Microsoft Identity Web&quot;:::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagramma dei modelli di progetto dell'interfaccia della riga di comando per i punti di rete disponibili per Microsoft Identity Web":::
 <br /><sup><b>*</b></sup>`MultiOrg`non è supportato con `webapi2` , ma può essere abilitato in *appsettings.json* impostando tenant su `common` o`organizations`
 <br /><sup><b>**</b></sup>`--calls-graph`non è supportato per Azure ad B2C
 
 Questo comando dell'interfaccia della riga di comando di .NET di esempio, tratto dall' [esercitazione sul server Blazer](tutorial-blazor-server.md), genera un nuovo progetto server blazer che include i pacchetti corretti e il codice di avvio (valori segnaposto visualizzati):
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;00000000-0000-0000-0000-000000000000&quot; --tenant-id &quot;11111111-1111-1111-1111-111111111111" --output my-blazor-app
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
 #### <a name="github"></a>GitHub
@@ -78,11 +78,11 @@ Il [wiki del repository](https://github.com/AzureAD/microsoft-identity-web/wiki)
 
 Microsoft Identity Web include diverse funzionalità non disponibili se si usano i modelli di progetto ASP.NET 3,1 predefiniti.
 
-| Funzionalità                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
+| Feature                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Utenti di accesso](scenario-web-app-sign-user-app-configuration.md) in app Web             | <li>Account aziendali o dell'istituto di istruzione<li>Identità social (con Azure AD B2C) | <li>Account aziendali o dell'istituto di istruzione<li>Account Microsoft personali<li>Identità social (con Azure AD B2C)     |
 | [Proteggi le API Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Account aziendali o dell'istituto di istruzione<li>Identità social (con Azure AD B2C) | <li>Account aziendali o dell'istituto di istruzione<li>Account Microsoft personali<li>Identità social (con Azure AD B2C)     |
-| Convalida dell'autorità di certificazione nelle app multi-tenant                                                   | No                                                                   | Sì, per [tutti i cloud](authentication-national-cloud.md) e [Azure ad B2C](/azure/active-directory-b2c) |
+| Convalida dell'autorità di certificazione nelle app multi-tenant                                                   | No                                                                   | Sì, per [tutti i cloud](authentication-national-cloud.md) e [Azure ad B2C](../../active-directory-b2c/index.yml) |
 | App Web/API [chiama Microsoft Graph] [scenario-API-call-graph]                             | No                                                                   | Sì                                                                                                     |
 | App Web/API [chiama API Web] [scenario-API-call-API]                                       | No                                                                   | Sì                                                                                                     |
 | Supporta le credenziali del certificato                                                         | No                                                                   | Sì, inclusi Azure Key Vault                                                                          |
@@ -95,7 +95,7 @@ Microsoft Identity Web include diverse funzionalità non disponibili se si usano
 
 Per visualizzare Microsoft Identity Web in azione, provare l'esercitazione sul server Blazer:
 
-[Esercitazione: creare un'app del server blazer che usa la piattaforma di identità Microsoft per l'autenticazione](tutorial-blazor-server.md)
+[Esercitazione: Creare un'app Blazor Server che usa Microsoft Identity Platform per l'autenticazione](tutorial-blazor-server.md)
 
 Il wiki di Microsoft Identity Web in GitHub contiene la documentazione di riferimento completa per diversi aspetti della libreria. Ad esempio, l'utilizzo del certificato, il consenso incrementale e il riferimento all'accesso condizionale sono disponibili qui:
 

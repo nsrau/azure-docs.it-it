@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275765"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173669"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -117,7 +117,7 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 
 Per applicare una trasformazione a un attributo utente:
 
-1. In **Gestisci l'attestazione**selezionare *Trasformazione* come origine dell'attestazione per aprire la pagina **Gestisci la trasformazione**.
+1. In **Gestisci l'attestazione** selezionare *Trasformazione* come origine dell'attestazione per aprire la pagina **Gestisci la trasformazione**.
 2. Selezionare la funzione nell'elenco a discesa Trasformazione. A seconda della funzione selezionata, sarà necessario specificare i parametri e un valore costante da valutare nella trasformazione. Per altre informazioni sulle funzioni disponibili, vedere la tabella seguente.
 3. Per applicare più trasformazioni, fare clic su **Aggiungi trasformazione**. È possibile applicare al massimo due trasformazioni a un'attestazione. È ad esempio possibile estrarre prima il prefisso dell'indirizzo di posta elettronica da `user.mail`. Quindi, impostare la stringa in maiuscolo.
 
@@ -178,5 +178,5 @@ Per prima cosa, la piattaforma di identità Microsoft verifica se il tipo di ute
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestione di applicazioni in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurare l'accesso Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configurare l'accesso Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-saml-single-sign-on.md)
+* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](../manage-apps/debug-saml-sso-issues.md)

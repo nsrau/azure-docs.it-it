@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964571"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174035"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Risoluzione dei problemi per le distribuzioni ibride di chiavi di sicurezza FIDO2 in Azure AD (anteprima)
 
@@ -78,7 +78,7 @@ Per raccogliere dati che consentono di risolvere i problemi relativi all'accesso
 1. Consente di impostare la casella di controllo *Invia file allegati e diagnostica a Microsoft insieme ai commenti e suggerimenti*.
 1. Selezionare *ricrea problemi*, quindi *Avvia acquisizione*.
 1. Bloccare e sbloccare il computer con la chiave di sicurezza FIDO2. Se il problema si verifica, provare a sbloccare con altre credenziali.
-1. Tornare a **Hub feedback**, selezionare **Arresta acquisizione**e inviare il feedback.
+1. Tornare a **Hub feedback**, selezionare **Arresta acquisizione** e inviare il feedback.
 1. Passare alla pagina *Commenti* e suggerimenti, quindi alla scheda *commenti e suggerimenti* . Selezionare il feedback inviato di recente.
 1. Selezionare il pulsante *Condividi* nell'angolo in alto a destra per ottenere un collegamento al feedback. Includere questo collegamento quando si apre un caso di supporto oppure rispondere al progettista assegnato a un caso di supporto esistente.
 
