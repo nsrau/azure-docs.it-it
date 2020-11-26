@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 223f3e45f25e3aed3ed6fa15e5b9ea04b17f6c59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023909"
+ms.locfileid: "96121738"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
 
@@ -56,6 +56,11 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
     Per informazioni, vedere [integrazione di ThreatConnect](https://threatconnect.com/integrations/) e cercare Microsoft Graph API di sicurezza nella pagina.
 
+- [Piattaforma EclecticIQ](https://www.eclecticiq.com/solutions)
+
+- [Piattaforma di intelligence per le minacce ThreatQ](https://www.threatq.com/)
+
+    Per informazioni e istruzioni guidate, vedere [Microsoft Sentinel Connector per l'integrazione con ThreatQ](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=Overview).
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Connettere Azure Sentinel alla piattaforma di intelligence per le minacce
 
