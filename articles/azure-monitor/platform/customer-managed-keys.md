@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185964"
+ms.locfileid: "96299040"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -538,7 +538,9 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fund
   1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
   2. Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
 
-- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dall'ottobre 2020 quando la crittografia doppia si trova nell'area. Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster ma con la crittografia doppia disabilitata. Non può essere abilitata o disabilitata dopo la creazione del cluster. Per creare un cluster quando la crittografia doppia non è supportata nell'area, aggiungere il `"properties": {"isDoubleEncryptionEnabled": false}` corpo della richiesta REST.
+- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dal 2020 ottobre nelle aree supportate. È possibile verificare se il cluster è configurato per la crittografia doppia mediante una richiesta GET nel cluster e osservando il `"isDoubleEncryptionEnabled"` valore della proprietà per i `true` cluster con crittografia doppia abilitata. 
+  - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster senza crittografia doppia. Aggiungere `"properties": {"isDoubleEncryptionEnabled": false}` il corpo della richiesta REST.
+  - Non è possibile modificare l'impostazione di crittografia doppia dopo la creazione del cluster.
 
 - messaggi di errore
   
