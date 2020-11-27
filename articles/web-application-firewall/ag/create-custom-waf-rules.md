@@ -8,12 +8,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015698"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301699"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creare e usare le regole personalizzate del Web Application Firewall v2 sul gateway applicazione
 
@@ -21,7 +21,7 @@ Il Web Application Firewall (WAF) V2 in applicazione Azure gateway fornisce la p
 
 Questo articolo illustra alcune regole personalizzate di esempio che è possibile creare e usare con la WAF V2. Per informazioni su come distribuire un WAF con una regola personalizzata usando Azure PowerShell, vedere [configurare le regole personalizzate di Web Application Firewall usando Azure PowerShell](configure-waf-custom-rules.md).
 
-I frammenti di codice JSON illustrati in questo articolo sono derivati da una risorsa [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) .
+I frammenti di codice JSON illustrati in questo articolo sono derivati da una risorsa [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) .
 
 >[!NOTE]
 > Se il gateway applicazione non sta usando il livello WAF, l'opzione per aggiornare il gateway applicazione al livello WAF, come visualizzato nel riquadro a destra.

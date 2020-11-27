@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: text mining, analisi del sentiment, analisi del testo
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365296"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519405"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -47,9 +47,18 @@ Questa funzionalità consente di [rilevare la lingua in cui è stato scritto il 
 
 Riconoscimento entità denominata può [identificare e classificare le entità](how-tos/text-analytics-how-to-entity-linking.md) nel testo come persone, luoghi, organizzazioni e quantità. Anche le entità note vengono riconosciute e collegate a altre informazioni sul Web.
 
-## <a name="use-containers"></a>Usare i contenitori
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
 
-[Usare i contenitori di Analisi del testo](how-tos/text-analytics-how-to-install-containers.md) come soluzione locale per il text mining e l'uso dell'API. Questi contenitori Docker consentono di estrarre frasi chiave, rilevare la lingua e analizzare il sentiment attenendosi ai dati.
+[Usare i contenitori di Analisi del testo](how-tos/text-analytics-how-to-install-containers.md) per distribuire le funzionalità dell'API in locale. Questi contenitori Docker consentono di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo. Analisi del testo offre i contenitori seguenti:
+
+* analisi del sentiment
+* estrazione di frasi chiave (anteprima)
+* rilevamento lingua (anteprima)
+* Analisi del testo per la sanità (anteprima)
+
+## <a name="asynchronous-operations"></a>Operazioni asincrone
+
+L'endpoint `/analyze` consente di usare specifiche funzionalità dell'API Analisi del testo [in modo asincrono](how-tos/text-analytics-how-to-call-api.md), ad esempio Riconoscimento entità denominata ed estrazione di frasi chiave.
 
 ## <a name="typical-workflow"></a>Flusso di lavoro tipico
 

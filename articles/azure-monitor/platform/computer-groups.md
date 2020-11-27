@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86112113"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302926"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in monitoraggio di Azure consentono di definire l'ambito delle [query di log](../log-query/log-query-overview.md) a un determinato set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -97,13 +97,13 @@ Fare clic sulla **x** nella colonna **Rimuovi** per eliminare il gruppo di compu
 È possibile usare gruppo di computer creato da una query di log in una query trattando il relativo alias come una funzione, in genere con la sintassi seguente:
 
 ```kusto
-Table | where Computer in (ComputerGroup)`
+Table | where Computer in (ComputerGroup)
 ```
 
 È ad esempio possibile usare quanto segue per restituire record UpdateSummary solo dei computer in un gruppo di computer denominato mycomputergroup.
 
 ```kusto
-UpdateSummary | where Computer in (mycomputergroup)`
+UpdateSummary | where Computer in (mycomputergroup)
 ```
 
 I gruppi di computer importati e i computer in essi inclusi vengono archiviati nella tabella **ComputerGroup**.  Ad esempio, la query seguente restituirà un elenco di computer nel gruppo Computer del dominio da Active Directory. 

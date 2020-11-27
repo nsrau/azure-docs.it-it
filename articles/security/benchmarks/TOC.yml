@@ -105,6 +105,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Baseline di sicurezza di Firewall di Azure
       href: ../../firewall/security-baseline.md
+    - name: Baseline di sicurezza di Gestione firewall di Azure
+      href: ../../firewall-manager/security-baseline.md
     - name: Baseline di sicurezza di Frontdoor di Azure
       href: ../../frontdoor/security-baseline.md
     - name: Baseline di sicurezza di Funzioni di Azure
@@ -185,6 +187,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Baseline di sicurezza di Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: Baseline di Power BI
+      href: /power-bi/fundamentals/security-baseline
     - name: Baseline del Centro sicurezza
       href: ../../security-center/security-baseline.md
     - name: Baseline del bus di servizio
@@ -207,5 +211,7 @@
       href: ../../virtual-network/security-baseline.md
     - name: Baseline di sicurezza di NAT della rete virtuale
       href: ../../virtual-network/nat-security-baseline.md
+    - name: Baseline di sicurezza della rete WAN virtuale
+      href: ../../virtual-wan/security-baseline.md
     - name: Baseline di sicurezza del gateway VPN
       href: ../../vpn-gateway/security-baseline.md

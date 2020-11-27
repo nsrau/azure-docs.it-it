@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045483"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302614"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
@@ -79,7 +79,7 @@ Payload della proprietà segnalato di esempio:
 
 Il dispositivo o il modulo deve aggiungere il `{"__t": "c"}` marcatore per indicare che l'elemento fa riferimento a un componente.
 
-DTDL:
+DTDL che fa riferimento a un componente:
 
 ```json
 {
@@ -95,7 +95,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL che definisce il componente:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -132,7 +136,7 @@ Il dispositivo o il modulo deve confermare la ricezione della proprietà inviand
 
 Quando un dispositivo viene avviato, deve richiedere il dispositivo gemello e verificare la presenza di eventuali aggiornamenti delle proprietà scrivibili. Se la versione di una proprietà scrivibile è aumentata mentre il dispositivo era offline, il dispositivo deve inviare una risposta di proprietà segnalata per confermare che l'aggiornamento è stato ricevuto.
 
-Quando un dispositivo viene avviato per la prima volta, può inviare un valore iniziale per una proprietà segnalata se non riceve una proprietà iniziale desiderata dall'hub. In questo caso, il dispositivo deve `av` essere impostato su `1` . Ad esempio:
+Quando un dispositivo viene avviato per la prima volta, può inviare un valore iniziale per una proprietà segnalata se non riceve una proprietà iniziale desiderata dall'hub. In questo caso, il dispositivo deve `av` essere impostato su `1` . Esempio:
 
 ```json
 "reported": {
@@ -255,7 +259,7 @@ Quando un dispositivo riceve più proprietà segnalate in un singolo payload, pu
 
 Il dispositivo o il modulo deve confermare di aver ricevuto le proprietà inviando le proprietà segnalate:
 
-DTDL:
+DTDL che fa riferimento a un componente:
 
 ```json
 {
@@ -271,7 +275,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL che definisce il componente:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -332,7 +340,7 @@ Esempio di payload di proprietà segnalato secondo:
 }
 ```
 
-## <a name="commands"></a>Comandi
+## <a name="commands"></a>Comandi:
 
 Nessuna interfaccia di componente usa il nome del comando senza prefisso.
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Risoluzione dei problemi comuni relativi ai cluster Kubernetes con abilitazione di Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
-ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540609"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302382"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Risoluzione dei problemi di Kubernetes con abilitazione di Azure Arc (anteprima)
 
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Tutti i pod dovrebbero mostrare `STATUS` come `Running` e `READY` dovrebbero essere `3/3` o `2/2`. Recuperare i log e descrivere i pod che restituiscono `Error` o `CrashLoopBackOff`. Se uno di questi Pod è bloccato in `Pending` stato, il problema potrebbe essere dovuto a risorse insufficienti nei nodi del cluster. [La scalabilità verticale del cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) consente di ottenere questi pod per la transizione allo `Running` stato.
+Tutti i pod dovrebbero mostrare `STATUS` come `Running` e `READY` dovrebbero essere `3/3` o `2/2`. Recuperare i log e descrivere i pod che restituiscono `Error` o `CrashLoopBackOff`. Se uno di questi Pod è bloccato in `Pending` stato, il problema potrebbe essere dovuto a risorse insufficienti nei nodi del cluster. [La scalabilità verticale del cluster](https://kubernetes.io/docs/tasks/administer-cluster/) consente di ottenere questi pod per la transizione allo `Running` stato.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Connessione di cluster Kubernetes ad Azure Arc
 

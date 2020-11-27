@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309849"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302785"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importare i dati di training in Azure Machine Learning Studio (classico) da varie origini dati
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Per usare i propri dati in Machine Learning Studio (classico) per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile usare i dati di: 
 
-* **File locale** : caricare dati locali in anticipo dal disco rigido per creare un modulo di set di dati nell'area di lavoro
-* **Origini dati online** : usare il modulo [Importa dati][import-data] per accedere ai dati da una delle diverse origini dati online durante l'esecuzione dell'esperimento
+* **File locale**: caricare dati locali in anticipo dal disco rigido per creare un modulo di set di dati nell'area di lavoro
+* **Origini dati online**: usare il modulo [Importa dati][import-data] per accedere ai dati da una delle diverse origini dati online durante l'esecuzione dell'esperimento
 * **Esperimento di Machine Learning Studio (classico)** : usare i dati salvati come set di dati in Machine Learning Studio (versione classica)
 * [**SQL Server database**](use-data-from-an-on-premises-sql-server.md) : usare i dati di un database SQL Server senza dover copiare manualmente i dati
 
@@ -54,7 +54,7 @@ In qualsiasi momento dell'esperimento è possibile visualizzare o scaricare i da
 * Tabella di database SQL
 * Valori OData
 * Dati SVMLight (con estensione svmlight) (vedere la [definizione di SVMLight](http://svmlight.joachims.org/) per informazioni sul formato)
-* Dati ARFF (Attribute Relation File Format) (con estensione arff) (vedere la [definizione di ARFF](https://weka.wikispaces.com/ARFF) per informazioni sul formato)
+* Dati ARFF (Attribute Relation File Format) (con estensione arff) (vedere la [definizione di ARFF](https://www.cs.waikato.ac.nz/ml/weka/arff.html) per informazioni sul formato)
 * File ZIP (con estensione zip)
 * File dell’oggetto o dell'area di lavoro R (con estensione RData)
 
@@ -73,12 +73,12 @@ I tipi di dati seguenti sono riconosciuti da studio (classico):
 * DateTime
 * TimeSpan
 
-Studio usa un tipo di dati interno denominato * **tabella dati** _ per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati tramite il modulo [Convert to Dataset][convert-to-dataset].
+Studio usa un tipo di dati interno denominato ***tabella dati** _ per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati tramite il modulo [Convert to Dataset][convert-to-dataset].
 
 I moduli che accettano formati diversi da tabella dati convertiranno i dati in tabella dati in modo automatico, prima di passare al modulo successivo.
 
 Se necessario, è possibile convertire il formato tabella dati in CSV, TSV, ARFF o SVMLight usando altri moduli di conversione.
-Esaminare la sezione _ *conversioni formato dati* * della tavolozza dei moduli per i moduli che eseguono queste funzioni.
+Esaminare la sezione _ *conversioni formato dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
 
 ## <a name="data-capacities"></a>Capacità di dati
 

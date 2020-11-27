@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023841"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301257"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi dei connettori di Azure Data Factory
 
@@ -440,7 +440,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
 - **Messaggio**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Causa**: Quando si imposta 'firstRowAsHeader' nell'attività, la prima riga verrà usata come nome di colonna. Questo errore indica che la prima riga contiene un valore vuoto. Ad esempio: "Columna,, ColumnB".
+- **Causa**: Quando si imposta 'firstRowAsHeader' nell'attività, la prima riga verrà usata come nome di colonna. Questo errore indica che la prima riga contiene un valore vuoto. Ad esempio: "Columna, ColumnB".
 
 - **Raccomandazione**:  Controllare la prima riga e correggere il valore se è presente un valore vuoto.
 
@@ -449,7 +449,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
 - **Messaggio**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Causa**: Il numero di colonne della riga problematica è maggiore di quello della prima riga. La causa potrebbe essere dovuta a un problema di dati o a impostazioni non corrette del delimitatore di colonna o del carattere virgolette.
+- **Motivo**: il numero di colonne della riga problematica è maggiore del numero di colonne della prima riga. La causa potrebbe essere dovuta a un problema di dati o a impostazioni non corrette del delimitatore di colonna o del carattere virgolette.
 
 - **Raccomandazione**: recuperare il numero di righe in un messaggio di errore, controllare la colonna della riga e correggere i dati.
 
@@ -645,6 +645,29 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
 - **Raccomandazione**:  Rimuovere 'CompressionType' nel payload.
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Risposta di rete imprevista dal connettore REST
+
+- **Sintomi**: l'endpoint a volte riceve una risposta imprevista (400/401/403/500) dal connettore Rest.
+
+- **Causa**: il connettore di origine Rest usa l'URL e il metodo/intestazione/corpo HTTP da servizio collegato/set di dati/copia origine come parametri durante la costruzione di una richiesta HTTP. Il problema è probabilmente causato da alcuni errori in uno o più parametri specificati.
+
+- **Risoluzione**: 
+    - Usare ' curl ' nella finestra cmd per verificare se il parametro è la o meno (le intestazioni **Accept** e **User-Agent** devono essere sempre incluse):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Se il comando restituisce la stessa risposta imprevista, correggere i parametri precedenti con ' curl ' fino a quando non viene restituita la risposta prevista. 
+
+      È anche possibile usare "curl--Help" per un uso più avanzato del comando.
+
+    - Se solo il connettore REST di ADF restituisce una risposta imprevista, contattare il supporto tecnico Microsoft per ulteriori informazioni sulla risoluzione dei problemi.
+    
+    - Si noti che ' curl ' potrebbe non essere adatto per riprodurre il problema di convalida del certificato SSL. In alcuni scenari, il comando ' curl ' è stato eseguito correttamente senza colpire alcun problema di convalida del certificato SSL. Tuttavia, quando lo stesso URL viene eseguito nel browser, nessun certificato SSL viene effettivamente restituito per il client per stabilire una relazione di trust con il server.
+
+      Per il caso precedente, è consigliabile usare strumenti come **postazione** e **Fiddler** .
 
 
 ## <a name="general-copy-activity-error"></a>Errore generale dell'attività di copia

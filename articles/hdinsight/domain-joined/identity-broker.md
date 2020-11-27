@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917767"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302682"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker ID Azure HDInsight (HIB)
 
@@ -140,7 +140,7 @@ Per l'uso di Oneline e Livio, è anche possibile seguire i codici di esempio dis
 
 ## <a name="faq"></a>Domande frequenti
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Quale app viene creata da HDInsight in AAD?
-Per ogni cluster, un'applicazione di terze parti verrà registrata in AAD con l'URI del cluster come identifierUri (ad esempio https://clustername.azurehdinsight.net ).
+Per ogni cluster, un'applicazione di terze parti verrà registrata in AAD con l'URI del cluster come identifierUri (ad esempio `https://clustername.azurehdinsight.net` ).
 
 ### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Perché gli utenti hanno richiesto il consenso prima di usare i cluster abilitati per HIB?
 In AAD, il consenso è necessario per tutte le applicazioni di terze parti prima di poter autenticare gli utenti o accedere ai dati.

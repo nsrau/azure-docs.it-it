@@ -4,12 +4,12 @@ description: Informazioni su come creare criteri di Configurazione guest di Crit
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694243"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302702"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -89,6 +89,10 @@ DSC funge da wrapper per InSpec per standardizzare la modalità di esecuzione, i
 #### <a name="configuration-requirements"></a>Requisiti di configurazione
 
 Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione Guest nel modello di Azure Resource Manager (modello ARM) devono essere uguali.
+
+I cmdlet di PowerShell facilitano la creazione del pacchetto.
+Non è necessaria alcuna cartella di livello radice o cartella delle versioni.
+Il formato del pacchetto deve essere un file ZIP. e non possono superare le dimensioni totali di 100 MB quando sono decompressi.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configurazione personalizzata di Configurazione guest in Linux
 
@@ -248,7 +252,7 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- Il cmdlet `Publish-GuestConfigurationPolicy` accetta il percorso dalla pipeline di PowerShell. Con questa funzionalità è possibile creare i file dei criteri e pubblicarli in un unico set di comandi inoltrati tramite pipe.
+ Il cmdlet `Publish-GuestConfigurationPolicy` accetta il percorso dalla pipeline di PowerShell. Con questa funzionalità è possibile creare i file di criteri e pubblicarli in un unico set di comandi inoltrati tramite pipe.
 
  ```azurepowershell-interactive
  New-GuestConfigurationPolicy `

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966242"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301948"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
 
@@ -44,7 +44,7 @@ I prerequisiti di implementazione di una soluzione di ripristino di emergenza in
    - Dispositivo di archiviazione StorSimple locale registrato con Azure StorSimple Manager
    - Appliance cloud StorSimple creata in Azure StorSimple Manager, che può rimanere in stato di arresto.
    - Condivisioni file ospitate nei volumi configurati sul dispositivo di archiviazione StorSimple
-   - [insieme di credenziali dei servizi di Azure Site Recovery](/azure/storsimple/hyper-v-vmm-disaster-recovery) creato in una sottoscrizione di Microsoft Azure
+   - [insieme di credenziali dei servizi di Azure Site Recovery](/azure/site-recovery/hyper-v-vmm-azure-tutorial) creato in una sottoscrizione di Microsoft Azure
 
 Inoltre, se Azure è il sito di ripristino, eseguire lo strumento [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nelle VM per assicurarsi che siano compatibili con le VM di Azure e i Servizi di Azure Site Recovery.
 
@@ -112,7 +112,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
    1. Usare il ruolo Servizi file e archiviazione per creare condivisioni file in tali volumi.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Per creare un insieme di credenziali di Azure Site Recovery
-Vedere la [documentazione di Azure Site Recovery](/azure/storsimple/hyper-v-azure-tutorial) per iniziare a usare Azure Site Recovery prima di proteggere la VM del file server.
+Vedere la [documentazione di Azure Site Recovery](/azure/site-recovery/) per iniziare a usare Azure Site Recovery prima di proteggere la VM del file server.
 
 #### <a name="to-enable-protection"></a>Per abilitare la protezione
 1. Disconnettere le destinazioni iSCSI dalle macchine virtuali locali che si vuole proteggere con Azure Site Recovery:
@@ -124,7 +124,7 @@ Vedere la [documentazione di Azure Site Recovery](/azure/storsimple/hyper-v-azur
    > [!NOTE]
    > In questo modo, le condivisioni file saranno temporaneamente non disponibili.
    
-1. [Abilitare la protezione delle macchine virtuali](/azure/storsimple/hyper-v-azure-tutorial) della VM del file server dal Portale di Azure Site Recovery.
+1. [Abilitare la protezione delle macchine virtuali](/azure/site-recovery/hyper-v-azure-tutorial) della VM del file server dal Portale di Azure Site Recovery.
 1. Quando viene avviata la sincronizzazione iniziale, è possibile riconnettere nuovamente la destinazione. Passare all'iniziatore iSCSI, selezionare un dispositivo StorSimple e fare clic su **Connetti**.
 1. Quando la sincronizzazione è completa e lo stato della VM è **Protetta**, selezionare la VM, selezionare la scheda **Configura** e aggiornare di conseguenza la rete della VM (si tratta della rete di cui faranno parte le VM sottoposte a failover). Se la scheda non viene visualizzata, la sincronizzazione è ancora in corso.
 

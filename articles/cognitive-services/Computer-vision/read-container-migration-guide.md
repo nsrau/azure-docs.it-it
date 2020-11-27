@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0ae7bb9acde3cc8552a23db12d208a82ba0fb2f3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676166"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800867"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Eseguire la migrazione in contenitori OCR di Read v3.x
 
@@ -29,13 +29,13 @@ Se si usa la versione 2 del contenitore OCR Read di Visione artificiale, leggere
 
 ## <a name="api-changes"></a>Modifiche all'API
 
-Il contenitore Read v3.1 usa la versione 3 dell'API Visione artificiale e ha gli endpoint seguenti:
+Il contenitore Read v3.2 usa la versione 3 dell'API Visione artificiale e ha gli endpoint seguenti:
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
-Per informazioni dettagliate sull'aggiornamento delle applicazioni per l'uso della versione 3 dell'API Read basata sul cloud, vedere la [guida alla migrazione dell'API REST Visione artificiale v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions). Queste informazioni sono valide anche per il contenitore. Tenere presente che le operazioni di sincronizzazione sono supportate solo nei contenitori.
+Per informazioni dettagliate sull'aggiornamento delle applicazioni per l'uso della versione 3 dell'API Read basata sul cloud, vedere la [guida alla migrazione dell'API REST Visione artificiale v3](./upgrade-api-versions.md). Queste informazioni sono valide anche per il contenitore. Tenere presente che le operazioni di sincronizzazione sono supportate solo nei contenitori.
 
 ## <a name="memory-requirements"></a>Requisiti di memoria
 
@@ -43,7 +43,7 @@ I requisiti e le indicazioni sono basati su benchmark con una singola richiesta 
 
 |Contenitore  |Minima | Consigliato  |
 |---------|---------|------|
-|Read 3.1-preview | 8 core, 16 GB di memoria         | 8 core, 24 GB di memoria |
+|Read 3.2-preview | 8 core, 16 GB di memoria         | 8 core, 24 GB di memoria |
 
 Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 

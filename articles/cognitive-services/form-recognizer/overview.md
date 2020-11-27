@@ -7,29 +7,56 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione dati automatica, elaborazione di documenti, immissione automatica di dati, elaborazione di moduli
-ms.openlocfilehash: 5243c170e1f6b5f647057b8cfafbcac9b2fb4db3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318960"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519524"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore e dati delle tabelle dai documenti dei moduli, quindi restituisce dati strutturati che includono le relazioni nel file originale. È possibile ottenere in modo rapido risultati accurati e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo o competenze approfondite di data science. Usare Riconoscimento modulo per automatizzare l'immissione di dati nelle applicazioni.
+Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore, contrassegni di selezione, tabelle e strutture dai documenti, quindi restituisce dati strutturati che includono le relazioni nel file originale, rettangoli delimitatori, attendibilità e altro ancora. È possibile ottenere in modo rapido risultati accurati e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo o competenze approfondite di data science. Usare Riconoscimento modulo per automatizzare l'immissione di dati nelle applicazioni e arricchire le funzionalità di ricerca di documenti.
 
-Riconoscimento modulo è costituito da modelli di elaborazione di documenti personalizzati, dai modelli predefiniti di ricevuta e biglietto da visita e dall'API Layout. È possibile chiamare i modelli di Riconoscimento modulo usando un'API REST o SDK delle librerie client per ridurre la complessità e integrarli nel flusso di lavoro o nell'applicazione.
+Riconoscimento modulo è costituito da modelli di elaborazione di documenti personalizzati, da modelli predefiniti di fatture, ricevute e biglietti da visita e dal modello di layout. È possibile chiamare i modelli di Riconoscimento modulo usando un'API REST o SDK delle librerie client per ridurre la complessità e integrarli nel flusso di lavoro o nell'applicazione.
 
 Riconoscimento modulo è costituito dai servizi seguenti:
-* **[Modelli personalizzati](#custom-models)** : estrarre coppie chiave-valore e dati delle tabelle dai moduli. Questi modelli vengono sottoposti a training con i dati dell'utente, quindi sono personalizzati per i suoi moduli.
-* **[Modelli predefiniti](#prebuilt-models)** : estrarre dati da tipi di moduli univoci usando modelli predefiniti. Attualmente sono disponibili modelli predefiniti per ricevute di vendita e biglietti da visita in lingua inglese.
-* **[API Layout](#layout-api)** : estrarre le strutture di testo e tabelle, oltre alle coordinate dei relativi rettangoli di selezione, dai documenti.
+* **[API Layout](#layout-api)** : estrarre testo, contrassegni di selezione e strutture di tabelle, oltre alle relative coordinate dei rettangoli delimitatori, dai documenti.
+* **[Modelli personalizzati](#custom-models)** : estrarre testo, coppie chiave-valore, contrassegni di selezione e dati di tabelle dai moduli. Questi modelli vengono sottoposti a training con i dati dell'utente, quindi sono personalizzati per i suoi moduli.
+* **[Modelli predefiniti](#prebuilt-models)** : estrarre dati da tipi di moduli univoci usando modelli predefiniti. Attualmente sono disponibili i modelli predefiniti seguenti
+    * [Fatture](./concept-invoices.md)
+    * [Scontrini](./concept-receipts.md)
+    * [Biglietti da visita](./concept-business-cards.md)
+
+
+## <a name="try-it-out"></a>Provare questa operazione
+
+Per provare il servizio Riconoscimento modulo, passare allo strumento dell'interfaccia utente di esempio online:
+
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+> [!div class="nextstepaction"]
+> [Provare i modelli predefiniti](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Provare i modelli predefiniti](https://fott-preview.azurewebsites.net/)
+
+---
+
+Per provare il servizio Riconoscimento modulo, è necessario avere una sottoscrizione di Azure ([crearne una gratuita](https://azure.microsoft.com/free/cognitive-services)), oltre a un endpoint e a una chiave della [risorsa Riconoscimento modulo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer).
+
+## <a name="layout-api"></a>API di layout
+
+Riconoscimento modulo consente di estrarre testo, contrassegni di selezione e strutture di tabelle (i numeri di righe e colonne associate al testo) dai documenti tramite riconoscimento ottico dei caratteri (OCR) in alta definizione e con un modello di Deep Learning avanzato. Per altre informazioni, vedere la guida concettuale sul [layout](./concept-layout.md).
+
+:::image type="content" source="./media/tables-example.jpg" alt-text="Esempi di tabelle" lightbox="./media/tables-example.jpg":::
 
 ## <a name="custom-models"></a>Modelli personalizzati
 
@@ -47,48 +74,57 @@ Per suggerimenti su come raccogliere i documenti di training, vedere [Creare un 
 
 Quando si esegue il training con dati etichettati, il modello esegue l'apprendimento supervisionato per estrarre valori di interesse usando i moduli etichettati forniti. In questo modo si ottengono modelli dalle prestazioni più elevate e anche compatibili con moduli complessi o che contengono valori senza chiavi.
 
-Riconoscimento modulo usa l'[API di layout](#layout-api) per riconoscere le dimensioni e le posizioni previste degli elementi di testo stampati e scritti a mano. Usa quindi le etichette specificate dall'utente per riconoscere le associazioni chiave-valore nei documenti. Per iniziare a eseguire il training di un nuovo modello, è consigliabile usare cinque moduli dello stesso tipo etichettati manualmente e aggiungere altri dati etichettati se necessario per migliorare l'accuratezza del modello.
+Riconoscimento modulo usa l'[API di layout](#layout-api) per riconoscere le dimensioni e le posizioni previste degli elementi di testo stampati e scritti a mano. Usa quindi le etichette specificate dall'utente per riconoscere le associazioni chiave-valore nei documenti. Per iniziare a eseguire il training di un nuovo modello, è consigliabile usare cinque moduli dello stesso tipo (stessa struttura) etichettati manualmente e aggiungere altri dati etichettati se necessario per migliorare l'accuratezza.
+
+[Introduzione al training con le etichette](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+
 
 ## <a name="prebuilt-models"></a>Modelli predefiniti
 
 Riconoscimento modulo include anche modelli predefiniti per l'elaborazione dati automatica di tipi di moduli univoci.
 
+### <a name="prebuilt-invoice-model"></a>Modello predefinito di fattura
+Il modello predefinito di fattura estrae dati dalle fatture in un'ampia varietà di formati e restituisce dati strutturati. Questo modello estrae informazioni chiave come l'ID fattura, i dati del cliente e del fornitore, l'indirizzo di spedizione e di fatturazione, l'importo totale, le imposte, il subtotale e altro ancora. Il training del modello predefinito di fattura è stato inoltre eseguito in modo che possa riconoscere e restituire tutto il testo e le tabelle della fattura. Per altre informazioni, vedere la guida concettuale sulle [fatture](./concept-invoices.md).
+
+:::image type="content" source="./media/overview-invoices.jpg" alt-text="Esempio di fattura" lightbox="./media/overview-invoices.jpg":::
+
 ### <a name="prebuilt-receipt-model"></a>Modello di ricevuta predefinito
 
 Il modello di ricevuta predefinito viene usato per la lettura di ricevute di vendita in inglese di Australia, Canada, Gran Bretagna, India e Stati Uniti, il tipo usato da ristoranti, distributori di carburante, rivenditori e così via. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del fornitore, gli importi delle imposte, gli articoli, i totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta. Per altre informazioni, vedere [Concetti relativi alle ricevute](./concept-receipts.md).
 
-![ricevuta di esempio](./media/contoso-receipt-small.png)
+:::image type="content" source="./media/overview-receipt.jpg" alt-text="ricevuta di esempio" lightbox="./media/overview-receipt.jpg":::
 
 ### <a name="prebuilt-business-cards-model"></a>Modello di biglietto da visita predefinito
 
 Il modello di biglietto da visita consente di estrarre informazioni quali il nome della persona, la posizione, la via e numero civico, l'indirizzo di posta elettronica, la società e i numeri di telefono dai biglietti da visita in inglese. Per altre informazioni, vedere [Concetti relativi ai biglietti da visita](./concept-business-cards.md).
 
-![biglietto da visita di esempio](./media/business-card-english.jpg)
+:::image type="content" source="./media/overview-business-card.jpg" alt-text="biglietto da visita di esempio" lightbox="./media/overview-business-card.jpg":::
 
-## <a name="layout-api"></a>API di layout
-
-Riconoscimento modulo può anche estrarre la struttura di testo e tabelle (il numero di righe e colonne associate al testo) tramite riconoscimento ottico dei caratteri (OCR) in alta definizione.
 
 ## <a name="get-started"></a>Introduzione
 
-Seguire un argomento di avvio rapido per iniziare a estrarre i dati dai moduli. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
+Per iniziare a estrarre dati dai moduli, usare lo [strumento Riconoscimento modulo di esempio](https://fott.azurewebsites.net/) o seguire una guida di avvio rapido. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
 
 * [Guide di avvio rapido sulle librerie client](./quickstarts/client-library.md) (tutti i linguaggi, più scenari)
 * Avvii rapidi per l'interfaccia utente Web
   * [Training con etichette - Strumenti di etichettatura campioni](quickstarts/label-tool.md)
 * Avvii rapidi per REST
+ * Estrarre testo, contrassegni di selezione e strutture di tabelle dai documenti
+    * [Estrarre i dati del layout - Python](quickstarts/python-layout.md)
   * Eseguire il training di modelli personalizzati ed estrarre i dati dei moduli
     * [Training senza etichette - cURL](quickstarts/curl-train-extract.md)
     * [Training senza etichette - Python](quickstarts/python-train-extract.md)
     * [Training con etichette - Python](quickstarts/python-labeled-data.md)
+  * Estrarre dati dalle fatture
+    * [Estrarre dati dalle fatture - Python](quickstarts/python-invoices.md)
   * Estrarre dati dalle ricevute di vendita
     * [Estrarre dati dalle ricevute - cURL](quickstarts/curl-receipts.md)
     * [Estrarre dati dalle ricevute - Python](quickstarts/python-receipts.md)
   * Estrarre dati dai biglietti da visita
     * [Estrarre dati dai biglietti da visita - Python](quickstarts/python-business-cards.md)
-  * Estrarre la struttura di testo e tabelle dai moduli
-    * [Estrarre i dati del layout - Python](quickstarts/python-layout.md)
-
 
 ### <a name="review-the-rest-apis"></a>Esaminare le API REST
 
@@ -96,17 +132,29 @@ Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, ve
 
 |Nome |Descrizione |
 |---|---|
+| **Analyze Layout** | Analizzare un documento passato come flusso per estrarre testo, contrassegni di selezione, tabelle e strutture dal documento |
 | **Eseguire il training di un modello personalizzato**| Eseguire il training di un nuovo modulo per analizzare i moduli usando cinque moduli dello stesso tipo. Impostare il parametro _useLabelFile_ su `true` per eseguire il training con dati etichettati manualmente. |
-| **Analyze Form** |Analizzare un singolo documento passato come flusso per estrarre testo, coppie chiave-valore e tabelle dal modulo con il modello personalizzato.  |
-| **Analyze Receipt** |Analizzare una singola ricevuta per estrarre le informazioni principali e eventuale testo aggiuntivo contenuto nella ricevuta.|
-| **Analyze Business Card** |Analizzare un biglietto da lavoro per estrarre le principali informazioni e il testo.|
-| **Analyze Layout** |Analizzare il layout di un modulo per estrarre la struttura di testo e tabelle.|
+| **Analyze Form** |Analizzare un modulo passato come flusso per estrarre testo, coppie chiave-valore e tabelle dal modulo con un modello personalizzato.  |
+| **Analyze Invoice** | Analizzare una fattura per estrarre informazioni chiave, tabelle e altro testo.|
+| **Analyze Receipt** | Analizzare una ricevuta per estrarre informazioni chiave e altro testo.|
+| **Analyze Business Card** | Analizzare un biglietto da lavoro per estrarre le principali informazioni e il testo.|
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
+
+# <a name="v21"></a>[v2.1](#tab/v2-1)
+Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
+
+---
 
 ## <a name="input-requirements"></a>Requisiti di input
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
+
+[Usare i contenitori di Riconoscimento modulo (anteprima)](form-recognizer-container-howto.md) per distribuire le funzionalità dell'API in locale. Questo contenitore Docker consente di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo.
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
 

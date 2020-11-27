@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b9c41209902e384988064207bb3e1ded1c47477
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182955"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301850"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Baseline della sicurezza di Azure per il servizio app
 
@@ -168,7 +168,7 @@ Per ulteriori informazioni, esaminare i collegamenti a cui si fa riferimento.
 
 - [Come configurare TLS end-to-end usando il gateway applicazione con il portale](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](/azure/app-service/environment/firewall-integration)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -205,7 +205,7 @@ Per ulteriori informazioni, esaminare i collegamenti a cui si fa riferimento.
 
 - [Come configurare TLS end-to-end usando il gateway applicazione con il portale](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](/azure/app-service/environment/firewall-integration)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -221,7 +221,7 @@ Applicare una delle definizioni di criteri di Azure predefinite correlate agli e
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-- [Restrizioni di accesso al servizio app Azure](/azure/app-service/app-service-ip-restriction)
+- [Restrizioni di accesso al servizio app Azure](/azure/app-service/app-service-ip-restrictions)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

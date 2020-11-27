@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012912"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302568"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprendimento per rinforzo con Azure Machine Learning (anteprima)
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Specificare una rete virtuale
 
-Per i processi RL che usano più destinazioni di calcolo è necessario specificare una rete virtuale con porte aperte che consentano la comunicazione tra i nodi di lavoro e i nodi head. La rete virtuale può trovarsi in qualsiasi gruppo di risorse, tuttavia deve trovarsi nella stessa area dell'area di lavoro. Per altre informazioni sulla configurazione della rete virtuale, vedere il [notebook per la configurazione dell'area di lavoro](https://aka.ms/azure-rl-env-setup) disponibile nella sezione prerequisiti. Qui è possibile specificare il nome della rete virtuale nel gruppo di risorse.
+Per i processi RL che usano più destinazioni di calcolo è necessario specificare una rete virtuale con porte aperte che consentano la comunicazione tra i nodi di lavoro e i nodi head. La rete virtuale può trovarsi in qualsiasi gruppo di risorse, tuttavia deve trovarsi nella stessa area dell'area di lavoro. Per altre informazioni sulla configurazione della rete virtuale, vedere il notebook per la configurazione dell'area di lavoro disponibile nella sezione prerequisiti. Qui è possibile specificare il nome della rete virtuale nel gruppo di risorse.
 
 ```python
 vnet = 'your_vnet'

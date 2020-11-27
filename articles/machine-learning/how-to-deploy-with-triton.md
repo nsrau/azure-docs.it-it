@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: cfa40332c45eac23d062b83bb789c25f1906ae24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8e479367a04e105ae2111ce66707999aff7ef960
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831634"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302457"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -47,13 +47,13 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Questi thread di lavoro gestiscono la pre-elaborazione, la chiamata al modello e la post-elaborazione. 
-* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio, `https://myserevice.azureml.net/score`
+* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio: `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Diagramma dell'architettura di distribuzione normale, non Triton":::
 
 ### <a name="setting-the-number-of-workers"></a>Impostazione del numero di ruoli di lavoro
 
-Per impostare il numero di ruoli di lavoro nella distribuzione, impostare la variabile di ambiente `WORKER_COUNT` . Poiché è presente un oggetto [Environment](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) denominato `env` , è possibile eseguire le operazioni seguenti:
+Per impostare il numero di ruoli di lavoro nella distribuzione, impostare la variabile di ambiente `WORKER_COUNT` . Poiché è presente un oggetto [Environment](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) denominato `env` , è possibile eseguire le operazioni seguenti:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"
@@ -67,7 +67,7 @@ In questo modo si dirà ad Azure ML di creare il numero di ruoli di lavoro speci
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Le richieste vengono inviate al **Server Triton**. 
 * Triton elabora le richieste in batch per ottimizzare l'utilizzo della GPU.
-* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio, `https://myserevice.azureml.net/score`
+* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio: `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Distribuzione Inferenceconfig con Triton":::
 

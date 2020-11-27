@@ -33,6 +33,8 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurare il port forwarding in Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: Creare un servizio di bilanciamento del carico tra aree - Portale
+      href: tutorial-cross-region-portal.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure

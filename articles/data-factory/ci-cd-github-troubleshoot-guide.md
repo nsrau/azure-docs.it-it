@@ -7,21 +7,21 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/26/2020
-ms.openlocfilehash: f07cc8e3d5e9d6f59671a3c8c2efd9f5fb9f27b7
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.date: 11/27/2020
+ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299057"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301966"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativi a CI-CD, Azure DevOps e GitHub in Azure Data Factory.
+Questo articolo illustra i metodi comuni per la risoluzione dei problemi per la distribuzione di Integration-Continuous continua (CI-CD), Azure DevOps e GitHub in Azure Data Factory.
 
-In caso di domande o problemi nell'uso delle tecniche di controllo del codice sorgente o di DevOps, di seguito sono riportati alcuni articoli che possono risultare utili:
+In caso di domande o problemi nell'uso delle tecniche di controllo del codice sorgente o DevOps, di seguito sono riportati alcuni articoli che possono risultare utili:
 
 - Per informazioni sul funzionamento del controllo del codice sorgente in ADF, vedere [controllo del codice sorgente in ADF](source-control.md) . 
 - Vedere  [ci-CD in ADF](continuous-integration-deployment.md) per altre informazioni su come DevOps ci-CD viene praticato in ADF.
@@ -158,9 +158,5 @@ Per ulteriori informazioni sulla risoluzione dei problemi, provare a usare le ri
 *  [Blog di Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Richieste di funzionalità di Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Video di Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-data-factory.html)
 *  [Forum di stack overflow per Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informazioni su Twitter su Data Factory](https://twitter.com/hashtag/DataFactory)
-
-
- 

@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Usare il portale per crittografare contenuto
           href: encrypt-content-quickstart.md
+    - name: Usare un modello di Azure Resource Manager
+      items:
+        - name: Creare un account con un modello di Azure Resource Manager
+          href: quickstart-arm-template-account.md
 - name: Esercitazioni
   items:
     - name: .NET

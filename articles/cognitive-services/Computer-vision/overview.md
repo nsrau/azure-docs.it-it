@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visione artificiale, applicazioni di visione artificiale, servizio visione artificiale
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629751"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532291"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -64,7 +64,7 @@ Il rilevamento di oggetti è simile all'assegnazione di tag, ma l'API restituisc
 
 ### <a name="detect-faces"></a>Rilevare visi
 
-È possibile rilevare visi in un'immagine e fornire informazioni su ogni viso rilevato. Visione artificiale restituisce le coordinate, un rettangolo, il sesso e l'età per ogni viso rilevato.<br/>Visione artificiale offre un subset delle funzionalità del servizio [Viso](/azure/cognitive-services/face/). È possibile usare il servizio Viso per analisi più dettagliate, come il riconoscimento facciale e il rilevamento della postura. [Rilevare visi](concept-detecting-faces.md)
+È possibile rilevare visi in un'immagine e fornire informazioni su ogni viso rilevato. Visione artificiale restituisce le coordinate, un rettangolo, il sesso e l'età per ogni viso rilevato.<br/>Visione artificiale offre un subset delle funzionalità del servizio [Viso](../face/index.yml). È possibile usare il servizio Viso per analisi più dettagliate, come il riconoscimento facciale e il rilevamento della postura. [Rilevare visi](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Rilevare i tipi di immagine
 
@@ -90,13 +90,12 @@ Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area d
 
 È possibile usare Visione artificiale per [rilevare i contenuti per adulti](concept-detecting-adult-content.md) in un'immagine e restituire punteggi di attendibilità per le diverse classificazioni. La soglia per contrassegnare i contenuti può essere impostata tramite un indicatore di scorrimento in base alle preferenze dell'utente.
 
-## <a name="use-containers"></a>Usare i contenitori
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
 
-Usare i contenitori Docker di Visione artificiale per usare il servizio in locale. Attualmente sono disponibili due contenitori:
+Usare i contenitori di Visione artificiale per distribuire le funzionalità dell'API in locale. Questi contenitori Docker consentono di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo. Visione artificiale offre i contenitori seguenti:
 
-* Il [contenitore di lettura di Visione artificiale](computer-vision-how-to-install-containers.md) consente di riconoscere il testo stampato e scritto a mano nelle immagini.
-
-* Il [contenitore di analisi spaziale di Visione artificiale](spatial-analysis-container.md) consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici.
+* Il [contenitore di OCR di lettura di Visione artificiale (anteprima)](computer-vision-how-to-install-containers.md) consente di riconoscere il testo stampato e scritto a mano nelle immagini.
+* Il [contenitore di analisi spaziale di Visione artificiale (anteprima)](spatial-analysis-container.md) consente di analizzare i video in streaming in tempo reale per identificare le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici.
 
 ## <a name="image-requirements"></a>Requisiti dell'immagine
 

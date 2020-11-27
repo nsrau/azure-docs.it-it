@@ -70,6 +70,8 @@
       items:
         - name: Eseguire il push con Azure Pipelines
           href: push-kv-devops-pipeline.md
+        - name: Eseguire il pull con Azure Pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Eseguire il push con GitHub Actions
           href: concept-github-action.md
         - name: Progetto di compilazione con la configurazione esportata

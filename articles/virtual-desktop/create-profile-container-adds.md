@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825614"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302463"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Creare un contenitore di profili con File di Azure e Azure AD DS
 
@@ -27,7 +27,7 @@ Per aggiungere altri amministratori, creare un nuovo utente e concedere loro le 
 
 Per aggiungere un amministratore:
 
-1. Selezionare **Azure Active Directory** dalla barra laterale, quindi selezionare **tutti gli utenti**e quindi selezionare **nuovo utente**.
+1. Selezionare **Azure Active Directory** dalla barra laterale, quindi selezionare **tutti gli utenti** e quindi selezionare **nuovo utente**.
 
 2.  Immettere i dettagli dell'utente nei campi.
 
@@ -67,7 +67,7 @@ Per assegnare le autorizzazioni di accesso degli utenti:
 
 4. Nella scheda **Aggiungi assegnazione ruolo** selezionare il ruolo predefinito appropriato dall'elenco ruolo. Per ottenere le autorizzazioni appropriate, è necessario selezionare almeno il **collaboratore condivisione SMB dati file di archiviazione** per l'account.
 
-5. Per **assegna accesso a**selezionare **Azure Active Directory utente, gruppo o entità servizio**.
+5. Per **assegna accesso a** selezionare **Azure Active Directory utente, gruppo o entità servizio**.
 
 6. Selezionare un nome o un indirizzo di posta elettronica per l'identità del Azure Active Directory di destinazione.
 
@@ -83,7 +83,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
 
 2. Dall'elenco degli account di archiviazione selezionare l'account per cui è stato abilitato Azure AD DS e i ruoli personalizzati nei passaggi precedenti.
 
-3. In **Impostazioni**selezionare **chiavi di accesso** e copiare la chiave da **Key1**.
+3. In **Impostazioni** selezionare **chiavi di accesso** e copiare la chiave da **Key1**.
 
 4. Passare alla scheda **macchine virtuali** e individuare qualsiasi VM che diventerà parte del pool host.
 
@@ -99,7 +99,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
 7. Eseguire il comando seguente:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Sostituire `<desired-drive-letter>` con una lettera di unità di propria scelta (ad esempio, `y:` ).
@@ -107,7 +107,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
     - Sostituire `<share-name>` con il nome della condivisione creata in precedenza.
     - Sostituire `<storage-account-key>` con la chiave dell'account di archiviazione di Azure.
 
-    Ad esempio:
+    Esempio:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -125,7 +125,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
     - Sostituire `<mounted-drive-letter>` con la lettera dell'unità utilizzata per eseguire il mapping dell'unità.
     - Sostituire `<user-email>` con l'UPN dell'utente o del gruppo di Active Directory contenente gli utenti che dovranno accedere alla condivisione.
 
-    Ad esempio:
+    Esempio:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -142,7 +142,7 @@ Per configurare un contenitore del profilo FSLogix:
 
 1. Accedere alla VM host sessione configurata all'inizio di questo articolo, quindi [scaricare e installare l'agente FSLogix](/fslogix/install-ht/).
 
-2. Decomprimere il file dell'agente FSLogix scaricato e **x64**passare a  >  **versioni**x64, quindi aprire **FSLogixAppsSetup.exe**.
+2. Decomprimere il file dell'agente FSLogix scaricato e **x64** passare a  >  **versioni** x64, quindi aprire **FSLogixAppsSetup.exe**.
 
 3. Una volta avviato il programma di installazione, selezionare Accetto **i termini e le condizioni di licenza.** Se applicabile, specificare una nuova chiave.
 
@@ -206,7 +206,7 @@ Per assegnare gli utenti:
 
     Analogamente ai cmdlet precedenti, assicurarsi di sostituire `<your-wvd-tenant>` , `<wvd-pool>` e `<user-principal>` con i valori pertinenti.
 
-    Ad esempio:
+    Esempio:
 
      ```powershell
      $pool1 = "contoso"

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7bf78194b50e2e2335d807504ebca5f8a0e9f0eb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 88feb08851e0b69e31218a42fe877112561bddba
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849212"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301657"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Baseline della sicurezza di Azure per la condivisione di dati di Azure
 
@@ -108,7 +108,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: la condivisione dati di Azure supporta l'autenticazione SSO con Azure Active Directory. Ridurre il numero di identità e le credenziali che gli utenti devono gestire abilitando SSO per il servizio con le identità preesistenti dell'organizzazione.
 
-- [Informazioni su SSO con Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-o)
+- [Informazioni su SSO con Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -157,7 +157,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/) 
 
-- [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md) 
+- [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md) 
 
 - [La condivisione di dati di Azure funziona con i ruoli generali predefiniti di Azure ](../role-based-access-control/built-in-roles.md#general)
 
@@ -199,7 +199,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso ai dati e alle risorse correlate alle risorse della condivisione dati di Azure. in caso contrario, usare metodi di controllo di accesso specifici
 
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
