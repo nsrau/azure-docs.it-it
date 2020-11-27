@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955413"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299599"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -34,6 +34,8 @@ Evidenziare le unità usate in questo articolo. I fornitori di cloud pubblici so
 Microsoft Azure archiviazione di HDD Standard, SDD Standard, archiviazione Premium di Azure e ultra disk mantiene il disco rigido virtuale di base (con il sistema operativo) e i dischi dati o i VHD collegati alla VM in tre copie in tre diversi nodi di archiviazione. Il failover a un'altra replica e il seeding di una nuova replica in caso di errore di un nodo di archiviazione sono trasparenti. In seguito a questa ridondanza, **non** è necessario usare alcun tipo di livello di ridondanza dell'archiviazione tra più dischi di Azure. Questo approccio è denominato archiviazione con ridondanza locale (LRS). CON ridondanza locale è il valore predefinito per questi tipi di archiviazione in Azure. [Azure NetApp files](https://azure.microsoft.com/services/netapp/) garantisce una ridondanza sufficiente per ottenere gli stessi contratti di Service con altri archivi nativi di Azure.
 
 Sono disponibili diversi metodi di ridondanza, descritti nell'articolo replica di archiviazione di [Azure](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) che si applicano ad alcuni dei diversi tipi di archiviazione offerti da Azure. 
+
+Tenere inoltre presente che i diversi tipi di archiviazione di Azure influiscono sui contratti di contratto di disponibilità di una singola macchina virtuale, come rilasciati [per le macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines)
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 
@@ -131,11 +133,10 @@ Questo tipo di archiviazione è destinato ai carichi di lavoro DBMS, al traffico
 - La velocità effettiva di I/O per questa risorsa di archiviazione non è lineare con le dimensioni della categoria del disco. Per i dischi più piccoli, ad esempio la categoria tra 65 GiB e la capacità di 128 GiB, la velocità effettiva è intorno a 780KB/GiB. Mentre per i dischi di grandi dimensioni, ad esempio un disco GiB 32.767, la velocità effettiva è circa 28KB/GiB
 - Non è possibile modificare i contratti di contratto di IOPS e velocità effettiva senza modificare la capacità del disco
 
-Azure dispone di un contratto di contratto per macchine virtuali a istanza singola pari al 99,9% associato all'utilizzo di archiviazione Premium di Azure o archiviazione su disco di Azure ultra. Il contratto di contratto è documentato in [SLA per le macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Per garantire la conformità con questo contratto di assistenza per macchina virtuale singola, il disco rigido virtuale di base e **tutto** il disco collegato devono essere archiviazione Premium di Azure o archiviazione su disco di Azure.
 
 La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Comment| Note/collegamenti | 
+| Funzionalità| Commento| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto | tutti i sistemi |
 | Disco dati | adatto | tutti i sistemi, [specialmente per SAP Hana](../../how-to-enable-write-accelerator.md) |
@@ -193,7 +194,7 @@ Il costo di un singolo disco è determinato dalle tre dimensioni che è possibil
 
 La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Comment| Note/collegamenti | 
+| Funzionalità| Commento| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non funziona | - |
 | Disco dati | adatto | tutti i sistemi  |
@@ -248,7 +249,7 @@ Come già con archiviazione Premium di Azure, le dimensioni della velocità effe
 
 La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Comment| Note/collegamenti | 
+| Funzionalità| Commento| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non funziona | - |
 | Disco dati | adatto | Solo SAP HANA  |
@@ -281,7 +282,7 @@ Funzionalità incorporate aggiuntive dell'archiviazione e:
 ## <a name="azure-standard-ssd-storage"></a>Archiviazione SSD standard di Azure
 Rispetto all'archiviazione HDD standard di Azure, l'archiviazione SSD standard di Azure offre disponibilità, coerenza, affidabilità e latenza migliori. È ottimizzato per i carichi di lavoro che richiedono prestazioni coerenti a livelli di IOPS inferiori. Questa archiviazione è lo spazio di archiviazione minimo usato per i sistemi SAP non di produzione con requisiti di IOPS e velocità effettiva limitati. La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Comment| Note/collegamenti | 
+| Funzionalità| Commento| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto con restrizioni | sistemi non di produzione |
 | Disco dati | adatto con restrizioni | alcuni sistemi non di produzione con requisiti di latenza e IOPS Bassi |
@@ -308,12 +309,12 @@ Rispetto all'archiviazione HDD standard di Azure, l'archiviazione SSD standard d
 ## <a name="azure-standard-hdd-storage"></a>Archiviazione HDD standard di Azure
 Archiviazione HDD Standard di Azure è l'unico tipo di archiviazione quando l'infrastruttura di Azure è stata certificata per il carico di lavoro SAP NetWeaver nell'anno 2014. Nell'anno 2014, le macchine virtuali di Azure erano piccole e basse nella velocità effettiva di archiviazione. Pertanto, questo tipo di archiviazione è stato in grado di soddisfare le esigenze. Lo spazio di archiviazione è ideale per carichi di lavoro non sensibili alla latenza, che difficilmente si presentano nello spazio SAP. Con la velocità effettiva crescente delle macchine virtuali di Azure e l'aumento del carico di lavoro che queste VM producono, questo tipo di archiviazione non viene più considerato per l'utilizzo con gli scenari SAP. La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Comment| Note/collegamenti | 
+| Funzionalità| Commento| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non adatto | - |
 | Disco dati | non adatto | - |
 | Directory di trasporto globale SAP | NO | [Non supportato](https://launchpad.support.sap.com/#/notes/2015553) |
-| Sapmnt SAP | NO | Non supportate |
+| Sapmnt SAP | NO | Non supportato |
 | Archiviazione di backup | adatto | - |
 | Condivisioni/disco condiviso | non disponibile | Necessità File di Azure o di terze parti |
 | Resilienza | LRS, GRS | Nessun ZRS disponibile per i dischi |

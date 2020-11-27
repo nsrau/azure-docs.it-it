@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967466"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299531"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -273,7 +273,7 @@ Per informazioni dettagliate su e per HANA, vedere il documento relativo ai [vol
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Soluzione di costo cosciente con archiviazione Premium di Azure
-Fino ad ora, la soluzione di archiviazione Premium di Azure descritta in questo documento nella sezione [soluzioni con archiviazione Premium e azure acceleratore di scrittura per le macchine virtuali della serie M](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) di Azure è stata concepita per SAP Hana scenari di produzione supportati. Una delle caratteristiche delle configurazioni supportate per l'ambiente di produzione è la separazione dei volumi per i dati SAP HANA e il rollforward log in due volumi diversi. Il motivo di tale separazione è che le caratteristiche del carico di lavoro sui volumi sono diverse. Con le configurazioni di produzione suggerite, potrebbe essere necessario un tipo diverso di memorizzazione nella cache o anche tipi diversi di archiviazione a blocchi di Azure. Le configurazioni supportate per la produzione che usano la destinazione di archiviazione blocchi di Azure devono essere conformi al [contratto di Service VM singolo per le macchine virtuali di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  Per gli scenari non di produzione, alcune considerazioni adottate per i sistemi di produzione potrebbero non essere valide per i sistemi non di produzione più bassi. Di conseguenza, è possibile combinare i dati e il volume di log di HANA. Anche se alla fine con alcuni colpevoli, come alla fine non soddisfano determinati indicatori KPI di velocità effettiva o latenza richiesti per i sistemi di produzione. Un altro aspetto per ridurre i costi in questi ambienti può essere l'utilizzo dell' [archiviazione di Azure SDD standard](./planning-guide-storage.md#azure-standard-ssd-storage). Tuttavia, si tratta di una scelta che invalida il [contratto di Service per macchina virtuale di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Fino ad ora, la soluzione di archiviazione Premium di Azure descritta in questo documento nella sezione [soluzioni con archiviazione Premium e azure acceleratore di scrittura per le macchine virtuali della serie M](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) di Azure è stata concepita per SAP Hana scenari di produzione supportati. Una delle caratteristiche delle configurazioni supportate per l'ambiente di produzione è la separazione dei volumi per i dati SAP HANA e il rollforward log in due volumi diversi. Il motivo di tale separazione è che le caratteristiche del carico di lavoro sui volumi sono diverse. Con le configurazioni di produzione suggerite, potrebbe essere necessario un tipo diverso di memorizzazione nella cache o anche tipi diversi di archiviazione a blocchi di Azure. Per gli scenari non di produzione, alcune considerazioni adottate per i sistemi di produzione potrebbero non essere valide per i sistemi non di produzione più bassi. Di conseguenza, è possibile combinare i dati e il volume di log di HANA. Anche se alla fine con alcuni colpevoli, come alla fine non soddisfano determinati indicatori KPI di velocità effettiva o latenza richiesti per i sistemi di produzione. Un altro aspetto per ridurre i costi in questi ambienti può essere l'utilizzo dell' [archiviazione di Azure SDD standard](./planning-guide-storage.md#azure-standard-ssd-storage). Tenere presente che la scelta di SDD Standard o HDD Standard archiviazione di Azure ha un effetto sui contratti di servizio di una singola VM, come descritto nell'articolo  [contratto di servizio per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Un'alternativa meno costosa per queste configurazioni potrebbe essere simile alla seguente:
 
