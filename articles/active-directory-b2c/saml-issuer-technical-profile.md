@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886414"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309631"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token SAML nei criteri personalizzati di Azure Active Directory B2C
 
@@ -60,12 +60,14 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 | IssuerUri | No | Nome dell'autorità emittente visualizzato nella risposta SAML. Questo valore deve corrispondere al nome configurato nell'applicazione basata su attestazioni. |
 | XmlSignatureAlgorithm | No | Metodo che Azure AD B2C utilizza per firmare l'asserzione SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. Per configurare la risposta SAML, vedere [metadati SAML della relying party](relyingparty.md#metadata)|
 |TokenNotBeforeSkewInSeconds| No| Specifica l'inclinazione, come numero intero, per il timestamp che contrassegna l'inizio del periodo di validità. Maggiore è questo numero, più avanti nel tempo il periodo di validità inizia per quanto riguarda l'ora in cui vengono emesse le attestazioni per l'relying party. Ad esempio, quando TokenNotBeforeSkewInSeconds è impostato su 60 secondi, se il token viene emesso a 13:05:10 UTC, il token è valido da 13:04:10 UTC. Il valore predefinito è 0. Il valore massimo è 3600 (un'ora). |
+|TokenLifeTimeInSeconds| No| Specifica la durata dell'asserzione SAML. Questo valore è in secondi rispetto al valore NotBefore refernced precedente. Il valore predefinito è 300 secondi (5 min). |
+
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento CryptographicKeys contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | MetadataSigning | Sì | Certificato X509 (set di chiavi RSA) da usare per firmare i metadati SAML. Azure AD B2C usa questa chiave per firmare i metadati. |
 | SamlMessageSigning| Sì| Specificare il certificato X509 (set di chiavi RSA) da usare per firmare i messaggi SAML. Azure AD B2C usa questa chiave per firmare la risposta `<samlp:Response>` inviata all'applicazione basata su attestazioni.|

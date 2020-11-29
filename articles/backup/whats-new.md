@@ -1,16 +1,16 @@
 ---
-title: Novità di backup di Azure
+title: Novità di Backup di Azure
 description: Informazioni sulle nuove funzionalità di backup di Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e48a7df1e42591843c30b77026a4d8656773a57d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511504"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309665"
 ---
-# <a name="whats-new-in-azure-backup"></a>Novità di backup di Azure
+# <a name="whats-new-in-azure-backup"></a>Novità di Backup di Azure
 
 Backup di Azure migliora costantemente e rilascia nuove funzionalità che migliorano la protezione dei dati in Azure. Queste nuove funzionalità espandono la protezione dei dati in nuovi tipi di carico di lavoro, migliorano la sicurezza e migliorano la disponibilità dei dati di backup. Aggiungono inoltre nuove funzionalità di gestione, monitoraggio e automazione.
 
@@ -19,6 +19,7 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
 ## <a name="updates-summary"></a>Riepilogo aggiornamenti
 
 - Novembre 2020
+  - [Modello di Azure Resource Manager per il backup di una condivisione file di Azure](#azure-resource-manager-template-for-afs-backup)
   - [Backup incrementali per database SAP HANA in macchine virtuali di Azure](#incremental-backups-for-sap-hana-databases)
 - Settembre 2020
   - [Centro backup](#backup-center)
@@ -30,6 +31,12 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
   - [Backup SAP HANA in macchine virtuali di Azure RHEL](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Archiviazione con ridondanza della zona (ZRS) per i dati di backup](#zone-redundant-storage-zrs-for-backup-data)
   - [Eliminazione temporanea per carichi di lavoro di SQL Server e SAP HANA in macchine virtuali di Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-resource-manager-template-for-afs-backup"></a>Modello di Azure Resource Manager per il backup AFS
+
+Backup di Azure supporta ora la configurazione del backup per le condivisioni file di Azure esistenti usando un modello di Azure Resource Manager (ARM). Il modello configura la protezione per una condivisione file di Azure esistente specificando i dettagli appropriati per l'insieme di credenziali dei servizi di ripristino e i criteri di backup. Crea facoltativamente un nuovo insieme di credenziali dei servizi di ripristino e un criterio di backup e registra l'account di archiviazione che contiene la condivisione file nell'insieme di credenziali di servizi di ripristino.
+
+Per altre informazioni, vedere [modelli di Azure Resource Manager per backup di Azure](backup-rm-template-samples.md).
 
 ## <a name="incremental-backups-for-sap-hana-databases"></a>Backup incrementali per database SAP HANA
 

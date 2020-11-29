@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186440"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309835"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -58,7 +58,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Cost
 Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esportazione dei dati. I prezzi per l'esportazione dei dati verranno annunciati in futuro e un avviso fornito prima dell'avvio della fatturazione. Se si sceglie di continuare a usare l'esportazione dei dati dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="export-destinations"></a>Esporta destinazioni
@@ -117,6 +117,10 @@ Se l'account di archiviazione è stato configurato per consentire l'accesso da r
 ### <a name="create-or-update-data-export-rule"></a>Crea o Aggiorna regola di esportazione dei dati
 Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una regola per ogni destinazione.
 
+
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -203,6 +207,10 @@ Di seguito è riportato un corpo di esempio per la richiesta REST per un hub eve
 
 ## <a name="view-data-export-configuration"></a>Visualizza configurazione esportazione dati
 
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando seguente per visualizzare la configurazione di una regola di esportazione dei dati tramite l'interfaccia della riga di comando.
@@ -221,6 +229,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## <a name="disable-an-export-rule"></a>Disabilitare una regola di esportazione
+
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -256,6 +268,10 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Eliminare una regola di esportazione
 
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando seguente per eliminare una regola di esportazione dei dati tramite l'interfaccia della riga di comando.
@@ -274,6 +290,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Visualizzare tutte le regole di esportazione dei dati in un'area di lavoro
+
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
