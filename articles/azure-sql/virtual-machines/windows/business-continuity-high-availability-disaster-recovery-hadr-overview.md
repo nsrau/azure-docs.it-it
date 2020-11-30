@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102276"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327475"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuità aziendale e HADR per la SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ L'archiviazione con ridondanza geografica (GRS) in Azure viene implementata con 
 ## <a name="deployment-architectures"></a>Architetture di distribuzione
 Azure supporta le tecnologie SQL Server per la continuità aziendale:
 
-* [Gruppi di disponibilità Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Gruppi di disponibilità AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 * [Istanze del cluster di failover Always On (failover)](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 * [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [SQL Server backup e ripristino con l'archiviazione BLOB di Azure](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
@@ -90,7 +90,7 @@ Nell'immagine seguente il programma di installazione usa SQL Server in esecuzion
 
 Per altre informazioni, vedere le [condizioni di licenza per il prodotto](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Per abilitare questo vantaggio, passare alla [risorsa SQL Server macchina virtuale](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selezionare **Configura** in **Impostazioni** , quindi scegliere l'opzione **ripristino di emergenza** in **SQL Server licenza** . Selezionare la casella di controllo per confermare che questa SQL Server VM verrà usata come replica passiva, quindi selezionare **applica** per salvare le impostazioni. 
+Per abilitare questo vantaggio, passare alla [risorsa SQL Server macchina virtuale](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selezionare **Configura** in **Impostazioni**, quindi scegliere l'opzione **ripristino di emergenza** in **SQL Server licenza**. Selezionare la casella di controllo per confermare che questa SQL Server VM verrà usata come replica passiva, quindi selezionare **applica** per salvare le impostazioni. 
 
 ![Configurare una replica di ripristino di emergenza in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,7 +101,7 @@ La macchina virtuale, l'archiviazione e la rete di Azure hanno caratteristiche o
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nodi a disponibilità elevata in un set di disponibilità
 I set di disponibilità in Azure consentono di collocare i nodi a disponibilità elevata in domini di errore e domini di aggiornamento separati. La piattaforma Azure assegna un dominio di aggiornamento e un dominio di errore a ogni macchina virtuale nel set di disponibilità. Questa configurazione all'interno di un data center garantisce che durante un evento di manutenzione pianificato o non pianificato sia disponibile almeno una macchina virtuale e soddisfi il contratto di sicurezza di Azure del 99,95%. 
 
-Per configurare un'installazione a disponibilità elevata, inserire tutte le macchine virtuali SQL Server coinvolte nello stesso set di disponibilità per evitare perdite di dati o applicazioni durante un evento di manutenzione. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Per configurare un'installazione a disponibilità elevata, inserire tutte le macchine virtuali SQL Server coinvolte nello stesso set di disponibilità per evitare perdite di dati o applicazioni durante un evento di manutenzione. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nodi a disponibilità elevata in una zona di disponibilità
 Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dagli errori dei data center assicurando che almeno una macchina virtuale sia disponibile e soddisfi il contratto di assistenza di Azure del 99,99%. 
@@ -136,7 +136,7 @@ Se il gruppo di disponibilità si estende su più subnet di Azure, ad esempio un
 È comunque possibile connettersi separatamente a ogni replica di disponibilità effettuando la connessione direttamente all'istanza del servizio. Inoltre, poiché i gruppi di disponibilità sono compatibili con le versioni precedenti dei client di mirroring del database, è possibile connettersi alle repliche di disponibilità come partner di mirroring del database purché le repliche siano configurate in modo analogo al mirroring del database:
 
 * Esiste una replica primaria e una replica secondaria.
-* La replica secondaria è configurata come non leggibile (opzione **secondaria leggibile** impostata su **No** ).
+* La replica secondaria è configurata come non leggibile (opzione **secondaria leggibile** impostata su **No**).
 
 Di seguito è riportato un esempio di stringa di connessione del client che corrisponde a questa configurazione simile al mirroring del database tramite ADO.NET o SQL Server Native Client:
 

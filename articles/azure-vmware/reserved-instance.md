@@ -3,12 +3,12 @@ title: Risparmiare sui costi con l'istanza riservata della soluzione VMware di A
 description: Informazioni su come acquistare un'istanza riservata per la soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578951"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327398"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Salva i costi con la soluzione VMware di Azure
 
@@ -55,15 +55,15 @@ Questi requisiti si applicano all'acquisto di un'istanza host dedicata riservata
    | Campo        |  Descrizione |
    | ------------ | ------------ |
    | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P), un contratto per i clienti Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o vengono addebitati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito della sottoscrizione o su un metodo di pagamento con fattura. |
-   | Ambito        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
-   | Area       | Area di Azure coperta dalla prenotazione.   |
+   | Scope        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
+   | Region       | Area di Azure coperta dalla prenotazione.   |
    | Dimensioni host    | AV36    |
    | Termine         | Un anno o tre anni.  |
-   | Quantity     | Numero di istanze da acquistare nella prenotazione. La quantità è il numero di host della soluzione VMware di Azure in esecuzione che possono ottenere lo sconto per la fatturazione.    |
+   | Quantità     | Numero di istanze da acquistare nella prenotazione. La quantità è il numero di host della soluzione VMware di Azure in esecuzione che possono ottenere lo sconto per la fatturazione.    |
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Acquistare istanze riservate per una sottoscrizione CSP
 
-I CSP che vogliono acquistare istanze riservate per i clienti devono usare la procedura **amministrazione per conto di** (Aobo) dalla [documentazione di centro](https://docs.microsoft.com/partner-center/azure-plan-manage)per i partner. Per ulteriori informazioni, vedere il video [di amministrazione per conto del (Aobo)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) .
+I CSP che vogliono acquistare istanze riservate per i clienti devono usare la procedura **amministrazione per conto di** (Aobo) dalla [documentazione di centro](/partner-center/azure-plan-manage)per i partner. Per ulteriori informazioni, vedere il video [di amministrazione per conto del (Aobo)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) .
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com).
 
@@ -84,11 +84,11 @@ I CSP che vogliono acquistare istanze riservate per i clienti devono usare la pr
    | Campo        |  Descrizione |
    | ------------ | ------------ |
    | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere quello idoneo, che in questo caso è una sottoscrizione CSP|
-   | Ambito        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
-   | Area       | Area di Azure coperta dalla prenotazione.   |
+   | Scope        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
+   | Region       | Area di Azure coperta dalla prenotazione.   |
    | Dimensioni host    | AV36    |
    | Termine         | Un anno o tre anni.  |
-   | Quantity     | Numero di istanze da acquistare nella prenotazione. La quantità è il numero di host della soluzione VMware di Azure in esecuzione che possono ottenere lo sconto per la fatturazione.     |
+   | Quantità     | Numero di istanze da acquistare nella prenotazione. La quantità è il numero di host della soluzione VMware di Azure in esecuzione che possono ottenere lo sconto per la fatturazione.     |
 
 Per altre informazioni su come visualizzare le prenotazioni acquistate per il cliente, vedere l'articolo [visualizzare le prenotazioni di Azure come provider di soluzioni cloud (CSP)](../cost-management-billing/reservations/how-to-view-csp-reservations.md) .
 
@@ -113,7 +113,7 @@ Per ulteriori informazioni sul modo in cui vengono visualizzati gli sconti di pr
 
 È inoltre possibile suddividere una prenotazione in blocchi più piccoli o in prenotazioni di tipo merge. Nessuna delle modifiche genera una nuova transazione commerciale o modifica la data di fine della prenotazione.
 
-Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Microsoft Azure prenotazioni per i clienti che usano il centro per i partner, le portale di Azure o le API](https://docs.microsoft.com/partner-center/azure-reservations).
+Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Microsoft Azure prenotazioni per i clienti che usano il centro per i partner, le portale di Azure o le API](/partner-center/azure-reservations).
 
 
 
@@ -122,7 +122,7 @@ Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Mic
 >
 > - Area della prenotazione esistente
 > - SKU
-> - Quantity
+> - Quantità
 > - Duration
 >
 >Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
@@ -131,4 +131,4 @@ Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Mic
 
 È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-I CSP possono annullare, scambiare o rimborsare le prenotazioni, con determinate limitazioni, acquistate per i clienti. Per ulteriori informazioni, vedere [gestione, annullamento, scambio o rimborso Microsoft Azure prenotazioni per i clienti](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+I CSP possono annullare, scambiare o rimborsare le prenotazioni, con determinate limitazioni, acquistate per i clienti. Per ulteriori informazioni, vedere [gestione, annullamento, scambio o rimborso Microsoft Azure prenotazioni per i clienti](/partner-center/azure-reservations-manage).

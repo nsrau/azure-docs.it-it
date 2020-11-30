@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f3723c792dfe962f2cbf16e3b167faf66c50a92e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991571"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327458"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e ripristino per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -93,7 +93,7 @@ Le sezioni seguenti descrivono varie opzioni per il backup e il ripristino manua
 
 ### <a name="backup-to-attached-disks"></a>Backup su dischi collegati
 
-Per SQL Server nelle macchine virtuali di Azure, è possibile usare le tecniche di backup e ripristino native con dischi collegati alla macchina virtuale come destinazione dei file di backup. Vi è tuttavia un limite al numero di dischi che è possibile collegare a una macchina virtuale di Azure, a seconda della [dimensione della macchina virtuale](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). È inoltre da prendere in considerazione l'overhead della gestione disco.
+Per SQL Server nelle macchine virtuali di Azure, è possibile usare le tecniche di backup e ripristino native con dischi collegati alla macchina virtuale come destinazione dei file di backup. Vi è tuttavia un limite al numero di dischi che è possibile collegare a una macchina virtuale di Azure, a seconda della [dimensione della macchina virtuale](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È inoltre da prendere in considerazione l'overhead della gestione disco.
 
 Per un esempio di come creare manualmente un backup completo del database usando SQL Server Management Studio (SSMS) o Transact-SQL, vedere [Creare un backup completo del database](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
