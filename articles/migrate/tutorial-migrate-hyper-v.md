@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995319"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302548"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -43,23 +43,9 @@ Prima di iniziare questa esercitazione, è necessario:
 2. [Esaminare](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) i requisiti dell'host Hyper-V per la migrazione e gli URL di Azure a cui gli host e i cluster Hyper-V dovranno accedere per la migrazione delle VM.
 3. [Esaminare](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) i requisiti delle VM Hyper-V di cui eseguire la migrazione ad Azure.
 4. È consigliabile, anche se non necessario, [valutare le macchine virtuali Hyper-V](tutorial-assess-hyper-v.md) prima di eseguirne la migrazione ad Azure.
+5. Passare al progetto già creato o [crearne uno nuovo](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+6. Verificare le autorizzazioni dell'account Azure. L'account Azure deve avere le autorizzazioni per creare una VM e scrivere in un disco gestito di Azure.
 
-   
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Aggiungere lo strumento Migrazione server di Azure Migrate
-
-Aggiungere lo strumento Migrazione server di Azure Migrate. Se non si ha ancora un progetto Azure Migrate, [crearlo come prima cosa](how-to-add-tool-first-time.md) per poter configurare un progetto Azure Migrate. Lo strumento Migrazione server di Azure Migrate verrà aggiunto durante la creazione del progetto.
-
-Se è già stato configurato un progetto, seguire queste istruzioni per aggiungere lo strumento:
-
-1. Nel progetto di Azure Migrate fare clic su **Panoramica**. 
-2. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server**.
-3. In **Strumenti di migrazione** selezionare **Fare clic qui per aggiungere uno strumento di migrazione quando si è pronti per la migrazione**.
-
-    ![Selezionare uno strumento](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. Nell'elenco di strumenti selezionare **Azure Migrate: Migrazione server** > **Aggiungi strumento**
-
-    ![Strumento Migrazione server](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 ## <a name="download-and-install-the-provider"></a>Scaricare e installare il provider
 
