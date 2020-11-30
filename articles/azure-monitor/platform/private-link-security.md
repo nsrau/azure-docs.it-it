@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184604"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317521"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -79,10 +79,10 @@ Quando si pianifica la configurazione del collegamento privato, è necessario pr
 * Un oggetto AMPLS può connettersi al massimo da 10 endpoint privati.
 
 Nella topologia seguente:
-* Ogni VNet si connette a un oggetto AMPLS, quindi non è in grado di connettersi ad altri AMPLSs.
-* AMPLS B si connette a 2 reti virtuali: utilizzando 2/10 delle possibili connessioni agli endpoint privati.
-* AMPLS A si connette a 2 aree di lavoro e 1 componente Application Insights: uso di 3/50 delle risorse di monitoraggio di Azure possibili.
-* L'area di lavoro 2 si connette a AMPLS A e AMPLS B: utilizzando 2/5 delle connessioni AMPLS possibili.
+* Ogni VNet si connette a **un** solo oggetto AMPLS.
+* AMPLS B è connesso a endpoint privati di due reti virtuali (VNet2 e VNet3), usando 2/10 (20%) delle possibili connessioni agli endpoint privati.
+* AMPLS A si connette a due aree di lavoro e a un componente Application Insights, utilizzando 3/50 (6%) delle connessioni possibili per le risorse di monitoraggio di Azure.
+* Workspace2 si connette a AMPLS A e AMPLS B, usando 2/5 (40%) delle possibili connessioni AMPLS.
 
 ![Diagramma dei limiti di AMPLS](./media/private-link-security/ampls-limits.png)
 
@@ -103,9 +103,9 @@ Per iniziare, creare una risorsa ambito collegamento privato di Monitoraggio di 
 
 6. Superare la convalida, quindi fare clic su **Crea**.
 
-## <a name="connect-azure-monitor-resources"></a>Connettere le risorse di Monitoraggio di Azure
+### <a name="connect-azure-monitor-resources"></a>Connettere le risorse di Monitoraggio di Azure
 
-È possibile connettere la risorsa AMPLS prima a endpoint privati e quindi alle risorse di Monitoraggio di Azure o viceversa, ma il processo di connessione è più rapido se si inizia con le risorse di Monitoraggio di Azure. La connessione delle aree di lavoro Log Analytics e dei componenti di Application Insights di Monitoraggio di Azure avviene nel seguente modo
+Connettere le risorse di monitoraggio di Azure (Log Analytics le aree di lavoro e i componenti Application Insights) a AMPLS.
 
 1. Nell'ambito collegamento privato di Monitoraggio di Azure fare clic su **Risorse di Monitoraggio di Azure** nel menu a sinistra. Fare clic su **Add** .
 2. Aggiungere l'area di lavoro o il componente. Facendo clic sul pulsante **Aggiungi** viene visualizzata una finestra di dialogo in cui è possibile selezionare le risorse di Monitoraggio di Azure. È possibile esplorare le sottoscrizioni e i gruppi di risorse oppure digitarne il nome per filtrarli. Selezionare l'area di lavoro o il componente e fare clic su **Applica** per aggiungerli all'ambito.
@@ -158,16 +158,19 @@ A questo punto è stato creato un nuovo endpoint privato connesso a questo ambit
 
 ## <a name="configure-log-analytics"></a>Configurare Log Analytics
 
-Accedere al portale di Azure. Nella risorsa dell'area di lavoro Log Analytics è presente una voce di menu **isolamento rete** sul lato sinistro. Da questo menu è possibile controllare due stati diversi. 
+Accedere al portale di Azure. Nella risorsa dell'area di lavoro Log Analytics è presente una voce di menu **isolamento rete** sul lato sinistro. Da questo menu è possibile controllare due stati diversi.
 
 ![Isolamento rete LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-Innanzitutto, è possibile connettere questa risorsa Log Analytics a qualsiasi ambito collegamento privato di Monitoraggio di Azure a cui si ha accesso. Fare clic su **Aggiungi** e selezionare l'ambito collegamento privato di Monitoraggio di Azure.  Fare clic su **Applica** per connetterlo. Tutti gli ambiti connessi vengono visualizzati in questa schermata. Se si effettua questa connessione, il traffico di rete nelle reti virtuali connesse raggiungerà questa area di lavoro. Questa connessione ha lo stesso effetto della connessione dall'ambito effettuata in [Connessione delle risorse di Monitoraggio di Azure](#connect-azure-monitor-resources).  
+### <a name="connected-azure-monitor-private-link-scopes"></a>Ambiti di collegamento privato di monitoraggio di Azure connessi
+Tutti gli ambiti connessi a questa area di lavoro vengono visualizzati in questa schermata. La connessione agli ambiti (AMPLSs) consente il traffico di rete dalla rete virtuale connessa a ogni AMPLS per raggiungere questa area di lavoro. La creazione di una connessione tramite qui ha lo stesso effetto della configurazione nell'ambito, come è stato fatto per [connettere le risorse di monitoraggio di Azure](#connect-azure-monitor-resources). Per aggiungere una nuova connessione, fare clic su **Aggiungi** e selezionare l'ambito del collegamento privato di monitoraggio di Azure. Fare clic su **Applica** per connetterlo. Si noti che un'area di lavoro può connettersi a 5 oggetti AMPLS, come illustrato in [considerare i limiti](#consider-limits). 
 
-In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro. Questi dati includono l'accesso a cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
+### <a name="access-from-outside-of-private-links-scopes"></a>Accesso dall'esterno degli ambiti dei collegamenti privati
+Le impostazioni nella parte inferiore di questa pagina controllano l'accesso dalle reti pubbliche, vale a dire reti non connesse tramite gli ambiti sopra elencati. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro, pertanto non saranno in grado di eseguire query sui dati dell'area di lavoro. Sono incluse le query in cartelle di lavoro, dashboard, esperienze client basate su API, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
 
-La limitazione dell'accesso in questo modo non si applica al Azure Resource Manager e pertanto presenta le limitazioni seguenti:
-* Accesso ai dati: quando si bloccano le query dalle reti pubbliche si applicano alla maggior parte dei Log Analytics esperienze, alcune esperienze eseguono query sui dati tramite Azure Resource Manager e pertanto non saranno in grado di eseguire query sui dati, a meno che non vengano applicate anche le impostazioni di collegamento privato alla Gestione risorse (la funzionalità sarà presto disponibile). Sono incluse, ad esempio, le soluzioni di monitoraggio di Azure, le cartelle di lavoro e le informazioni dettagliate e il connettore LogicApp.
+### <a name="exceptions"></a>Eccezioni
+La limitazione dell'accesso, come illustrato in precedenza, non si applica alla Azure Resource Manager e pertanto presenta le limitazioni seguenti:
+* L'accesso ai dati, mentre il blocco/consentire le query dalle reti pubbliche si applica alla maggior parte dei Log Analytics esperienze, alcune esperienze eseguono query sui dati tramite Azure Resource Manager e pertanto non saranno in grado di eseguire query sui dati, a meno che non vengano applicate anche le impostazioni dei collegamenti privati al Gestione risorse (funzionalità presto disponibile). Sono incluse, ad esempio, le soluzioni di monitoraggio di Azure, le cartelle di lavoro e le informazioni dettagliate e il connettore LogicApp.
 * Gestione dell'area Azure Resource Manager di lavoro: le modifiche apportate alla configurazione e all'impostazione dell'area di lavoro (inclusa l'attivazione o la disattivazione delle impostazioni di accesso Limitare l'accesso alla gestione delle aree di lavoro utilizzando i ruoli, le autorizzazioni, i controlli di rete e il controllo appropriati. Per altre informazioni, vedere [Ruoli, autorizzazioni e sicurezza di Monitoraggio di Azure](roles-permissions-security.md).
 
 > [!NOTE]

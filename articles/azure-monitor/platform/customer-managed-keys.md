@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 6264ea50f128764a5213a7a1fd9b8c47ddae8961
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309682"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317487"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -568,7 +568,7 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fund
 
   ---
 
-  - **Verifica stato collegamento area di lavoro**
+- **Verifica stato collegamento area di lavoro**
   
   Eseguire un'operazione get sull'area di lavoro e osservare se la proprietà *clusterResourceId* è presente nella risposta in *features*. Un'area di lavoro collegata avrà la proprietà *clusterResourceId* .
 

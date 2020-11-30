@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185080"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317137"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -91,15 +91,25 @@ Aggiungere un'attività di distribuzione Azure Resource Manager per creare o agg
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurare un'attività di gestione temporanea per la distribuzione di artefatti 
 
-Usare le aree di lavoro [sinapsi compila &](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) attività di rilascio per distribuire altri elementi nell'area di lavoro sinapsi, ad esempio set di dati, script SQL, notebook, definizione del processo Spark, flusso di dati, pipeline, servizio collegato, credenziali e IR (Integration Runtime).  
+Usare l'estensione per la [distribuzione dell'area](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) di lavoro sinapsi per distribuire altri elementi nell'area di lavoro sinapsi, ad esempio set di dati, script SQL, notebook, definizione del processo Spark, flusso di dati, pipeline, servizio collegato, credenziali e IR (Integration Runtime).  
+
+1. Cercare e ottenere l'estensione da **Azure DevOps Marketplace**(https://marketplace.visualstudio.com/azuredevops) 
+
+     ![Ottenere l'estensione](media/get-extension-from-market.png)
+
+1. Selezionare un'organizzazione in cui installare l'estensione. 
+
+     ![Installare l'estensione](media/install-extension.png)
 
 1. Assicurarsi che l'entità servizio della pipeline di Azure DevOps disponga dell'autorizzazione della sottoscrizione e anche assegnata come amministratore dell'area di lavoro per l'area di lavoro di destinazione. 
 
-1. Creare una nuova attività. Cercare le **aree di lavoro sinapsi compila & versione**, quindi selezionare **Aggiungi**.
+1. Creare una nuova attività. Cercare la **distribuzione dell'area di lavoro sinapsi**, quindi selezionare **Aggiungi**.
+
+     ![Aggiungi estensione](media/add-extension-task.png)
 
 1.  Nell'attività specificare le informazioni sul repository git correlate di **workspace_publish** e selezionare gruppo di risorse, area, nome e ambiente cloud per l'area di lavoro di destinazione. Se necessario, fornire i parametri e i valori.
 
-    ![distribuzione dell'area di lavoro sinapsi](media/create-release-artifacts-deployment.png)
+    ![Distribuzione dell'area di lavoro sinapsi](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > Negli scenari CI/CD, il tipo di runtime di integrazione (IR) in ambienti diversi deve essere lo stesso. Ad esempio, se si dispone di un runtime di integrazione self-hosted nell'ambiente di sviluppo, anche lo stesso runtime di integrazione deve essere di tipo self-hosted in altri ambienti, come quelli di test e produzione. Analogamente, se si condividono runtime di integrazione tra più fasi, è necessario configurarli come self-hosted collegati in tutti gli ambienti, ad esempio quelli di sviluppo, test e produzione.
