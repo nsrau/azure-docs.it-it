@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840917"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325214"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -246,7 +246,7 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 
 **Passaggio 2**: provare a modificare la pianificazione del backup in un momento in cui la macchina virtuale è sotto carico inferiore (ad esempio meno CPU o IOPS)
 
-**Passaggio 3**: provare ad [aumentare le dimensioni della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) e ripetere l'operazione
+**Passaggio 3**: provare ad [aumentare le dimensioni della macchina virtuale](../virtual-machines/windows/resize-vm.md) e ripetere l'operazione
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-non è stato possibile eseguire l'operazione perché la macchina virtuale non esiste più/400094, BCMV2VMNotFound-la macchina virtuale non esiste/non è stata trovata una macchina virtuale di Azure
 
@@ -255,7 +255,7 @@ La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
 
-* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
+* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
 * Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione

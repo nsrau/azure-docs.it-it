@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0522f677c731aa1cd218a14429791db14179686a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496775"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326047"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guida alla migrazione: DB2 per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -139,10 +139,10 @@ Dopo la migrazione dei dati nell'ambiente di destinazione, tutte le applicazioni
 
 L'approccio di test per la migrazione del database prevede le attività seguenti:
 
-1. **Sviluppare i test di convalida** : per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
-1. **Configurare un ambiente di test** : l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
-1. **Eseguire test di convalida** : eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
-1. **Eseguire test delle prestazioni** : eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
+1. **Sviluppare i test di convalida**: per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
+1. **Configurare un ambiente di test**: l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
+1. **Eseguire test di convalida**: eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
+1. **Eseguire test delle prestazioni**: eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
 
    > [!NOTE]
    > Per assistenza nello sviluppo e nell'esecuzione di test di convalida post-migrazione, prendere in considerazione la soluzione per la qualità dei dati offerta dal partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -164,7 +164,7 @@ Queste risorse sono state sviluppate come parte del programma Data SQL Ninja, sp
 
 Dopo la migrazione, vedere [Guida di ottimizzazione e convalida post-migrazione](/sql/relational-databases/post-migration-validation-and-optimization-guide). 
 
-Per un elenco dei servizi e degli strumenti di Microsoft e di terze parti disponibili per agevolare diversi scenari di migrazione di database e dati, nonché per attività speciali, vedere [Strumenti e servizi per la migrazione dei dati](/azure/dms/dms-tools-matrix).
+Per un elenco dei servizi e degli strumenti di Microsoft e di terze parti disponibili per agevolare diversi scenari di migrazione di database e dati, nonché per attività speciali, vedere [Strumenti e servizi per la migrazione dei dati](../../../dms/dms-tools-matrix.md).
 
 Per altre guide alla migrazione, vedere [Migrazione dei database](https://datamigration.microsoft.com/). 
 

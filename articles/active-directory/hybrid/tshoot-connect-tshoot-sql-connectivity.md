@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/14/2018
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f8b87684847089a05341a5a68f6ad3e2ac86b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c29087ee1f74e2abed8c9fb2449a222469c82848
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85355863"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325128"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività di SQL con Azure AD Connect
 Questo articolo descrive come risolvere i problemi di connettività tra Azure AD Connect e SQL Server. 
@@ -29,10 +29,12 @@ La schermata seguente mostra un tipico errore, se è impossibile trovare SQL Ser
 ![Errore SQL](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
-Aprire una finestra di PowerShell e importare il modulo di PowerShell ADSyncTools
+Aprire una finestra di PowerShell e importare il modulo ADSyncTools di PowerShell
 
 ``` powershell
-Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-PackageProvider -Name NuGet -MinimumVersion2.8.5.201 -Force
+Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 ```
 
 >[!NOTE]
@@ -43,10 +45,10 @@ Oppure installare l'[anteprima dei moduli di PowerShell PackageManagement - Marz
 - **Eseguire la funzione di PowerShell**: `Connect-ADSyncDatabase` con i parametri seguenti
     - Server. Il nome di SQL Server.
     - Instance. (Facoltativo) Il nome dell'istanza di SQL Server e, facoltativamente, il numero di porta, che si desidera usare. Non specificare questo parametro per usare l'istanza predefinita.
-    - UserName. (Facoltativo) L'account utente con cui connettersi. Se lo si lascia vuoto viene usato l'utente attualmente connesso. Se ci si connette a un SQL Server remoto, deve essere l'account del servizio personalizzato creato per la connettività SQL di Azure ADConnect. Azure AD Connect usa l'account del servizio di sincronizzazione di Azure AD Connect per l'autenticazione in un server SQL remoto.
+    - UserName. (Facoltativo) L'account utente con cui connettersi. Se lo si lascia vuoto viene usato l'utente attualmente connesso. Se ci si connette a un SQL Server remoto, deve essere l'account del servizio personalizzato creato per la connettività di Azure AD Connect SQL. Azure AD Connect usa l'account del servizio di sincronizzazione di Azure AD Connect per l'autenticazione in un server SQL remoto.
     - Password. (Facoltativo) La password per il nome utente fornito.
 
-Questa funzione di PowerShell tenterà di eseguire l'associazione a SQL Server e all'istanza specificati usando le credenziali che sono state passate O usando le credenziali dell'utente corrente. Se è impossibile trovare SQL Server, lo script tenterà di connettersi al servizio SQL Browser per determinare le porte e i protocolli abilitati.
+Questa funzione di PowerShell tenterà di eseguire l'associazione al SQL Server e all'istanza specificati usando le credenziali passate o usare le credenziali dell'utente corrente. Se è impossibile trovare SQL Server, lo script tenterà di connettersi al servizio SQL Browser per determinare le porte e i protocolli abilitati.
 
 Esempio che usa solo un nome del server:
 ```

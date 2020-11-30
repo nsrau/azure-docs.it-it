@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2e25f2fb806cb6e88745ffdfefe3dd82c0e9a6d
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234138"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326541"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -51,7 +51,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
     ![Fare clic su Processo di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
-4. In **Nozioni di base** :
+4. In **Nozioni di base**:
 
     - Selezionare **Esporta da Azure**.
     - Immettere un nome descrittivo per il processo di esportazione. Usare il nome scelto per tenere traccia dello stato dei processi.
@@ -62,7 +62,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
         ![Operazioni di base](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-5. In **Dettagli processo** :
+5. In **Dettagli processo**:
 
     - Selezionare l'account di archiviazione in cui si trovano i dati da esportare. Usare un account di archiviazione vicino rispetto a dove ci si trova.
     - La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
@@ -72,8 +72,8 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
          ![Esporta tutti](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - È possibile specificare i contenitori e i BLOB da esportare.
-        - **Per specificare un BLOB da esportare** : usare il selettore **Uguale a**. Specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
-        - **Per specificare tutti i BLOB che iniziano con un prefisso** : usare il selettore **Inizia con**. Specificare il prefisso, iniziando con una barra '/'. Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB. I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).
+        - **Per specificare un BLOB da esportare**: usare il selettore **Uguale a**. Specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
+        - **Per specificare tutti i BLOB che iniziano con un prefisso**: usare il selettore **Inizia con**. Specificare il prefisso, iniziando con una barra '/'. Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB. I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).
 
            ![Esportare contenitori e BLOB selezionati](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
@@ -84,7 +84,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
    > [!NOTE]
    > Se il BLOB da esportare è in uso durante la copia dei dati, il servizio Importazione/Esportazione di Azure acquisisce uno snapshot del BLOB e copia lo snapshot.
 
-6. In **Informazioni sul mittente della spedizione** :
+6. In **Informazioni sul mittente della spedizione**:
 
     - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
     - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per inviare le unità al termine del processo di esportazione.
@@ -93,7 +93,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
         > [!TIP]
         > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-7. In **breve** :
+7. In **breve**:
 
     - Esaminare i dettagli del processo.
     - Annotare il nome del processo e le informazioni sul mittente della spedizione per spedire i dischi ad Azure.
@@ -147,7 +147,7 @@ Usare la procedura seguente per creare un processo di esportazione nel portale d
     > [!TIP]
     > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **--Export** :
+   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **--Export**:
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -155,7 +155,7 @@ Usare la procedura seguente per creare un processo di esportazione nel portale d
 
    Questo valore di parametro Esporta il BLOB denominato *logo.bmp* nel contenitore radice.
 
-   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore per **--Export** :
+   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore per **--Export**:
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -234,7 +234,7 @@ Install-Module -Name Az.ImportExport
     > [!TIP]
     > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **-ExportBlobListblobPath** :
+   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath $root\logo.bmp
@@ -242,7 +242,7 @@ Install-Module -Name Az.ImportExport
 
    Questo valore di parametro Esporta il BLOB denominato *logo.bmp* nel contenitore radice.
 
-   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore con **-ExportBlobListblobPath** :
+   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore con **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath '/myiecontainer'

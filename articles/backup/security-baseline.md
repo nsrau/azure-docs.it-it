@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842159"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325639"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 *Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o Firewall di Azure nella rete virtuale
 
 **Linee guida**: non applicabile; non è possibile associare una rete virtuale, una subnet o un gruppo di sicurezza di rete a un insieme di credenziali di servizi di ripristino. Quando si esegue il backup di una macchina virtuale di Azure, i dati vengono trasferiti tramite la backbone di Azure. Quando si esegue il backup da un computer locale, viene creato un tunnel crittografato con un endpoint specifico in Azure e le credenziali vengono usate per la pre-crittografia dei dati prima che vengano inviati tramite il tunnel crittografato.
 
@@ -408,7 +408,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -454,7 +454,7 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
@@ -534,7 +534,7 @@ Quando si esegue il backup con l'agente MARS o si usa un insieme di credenziali 
 
 Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esaminare i controlli di sicurezza disponibili per backup di Azure per ridurre le vulnerabilità correlate alla configurazione dei servizi.
 
-- [Informazioni sui controlli di sicurezza disponibili per backup di Azure](./backup-security-controls.md)
+- [Informazioni sui controlli di sicurezza disponibili per backup di Azure]()
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

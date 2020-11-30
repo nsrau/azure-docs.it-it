@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790135"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324619"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Panoramica di SQL Server in macchine virtuali di Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +75,7 @@ Quando si configura SQL Server in Linux, si installano il pacchetto del motore d
 
 * [Panoramica della rete virtuale](../../../virtual-network/virtual-networks-overview.md)
 * [Indirizzi IP in Azure](../../../virtual-network/public-ip-addresses.md)
-* [Creare un nome di dominio completo nel portale di Azure](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Creare un nome di dominio completo nel portale di Azure](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

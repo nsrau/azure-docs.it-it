@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 461d3800491dbe382beecbcdfe1f2a93bd6b2e5c
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301565"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325683"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Baseline della sicurezza di Azure per Azure Bastion
 
@@ -22,7 +22,7 @@ Per informazioni sul modo in cui Azure Bastion esegue completamente il mapping a
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementare la sicurezza per il traffico interno
 
@@ -63,7 +63,7 @@ La connettività a gestione gateway e al tag del servizio di Azure è protetta (
 
 ## <a name="identity-management"></a>Identity Management
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Gestione delle identità](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Gestione delle identità](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>1\. Standardizzare Azure Active Directory come sistema centrale di gestione delle identità e dell'autenticazione
 
@@ -149,7 +149,7 @@ Il cliente può anche usare criteri diversi per il controllo degli accessi in ba
 
 ## <a name="privileged-access"></a>Accesso con privilegi
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Accesso con privilegi](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Accesso con privilegi](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: limitare l'accesso amministrativo ai sistemi aziendali critici
 
@@ -193,7 +193,7 @@ Inoltre, Azure Privileged Identity Management può anche essere configurato in m
 
 È necessario assicurarsi che le credenziali (ad esempio password, certificato o smart card) per gli account di accesso di emergenza vengano mantenute sicure e note solo a singoli utenti autorizzati a utilizzarle solo in caso di emergenza.
 
-- [Gestire gli account di accesso di emergenza in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gestire gli account di accesso di emergenza in Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -246,7 +246,7 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 ## <a name="asset-management"></a>Asset Management (Gestione degli asset)
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Gestione delle risorse](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Gestione delle risorse](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>1\. Garantire al team responsabile della sicurezza la visibilità sui rischi per le risorse
 
@@ -274,7 +274,7 @@ Nota: potrebbero essere necessarie anche altre autorizzazioni per ottenere visib
 
 - [Gestione inventario asset del Centro sicurezza di Azure](../security-center/asset-inventory.md)
 
-- [Per ulteriori informazioni sull'assegnazione di tag agli asset, vedere la guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Per ulteriori informazioni sull'assegnazione di tag agli asset, vedere la guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -300,7 +300,7 @@ Nota: potrebbero essere necessarie anche altre autorizzazioni per ottenere visib
 
 - [Elimina forza-Disconnetti una sessione remota](session-monitoring.md#view)
 
-- [INTERFACCIA della riga di comando di Azure](https://docs.microsoft.com/powershell/module/az.network/?view=azps-5.1.0#networking&amp;preserve-view=true)
+- [INTERFACCIA della riga di comando di Azure](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -341,7 +341,7 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Abilitare Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Protezione dalle minacce nel Centro sicurezza di Azure](/azure/security-center/threat-protection)
+- [Protezione dalle minacce nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -407,7 +407,7 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 - [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 - [Abilitare e usare i log di Azure bastions](diagnostic-logs.md)
 
@@ -417,7 +417,7 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Azure Security Benchmark: risposta agli eventi imprevisti](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Per altre informazioni, vedere [Azure Security Benchmark: risposta agli eventi imprevisti](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>1\. Preparazione: aggiornare il processo di risposta agli eventi imprevisti per Azure
 
@@ -499,7 +499,7 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -527,7 +527,7 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per Azure Bastion con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete del Bastion di Azure. I clienti possono anche definire configurazioni sicure sfruttando i modelli di Azure o i modelli ARM per distribuire le risorse Bastion in modo sicuro e coerente.
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -543,7 +543,7 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per Azure Bastion con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle risorse Bastion.
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -569,7 +569,7 @@ Seguire le regole di ingaggio Microsoft per i test di penetrazione nel cloud per
 
 ## <a name="governance-and-strategy"></a>Governance e strategia
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Governance e strategia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Governance e strategia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>1\. Definire la strategia di gestione delle risorse e di protezione dei dati 
 
@@ -594,11 +594,11 @@ Questa strategia deve includere indicazioni, criteri e standard documentati per 
 -   Standard di crittografia appropriati
 
 Per altre informazioni, vedere i riferimenti seguenti:
-- [Raccomandazioni sull'architettura della sicurezza di Azure: archiviazione, dati e crittografia](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Raccomandazioni sull'architettura della sicurezza di Azure: archiviazione, dati e crittografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Concetti fondamentali della sicurezza di Azure: sicurezza, crittografia e archiviazione dei dati di Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework: procedure consigliate per la sicurezza e la crittografia dei dati in Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework: procedure consigliate per la sicurezza e la crittografia dei dati in Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark: gestione delle risorse](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -749,5 +749,5 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere la [panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere la [panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

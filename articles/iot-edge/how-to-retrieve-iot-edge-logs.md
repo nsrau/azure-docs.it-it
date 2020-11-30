@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ad990f10c611c5ca5bb8a8d053ee4d59b6f05c83
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966922"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326999"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
 
@@ -50,10 +50,10 @@ Questo metodo accetta un payload JSON con lo schema seguente:
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -63,7 +63,7 @@ Questo metodo accetta un payload JSON con lo schema seguente:
     }
 ```
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 |-|-|-|
 | schemaVersion | string | Impostare su `1.0` |
 | items | Matrice JSON | Matrice con `id` `filter` Tuple e. |
@@ -159,10 +159,10 @@ Questo metodo accetta un payload JSON simile a **GetModuleLogs**, con l'aggiunta
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -172,7 +172,7 @@ Questo metodo accetta un payload JSON simile a **GetModuleLogs**, con l'aggiunta
     }
 ```
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 |-|-|-|
 | sasURL | stringa (URI) | [URL della firma di accesso condiviso con accesso in scrittura al contenitore di archiviazione BLOB di Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -186,7 +186,7 @@ Una richiesta di caricamento dei log riuscita restituisce uno **"status": 200** 
     }
 ```
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 |-|-|-|
 | status | string | Uno tra `NotStarted` , `Running` , `Completed` , `Failed` o `Unknown` . |
 | message | string | Message se error, stringa vuota in caso contrario. |
@@ -289,7 +289,7 @@ Questo metodo accetta un payload JSON con lo schema seguente:
     }
 ```
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 |-|-|-|
 | schemaVersion | string | Impostare su `1.0` |
 | sasURL | stringa (URI) | [URL della firma di accesso condiviso con accesso in scrittura al contenitore di archiviazione BLOB di Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -310,7 +310,7 @@ Una richiesta di caricamento dei log riuscita restituisce uno **"status": 200** 
     }
 ```
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 |-|-|-|
 | status | string | Uno tra `NotStarted` , `Running` , `Completed` , `Failed` o `Unknown` . |
 | message | string | Message se error, stringa vuota in caso contrario. |
@@ -368,7 +368,7 @@ Una richiesta di caricamento dei log riuscita restituisce uno **"status": 200** 
     }
 ```
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 |-|-|-|
 | status | string | Uno tra `NotStarted` , `Running` , `Completed` , `Failed` o `Unknown` . |
 | message | string | Message se error, stringa vuota in caso contrario. |

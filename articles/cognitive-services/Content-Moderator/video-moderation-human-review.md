@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143770"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327220"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderazione video con lo strumento di Revisione
 
@@ -26,7 +26,7 @@ USA [lo strumento](Review-Tool-User-Guide/human-in-the-loop.md) di [moderazione]
 Nel Dashboard selezionare una delle code di verifica all'interno del tipo di contenuto video. Verrà avviata una verifica e verrà aperta la pagina moderazione contenuto video.
 
 > [!div class="mx-imgBorder"]
-> ![Visualizzazione dettagliata della moderazione video nello strumento di Revisione](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![In Content Moderator (anteprima) il dispositivo di scorrimento è evidenziato e impostato su 4 revisioni. Vengono evidenziati i commutatori tutti e neri e bianchi ed entrambi sono impostati.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Review count
 
@@ -55,7 +55,7 @@ Nella visualizzazione **Dettagli** , nel riquadro destro vengono visualizzate di
 * Selezionare la scheda **cronologia** per visualizzare la cronologia della revisione, ad esempio quando è stata creata e come è stata modificata.
 
 > [!div class="mx-imgBorder"]
-> ![Pulsante Tag bulk per moderazione video](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![Il riquadro destro è evidenziato e la scheda note è selezionata. È presente un'area di test con etichetta Aggiungi una nota.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Applica tag di moderazione
 
@@ -63,10 +63,10 @@ L'attività principale di una revisione video consiste nell'applicare o rimuover
 
 ### <a name="bulk-tagging"></a>Assegnazione di tag bulk
 
-La barra degli strumenti **tag bulk** consente di aggiungere tag a più video selezionati contemporaneamente. Selezionare uno o più video, quindi selezionare i tag che si desidera applicare e fare clic su **Invia** . 
+La barra degli strumenti **tag bulk** consente di aggiungere tag a più video selezionati contemporaneamente. Selezionare uno o più video, quindi selezionare i tag che si desidera applicare e fare clic su **Invia**. 
 
 > [!div class="mx-imgBorder"]
-> ![Pulsante Tag bulk per moderazione video](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![Il pulsante + viene evidenziato nel riquadro dei tag in blocco.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Tag del fotogramma chiave
@@ -77,7 +77,7 @@ La barra degli strumenti **tag bulk** consente di aggiungere tag a più video se
 > Se il servizio non è stato in grado di estrarre i fotogrammi chiave, nel riquadro della sezione del fotogramma chiave **non sarà disponibile alcun frame** e l'opzione per selezionare i fotogrammi chiave sarà disabilitata. In questo caso, è possibile applicare i tag al video nel suo complesso (usando i **tag video +** pulsante).
 
 > [!div class="mx-imgBorder"]
-> ![Visualizzazione dettagliata della moderazione video nello strumento di Revisione](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![Vengono visualizzati tutti i riquadri riquadri, lettore video, fotogramma chiave e tag video. Vengono evidenziati i tag dei fotogrammi chiave + e i pulsanti + +.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Inserire una recensione in attesa
 
@@ -86,7 +86,7 @@ Il pulsante **Mantieni** nella parte inferiore del riquadro video consente di in
 È possibile visualizzare i video in attesa facendo clic sul pulsante di **attesa** nella parte superiore della schermata. Il riquadro di attesa viene visualizzato a destra. Da qui è possibile selezionare più verifiche in attesa e rilasciarle nella coda o impostare la data di scadenza. Dopo il periodo di tempo preconfigurato, le verifiche in attesa vengono rilasciate nella coda. Selezionare **Save (Salva** ) per avviare il conteggio a partire dall'ora di scadenza attualmente selezionata.
 
 > [!div class="mx-imgBorder"]
-> ![Visualizzazione dettagliata della moderazione video nello strumento di Revisione](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![Nel riquadro video il pulsante Mantieni è evidenziato. Nella parte inferiore del riquadro viene evidenziata una casella combinata tempo di attesa, insieme ai pulsanti rilascia e Salva.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Invia una recensione
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 35bed58f95deebb78d8e787c8bc3f522ce7004df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980882"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326970"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Vantaggio Azure Hybrid: come viene applicato per macchine virtuali Linux
 
@@ -155,9 +155,13 @@ R: No. Vantaggio Azure Hybrid supporta la conversione solo su immagini con pagam
 
 R: No. Vantaggio Azure Hybrid supporta la conversione solo su immagini con pagamento in base al consumo.
 
-*D: è stata caricata un'immagine RHEL personalizzata da locale (tramite ASR o altro) in Azure. È possibile convertire la fatturazione su queste immagini da BYOS a PAYG?*
+*D: è stata caricata un'immagine RHEL personalizzata dall'ambiente locale (tramite Azure Migrate, ASR o altro) in Azure. È possibile convertire la fatturazione su queste immagini da BYOS a PAYG?*
 
 R: No. La funzionalità Vantaggio Azure Hybrid è attualmente disponibile solo per le immagini RHEL e SLES Marketplace. 
+
+*D: è stata caricata un'immagine RHEL personalizzata dall'ambiente locale (tramite Azure Migrate, ASR o altro) in Azure. È necessario eseguire qualsiasi operazione per trarre vantaggio da Vantaggio Azure Hybrid?*
+
+R: No. Le immagini RHEL caricate sono già considerate BYOS e vengono addebitati solo i costi per l'infrastruttura di Azure. L'utente è responsabile per i costi delle sottoscrizioni RHEL esattamente come per gli ambienti locali. 
 
 *D: è possibile usare Vantaggio Azure Hybrid nelle macchine virtuali distribuite da immagini RHEL e SLES SAP del Marketplace?*
 

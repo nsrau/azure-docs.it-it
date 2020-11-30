@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008880"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326013"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurare chiavi gestite dal cliente per l'account Azure Batch con Azure Key Vault e identità gestite
 
@@ -72,7 +72,7 @@ Quando si crea un'istanza di Azure Key Vault con chiavi gestite dal cliente per 
 
 ### <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Aggiungere un criterio di accesso all'istanza di Azure Key Vault
 
-Nel portale di Azure, dopo la creazione del Key Vault, nell' **impostazione** **criteri di accesso** aggiungere l'accesso all'account batch usando identità gestita. In **autorizzazioni chiave**selezionare **Get**, **Wrap Key** e **Unwrap Key**. 
+Nel portale di Azure, dopo la creazione del Key Vault, nell' **impostazione** **criteri di accesso** aggiungere l'accesso all'account batch usando identità gestita. In **autorizzazioni chiave** selezionare **Get**, **Wrap Key** e **Unwrap Key**. 
 
 ![Aggiungere un criterio di accesso](./media/batch-customer-managed-key/key-permissions.png)
 
@@ -144,11 +144,10 @@ az batch account set \
   * **Le chiavi gestite dal cliente sono supportate per gli account batch esistenti?** No. Le chiavi gestite dal cliente sono supportate solo per i nuovi account batch.
   * **È possibile selezionare dimensioni della chiave RSA maggiori di 2048 bit?** Sì, sono supportate anche le dimensioni delle chiavi RSA di `3072` e `4096` BITS.
   * **Quali operazioni sono disponibili dopo la revoca di una chiave gestita dal cliente?** L'unica operazione consentita è l'eliminazione dell'account se il batch perde l'accesso alla chiave gestita dal cliente.
-  * **Come si ripristina l'accesso all'account batch se si elimina accidentalmente la chiave di Key Vault?** Poiché sono abilitate la protezione dall'eliminazione e l'eliminazione temporanea, è possibile ripristinare le chiavi esistenti. Per ulteriori informazioni, vedere la pagina relativa al [ripristino di un Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
+  * **Come si ripristina l'accesso all'account batch se si elimina accidentalmente la chiave di Key Vault?** Poiché sono abilitate la protezione dall'eliminazione e l'eliminazione temporanea, è possibile ripristinare le chiavi esistenti. Per ulteriori informazioni, vedere la pagina relativa al [ripristino di un Azure Key Vault](../key-vault/general/key-vault-recovery.md).
   * **È possibile disabilitare le chiavi gestite dal cliente?** È possibile impostare di nuovo il tipo di crittografia dell'account batch su "Microsoft Managed Key" in qualsiasi momento. Successivamente, è possibile eliminare o modificare la chiave.
   * **Come è possibile ruotare le chiavi?** Le chiavi gestite dal cliente non vengono ruotate automaticamente. Per ruotare la chiave, aggiornare l'identificatore di chiave a cui è associato l'account.
   * **Dopo il ripristino dell'accesso, quanto tempo sarà necessario per il corretto funzionamento dell'account batch?** Possono essere necessari fino a 10 minuti prima che l'account sia nuovamente accessibile dopo il ripristino dell'accesso.
   * **Mentre l'account batch non è disponibile, cosa accade alle risorse?** Tutti i pool in esecuzione quando l'accesso batch alle chiavi gestite dal cliente viene perso continuerà a essere eseguito. Tuttavia, i nodi passeranno a uno stato non disponibile e le attività smetteranno di funzionare e verranno riaccodate. Una volta ripristinato l'accesso, i nodi diventeranno nuovamente disponibili e le attività verranno riavviate.
   * **Questo meccanismo di crittografia si applica ai dischi delle macchine virtuali in un pool di batch?** No. Per i pool di configurazione dei servizi cloud, non viene applicata alcuna crittografia per il sistema operativo e il disco temporaneo. Per i pool di configurazione delle macchine virtuali, il sistema operativo e i dischi dati specificati verranno crittografati con una chiave gestita della piattaforma Microsoft per impostazione predefinita. Attualmente, non è possibile specificare la propria chiave per questi dischi. Per crittografare il disco temporaneo delle macchine virtuali per un pool di batch con una chiave gestita dalla piattaforma Microsoft, è necessario abilitare la proprietà [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) nel pool di [configurazione della macchina virtuale](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Per gli ambienti altamente sensibili, è consigliabile abilitare la crittografia del disco temporaneo ed evitare l'archiviazione di dati sensibili nei dischi del sistema operativo e dei dati. Per altre informazioni, vedere [creare un pool con crittografia del disco abilitata](./disk-encryption.md)
   * **L'identità gestita assegnata dal sistema per l'account batch è disponibile nei nodi di calcolo?** No. Questa identità gestita viene attualmente utilizzata solo per accedere alla Azure Key Vault per la chiave gestita dal cliente.
-  

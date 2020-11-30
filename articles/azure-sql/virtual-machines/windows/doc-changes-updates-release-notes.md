@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556353"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325724"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,7 +96,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | **Supportabilità di istanze denominate** | È ora possibile usare l'[estensione IaaS di SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) con un'istanza denominata, se l'istanza predefinita è stata disinstallata correttamente. | 
 | **Miglioramenti del portale** | L'esperienza del portale di Azure per la distribuzione di una VM di SQL Server è stata rinnovata per migliorare l'usabilità. Per altre informazioni, vedere la breve guida di [avvio rapido](sql-vm-create-portal-quickstart.md) e altre indicazioni disponibili nella [guida pratica](create-sql-vm-portal.md) per distribuire una VM di SQL Server.|
 | **Potenziamento del portale** | Ora è possibile cambiare il modello di licenza per una VM di SQL Server passando dal modello con pagamento in base al consumo al modello BYOL (Bring Your Own License) tramite il [portale di Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
-| **Semplificazione della distribuzione del gruppo di disponibilità in una VM SQL Server tramite l'interfaccia della riga di comando di Azure** | Distribuire un gruppo di disponibilità in una VM di SQL Server in Azure è ora più facile che mai. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](availability-group-az-cli-configure.md). | 
+| **Semplificazione della distribuzione del gruppo di disponibilità in una VM SQL Server tramite l'interfaccia della riga di comando di Azure** | Distribuire un gruppo di disponibilità in una VM di SQL Server in Azure è ora più facile che mai. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-**Macchine virtuali Windows** :
+**Macchine virtuali Windows**:
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Effettuare il provisioning di SQL Server in una macchina virtuale Windows](create-sql-vm-portal.md)
@@ -121,7 +121,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 * [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](performance-guidelines-best-practices.md)
 * [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](application-patterns-development-strategies.md)
 
-**Macchine virtuali Linux** :
+**Macchine virtuali Linux**:
 
 * [Panoramica di SQL Server in una macchina virtuale Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Effettuare il provisioning di SQL Server in una macchina virtuale Linux](../linux/sql-vm-create-portal-quickstart.md)

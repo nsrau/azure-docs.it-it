@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308335"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325197"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -56,11 +56,11 @@ Transparent Data Encryption gestita dal cliente offre al cliente i vantaggi segu
 
 Per consentire al server di usare la protezione Transparent Data Encryption archiviata in AKV per la crittografia della chiave di crittografia, l'amministratore dell'insieme di credenziali delle chiavi deve concedere al server i seguenti diritti di accesso usando l'identità univoca Azure Active Directory (Azure AD):
 
-- **get** : per recuperare la parte pubblica e le proprietà della chiave nel Key Vault
+- **get**: per recuperare la parte pubblica e le proprietà della chiave nel Key Vault
 
-- **wrapKey** : per proteggere (crittografare) la chiave DEK
+- **wrapKey**: per proteggere (crittografare) la chiave DEK
 
-- **unwrapKey** : per rimuovere la protezione (decrittografare) la chiave DEK
+- **unwrapKey**: per rimuovere la protezione (decrittografare) la chiave DEK
 
 L'amministratore del Key Vault può anche [abilitare la registrazione degli eventi di controllo del Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md), in modo che possano essere controllati in un secondo momento.
 
@@ -78,7 +78,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 - Il Key Vault e il database SQL o l'istanza gestita devono appartenere allo stesso tenant di Azure Active Directory. Le interazioni tra tenant di insieme di credenziali delle chiavi e server non sono supportate. Per spostare le risorse in un secondo momento, è necessario riconfigurare Transparent Data Encryption con AKV. Altre informazioni sullo [spostamento di risorse](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- È necessario abilitare la funzionalità di [eliminazione temporanea](../../key-vault/general/soft-delete-overview.md) nel Key Vault per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che non vengano recuperate o rimosse definitivamente dal cliente. Alle azioni di *recupero* e *pulizia* sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita e può essere abilitata tramite [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) o [l'interfaccia della](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete)riga di comando. Non può essere abilitata tramite il portale di Azure.  
+- È necessario abilitare la funzionalità di [eliminazione temporanea](../../key-vault/general/soft-delete-overview.md) nel Key Vault per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che non vengano recuperate o rimosse definitivamente dal cliente. Alle azioni di *recupero* e *pulizia* sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita e può essere abilitata tramite [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) o [l'interfaccia della](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli)riga di comando. Non può essere abilitata tramite il portale di Azure.  
 
 - Concedere al server o all'istanza gestita l'accesso all'insieme di credenziali delle chiavi (Get, wrapKey, unwrapKey) usando la relativa identità Azure Active Directory. Quando si usa il portale di Azure, viene creata automaticamente l'identità Azure AD. Quando si usa PowerShell o l'interfaccia della riga di comando, l'identità Azure AD deve essere creata in modo esplicito e verificare il completamento. Per istruzioni dettagliate sull'uso di PowerShell, vedere Configurare Transparent Data Encryption [con BYOK](transparent-data-encryption-byok-configure.md) e configurare Transparent Data [Encryption con BYOK per SQL istanza gestita](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) .
 
@@ -146,7 +146,7 @@ Di seguito è riportata una visualizzazione dei passaggi aggiuntivi necessari ne
 
 È possibile che un utente con diritti di accesso sufficienti al Key Vault disabiliti accidentalmente l'accesso del server alla chiave eseguendo le operazioni seguenti:
 
-- revoca delle autorizzazioni *Get* , *wrapKey* , *unwrapKey* del Key Vault dal server
+- revoca delle autorizzazioni *Get*, *wrapKey*, *unwrapKey* del Key Vault dal server
 
 - eliminazione della chiave
 

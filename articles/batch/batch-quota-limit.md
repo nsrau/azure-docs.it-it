@@ -4,12 +4,12 @@ description: Informazioni sui vincoli, limiti e quote di Azure Batch predefiniti
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107539"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325970"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -23,15 +23,33 @@ Se si prevede di eseguire carichi di lavoro di produzione in Batch, potrebbe ess
 
 ## <a name="resource-quotas"></a>Quote di risorse
 
-Una quota è un limite di credito, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure.
+Una quota è un limite, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure.
 
 Si noti inoltre che le quote non sono valori garantiti. Le quote possono variare in base alle modifiche apportate al servizio Batch o a una richiesta utente per modificare un valore di quota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Quote Core
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Quote core in modalità servizio batch
+
+L'applicazione delle quote Core dedicate viene migliorata, con le modifiche rese disponibili in fasi e completate per tutti gli account batch entro la fine del 2020 dicembre.
+
+Sono disponibili quote core per ogni serie di VM supportate da batch e visualizzate nella pagina **quote** del portale. I limiti di quota della serie VM possono essere aggiornati con una richiesta di supporto, come descritto di seguito.
+
+Con la fase di eliminazione del meccanismo esistente, i limiti di quota per le serie di VM non vengono controllati. viene applicato solo il limite di quota totale per l'account. Ciò significa che potrebbe essere possibile allocare più core per una serie di macchine virtuali rispetto a quanto indicato dalla quota della serie di VM, fino al limite totale della quota dell'account.
+
+Il meccanismo aggiornato impone le quote della serie di macchine virtuali, oltre alla quota totale dell'account. Nell'ambito della transizione al nuovo meccanismo, è possibile che i valori delle quote della serie di VM vengano aggiornati per evitare errori di allocazione. la quota della serie di VM usata nei mesi recenti verrà aggiornata in modo da corrispondere alla quota totale dell'account. Questa modifica non consentirà di usare una capacità superiore a quella già disponibile.
+
+È possibile determinare se l'applicazione della quota della serie VM è stata abilitata per un account batch controllando:
+
+* Proprietà dell'API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) dell'account batch.
+
+* Testo nella pagina delle **quote** dell'account batch nel portale.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quote di core in modalità di sottoscrizione utente
 
-Se è stato creato un [account Batch](accounts.md) con modalità di allocazione pool impostata su **Sottoscrizione utente**, le quote vengono applicate in modo diverso. In questa modalità, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione al momento della creazione di un pool. Le quote di core di Azure Batch non sono applicabili a un account creato in questa modalità. Vengono applicati invece le quote della sottoscrizione per i core di calcolo regionali e altre risorse.
+Se è stato creato un [account batch](accounts.md) con la modalità di allocazione pool impostata su **sottoscrizione utente**, le VM batch e altre risorse vengono create direttamente nella sottoscrizione quando un pool viene creato o ridimensionato. Le quote di Azure Batch Core non si applicano e le quote della sottoscrizione per i core di calcolo regionali, i core di calcolo per serie e altre risorse vengono usate e applicate.
 
 Per altre informazioni sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -73,7 +91,7 @@ Per visualizzare le quote dell'account Batch nel [portale di Azure](https://port
 1. Selezionare **Quote** nel menu dell'account Batch.
 1. Visualizzare le quote attualmente applicate all'account Batch.
 
-    ![Quote di account Batch][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Quote di account Batch":::
 
 ## <a name="increase-a-quota"></a>Aumentare una quota
 

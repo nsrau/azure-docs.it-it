@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172464"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325248"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -18,7 +18,7 @@ Un'esigenza comune degli amministratori del backup è quella di ottenere informa
 - Controllo delle attività dii backup e ripristino.
 - Identificazione delle tendenze principali a diversi livelli di granularità.
 
-Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [log di Monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md) e le [cartelle di lavoro di Azure](../azure-monitor/platform/workbooks-overview.md). Queste risorse consentono di acquisire informazioni estremamente dettagliate sui backup nell'intera struttura di backup. Questo articolo spiega come configurare e visualizzare i report di Backup di Azure.
+Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [log di Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md) e le [cartelle di lavoro di Azure](../azure-monitor/platform/workbooks-overview.md). Queste risorse consentono di acquisire informazioni estremamente dettagliate sui backup nell'intera struttura di backup. Questo articolo spiega come configurare e visualizzare i report di Backup di Azure.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 

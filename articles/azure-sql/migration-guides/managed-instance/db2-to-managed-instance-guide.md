@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f691ec2d6ba873ba8052c5fab35162932668f185
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c31187e87f18f0ec84cd5b80ccab997d0ba381c3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496751"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324755"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Guida alla migrazione: da DB2 a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -138,10 +138,10 @@ Dopo la migrazione dei dati nell'ambiente di destinazione, tutte le applicazioni
 
 L'approccio di test per la migrazione del database prevede le attività seguenti:
 
-1. **Sviluppare i test di convalida** : per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
-1. **Configurare un ambiente di test** : l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
-1. **Eseguire test di convalida** : eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
-1. **Eseguire test delle prestazioni** : eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
+1. **Sviluppare i test di convalida**: per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
+1. **Configurare un ambiente di test**: l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
+1. **Eseguire test di convalida**: eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
+1. **Eseguire test delle prestazioni**: eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
 
    > [!NOTE]
    > Per assistenza nello sviluppo e nell'esecuzione di test di convalida post-migrazione, prendere in considerazione la soluzione per la qualità dei dati offerta dal partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -149,7 +149,7 @@ L'approccio di test per la migrazione del database prevede le attività seguenti
 
 ## <a name="leverage-advanced-features"></a>Sfruttare le funzionalità avanzate 
 
-Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte da Istanza gestita SQL di Azure, ad esempio la [disponibilità elevata incorporata](../../database/high-availability-sla.md), il [rilevamento delle minacce](../../database/advanced-data-security.md)e il [monitoraggio e l'ottimizzazione del carico di lavoro](../../database/monitor-tune-overview.md). 
+Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte da Istanza gestita SQL di Azure, ad esempio la [disponibilità elevata incorporata](../../database/high-availability-sla.md), il [rilevamento delle minacce](../../database/azure-defender-for-sql.md)e il [monitoraggio e l'ottimizzazione del carico di lavoro](../../database/monitor-tune-overview.md). 
 
 
 Alcune funzionalità SQL Server sono disponibili solo quando il [livello di compatibilità del database](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) viene impostato sul livello di compatibilità più recente (150). 

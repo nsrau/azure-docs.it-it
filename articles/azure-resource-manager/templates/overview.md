@@ -3,12 +3,12 @@ title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager per la distribuzione delle risorse.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280035"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325061"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 

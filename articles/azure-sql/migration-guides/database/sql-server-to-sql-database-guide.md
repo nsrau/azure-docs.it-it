@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 55ce3747aaf105c7e2cbb830b1175769a658fd72
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496764"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326982"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guida alla migrazione: SQL Server al database SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -100,7 +100,7 @@ Se si dispone di più server e database che devono essere valutati e analizzati 
 > [!IMPORTANT]
 > L'esecuzione di valutazioni su larga scala per più database, in particolare quelli di grandi dimensioni, può anche essere automatizzata tramite l' [utilità della riga di comando DMA](/sql/dma/dma-commandline) e caricata in [Azure migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) per un'ulteriore analisi e una maggiore disponibilità per la destinazione.
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrazione
 
 Dopo aver completato le attività associate alla fase pre-migrazione, è possibile eseguire lo schema e la migrazione dei dati. 
 
@@ -114,7 +114,7 @@ Per eseguire la migrazione di un database da SQL Server al database SQL di Azure
 
 1. Scaricare e installare il [Database Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595).
 1. Creare un nuovo progetto e selezionare **migrazione** come tipo di progetto.
-1. Impostare il tipo di server di origine su **SQL Server** e il tipo di server di destinazione sul **database SQL di Azure** , selezionare l'ambito della migrazione come **schema e dati** e selezionare **Crea**.
+1. Impostare il tipo di server di origine su **SQL Server** e il tipo di server di destinazione sul **database SQL di Azure**, selezionare l'ambito della migrazione come **schema e dati** e selezionare **Crea**.
 1. Nel progetto di migrazione specificare i dettagli del server di origine, ad esempio il nome del server, le credenziali per la connessione al server e il database di origine di cui eseguire la migrazione.
 1. Nei dettagli del server di destinazione specificare il nome del server del database SQL di Azure, le credenziali per la connessione al server e il database di destinazione per la migrazione.
 1. Selezionare gli oggetti dello schema e distribuirli nel database SQL di Azure di destinazione.
@@ -165,10 +165,10 @@ Dopo la migrazione dei dati nell'ambiente di destinazione, tutte le applicazioni
 
 L'approccio di test per la migrazione del database prevede le attività seguenti:
 
-1. **Sviluppare i test di convalida** : per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
-1. **Configurare un ambiente di test** : l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
-1. **Eseguire test di convalida** : eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
-1. **Eseguire test delle prestazioni** : eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
+1. **Sviluppare i test di convalida**: per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
+1. **Configurare un ambiente di test**: l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
+1. **Eseguire test di convalida**: eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
+1. **Eseguire test delle prestazioni**: eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
 
    > [!NOTE]
    > Per assistenza nello sviluppo e nell'esecuzione di test di convalida post-migrazione, prendere in considerazione la soluzione per la qualità dei dati offerta dal partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -176,7 +176,7 @@ L'approccio di test per la migrazione del database prevede le attività seguenti
 
 ## <a name="leverage-advanced-features"></a>Sfruttare le funzionalità avanzate 
 
-Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte dal database SQL, ad esempio la [disponibilità elevata incorporata](../../database/high-availability-sla.md), il rilevamento delle [minacce](../../database/advanced-data-security.md)e il [monitoraggio e l'ottimizzazione del carico di lavoro](../../database/monitor-tune-overview.md). 
+Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte dal database SQL, ad esempio la [disponibilità elevata incorporata](../../database/high-availability-sla.md), il rilevamento delle [minacce](../../database/azure-defender-for-sql.md)e il [monitoraggio e l'ottimizzazione del carico di lavoro](../../database/monitor-tune-overview.md). 
 
 Alcune funzionalità SQL Server sono disponibili solo quando il [livello di compatibilità del database](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) viene impostato sul livello di compatibilità più recente (150). 
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490883"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326387"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -34,7 +34,7 @@ Prima di creare un processo di importazione per trasferire dati in Archiviazione
 * Abilitare BitLocker nel sistema Windows. Vedere [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Come abilitare BitLocker).
 * [Scaricare la versione più recente di waimportexport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows. La versione più recente dello strumento dispone di aggiornamenti della sicurezza per consentire una protezione esterna per la chiave BitLocker e la funzionalità aggiornata della modalità di sblocco.
 
-  * Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio, `C:\WaImportExportV1`
+  * Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
 * Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .
   * L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
   * Generare un numero di tracciabilità per il processo di esportazione.
@@ -52,7 +52,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
 1. Connettere le unità disco al sistema Windows tramite connettori SATA.
 2. Creare un singolo volume NTFS in ogni unità. Assegnare una lettera di unità al volume. Non usare punti di montaggio.
 3. Abilitare la crittografia BitLocker nel volume NTFS. Se si usa un sistema Windows Server, seguire le istruzioni fornite in [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Come abilitare BitLocker in Windows Server 2012 R2).
-4. Copiare i dati nel volume crittografato. Usare il trascinamento della selezione o Robocopy o uno strumento di copia simile. Viene creato un file journal (con *estensione JRN* ) nella stessa cartella in cui viene eseguito lo strumento.
+4. Copiare i dati nel volume crittografato. Usare il trascinamento della selezione o Robocopy o uno strumento di copia simile. Viene creato un file journal (con *estensione JRN*) nella stessa cartella in cui viene eseguito lo strumento.
 
    Se l'unità è bloccata ed è necessario sbloccare l'unità, i passaggi da sbloccare potrebbero essere diversi a seconda del caso d'uso.
 
@@ -84,7 +84,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio, `D:\`         |
+    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
     |/BlobType     |Questa opzione specifica il tipo di BLOB in cui si vogliono importare i dati. Per i BLOB in blocchi, è `BlockBlob` e per i BLOB di pagine è `PageBlob` .         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
@@ -109,7 +109,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
     ![Fare clic su Crea processo di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. In **Nozioni di base** :
+4. In **Nozioni di base**:
 
    * Selezionare **Importa in Azure**.
    * Immettere un nome descrittivo per il processo di importazione. Usare il nome per tenere traccia dello stato dei processi.
@@ -120,7 +120,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
      ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. In **Dettagli processo** :
+5. In **Dettagli processo**:
 
    * Caricare i file journal delle unità ottenuti durante il passaggio di preparazione delle unità. Se è stato usato `waimportexport.exe version1`, caricare un file per ogni unità preparata. Se le dimensioni del file journal superano 2 MB, è possibile usare il file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` creato insieme al file journal.
    * Selezionare l'account di archiviazione di destinazione in cui si troveranno i dati.
@@ -128,7 +128,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
    ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. In **Informazioni sul mittente della spedizione** :
+6. In **Informazioni sul mittente della spedizione**:
 
    * Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
    * Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
@@ -139,7 +139,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
      ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. In **Riepilogo** :
+7. In **Riepilogo**:
 
    * Esaminare le informazioni sul processo fornite nel riepilogo. Prendere nota del nome del processo e dell'indirizzo di spedizione del data center di Azure per rispedire i dischi ad Azure. Queste informazioni verranno usate successivamente sull'etichetta indirizzo.
    * Fare clic su **OK** per creare il processo di importazione.

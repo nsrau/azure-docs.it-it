@@ -3,12 +3,12 @@ title: Backup di SQL Server in Azure come carico di lavoro DPM
 description: Introduzione al backup dei database di SQL Server con il servizio backup di Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 592a51051a0d02a6c1d491db0fe559e2e62babb2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218086"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327050"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 
@@ -24,7 +24,7 @@ Per eseguire il backup di un database di SQL Server in Azure e ripristinarlo da 
 
 >[!NOTE]
 >DPM 2019 UR2 supporta SQL Server istanze del cluster di failover (FCI) con volumi condivisi cluster (CSV).<br><br>
->Questa funzionalità supporta la protezione dell' [istanza del cluster di failover di SQL Server con spazi di archiviazione diretta in Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  e [SQL Server istanza del cluster di failover con i dischi condivisi di Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) . Il server DPM deve essere distribuito nella macchina virtuale di Azure per proteggere l'istanza di FCI SQL distribuita nelle macchine virtuali di Azure. 
+>Questa funzionalità supporta la protezione dell' [istanza del cluster di failover di SQL Server con spazi di archiviazione diretta in Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)  e [SQL Server istanza del cluster di failover con i dischi condivisi di Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md) . Il server DPM deve essere distribuito nella macchina virtuale di Azure per proteggere l'istanza di FCI SQL distribuita nelle macchine virtuali di Azure. 
 
 ## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
 
@@ -104,7 +104,7 @@ Per proteggere SQL Server database in Azure, creare prima di tutto un criterio d
 
     ![Scegliere un metodo di creazione della replica](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (SQL Server database). I dati di backup vengono spostati dal server di produzione (SQL Server computer) al server DPM. Se il backup è di grandi dimensioni, il trasferimento dei dati in rete potrebbe causare congestione della larghezza di banda. Per questo motivo, gli amministratori possono scegliere di utilizzare supporti rimovibili per trasferire **manualmente**il backup iniziale. Oppure possono trasferire i dati **automaticamente in rete** a un'ora specificata.
+    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (SQL Server database). I dati di backup vengono spostati dal server di produzione (SQL Server computer) al server DPM. Se il backup è di grandi dimensioni, il trasferimento dei dati in rete potrebbe causare congestione della larghezza di banda. Per questo motivo, gli amministratori possono scegliere di utilizzare supporti rimovibili per trasferire **manualmente** il backup iniziale. Oppure possono trasferire i dati **automaticamente in rete** a un'ora specificata.
 
     Al termine del backup iniziale, i backup continuano in modo incrementale sulla copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
 

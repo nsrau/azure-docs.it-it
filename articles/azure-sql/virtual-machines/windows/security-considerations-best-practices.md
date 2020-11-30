@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785069"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327271"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerazioni sulla sicurezza per SQL Server nelle macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,11 +59,11 @@ Occorre infine considerare di abilitare le connessioni crittografate per l'istan
 
 ## <a name="encryption"></a>Crittografia
 
-Managed Disks offre Server-Side crittografia e crittografia dischi di Azure. La [crittografia lato server](../../../virtual-machines/windows/disk-encryption.md) offre la crittografia dei dati inattivi e protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. [Crittografia dischi di Azure](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la tecnologia BitLocker o DM-Crypt e si integra con Azure Key Vault per crittografare sia il disco del sistema operativo che i dischi dati. 
+Managed Disks offre Server-Side crittografia e crittografia dischi di Azure. La [crittografia lato server](../../../virtual-machines/disk-encryption.md) offre la crittografia dei dati inattivi e protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. [Crittografia dischi di Azure](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la tecnologia BitLocker o DM-Crypt e si integra con Azure Key Vault per crittografare sia il disco del sistema operativo che i dischi dati. 
 
 ## <a name="use-a-non-default-port"></a>Usare una porta diversa da quella predefinita
 
-Per impostazione predefinita, SQL Server è in ascolto sulla porta 1433 che tutti conoscono. Per una maggiore sicurezza, configurare SQL Server per l'ascolto su una porta non predefinita, ad esempio la porta 1401. Se si esegue il provisioning di un'immagine della raccolta di SQL Server nel portale di Azure, è possibile specificare questa porta nel pannello **Impostazioni di SQL Server** .
+Per impostazione predefinita, SQL Server è in ascolto sulla porta 1433 che tutti conoscono. Per una maggiore sicurezza, configurare SQL Server per l'ascolto su una porta non predefinita, ad esempio la porta 1401. Se si esegue il provisioning di un'immagine della raccolta di SQL Server nel portale di Azure, è possibile specificare questa porta nel pannello **Impostazioni di SQL Server**.
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -84,18 +84,18 @@ Quando SQL Server è in ascolto su una porta non predefinita, è necessario spec
 
 È necessario fare in modo che gli utenti malintenzionati non indovinino facilmente i nomi di account o le password. Usare a tal fine i suggerimenti seguenti:
 
-- Creare un account amministratore locale univoco non denominato **Amministratore** .
+- Creare un account amministratore locale univoco non denominato **Amministratore**.
 
 - Usare password complesse per tutti gli account. Per altre informazioni sulla creazione di password complesse, vedere l'articolo [Crea una password complessa](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password).
 
-- Per impostazione predefinita, in Azure viene selezionata l'autenticazione di Windows durante l'installazione della macchina virtuale di SQL Server. L'account di accesso **SA** è pertanto disabilitato e viene assegnata una password tramite il programma di installazione. È consigliabile non usare o abilitare l'account di accesso **SA** . Se è necessario avere un account di accesso SQL, usare una delle strategie seguenti:
+- Per impostazione predefinita, in Azure viene selezionata l'autenticazione di Windows durante l'installazione della macchina virtuale di SQL Server. L'account di accesso **SA** è pertanto disabilitato e viene assegnata una password tramite il programma di installazione. È consigliabile non usare o abilitare l'account di accesso **SA**. Se è necessario avere un account di accesso SQL, usare una delle strategie seguenti:
 
-  - Creare un account SQL con un nome univoco che abbia appartenenza **sysadmin** . È possibile creare questo account dal portale attivando **Autenticazione di SQL Server** durante il provisioning.
+  - Creare un account SQL con un nome univoco che abbia appartenenza **sysadmin**. È possibile creare questo account dal portale attivando **Autenticazione di SQL Server** durante il provisioning.
 
     > [!TIP] 
-    > Se non si attiva l'autenticazione di SQL Server durante il provisioning, è necessario modificare manualmente la modalità di autenticazione in **Autenticazione di SQL Server e di Windows** . Per altre informazioni, vedere [Modifica della modalità di autenticazione del server](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Se non si attiva l'autenticazione di SQL Server durante il provisioning, è necessario modificare manualmente la modalità di autenticazione in **Autenticazione di SQL Server e di Windows**. Per altre informazioni, vedere [Modifica della modalità di autenticazione del server](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
-  - Se è necessario usare l'account di accesso **SA** , attivarlo dopo il provisioning e assegnare una nuova password complessa.
+  - Se è necessario usare l'account di accesso **SA**, attivarlo dopo il provisioning e assegnare una nuova password complessa.
 
 ## <a name="additional-best-practices"></a>Procedure consigliate aggiuntive
 

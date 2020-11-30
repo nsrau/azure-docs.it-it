@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782468"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324534"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Differenze principali tra Machine Learning Services in Istanza gestita di SQL di Azure e SQL Server
 
@@ -43,7 +43,7 @@ Machine Learning Services in SQL Istanza gestita e SQL Server supportano sia Pyt
 
 - Le versioni iniziali di Python e R sono diverse tra Machine Learning Services in SQL Istanza gestita e SQL Server:
 
-  | System               | Python | R     |
+  | Sistema               | Python | R     |
   |----------------------|--------|-------|
   | Istanza gestita di SQL | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
@@ -55,7 +55,7 @@ Machine Learning Services in SQL Istanza gestita e SQL Server supportano sia Pyt
 La gestione dei pacchetti Python e R funziona in modo diverso tra SQL Istanza gestita e SQL Server. Le differenze sono le seguenti:
 
 - Non è disponibile il supporto per i pacchetti che dipendono da runtime esterni, ad esempio Java, o richiedono l'accesso alle API del sistema operativo per l'installazione o l'utilizzo.
-- I pacchetti possono eseguire chiamate di rete in uscita (modifiche rispetto a precedenti nell'anteprima). È possibile impostare le regole di sicurezza in uscita appropriate al livello del [gruppo di sicurezza di rete](/azure/virtual-network/network-security-groups-overview) per abilitare le chiamate di rete in uscita.
+- I pacchetti possono eseguire chiamate di rete in uscita (modifiche rispetto a precedenti nell'anteprima). È possibile impostare le regole di sicurezza in uscita appropriate al livello del [gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) per abilitare le chiamate di rete in uscita.
 
 Per ulteriori informazioni sulla gestione dei pacchetti Python e R, vedere:
 

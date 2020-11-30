@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143640"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325333"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 
@@ -26,7 +26,7 @@ Content Moderator combina la moderazione assistita da computer con funzionalità
 In una revisione, il contenuto viene caricato nello strumento di revisione. È possibile visualizzarlo facendo clic sul relativo tipo di contenuto nella scheda **Revisione** del dashboard. Dalla schermata di revisione è possibile modificare i tag applicati e applicare i tag personalizzati in base alle esigenze. Quando si invia una revisione, i risultati vengono inviati a un endpoint di callback specificato e il contenuto viene rimosso dal sito.
 
 > [!div class="mx-imgBorder"]
-> ![Esaminare il sito dello strumento con la scheda verifica selezionata](./Review-Tool-user-Guide/images/review-tab.png)
+> ![Il menu a discesa verifica è evidenziato. Mostra i tipi di contenuto seguenti: immagini, testo e video.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Gestisci revisioni
 
@@ -40,7 +40,7 @@ Il pulsante **azioni** a tre punti in ogni verifica consente di passare alla sch
 Utilizzare la barra degli strumenti di **ricerca** per ordinare le revisioni in base a un'ampia gamma di categorie, ad esempio stato di revisione, tag, tipo di contenuto, sottoteam, utenti assegnati e data di creazione/modifica.
 
 > [!div class="mx-imgBorder"]
-> ![Esaminare il sito dello strumento con la scheda verifica selezionata](./Review-Tool-user-Guide/images/review-search.png)
+> ![Viene visualizzata la barra degli strumenti di ricerca. Include varie caselle combinate per l'immissione dei criteri di ricerca, ad esempio lo stato di revisione e i tag.](./Review-Tool-user-Guide/images/review-search.png)
 
 Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) per iniziare a creare recensioni o vedere la [Guida dell'API REST](./try-review-api-review.md) .
 
@@ -50,7 +50,7 @@ Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenut
 
 ### <a name="view-workflows"></a>Visualizza flussi di lavoro
 
-Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **amministratori**  >  **flussi di lavoro** .
+Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **amministratori**  >  **flussi di lavoro**.
 
 > [!div class="mx-imgBorder"]
 > ![Flusso di lavoro predefinito](images/default-workflow-list.png)

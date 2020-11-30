@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905328"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324891"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e l'interfaccia della riga di comando di Azure: abilitare Transparent Data Encryption con chiave gestita dal cliente da Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,7 +46,7 @@ Questo articolo illustra come usare una chiave da Azure Key Vault per Transparen
 
 Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
-Per informazioni specifiche su Key Vault, vedere [istruzioni di PowerShell da Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [come usare Key Vault soft-delete con PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Per informazioni specifiche su Key Vault, vedere [istruzioni di PowerShell da Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [come usare Key Vault soft-delete con PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Per installare la versione richiesta dell'interfaccia della riga di comando di Azure (versione 2,0 o successiva) e connettersi alla sottoscrizione di Azure, vedere [installare e configurare l'interfaccia di Command-Line multipiattaforma di azure 2,0](/cli/azure/install-azure-cli).
 
-Per informazioni specifiche su Key Vault, vedere [gestire Key Vault usando l'interfaccia della riga](../../key-vault/general/manage-with-cli2.md) di comando 2,0 e [come usare Key Vault soft-delete con l'interfaccia della](../../key-vault/general/soft-delete-cli.md)riga di comando.
+Per informazioni specifiche su Key Vault, vedere [gestire Key Vault usando l'interfaccia della riga](../../key-vault/general/manage-with-cli2.md) di comando 2,0 e [come usare Key Vault soft-delete con l'interfaccia della](../../key-vault/general/key-vault-recovery.md)riga di comando.
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Assegnare un'identità Azure AD al server
 

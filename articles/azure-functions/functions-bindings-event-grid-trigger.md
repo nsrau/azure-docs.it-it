@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748186"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327033"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi di Azure per Funzioni di Azure
 
@@ -80,7 +80,7 @@ namespace Company.Function
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione.
 
-Ecco i dati di associazione nel file *function.json* :
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -132,7 +132,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione.
 
-Ecco i dati di associazione nel file *function.json* :
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = function (context, eventGridEvent) {
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione.
 
-Ecco i dati di associazione nel file *function.json* :
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -305,7 +305,7 @@ L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-l
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* . Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
 |Proprietà di function.json |Descrizione|
 |---------|---------|
@@ -401,19 +401,19 @@ Per iniziare a ricevere richieste HTTP di Griglia di eventi, è necessario crear
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Integrazione** , quindi scegliere **Trigger griglia di eventi** e selezionare **Crea sottoscrizione di Griglia di eventi** .
+Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Integrazione**, quindi scegliere **Trigger griglia di eventi** e selezionare **Crea sottoscrizione di Griglia di eventi**.
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connettere una nuova sottoscrizione di eventi da attivare nel portale.":::
 
 Quando si seleziona questo collegamento, nel portale si apre la pagina **Crea sottoscrizione di eventi** con l'endpoint del trigger corrente già definito.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Connettere una nuova sottoscrizione di eventi da attivare nel portale." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Creare una sottoscrizione di eventi con l'endpoint funzione già definito" :::
 
 Per altre informazioni su come creare sottoscrizioni tramite il portale di Azure, vedere [Creare eventi personalizzati con il portale di Azure](../event-grid/custom-event-quickstart-portal.md) nella documentazione relativa a Griglia di eventi.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per creare una sottoscrizione tramite l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), usare il comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
+Per creare una sottoscrizione tramite l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli), usare il comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 Il comando richiede l'URL dell'endpoint che richiama la funzione. L'esempio seguente illustra il modello di URL specifico della versione:
 
@@ -435,25 +435,55 @@ Di seguito è riportato un esempio di sottoscrizione a un account di archiviazio
 
 #### <a name="version-2x-and-higher-runtime"></a>Runtime versione 2.x e successive
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>Versione di runtime 1.x
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 Per altre informazioni su come creare una sottoscrizione, vedere la [guida introduttiva all'archiviazione BLOB](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) o le altre guide introduttive a Griglia di eventi.
 
@@ -508,7 +538,7 @@ Per testare un trigger Griglia di eventi in locale, è necessario ottenere le ri
 1. [Generare una richiesta](#generate-a-request) e copiare il corpo della richiesta dall'app visualizzatore.
 1. [Inviare manualmente la richiesta](#manually-post-the-request) all'URL localhost della funzione trigger Griglia di eventi.
 
-Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
+Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update).
 
 ### <a name="create-a-viewer-web-app"></a>Creare un'app visualizzatore Web
 

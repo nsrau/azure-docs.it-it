@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096624"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327152"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -60,7 +60,7 @@ Se il backup è già stato configurato e deve essere spostato da GRS a con ridon
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Come è possibile spostare i dati dall'insieme di credenziali dei servizi di ripristino in locale?
 
-L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di ripristino in locale usando Data Box non è supportata. I dati devono essere ripristinati in un account di archiviazione e quindi possono essere spostati in locale tramite [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) o [importazione/esportazione](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di ripristino in locale usando Data Box non è supportata. I dati devono essere ripristinati in un account di archiviazione e quindi possono essere spostati in locale tramite [Data Box](../databox/data-box-overview.md) o [importazione/esportazione](../storage/common/storage-import-export-service.md).
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 
@@ -124,7 +124,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 **Origine dati** | **Dettagli**
 --- | ---
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
-Database SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
+Database di SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
 Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.

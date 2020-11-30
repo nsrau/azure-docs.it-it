@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 30d27f3f9c559fd149bd45f303127e0eec40b878
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173853"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325231"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -51,7 +51,7 @@ Quando si esegue il backup di macchine virtuali di Azure con Backup di Azure, vi
 
 **Crittografia** | **Dettagli** | **Supporto tecnico**
 --- | --- | ---
-**Crittografia del servizio di archiviazione** | Con SSE, archiviazione di Azure offre la crittografia dei dati inattivi crittografando automaticamente i dati prima di archiviarli. Archiviazione di Azure decrittografa anche i dati prima di recuperarli. Backup di Azure supporta i backup di macchine virtuali con due tipi di crittografia del servizio di archiviazione:<li> **SSE con chiavi gestite dalla piattaforma**: questa crittografia è per impostazione predefinita per tutti i dischi delle macchine virtuali. Per altre informazioni, vedere [qui](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).<li> **SSE con chiavi gestite dal cliente**. Con CMK, è possibile gestire le chiavi usate per crittografare i dischi. Per altre informazioni, vedere [qui](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). | Backup di Azure usa SSE per la crittografia inattiva delle VM di Azure.
+**Crittografia del servizio di archiviazione** | Con SSE, archiviazione di Azure offre la crittografia dei dati inattivi crittografando automaticamente i dati prima di archiviarli. Archiviazione di Azure decrittografa anche i dati prima di recuperarli. Backup di Azure supporta i backup di macchine virtuali con due tipi di crittografia del servizio di archiviazione:<li> **SSE con chiavi gestite dalla piattaforma**: questa crittografia è per impostazione predefinita per tutti i dischi delle macchine virtuali. Per altre informazioni, vedere [qui](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE con chiavi gestite dal cliente**. Con CMK, è possibile gestire le chiavi usate per crittografare i dischi. Per altre informazioni, vedere [qui](../virtual-machines/disk-encryption.md#customer-managed-keys). | Backup di Azure usa SSE per la crittografia inattiva delle VM di Azure.
 **Azure Disk Encryption** | Crittografia dischi di Azure crittografa i dischi dati e del sistema operativo per le macchine virtuali di Azure.<br/><br/> Crittografia dischi di Azure si integra con le chiavi di crittografia di BitLocker (BEKs), che vengono protette in un insieme di credenziali delle chiavi come segreti. Crittografia dischi di Azure si integra inoltre con Azure Key Vault chiavi di crittografia della chiave (KEKs). | Backup di Azure supporta il backup di macchine virtuali di Azure gestite e non gestite crittografate solo con BEKs o con BEKs insieme a KEKs.<br/><br/> Viene eseguito il backup e la crittografia sia di BEKs che di KEKs.<br/><br/> Poiché viene eseguito il backup di KEKs e BEKs, gli utenti con le autorizzazioni necessarie possono ripristinare chiavi e segreti nell'insieme di credenziali delle chiavi, se necessario. Questi utenti possono anche ripristinare la macchina virtuale crittografata.<br/><br/> Le chiavi e i segreti crittografati non possono essere letti da utenti non autorizzati o da Azure.
 
 Per le macchine virtuali di Azure gestite e non gestite, il backup supporta le macchine virtuali crittografate solo con BEKs o le VM crittografate con BEKs insieme a KEKs.

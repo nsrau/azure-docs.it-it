@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748492"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324959"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Come abilitare la protezione eliminazione temporanea e ripulitura
 
@@ -23,11 +23,11 @@ Questo articolo illustra due funzionalità di ripristino di Azure Key Vault, l'e
 
 La protezione per l'eliminazione e la ripulitura temporanea sono due diverse funzionalità di ripristino di Key Vault.
 > [!IMPORTANT]
-> È necessario abilitare la protezione dell'eliminazione temporanea in tutti gli insiemi di credenziali delle chiavi. La possibilità di disabilitare la protezione con eliminazione temporanea sarà deprecata entro il 2020 dicembre. Per i dettagli completi [, vedere **qui** .](soft-delete-change.md)
+> È necessario abilitare la protezione dell'eliminazione temporanea in tutti gli insiemi di credenziali delle chiavi. La possibilità di disabilitare la protezione con eliminazione temporanea sarà deprecata entro il 2020 dicembre. Per i dettagli completi [, vedere **qui**.](soft-delete-change.md)
 
 L' **eliminazione** temporanea è progettata per impedire l'eliminazione accidentale di Key Vault e chiavi, segreti e certificati archiviati all'interno di Key Vault. Si pensi all'eliminazione temporanea come un cestino. Quando si elimina un insieme di credenziali delle chiavi o un oggetto dell'insieme di credenziali delle chiavi, questo resterà reversibile per un periodo di conservazione configurabile dall'utente o per un valore predefinito di 90 giorni. Gli insiemi di credenziali delle chiavi nello stato di eliminazione temporanea possono anche essere eliminati, il che **significa che vengono** eliminati definitivamente. In questo modo è possibile ricreare gli insiemi di credenziali delle chiavi e gli oggetti dell'insieme di credenziali delle chiavi con lo stesso nome. Il recupero e l'eliminazione di insiemi di credenziali delle chiavi e di oggetti richiedono autorizzazioni per i criteri di accesso elevati. **Una volta abilitata l'eliminazione temporanea, non è possibile disabilitarla.**
 
-È importante notare che i nomi dell'insieme di credenziali delle **chiavi sono univoci a livello globale** , quindi non sarà possibile creare un insieme di credenziali delle chiavi con lo stesso nome di un insieme di credenziali delle chiavi nello stato Soft deleted. Analogamente, i nomi di chiavi, segreti e certificati sono univoci all'interno di un insieme di credenziali delle chiavi. Non sarà possibile creare un segreto, una chiave o un certificato con lo stesso nome di un altro nello stato di eliminazione temporanea.
+È importante notare che i nomi dell'insieme di credenziali delle **chiavi sono univoci a livello globale**, quindi non sarà possibile creare un insieme di credenziali delle chiavi con lo stesso nome di un insieme di credenziali delle chiavi nello stato Soft deleted. Analogamente, i nomi di chiavi, segreti e certificati sono univoci all'interno di un insieme di credenziali delle chiavi. Non sarà possibile creare un segreto, una chiave o un certificato con lo stesso nome di un altro nello stato di eliminazione temporanea.
 
 L' **eliminazione della protezione** è progettata per impedire l'eliminazione di Key Vault, chiavi, segreti e certificati da parte di utenti malintenzionati. Considerarlo come cestino con un blocco basato su tempo. È possibile ripristinare gli elementi in qualsiasi momento durante il periodo di memorizzazione configurabile. **Non sarà possibile eliminare o eliminare definitivamente un insieme di credenziali delle chiavi finché non trascorre il periodo di conservazione.** Una volta trascorso il periodo di memorizzazione, l'insieme di credenziali delle chiavi o l'oggetto Key Vault verrà eliminato automaticamente.
 
@@ -44,7 +44,7 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
 1. Verificare se il pulsante di opzione accanto a soft-delete è impostato su "Abilita ripristino".
 1. Se l'eliminazione temporanea non è abilitata nell'insieme di credenziali delle chiavi, fare clic sul pulsante di opzione per abilitare l'eliminazione temporanea e fare clic su "Salva".
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="<screenshot della portale di Azure>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="In proprietà, l'eliminazione temporanea è evidenziata, così come il valore per abilitarla.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Concedi l'accesso a un'entità servizio per eliminare e recuperare i segreti eliminati
 
@@ -56,7 +56,7 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
 1. Scorrere fino alla fine dell'elenco a discesa e fare clic su "Ripristina" e "Ripulisci".
 1. Per eseguire la maggior parte delle operazioni, le entità di sicurezza necessitano anche della funzionalità Get ed List.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="<screenshot della portale di Azure>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="Nel riquadro di spostamento a sinistra vengono evidenziati i criteri di accesso. Nei criteri di accesso viene visualizzato l'elenco a discesa posizioni segrete e vengono selezionati quattro elementi: Get, List, Recover ed Purge.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Elencare, ripristinare o eliminare un insieme di credenziali delle chiavi eliminato temporaneamente
 
@@ -72,9 +72,9 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
 1. Se si vuole ripristinare l'insieme di credenziali delle chiavi, selezionare l'opzione Ripristina nella parte inferiore del riquadro del contesto.
 1. Selezionare l'opzione Ripulisci se si vuole eliminare definitivamente l'insieme di credenziali delle chiavi.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="<screenshot della portale di Azure>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Negli insiemi di credenziali delle chiavi, l'opzione Gestisci insiemi di credenziali eliminati è evidenziata.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="<screenshot della portale di Azure>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="In Gestisci insiemi di credenziali delle chiavi eliminati, l'unico insieme di credenziali delle chiavi elencato è evidenziato e selezionato e il pulsante Ripristina è evidenziato.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Elencare, recuperare o eliminare i segreti, le chiavi e i certificati eliminati temporaneamente
 
@@ -87,7 +87,7 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
 1. Selezionare il segreto, la chiave o il certificato che si vuole gestire.
 1. Selezionare l'opzione per il ripristino o l'eliminazione nella parte inferiore del riquadro del contesto.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="<screenshot della portale di Azure>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="In chiavi, l'opzione Gestisci chiavi eliminate è evidenziata.":::
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

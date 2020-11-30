@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530613"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327241"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slot di distribuzione di funzioni di Azure
 
@@ -57,7 +57,38 @@ Tenere presente quanto segue:
 
 ## <a name="manage-settings"></a>Gestire le impostazioni
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+Alcune impostazioni di configurazione sono specifiche dello slot. Di seguito sono elencate le impostazioni che cambiano quando si scambiano gli slot e rimangono invariati.
+
+**Impostazioni specifiche dello slot**:
+
+* Endpoint di pubblicazione
+* Nomi di dominio personalizzati
+* Certificati non pubblici e impostazioni TLS/SSL
+* Impostazioni di scalabilità
+* Utilità di pianificazione WebJobs
+* Restrizioni IP
+* Always On
+* Impostazioni di diagnostica
+* Condivisione di risorse tra le origini (CORS)
+
+**Impostazioni non specifiche dello slot**:
+
+* Impostazioni generali, ad esempio versione del Framework, 32/64 bit, Web socket
+* Impostazioni app (possono essere configurate per adattarsi a uno slot)
+* Stringhe di connessione (possono essere configurate per adattarsi a uno slot)
+* Mapping dei gestori
+* Certificati pubblici
+* Contenuto WebJobs
+* Connessioni ibride *
+* Integrazione della rete virtuale *
+* Endpoint di servizio *
+* Rete per la distribuzione di contenuti di Azure *
+
+Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo scambio. 
+
+> [!NOTE]
+> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni di diagnostica non vengono scambiate, le impostazioni dell'app correlate come `WEBSITE_HTTPLOGGING_RETENTION_DAYS` e `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` non vengono scambiate anche se non vengono visualizzate come impostazioni degli slot.
+>
 
 ### <a name="create-a-deployment-setting"></a>Creare un'impostazione di distribuzione
 
@@ -73,15 +104,15 @@ Per creare un'impostazione di distribuzione, attenersi alla procedura seguente:
 
 1. Selezionare **configurazione**, quindi selezionare il nome dell'impostazione che si vuole usare con lo slot corrente.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configurare l'impostazione dell'applicazione per uno slot nel portale di Azure." border="true":::
 
-1. Selezionare **impostazione dello slot di distribuzione**e quindi fare clic su **OK**.
+1. Selezionare **impostazione dello slot di distribuzione** e quindi fare clic su **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configurare l'impostazione dello slot di distribuzione." border="true":::
 
 1. Dopo che la sezione dell'impostazione non è più visualizzata, selezionare **Salva** per conservare le modifiche.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Salvare l'impostazione dello slot di distribuzione." border="true":::
 
 ## <a name="deployment"></a>Distribuzione
 
@@ -100,26 +131,26 @@ Tutti gli slot si adattano allo stesso numero di ruoli di lavoro dello slot di p
 
 1. Passare all'app per le funzioni.
 
-1. Selezionare **slot di distribuzione**e quindi selezionare **+ Aggiungi slot**.
+1. Selezionare **slot di distribuzione** e quindi selezionare **+ Aggiungi slot**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Aggiungere lo slot di distribuzione di funzioni di Azure." border="true":::
 
 1. Digitare il nome dello slot e selezionare **Aggiungi**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Assegnare un nome allo slot di distribuzione di funzioni di Azure." border="true":::
 
 ## <a name="swap-slots"></a>Scambia slot
 
 È possibile scambiare gli slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) della riga di comando o tramite il portale. I passaggi seguenti illustrano come scambiare gli slot nel portale:
 
 1. Passare all'app per le funzioni.
-1. Selezionare **slot di distribuzione**e quindi fare clic su **swap**.
+1. Selezionare **slot di distribuzione** e quindi fare clic su **swap**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot che mostra la pagina &quot;slot di distribuzione&quot; con l'azione &quot;Aggiungi slot&quot; selezionata." border="true":::
 
 1. Verificare le impostazioni di configurazione per lo scambio e selezionare **swap**
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Scambiare lo slot di distribuzione." border="true":::
 
 Durante l'esecuzione dell'operazione di scambio, l'operazione potrebbe richiedere qualche istante.
 
@@ -137,15 +168,15 @@ Se uno scambio genera un errore o si vuole semplicemente annullare uno scambio, 
 
 1. Selezionare **Elimina**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Screenshot che mostra la pagina &quot;panoramica&quot; con l'azione &quot;Elimina&quot; selezionata." border="true":::
 
 1. Digitare il nome dello slot di distribuzione che si desidera eliminare, quindi selezionare **Elimina**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Eliminare lo slot di distribuzione nel portale di Azure." border="true":::
 
 1. Chiudere il riquadro di conferma dell'eliminazione.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Conferma di eliminazione dello slot di distribuzione." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatizzare la gestione degli slot
 
@@ -170,11 +201,11 @@ Per modificare il piano di servizio app di uno slot, attenersi alla procedura se
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
 
-1. In **piano di servizio app**selezionare **modifica piano di servizio app**.
+1. In **piano di servizio app** selezionare **modifica piano di servizio app**.
 
 1. Selezionare il piano a cui si desidera eseguire l'aggiornamento oppure creare un nuovo piano.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Modificare il piano di servizio app nella portale di Azure." border="true":::
 
 1. Selezionare **OK**.
 

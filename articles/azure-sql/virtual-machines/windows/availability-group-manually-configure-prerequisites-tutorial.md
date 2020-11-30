@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8572a73586b01967c8aef7f6c4947b5ce96146b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961890"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324857"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Esercitazione: prerequisiti per la creazione di gruppi di disponibilità in SQL Server in macchine virtuali di Azure
 
@@ -56,7 +56,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
    ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Selezionare **gruppo di risorse**.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
 7. Se si hanno più sottoscrizioni di Azure, verificare che la sottoscrizione sia la sottoscrizione di Azure in cui si vuole creare il gruppo di disponibilità.
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
@@ -101,7 +101,7 @@ Per creare la rete virtuale nel portale di Azure:
 
    L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
 
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 
    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -144,7 +144,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
-Prima di creare le macchine virtuali, è necessario creare i set di disponibilità. I set di disponibilità riducono il tempo di inattività per gli eventi di manutenzione sia pianificati che non pianificati. Un set di disponibilità di Azure è un gruppo logico di risorse che Azure inserisce in domini di errore e domini di aggiornamento fisici. Un dominio di errore assicura che i membri del set di disponibilità dispongano di risorse di alimentazione e di rete separate. Un dominio di aggiornamento assicura che i membri del set di disponibilità non vengano disattivati contemporaneamente per la manutenzione. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Prima di creare le macchine virtuali, è necessario creare i set di disponibilità. I set di disponibilità riducono il tempo di inattività per gli eventi di manutenzione sia pianificati che non pianificati. Un set di disponibilità di Azure è un gruppo logico di risorse che Azure inserisce in domini di errore e domini di aggiornamento fisici. Un dominio di errore assicura che i membri del set di disponibilità dispongano di risorse di alimentazione e di rete separate. Un dominio di aggiornamento assicura che i membri del set di disponibilità non vengano disattivati contemporaneamente per la manutenzione. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Sono necessari due set di disponibilità, uno per i controller di dominio e il secondo per le VM di SQL Server.
 

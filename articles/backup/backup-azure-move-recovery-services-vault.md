@@ -4,12 +4,12 @@ description: Istruzioni su come spostare un insieme di credenziali di servizi di
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926683"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325775"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -30,7 +30,7 @@ Sono supportate tutte le aree pubbliche e le aree sovrane, ad eccezione di Franc
 - Se una macchina virtuale non viene spostata con l'insieme di credenziali di servizi di ripristino tra sottoscrizioni o in un nuovo gruppo di risorse, i punti di ripristino della macchina virtuale correnti rimarranno intatti nell'insieme di credenziali fino a quando non scadono.
 - Sia che macchina virtuale venga spostata nell'insieme di credenziali o meno, è sempre possibile ripristinare la macchina virtuale dalla cronologia di backup conservata nell'insieme di credenziali.
 - Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e nella stessa sottoscrizione di Azure.
-- Per spostare una macchina virtuale con dischi gestiti, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Per spostare una macchina virtuale con dischi gestiti, vedere questo [articolo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Le opzioni per lo scorrimento delle risorse distribuite con il modello classico variano a seconda che si stiano migrando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione. Per altre informazioni, vedere questo [articolo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - I criteri di backup definiti per l'insieme di credenziali vengono conservati dopo che l'insieme di credenziali viene spostato tra le sottoscrizioni o in un nuovo gruppo di risorse.
 - È possibile spostare solo un insieme di credenziali contenente uno dei seguenti tipi di elementi di backup. Tutti gli elementi di backup dei tipi non elencati di seguito dovranno essere arrestati e i dati verranno eliminati definitivamente prima di trasferire l'insieme di credenziali.
@@ -42,7 +42,7 @@ Sono supportate tutte le aree pubbliche e le aree sovrane, ad eccezione di Franc
 
 > [!NOTE]
 > Lo stato di un insieme di credenziali di servizi di ripristino per backup di Azure in aree di Azure non è supportato<br><br>
-> Se sono state configurate VM (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza con **Azure Site Recovery** , l'operazione di spostamento verrà bloccata. Per spostare gli insiemi di credenziali per Azure Site Recovery, vedere [questo articolo](../site-recovery/move-vaults-across-regions.md) per informazioni sullo spostamento manuale degli insiemi di credenziali.
+> Se sono state configurate VM (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza con **Azure Site Recovery**, l'operazione di spostamento verrà bloccata. Per spostare gli insiemi di credenziali per Azure Site Recovery, vedere [questo articolo](../site-recovery/move-vaults-across-regions.md) per informazioni sullo spostamento manuale degli insiemi di credenziali.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Usare portale di Azure per spostare l'insieme di credenziali di servizi di ripristino in un gruppo di risorse diverso
 
@@ -99,7 +99,7 @@ Per spostare un insieme di credenziali di servizi di ripristino e le risorse ass
 
    ![Aggiungere la sottoscrizione](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Selezionare **ho compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiorno per usare la nuova opzione ID risorsa** per confermare, quindi selezionare **OK** .
+7. Selezionare **ho compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiorno per usare la nuova opzione ID risorsa** per confermare, quindi selezionare **OK**.
 
 > [!NOTE]
 > Il backup tra sottoscrizioni (insieme di credenziali RS e VM protette si trovano in sottoscrizioni diverse) non è uno scenario supportato. Inoltre, l'opzione di ridondanza di archiviazione da archiviazione con ridondanza locale (con ridondanza locale) a archiviazione con ridondanza globale (GRS) e viceversa non può essere modificata durante l'operazione di spostamento dell'insieme di credenziali.
@@ -157,9 +157,9 @@ Per proteggere i carichi di lavoro in un nuovo insieme di credenziali, è necess
 
 1. Disabilitare l'eliminazione temporanea nelle proprietà dell'insieme di credenziali. Per disabilitare l'eliminazione temporanea, seguire [questa procedura](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) .
 
-2. Arrestare la protezione ed eliminare i backup dall'insieme di credenziali corrente. Nel menu del dashboard dell'insieme di credenziali selezionare **elementi di backup** . Gli elementi elencati di seguito che devono essere spostati nel nuovo insieme di credenziali devono essere rimossi insieme ai relativi dati di backup. Vedere come [eliminare gli elementi protetti nel cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) ed [eliminare gli elementi protetti in locale](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Arrestare la protezione ed eliminare i backup dall'insieme di credenziali corrente. Nel menu del dashboard dell'insieme di credenziali selezionare **elementi di backup**. Gli elementi elencati di seguito che devono essere spostati nel nuovo insieme di credenziali devono essere rimossi insieme ai relativi dati di backup. Vedere come [eliminare gli elementi protetti nel cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) ed [eliminare gli elementi protetti in locale](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Se si prevede di spostare AFS (condivisioni file di Azure), SQL Server o server SAP HANA, sarà necessario anche annullarne la registrazione. Nel menu del dashboard dell'insieme di credenziali selezionare **infrastruttura di backup** . Vedere come annullare [la registrazione di SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [annullare la registrazione di un account di archiviazione associato a condivisioni file di Azure](manage-afs-backup.md#unregister-a-storage-account)e [annullare la registrazione di un'istanza di SAP Hana](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Se si prevede di spostare AFS (condivisioni file di Azure), SQL Server o server SAP HANA, sarà necessario anche annullarne la registrazione. Nel menu del dashboard dell'insieme di credenziali selezionare **infrastruttura di backup**. Vedere come annullare [la registrazione di SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [annullare la registrazione di un account di archiviazione associato a condivisioni file di Azure](manage-afs-backup.md#unregister-a-storage-account)e [annullare la registrazione di un'istanza di SAP Hana](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. Dopo essere stati rimossi dall'insieme di credenziali precedente, continuare a configurare i backup per il carico di lavoro nel nuovo insieme di credenziali.
 

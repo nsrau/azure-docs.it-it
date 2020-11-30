@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: e9fb004df5fdf8a955312ebcf16b8b60fd7c9b6a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c47e4c1278f222feac35a2c6ab0b067c916c0217
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592193"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326846"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Prestazioni della migrazione: analisi delle prestazioni da SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,4 +86,4 @@ Per ulteriori informazioni sull'ottimizzazione del nuovo ambiente di Istanza ges
 - [Come identificare il motivo per cui le prestazioni dei carichi di lavoro in Azure SQL Istanza gestita sono diverse da SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
 - [Principali cause delle differenze di prestazioni tra SQL Istanza gestita e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [Procedure consigliate e considerazioni sulle prestazioni di archiviazione per Istanza gestita SQL di Azure (per utilizzo generico)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Il monitoraggio delle prestazioni in tempo reale per Istanza gestita SQL di Azure (archiviato è la destinazione prevista?)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Il monitoraggio delle prestazioni in tempo reale per Istanza gestita SQL di Azure (archiviato è la destinazione prevista?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

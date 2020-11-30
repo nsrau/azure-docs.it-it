@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413158"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325095"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -82,7 +82,7 @@ Quando si effettua il provisioning di un disco di archiviazione Premium, a diffe
 
 ## <a name="bursting"></a>Espansione nel
 
-SSD Premium dimensioni inferiori a P30 offrono ora l'espansione del disco e possono aumentare le operazioni di i/o al secondo per ogni disco fino a 3.500 e la larghezza di banda fino a 170 Mbps. L'espansione è automatizzata e funziona in base a un sistema di credito. I crediti vengono accumulati automaticamente in un bucket di espansione quando il traffico del disco è inferiore alla destinazione di prestazioni con provisioning e i crediti vengono usati automaticamente quando il traffico supera la soglia, fino al limite massimo di picchi. Il limite massimo di impulsi definisce il limite di IOPS del disco & larghezza di banda anche se sono presenti crediti di espansione da utilizzare. Il provisioning del disco garantisce una maggiore tolleranza sulle modifiche imprevedibili dei modelli di i/o. È possibile sfruttarlo per l'avvio del disco del sistema operativo e le applicazioni con traffico irregolare.    
+SSD Premium dimensioni inferiori a P30 offrono ora l'espansione del disco e possono aumentare le operazioni di i/o al secondo per ogni disco fino a 3.500 e la larghezza di banda fino a 170 MB/s. L'espansione è automatizzata e funziona in base a un sistema di credito. I crediti vengono accumulati automaticamente in un bucket di espansione quando il traffico del disco è inferiore alla destinazione di prestazioni con provisioning e i crediti vengono usati automaticamente quando il traffico supera la soglia, fino al limite massimo di picchi. Il limite massimo di impulsi definisce il limite di IOPS del disco & larghezza di banda anche se sono presenti crediti di espansione da utilizzare. Il provisioning del disco garantisce una maggiore tolleranza sulle modifiche imprevedibili dei modelli di i/o. È possibile sfruttarlo per l'avvio del disco del sistema operativo e le applicazioni con traffico irregolare.    
 
 Il supporto per l'espansione dei dischi verrà abilitato per le nuove distribuzioni di dimensioni del disco applicabili per impostazione predefinita, senza alcuna azione da utente. Per i dischi esistenti con le dimensioni applicabili, è possibile abilitare l'espansione con una delle due opzioni: scollegare e ricollegare il disco oppure arrestare e riavviare la macchina virtuale collegata. Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale che supporta una durata massima al limite massimo di 30 minuti. Per altre informazioni sul funzionamento del proromping nei dischi di Azure, vedere [SSD Premium](linux/disk-bursting.md)l'espansione. 
 
@@ -124,15 +124,15 @@ Quando si usano dischi gestiti, tenere conto delle considerazioni seguenti relat
 - Trasferimenti di dati in uscita
 - Numero di transazioni
 
-**Dimensioni dei dischi gestiti** : la fatturazione dei dischi gestiti è basata sulle dimensioni di cui è stato effettuato il provisioning. Azure associa le dimensioni di cui è stato effettuato il provisioning (arrotondate per eccesso) all'offerta di dimensioni dei dischi più vicina. Per informazioni dettagliate sulle dimensioni dei dischi disponibili, vedere le tabelle precedenti. Viene eseguito il mapping di ogni disco gestito a un'offerta relativa alle dimensioni di provisioning dei dischi supportate e viene eseguita la relativa fatturazione. Se ad esempio è stato effettuato il provisioning di un'unità SSD Standard da 200 GiB, tale unità viene associata all'offerta relativa alle dimensioni dei dischi E15 (256 GiB). La fatturazione per qualsiasi disco di cui è stato effettuato il provisioning viene ripartita con frequenza oraria usando il prezzo mensile dell'offerta di archiviazione. Se ad esempio è stato effettuato il provisioning di un disco E10 e lo si è eliminato dopo 20 ore, verranno fatturate 20 ore per l'offerta E10, indipendentemente dalla quantità di dati effettivamente scritti sul disco.
+**Dimensioni dei dischi gestiti**: la fatturazione dei dischi gestiti è basata sulle dimensioni di cui è stato effettuato il provisioning. Azure associa le dimensioni di cui è stato effettuato il provisioning (arrotondate per eccesso) all'offerta di dimensioni dei dischi più vicina. Per informazioni dettagliate sulle dimensioni dei dischi disponibili, vedere le tabelle precedenti. Viene eseguito il mapping di ogni disco gestito a un'offerta relativa alle dimensioni di provisioning dei dischi supportate e viene eseguita la relativa fatturazione. Se ad esempio è stato effettuato il provisioning di un'unità SSD Standard da 200 GiB, tale unità viene associata all'offerta relativa alle dimensioni dei dischi E15 (256 GiB). La fatturazione per qualsiasi disco di cui è stato effettuato il provisioning viene ripartita con frequenza oraria usando il prezzo mensile dell'offerta di archiviazione. Se ad esempio è stato effettuato il provisioning di un disco E10 e lo si è eliminato dopo 20 ore, verranno fatturate 20 ore per l'offerta E10, indipendentemente dalla quantità di dati effettivamente scritti sul disco.
 
-**Snapshot** : gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB.
+**Snapshot**: gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB.
 
 Per altre informazioni sugli snapshot, vedere la sezione sugli snapshot nella [panoramica dei dischi gestiti](managed-disks-overview.md).
 
-**Trasferimenti di dati in uscita** : i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
+**Trasferimenti di dati in uscita**: i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
 
-**Transazioni** : viene addebitato il numero di transazioni eseguite su un disco gestito standard. Per le unità SSD standard, ogni operazione di I/O inferiore o uguale a 256 KiB di velocità effettiva viene considerata una singola operazione di I/O. Le operazioni di i/O superiori a 256 KiB di velocità effettiva sono considerate più I/O di dimensioni 256 KiB. Per i dischi rigidi standard, ogni operazione di I/O viene considerata come una singola transazione, indipendentemente dalle dimensioni di I/O.
+**Transazioni**: viene addebitato il numero di transazioni eseguite su un disco gestito standard. Per le unità SSD standard, ogni operazione di I/O inferiore o uguale a 256 KiB di velocità effettiva viene considerata una singola operazione di I/O. Le operazioni di i/O superiori a 256 KiB di velocità effettiva sono considerate più I/O di dimensioni 256 KiB. Per i dischi rigidi standard, ogni operazione di I/O viene considerata come una singola transazione, indipendentemente dalle dimensioni di I/O.
 
 Per informazioni dettagliate sui prezzi per Managed Disks, inclusi i costi delle transazioni, vedere [prezzi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 

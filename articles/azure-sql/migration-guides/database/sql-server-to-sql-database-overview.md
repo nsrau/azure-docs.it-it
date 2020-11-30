@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: cafb32e5bd91c6b7f3cfef4641828963e0731797
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 46216fe06e3d3425d5b237cdbb7326eed596945a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496964"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326931"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Panoramica della migrazione: SQL Server al database SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -61,18 +61,18 @@ Sono disponibili strumenti diversi per diversi carichi di lavoro e preferenze ut
 Prendere in considerazione le linee guida generali che consentono di scegliere il modello di distribuzione e il livello di servizio appropriati per il database SQL di Azure. È possibile scegliere risorse di calcolo e di archiviazione durante la distribuzione e quindi modificarle successivamente usando il  [portale di Azure](../../database/scale-resources.md)  senza incorrere in tempi di inattività per l'applicazione.
 
 
-**Modelli di distribuzione** : comprendere il carico di lavoro dell'applicazione e il modello di utilizzo per scegliere tra un singolo database o un pool elastico. 
+**Modelli di distribuzione**: comprendere il carico di lavoro dell'applicazione e il modello di utilizzo per scegliere tra un singolo database o un pool elastico. 
 
 - Un [database singolo](../../database/single-database-overview.md) rappresenta un database completamente gestito adatto per la maggior parte dei microservizi e delle applicazioni cloud moderne.
 - Un [pool elastico](../../database/elastic-pool-overview.md) è una raccolta di database singoli con un set condiviso di risorse come CPU o memoria e adatto per combinare i database in un pool con modelli di utilizzo prevedibili che possono condividere in modo efficace lo stesso set di risorse.
 
-**Modelli di acquisto** : scegliere tra il modello di acquisto Vcore, DTU o senza server. 
+**Modelli di acquisto**: scegliere tra il modello di acquisto Vcore, DTU o senza server. 
 
 - Il [modello vCore](../../database/service-tiers-vcore.md) consente di scegliere il numero di Vcore per il database SQL di Azure, rendendolo la scelta più semplice durante la conversione da SQL Server locali. Questa è l'unica opzione che supporta il risparmio sul costo della licenza con il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 - Il [modello DTU](../../database/service-tiers-dtu.md) astrae le risorse di calcolo, memoria e i/o sottostanti per fornire un DTU misto. 
 - Il [modello senza server](../../database/serverless-tier-overview.md) è destinato ai carichi di lavoro che richiedono il ridimensionamento automatico su richiesta con risorse di calcolo fatturate al secondo. Il livello di calcolo senza Server sospende automaticamente i database durante i periodi di inattività (in cui vengono fatturate solo le risorse di archiviazione) e riprende automaticamente i database al ritorno dell'attività. 
 
-**Livelli di servizio** : scegliere tra tre livelli di servizio progettati per diversi tipi di applicazioni.
+**Livelli di servizio**: scegliere tra tre livelli di servizio progettati per diversi tipi di applicazioni.
 
 - Il [livello di servizio per utilizzo generico/standard](../../database/service-tier-general-purpose.md) offre un'opzione orientata ai budget bilanciata con calcolo e archiviazione idonei per fornire applicazioni di livello inferiore, con ridondanza incorporata a livello di archiviazione per il recupero dagli errori. Progettato per la maggior parte dei carichi di lavoro del database. 
 - Il [livello di servizio business critical/Premium](../../database/service-tier-business-critical.md) è per applicazioni di livello elevato che richiedono tassi di transazione elevati, i/o a bassa latenza e un elevato livello di resilienza con le repliche secondarie disponibili per il failover e per l'offload dei carichi di lavoro di lettura.
@@ -183,7 +183,7 @@ Per il database SQL di Azure, gli unici database di sistema applicabili sono [Ma
 
 Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte dal database SQL. Ad esempio, non è più necessario preoccuparsi di gestire i backup quando il servizio esegue questa operazione. È possibile eseguire il ripristino in qualsiasi [punto nel tempo entro il periodo di conservazione](../../database/recovery-using-backups.md#point-in-time-restore). 
 
-Per rafforzare la sicurezza, è consigliabile usare [Azure Active Directory autenticazione](../../database/authentication-aad-overview.md), il [controllo](../../database/auditing-overview.md), il [rilevamento delle minacce](../../database/advanced-data-security.md), la [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security)e la [maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking).
+Per rafforzare la sicurezza, è consigliabile usare [Azure Active Directory autenticazione](../../database/authentication-aad-overview.md), il [controllo](../../database/auditing-overview.md), il [rilevamento delle minacce](../../database/azure-defender-for-sql.md), la [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security)e la [maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking).
 
 Oltre alle funzionalità avanzate di gestione e sicurezza, il database SQL offre un set di strumenti avanzati che consentono di [monitorare e ottimizzare il carico di lavoro](../../database/monitor-tune-overview.md). [Analisi SQL di Azure (anteprima)](../../../azure-monitor/insights/azure-sql.md) è una soluzione di monitoraggio cloud avanzata per il monitoraggio delle prestazioni di tutti i database nel database SQL di Azure su larga scala e tra più sottoscrizioni in un'unica visualizzazione. Analisi SQL di Azure raccoglie e visualizza le metriche delle prestazioni chiave con l'intelligence predefinita per la risoluzione dei problemi relativi alle prestazioni.
 

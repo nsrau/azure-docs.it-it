@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026062"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326897"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guida alla migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,10 +99,10 @@ Se è necessario confrontare le prestazioni del carico di lavoro in un Istanza g
 
 ### <a name="create-sql-managed-instance"></a>Creare un'istanza gestita di SQL 
 
-In base alle informazioni della fase di individuazione e valutazione, creare un Istanza gestita SQL di destinazione con dimensioni appropriate. È possibile farlo usando il [portale di Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)o un [modello di Azure Resource Manager (ARM)](/azure/azure-sql/managed-instance/create-template-quickstart). 
+In base alle informazioni della fase di individuazione e valutazione, creare un Istanza gestita SQL di destinazione con dimensioni appropriate. È possibile farlo usando il [portale di Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)o un [modello di Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrazione
 
 Dopo aver completato le attività associate alla fase pre-migrazione, è possibile eseguire lo schema e la migrazione dei dati. 
 
@@ -124,7 +124,7 @@ Per eseguire le migrazioni utilizzando DMS, attenersi alla procedura seguente:
 1. Al termine del ripristino del database, scegliere **Avvia cutover**. Il processo di migrazione copia il backup della parte finale del log dopo averlo reso disponibile nella condivisione di rete SMB e ripristinarlo nella destinazione. 
 1. Arrestare tutto il traffico in ingresso nel database di origine e aggiornare la stringa di connessione al nuovo database di Istanza gestita SQL di Azure. 
 
-Per un'esercitazione dettagliata di questa opzione di migrazione, vedere [eseguire la migrazione di SQL Server a un istanza gestita SQL di Azure tramite DMS](/azure/dms/tutorial-sql-server-managed-instance-online). 
+Per un'esercitazione dettagliata di questa opzione di migrazione, vedere [eseguire la migrazione di SQL Server a un istanza gestita SQL di Azure tramite DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
 
@@ -160,7 +160,7 @@ Per eseguire la migrazione tramite backup e ripristino, attenersi alla procedura
 
 1. Al termine del ripristino, visualizzare il database in **Esplora oggetti** all'interno SQL Server Management Studio. 
 
-Per altre informazioni su questa opzione di migrazione, vedere [ripristinare un database in Azure SQL istanza gestita con SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+Per altre informazioni su questa opzione di migrazione, vedere [ripristinare un database in Azure SQL istanza gestita con SSMS](../../managed-instance/restore-sample-database-quickstart.md).
 
 > [!NOTE]
 > L'operazione di ripristino del database è asincrona e ripetibile. È possibile che si verifichi un errore in SQL Server Management Studio se la connessione si interrompe o raggiunge il timeout. Il database SQL di Azure continuerà a tentare di ripristinare il database in background. È possibile tenere traccia dello stato di avanzamento del ripristino usando le visualizzazioni [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
@@ -203,7 +203,7 @@ L'approccio di test per la migrazione del database prevede le attività seguenti
 
 ## <a name="leverage-advanced-features"></a>Sfruttare le funzionalità avanzate 
 
-Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte da SQL Istanza gestita, ad esempio la [disponibilità elevata incorporata](../../database/high-availability-sla.md), il rilevamento delle [minacce](../../database/advanced-data-security.md)e il [monitoraggio e l'ottimizzazione del carico di lavoro](../../database/monitor-tune-overview.md). 
+Assicurarsi di sfruttare le funzionalità avanzate basate sul cloud offerte da SQL Istanza gestita, ad esempio la [disponibilità elevata incorporata](../../database/high-availability-sla.md), il rilevamento delle [minacce](../../database/azure-defender-for-sql.md)e il [monitoraggio e l'ottimizzazione del carico di lavoro](../../database/monitor-tune-overview.md). 
 
 [Analisi SQL di Azure](../../../azure-monitor/insights/azure-sql.md) consente di monitorare un ampio set di istanze gestite in modo centralizzato.
 

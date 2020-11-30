@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790050"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324806"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 
@@ -64,7 +64,7 @@ Il servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-b
 Il [modello Microsoft](./availability-group-quickstart-template-configure.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
 
    > [!NOTE]
-   > Se si usa un Load Balancer Standard e l'Archiviazione di Azure per il cloud di controllo, è necessario configurare un [endpoint di servizio](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network). 
+   > Se si usa un Load Balancer Standard e l'Archiviazione di Azure per il cloud di controllo, è necessario configurare un [endpoint di servizio](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
    > 
 
 Gli esempi in questo articolo si riferiscono a un'istanza di Load Balancer Standard. Negli esempi lo script include `-sku Standard`.
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Avviare SQL Server Management Studio e connettersi alla replica primaria.
 
-1. Passare a **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **Listener gruppo di disponibilità** . 
+1. Passare a **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **Listener gruppo di disponibilità**. 
 
-1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e scegliere **Proprietà** .
+1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e scegliere **Proprietà**.
 
-1. Nella casella **porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il $EndpointPort usato in precedenza (1433 è il valore predefinito), quindi fare clic su **OK** .
+1. Nella casella **porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il $EndpointPort usato in precedenza (1433 è il valore predefinito), quindi fare clic su **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testare la connessione al listener
 
@@ -236,7 +236,7 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
   - Indirizzi IP mobili del servizio di bilanciamento del carico per il listener del gruppo di disponibilità
   - Indirizzo IP principale del cluster, se applicabile.
 
-* Creare un endpoint di servizio quando si usa un Load Balancer Standard con l'Archiviazione di Azure per il cloud di controllo. Per altre informazioni, vedere [Concedere l'accesso da una rete virtuale](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Creare un endpoint di servizio quando si usa un Load Balancer Standard con l'Archiviazione di Azure per il cloud di controllo. Per altre informazioni, vedere [Concedere l'accesso da una rete virtuale](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Per ulteriori informazioni
 

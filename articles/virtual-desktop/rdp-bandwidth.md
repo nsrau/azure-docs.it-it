@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 708ffce014f417f3794e59e1f79a3fcf9cba3f23
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639268"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325180"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisiti per la larghezza di banda Remote Desktop Protocol (RDP)
 
@@ -106,7 +106,7 @@ In questi casi, è possibile limitare il traffico di rete in uscita RDP specific
 
 Per creare un criterio QoS per gli host di sessione aggiunti a un dominio, prima di tutto accedere a un computer in cui è stata installata la gestione Criteri di gruppo. Aprire Gestione Criteri di gruppo (fare clic su Start, scegliere Strumenti di amministrazione, quindi selezionare Gestione Criteri di gruppo), quindi completare i passaggi seguenti:
 
-1. In Gestione Criteri di gruppo individuare il contenitore in cui deve essere creato il nuovo criterio. Se, ad esempio, tutti i computer ospitano una sessione in un'unità organizzativa denominata **host sessione** , i nuovi criteri devono essere creati nell'unità organizzativa host sessione.
+1. In Gestione Criteri di gruppo individuare il contenitore in cui deve essere creato il nuovo criterio. Se, ad esempio, tutti i computer ospitano una sessione in un'unità organizzativa denominata **host sessione**, i nuovi criteri devono essere creati nell'unità organizzativa host sessione.
 
 2. Fare clic con il pulsante destro del mouse sul contenitore appropriato, quindi selezionare **Crea un oggetto Criteri di gruppo in questo dominio e collegarlo qui**.
 
@@ -114,7 +114,7 @@ Per creare un criterio QoS per gli host di sessione aggiunti a un dominio, prima
 
 4. Fare clic con il pulsante destro del mouse sul criterio appena creato, quindi scegliere **modifica**.
 
-5. Nel Editor Gestione Criteri di gruppo, espandere **Configurazione computer** , espandere **impostazioni di Windows** , fare clic con il pulsante destro del mouse su **QoS basata su criteri** e quindi scegliere **Crea nuovo criterio**.
+5. Nel Editor Gestione Criteri di gruppo, espandere **Configurazione computer**, espandere **impostazioni di Windows**, fare clic con il pulsante destro del mouse su **QoS basata su criteri** e quindi scegliere **Crea nuovo criterio**.
 
 6. Nella finestra di dialogo **QoS basata su criteri** , nella pagina di apertura, digitare un nome per il nuovo criterio nella casella **nome** . Selezionare **specificare la velocità di limitazione in uscita** e impostare il valore richiesto, quindi fare clic su **Avanti**.
 
@@ -124,11 +124,11 @@ Per creare un criterio QoS per gli host di sessione aggiunti a un dominio, prima
 
 9. Nella pagina quattro selezionare **UDP** dall'elenco **a discesa selezionare il protocollo di cui si applica questo criterio QoS** .
 
-10. Sotto l'intestazione **specificare il numero di porta di origine** , selezionare **da questa porta o intervallo di origine**. Nella casella di testo associata digitare **3390**. Selezionare **Fine**.
+10. Sotto l'intestazione **specificare il numero di porta di origine**, selezionare **da questa porta o intervallo di origine**. Nella casella di testo associata digitare **3390**. Selezionare **Fine**.
 
 I nuovi criteri creati avranno effetto solo dopo l'aggiornamento Criteri di gruppo nei computer host della sessione. Sebbene Criteri di gruppo venga aggiornato periodicamente, è possibile forzare un aggiornamento immediato attenendosi alla procedura seguente:
 
-1. In ogni host della sessione per cui si desidera aggiornare Criteri di gruppo aprire un prompt dei comandi come amministratore ( *Esegui come amministratore* ).
+1. In ogni host della sessione per cui si desidera aggiornare Criteri di gruppo aprire un prompt dei comandi come amministratore (*Esegui come amministratore*).
 
 2. Al prompt dei comandi immettere
 

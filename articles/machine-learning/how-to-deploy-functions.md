@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630346"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327169"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 
@@ -58,7 +58,7 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
 
 Per altre informazioni sullo script di immissione, vedere [definire il codice](./how-to-deploy-and-where.md#define-an-entry-script) di assegnazione dei punteggi
 
-* **Dipendenze** , ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
+* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
 Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
@@ -277,7 +277,7 @@ Dopo che l'immagine è stata caricata e l'app è disponibile, seguire questa pro
     }
     ```
 
-3. Per visualizzare l'output prodotto dalla funzione, utilizzare il comando seguente per elencare i file di output generati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo esempio, `output` è il nome del contenitore di output creato in precedenza. Se è stato usato un nome diverso, sostituire questo valore::
+3. Per visualizzare l'output prodotto dalla funzione, utilizzare il comando seguente per elencare i file di output generati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo esempio, `output` è il nome del contenitore di output creato in precedenza. Se è stato usato un nome diverso, sostituire questo valore:
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv

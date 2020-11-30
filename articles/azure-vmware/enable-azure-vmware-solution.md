@@ -3,12 +3,12 @@ title: Come abilitare la risorsa della soluzione VMware di Azure
 description: Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della soluzione VMware di Azure. È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794722"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325078"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Come abilitare la risorsa della soluzione VMware di Azure
 Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della [soluzione VMware di Azure](introduction.md) . È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
@@ -76,7 +76,7 @@ I CSP devono usare il centro per i [partner Microsoft](https://partner.microsoft
 
 1. Selezionare **piano di Azure** e quindi selezionare **Aggiungi al carrello**. 
 
-1. Esaminare e completare la configurazione generale della sottoscrizione del piano Azure per il cliente. Per ulteriori informazioni, vedere la documentazione del centro per i [partner Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
+1. Esaminare e completare la configurazione generale della sottoscrizione del piano Azure per il cliente. Per ulteriori informazioni, vedere la documentazione del centro per i [partner Microsoft](/partner-center/azure-plan-manage).
 
 Dopo aver configurato il piano di Azure e le autorizzazioni di vSphere RBAC necessarie sono disponibili come CSP, si interagisce con Microsoft per abilitare la quota per una sottoscrizione di piano di Azure. Accedere portale di Azure dal centro **per i partner usando la procedura di amministrazione per conto di** (Aobo).
 

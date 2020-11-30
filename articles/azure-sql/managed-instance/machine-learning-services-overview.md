@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782417"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324517"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services in Istanza gestita SQL di Azure (anteprima)
 
@@ -54,7 +54,7 @@ Questa versione di anteprima pubblica limitata è soggetta alle condizioni per l
 
 Se si è interessati a partecipare al programma di anteprima e accettare le presenti condizioni, è possibile richiedere la registrazione creando un ticket di supporto di Azure all'indirizzo [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
-1. Nella pagina **Crea un ticket di supporto** fare clic su **Crea un evento imprevisto** .
+1. Nella pagina **Crea un ticket di supporto** fare clic su **Crea un evento imprevisto**.
 
 1. Nella pagina **Guida e supporto** fare clic su **nuova richiesta di supporto** per creare un nuovo ticket.
 
@@ -67,16 +67,16 @@ Se si è interessati a partecipare al programma di anteprima e accettare le pres
    - Tipo di problema- **Machine Learning Services per SQL istanza gestita (anteprima)**
    - Sottotipo di problema: **altro problema o domande "procedura"**
 
-1. Fare clic su **Avanti: soluzioni** .
+1. Fare clic su **Avanti: soluzioni**.
 
-1. Leggere le informazioni sull'anteprima, quindi fare clic su **Avanti: dettagli** .
+1. Leggere le informazioni sull'anteprima, quindi fare clic su **Avanti: dettagli**.
 
 1. In questa pagina:
-   - Per la domanda **che si sta tentando di iscriversi all'anteprima** , selezionare **Sì** . 
-   - Per **Descrizione** , immettere le specifiche della richiesta, inclusi il nome del server logico, l'area e l'ID sottoscrizione che si desidera registrare nell'anteprima. Immettere altri dettagli in base alle esigenze.
+   - Per la domanda **che si sta tentando di iscriversi all'anteprima**, selezionare **Sì**. 
+   - Per **Descrizione**, immettere le specifiche della richiesta, inclusi il nome del server logico, l'area e l'ID sottoscrizione che si desidera registrare nell'anteprima. Immettere altri dettagli in base alle esigenze.
    - Selezionare il metodo di contatto preferito. 
 
-1. Al termine, fare clic su **Avanti: rivedere + crea** e quindi fare clic su **Crea** .
+1. Al termine, fare clic su **Avanti: rivedere + crea** e quindi fare clic su **Crea**.
 
 Dopo la registrazione nel programma, Microsoft eseguirà l'onboarding all'anteprima pubblica e abiliterà Machine Learning Services per il database nuovo o esistente.
 
@@ -85,6 +85,6 @@ Non usare Machine Learning Services in Istanza gestita di SQL per carichi di lav
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere le [differenze principali tra SQL Server Machine Learning Services](machine-learning-services-differences.md).
-- Per informazioni su come usare Python in Machine Learning Services, vedere [eseguire script Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
-- Per informazioni sull'uso di R in Machine Learning Services, vedere [eseguire script r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Per informazioni su come usare Python in Machine Learning Services, vedere [eseguire script Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Per informazioni sull'uso di R in Machine Learning Services, vedere [eseguire script r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
 - Per ulteriori informazioni su Machine Learning su altre piattaforme SQL, vedere la [documentazione di SQL Machine Learning](/sql/machine-learning/).
