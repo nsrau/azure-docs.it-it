@@ -62,7 +62,7 @@
         - name: Eseguire l'onboarding in Azure Sentinel
           href: scenario-onboard-azure-sentinel.md
         - name: Eseguire l'onboarding nel Centro sicurezza di Azure
-          href: /security-center/quickstart-onboard-machines
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: Risoluzione dei problemi
       items:
         - name: Problemi di connessione agli agenti
