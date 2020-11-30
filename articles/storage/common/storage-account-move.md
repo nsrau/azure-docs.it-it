@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "92792991"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
@@ -39,7 +39,7 @@ In questo articolo si apprenderà come:
 
 <a id="prepare"></a>
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 Per iniziare, esportare e modificare un modello di Gestione risorse. 
 
@@ -55,7 +55,7 @@ Per esportare un modello con il portale di Azure:
 
 2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
 
-3. Selezionare > **Impostazioni**  >  **Esporta modello** .
+3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 
 4. Scegliere **Scarica** nel pannello **Esporta modello** .
 
@@ -101,17 +101,17 @@ Modificare il modello cambiando il nome e l'area dell'account di archiviazione.
 
 Per distribuire il modello utilizzando portale di Azure:
 
-1. Nella portale di Azure selezionare **Crea una risorsa** .
+1. Nella portale di Azure selezionare **Crea una risorsa**.
 
-2. In **Cerca nel Marketplace** Digitare **distribuzione modello** , quindi premere **invio** .
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
 
-3. Selezionare **distribuzione modelli** .
+3. Selezionare **distribuzione modelli**.
 
     ![Raccolta di modelli di Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selezionare **Crea** .
+4. Selezionare **Crea**.
 
-5. Selezionare **Creare un modello personalizzato nell'editor** .
+5. Selezionare **Creare un modello personalizzato nell'editor**.
 
 6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 
@@ -137,7 +137,7 @@ Per distribuire il modello utilizzando portale di Azure:
          "location": "centralus"
          }]          
     ```
-    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  **centralus** .
+    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  **centralus**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -186,11 +186,11 @@ Distribuire un modello per creare un nuovo account di archiviazione nell'area di
 
 2. Immettere o selezionare i valori delle proprietà:
 
-- **Sottoscrizione** Selezionare una sottoscrizione di Azure.
+- **Sottoscrizione**: selezionare una sottoscrizione di Azure.
 
-- **Gruppo di risorse** : selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
+- **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
 
-- **Località** : selezionare una località di Azure.
+- **Località**: selezionare una località di Azure.
 
 3. Fare clic sulla casella di controllo Accetto **i termini e le condizioni indicati in precedenza** , quindi fare clic sul pulsante **Seleziona acquisto** .
 
@@ -225,7 +225,7 @@ La tabella seguente elenca le funzionalità insieme alle indicazioni per aggiung
 | **Siti Web statici** | [Hosting di un sito Web statico in Archiviazione di Azure](../blobs/storage-blob-static-website-how-to.md) |
 | **Sottoscrizioni di eventi** | [Reazione agli eventi di archiviazione BLOB](../blobs/storage-blob-event-overview.md) |
 | **Avvisi** | [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md) |
-| **Rete CDN (Content Delivery Network, rete per la distribuzione di contenuti)** | [Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+| **Rete per la distribuzione di contenuti (rete CDN)** | [Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
 > Se si configura una rete CDN per l'account di archiviazione di origine, è sufficiente modificare l'origine della rete CDN esistente con l'endpoint del servizio BLOB primario (o l'endpoint del sito Web statico primario) del nuovo account. 
@@ -255,7 +255,7 @@ Per rimuovere un account di archiviazione usando il portale di Azure:
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **account di archiviazione** per visualizzare l'elenco degli account di archiviazione.
 
-2. Individuare l'account di archiviazione di destinazione da eliminare e fare clic con il pulsante destro del mouse sul pulsante **altro** ( **...** ) sul lato destro dell'inserzione.
+2. Individuare l'account di archiviazione di destinazione da eliminare e fare clic con il pulsante destro del mouse sul pulsante **altro** (**...**) sul lato destro dell'inserzione.
 
 3. Selezionare **Elimina** e confermare.
 
