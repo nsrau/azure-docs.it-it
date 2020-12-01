@@ -898,7 +898,7 @@
           href: cassandra-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: cassandra-support.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: .NET
           href: create-cassandra-dotnet.md
@@ -1004,7 +1004,7 @@
       items:
         - name: Che cos'è l'API MongoDB in Cosmos DB?
           href: mongodb-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: .NET
           href: create-mongodb-dotnet.md
@@ -1128,7 +1128,7 @@
           href: graph-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: gremlin-support.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Console Gremlin
           href: create-graph-gremlin-console.md
@@ -1205,7 +1205,7 @@
       items:
         - name: Che cos'è l'API Tabella in Cosmos DB?
           href: table-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: .NET
           href: create-table-dotnet.md
@@ -1329,7 +1329,7 @@
         - name: Configurare l'accesso da endpoint privati
           href: how-to-configure-private-endpoints.md
         - name: Connettersi privatamente a un account Cosmos DB
-          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
         - name: Usare Azure Key Vault per accedere ai dati
           href: access-secrets-from-keyvault.md
         - name: Limitare l'accesso utente solo alle operazioni sui dati
