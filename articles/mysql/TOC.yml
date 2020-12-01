@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: Limitazioni
           href: concepts-limits.md
+        - name: Procedure operative consigliate
+          href: concept-operation-excellence-best-practices.md
         - name: Piani tariffari
           items:
             - name: Piani tariffari
@@ -195,6 +197,10 @@
             - name: Raccomandazioni per le prestazioni
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Procedure consigliate per il monitoraggio
+              href: concept-monitoring-best-practices.md
+            - name: Procedure consigliate per le prestazioni
+              href: concept-performance-best-practices.md
         - name: Sviluppo di applicazioni
           items:
             - name: Panoramica dello sviluppo di applicazioni

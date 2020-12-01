@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e4f002d038820edf128e3fefb229a0918a8ac55
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703894"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433505"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Aggiungere o rimuovere una delega della subnet
 
@@ -36,7 +36,7 @@ Questa sezione illustra come creare una rete virtuale e la subnet da delegare in
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
@@ -60,21 +60,23 @@ In questa sezione si delega la subnet creata nella sezione precedente a un servi
 
 1. Nella barra di ricerca del portale, immettere *myVirtualNetwork*. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca.
 2. Nei risultati della ricerca selezionare *myVirtualNetwork*.
-3. Selezionare **subnet**in **Impostazioni**e quindi fare clic su subnet **.**
+3. Selezionare **subnet** in **Impostazioni** e quindi fare clic su subnet **.**
 4. *Nella pagina subnet* , per l'elenco **delega Subnet** , selezionare tra i servizi elencati in **Delega subnet a un servizio** (ad esempio, **Microsoft. DBforPostgreSQL/serversv2**).  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Rimuovere la delega della subnet da un servizio di Azure
 
 1. Nella barra di ricerca del portale, immettere *myVirtualNetwork*. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca.
 2. Nei risultati della ricerca selezionare *myVirtualNetwork*.
-3. Selezionare **subnet**in **Impostazioni**e quindi fare clic su subnet **.**
+3. Selezionare **subnet** in **Impostazioni** e quindi fare clic su subnet **.**
 4. Nella *pagina subnet,* per l'elenco **delega Subnet** , selezionare **nessuno** dai servizi elencati in **Delega subnet a un servizio**. 
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Preparare l'ambiente per l'interfaccia della riga di comando di Azure.
 
-Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure localmente, questo articolo richiede l'uso dell'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
@@ -177,7 +179,7 @@ L'output del comando è una parentesi null:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Connettiti ad Azure
+### <a name="connect-to-azure"></a>Connettersi ad Azure
 
 ```azurepowershell-interactive
   Connect-AzAccount

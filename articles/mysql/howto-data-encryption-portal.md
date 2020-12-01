@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dfc34699bb973dc1f5b74807043e9f208d64f4c
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 9de4a4534551c4a41b2c81c1d10fecf6118ff868
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242148"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434516"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Crittografia dei dati per database di Azure per MySQL usando il portale di Azure
 
@@ -34,11 +34,23 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Giorni di conservazione impostati su 90 giorni
+  
+    ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * La chiave deve avere gli attributi seguenti da usare come chiave gestita dal cliente:
   * Nessuna data di scadenza
   * Non disabilitato
-  * In grado di eseguire le operazioni Ottieni, Esegui il wrapping della chiave, Annulla il wrapping della chiave
+  * Eseguire operazioni **Get**, **Wrap** e **Unwrap**
+  * attributo recoverylevel impostato su **reversibile**.
+
+È possibile verificare gli attributi precedenti della chiave usando il comando seguente:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Impostare le autorizzazioni appropriate per le operazioni chiave
 
@@ -46,7 +58,7 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
-2. Selezionare **autorizzazioni chiave** e selezionare **Get** , **Wrap** , **Unwrap** e l' **entità** , ovvero il nome del server MySQL. Se non è possibile trovare l'entità server nell'elenco di entità esistenti, è necessario registrarla. Viene richiesto di registrare l'entità server quando si tenta di configurare la crittografia dei dati per la prima volta e l'operazione ha esito negativo.
+2. Selezionare **autorizzazioni chiave** e selezionare **Get**, **Wrap**, **Unwrap** e l' **entità**, ovvero il nome del server MySQL. Se non è possibile trovare l'entità server nell'elenco di entità esistenti, è necessario registrarla. Viene richiesto di registrare l'entità server quando si tenta di configurare la crittografia dei dati per la prima volta e l'operazione ha esito negativo.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Panoramica dei criteri di accesso":::
 
@@ -85,7 +97,7 @@ Una volta eseguita la crittografia di Database di Azure per MySQL con una chiave
 3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare **Data encryption**  >  **chiave di riconvalida** crittografia dati.
 
    > [!NOTE]
-   > Il primo tentativo di riconvalida avrà esito negativo perché l'entità servizio del nuovo server deve avere accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, selezionare **revalidate Key** , che visualizzerà un errore ma genera l'entità servizio. Successivamente, fare riferimento a [questi passaggi descritti](#set-the-right-permissions-for-key-operations) in precedenza in questo articolo.
+   > Il primo tentativo di riconvalida avrà esito negativo perché l'entità servizio del nuovo server deve avere accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, selezionare **revalidate Key**, che visualizzerà un errore ma genera l'entità servizio. Successivamente, fare riferimento a [questi passaggi descritti](#set-the-right-permissions-for-key-operations) in precedenza in questo articolo.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot del database di Azure per MySQL con il passaggio di riconvalida evidenziato":::
 

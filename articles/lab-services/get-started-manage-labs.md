@@ -3,12 +3,12 @@ title: Inizia a usare Azure Lab Services
 description: Questo articolo descrive come iniziare a usare Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917104"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434431"
 ---
 # <a name="get-started-with-lab-services"></a>Introduzione a Lab Services 
 
@@ -48,7 +48,7 @@ L'aspetto più importante da ricordare quando si gestiscono le macchine virtuali
 
 ### <a name="overview"></a>Panoramica
 
-I dashboard per i Lab della classe in Azure Lab Services offrono uno snapshot dei diversi aspetti di un determinato Lab, incluse le informazioni sulle VM, il numero di macchine virtuali assegnate e non assegnate, il numero di utenti registrati e non registrati e le informazioni sulle pianificazioni dei Lab. 
+I dashboard per i Lab in Azure Lab Services offrono uno snapshot dei diversi aspetti di un determinato Lab, incluse le informazioni sulle VM, il numero di macchine virtuali assegnate e non assegnate, il numero di utenti registrati e non registrati e le informazioni sulle pianificazioni dei Lab. 
 
 > [!NOTE]
 > Anche se la maggior parte degli aspetti amministrativi del dashboard e del [sito Web di Azure Lab Services](https://labs.azure.com/) sarà visibile agli insegnanti, le autorizzazioni specifiche per il ruolo potrebbero avere un effetto sulla possibilità di modificare determinati criteri nel dashboard. Se si verifica un problema con la configurazione del lab specifica, rivolgersi all'amministratore della CTE.
@@ -166,7 +166,7 @@ Una volta aggiunti gli utenti al Lab, è necessario registrarsi per accedere all
 
 Dopo aver invitato gli utenti o aver condiviso il collegamento, sarà possibile monitorare gli utenti che sono stati registrati correttamente nella pagina **utenti** della colonna **stato** . 
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se non si intende continuare a usare le risorse create in questa Guida introduttiva, eliminare le risorse.
 

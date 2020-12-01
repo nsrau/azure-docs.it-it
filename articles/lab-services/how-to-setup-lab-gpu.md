@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647937"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433989"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurare un Lab con macchine virtuali GPU
 
@@ -115,6 +115,6 @@ Seguire le istruzioni nella sezione "verificare l'installazione dei driver" di [
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 
-- [Creare e gestire i lab per le classi](how-to-manage-classroom-labs.md)
+- [Creazione e gestione di Lab](how-to-manage-classroom-labs.md)
 - [Tipo classe CAD (computer-aided design) SOLIDWORKs](class-type-solidworks.md)
 - [Tipo classe MATLAB (Matrix Laboratory)](class-type-matlab.md)

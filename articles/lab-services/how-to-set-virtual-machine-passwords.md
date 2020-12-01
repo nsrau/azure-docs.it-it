@@ -1,14 +1,14 @@
 ---
 title: Impostare le password per le macchine virtuali in Azure Lab Services | Microsoft Docs
-description: Informazioni su come impostare e reimpostare le password per le macchine virtuali (VM) in lab per le classi di Azure Lab Services.
+description: Informazioni su come impostare e reimpostare le password per le macchine virtuali (VM) in Labs of Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379690"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434227"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurare e gestire il pool di macchine virtuali 
 Questo articolo illustra come eseguire le attività seguenti:
@@ -102,4 +102,4 @@ L'autore del lab (docente) può connettersi alla macchina virtuale di uno studen
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle altre opzioni di utilizzo degli studenti che possono essere configurate dal proprietario del lab, vedere l'articolo seguente: [Configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).
 
-Per informazioni sul modo in cui gli studenti possono reimpostare le password per le proprie macchine virtuali, vedere [Impostare o reimpostare la password per le macchine virtuali nei lab per le classi (studenti)](how-to-set-virtual-machine-passwords-student.md).
+Per informazioni sul modo in cui gli studenti possono reimpostare le password per le proprie macchine virtuali, vedere [impostare o reimpostare la password per le macchine virtuali in Labs (Students)](how-to-set-virtual-machine-passwords-student.md).

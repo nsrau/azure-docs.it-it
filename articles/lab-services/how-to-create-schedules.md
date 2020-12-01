@@ -1,16 +1,16 @@
 ---
-title: Creare la pianificazione dei lab per le classi in Azure Lab Services | Microsoft Docs
-description: Informazioni su come creare le pianificazioni dei lab per le classi in Azure Lab Services in modo che le macchine virtuali nei lab vengano avviate e arrestate a un orario specificato.
+title: Creare una pianificazione per i Lab in Azure Lab Services | Microsoft Docs
+description: Informazioni su come creare pianificazioni per i Lab in Azure Lab Services in modo che le macchine virtuali nei Lab vengano avviate e arrestate a un orario specificato.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326440"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434026"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni per i Lab in Azure Lab Services 
 Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Le procedure seguenti illustrano i passaggi per creare e gestire le pianificazioni di lab per le classi: 
 
 > [!IMPORTANT]
@@ -77,4 +77,4 @@ Vedere gli articoli seguenti:
 - [Creare e gestire account lab come amministratore](how-to-manage-lab-accounts.md)
 - [Creare e gestire lab come proprietario](how-to-manage-classroom-labs.md)
 - [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
-- [Come utente di lab, accedere ai lab per le classi](how-to-use-classroom-lab.md)
+- [Come utente del Lab, Access Labs](how-to-use-classroom-lab.md)

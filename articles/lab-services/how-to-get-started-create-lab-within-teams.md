@@ -3,12 +3,12 @@ title: Per iniziare, creare un Lab Azure Lab Services all'interno di Team
 description: Scopri come iniziare a creare un Lab Azure Lab Services all'interno di un team.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217083"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433972"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Introduzione e creazione di un Lab di Lab Services nei team
 
@@ -40,18 +40,18 @@ Il proprietario del team può aggiungere **Azure Lab Services** app direttamente
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Aggiungere una scheda":::
-1. Selezionare un account di Lab Services che si desidera utilizzare per la creazione di Lab in aula in questo team. 
+1. Selezionare un account di Lab Services che si desidera utilizzare per la creazione di Lab in questo team. 
 
     Azure Lab Services USA Single Sign-On nel [sito web Azure Lab Services](https://labs.azure.com) ed esegue il pull di tutti gli account Lab a cui si ha accesso. 
 
-    Vengono visualizzati gli account che si trovano nello stesso tenant dei team e per i quali si dispone dell'accesso **proprietario**, **collaboratore**o **autore** . 
+    Vengono visualizzati gli account che si trovano nello stesso tenant dei team e per i quali si dispone dell'accesso **proprietario**, **collaboratore** o **autore** . 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Aggiungere una scheda":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Introduzione a ALS":::
 1. Premere **Save** e la scheda viene aggiunta al canale.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Aggiungere una scheda":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Creazione della scheda ALS":::
 
     È ora possibile selezionare la scheda **Azure Lab Services** dal canale e iniziare a gestire i Lab come descritto negli articoli seguenti.
 
@@ -63,7 +63,7 @@ Quando viene creato un Lab all'interno dei team, l'elenco degli utenti del Lab v
 
 [Gestire gli elenchi utenti di Lab Services nei team](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 
 Vedere anche gli articoli seguenti:
 

@@ -3,19 +3,19 @@ title: Configurare l'arresto automatico delle macchine virtuali per un Lab in Az
 description: Informazioni su come abilitare o disabilitare l'arresto automatico delle macchine virtuali al termine di una connessione desktop remota.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649882"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433931"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurare l'arresto automatico delle macchine virtuali per un Lab
 
 Questo articolo illustra come configurare l'arresto automatico delle macchine virtuali per un Lab.
 
 È possibile abilitare diverse funzionalità di controllo dei costi di arresto automatico per prevenire in modo proattivo i costi aggiuntivi quando le macchine virtuali non vengono usate attivamente. La combinazione delle tre funzionalità di arresto e disconnessione automatiche rileva la maggior parte dei casi in cui gli utenti lasciano accidentalmente le macchine virtuali in esecuzione:
- 
+ 
 * Disconnettere automaticamente gli utenti dalle macchine virtuali ritenute inattive dal sistema operativo.
 * Arresta automaticamente le macchine virtuali quando gli utenti si disconnettono.
 * Arrestare automaticamente le macchine virtuali avviate, ma gli utenti non si connettono.
@@ -40,4 +40,4 @@ Assicurarsi di esaminare i dettagli relativi all'arresto automatico nella sezion
 > Se si arresta il sistema operativo Linux o Windows in una macchina virtuale prima di disconnettere una sessione RDP alla macchina virtuale, la funzionalità di arresto automatico non funzionerà correttamente.  
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Dashboard per lab per le classi](use-dashboard.md)
+[Dashboard per Labs](use-dashboard.md)

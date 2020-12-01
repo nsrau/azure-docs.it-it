@@ -189,10 +189,13 @@
             - name: Archiviazione BLOB
               href: blob-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
+            - name: Hub eventi
+              href: event-hubs-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
             - name: Power BI
               href: powerbi-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
-            - name: Database SQL di Azure
+            - name: Azure SQL e Azure Synapse
               href: sql-database-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
         - name: Crittografare i dati

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f0546a76974e429b625ba03fdf4598da7d32c990
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433365"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -30,7 +30,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 | Nuovi acquisti e distribuzioni | Nessuna modifica. I clienti possono continuare l'acquisto e la distribuzione delle offerte senza interruzioni. |
 | Proventi | Eventuali acquisti e distribuzioni continueranno a essere pagati come di consueto. Scopri di più su [come ricevere pagamenti nel Marketplace commerciale](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integrazioni di API con [API del portale Cloud Partner esistenti](cloud-partner-portal-api-overview.md) | Le API di portale Cloud Partner esistenti sono ancora supportate e le integrazioni esistenti continuano a funzionare. Per altre informazioni, vedere l'articolo relativo alle [API REST di portale cloud partner.](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analisi | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>È necessario creare un nuovo account per gestire le offerte nel centro per i partner?
@@ -58,16 +58,16 @@ Queste sono le differenze nel report dei pagamenti tra il portale Cloud Partner 
 
 | Portale per Cloud Partner | Centro per i partner |
 | --- | --- |
-| **Link** : https://cloudpartner.azure.com/ | **Link** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory e https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation** : i report sui proventi sono disponibili in Insights Proventi | **Navigation** : i report sui proventi sono disponibili nel Centro per i partner - icona Proventi |
-| **Ambito** :<ul><li>È visibile la transazione per ogni voce per le riscossioni in corso, incassate e pagate.</li><li>Report: tutte le voci vengono visualizzate dopo la creazione dell'ordine d'acquisto, incluse le riscossioni e le fatturazioni in corso, lo stato della riscossione e le voci non ancora idonee per il pagamento.</li></ul> | **Ambito** :<ul><li>Visualizza le voci dopo che sono state dichiarate redditi idonei.</li><li>I clienti eseguono prima il pagamento a favore di Microsoft e quindi i fornitori di software indipendenti possono iniziare a vedere il report sui proventi.</li><li>Nel report sui proventi non vengono visualizzate le riscossioni e le fatturazioni in corso.</li></ul> |
-| **La transazione non è pronta per ricevere i proventi** : fatturazione in corso | **La transazione non è pronta per ricevere i proventi** : pagamento successivo stimato: i proventi sono nello stato non elaborato. |
-| **Stato dei proventi** : n/d | **Stato dei proventi** :<ul><li>Non elaborato: il reddito è idoneo al pagamento.</li><li>Imminente: il reddito verrà inviato all'editore nei proventi mensili successivi.</li><li>Inviato: il pagamento è stato inviato alla banca.</li></ul> |
+| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory e https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation**: i report sui proventi sono disponibili in Insights Proventi | **Navigation**: i report sui proventi sono disponibili nel Centro per i partner - icona Proventi |
+| **Ambito**:<ul><li>È visibile la transazione per ogni voce per le riscossioni in corso, incassate e pagate.</li><li>Report: tutte le voci vengono visualizzate dopo la creazione dell'ordine d'acquisto, incluse le riscossioni e le fatturazioni in corso, lo stato della riscossione e le voci non ancora idonee per il pagamento.</li></ul> | **Ambito**:<ul><li>Visualizza le voci dopo che sono state dichiarate redditi idonei.</li><li>I clienti eseguono prima il pagamento a favore di Microsoft e quindi i fornitori di software indipendenti possono iniziare a vedere il report sui proventi.</li><li>Nel report sui proventi non vengono visualizzate le riscossioni e le fatturazioni in corso.</li></ul> |
+| **La transazione non è pronta per ricevere i proventi**: fatturazione in corso | **La transazione non è pronta per ricevere i proventi**: pagamento successivo stimato: i proventi sono nello stato non elaborato. |
+| **Stato dei proventi**: n/d | **Stato dei proventi**:<ul><li>Non elaborato: il reddito è idoneo al pagamento.</li><li>Imminente: il reddito verrà inviato all'editore nei proventi mensili successivi.</li><li>Inviato: il pagamento è stato inviato alla banca.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Quali sono le offerte pubblicate nel portale Cloud Partner?
 
-Le offerte sono state spostate nel centro per i partner ed è possibile accedervi dopo aver effettuato l'accesso al centro per i partner, ad eccezione del servizio gestito di Dynamics NAV e delle offerte Cortana Intelligence. Se l'offerta è stata rilasciata nel Marketplace commerciale, continuerà a essere in diretta e i clienti continueranno a acquistarla e distribuirla senza interruzioni. Vedere la domanda successiva, **quali offerte sono state spostate nel centro per i partner?** , per altri dettagli.
+Le offerte sono state spostate nel centro per i partner ed è possibile accedervi dopo aver effettuato l'accesso al centro per i partner, ad eccezione del servizio gestito di Dynamics NAV e delle offerte Cortana Intelligence. Se l'offerta è stata rilasciata nel Marketplace commerciale, continuerà a essere in diretta e i clienti continueranno a acquistarla e distribuirla senza interruzioni. Vedere la domanda successiva, **quali offerte sono state spostate nel centro per i partner?**, per altri dettagli.
 
 ## <a name="what-offers-were-moved-to-partner-center"></a>Quali offerte sono state spostate nel centro per i partner?
 
@@ -79,7 +79,7 @@ Per i tipi di offerta supportati nel centro per i partner, tutte le offerte sono
 | --- | --- | --- |
 | SaaS | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [pianificare un'offerta SaaS per il Marketplace commerciale](plan-saas-offer.md). |
 | Macchina virtuale | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [pianificare un'offerta di macchina virtuale](marketplace-virtual-machines.md). |
-| Applicazione Azure | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di applicazione Azure](partner-center-portal/create-new-azure-apps-offer.md). |
+| Applicazione Azure | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di applicazione Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di Dynamics 365 business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 per Customer Engagement & PowerApps | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un Dynamics 365 per Customer Engagement & offerta PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
 | Dynamics 365 for Operations | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di Dynamics 365 per le operazioni](partner-center-portal/create-new-operations-offer.md). |
@@ -117,7 +117,7 @@ Se si fa parte di più account, nel centro per i partner verrà visualizzato un 
 
 ## <a name="how-do-i-create-new-offers"></a>Ricerca per categorie creare nuove offerte?
 
-Accedi al programma Commercial Marketplace nel [centro](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) per i partner per creare nuove offerte. Nella pagina Panoramica selezionare **+ nuova offerta** .
+Accedi al programma Commercial Marketplace nel [centro](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) per i partner per creare nuove offerte. Nella pagina Panoramica selezionare **+ nuova offerta**.
 
 [![Screenshot che mostra il menu Panoramica del centro per i partner.](media/cpp-pc-faq/new-offer.png "Visualizza il menu Panoramica del centro per i partner")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Se non è possibile accedere al proprio account, è possibile aprire un [ticket 
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Dove sono le istruzioni per l'uso del centro per i partner?
 
-Visitare la [documentazione del Marketplace commerciale](index.yml), quindi espandere il **portale del Marketplace commerciale nel centro per i partner** . Per visualizzare gli articoli della Guida per la creazione di offerte nel centro per i partner, espandere **creare una nuova offerta** .
+Visitare la [documentazione del Marketplace commerciale](index.yml), quindi espandere il **portale del Marketplace commerciale nel centro per i partner**. Per visualizzare gli articoli della Guida per la creazione di offerte nel centro per i partner, espandere **creare una nuova offerta**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Quali sono le differenze di gestione di pubblicazione e offerta?
 
@@ -135,7 +135,7 @@ Di seguito sono riportate alcune differenze tra il portale Cloud Partner e il ce
 
 ### <a name="modular-publishing-capabilities"></a>Funzionalità di pubblicazione modulari
 
-Il Centro per i partner offre un'opzione di pubblicazione modulare che consente di selezionare le modifiche da pubblicare anziché pubblicare sempre tutti gli aggiornamenti in una sola volta. Ad esempio, la schermata seguente mostra che le uniche modifiche selezionate per la pubblicazione sono le modifiche apportate alle **Proprietà** e all'  **elenco di offerte** . Le modifiche apportate nella pagina di anteprima non verranno pubblicate.
+Il Centro per i partner offre un'opzione di pubblicazione modulare che consente di selezionare le modifiche da pubblicare anziché pubblicare sempre tutti gli aggiornamenti in una sola volta. Ad esempio, la schermata seguente mostra che le uniche modifiche selezionate per la pubblicazione sono le modifiche apportate alle **Proprietà** e all'  **elenco di offerte**. Le modifiche apportate nella pagina di anteprima non verranno pubblicate.
 
 [![Screenshot che mostra la pagina di revisione e pubblicazione del centro per i partner.](media/cpp-pc-faq/review-page.png "Mostra la pagina di revisione e pubblicazione del centro per i partner")](media/cpp-pc-faq/review-page.png#lightbox)
 

@@ -1,14 +1,14 @@
 ---
-title: Configurare le impostazioni di utilizzo nei Lab della classe Azure Lab Services
+title: Configurare le impostazioni di utilizzo in Labs of Azure Lab Services
 description: Informazioni su come configurare il numero di studenti per un Lab, registrarli con il Lab, controllare il numero di ore per cui è possibile usare la macchina virtuale e altro ancora.
 ms.topic: article
 ms.date: 11/11/2020
-ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555720"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434550"
 ---
 # <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
 
@@ -20,7 +20,7 @@ In questa sezione gli studenti vengono aggiunti a un Lab manualmente o caricando
 
 1. Nel riquadro a sinistra selezionare **Users** (Utenti). 
 
-    Per impostazione predefinita, l'opzione **limita accesso** è attivata e, a meno che non si trovino nell'elenco degli utenti, gli studenti non possono registrarsi nel Lab anche se hanno un collegamento di registrazione. Solo gli utenti elencati possono registrarsi nel Lab usando il collegamento di registrazione inviato. In questa procedura si aggiungono utenti all'elenco. In alternativa, è possibile disabilitare l' **accesso restrict** , che consente agli studenti di registrarsi nel Lab purché dispongano del collegamento di registrazione. 
+    Per impostazione predefinita, l'opzione **limita accesso** è attivata e, a meno che non si trovino nell'elenco degli utenti, gli studenti non possono registrarsi nel Lab anche se hanno un collegamento di registrazione. Solo gli utenti elencati possono registrarsi nel Lab usando il collegamento di registrazione inviato. In questa procedura si aggiungono utenti all'elenco. In alternativa, è possibile disabilitare l' **accesso restrict**, che consente agli studenti di registrarsi nel Lab purché dispongano del collegamento di registrazione. 
 
 1. Nella parte superiore del riquadro **utenti** selezionare **Aggiungi utenti** e quindi selezionare **Aggiungi in base all'indirizzo di posta elettronica**. 
 
@@ -49,7 +49,7 @@ Un file di testo CSV viene usato per archiviare dati tabulari separati da virgol
 
     ![Elenco di utenti in un file CSV](./media/how-to-configure-student-usage/csv-file-with-users.png)
 
-1. Nella parte superiore del riquadro **utenti** selezionare **Aggiungi utenti** , quindi selezionare **carica CSV**.
+1. Nella parte superiore del riquadro **utenti** selezionare **Aggiungi utenti**, quindi selezionare **carica CSV**.
 
     ![Pulsante "carica CSV"](./media/how-to-configure-student-usage/upload-csv-button.png)
 
@@ -81,7 +81,7 @@ Questo metodo illustra come inviare messaggi di posta elettronica con un collega
 
 1. Nella finestra **Invia invito per messaggio di posta elettronica** immettere un messaggio facoltativo e quindi selezionare **Invia**. 
 
-    Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. Per ottenere e salvare separatamente il collegamento di registrazione, selezionare i puntini di sospensione ( **...** ) nella parte superiore del riquadro **utenti** , quindi selezionare **collegamento di registrazione**. 
+    Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. Per ottenere e salvare separatamente il collegamento di registrazione, selezionare i puntini di sospensione (**...**) nella parte superiore del riquadro **utenti** , quindi selezionare **collegamento di registrazione**. 
 
     ![Finestra "Invia collegamento di registrazione tramite posta elettronica"](./media/tutorial-setup-classroom-lab/send-email.png)
 
@@ -111,7 +111,7 @@ In questa sezione è possibile ottenere il collegamento di registrazione dal por
 
     ![Collegamento di registrazione dello studente](./media/how-to-configure-student-usage/registration-link-button.png)
 
-1. Nella finestra **registrazione utente** selezionare **copia** , quindi fare clic su **fine**. 
+1. Nella finestra **registrazione utente** selezionare **copia**, quindi fare clic su **fine**. 
 
     ![Finestra "registrazione utente"](./media/how-to-configure-student-usage/registration-link.png)
 
@@ -122,7 +122,7 @@ In questa sezione è possibile ottenere il collegamento di registrazione dal por
 ## <a name="view-registered-users"></a>Visualizzare gli utenti registrati
 
 1. Accedere al sito Web [Azure Lab Services](https://labs.azure.com) . 
-1. Selezionare **Sign in (accedi** ) e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft.
+1. Selezionare **Sign in (accedi**) e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft.
 1. Nella pagina **laboratori personali** selezionare il Lab di cui si vuole tenere traccia dell'utilizzo. 
 1. Nel riquadro sinistro selezionare **utenti** oppure selezionare il riquadro **utenti** . 
 
@@ -169,7 +169,7 @@ Per impostare quote aggiuntive, procedere come segue:
 Per aggiungere studenti a un Lab della classe, è possibile usare gli account di posta elettronica. Gli studenti potrebbero avere i seguenti tipi di account di posta elettronica:
 
 - Un account di posta elettronica per studenti fornito dall'istanza di Azure Active Directory dell'Università.
-- Un account di posta elettronica del dominio Microsoft, ad esempio *Outlook.com* , *hotmail.com* , *MSN.com* o *Live.com*.
+- Un account di posta elettronica del dominio Microsoft, ad esempio *Outlook.com*, *hotmail.com*, *MSN.com* o *Live.com*.
 - Un account di posta elettronica non Microsoft, ad esempio quello fornito da Yahoo! o Google. Tuttavia, questi tipi di account devono essere collegati con un account Microsoft.
 - Un account GitHub. Questo account deve essere collegato a un account Microsoft.
 
@@ -207,7 +207,7 @@ Se non hanno ancora collegato il proprio account GitHub a una account Microsoft,
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>Esportare un elenco di utenti in un file CSV
 
 1. Passare al riquadro **utenti** .
-1. Sulla barra degli strumenti, selezionare i puntini di sospensione ( **...** ) e quindi selezionare **Esporta CSV**. 
+1. Sulla barra degli strumenti, selezionare i puntini di sospensione (**...**) e quindi selezionare **Esporta CSV**. 
 
     ![Pulsante "Esporta CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
@@ -218,4 +218,4 @@ Vedere gli articoli seguenti:
 
 - Per gli amministratori: [creare e gestire gli account Lab](how-to-manage-lab-accounts.md)
 - Per i proprietari del Lab: [creare e gestire](how-to-manage-classroom-labs.md) Lab e [configurare e pubblicare modelli](how-to-create-manage-template.md)
-- Per gli utenti del Lab: [accedere ai laboratori della classe](how-to-use-classroom-lab.md)
+- Per gli utenti del Lab: [Access Labs](how-to-use-classroom-lab.md)

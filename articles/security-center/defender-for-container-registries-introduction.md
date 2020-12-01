@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529987"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310392"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
@@ -85,6 +85,8 @@ Sì. Se l'organizzazione deve ignorare un risultato invece di correggerlo, è po
 
 [Informazioni su come creare regole per disabilitare i risultati dello strumento integrato di valutazione delle vulnerabilità](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Perché il Centro sicurezza invia avvisi sulle vulnerabilità riguardanti un'immagine non presente nel registro?
+Il Centro sicurezza fornisce valutazioni sulle vulnerabilità per ogni immagine di cui è stato eseguito il push o il pull in un registro. Alcune immagini potrebbero riutilizzare i tag di un'immagine già analizzata. È ad esempio possibile riassegnare il tag "Ultima" ogni volta che si aggiunge un'immagine a un digest. In questi casi, l'ultima immagine precedente esiste ancora nel registro e il rispettivo digest potrebbe eseguirne il pull. Se per l'immagine sono disponibili risultati relativi alla sicurezza e ne viene eseguito il pull, verranno esposte vulnerabilità per la sicurezza.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,12 +3,12 @@ title: Usare Azure Lab Services per hackathon
 description: Questo articolo descrive come usare Azure Lab Services per la creazione di Lab che è possibile usare per l'esecuzione di gli hackathon.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445883"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434261"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Usare Azure Lab Services per il hackathon successivo
 Azure Lab Services è progettato per essere leggero e facile da usare, in modo che sia possibile creare rapidamente un nuovo Lab di macchine virtuali (VM) per la hackathon.  Usare l'elenco di controllo seguente per assicurarsi che il hackathon venga eseguito nel modo più semplice possibile. Questo elenco di controllo deve essere completato dal reparto IT o dai docenti responsabili della creazione e della gestione di hackathon Lab. 
@@ -41,7 +41,7 @@ Per usare i servizi Lab per la hackathon, assicurarsi che sia l'account Lab che 
 
     Quando si aggiungono utenti al Lab, è disponibile un'opzione limita accesso abilitata per impostazione predefinita. Questa funzionalità richiede l'aggiunta di tutti i messaggi di posta elettronica dei partecipanti di hackathon all'elenco prima che sia possibile registrarsi e accedere al Lab usando il collegamento di registrazione. Se si dispone di un hackathon in cui non si conoscono i partecipanti prima dell'evento, è possibile scegliere di disabilitare l'opzione limita accesso, che consente a chiunque di effettuare la registrazione al Lab usando il collegamento di registrazione. Per ulteriori informazioni, vedere la [Guida alle procedure](how-to-configure-student-usage.md#add-users-to-a-lab)per l'aggiunta di utenti.
 
-- **Verificare le impostazioni di pianificazione, quota e arresto**automatico. 
+- **Verificare le impostazioni di pianificazione, quota e arresto** automatico. 
 
     Lab Services offre diversi controlli dei costi per limitare l'utilizzo delle macchine virtuali. Tuttavia, se queste impostazioni non sono configurate correttamente, possono causare la chiusura imprevista delle macchine virtuali del Lab. Per assicurarsi che queste impostazioni siano configurate in modo appropriato per la hackathon, verificare le impostazioni seguenti:
 
@@ -86,4 +86,4 @@ Questa sezione descrive i passaggi per completare il giorno della hackathon.
         Per altre informazioni, vedere [Guida alle procedure per l'invio di inviti agli utenti e la](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) [connessione a VM Linux](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Iniziare con la creazione di un account lab nei lab per le classi seguendo le istruzioni riportate nell'articolo: [Esercitazione: Configurare un account lab con Azure Lab Services](tutorial-setup-lab-account.md).
+Iniziare con la creazione di un account Lab in Labs seguendo le istruzioni riportate nell'articolo: [esercitazione: configurare un account Lab con Azure Lab Services](tutorial-setup-lab-account.md).

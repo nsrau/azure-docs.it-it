@@ -13,7 +13,7 @@
       items:
         - name: Introduzione all'archiviazione BLOB
           href: storage-blobs-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Usare i BLOB
           items:
@@ -215,6 +215,8 @@
               href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ricerca full-text per i dati BLOB
               href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Usare l'inventario di BLOB per gestire i dati BLOB
+              href: blob-inventory.md
         - name: Migrazione dei dati
           items:
             - name: Confrontare le soluzioni di trasferimento dei dati
@@ -659,7 +661,7 @@
       items:
         - name: Introduzione a Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Analizzare i dati con Databricks
           href: data-lake-storage-quickstart-create-databricks-account.md

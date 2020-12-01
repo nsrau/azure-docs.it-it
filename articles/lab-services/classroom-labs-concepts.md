@@ -1,16 +1,16 @@
 ---
-title: Concetti sui lab per le classi - Azure Lab Services | Microsoft Docs
+title: Concetti di Labs-Azure Lab Services | Microsoft Docs
 description: Informazioni sui concetti di base di Lab Services e su come può semplificare la creazione e la gestione dei lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443707"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435519"
 ---
-# <a name="classroom-labs-concepts"></a>Concetti sui lab per le classi
+# <a name="labs-concepts"></a>Concetti di Labs
 
 L'elenco seguente contiene le definizioni e i concetti chiave di Lab Services:
 
@@ -48,7 +48,7 @@ L'amministratore IT delle risorse cloud aziendali che possiede la sottoscrizione
 
 ### <a name="educator"></a>Docente
 
-In genere, gli utenti con il ruolo di docente o trainer online creano i lab per le classi con un account lab. Il docente esegue le attività seguenti:
+In genere, gli utenti, ad esempio un insegnante o un trainer online, creano i Lab in un account Lab. Il docente esegue le attività seguenti:
 
 - Crea un lab per le classi.
 - Crea le macchine virtuali nel lab.

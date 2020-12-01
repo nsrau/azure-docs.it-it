@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: b7c4c0565d17e62226a518bc443223df8339faec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949378"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433192"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -70,8 +70,6 @@ Per riepilogo, il Punteggio sicuro viene visualizzato nei percorsi seguenti nell
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Il Punteggio sicuro nella pagina delle raccomandazioni del Centro sicurezza":::
 
-
-
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
 
 È possibile accedere al Punteggio tramite l'API per il Punteggio sicuro (attualmente in anteprima). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. Ad esempio, è possibile usare l' [API dei punteggi sicuri](/rest/api/securitycenter/securescores) per ottenere il punteggio per una sottoscrizione specifica. Inoltre, è possibile usare l' [API di controllo del Punteggio sicuro](/rest/api/securitycenter/securescorecontrols) per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
@@ -79,8 +77,6 @@ Per riepilogo, il Punteggio sicuro viene visualizzato nei percorsi seguenti nell
 ![Recupero di un singolo Punteggio sicuro tramite l'API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Per esempi di strumenti basati sull'API per il Punteggio sicuro, vedere [l'area di valutazione sicura della community di GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
-
-
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Ottieni il Punteggio sicuro da Azure Resource Graph (ARG)
 
@@ -114,13 +110,34 @@ Per accedere al Punteggio sicuro per più sottoscrizioni con ARG:
 
 1. Selezionare **Esegui query**.
 
+
+
+
+## <a name="tracking-your-secure-score-over-time"></a>Rilevamento del Punteggio sicuro nel tempo
+
+Se si è un utente Power BI con un account Pro, è possibile usare il **Punteggio sicuro nel tempo** Power BI Dashboard per tenere traccia del Punteggio sicuro nel tempo ed esaminare le modifiche.
+
+> [!TIP]
+> È possibile trovare questo dashboard, oltre ad altri strumenti per l'uso di a livello con punteggio sicuro nell'area dedicata della community del Centro sicurezza di Azure su GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+Il dashboard contiene i due report seguenti che consentono di analizzare lo stato di sicurezza:
+
+- **Riepilogo delle risorse** : fornisce dati riepilogati sull'integrità delle risorse.
+- **Riepilogo del Punteggio sicuro** : fornisce dati riepilogati relativi all'avanzamento del punteggio. Usare il grafico "Punteggio sicuro nel tempo per sottoscrizione" per visualizzare le modifiche apportate al punteggio. Se si nota un cambiamento significativo nel punteggio, controllare la tabella "modifiche rilevate che potrebbero influire sul punteggio sicuro" per le possibili modifiche che potrebbero avere causato la modifica. Questa tabella presenta le risorse eliminate, le risorse appena distribuite o le risorse per cui è stato modificato lo stato di sicurezza per una delle raccomandazioni.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Il dashboard Power bi facoltativo per il rilevamento del Punteggio sicuro nel tempo e l'analisi delle modifiche":::
+
+
+
+
+
 ## <a name="how-your-secure-score-is-calculated"></a>Calcolo del Punteggio sicuro 
 
 Il contributo di ogni controllo di sicurezza rispetto al punteggio di sicurezza complessivo viene visualizzato chiaramente nella pagina Consigli.
 
 [![Il punteggio di sicurezza migliorato introduce i controlli di sicurezza](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-Per ottenere tutti i punti possibili per un controllo di sicurezza, tutte le risorse devono essere conformi a tutte le raccomandazioni sulla sicurezza all'interno del controllo di sicurezza. Ad esempio, il Centro sicurezza offre più raccomandazioni su come proteggere le porte di gestione. In passato, era possibile correggere alcune di queste raccomandazioni correlate e interdipendenti lasciando inalterate le altre soluzioni e il punteggio di sicurezza sarebbe migliorato. Con un'osservazione obiettiva, era facile affermare che la sicurezza non migliorava fino a quando non venivano corrette tutte. Ora, è necessario correggerle tutte perché si possa notare un cambiamento a livello di punteggio di sicurezza.
+Per ottenere tutti i punti possibili per un controllo di sicurezza, tutte le risorse devono essere conformi a tutte le raccomandazioni sulla sicurezza all'interno del controllo di sicurezza. Ad esempio, il Centro sicurezza offre più raccomandazioni su come proteggere le porte di gestione. È necessario risolverli tutti per distinguere il Punteggio sicuro.
 
 Ad esempio, il controllo di sicurezza denominato "Applica gli aggiornamenti del sistema" ha un punteggio massimo di sei punti, che è possibile visualizzare nella descrizione comando sul valore di incremento potenziale del controllo:
 
@@ -137,9 +154,9 @@ Il punteggio massimo per il controllo Applica gli aggiornamenti del sistema, è 
 
 |Metrica|Formula ed esempio|
 |-|-|
-|**Punteggio corrente del controllo di sicurezza**|<br>![Equazione per il calcolo del punteggio corrente di un controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Ogni singolo controllo di sicurezza contribuisce a raggiungere il punteggio di sicurezza. Ogni risorsa interessata da una raccomandazione all'interno del controllo contribuisce al punteggio corrente del controllo. Il punteggio corrente per ogni controllo è una misura dello stato delle risorse *all'interno* del controllo.<br>![Descrizioni comando che mostrano i valori usati durante il calcolo del punteggio corrente del controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In questo esempio, il punteggio massimo di 6 viene diviso per 78 perché questa è la somma delle risorse integre e non integre.<br>6 / 78 = 0,0769<br>Moltiplicando questo valore per il numero di risorse integre (4) si ottiene il punteggio corrente:<br>0,0769 * 4 = **0,31**<br><br>|
-|**Punteggio di sicurezza**<br>Singola sottoscrizione|<br>![Equazione per il calcolo del punteggio di sicurezza corrente](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Punteggio di sicurezza di una singola sottoscrizione con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In questo esempio, è presente una singola sottoscrizione con tutti i controlli di sicurezza disponibili (punteggio massimo potenziale di 60 punti). Il punteggio mostra 28 punti su 60 possibili e i restanti 32 punti vengono riflessi nei valori di "Incremento potenziale del punteggio" dei controlli di sicurezza.<br>![Elenco di controlli e incremento potenziale del punteggio](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Punteggio di sicurezza**<br>Più sottoscrizioni|<br>Vengono aggiunti i punteggi correnti per tutte le risorse in tutte le sottoscrizioni e il calcolo corrisponde, quindi, a quello per una singola sottoscrizione.<br><br>Quando si visualizzano più sottoscrizioni, il punteggio di sicurezza valuta tutte le risorse all'interno dei criteri abilitati e raggruppa il loro effetto combinato sul punteggio massimo di ogni controllo di sicurezza.<br>![Punteggio di sicurezza di più sottoscrizioni con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Il punteggio combinato **non** è una media. Si tratta, piuttosto, della posizione valutata dello stato di tutte le risorse in tutte le sottoscrizioni.<br>Anche in questo caso, se si passa alla pagina Consigli e si aggiungono i punti potenziali disponibili, si noterà che si tratta della differenza tra il punteggio corrente (24) e il punteggio massimo disponibile (60).|
+|**Punteggio corrente del controllo di sicurezza**|<br>![Equazione per il calcolo del Punteggio di un controllo di sicurezza](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Ogni singolo controllo di sicurezza contribuisce a raggiungere il punteggio di sicurezza. Ogni risorsa interessata da una raccomandazione all'interno del controllo contribuisce al punteggio corrente del controllo. Il punteggio corrente per ogni controllo è una misura dello stato delle risorse *all'interno* del controllo.<br>![Descrizioni comando che mostrano i valori usati durante il calcolo del punteggio corrente del controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In questo esempio, il punteggio massimo di 6 viene diviso per 78 perché questa è la somma delle risorse integre e non integre.<br>6 / 78 = 0,0769<br>Moltiplicando questo valore per il numero di risorse integre (4) si ottiene il punteggio corrente:<br>0,0769 * 4 = **0,31**<br><br>|
+|**Punteggio di sicurezza**<br>Singola sottoscrizione|<br>![Equazione per il calcolo del Punteggio sicuro di una sottoscrizione](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Punteggio di sicurezza di una singola sottoscrizione con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In questo esempio, è presente una singola sottoscrizione con tutti i controlli di sicurezza disponibili (punteggio massimo potenziale di 60 punti). Il punteggio mostra 28 punti su 60 possibili e i restanti 32 punti vengono riflessi nei valori di "Incremento potenziale del punteggio" dei controlli di sicurezza.<br>![Elenco di controlli e incremento potenziale del punteggio](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Punteggio di sicurezza**<br>Più sottoscrizioni|<br>![Equazione per il calcolo del Punteggio sicuro per più sottoscrizioni](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Quando si calcola il punteggio combinato per più sottoscrizioni, il Centro sicurezza include un *peso* per ogni sottoscrizione. I pesi relativi per le sottoscrizioni sono determinati dal centro sicurezza in base a fattori quali il numero di risorse.<br>Il punteggio corrente per ogni sottoscrizione viene calcolato in modo analogo a quello di una singola sottoscrizione, ma il peso viene applicato come illustrato nell'equazione.<br>Quando si visualizzano più sottoscrizioni, il punteggio di sicurezza valuta tutte le risorse all'interno dei criteri abilitati e raggruppa il loro effetto combinato sul punteggio massimo di ogni controllo di sicurezza.<br>![Punteggio di sicurezza di più sottoscrizioni con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Il punteggio combinato **non** è una media. Si tratta, piuttosto, della posizione valutata dello stato di tutte le risorse in tutte le sottoscrizioni.<br>Anche in questo caso, se si passa alla pagina Consigli e si aggiungono i punti potenziali disponibili, si noterà che si tratta della differenza tra il punteggio corrente (24) e il punteggio massimo disponibile (60).|
 ||||
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Quali raccomandazioni sono incluse nei calcoli di valutazione sicura?
@@ -271,3 +288,4 @@ Questo articolo descrive il punteggio di sicurezza e i controlli di sicurezza in
 
 - [Learn about the different elements of a recommendation](security-center-recommendations.md) (Informazioni sui diversi elementi di una raccomandazione)
 - [Learn how to remediate recommendations](security-center-remediate-recommendations.md) (Informazioni su come correggere le raccomandazioni)
+- [Visualizza gli strumenti basati su GitHub per lavorare a livello di codice con un punteggio sicuro](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435451"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -90,10 +90,12 @@ Non è possibile usare smart card o l'autenticazione basata su certificato per a
 
 Se si creano utenti in:
 
-- **Active Directory locale** , è necessario sincronizzarli con Azure AD tramite [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD** , non sono necessarie altre configurazioni.
+- **Active Directory locale**, è necessario sincronizzarli con Azure AD tramite [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD**, non sono necessarie altre configurazioni.
 
 In locale gli UPN che sono diversi da Azure AD UPN non sono supportati nei dispositivi aggiunti Azure AD. Se gli utenti usano un UPN locali, è consigliabile valutare di passare all'uso dei rispettivi UPN primari in Azure AD.
+
+Le modifiche UPN sono supportate solo a partire dall'aggiornamento di Windows 10 2004. Gli utenti dei dispositivi con questo aggiornamento non avranno alcun problema dopo aver modificato il UPN. Per i dispositivi precedenti all'aggiornamento di Windows 10 2004, gli utenti avrebbero problemi di accesso condizionale e SSO nei propri dispositivi. Per risolvere il problema, è necessario che gli utenti accedano a Windows tramite il riquadro "altro utente" usando il nuovo UPN. 
 
 ## <a name="assess-your-device-management"></a>Valutazione della gestione dei dispositivi
 
@@ -116,8 +118,8 @@ La gestione dei dispositivi per Azure AD dispositivi aggiunti si basa su una pia
 
 Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 
-- **Solo MDM** : un dispositivo viene gestito in modo esclusivo da un provider MDM come Intune. Tutti i criteri vengono forniti come parte del processo di registrazione MDM. Per i clienti di Azure AD Premium o EMS, la registrazione MDM è un passaggio automatico integrato nell'aggiunta ad Azure AD.
-- **Co-gestione** : un dispositivo viene gestito da un provider MDM e da SCCM. In questo approccio l'agente SCCM è installato in un dispositivo gestito da MDM per l'amministrazione di determinati aspetti.
+- **Solo MDM**: un dispositivo viene gestito in modo esclusivo da un provider MDM come Intune. Tutti i criteri vengono forniti come parte del processo di registrazione MDM. Per i clienti di Azure AD Premium o EMS, la registrazione MDM è un passaggio automatico integrato nell'aggiunta ad Azure AD.
+- **Co-gestione**: un dispositivo viene gestito da un provider MDM e da SCCM. In questo approccio l'agente SCCM è installato in un dispositivo gestito da MDM per l'amministrazione di determinati aspetti.
 
 Se si usano criteri di gruppo, valutare l'oggetto Criteri di gruppo e la parità dei criteri MDM usando [criteri di gruppo Analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
 
@@ -187,13 +189,13 @@ La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il
 A partire dall'aggiornamento di Windows 10 2004, gli utenti possono anche usare desktop remoto da un dispositivo Windows 10 registrato Azure AD a un dispositivo Azure AD aggiunto. 
 
 ## <a name="understand-your-provisioning-options"></a>Identificazione delle opzioni di provisioning
-**Nota** : non è possibile distribuire Azure ad dispositivi aggiunti tramite l'utilità preparazione sistema (Sysprep) o strumenti di imaging simili
+**Nota**: non è possibile distribuire Azure ad dispositivi aggiunti tramite l'utilità preparazione sistema (Sysprep) o strumenti di imaging simili
 
 È possibile effettuare il provisioning dell'aggiunta ad Azure AD tramite gli approcci seguenti:
 
-- **Modalità self-service in Configurazione guidata/Impostazioni** : in modalità self-service gli utenti eseguono il processo di aggiunta ad Azure AD durante la Configurazione guidata o le impostazioni di Windows. Per altre informazioni, vedere [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](../user-help/user-help-join-device-on-network.md). 
-- **Windows Autopilot** : Windows Autopilot permette la preconfigurazione dei dispositivi per un'esperienza più uniforme in Configurazione guidata per l'esecuzione dell'aggiunta ad Azure AD. Per altre informazioni, vedere [Panoramica di Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Registrazione in blocco** : la registrazione in blocco permette un'aggiunta ad Azure AD eseguita da un amministratore tramite uno strumento di provisioning in blocco per configurare i dispositivi. Per altre informazioni, vedere [Registrazione in blocco per dispositivi Windows](/intune/windows-bulk-enroll).
+- **Modalità self-service in Configurazione guidata/Impostazioni**: in modalità self-service gli utenti eseguono il processo di aggiunta ad Azure AD durante la Configurazione guidata o le impostazioni di Windows. Per altre informazioni, vedere [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](../user-help/user-help-join-device-on-network.md). 
+- **Windows Autopilot**: Windows Autopilot permette la preconfigurazione dei dispositivi per un'esperienza più uniforme in Configurazione guidata per l'esecuzione dell'aggiunta ad Azure AD. Per altre informazioni, vedere [Panoramica di Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Registrazione in blocco**: la registrazione in blocco permette un'aggiunta ad Azure AD eseguita da un amministratore tramite uno strumento di provisioning in blocco per configurare i dispositivi. Per altre informazioni, vedere [Registrazione in blocco per dispositivi Windows](/intune/windows-bulk-enroll).
  
 Ecco un confronto di questi tre approcci 
  
@@ -243,7 +245,7 @@ Selezionare **Sì** se gli utenti devono eseguire l'autenticazione a più fattor
 
 Prima di poter configurare le impostazioni di mobilità, può essere necessario aggiungere un provider MDM.
 
-**Per aggiungere un provider MDM** :
+**Per aggiungere un provider MDM**:
 
 1. Nella sezione **Gestisci** della pagina **Azure Active Directory** fare clic su `Mobility (MDM and MAM)`. 
 1. Fare clic su **Aggiungi applicazione**.
@@ -261,8 +263,8 @@ Selezionare **In parte** o **Tutti** in base all'ambito della distribuzione.
 
 A seconda dell'ambito, si verifica una delle situazioni seguenti: 
 
-- **L'utente è incluso nell'ambito MDM** : se si ha una sottoscrizione Azure AD Premium, la registrazione MDM è un'operazione automatica che avviene durante l'aggiunta ad Azure AD. Tutti gli utenti con ambito devono avere una licenza appropriata per MDM. Se la registrazione MDM non riesce in questo scenario, viene eseguito il rollback anche dell'aggiunta ad Azure AD.
-- **Gli utenti non sono inclusi nell'ambito MDM** : se gli utenti non sono inclusi nell'ambito MDM, l'aggiunta ad Azure AD viene completata senza alcuna registrazione MDM. Questa situazione comporta un dispositivo non gestito.
+- **L'utente è incluso nell'ambito MDM**: se si ha una sottoscrizione Azure AD Premium, la registrazione MDM è un'operazione automatica che avviene durante l'aggiunta ad Azure AD. Tutti gli utenti con ambito devono avere una licenza appropriata per MDM. Se la registrazione MDM non riesce in questo scenario, viene eseguito il rollback anche dell'aggiunta ad Azure AD.
+- **Gli utenti non sono inclusi nell'ambito MDM**: se gli utenti non sono inclusi nell'ambito MDM, l'aggiunta ad Azure AD viene completata senza alcuna registrazione MDM. Questa situazione comporta un dispositivo non gestito.
 
 ### <a name="mdm-urls"></a>URL MDM
 
@@ -284,7 +286,7 @@ Il software MAM non si applica all'aggiunta ad Azure AD.
 
 Se si vuole abilitare Enterprise State Roaming in Azure AD in modo che gli utenti possano sincronizzare le impostazioni tra dispositivi, vedere [Abilitare Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Consiglio** : abilitare questa impostazione anche per i dispositivi aggiunti ad Azure AD ibrido.
+**Consiglio**: abilitare questa impostazione anche per i dispositivi aggiunti ad Azure AD ibrido.
 
 ## <a name="configure-conditional-access"></a>Configurare l'accesso condizionale
 

@@ -3,12 +3,12 @@ title: Azure Lab Services in Microsoft Teams
 description: Viene fornita una panoramica dell'utilizzo di Azure Lab Services in Microsoft teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047829"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433928"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services in Microsoft Teams
 
@@ -23,7 +23,7 @@ In questo articolo vengono illustrati i vantaggi derivanti dall'utilizzo di Azur
 
 Azure Lab Services integrazione con Microsoft teams consentirà agli educatori di configurare un ambiente di classe e fornire ambienti lab virtuali all'interno del team (classe): 
 
-* Gli educatori possono configurare laboratori in aula, in modo che gli studenti possano accedere alle proprie macchine virtuali da team, senza uscire dai team e passare al [sito web Azure Lab Services](https://labs.azure.com).
+* Gli educatori possono configurare i Lab in modo che gli studenti possano accedere alle proprie macchine virtuali da team, senza uscire dai team e passare al [sito web Azure Lab Services](https://labs.azure.com).
 * Single Sign-on (SSO) da team a Azure Lab Services.
 * I proprietari del team e del Lab non devono mantenere i registri delle classi in due sistemi diversi: l'elenco degli utenti del Lab viene popolato automaticamente dall'appartenenza al team e una sincronizzazione viene eseguita ogni 24 ore automaticamente. 
 * Dopo la pubblicazione iniziale della VM modello, la capacità del Lab (ovvero il numero di macchine virtuali nel Lab) viene regolata automaticamente in base all'aggiunta o all'eliminazione di utenti dall'appartenenza al team. 

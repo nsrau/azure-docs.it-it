@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -676,6 +676,8 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: Configurazione degli argomenti di JVM
                       href: app/java-standalone-arguments.md
+                    - name: Eseguire l'aggiornamento da 2.x
+                      href: app/java-standalone-upgrade-from-2x.md
             - name: Server locali
               items:
                 - name: ASP.NET

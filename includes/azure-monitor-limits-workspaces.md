@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028233"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356211"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -66,9 +66,9 @@ ms.locfileid: "96028233"
 
 **<a name="data-ingestion-volume-rate">Velocità del volume di inserimento dati</a>**
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo di isolare i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Nelle aree di lavoro viene definita una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi. Le dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Il limite della velocità del volume si applica a tutti i dati inseriti inviati dalle risorse di Azure che usano [Impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md), l'[API agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md) o gli agenti.
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo di isolare i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Nelle aree di lavoro viene definita una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi. Le dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Il limite di velocità del volume si applica ai dati inseriti da risorse di Azure tramite [Impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md). Quando viene raggiunto il limite di velocità del volume, un meccanismo di ripetizione dei tentativi prova a inserire i dati 4 volte in un periodo di 30 minuti e, se l'operazione non riesce, li rimuove. Ciò non si applica ai dati inseriti da [agenti](../articles/azure-monitor/platform/agents-overview.md) o dall'[API dell'agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md).
 
-Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento aprendo una richiesta di supporto. 
+Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore fintanto che la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento aprendo una richiesta di supporto. 
 
 Per creare regole di avviso in modo da ricevere notifiche proattive quando si raggiungono i limiti di inserimento dati, vedere [Monitorare l'integrità dell'area di lavoro Log Analytics in Monitoraggio di Azure](../articles/azure-monitor/platform/monitor-workspace.md).
 

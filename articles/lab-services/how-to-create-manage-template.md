@@ -3,12 +3,12 @@ title: Gestire un modello di un lab per le classi in Azure Lab Services | Micros
 description: Informazioni su come creare e gestire un modello di un lab per le classi in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f7c74f75de3d24acd01330910bf6ee3f8f18533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be84a05fd8b278f5176cd768191d10a20fc719e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445798"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434278"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
 Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello.
@@ -67,4 +67,4 @@ Vedere gli articoli seguenti:
 - [Creare e gestire account lab come amministratore](how-to-manage-lab-accounts.md)
 - [Creare e gestire lab come proprietario](how-to-manage-classroom-labs.md)
 - [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
-- [Come utente di lab, accedere ai lab per le classi](how-to-use-classroom-lab.md)
+- [Come utente del Lab, Access Labs](how-to-use-classroom-lab.md)

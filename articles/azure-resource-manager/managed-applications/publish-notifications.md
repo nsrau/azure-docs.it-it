@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec17b98daa8eca31cda076921288e2838960511
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86054526"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434533"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applicazioni gestite di Azure con notifiche
 
@@ -61,7 +61,7 @@ Per iniziare, vedere [pubblicare un'applicazione del catalogo di servizi tramite
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Aggiungere le notifiche delle applicazioni gestite di Azure Marketplace
-Per altre informazioni, vedere [creare un'offerta di applicazione Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Per altre informazioni, vedere [creare un'offerta di applicazione Azure](../../marketplace/create-new-azure-apps-offer.md).
 
 ![Notifiche delle applicazioni gestite di Azure Marketplace nel portale di Azure](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Trigger di evento
@@ -70,12 +70,12 @@ Nella tabella seguente vengono descritte tutte le possibili combinazioni di Even
 EventType | ProvisioningState | Trigger per la notifica
 ---|---|---
 PUT | Accettato | Il gruppo di risorse gestite è stato creato e proiettato correttamente dopo l'inserimento dell'applicazione (prima che la distribuzione all'interno del gruppo di risorse gestite venga avviata).
-PUT | Operazione riuscita | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
-PUT | Operazione non riuscita | Errore di inserimento del provisioning dell'istanza dell'applicazione in qualsiasi momento.
-PATCH | Operazione riuscita | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
+PUT | Completato | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
+PUT | Non riuscito | Errore di inserimento del provisioning dell'istanza dell'applicazione in qualsiasi momento.
+PATCH | Completato | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
 DELETE | Deleting | Non appena l'utente avvia un'eliminazione di un'istanza dell'app gestita.
 DELETE | Eliminata | Dopo l'eliminazione completa e corretta dell'applicazione gestita.
-DELETE | Operazione non riuscita | Dopo qualsiasi errore durante il processo di deprovisioning che blocca l'eliminazione.
+DELETE | Non riuscito | Dopo qualsiasi errore durante il processo di deprovisioning che blocca l'eliminazione.
 ## <a name="notification-schema"></a>Schema di notifica
 Quando si avvia l'endpoint del webhook per gestire le notifiche, è necessario analizzare il payload per ottenere proprietà importanti e quindi agire sulla notifica. Il catalogo di servizi e le notifiche delle applicazioni gestite di Azure Marketplace forniscono molte delle stesse proprietà. Nella tabella riportata di seguito vengono descritte due differenze minime.
 

@@ -47,6 +47,8 @@
           href: how-to-legacy-device-symm-key.md
         - name: Usare criteri di allocazione personalizzati
           href: tutorial-custom-allocation-policies.md
+        - name: Effettuare il provisioning di più dispositivi X.509
+          href: tutorial-custom-hsm-enrollment-group-x509.md
     - name: 2 - Effettuare il provisioning di dispositivi in più hub
       items:
         - name: Collegare più hub al servizio Device Provisioning

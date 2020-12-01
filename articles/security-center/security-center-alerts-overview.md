@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182309"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433020"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -91,7 +91,7 @@ Sono disponibili diverse opzioni per la visualizzazione degli avvisi all'esterno
 
 - **Scaricare il report CSV** nel dashboard degli avvisi fornisce un'esportazione monouso nel volume condiviso cluster.
 - L' **esportazione continua** da impostazioni & prezzi consente di configurare flussi di avvisi di sicurezza e raccomandazioni per log Analytics aree di lavoro e hub eventi. [Altre informazioni sull'esportazione continua](continuous-export.md)
-- Il **connettore Azure Sentinel** trasmette gli avvisi di Azure Defender dal centro sicurezza di Azure in Sentinel di Azure. [Altre informazioni sulla connessione del Centro sicurezza di Azure con Sentinel](../sentinel/connect-azure-security-center.md)
+- Il **connettore Azure Sentinel** trasmette gli avvisi di sicurezza dal centro sicurezza di Azure in Sentinel di Azure. [Altre informazioni sulla connessione del Centro sicurezza di Azure con Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

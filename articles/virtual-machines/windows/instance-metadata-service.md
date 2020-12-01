@@ -1,6 +1,6 @@
 ---
-title: Servizio metadati dell'istanza di Azure
-description: Interfaccia RESTful per ottenere informazioni sugli eventi di calcolo, di rete e di manutenzione imminenti delle macchine virtuali.
+title: Servizio metadati dell'istanza di Azure per Windows
+description: Informazioni sul servizio metadati dell'istanza di Azure e su come vengono fornite informazioni sulle istanze di macchine virtuali attualmente in esecuzione in Windows.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -11,38 +11,40 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 1de04a9486103af65deb6ca3b653b9efa6707716
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cc0d47807101a3cfbb26e7ea69cc7d117d3f9b31
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967075"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435230"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
-Il servizio metadati dell'istanza di Azure (IMDS) fornisce informazioni sulle istanze di macchine virtuali attualmente in esecuzione che possono essere usate per gestire e configurare le macchine virtuali.
+Il servizio metadati dell'istanza di Azure (IMDS) fornisce informazioni sulle istanze di macchine virtuali attualmente in esecuzione. È possibile usarlo per gestire e configurare le macchine virtuali.
 Queste informazioni includono lo SKU, l'archiviazione, le configurazioni di rete e gli eventi di manutenzione imminenti. Per un elenco completo dei dati disponibili, vedere [API dei metadati](#metadata-apis).
-Il servizio metadati dell'istanza è disponibile per l'esecuzione di istanze di macchine virtuali e set di scalabilità di macchine virtuali. Tutte le API supportano le VM create/gestite con [Azure Resource Manager](/rest/api/resources/). Solo gli endpoint di attestazione e di rete supportano le VM classiche (non ARM) ed è stato attestato solo in un extent limitato.
 
-IMDS di Azure è un endpoint REST disponibile a un indirizzo IP non instradabile noto ( `169.254.169.254` ), accessibile solo dall'interno della macchina virtuale. La comunicazione tra la macchina virtuale e IMDS non lascia mai l'host.
-È consigliabile fare in modo che i client HTTP ignorino i proxy Web all'interno della VM quando si esegue una query su IMDS e si considera `169.254.169.254` lo stesso [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
+
+IMDS è disponibile per l'esecuzione di istanze di macchine virtuali (VM) e di istanze del set di scalabilità di macchine virtuali. Tutte le API supportano le VM create e gestite con [Azure Resource Manager](/rest/api/resources/). Solo gli endpoint di rete e attestati supportano le macchine virtuali create usando il modello di distribuzione classica. L'endpoint attestato esegue questa operazione solo in un extent limitato.
+
+IMDS è un endpoint REST disponibile a un indirizzo IP noto e non instradabile ( `169.254.169.254` ). È possibile accedervi solo dall'interno della macchina virtuale. La comunicazione tra la macchina virtuale e IMDS non lascia mai l'host.
+Fare in modo che i client HTTP ignorino i proxy Web all'interno della VM durante l'esecuzione di query su IMDS e trattino `169.254.169.254` gli stessi di [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
 
 ## <a name="security"></a>Sicurezza
 
-L'endpoint del Servizio metadati dell'istanza è accessibile solo dall'istanza della macchina virtuale in esecuzione su un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con intestazione `X-Forwarded-For` viene rifiutata dal servizio.
-È necessario anche che le richieste includano l'intestazione `Metadata: true` per garantire che la richiesta sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
+L'endpoint IMDS è accessibile solo dall'interno dell'istanza di macchina virtuale in esecuzione in un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con un' `X-Forwarded-For` intestazione viene rifiutata dal servizio.
+Le richieste devono anche contenere un' `Metadata: true` intestazione, per garantire che la richiesta effettiva sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
 
 > [!IMPORTANT]
-> Il servizio metadati dell'istanza non è un canale per dati sensibili. L'endpoint è aperto a tutti i processi nella macchina virtuale. Le informazioni esposte tramite questo servizio devono essere considerate come informazioni condivise a tutte le applicazioni in esecuzione nella macchina virtuale.
+> IMDS non è un canale per i dati sensibili. L'endpoint è aperto a tutti i processi nella macchina virtuale. Prendere in considerazione le informazioni esposte tramite questo servizio come informazioni condivise per tutte le applicazioni in esecuzione all'interno della macchina virtuale.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
-### <a name="accessing-azure-instance-metadata-service"></a>Accesso al servizio metadati dell'istanza di Azure
+### <a name="access-azure-instance-metadata-service"></a>Accedere al servizio metadati dell'istanza di Azure
 
-Per accedere al servizio metadati dell'istanza, creare una macchina virtuale in [Azure Resource Manager](/rest/api/resources/) o nel [portale di Azure](https://portal.azure.com) e seguire questi esempi.
-Altri esempi sul modo di eseguire una query su IMDS sono disponibili in [Esempi di metadati dell'istanza di Azure](https://github.com/microsoft/azureimds).
+Per accedere a IMDS, creare una macchina virtuale da [Azure Resource Manager](/rest/api/resources/) o [portale di Azure](https://portal.azure.com)e usare gli esempi seguenti.
+Per altri esempi, vedere [esempi di metadati dell'istanza di Azure](https://github.com/microsoft/azureimds).
 
-Di seguito viene indicato il codice di esempio per recuperare tutti i metadati per un'istanza. Per accedere a un'origine dati specifica, vedere la sezione [API dei metadati](#metadata-apis). 
+Ecco il codice di esempio per recuperare tutti i metadati per un'istanza. Per accedere a un'origine dati specifica, vedere la sezione [API dei metadati](#metadata-apis) . 
 
 **Richiesta**
 
@@ -50,12 +52,12 @@ Di seguito viene indicato il codice di esempio per recuperare tutti i metadati p
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-09-01 | ConvertTo-Json
 ```
 > [!NOTE]
-> Il `-NoProxy` flag è disponibile solo in PowerShell 6 o versione successiva. È possibile omettere il flag se non si ha una configurazione del proxy.
+> Il `-NoProxy` flag è disponibile solo in PowerShell 6 o versioni successive. È possibile omettere il flag se non si ha una configurazione del proxy.
 
 **Risposta**
 
 > [!NOTE]
-> La risposta è una stringa JSON. La query REST viene reindirizzata tramite il `ConvertTo-Json` cmdlet per una stampa piuttosto semplice.
+> La risposta è una stringa JSON. Inviare tramite pipe la query REST tramite il `ConvertTo-Json` cmdlet per una stampa piuttosto semplice.
 
 ```json
 {
@@ -180,9 +182,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ### <a name="data-output"></a>Output dei dati
 
-
-Per impostazione predefinita, il Servizio metadati dell'istanza restituisce i dati in formato JSON (`Content-Type: application/json`). Tuttavia, alcune API sono in grado di restituire i dati in formati diversi, se necessario.
-La tabella seguente costituisce un riferimento per gli altri formati di dati che le API possono supportare.
+Per impostazione predefinita, IMDS restituisce i dati in formato JSON ( `Content-Type: application/json` ). Tuttavia, alcune API possono restituire dati in formati diversi, se richiesto.
+Nella tabella seguente sono elencati altri formati di dati che potrebbero essere supportati dalle API.
 
 API | Formato dati predefinito | Altri formati
 --------|---------------------|--------------
@@ -198,11 +199,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```
 
 > [!NOTE]
-> Per i nodi foglia in/Metadata/instance `format=json` non funziona. Per queste query `format=text` è necessario specificare in modo esplicito poiché il formato predefinito è JSON.
+> Per i nodi foglia in `/metadata/instance` , `format=json` non funziona. Per queste query, `format=text` deve essere specificato in modo esplicito perché il formato predefinito è JSON.
 
-### <a name="versioning"></a>Controllo delle versioni
+### <a name="version"></a>Version
 
-Il servizio metadati dell'istanza è associato a una versione e la specifica della versione API nella richiesta HTTP è obbligatoria.
+IMDS è con versione e la specifica della versione API nella richiesta HTTP è obbligatoria.
 
 Le versioni API supportate sono: 
 - 2017-03-01
@@ -227,14 +228,14 @@ Le versioni API supportate sono:
 - 2020-10-01
 
 > [!NOTE]
-> La versione 2020-10-01 è attualmente in fase di implementazione e potrebbe non essere ancora disponibile in ogni area.
+> La versione 2020-10-01 potrebbe non essere ancora disponibile in ogni area.
 
-Quando vengono aggiunte versioni più recenti, quelle precedenti rimangono comunque accessibili per la compatibilità, se gli script presentano dipendenze in formati di dati specifici.
+Quando vengono aggiunte nuove versioni, è comunque possibile accedere alle versioni precedenti per la compatibilità se gli script hanno dipendenze da formati di dati specifici.
 
-Quando non viene specificata alcuna versione, viene restituito un errore con un elenco delle versioni supportate più recenti.
+Quando non si specifica una versione, viene visualizzato un errore con un elenco delle versioni supportate più recenti.
 
 > [!NOTE]
-> La risposta è una stringa JSON. Nell'esempio seguente viene indicata la condizione di errore quando la versione non è specificata e la risposta è pretty-print per migliorare la leggibilità.
+> La risposta è una stringa JSON. Nell'esempio seguente viene indicata la condizione di errore quando la versione non è specificata. La risposta è abbastanza stampata per migliorare la leggibilità.
 
 **Richiesta**
 
@@ -257,57 +258,57 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ## <a name="metadata-apis"></a>API dei metadati
 
-Il servizio metadati contiene più API che rappresentano origini dati diverse.
+IMDS contiene più API che rappresentano origini dati diverse.
 
 API | Descrizione | Versione introdotta
 ----|-------------|-----------------------
-/attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
+/attested | Vedere [i dati attestati](#attested-data) | 2018-10-01
 /identity | Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 /instance | Vedere [API dell'istanza](#instance-api) | 2017-04-02
-/scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
+/scheduledevents | Vedere [gli eventi pianificati](scheduled-events.md) | 2017-08-01
 
 ## <a name="instance-api"></a>API dell'istanza
 
-API dell'istanza espone i metadati importanti per le istanze di macchina virtuale, tra cui la macchina virtuale, la rete e l'archiviazione. È possibile accedere categorie seguenti tramite instance/compute:
+API dell'istanza espone i metadati importanti per le istanze di macchina virtuale, tra cui la macchina virtuale, la rete e l'archiviazione. È possibile accedere alle categorie seguenti tramite `instance/compute` :
 
 Dati | Descrizione | Versione introdotta
 -----|-------------|-----------------------
-azEnvironment | Ambiente di Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
-customData | Questa funzionalità è attualmente disabilitata. Questa documentazione verrà aggiornata quando diventerà disponibile | 2019-02-01
-isHostCompatibilityLayerVm | Identifica se la macchina virtuale è in esecuzione nel livello di compatibilità dell'host | 2020-06-01
-licenseType | Tipo di licenza per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Si noti che questo è presente solo per le macchine virtuali abilitate per vantaggio Azure Hybrid | 2020-09-01
-posizione | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02
-name | Nome della VM | 2017-04-02
-offer | Offre informazioni per l'immagine di macchina virtuale ed è presente solo per le immagini distribuite dalla raccolta immagini di Azure | 2017-04-02
-osProfile.adminUsername | Specifica il nome dell'account amministratore | 2020-07-15
-osProfile. nomecomputer | Specifica il nome del computer | 2020-07-15
-osProfile. disablePasswordAuthentication | Specifica se l'autenticazione della password è disabilitata. Si noti che questa operazione è disponibile solo per le macchine virtuali Linux | 2020-10-01
-osType | Linux o Windows | 2017-04-02
-placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali | 2017-08-01
-piano | [Piano](/rest/api/compute/virtualmachines/createorupdate#plan) che contiene il nome, il prodotto e il server di pubblicazione per una macchina virtuale se si tratta di un'immagine di Azure Marketplace | 2018-04-02
-platformUpdateDomain |  [Dominio di aggiornamento](../manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
-platformFaultDomain | [Dominio di errore](../manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
-provider | Provider della macchina virtuale | 2018-10-01
-publicKeys | [Raccolta di chiavi pubbliche](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnate alla macchina virtuale e ai percorsi | 2018-04-02
-publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
-resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/management/overview.md) per la macchina virtuale | 2017-08-01
-resourceId | ID [completo](/rest/api/resources/resources/getbyid) della risorsa | 2019-03-11
-sku | SKU specifica per l'immagine della macchina virtuale | 2017-04-02
-securityProfile. della securebootenabled | Identifica se l'avvio protetto UEFI è abilitato nella macchina virtuale | 2020-06-01
-securityProfile.virtualTpmEnabled | Indica se la Trusted Platform Module virtuale (TPM) è abilitata nella macchina virtuale | 2020-06-01
-storageProfile | Vedere [Profilo di archiviazione](#storage-metadata) | 01/06/2019
-subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2017-08-01
-tags | [Tag](../../azure-resource-manager/management/tag-resources.md) per la macchina virtuale  | 2017-08-01
-tagsList | Tag formattati come matrice JSON per un'analisi più semplice a livello programmatico  | 2019-06-04
-version | Versione dell'immagine della macchina virtuale | 2017-04-02
-vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2017-04-02
-vmScaleSetName | [Nome del set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/overview.md) del proprio set di scalabilità di macchine virtuali | 2017-12-01
-vmSize | [Dimensioni macchina virtuale](../sizes.md) | 2017-04-02
-zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della macchina virtuale | 2017-12-01
+azEnvironment | Ambiente Azure in cui è in esecuzione la macchina virtuale. | 2018-10-01
+customData | Questa funzionalità è attualmente disabilitata. | 2019-02-01
+isHostCompatibilityLayerVm | Indica se la macchina virtuale è in esecuzione nel livello di compatibilità dell'host. | 2020-06-01
+licenseType | Tipo di licenza per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Si noti che questo è presente solo per le macchine virtuali abilitate per vantaggio Azure Hybrid. | 2020-09-01
+posizione | Area di Azure in cui è in esecuzione la macchina virtuale. | 2017-04-02
+name | Nome della macchina virtuale. | 2017-04-02
+offer | Offre informazioni per l'immagine della macchina virtuale. Questa operazione è disponibile solo per le immagini distribuite dalla raccolta immagini di Azure. | 2017-04-02
+osProfile.adminUsername | Specifica il nome dell'account amministratore. | 2020-07-15
+osProfile. nomecomputer | Specifica il nome del computer. | 2020-07-15
+osProfile. disablePasswordAuthentication | Specifica se l'autenticazione della password è disabilitata. Si noti che questa operazione è disponibile solo per le macchine virtuali Linux. | 2020-10-01
+osType | Linux o Windows. | 2017-04-02
+placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali. | 2017-08-01
+piano | [Piano](/rest/api/compute/virtualmachines/createorupdate#plan) contenente il nome, il prodotto e il server di pubblicazione per una macchina virtuale se si tratta di un'immagine di Azure Marketplace. | 2018-04-02
+platformUpdateDomain |  [Dominio di aggiornamento](../manage-availability.md) in cui è in esecuzione la macchina virtuale. | 2017-04-02
+platformFaultDomain | [Dominio di errore](../manage-availability.md) in cui è in esecuzione la macchina virtuale. | 2017-04-02
+provider | Provider della macchina virtuale. | 2018-10-01
+publicKeys | [Raccolta di chiavi pubbliche](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnate alla macchina virtuale e ai percorsi. | 2018-04-02
+publisher | Server di pubblicazione dell'immagine della macchina virtuale. | 2017-04-02
+resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/management/overview.md) per la macchina virtuale. | 2017-08-01
+resourceId | ID [completo della risorsa](/rest/api/resources/resources/getbyid) . | 2019-03-11
+sku | SKU specifico per l'immagine di macchina virtuale. | 2017-04-02
+securityProfile. della securebootenabled | Indica se l'avvio protetto UEFI è abilitato nella macchina virtuale. | 2020-06-01
+securityProfile.virtualTpmEnabled | Indica se il Trusted Platform Module virtuale (TPM) è abilitato nella macchina virtuale. | 2020-06-01
+storageProfile | Vedere [profilo di archiviazione](#storage-metadata). | 01/06/2019
+subscriptionId | Sottoscrizione di Azure per la macchina virtuale. | 2017-08-01
+tags | [Tag](../../azure-resource-manager/management/tag-resources.md) per la macchina virtuale.  | 2017-08-01
+tagsList | Tag formattati come matrice JSON per un'analisi più semplice a livello di codice.  | 2019-06-04
+version | Versione dell'immagine di macchina virtuale. | 2017-04-02
+vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) per la macchina virtuale. | 2017-04-02
+vmScaleSetName | Nome del set di scalabilità di [macchine virtuali](../../virtual-machine-scale-sets/overview.md) del set di scalabilità di macchine virtuali. | 2017-12-01
+vmSize | Vedere [dimensioni della macchina virtuale](../sizes.md). | 2017-04-02
+zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della macchina virtuale. | 2017-12-01
 
-### <a name="sample-1-tracking-vm-running-on-azure"></a>Esempio 1. Rilevamento della macchina virtuale in esecuzione in Azure
+### <a name="sample-1-track-a-vm-running-on-azure"></a>Esempio 1: tenere traccia di una macchina virtuale in esecuzione in Azure
 
-Come provider di servizi, potrebbe essere necessario tenere traccia del numero di macchine virtuali che eseguono il proprio software o avere agenti che devono verificare l'univocità della macchina virtuale. Per poter ottenere un ID univoco per una macchina virtuale, usare il campo `vmId` dal Servizio metadati dell'istanza.
+Come provider di servizi, potrebbe essere necessario tenere traccia del numero di macchine virtuali che eseguono il software o avere agenti che devono tenere traccia dell'univocità della VM. Per poter ottenere un ID univoco per una macchina virtuale, usare il `vmId` campo da IMDS.
 
 **Richiesta**
 
@@ -321,11 +322,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="sample-2-placement-of-containers-data-partitions-based-faultupdate-domain"></a>Esempio 2: Posizionamento di contenitori, dominio di aggiornamento/errore basato su partizioni dati
+### <a name="sample-2-placement-of-different-data-replicas"></a>Esempio 2: posizionamento di repliche di dati diverse
 
-Per alcuni scenari, il posizionamento di repliche dati diverse è di importanza primaria. Ad esempio per il [posizionamento delle repliche HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) o per il posizionamento di contenitori tramite un [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) è necessario conoscere il `platformFaultDomain` e il `platformUpdateDomain` in cui la macchina virtuale è in esecuzione.
+Per alcuni scenari, il posizionamento di repliche dati diverse è di importanza primaria. Ad esempio, il [posizionamento della replica](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) o il posizionamento del contenitore di HDFS tramite un agente di [orchestrazione](https://kubernetes.io/docs/user-guide/node-selection/) potrebbe richiedere la conoscenza di `platformFaultDomain` e `platformUpdateDomain` la macchina virtuale è in esecuzione in.
 Per prendere decisioni di questo tipo è anche possibile basarsi sulle [zone di disponibilità](../../availability-zones/az-overview.md) per le istanze.
-È possibile eseguire query su questi dati direttamente tramite il Servizio metadati dell'istanza.
+È possibile eseguire query su questi dati direttamente tramite IMDS.
 
 **Richiesta**
 
@@ -339,9 +340,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 0
 ```
 
-### <a name="sample-3-getting-more-information-about-the-vm-during-support-case"></a>Esempio 3: Ottenere altre informazioni sulla macchina virtuale durante la richiesta di assistenza
+### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>Esempio 3: ottenere altre informazioni sulla macchina virtuale durante il caso di supporto
 
-Come provider di servizi è possibile ricevere una chiamata di supporto per la quale occorre sapere altre informazioni sulla macchina virtuale. Chiedere al cliente di condividere i metadati di calcolo può risultare utile per avere informazioni di base che consentano al personale del supporto tecnico di conoscere il tipo di macchina virtuale in Azure.
+Come provider di servizi, è possibile ricevere una chiamata di supporto in cui si desidera ottenere altre informazioni sulla macchina virtuale. Chiedere al cliente di condividere i metadati di calcolo può essere utile in questo caso.
 
 **Richiesta**
 
@@ -454,9 +455,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 }
 ```
 
-### <a name="sample-4-getting-azure-environment-where-the-vm-is-running"></a>Esempio 4: Ottenere l'ambiente di Azure in cui è in esecuzione la macchina virtuale
+### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>Esempio 4: ottenere l'ambiente Azure in cui è in esecuzione la macchina virtuale
 
-Azure offre vari cloud sovrani, ad esempio [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/). In taluni casi, per alcune decisioni di runtime è necessario l'ambiente di Azure. L'esempio seguente illustra come è possibile ottenere questo comportamento.
+Azure dispone di diversi cloud sovrani, come [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/). In alcuni casi è necessario l'ambiente Azure per prendere decisioni in fase di esecuzione. L'esempio seguente illustra come è possibile ottenere questo comportamento.
 
 **Richiesta**
 
@@ -470,32 +471,32 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 AzurePublicCloud
 ```
 
-Il cloud e i valori dell'ambiente di Azure sono elencati di seguito.
+Il cloud e i valori dell'ambiente Azure sono elencati qui.
 
  Cloud   | Ambiente Azure
 ---------|-----------------
-[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Tutte le aree globali di Azure disponibili a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
 [21Vianet per Azure Cina](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ## <a name="network-metadata"></a>Metadati di rete 
 
-I metadati di rete fanno parte dell'API dell'istanza. Le categorie di rete seguenti sono disponibili tramite l'endpoint instance/network.
+I metadati di rete fanno parte dell'API dell'istanza. Le seguenti categorie di rete sono disponibili tramite l' `instance/network` endpoint.
 
 Dati | Descrizione | Versione introdotta
 -----|-------------|-----------------------
-ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
-ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
-subnet/address | Indirizzo della subnet della macchina virtuale | 2017-04-02
-subnet/prefix | Prefisso della subnet, ad esempio 24 | 2017-04-02
-ipv6/ipAddress | Indirizzo IPv6 locale della macchina virtuale | 2017-04-02
-macAddress | Indirizzo mac della macchina virtuale | 2017-04-02
+ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale. | 2017-04-02
+ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale. | 2017-04-02
+subnet/address | Indirizzo della subnet della macchina virtuale. | 2017-04-02
+subnet/prefix | Prefisso della subnet. Esempio: 24 | 2017-04-02
+ipv6/ipAddress | Indirizzo IPv6 locale della macchina virtuale. | 2017-04-02
+macAddress | Indirizzo MAC della macchina virtuale. | 2017-04-02
 
 > [!NOTE]
 > Tutte le risposte delle API sono stringhe JSON. Tutte le risposte di esempio che seguono sono di tipo pretty-print per una migliore leggibilità.
 
-#### <a name="sample-1-retrieving-network-information"></a>Esempio 1. Recupero delle informazioni di rete
+#### <a name="sample-1-retrieve-network-information"></a>Esempio 1: recuperare le informazioni di rete
 
 **Richiesta**
 
@@ -504,9 +505,6 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 ```
 
 **Risposta**
-
-> [!NOTE]
-> La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
 
 ```json
 {
@@ -536,7 +534,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```
 
-#### <a name="sample-2-retrieving-public-ip-address"></a>Esempio 2: Recupero dell'indirizzo IP pubblico
+#### <a name="sample-2-retrieve-public-ip-address"></a>Esempio 2: recuperare l'indirizzo IP pubblico
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
@@ -544,20 +542,20 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 ## <a name="storage-metadata"></a>Metadati di archiviazione
 
-I metadati di archiviazione fanno parte dell'API dell'istanza in un endpoint instance/compute/storageProfile.
+I metadati di archiviazione fanno parte dell'API dell'istanza, sotto l' `instance/compute/storageProfile` endpoint.
 Forniscono informazioni dettagliate sui dischi di archiviazione associati alla macchina virtuale. 
 
 Il profilo di archiviazione di una macchina virtuale è suddiviso in tre categorie: riferimento immagine, disco del sistema operativo e dischi dati.
 
-L'oggetto di riferimento immagine contiene le informazioni seguenti sull'immagine del sistema operativo:
+L'oggetto riferimento all'immagine contiene le seguenti informazioni sull'immagine del sistema operativo:
 
 Dati    | Descrizione
 --------|-----------------
 id      | ID risorsa
-offer   | Offerta dell'immagine della piattaforma o del marketplace
+offer   | Offerta della piattaforma o dell'immagine
 publisher | Editore immagine
 sku     | SKU dell'immagine
-version | Versione dell'immagine della piattaforma o del marketplace
+version | Versione della piattaforma o dell'immagine
 
 L'oggetto disco del sistema operativo contiene le informazioni seguenti sul disco del sistema operativo usato dalla macchina virtuale:
 
@@ -573,7 +571,7 @@ managedDisk | Parametri del disco gestito
 name    | Nome del disco
 osType  | Tipo di sistema operativo incluso nel disco
 vhd     | Disco rigido virtuale
-writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco
+writeAcceleratorEnabled | Indica se `writeAccelerator` il disco è abilitato o meno.
 
 L'array di dischi dati contiene un elenco di dischi dati collegati alla macchina virtuale. Ogni oggetto disco dati contiene le informazioni seguenti:
 
@@ -588,7 +586,7 @@ lun     | Numero di unità logica del disco
 managedDisk | Parametri del disco gestito
 name    | Nome del disco
 vhd     | Disco rigido virtuale
-writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco
+writeAcceleratorEnabled | Indica se `writeAccelerator` il disco è abilitato o meno.
 
 Nell'esempio seguente viene illustrato come eseguire una query sulle informazioni di archiviazione della macchina virtuale.
 
@@ -661,8 +659,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ## <a name="vm-tags"></a>Tag della macchina virtuale
 
-I tag delle macchine virtuali sono inclusi nell'endpoint instance/compute/tags dell'API.
-È possibile che i tag siano stati applicati alla macchina virtuale di Azure per essere organizzati in modo logico in una tassonomia. I tag assegnati a una macchina virtuale possono essere recuperati tramite la richiesta seguente.
+I tag delle macchine virtuali sono inclusi nell'endpoint dell'API dell'istanza `instance/compute/tags` .
+È possibile che i tag siano stati applicati alla macchina virtuale di Azure per organizzarli in modo logico in una tassonomia. È possibile recuperare i tag assegnati a una macchina virtuale usando la richiesta seguente.
 
 **Richiesta**
 
@@ -676,7 +674,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-Il campo `tags` è una stringa con i tag delimitati da punto e virgola. Questo output può essere un problema se i punti e virgola vengono usati nei tag stessi. Se viene scritto un parser per estrarre i tag a livello di codice, è consigliabile utilizzare il `tagsList` campo. Il `tagsList` campo è una matrice JSON senza delimitatori e, di conseguenza, più facile da analizzare.
+Il campo `tags` è una stringa con i tag delimitati da punto e virgola. Questo output può essere un problema se i punti e virgola vengono usati nei tag stessi. Se viene scritto un parser per estrarre i tag a livello di codice, è consigliabile utilizzare il `tagsList` campo. Il `tagsList` campo è una matrice JSON senza delimitatori e, di conseguenza, è più facile da analizzare.
 
 **Richiesta**
 
@@ -703,11 +701,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 ]
 ```
 
-## <a name="attested-data"></a>Dati con attestazione
+## <a name="attested-data"></a>Dati attestati
 
-Parte dello scenario gestito dal servizio metadati dell'istanza consiste nel garantire che i dati forniti provengano da Azure. Una parte di queste informazioni viene firmata, in modo da fornire una garanzia per le immagini del marketplace che l'immagine è in esecuzione in Azure.
+IMDS consente di garantire che i dati forniti provengano da Azure. Microsoft firma parte di queste informazioni, quindi è possibile verificare che un'immagine in Azure Marketplace sia quella in esecuzione in Azure.
 
-### <a name="sample-1-getting-attested-data"></a>Esempio 1. Recupero di dati con attestazione
+### <a name="sample-1-get-attested-data"></a>Esempio 1: ottenere i dati attestati
 
 > [!NOTE]
 > Tutte le risposte delle API sono stringhe JSON. Le risposte di esempio seguenti sono riformattate per offrire una migliore leggibilità.
@@ -719,15 +717,12 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```
 
 > [!NOTE]
-> A causa del meccanismo di memorizzazione nella cache di IMDS, è possibile che venga restituito un valore nonce precedentemente memorizzato nella cache.
+> A causa del meccanismo di memorizzazione nella cache di IMDS, `nonce` potrebbe essere restituito un valore precedentemente memorizzato nella cache.
 
-La versione dell'API è un campo obbligatorio. Vedere la [sezione sull'uso](#usage) per le versioni API supportate.
-Nonce è una stringa facoltativa di 10 cifre. Se non specificata, IMDS restituisce il timestamp UTC corrente al suo posto.
+`Api-version` è un campo obbligatorio. Vedere la [sezione sull'uso](#usage) per le versioni API supportate.
+`Nonce` è una stringa facoltativa di 10 cifre. Se non viene specificato, IMDS restituisce il timestamp UTC (Coordinated Universal Time) corrente al suo posto.
 
-**Risposta**
-
-> [!NOTE]
-> La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
+**Response**.
 
 ```json
 {
@@ -735,26 +730,28 @@ Nonce è una stringa facoltativa di 10 cifre. Se non specificata, IMDS restituis
 }
 ```
 
-Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ad alcuni dettagli specifici della VM. Per le macchine virtuali ARM sono inclusi vmId, SKU, nonce, subscriptionId, timeStamp per la creazione e la scadenza del documento e le informazioni del piano sull'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Per le macchine virtuali classiche (non ARM), è garantito il popolamento solo del vmId. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
+Il BLOB della firma è una versione con firma [PKCS7](https://aka.ms/pkcs7)del documento. Contiene il certificato usato per la firma, insieme ad alcuni dettagli specifici della VM. 
+
+Per le macchine virtuali create con Azure Resource Manager, sono incluse `vmId` ,, `sku` `nonce` , `subscriptionId` , per la `timeStamp` creazione e la scadenza del documento e le informazioni sul piano sull'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. 
+
+Per le macchine virtuali create con il modello di distribuzione classica, `vmId` è garantita solo la popolazione. È possibile estrarre il certificato dalla risposta e usarlo per verificare che la risposta sia valida e che provenga da Azure.
+
 Il documento contiene i campi seguenti:
 
-Data | Descrizione | Versione introdotta
+Dati | Descrizione | Versione introdotta
 -----|-------------|-----------------------
-licenseType | Tipo di licenza per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Si noti che questo è presente solo per le macchine virtuali abilitate per vantaggio Azure Hybrid | 2020-09-01
-nonce | Stringa che può essere fornita facoltativamente con la richiesta. Se non è stato specificato alcun parametro, viene usato il timestamp UTC corrente | 2018-10-01
+licenseType | Tipo di licenza per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Si noti che questo è presente solo per le macchine virtuali abilitate per vantaggio Azure Hybrid. | 2020-09-01
+nonce | Stringa che può essere fornita facoltativamente con la richiesta. Se non `nonce` è stato specificato alcun parametro, viene utilizzato il timestamp UTC (Coordinated Universal Time) corrente. | 2018-10-01
 piano | Il [piano immagine di Azure Marketplace](/rest/api/compute/virtualmachines/createorupdate#plan). Contiene l'ID del piano (nome), l'immagine del prodotto o l'offerta (prodotto) e l'ID editore (editore). | 2018-10-01
-timestamp/createdOn | Timestamp UTC del momento in cui è stato creato il documento firmato | 2018-20-01
-timestamp/expiresOn | Timestamp UTC per la scadenza del documento firmato | 2018-10-01
-vmId |  [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2018-10-01
-subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2019-04-30
-sku | SKU specifica per l'immagine della macchina virtuale | 2019-11-01
+timestamp/createdOn | Timestamp dell'ora UTC (Coordinated Universal Time) per la creazione del documento firmato. | 2018-20-01
+timestamp/expiresOn | Timestamp dell'ora UTC (Coordinated Universal Time) per la scadenza del documento firmato. | 2018-10-01
+vmId |  [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) per la macchina virtuale. | 2018-10-01
+subscriptionId | Sottoscrizione di Azure per la macchina virtuale. | 2019-04-30
+sku | SKU specifico per l'immagine di macchina virtuale. | 2019-11-01
 
-> [!NOTE]
-> Per le macchine virtuali classiche (non ARM), è garantito il popolamento solo del vmId.
+### <a name="sample-2-validate-that-the-vm-is-running-in-azure"></a>Esempio 2: verificare che la macchina virtuale sia in esecuzione in Azure
 
-### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Esempio 2: Verifica dell'esecuzione della macchina virtuale in Azure
-
-I fornitori di Marketplace vogliono garantire che il software venga concesso in licenza solo per l'esecuzione in Azure. È necessario un modo per rilevare se qualcuno copia il disco rigido virtuale in locale. Con una chiamata al servizio metadati dell'istanza, i fornitori di Marketplace possono ottenere i dati firmati che garantiscono la provenienza della risposta solo da Azure.
+I fornitori di Azure Marketplace vogliono garantire che il software sia concesso in licenza per l'esecuzione solo in Azure. Se un utente copia il disco rigido virtuale in un ambiente locale, il fornitore deve essere in grado di rilevarlo. Tramite IMDS, questi fornitori possono ottenere dati firmati che garantiscono la risposta solo da Azure.
 
 ```powershell
 # Get the signature
@@ -787,43 +784,45 @@ $json = $content | ConvertFrom-Json
 ```
 
 > [!NOTE]
-> A causa del meccanismo di memorizzazione nella cache di IMDS, è possibile che venga restituito un valore nonce precedentemente memorizzato nella cache.
+> A causa del meccanismo di memorizzazione nella cache di IMDS, `nonce` potrebbe essere restituito un valore precedentemente memorizzato nella cache.
 
-Il parametro nonce nel documento firmato può essere confrontato se è stato specificato un parametro nonce nella richiesta iniziale.
+Nel `nonce` documento firmato può essere confrontato se è stato specificato un `nonce` parametro nella richiesta iniziale.
 
 > [!NOTE]
 > Il certificato per il cloud pubblico e ogni cloud sovrano sarà diverso.
 
 Cloud | Certificato
 ------|------------
-[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+[Tutte le aree globali di Azure disponibili a livello generale](https://azure.microsoft.com/regions/) | *.metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)          | *.metadata.azure.us
 [21Vianet per Azure Cina](https://azure.microsoft.com/global-infrastructure/china/)     | *.metadata.azure.cn
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                | *.metadata.microsoftazure.de
 
 > [!NOTE]
-> Esiste un problema noto relativo al certificato usato per la firma. I certificati possono non corrispondere esattamente a `metadata.azure.com` per il cloud pubblico. Di conseguenza, la convalida della certificazione deve consentire un nome comune da qualsiasi sottodominio `.metadata.azure.com`.
+> I certificati potrebbero non corrispondere esattamente `metadata.azure.com` a per il cloud pubblico. Per questo motivo, la convalida della certificazione dovrebbe consentire un nome comune da qualsiasi `.metadata.azure.com` sottodominio.
 
-Nei casi in cui non sia possibile scaricare il certificato intermedio a causa di vincoli di rete durante la convalida, il certificato intermedio può essere aggiunto. Azure tuttavia eseguirà il rollover dei certificati in base alle procedure standard di infrastruttura a chiave pubblica. I certificati aggiunti devono essere aggiornati quando viene eseguito il rollover. Ogni volta che viene pianificata una modifica per l'aggiornamento del certificato intermedio, il blog di Azure verrà aggiornato e i clienti di Azure riceveranno una notifica. I certificati intermedi sono disponibili [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). I certificati intermedi per ognuna delle aree possono essere diversi.
+Nei casi in cui non è possibile scaricare il certificato intermedio a causa di vincoli di rete durante la convalida, è possibile aggiungere il certificato intermedio. Si noti che Azure esegue il rollup dei certificati, ovvero la pratica PKI standard. È necessario aggiornare i certificati aggiunti quando si verifica il rollover. Ogni volta che viene pianificata una modifica per l'aggiornamento del certificato intermedio, il Blog di Azure viene aggiornato e i clienti di Azure ricevono una notifica. 
+
+È possibile trovare i certificati intermedi nel [repository PKI](https://www.microsoft.com/pki/mscorp/cps/default.htm). I certificati intermedi per ognuna delle aree possono essere diversi.
 
 > [!NOTE]
-> Il certificato intermedio per 21Vianet per Azure Cina proverrà da DigiCert Global Root CA anziché da Baltimora.
-Se sono stati aggiunti i certificati intermedi per Azure Cina come parte della modifica dell'autorità della catena radice, sarà necessario aggiornare i certificati intermedi.
+> Il certificato intermedio per Azure Cina 21Vianet è dalla CA radice globale DigiCert anziché da Baltimora.
+Se sono stati aggiunti i certificati intermedi per Azure Cina come parte di una modifica dell'autorità di catena principale, è necessario aggiornare i certificati intermedi.
 
 ## <a name="failover-clustering-in-windows-server"></a>Clustering di failover in Windows Server
 
-Per determinati scenari di esecuzione di query sul servizio metadati dell'istanza con clustering di failover, è necessario aggiungere una route alla tabella di routing.
+Quando si esegue una query su IMDS con il clustering di failover, è talvolta necessario aggiungere una route alla tabella di routing. Ecco come:
 
 1. Aprire un prompt dei comandi con privilegi di amministratore.
 
-1. Eseguire il comando seguente e prendere nota dell'indirizzo dell'interfaccia per la destinazione di rete (`0.0.0.0`) nella tabella di route IPv4.
+1. Eseguire il comando seguente e prendere nota dell'indirizzo dell'interfaccia per la destinazione di rete ( `0.0.0.0` ) nella tabella di route IPv4.
 
 ```bat
 route print
 ```
 
 > [!NOTE]
-> L'output di esempio seguente da una macchina virtuale Windows Server con il cluster di failover abilitato contiene solo la tabella di route IPv4 per motivi di semplicità.
+> L'output di esempio seguente è da una macchina virtuale Windows Server con cluster di failover abilitato. Per semplicità, l'output contiene solo la tabella di route IPv4.
 
 ```text
 IPv4 Route Table
@@ -848,29 +847,29 @@ Network Destination        Netmask          Gateway       Interface  Metric
   255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
 ```
 
-Eseguire il comando seguente e usare l'indirizzo dell'interfaccia per la destinazione di rete (`0.0.0.0`) che è (`10.0.1.10`) in questo esempio.
+Eseguire il comando seguente e usare l'indirizzo dell'interfaccia per la destinazione di rete ( `0.0.0.0` ), ovvero ( `10.0.1.10` ) in questo esempio.
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-## <a name="managed-identity-via-metadata-service"></a>Identità gestita tramite il servizio metadati
+## <a name="managed-identity"></a>Identità gestita
 
-Un'identità gestita assegnata dal sistema può essere abilitata nella macchina virtuale oppure è possibile assegnare una o più identità gestite assegnate dall'utente alla macchina virtuale.
-I token per le identità gestite possono quindi essere richiesti dal servizio metadati dell'istanza. Questi token possono essere usati per l'autenticazione con altri servizi di Azure, ad esempio Azure Key Vault.
+Un'identità gestita, assegnata dal sistema, può essere abilitata nella macchina virtuale. È anche possibile assegnare una o più identità gestite assegnate dall'utente alla macchina virtuale.
+È quindi possibile richiedere token per le identità gestite da IMDS. Usare questi token per eseguire l'autenticazione con altri servizi di Azure, ad esempio Azure Key Vault.
 
 Per i passaggi dettagliati per abilitare questa funzionalità, vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="scheduled-events-via-metadata-service"></a>Eventi pianificati tramite il servizio metadati
-È possibile ottenere lo stato degli eventi pianificati tramite il servizio metadati, quindi l'utente può specificare un set di azioni da eseguire su questi eventi.  Per informazioni dettagliate, vedere [Eventi pianificati](scheduled-events.md). 
+## <a name="scheduled-events"></a>Eventi pianificati
+È possibile ottenere lo stato degli eventi pianificati usando IMDS. L'utente può quindi specificare un set di azioni da eseguire su questi eventi. Per ulteriori informazioni, vedere [eventi pianificati](scheduled-events.md). 
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-Il servizio è **disponibile** a livello generale in tutti i cloud di Azure.
+Il servizio è disponibile a livello generale in tutti i cloud di Azure.
 
 ## <a name="sample-code-in-different-languages"></a>Codice di esempio in linguaggi diversi
 
-Esempi di chiamate al servizio metadati con diversi linguaggi all'interno della macchina virtuale
+La tabella seguente elenca esempi di chiamata a IMDS usando linguaggi diversi all'interno della macchina virtuale:
 
 Linguaggio      | Esempio
 --------------|----------------
@@ -886,42 +885,57 @@ Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
-## <a name="error-and-debugging"></a>Errori e debug
+## <a name="errors-and-debugging"></a>Errori e debug
 
-In caso di elementi dati non trovati o di richiesta non valida, il Servizio metadati dell'istanza restituisce errori HTTP standard. Ad esempio:
+Se è presente un elemento dati non trovato o una richiesta in formato non valido, IMDS restituisce errori HTTP standard. Ad esempio:
 
 Codice di stato HTTP | Motivo
 -----------------|-------
 200 - OK |
-400 - Richiesta non valida | Manca `Metadata: true` l'intestazione o il parametro mancante `format=json` quando si esegue una query su un nodo foglia
-404 - Non trovato  | L'elemento richiesto non esiste
-405 - Metodo non consentito | Sono supportate solo le richieste `GET`
-410 - Non disponibile | Riprovare tra qualche istante per un massimo di 70 secondi
-429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
-500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
+400 - Richiesta non valida | `Metadata: true`Intestazione mancante o parametro mancante `format=json` durante l'esecuzione di una query su un nodo foglia.
+404 - Non trovato  | L'elemento richiesto non esiste.
+405 - Metodo non consentito | `GET`Sono supportate solo le richieste.
+410 - Non disponibile | Riprovare tra qualche istante per un massimo di 70 secondi.
+429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo.
+500 - Errore del servizio     | Riprovare tra qualche minuto.
 
-### <a name="known-issues-and-faq"></a>Problemi noti e domande frequenti
+### <a name="frequently-asked-questions"></a>Domande frequenti
 
-1. Viene visualizzato l'errore `400 Bad Request, Required metadata header not specified`. Che cosa significa?
-   * Il Servizio metadati dell'istanza richiede che nella richiesta venga passata l'intestazione `Metadata: true`. Il passaggio di questa intestazione nella chiamata REST consente l'accesso al Servizio metadati dell'istanza.
-1. Perché non riesco a ottenere le informazioni di calcolo per la macchina virtuale?
-   * Attualmente il Servizio metadati dell'istanza supporta solo le istanze create con Azure Resource Manager.
-1. Ho creato la mia macchina virtuale tramite Azure Resource Manager tempo fa. Perché non riesco a vedere le informazioni sui metadati di calcolo?
-   * Per tutte le macchine virtuali create dopo settembre 2016, è necessario aggiungere un [Tag](../../azure-resource-manager/management/tag-resources.md) per iniziare a essere visualizzare i metadati di calcolo. Per le VM precedenti (create prima del Sep 2016), aggiungere o rimuovere estensioni o dischi dati nelle istanze di macchina virtuale per aggiornare i metadati.
-1. Non vengono visualizzati tutti i dati popolati per la nuova versione
-   * Per tutte le macchine virtuali create dopo settembre 2016, è necessario aggiungere un [Tag](../../azure-resource-manager/management/tag-resources.md) per iniziare a essere visualizzare i metadati di calcolo. Per le VM precedenti (create prima del Sep 2016), aggiungere o rimuovere estensioni o dischi dati nelle istanze di macchina virtuale per aggiornare i metadati.
-1. Perché viene ricevuto l'errore `500 Internal Server Error` o `410 Resource Gone` ?
-   * Ripetere la richiesta in base al sistema di backup esponenziale o ad altri metodi descritti in [gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults). Se il problema persiste, creare un problema di supporto in portale di Azure per la macchina virtuale.
-1. Questo funziona per le istanze del set di scalabilità di macchine virtuali?
-   * Sì, il servizio metadati è disponibile per le istanze del set di scalabilità.
-1. I tag sono stati aggiornati nei set di scalabilità di macchine virtuali, ma non vengono visualizzati nelle istanze a differenza delle VM a istanza singola?
-   * Attualmente i tag per i set di scalabilità mostrano solo alla macchina virtuale il riavvio, la ricreazione dell'immagine o la modifica del disco nell'istanza.
-1. Ricevo il timeout della richiesta per la chiamata del servizio?
-   * Le chiamate ai metadati devono essere effettuate dall'indirizzo IP primario assegnato alla scheda di rete primaria della macchina virtuale. Inoltre, nel caso in cui siano state modificate le route, è necessario che sia presente una route per l'indirizzo 169.254.169.254/32 nella tabella di routing locale della macchina virtuale.
+**Ricevo l'errore `400 Bad Request, Required metadata header not specified` . Cosa significa?**
+
+IMDS richiede che l'intestazione `Metadata: true` venga passata nella richiesta. Il passaggio di questa intestazione nella chiamata REST consente l'accesso a IMDS.
+
+**Perché non riesco a ottenere le informazioni di calcolo per la macchina virtuale?**
+
+Attualmente, IMDS supporta solo le istanze create con Azure Resource Manager.
+
+**La macchina virtuale è stata creata tramite Azure Resource Manager tempo fa. Perché non si vedono le informazioni sui metadati di calcolo?**
+
+Se la macchina virtuale è stata creata dopo il 2016 settembre, aggiungere un [tag](../../azure-resource-manager/management/tag-resources.md) per iniziare a visualizzare i metadati di calcolo. Se la macchina virtuale è stata creata prima del 2016 settembre, aggiungere o rimuovere estensioni o dischi dati nell'istanza di macchina virtuale per aggiornare i metadati.
+
+**Perché non vengono visualizzati tutti i dati popolati per una nuova versione?**
+
+Se la macchina virtuale è stata creata dopo il 2016 settembre, aggiungere un [tag](../../azure-resource-manager/management/tag-resources.md) per iniziare a visualizzare i metadati di calcolo. Se la macchina virtuale è stata creata prima del 2016 settembre, aggiungere o rimuovere estensioni o dischi dati nell'istanza di macchina virtuale per aggiornare i metadati.
+
+**Perché viene ricevuto l'errore `500 Internal Server Error` o `410 Resource Gone` ?**
+
+Ripetere la richiesta. Per ulteriori informazioni, vedere [gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults). Se il problema persiste, creare un problema di supporto nella portale di Azure per la macchina virtuale.
+
+**Questo funziona per le istanze del set di scalabilità di macchine virtuali?**
+
+Sì, IMDS è disponibile per le istanze del set di scalabilità di macchine virtuali.
+
+**I tag sono stati aggiornati nei set di scalabilità di macchine virtuali, ma non vengono visualizzati nelle istanze (a differenza delle macchine virtuali a istanza singola). Si è verificato un errore?**
+
+Attualmente i tag per i set di scalabilità di macchine virtuali vengono visualizzati solo alla macchina virtuale al riavvio, alla ricreazione dell'immagine o alla modifica del disco nell'istanza.
+
+**Perché si è verificato un timeout della richiesta per la chiamata al servizio?**
+
+Le chiamate ai metadati devono essere effettuate dall'indirizzo IP primario assegnato alla scheda di rete primaria della macchina virtuale. Inoltre, se sono state modificate le route, è necessario che sia presente una route per l'indirizzo 169.254.169.254/32 nella tabella di routing locale della macchina virtuale.
    * <details>
         <summary>Verifica della tabella di routing</summary>
 
-        1. Esegui il dump della tabella di routing locale e cerca la voce IMDS, ad esempio:
+        1. Esegui il dump della tabella di routing locale e cerca la voce IMDS. Ad esempio:
             ```console
             > route print
             IPv4 Route Table
@@ -936,7 +950,7 @@ Codice di stato HTTP | Motivo
               169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
             ... (continues) ...
             ```
-        1. Verificare che esista una route per `169.254.169.254` e annotare l'interfaccia di rete corrispondente (ad esempio `172.16.69.7` ).
+        1. Verificare che esista una route per `169.254.169.254` e annotare l'interfaccia di rete corrispondente (ad esempio, `172.16.69.7` ).
         1. Eseguire il dump della configurazione dell'interfaccia e trovare l'interfaccia che corrisponde a quella a cui viene fatto riferimento nella tabella di routing, annotando l'indirizzo MAC (fisico).
             ```console
             > ipconfig /all
@@ -953,7 +967,7 @@ Codice di stato HTTP | Motivo
                Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-        1. Verificare che l'interfaccia corrisponda alla scheda di interfaccia di rete primaria e all'indirizzo IP primario della macchina virtuale. È possibile trovare la scheda di interfaccia di rete/IP primaria esaminando la configurazione di rete in portale di Azure o eseguendo [la ricerca con l'interfaccia della](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show)riga di comando di Azure. Prendere nota degli indirizzi IP pubblici e privati (e dell'indirizzo MAC se si usa l'interfaccia della riga di comando). Esempio di interfaccia della riga di comando PowerShell:
+        1. Verificare che l'interfaccia corrisponda alla scheda di interfaccia di rete primaria e all'indirizzo IP primario della macchina virtuale. È possibile trovare la scheda di interfaccia di rete e l'indirizzo IP primari osservando la configurazione di rete nel portale di Azure oppure cercandolo con l'interfaccia della riga di comando di Azure. Prendere nota degli indirizzi IP pubblici e privati (e dell'indirizzo MAC se si usa l'interfaccia della riga di comando). Ecco un esempio di interfaccia della riga di comando di PowerShell:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
@@ -965,20 +979,18 @@ Codice di stato HTTP | Motivo
             }
             # Output: wintest767 True 00-0D-3A-E5-1C-C0
             ```
-        1. Se non corrispondono, aggiornare la tabella di routing in modo che l'interfaccia di rete primaria/IP sia destinata a.
+        1. Se non corrispondono, aggiornare la tabella di routing in modo che la scheda di interfaccia di rete primaria e l'IP siano assegnati.
     </details>
 
-## <a name="support-and-feedback"></a>Supporto tecnico e commenti
+## <a name="support"></a>Supporto
 
-Inviare commenti e suggerimenti su https://feedback.azure.com .
+Se non si riesce a ottenere una risposta ai metadati dopo più tentativi, è possibile creare un problema di supporto nella portale di Azure.
+Per **tipo di problema** selezionare **gestione**. Per **Category** selezionare **servizio metadati dell'istanza**.
 
-Per ottenere assistenza per il servizio, creare una richiesta di supporto nel portale di Azure per la macchina virtuale per la quale non si riesce a ottenere la risposta dei metadati dopo lunghi tentativi.
-Utilizzare il tipo di problema di `Management` e selezionare `Instance Metadata Service` come categoria.
-
-![Supporto per i metadati dell'istanza](./media/instance-metadata-service/InstanceMetadata-support.png "Screenshot: apertura di un caso di supporto quando si verificano problemi con il servizio metadati dell'istanza")
+![Screenshot del supporto del servizio metadati dell'istanza](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su:
-1.  [Acquisire un token di accesso per la macchina virtuale](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-2.  [Eventi pianificati](scheduled-events.md)
+[Acquisire un token di accesso per la macchina virtuale](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+
+[Eventi pianificati](scheduled-events.md)

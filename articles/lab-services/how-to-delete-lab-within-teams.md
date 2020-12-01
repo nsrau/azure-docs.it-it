@@ -3,12 +3,12 @@ title: Eliminare un Lab Azure Lab Services dai team
 description: Informazioni su come eliminare un Azure Lab Services Lab dai team.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 1d2fe73d33a88e595f42b47c1e7122dcbdfe1063
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094449"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433955"
 ---
 # <a name="delete-labs-within-teams"></a>Elimina Lab all'interno di Team
 
@@ -21,7 +21,7 @@ Questo articolo illustra come eliminare un Lab dall'app **Azure Lab Services** .
 
 ## <a name="delete-labs"></a>Eliminare lab
 
-Un Lab creato in teams può essere eliminato nel [sito Web di Lab Services](https://labs.azure.com) eliminando direttamente il Lab, come descritto in gestire i Lab [della classe in Azure Lab Services](how-to-manage-classroom-labs.md). 
+Un Lab creato in teams può essere eliminato nel [sito Web di Lab Services](https://labs.azure.com) eliminando direttamente il Lab, come descritto in [Manage Labs in Azure Lab Services](how-to-manage-classroom-labs.md). 
 
 L'eliminazione del Lab viene attivata anche quando il team viene eliminato. Se il team in cui viene creato il Lab viene eliminato, Lab verrebbe eliminato automaticamente 24 ore dopo l'attivazione della sincronizzazione automatica degli elenchi di utenti. 
 

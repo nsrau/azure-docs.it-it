@@ -3,15 +3,15 @@ title: Gestire account lab in Azure Lab Services | Microsoft Docs
 description: Informazioni su come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab in una sottoscrizione di Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 65ff28401b73698e320735613b32c96bf3de58f2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999502"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434091"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Creare e gestire account di lab
-In Azure Lab Services un account lab è un contenitore per tipi di lab gestiti, ad esempio, laboratori di classe. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
+In Azure Lab Services, un account Lab è un contenitore per i tipi Lab gestiti, ad esempio Lab. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
 
 ## <a name="create-a-lab-account"></a>Creare un account lab
 La procedura seguente illustra come usare il portale di Azure per creare un account lab con Azure Lab Services. 

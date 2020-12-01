@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978731"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435101"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creazione di immagini generalizzate senza un agente di provisioning
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Questo servizio systemd esegue tre operazioni per il provisioning di base:
 
 1. Report pronti ad Azure (per indicare che l'operazione è stata completata correttamente).
-1. Rinomina la macchina virtuale in base al nome della macchina virtuale fornita dall'utente effettuando il pull dei dati dal [servizio metadati dell'istanza di Azure (IMDS)](./instance-metadata-service.md). **Nota** IMDS fornisce anche altri [metadati dell'istanza](./instance-metadata-service.md#accessing-azure-instance-metadata-service), ad esempio le chiavi pubbliche SSH, in modo che sia possibile impostare più di un nome host.
+1. Rinomina la macchina virtuale in base al nome della macchina virtuale fornita dall'utente effettuando il pull dei dati dal [servizio metadati dell'istanza di Azure (IMDS)](./instance-metadata-service.md). **Nota** IMDS fornisce anche altri [metadati dell'istanza](./instance-metadata-service.md#access-azure-instance-metadata-service), ad esempio le chiavi pubbliche SSH, in modo che sia possibile impostare più di un nome host.
 1. Viene disabilitato in modo che venga eseguito solo al primo avvio e non ai successivi riavvii.
 
 Con l'unità nel file System, eseguire il comando seguente per abilitarlo:
