@@ -9,18 +9,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c250868c9d470ee85f765f693aff3e21320fc45e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346189"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
 Per ottenere la risposta prevista alla domanda di un utente, usare l'API GenerateAnswer. Quando si pubblica una Knowledge base, è possibile visualizzare informazioni su come usare questa API nella pagina **pubblica** . È anche possibile configurare l'API per filtrare le risposte in base ai tag dei metadati e testare la Knowledge base dall'endpoint con il parametro della stringa di query di test.
 
-QnA Maker consente di aggiungere metadati, sotto forma di coppie chiave-valore, alle coppie di domande e risposte. È quindi possibile usare queste informazioni per filtrare i risultati per le query utente e per archiviare informazioni aggiuntive che possono essere usate nelle conversazioni di completamento. Per altre informazioni, vedere [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker consente di aggiungere metadati, sotto forma di coppie chiave-valore, alle coppie di domande e risposte. È quindi possibile usare queste informazioni per filtrare i risultati per le query utente e per archiviare informazioni aggiuntive che possono essere usate nelle conversazioni di completamento. Per altre informazioni, vedere [Knowledge base](../index.yml).
 
 <a name="qna-entity"></a>
 
@@ -36,13 +36,13 @@ Ogni entità di tipo Domande e risposte ha un ID univoco e persistente. È possi
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Ottenere le stime delle risposte con l'API GenerateAnswer
 
-Usare l' [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) nel bot o nell'applicazione per eseguire una query sulla Knowledge base con una domanda per l'utente, in modo da ottenere la migliore corrispondenza dalle coppie di domande e risposte.
+Usare l' [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) nel bot o nell'applicazione per eseguire una query sulla Knowledge base con una domanda per l'utente, in modo da ottenere la migliore corrispondenza dalle coppie di domande e risposte.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Pubblica per ottenere l'endpoint GenerateAnswer
 
-Dopo aver pubblicato la Knowledge base, dal portale di [QnA Maker](https://www.qnamaker.ai)o usando l' [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), è possibile ottenere i dettagli dell'endpoint GenerateAnswer.
+Dopo aver pubblicato la Knowledge base, dal portale di [QnA Maker](https://www.qnamaker.ai)o usando l' [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), è possibile ottenere i dettagli dell'endpoint GenerateAnswer.
 
 Per ottenere i dettagli dell'endpoint:
 1. Accedere a [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -70,9 +70,9 @@ Per ottenere i dettagli dell'endpoint:
 
 La richiesta POST USA:
 
-* [Parametri URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obbligatori
+* [Parametri URI](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obbligatori
 * Proprietà di intestazione obbligatoria, `Authorization` , per la sicurezza
-* [Proprietà del corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)obbligatorie.
+* [Proprietà del corpo](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)obbligatorie.
 
 L'URL di GenerateAnswer ha il formato seguente:
 
@@ -108,7 +108,7 @@ Il codice JSON precedente ha richiesto solo le risposte al 30% o oltre il Punteg
 
 ## <a name="generateanswer-response-properties"></a>Proprietà della risposta GenerateAnswer
 
-La [risposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) è un oggetto JSON che include tutte le informazioni necessarie per visualizzare la risposta e il successivo turno nella conversazione, se disponibile.
+La [risposta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) è un oggetto JSON che include tutte le informazioni necessarie per visualizzare la risposta e il successivo turno nella conversazione, se disponibile.
 
 ```json
 {
@@ -136,7 +136,7 @@ Il codice JSON precedente ha risposto con una risposta con un punteggio pari al 
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usare QnA Maker con un bot in C #
 
-Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
+Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?preserve-view=true&view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -155,7 +155,7 @@ Il codice JSON precedente ha richiesto solo le risposte al 30% o oltre il Punteg
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Usare QnA Maker con un bot in Node.js
 
-Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
+Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

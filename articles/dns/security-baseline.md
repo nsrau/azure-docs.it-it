@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ed1c183281aea830e9cd61c1d95c6c092adbe05c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6ad91b7cf8cd8a79654774b1b5463bc661a981d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960683"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348178"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Baseline della sicurezza di Azure per DNS di Azure
 
@@ -64,7 +64,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -184,7 +184,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: gestire le risorse di Azure solo dalle località approvate
 
@@ -212,7 +212,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 - [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
+- [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -308,7 +308,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Linee guida**: usare il nome, la descrizione e la categoria dei criteri per organizzare logicamente gli asset in base a una tassonomia.
 
-- [Per altre informazioni sull'assegnazione di tag agli asset, vedere Guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [Per altre informazioni sull'assegnazione di tag agli asset, vedere Guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -548,9 +548,9 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
+**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia Microsoft e l'esecuzione dei test di penetrazione del sito live e Red Teaming sull'infrastruttura cloud gestita da Microsoft, sui servizi e sulle applicazioni.
 
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regole di ingaggio per i test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

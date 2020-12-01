@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169750"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348093"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -186,7 +186,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Type                       | Descrizione                                           |
+| Nome          | Tipo                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -199,7 +199,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |

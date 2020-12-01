@@ -3,12 +3,12 @@ title: Eseguire una query sulla Knowledge base-QnA Maker
 description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376713"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346206"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Eseguire una query sulla Knowledge base per le risposte
 
@@ -16,9 +16,9 @@ ms.locfileid: "94376713"
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Come QnA Maker elabora una query utente per selezionare la risposta migliore
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
-La Knowledge base con formazione e [pubblicazione](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker riceve una query utente, da un bot o da un'altra applicazione client, nell' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Il diagramma seguente illustra il processo di ricezione della query utente.
+La Knowledge base con formazione e [pubblicazione](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker riceve una query utente, da un bot o da un'altra applicazione client, nell' [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Il diagramma seguente illustra il processo di ricezione della query utente.
 
 ![Processo del modello di classificazione per una query utente](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
@@ -28,7 +28,7 @@ Il processo è illustrato nella tabella seguente.
 
 |Passaggio|Scopo|
 |--|--|
-|1|L'applicazione client invia la query utente all' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|L'applicazione client invia la query utente all' [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
 |4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query.|
@@ -39,9 +39,9 @@ Il processo è illustrato nella tabella seguente.
 
 Le funzionalità usate includono ma non sono limitate alla semantica a livello di parola, alla priorità a livello di termine in un corpus e ai modelli semantici appresi in modo approfondito per determinare la somiglianza e la pertinenza tra due stringhe di testo.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
-La Knowledge base con formazione e [pubblicazione](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker riceve una query utente, da un bot o da un'altra applicazione client, nell' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Il diagramma seguente illustra il processo di ricezione della query utente.
+La Knowledge base con formazione e [pubblicazione](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker riceve una query utente, da un bot o da un'altra applicazione client, nell' [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Il diagramma seguente illustra il processo di ricezione della query utente.
 
 ![Processo del modello di classificazione per un'anteprima della query utente](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
@@ -51,7 +51,7 @@ Il processo è illustrato nella tabella seguente.
 
 |Passaggio|Scopo|
 |--|--|
-|1|L'applicazione client invia la query utente all' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|L'applicazione client invia la query utente all' [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
 |4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query.|

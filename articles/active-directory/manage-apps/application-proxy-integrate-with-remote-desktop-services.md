@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997529"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348076"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -130,7 +130,7 @@ La configurazione descritta in questo articolo è relativa all'accesso a Servizi
 
 | Metodo di autenticazione | Configurazione client supportata |
 | --------------------- | ------------------------------ |
-| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer o la modalità di utilizzo di Microsoft [Edge Chromium](/deployedge/edge-ie-mode) + RDS ActiveX |
+| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer o la modalità di utilizzo di Microsoft [Edge Chromium](/deployedge/edge-ie-mode) + RDS ActiveX <br /> *Si noti che il portale app personali supporta solo Edge.* |
 | Pre-autenticazione    | Client Web Desktop remoto: Web browser compatibile con HTML5, ad esempio Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v 55.0 e versioni successive) |
 | Pass-through | Qualsiasi altro sistema operativo che supporta l'applicazione Desktop remoto Microsoft |
 

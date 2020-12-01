@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376758"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346359"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -18,7 +18,7 @@ Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-life
 
 ## <a name="extraction"></a>Estrazione
 
-Il servizio QnA Maker migliora continuamente gli algoritmi di estrazione di domande e risposte dal contenuto, espandendo l'elenco di file e formati di pagina HTML supportati. Seguire le [linee guida](../Concepts/content-types.md) per l'estrazione di dati in base al tipo di documento.
+Il servizio QnA Maker migliora continuamente gli algoritmi di estrazione di domande e risposte dal contenuto, espandendo l'elenco di file e formati di pagina HTML supportati. Seguire le [linee guida](../index.yml) per l'estrazione di dati in base al tipo di documento.
 
 In generale, le pagine di domande frequenti devono essere autonome e non combinate con altre informazioni. I manuali di prodotti devono avere titoli chiari e preferibilmente una pagina di indice.
 
@@ -116,11 +116,11 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 I [metadati](../How-To/edit-knowledge-base.md) aggiungono la possibilità che un'applicazione client sappia che non deve rispondere a tutte le risposte, bensì per limitare i risultati di una query utente basata sui tag dei metadati. La risposta della knowledge base può essere diversa in base al tag di metadati, anche se la query è la stessa. Ad esempio, la domanda *"Dove si trova il parcheggio?"* può avere una risposta diversa se la posizione del ramo relativo al ristorante è diverso, ovvero se i metadati sono *Posizione: Seattle* anziché *Posizione: Redmond*.
 
 ### <a name="use-synonyms"></a>Usare sinonimi
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
-Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi vengono aggiunti a livello di servizio QnA Maker e **condivisi da tutte le Knowledge base nel servizio**.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
+Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi vengono aggiunti a livello di servizio QnA Maker e **condivisi da tutte le Knowledge base nel servizio**.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
-Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi in QnA Maker gestiti (anteprima) vengono **aggiunti per Knowledge base**.
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi in QnA Maker gestiti (anteprima) vengono **aggiunti per Knowledge base**.
 
 |Parola originale|Sinonimi|
 |--|--|
@@ -138,10 +138,10 @@ Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 |dove si *trova* il parcheggio|
 |dove si trova il *percorso* ATM|
 
-Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. In alternativa, provare a distinguere chiaramente con le query, ad esempio  *"dove è il parcheggio* " e *"dove si trova l'ATM"* , evitando parole come "location" che potrebbero essere in molte domande nella Knowledge base.
+Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. In alternativa, provare a distinguere chiaramente con le query, ad esempio  *"dove è il parcheggio* " e *"dove si trova l'ATM"*, evitando parole come "location" che potrebbero essere in molte domande nella Knowledge base.
 
-## <a name="collaborate"></a>Collaborare
-QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-base.md) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.
+## <a name="collaborate"></a>Collaborazione
+QnA Maker permette agli utenti di [collaborare](../index.yml) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.
 
 
 

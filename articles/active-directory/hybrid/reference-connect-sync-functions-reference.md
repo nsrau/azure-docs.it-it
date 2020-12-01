@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279772"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348059"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -671,7 +671,7 @@ I valori possibili per il formato sono disponibili qui: [formati di data e ora p
  Può restituire "20140905081453.0Z"
 
 ---
-### <a name="guid"></a>Guid
+### <a name="guid"></a>GUID
 **Descrizione:**  
 La funzione Guid genera un nuovo GUID casuale
 
@@ -703,7 +703,7 @@ La funzione Guid genera un nuovo GUID casuale
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: stringa da cercare
 * stringmatch: stringa da trovare
@@ -868,7 +868,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>Item
+### <a name="item"></a>Elemento
 **Descrizione:**  
  La funzione Item restituisce un elemento da una stringa o un attributo multivalore.
 

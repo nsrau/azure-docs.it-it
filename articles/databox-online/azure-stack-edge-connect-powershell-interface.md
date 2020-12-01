@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 93678735237c25b19d04b7d901583ba785d7f594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613544"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345594"
 ---
 # <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Gestire un dispositivo FPGA Pro Azure Stack Edge tramite Windows PowerShell
 
@@ -43,7 +43,7 @@ Questo articolo include le procedure seguenti:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-È anche possibile caricare certificati IoT Edge per abilitare una connessione sicura tra il dispositivo IoT Edge e i dispositivi downstream che possono connettersi a esso. Sono disponibili tre file (formato*PEM* ) che è necessario installare:
+È anche possibile caricare certificati IoT Edge per abilitare una connessione sicura tra il dispositivo IoT Edge e i dispositivi downstream che possono connettersi a esso. Sono disponibili tre file (formato *PEM* ) che è necessario installare:
 
 - Certificato CA radice o CA proprietario
 - Certificato CA del dispositivo
@@ -56,7 +56,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 ```
 Quando si esegue questo cmdlet, verrà richiesto di specificare la password per la condivisione di rete.
 
-Per altre informazioni sui certificati, vedere [Azure IOT Edge Certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) o [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+Per altre informazioni sui certificati, vedere [Azure IOT Edge Certificates](../iot-edge/iot-edge-certs.md) o [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).
 
 ## <a name="view-device-information"></a>Visualizza informazioni sul dispositivo
  

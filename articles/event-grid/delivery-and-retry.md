@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981103"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345354"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con griglia di eventi, vedere [indirizzare eventi di archiviazione ad endpoint Web con l'interfaccia della riga](../storage/blobs/storage-blob-event-quickstart.md)
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
+
+Quando EventGrid riceve un errore per il tentativo di recapito di un evento, EventGrid decide se ritentare il recapito o i messaggi non recapitabili oppure eliminare l'evento in base al tipo di errore. 
+
+Se l'errore restituito dall'endpoint sottoscritto è un errore correlato alla configurazione che non può essere risolto con nuovi tentativi (ad esempio, se l'endpoint viene eliminato), EventGrid esegue l'evento di messaggi non recapitabili o Elimina l'evento se non è configurata la lettera non recapitabile.
+
+Di seguito sono riportati i tipi di endpoint per i quali non si verifica alcun nuovo tentativo:
+
+| Tipo di endpoint | Codici di errore |
+| --------------| -----------|
+| Risorse di Azure | 400 richiesta non valida, entità richiesta 413 troppo grande, 403 non consentito | 
+| webhook | 400 richiesta non valida, entità richiesta 413 troppo grande, 403 non consentito, 404 non trovato, 401 non autorizzato |
+ 
+> [!NOTE]
+> Se Dead-Letter non è configurato per l'endpoint, gli eventi verranno eliminati quando si verificano sopra gli errori, quindi considerare la possibilità di configurare i messaggi non recapitabili, se non si vuole che questi tipi di eventi vengano eliminati.
+
+Se l'errore restituito dall'endpoint sottoscritto non è incluso nell'elenco precedente, EventGrid esegue il tentativo usando i criteri descritti di seguito:
 
 Griglia di eventi attende 30 secondi per una risposta dopo il recapito di un messaggio. Dopo 30 secondi, se l'endpoint non ha risposto, il messaggio viene accodato per riprovare. Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Griglia di eventi esegue un nuovo tentativo di recapito in base alla pianificazione seguente, in base al modo migliore:
 
@@ -103,7 +119,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="event-grid-schema"></a>Schema di Griglia di eventi
 
-#### <a name="event"></a>Event 
+#### <a name="event"></a>Evento 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -162,7 +178,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="cloudevents-10-schema"></a>Schema CloudEvents 1,0
 
-#### <a name="event"></a>Event
+#### <a name="event"></a>Evento
 
 ```json
 {
@@ -203,7 +219,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="custom-schema"></a>Schema personalizzato
 
-#### <a name="event"></a>Event
+#### <a name="event"></a>Evento
 
 ```json
 {
@@ -256,16 +272,16 @@ Griglia di eventi considera **solo** i codici di risposta HTTP seguenti come rec
 
 ### <a name="failure-codes"></a>Codici di errore
 
-Tutti gli altri codici non inclusi nel set precedente (200-204) vengono considerati errori e verranno ripetuti. Per alcuni sono disponibili criteri di ripetizione dei tentativi specifici, tutti gli altri seguono il modello di back-off esponenziale standard. È importante tenere presente che, a causa della natura altamente parallela dell'architettura di griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
+Tutti gli altri codici non inclusi nel set precedente (200-204) vengono considerati errori e verranno ritentati (se necessario). Per alcuni sono disponibili criteri di ripetizione dei tentativi specifici, tutti gli altri seguono il modello di back-off esponenziale standard. È importante tenere presente che, a causa della natura altamente parallela dell'architettura di griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
 
 | Codice di stato | Comportamento in caso di nuovo tentativo |
 | ------------|----------------|
-| 400 - Richiesta non valida | Riprovare dopo 5 minuti o più (DeadLetter immediatamente se il programma di installazione di DeadLetter) |
-| 401 - Non autorizzato | Riprovare dopo 5 minuti o più |
-| 403 - Accesso negato | Riprovare dopo 5 minuti o più |
-| 404 - Non trovato | Riprovare dopo 5 minuti o più |
+| 400 - Richiesta non valida | Nessun nuovo tentativo |
+| 401 - Non autorizzato | Riprovare dopo 5 minuti o più per gli endpoint delle risorse di Azure |
+| 403 - Accesso negato | Nessun nuovo tentativo |
+| 404 - Non trovato | Riprovare dopo 5 minuti o più per gli endpoint delle risorse di Azure |
 | 408 - Timeout richiesta | Riprovare dopo 2 minuti o più |
-| 413 Entità della richiesta troppo grande | Riprovare dopo 10 secondi o più (DeadLetter immediatamente se l'installazione di DeadLetter) |
+| 413 Entità della richiesta troppo grande | Nessun nuovo tentativo |
 | 503 - Servizio non disponibile | Riprovare dopo 30 secondi o più |
 | Tutti gli altri | Riprovare dopo 10 secondi o più |
 

@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8af3da5d04f9aaafc18299f4837660694ee34b51
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012967"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345270"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
@@ -170,16 +170,16 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 
 | Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
 | ----- | ----- | ----- | ----- |
-| Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
+| Creare una nuova area di lavoro | Non richiesto | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
 | Richiedi quota Amlcompute a livello di sottoscrizione o imposta quota a livello di area di lavoro | Proprietario, collaboratore o ruolo personalizzato </br>permettendo `/locations/updateQuotas/action`</br> nell'ambito della sottoscrizione | Non autorizzato | Non autorizzato |
-| Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
-| Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
-| Invio di qualsiasi tipo di esecuzione | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Pubblicazione di un endpoint della pipeline | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Distribuzione di un modello registrato su una risorsa AKS/ACI | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Assegnazione dei punteggi a un endpoint AKS distribuito | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (se non si usa l'autenticazione Azure Active Directory) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
-| Accesso all'archiviazione tramite notebook interattivi | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
-| Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente `Microsoft.Authorization/roleDefinitions/write` | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
+| Crea nuovo cluster di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
+| Crea nuova istanza di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
+| Invio di qualsiasi tipo di esecuzione | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Pubblicazione di pipeline ed endpoint | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Distribuzione di un modello registrato su una risorsa AKS/ACI | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Assegnazione dei punteggi a un endpoint AKS distribuito | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (se non si usa l'autenticazione Azure Active Directory) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
+| Accesso all'archiviazione tramite notebook interattivi | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente `Microsoft.Authorization/roleDefinitions/write` | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
 
 > [!TIP]
 > Se viene visualizzato un errore durante il tentativo di creare un'area di lavoro per la prima volta, assicurarsi che il ruolo sia consentito `Microsoft.MachineLearningServices/register/action` . Questa azione consente di registrare il provider di risorse Azure Machine Learning con la sottoscrizione di Azure.

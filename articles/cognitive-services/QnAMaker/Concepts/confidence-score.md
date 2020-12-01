@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327154"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346376"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Punteggio di attendibilità di una risposta
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata.
@@ -62,7 +62,7 @@ Impostare il punteggio soglia come proprietà del [corpo JSON dell'API GenerateA
 Dal Framework bot, impostare il punteggio come parte dell'oggetto Options con [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) o [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Migliorare i punteggi di attendibilità
-Per ottimizzare il punteggio di attendibilità di una particolare risposta a una query dell'utente, è possibile aggiungere la query alla Knowledge Base come domanda alternativa per tale risposta. È anche possibile usare [variazioni delle parole](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) senza distinzione tra maiuscole e minuscole per aggiungere i sinonimi alle parole chiave nella Knowledge Base.
+Per ottimizzare il punteggio di attendibilità di una particolare risposta a una query dell'utente, è possibile aggiungere la query alla Knowledge Base come domanda alternativa per tale risposta. È anche possibile usare [variazioni delle parole](/rest/api/cognitiveservices/qnamaker/alterations/replace) senza distinzione tra maiuscole e minuscole per aggiungere i sinonimi alle parole chiave nella Knowledge Base.
 
 
 ## <a name="similar-confidence-scores"></a>Punteggi di attendibilità simili
@@ -89,4 +89,3 @@ Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Procedure consigliate](./best-practices.md)
-

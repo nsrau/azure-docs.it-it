@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 88feb08851e0b69e31218a42fe877112561bddba
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: ef516e021b33c465139ecab621369223f61608f4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301657"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348552"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Baseline della sicurezza di Azure per la condivisione di dati di Azure
 
@@ -78,7 +78,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introduzione alle query di Log Analytics](/azure/azure-monitor/log-query/get-started-portal) 
+- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md) 
 
@@ -155,7 +155,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: Azure AD mette a disposizione i log necessari per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/) 
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml) 
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md) 
 
@@ -171,7 +171,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -181,7 +181,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: usare le funzionalità di Azure ad Identity Protection per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -227,7 +227,7 @@ In generale, seguire le raccomandazioni del Centro sicurezza di Azure per l'esec
 
 Usare una soluzione di terze parti per l'esecuzione di valutazioni delle vulnerabilità su dispositivi di rete e applicazioni Web. Quando si eseguono scansioni remote, non usare un singolo account amministrativo perpetuo. Si consiglia di implementare la metodologia di provisioning JIT per l'account di analisi. Le credenziali per l'account di analisi devono essere protette, monitorate e utilizzate solo per l'analisi delle vulnerabilità.
 
-- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -257,11 +257,11 @@ Usare una soluzione di terze parti per l'esecuzione di valutazioni delle vulnera
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription) 
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md) 
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create) 
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md) 
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -292,7 +292,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: rimuovere le risorse di Azure quando non sono più necessarie. questa operazione può essere eseguita tramite la portale di Azure, PowerShell o l'interfaccia della riga di comando.
 
-- [Eliminazione di risorse e gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Eliminazione di risorse e gruppi di risorse di Azure](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 La condivisione di dati di Azure non espone il sistema operativo né consente di installare applicazioni software di terze parti sulle risorse.
 
@@ -330,7 +330,7 @@ La condivisione di dati di Azure non espone il sistema operativo né consente di
 
 **Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice come definizioni di criteri di Azure personalizzate, Azure Resource Manager modelli e gli script di configurazione dello stato desiderato. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrati con TFS.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions) 
 
@@ -362,5 +362,5 @@ La condivisione di dati di Azure non espone il sistema operativo né consente di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

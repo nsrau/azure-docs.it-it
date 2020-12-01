@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b79eb842105734f0f6c145884d73f886a02dbbbc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174497"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348159"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Domande frequenti sulla reimpostazione della password self-service
 
@@ -263,7 +263,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Per quali tipi di account funziona il writeback delle password?**
 
-  > **R:** Il writeback delle password funziona per gli account utente sincronizzati da Active Directory locale ad Azure AD, inclusi gli utenti federati, con hash delle password sincronizzati e con autenticazione pass-through.
+  > **R:** Il writeback delle password funziona per gli account utente sincronizzati da Active Directory locali a Azure AD, inclusi gli utenti federati, con sincronizzazione dell'hash delle password e Pass-Through autenticazione.
   >
   >
 * **D:  Il writeback delle password applica i criteri password del dominio?**

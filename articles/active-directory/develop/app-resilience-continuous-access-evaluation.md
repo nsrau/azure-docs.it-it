@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753698"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348467"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Come usare le API abilitate per la valutazione dell'accesso continuo nelle applicazioni
 
@@ -57,7 +57,7 @@ Quando vengono soddisfatte queste condizioni, l'app può estrarre e decodificare
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 Quando l'applicazione è pronta per gestire la richiesta di attestazione restituita da una risorsa abilitata per CAE, è possibile indicare a Microsoft Identity che l'app è pronta per il CAE. Per eseguire questa operazione nell'applicazione MSAL, compilare il client pubblico usando le funzionalità client di "CP1".

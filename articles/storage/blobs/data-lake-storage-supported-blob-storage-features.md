@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 982f4a9cdf3984bae79cd11dad2bd637a1772f05
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912587"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348501"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
@@ -44,10 +44,12 @@ La tabella seguente illustra in che modo ogni funzionalità di archiviazione BLO
 |Siti Web statici|Anteprima|Anteprima|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
 |Archiviazione non modificabile|Anteprima|Anteprima|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
 |Eliminazione temporanea del contenitore|Anteprima|Anteprima|[Eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md)|
+|Inventario di archiviazione di Azure|Anteprima|Anteprima|[Usare l'inventario di archiviazione di Azure per gestire i dati BLOB (anteprima)](blob-inventory.md)|
+|Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](storage-blob-soft-delete.md)|
 |Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponibile a livello generale|Disponibile a livello generale|[Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md)|
-|Failover dell'account|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Elenco di controllo di accesso del contenitore BLOB|Non supportate<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Non supportate<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Vedere la nota correlata sotto questa tabella.|
+|Failover dell'account gestito dal cliente|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Elenco di controllo di accesso del contenitore BLOB|Non supportato<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Non supportato<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Vedere la nota correlata sotto questa tabella.|
 |Chiavi fornite dal cliente|Non ancora supportato|Non ancora supportato|[Fornire una chiave di crittografia per una richiesta all'archiviazione BLOB](encryption-customer-provided-keys.md)|
 |Domini personalizzati|Non ancora supportato|Non ancora supportato|[Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md)|
 |Ambiti di crittografia|Non ancora supportato|Non ancora supportato|[Creare e gestire gli ambiti di crittografia (anteprima)](encryption-scope-manage.md)|

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346156"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborare con altri autori ed editor
 
@@ -42,11 +42,11 @@ Il diagramma seguente illustra il flusso, dal punto di vista dell'autore, per ac
 |3|API QnA Maker convalida il token.|
 |4 |API QnA Maker chiama il servizio QnAMaker.|
 
-Se si intende chiamare le [API di creazione](../How-To/collaborate-knowledge-base.md), vedere altre informazioni su come configurare l'autenticazione.
+Se si intende chiamare le [API di creazione](../index.yml), vedere altre informazioni su come configurare l'autenticazione.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Eseguire l'autenticazione tramite il portale di QnA Maker
 
-Se si crea e si collabora usando il portale di QnA Maker, dopo aver [aggiunto il ruolo appropriato alla risorsa per un collaboratore](../How-To/collaborate-knowledge-base.md), il portale di QnA Maker gestisce tutte le autorizzazioni di accesso.
+Se si crea e si collabora usando il portale di QnA Maker, dopo aver [aggiunto il ruolo appropriato alla risorsa per un collaboratore](../index.yml), il portale di QnA Maker gestisce tutte le autorizzazioni di accesso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Eseguire l'autenticazione con QnA Maker API e SDK
 
@@ -54,4 +54,4 @@ Se si creano e collaborano usando le API, tramite REST o gli SDK, è necessario 
 
 ## <a name="next-step"></a>Passaggio successivo
 
-* Progettare una Knowledge base per le [lingue](design-language-culture.md) e per [le applicazioni client](integration-with-other-applications.md)
+* Progettare una Knowledge base per le [lingue](../index.yml) e per [le applicazioni client](../index.yml)

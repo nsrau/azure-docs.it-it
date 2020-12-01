@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173971"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348535"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 Questo documento illustra il processo di installazione per l'Agente provisioning di Microsoft Azure Active Directory Connect (Azure AD) e come configurarlo inizialmente nel portale di Azure.
@@ -58,11 +58,11 @@ Per installare l'agente, seguire questa procedura.
    ![Crea gMSA](media/how-to-install/install-12.png)</br>
  11. Nella schermata **Connetti Active Directory** selezionare **Aggiungi directory**. Accedere con l'account amministratore di Active Directory. Questa operazione aggiungerà la directory locale. 
  12. Facoltativamente, è possibile gestire le preferenze dei controller di dominio che l'agente userà selezionando **Seleziona priorità controller di dominio** e ordinando l'elenco dei controller di dominio.   Fare clic su **OK**.
-  ![Controlllers dominio ordini](media/how-to-install/install-2a.png)</br>
+  ![Ordinare i controller di dominio](media/how-to-install/install-2a.png)</br>
  13. Selezionare **Avanti**.
   ![Schermata Connetti Active Directory](media/how-to-install/install-3a.png)</br>
  14.  Nella schermata **installazione agente** confermare le impostazioni e l'account che verrà creato e fare clic su **conferma**.
-  ![Conferma settngs](media/how-to-install/install-11.png)</br>
+  ![Confermare le impostazioni](media/how-to-install/install-11.png)</br>
  15. Al termine di questa operazione, si noterà che **l'installazione dell'agente è stata completata.** Selezionare **Esci**.
   ![Schermata Configurazione completata](media/how-to-install/install-4a.png)</br>
 1. Se viene ancora visualizzata la schermata iniziale **Microsoft Azure AD Connect Provisioning Agent Package**, selezionare **Chiudi**.

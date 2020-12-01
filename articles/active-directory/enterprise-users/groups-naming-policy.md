@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 458fbdf4cdfa40da871d34a62101020330c79265
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4ac878db8d81cc7d9d9dfc6d7c3a4ba63f966110
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488794"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348365"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Microsoft 365 in Azure Active Directory
 
@@ -47,7 +47,7 @@ I prefissi e i suffissi possono contenere caratteri speciali supportati nel nome
 
 #### <a name="fixed-strings"></a>Stringhe fisse
 
-È possibile utilizzare le stringhe per agevolare l'analisi e la differenziazione dei gruppi nell'elenco indirizzi globale e nei collegamenti della barra di spostamento sinistra dei carichi di lavoro dei gruppi. Alcuni dei prefissi comuni sono parole chiave come "Grp\_Nome", "\#Nome", "\_Nome"
+È possibile utilizzare le stringhe per agevolare l'analisi e la differenziazione dei gruppi nell'elenco indirizzi globale e nei collegamenti della barra di spostamento sinistra dei carichi di lavoro dei gruppi. Alcuni prefissi comuni sono parole chiave come ' GRP \_ Name ',' \# Name ',' \_ Name '
 
 #### <a name="user-attributes"></a>Attributi utente
 

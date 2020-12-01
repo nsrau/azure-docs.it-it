@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336589"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345730"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare identità gestite assegnate dal sistema per accedere ai dati di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -68,9 +68,9 @@ In questo scenario, l'app per le funzioni leggerà la temperatura dell'acquario,
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot che illustra il riquadro Aggiungi assegnazione ruolo.":::
 
-   * **Ruolo** : selezionare **collaboratore account DocumentDB**
-   * **Assegnare l'accesso a** : nella sottosezione **Seleziona identità gestita assegnata dal sistema** Selezionare **app per le funzioni**.
-   * **Select** : il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione che hanno un' **identità del sistema gestito**. In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService** : 
+   * **Ruolo**: selezionare **collaboratore account DocumentDB**
+   * **Assegnare l'accesso a**: nella sottosezione **Seleziona identità gestita assegnata dal sistema** Selezionare **app per le funzioni**.
+   * **Select**: il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione che hanno un' **identità del sistema gestito**. In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService** : 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot che illustra il riquadro Aggiungi assegnazione ruolo popolato con esempi.":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-A questo punto è possibile [distribuire l'app per le funzioni](../azure-functions/functions-create-first-function-vs-code.md).
+A questo punto è possibile [distribuire l'app per le funzioni](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
