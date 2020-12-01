@@ -3,12 +3,12 @@ title: Isolamento rete in Azure DevTest Labs
 description: Informazioni sull'isolamento rete in Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149152"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352933"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolamento rete in DevTest Labs
 
@@ -74,7 +74,7 @@ Con questa operazione, archiviazione di Azure consentirà le connessioni in ingr
 
 È anche possibile scegliere di automatizzare questi passaggi per configurare questa impostazione per più Lab. 
 
-[Altre informazioni sulla gestione delle regole di accesso alla rete predefinite per archiviazione di Azure con PowerShell e CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[Altre informazioni sulla gestione delle regole di accesso alla rete predefinite per archiviazione di Azure con PowerShell e CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Aspetti da ricordare quando si usa un Lab in modalità di isolamento rete
 

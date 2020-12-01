@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e1a8043912c984be46f85bd384a7049da27028b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445014"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353239"
 ---
 # <a name="active-learning-suggestions"></a>Suggerimenti per l'apprendimento attivo
 
@@ -37,14 +37,14 @@ Quando le domande sono consigliate nel portale di QnA Maker, è necessario esami
 
 ## <a name="turn-on-active-learning"></a>Attivare l'apprendimento attivo
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Per impostazione predefinita, l'apprendimento attivo è **disattivato**.
 Per usare l'apprendimento attivo:
 * È necessario [attivare l'apprendimento attivo in](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) modo che QnA Maker raccolga domande alternative per la Knowledge base.
 * Per visualizzare le domande alternative suggerite, [usare opzioni di visualizzazione](../How-To/improve-knowledge-base.md#view-suggested-questions) nella pagina modifica.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Per impostazione predefinita, l'apprendimento **attivo è attivato in QnA Maker** Managed (Preview). Per visualizzare le domande alternative suggerite, [usare opzioni di visualizzazione](../How-To/improve-knowledge-base.md#view-suggested-questions) nella pagina modifica.
 
@@ -137,7 +137,7 @@ QnA Maker necessita di commenti espliciti su quali risposte è stata la risposta
 * Logica di business, ad esempio la determinazione di un intervallo di punteggi accettabile.
 * Combinazione di feedback degli utenti e logica di business.
 
-Usare l' [API Train](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) per inviare la risposta corretta a QnA Maker, dopo che l'utente lo seleziona.
+Usare l' [API Train](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) per inviare la risposta corretta a QnA Maker, dopo che l'utente lo seleziona.
 
 ## <a name="next-step"></a>Passaggio successivo
 

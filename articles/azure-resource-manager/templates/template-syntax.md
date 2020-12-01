@@ -1,20 +1,20 @@
 ---
 title: Struttura e sintassi del modello
-description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
+description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager (modelli ARM) usando la sintassi dichiarativa JSON.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0e1e3225d63d0463164a3ed599fb0b760367123
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911499"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353494"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager
 
-Questo articolo descrive la struttura di un modello di Azure Resource Manager (ARM). Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni.
+Questo articolo descrive la struttura di un modello di Azure Resource Manager (modello ARM). Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni.
 
-Questo articolo è destinato agli utenti che hanno familiarità con i modelli ARM. Fornisce informazioni dettagliate sulla struttura del modello. Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [esercitazione: creare e distribuire il primo modello di Azure Resource Manager](template-tutorial-create-first-template.md).
+Questo articolo è destinato agli utenti che hanno familiarità con i modelli ARM. Fornisce informazioni dettagliate sulla struttura del modello. Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [Esercitazione: Creare e distribuire il primo modello di Resource Manager](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Formato del modello
 
@@ -33,7 +33,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | $schema |Sì |Percorso del file di schema JSON che descrive la versione del linguaggio del modello. Il numero di versione usato dipende dall'ambito della distribuzione e dall'editor JSON.<br><br>Se si usa [vs code con l'estensione strumenti di Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), usare la versione più recente per le distribuzioni di gruppi di risorse:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Altri editor (incluso Visual Studio) potrebbero non essere in grado di elaborare questo schema. Per gli editor, usare:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: <br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Per le distribuzioni di gruppi di gestione, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Per le distribuzioni tenant, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Sì |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
@@ -125,7 +125,7 @@ Le proprietà disponibili per un parametro sono:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | Nome parametro |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
 | tipo |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
@@ -137,7 +137,7 @@ Le proprietà disponibili per un parametro sono:
 | maxLength |No |Lunghezza massima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
 | description |No |Descrizione del parametro visualizzato agli utenti nel portale. Per altre informazioni, consultare la sezione [Comments in templates](#comments) (Commenti nel modello). |
 
-Per esempi relativi all'uso dei parametri, vedere [parametri nei modelli Azure Resource Manager](template-parameters.md).
+Per esempi relativi all'uso dei parametri, vedere [parametri nei modelli ARM](template-parameters.md).
 
 ## <a name="variables"></a>Variabili
 
@@ -172,7 +172,7 @@ Nell'esempio seguente vengono illustrate le opzioni disponibili per la definizio
 
 Per informazioni sull'uso `copy` di per creare più valori per una variabile, vedere [iterazione delle variabili](copy-variables.md).
 
-Per esempi relativi all'uso delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
+Per esempi di come usare le variabili, vedere [variabili nel modello ARM](template-variables.md).
 
 ## <a name="functions"></a>Funzioni
 
@@ -208,7 +208,7 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 ],
 ```
 
-| Nome dell'elemento | Obbligatoria | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | namespace |Sì |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
 | Nome funzione |Sì |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata UniqueName nello spazio dei nomi contoso, usare `"[contoso.uniqueName()]"` . |
@@ -217,7 +217,7 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 | tipo di output |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input della funzione. |
 | valore di output |Sì |Espressione del linguaggio del modello valutata e restituita dalla funzione. |
 
-Per esempi relativi all'uso di funzioni personalizzate, vedere [funzioni definite dall'utente in Azure Resource Manager modello](template-user-defined-functions.md).
+Per esempi relativi all'uso di funzioni personalizzate, vedere [funzioni definite dall'utente nel modello ARM](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Risorse
 
@@ -279,7 +279,7 @@ Le risorse vengono definite con la struttura seguente:
 ]
 ```
 
-| Nome dell'elemento | Obbligatoria | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | condizione | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Vedere [Condition](conditional-resource-deployment.md). |
 | tipo |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft. storage/storageAccounts**. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
@@ -287,7 +287,7 @@ Le risorse vengono definite con la struttura seguente:
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi di Azure che espongono il nome della risorsa alle parti esterne convalidano il nome per assicurarsi che non sia un tentativo di falsificare un'altra identità. Per una risorsa figlio, il formato del nome dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | comments |No |Le note per documentare le risorse nel modello. Per altre informazioni, consultare la sezione [Comments in templates](template-syntax.md#comments) (Commenti nel modello). |
 | posizione |Varia |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. Vedere [set Resource Location](resource-location.md). |
-| dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per indicazioni sull'impostazione delle dipendenze, vedere l'articolo relativo alla [definizione delle dipendenze nei modelli di Azure Resource Manager](define-resource-dependency.md). |
+| dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per informazioni sull'impostazione delle dipendenze, vedere [definire l'ordine per la distribuzione delle risorse nei modelli ARM](define-resource-dependency.md). |
 | tags |No |Tag associati alla risorsa. Applicare i tag per organizzare in modo logico le risorse nella sottoscrizione. |
 | sku | No | Alcune risorse consentono valori che definiscono lo SKU da distribuire. Ad esempio, è possibile specificare il tipo di ridondanza per un account di archiviazione. |
 | kind | No | Alcune risorse consentono un valore che definisce il tipo di risorsa distribuito. Ad esempio, è possibile specificare il tipo di Cosmos DB da creare. |
@@ -316,15 +316,15 @@ L'esempio seguente illustra la struttura di una definizione di output:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | nome di output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
 | tipo |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **SecureString** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per usare un valore segreto in più di un modello, archiviare il segreto in un Key Vault e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
 | Valore |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
-| copy |No | Utilizzato per restituire più di un valore per un output. Specificare il **valore** o la **copia**. Per altre informazioni, vedere [iterazione di output nei modelli Azure Resource Manager](copy-outputs.md). |
+| copy |No | Utilizzato per restituire più di un valore per un output. Specificare il **valore** o la **copia**. Per altre informazioni, vedere [iterazione di output nei modelli ARM](copy-outputs.md). |
 
-Per esempi relativi all'uso degli output, vedere [output nel modello di Azure Resource Manager](template-outputs.md).
+Per esempi relativi all'uso degli output, vedere [output nel modello ARM](template-outputs.md).
 
 <a id="comments"></a>
 
@@ -453,7 +453,7 @@ Per distribuire modelli con stringhe a più righe usando l'interfaccia della rig
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
-* Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](template-functions.md).
-* Per unire più modelli durante la distribuzione, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per suggerimenti sulla creazione di modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
+* Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [funzioni del modello ARM](template-functions.md).
+* Per combinare più modelli durante la distribuzione, vedere [uso di modelli collegati e annidati durante la distribuzione di risorse di Azure](linked-templates.md).
+* Per consigli sulla creazione di modelli, vedere procedure consigliate per il [modello ARM](template-best-practices.md).
 * Per le risposte alle domande più comuni, vedere [domande frequenti sui modelli ARM](frequently-asked-questions.md).

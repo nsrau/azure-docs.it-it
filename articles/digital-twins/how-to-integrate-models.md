@@ -1,5 +1,5 @@
 ---
-title: Integrazione di modelli standard del settore
+title: Integrare i modelli standard di settore
 titleSuffix: Azure Digital Twins
 description: Informazioni su come integrare i modelli standard del settore in DTDL per i dispositivi gemelli digitali di Azure, usando ontologie DTDL speciali o convertendo le ontologie esistenti
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1866e9b233a1379474c061779ada09fd6d119107
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f5bfe128ddc04e8048bb89a8e39035434dfd2b92
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338395"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352882"
 ---
 # <a name="integrate-industry-standard-models-with-dtdl-for-azure-digital-twins"></a>Integra i modelli standard del settore con DTDL per i dispositivi gemelli digitali di Azure
 
@@ -21,9 +21,9 @@ L'uso di modelli basati su standard del settore o la rappresentazione standard d
 Per l'uso con i dispositivi gemelli digitali di Azure, un modello deve essere rappresentato nel [**linguaggio DTDL (Digital Gemini Definition Language)**](concepts-models.md)basato su JSON-LD. Questo articolo descrive quindi come rappresentare i modelli standard del settore in DTDL, integrando i concetti di settore esistenti con la semantica di DTDL, in modo che i dispositivi gemelli digitali di Azure possano usarli. Il modello DTDL funge quindi da origine della verità per il modello nei dispositivi gemelli digitali di Azure.
 
 Esistono tre possibili percorsi per l'integrazione dei modelli standard del settore con DTDL:
-* **Adozione** : è possibile avviare la soluzione con una ontologia DTDL open source basata su standard di settore ampiamente adottati. 
-* **Convert** : se si dispone già di modelli esistenti, è necessario convertirli in DTDL.
-* **Autore** : è sempre possibile sviluppare modelli DTDL personalizzati da zero, come descritto in [*procedura: gestire i modelli personalizzati*](how-to-manage-model.md).
+* **Adozione**: è possibile avviare la soluzione con una ontologia DTDL open source basata su standard di settore ampiamente adottati. 
+* **Convert**: se si dispone già di modelli esistenti, è necessario convertirli in DTDL.
+* **Autore**: è sempre possibile sviluppare modelli DTDL personalizzati da zero, come descritto in [*procedura: gestire i modelli personalizzati*](how-to-manage-model.md).
 
 ## <a name="adopt-an-open-source-dtdl-ontology"></a>Adottare un'ontologia DTDL Open Source
 
@@ -35,7 +35,7 @@ Queste ontologie DTDL Open Source forniscono anche le procedure consigliate per 
 
 ## <a name="convert-existing-models-to-dtdl"></a>Convertire i modelli esistenti in DTDL
 
-La maggior parte dei modelli di settore, detti anche **ontologie** , si basa su standard web semantici come [Owl](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF)e [FTR](https://www.w3.org/2001/sw/wiki/RDFS). 
+La maggior parte dei modelli di settore, detti anche **ontologie**, si basa su standard web semantici come [Owl](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF)e [FTR](https://www.w3.org/2001/sw/wiki/RDFS). 
 
 Per usare un modello con i dispositivi gemelli digitali di Azure, deve essere in formato DTDL. Questa sezione descrive le linee guida generali per la progettazione sotto forma di **modello di conversione** per la conversione di modelli basati su RDF in DTDL in modo che possano essere usati con i dispositivi gemelli digitali di Azure. 
 
@@ -111,9 +111,9 @@ var json = JsonConvert.SerializeObject(_interfaceList);
 
 L'esempio è un'applicazione della riga di comando di .NET Core denominata **RdfToDtdlConverter**.
 
-È possibile ottenere l'esempio seguente: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+È possibile ottenere l'esempio seguente: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-Per scaricare il codice nel computer, fare clic sul pulsante *Scarica zip* sotto il titolo nella pagina di destinazione dell'esempio. Verrà scaricato un file *zip* con il nome *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip* , che sarà quindi possibile decomprimere ed esplorare.
+Per scaricare il codice nel computer, fare clic sul pulsante *Scarica zip* sotto il titolo nella pagina di destinazione dell'esempio. Verrà scaricato un file *zip* con il nome *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, che sarà quindi possibile decomprimere ed esplorare.
 
 È possibile usare questo esempio per visualizzare i modelli di conversione nel contesto e per avere come blocco predefinito per le applicazioni che eseguono conversioni di modelli in base alle proprie esigenze specifiche.
 

@@ -10,25 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 489a158c49bc6695a460fdef5b92606335a07ef6
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9dabceda17defb24f2a916cd641f625feb551c6a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365993"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353290"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Ricerca di entità con l'API Ricerca entità Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Suggerire termini di ricerca con l'API Suggerimenti automatici Bing
 
 Se si fornisce una casella di ricerca in cui l'utente immette il termine di ricerca, usare l'[API Suggerimenti automatici Bing](../../bing-autosuggest/get-suggested-search-terms.md) per migliorare l'esperienza. Mentre l'utente digita, l'API restituisce le stringhe di query suggerite, in base ai termini di ricerca parziali.
 
-Dopo che l'utente ha immesso il termine di ricerca, l'URL codifica il termine prima di impostare il parametro di query [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Ad esempio, se l'utente immette *Marcus Appel* , impostare `q` su *Marcus+Appel* oppure su *Marcus%20Appel*.
+Dopo che l'utente ha immesso il termine di ricerca, l'URL codifica il termine prima di impostare il parametro di query [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Ad esempio, se l'utente immette *Marcus Appel*, impostare `q` su *Marcus+Appel* oppure su *Marcus%20Appel*.
 
 Se il termine di ricerca contiene un errore di ortografia, la risposta della ricerca include un oggetto [QueryContext](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). L'oggetto mostra l'ortografia originale e l'ortografia corretta usata da Bing per la ricerca.
 
@@ -194,7 +194,7 @@ Le località includono ristoranti, hotel o aziende locali. Il campo [entityPrese
 > [!NOTE]
 > Le risposte Entità supportano più mercati, ma la risposta Località supporta solo sedi aziendali negli Stati Uniti. 
 
-Query di entità che tengono conto del luogo, come *ristoranti nelle vicinanze* , richiedono la posizione dell'utente per fornire risultati accurati. Le richieste devono sempre usare le intestazioni X-Search-Location e X-MSEdge-ClientIP per specificare la posizione dell'utente. Se Bing ritiene che la query possa migliorare con la posizione dell'utente, imposta il campo `askUserForLocation` di [QueryContext](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) su **true**. 
+Query di entità che tengono conto del luogo, come *ristoranti nelle vicinanze*, richiedono la posizione dell'utente per fornire risultati accurati. Le richieste devono sempre usare le intestazioni X-Search-Location e X-MSEdge-ClientIP per specificare la posizione dell'utente. Se Bing ritiene che la query possa migliorare con la posizione dell'utente, imposta il campo `askUserForLocation` di [QueryContext](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) su **true**. 
 
 ```json
 {

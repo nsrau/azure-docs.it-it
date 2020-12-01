@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006789"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352603"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gestire le righe degli errori di troncamento SQL in Data Factory flussi di dati di mapping
 
@@ -23,7 +23,7 @@ Uno scenario comune in Data Factory quando si usa il mapping di flussi di dati c
 
 Esistono due metodi principali per gestire normalmente gli errori durante la scrittura dei dati nel sink di database nei flussi di dati ADF:
 
-* Impostare la [gestione delle righe con errori](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) di sink su "continua in caso di errore" durante l'elaborazione dei dati del database. Si tratta di un metodo catch-all automatizzato che non richiede la logica personalizzata nel flusso di dati.
+* Impostare la [gestione delle righe con errori](./connector-azure-sql-database.md#error-row-handling) di sink su "continua in caso di errore" durante l'elaborazione dei dati del database. Si tratta di un metodo catch-all automatizzato che non richiede la logica personalizzata nel flusso di dati.
 * In alternativa, attenersi alla procedura seguente per fornire la registrazione delle colonne che non rientrano in una colonna di stringhe di destinazione, consentendo il proseguimento del flusso di dati.
 
 > [!NOTE]

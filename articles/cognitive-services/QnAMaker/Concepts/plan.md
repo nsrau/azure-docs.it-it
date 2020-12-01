@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376678"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353171"
 ---
 # <a name="plan-your-qna-maker-app"></a>Pianificare l'app QnA Maker
 
@@ -20,7 +20,7 @@ Per pianificare l'app QnA Maker, è necessario comprendere come funziona QnA Mak
 
 Ogni [risorsa di Azure](azure-resources.md#resource-purposes) creata con QnA Maker ha uno scopo specifico. Ogni risorsa ha i propri scopi, limiti e piano [tariffario](azure-resources.md#pricing-tier-considerations). È importante comprendere la funzione di queste risorse in modo che sia possibile utilizzare tali informazioni nel processo di pianificazione.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 | Risorsa | Scopo |
 |--|--|
@@ -29,7 +29,7 @@ Ogni [risorsa di Azure](azure-resources.md#resource-purposes) creata con QnA Mak
 | Risorsa del servizio [app e risorsa del servizio del piano app](azure-resources.md#app-service-and-app-service-plan) | Eseguire query sull'endpoint di stima |
 | Risorsa [Application Insights](azure-resources.md#application-insights) | Telemetria stima query |
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 | Risorsa | Scopo |
 |--|--|
@@ -75,13 +75,13 @@ Una Knowledge base è collegata direttamente alla risorsa QnA Maker. Include le 
 
 ### <a name="language-considerations"></a>Considerazioni sul linguaggio
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 La prima Knowledge base creata nella risorsa QnA Maker imposta la lingua per la risorsa. È possibile avere una sola lingua per una risorsa QnA Maker.
 
 È possibile strutturare le risorse QnA Maker in base alla lingua oppure è possibile utilizzare [Translator](../../translator/translator-info-overview.md) per modificare una query da un'altra lingua nella lingua della Knowledge base prima di inviare la query all'endpoint di stima della query.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 È ora possibile avere Knowledge base in lingue diverse all'interno della stessa risorsa QnA Maker. Quando si crea la prima Knowledge base, è possibile scegliere se utilizzare la risorsa per le Knowledge base in una singola lingua o in più lingue.
 
@@ -94,13 +94,13 @@ La prima Knowledge base creata nella risorsa QnA Maker imposta la lingua per la 
 
 ### <a name="ingest-data-sources"></a>Inserire origini dati
 
-Per creare una Knowledge base, è possibile utilizzare una delle seguenti [origini dati](knowledge-base.md) inserite:
+Per creare una Knowledge base, è possibile utilizzare una delle seguenti [origini dati](../index.yml) inserite:
 
 * URL pubblico
 * URL di SharePoint privato
 * File
 
-Il processo di inserimento converte i [tipi di contenuto supportati](content-types.md) in Markdown. Tutte le altre modifiche della *risposta* vengono eseguite con Markdown. Dopo aver creato una Knowledge base, è possibile modificare le [coppie QnA](question-answer-set.md) nel portale di QnA Maker con la funzionalità di [creazione di testo avanzata](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Il processo di inserimento converte i [tipi di contenuto supportati](../index.yml) in Markdown. Tutte le altre modifiche della *risposta* vengono eseguite con Markdown. Dopo aver creato una Knowledge base, è possibile modificare le [coppie QnA](question-answer-set.md) nel portale di QnA Maker con la funzionalità di [creazione di testo avanzata](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considerazioni sul formato dei dati
 
@@ -124,17 +124,17 @@ Il flusso di conversazione inizia in genere con una formula di saluto da un uten
 
 I collaboratori possono essere altri sviluppatori che condividono lo stack di sviluppo completo dell'applicazione Knowledge base oppure possono essere limitati alla semplice creazione della Knowledge base.
 
-La creazione della Knowledge base supporta diverse [autorizzazioni di accesso in base al ruolo](../how-to/collaborate-knowledge-base.md) che si applicano al portale di Azure per limitare l'ambito delle capacità di un collaboratore.
+La creazione della Knowledge base supporta diverse [autorizzazioni di accesso in base al ruolo](../index.yml) che si applicano al portale di Azure per limitare l'ambito delle capacità di un collaboratore.
 
 ## <a name="integration-with-client-applications"></a>Integrazione con le applicazioni client
 
-L'integrazione con [le applicazioni client](integration-with-other-applications.md) viene eseguita inviando una query all'endpoint del runtime di stima. Una query viene inviata alla Knowledge base specifica con un SDK o una richiesta basata su REST all'endpoint dell'app Web del QnA Maker.
+L'integrazione con [le applicazioni client](../index.yml) viene eseguita inviando una query all'endpoint del runtime di stima. Una query viene inviata alla Knowledge base specifica con un SDK o una richiesta basata su REST all'endpoint dell'app Web del QnA Maker.
 
 Per autenticare correttamente una richiesta client, è necessario che l'applicazione client invii le credenziali corrette e l'ID Knowledge base. Se si usa un servizio Azure bot, configurare queste impostazioni come parte della configurazione di bot nel portale di Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Flusso di conversazione in un'applicazione client
 
-Il flusso di conversazione in un' [applicazione client](integration-with-other-applications.md), ad esempio un bot di Azure, potrebbe richiedere funzionalità prima e dopo l'interazione con la Knowledge base.
+Il flusso di conversazione in un' [applicazione client](../index.yml), ad esempio un bot di Azure, potrebbe richiedere funzionalità prima e dopo l'interazione con la Knowledge base.
 
 L'applicazione client supporta il flusso di conversazioni, fornendo metodi alternativi per gestire le richieste di completamento o includere Chit-Chit? In tal caso, progettare questi dati in anticipo e assicurarsi che la query dell'applicazione client venga gestita correttamente da un altro servizio o quando viene inviata alla Knowledge base.
 
@@ -152,7 +152,7 @@ QnA Maker utilizza l' _apprendimento attivo_ per migliorare la Knowledge base su
 
 ### <a name="providing-a-default-answer"></a>Fornire una risposta predefinita
 
-Se la Knowledge base non trova una risposta, viene restituita la _risposta predefinita_. Questa risposta può essere configurata nella pagina **Impostazioni** del portale QnA Maker o nelle [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Se la Knowledge base non trova una risposta, viene restituita la _risposta predefinita_. Questa risposta può essere configurata nella pagina **Impostazioni** del portale QnA Maker o nelle [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
 Questa risposta predefinita è diversa da quella predefinita di Azure bot. Configurare la risposta predefinita per il bot di Azure nel portale di Azure come parte delle impostazioni di configurazione. Viene restituito quando la soglia del punteggio non viene soddisfatta.
 
@@ -175,11 +175,11 @@ Un punteggio può variare in base a diversi fattori:
 
 ### <a name="service-updates"></a>Aggiornamenti del servizio
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Applicare gli [aggiornamenti del runtime più recenti](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) per gestire automaticamente gli aggiornamenti del servizio.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 In QnA Maker Managed (Preview) il runtime viene gestito dal servizio QnA Maker stesso. Gli aggiornamenti del servizio non sono pertanto applicabili.
 
@@ -191,13 +191,13 @@ La scalabilità, la velocità effettiva e la resilienza sono determinate dalle [
 
 ### <a name="analytics-with-application-insights"></a>Analisi con Application Insights
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Tutte le query alla Knowledge base vengono archiviate in Application Insights. Usare le [query principali](../how-to/get-analytics-knowledge-base.md) per comprendere la metrica.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
-Nella distribuzione gestita, i dati di telemetria vengono offerti tramite il [servizio monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/). Usare le [query principali](../how-to/get-analytics-knowledge-base.md) per comprendere la metrica.
+Nella distribuzione gestita, i dati di telemetria vengono offerti tramite il [servizio monitoraggio di Azure](../../../azure-monitor/index.yml). Usare le [query principali](../how-to/get-analytics-knowledge-base.md) per comprendere la metrica.
 
 
 ---
@@ -217,7 +217,7 @@ Ogni coppia può contenere:
 
 ### <a name="devops-development"></a>Sviluppo DevOps
 
-Per lo sviluppo di una Knowledge base da inserire in una pipeline DevOps è necessario che la Knowledge base sia isolata durante i [test batch](../quickstarts/batch-testing.md).
+Per lo sviluppo di una Knowledge base da inserire in una pipeline DevOps è necessario che la Knowledge base sia isolata durante i [test batch](../index.yml).
 
 Una Knowledge base condivide l'indice ricerca cognitiva con tutte le altre Knowledge base nella risorsa QnA Maker. Mentre la Knowledge base è isolata dalla partizione, la condivisione dell'indice può causare una differenza nel punteggio rispetto alla Knowledge base pubblicata.
 

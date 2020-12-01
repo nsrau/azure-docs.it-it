@@ -1,18 +1,18 @@
 ---
 title: Output nei modelli
-description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager.
+description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911431"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353528"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Output nel modello di Azure Resource Manager
+# <a name="outputs-in-arm-templates"></a>Output nei modelli ARM
 
-Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager. Gli output vengono usati quando è necessario restituire valori dalle risorse distribuite.
+Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager (modello ARM). Gli output vengono usati quando è necessario restituire valori dalle risorse distribuite.
 
 Il formato di ogni valore di output deve corrispondere a uno dei [tipi di dati](template-syntax.md#data-types).
 
@@ -120,4 +120,4 @@ Gli esempi seguenti illustrano gli scenari per l'uso degli output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle proprietà disponibili per gli output, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
+* Per informazioni sulle proprietà disponibili per gli output, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

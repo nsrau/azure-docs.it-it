@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652620"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353545"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -18,7 +18,7 @@ In questo articolo vengono illustrati i concetti di alto livello che circondano 
 
 I trigger sono la cosa che determina l'esecuzione di una funzione. Un trigger definisce il modo in cui viene richiamata una funzione e una funzione deve avere esattamente un trigger. Ai trigger sono associati dati, che spesso vengono forniti come payload della funzione. 
 
-Il binding a una funzione è un modo per connettere in modo dichiarativo un'altra risorsa alla funzione; i binding possono essere connessi come *binding di input*, *associazioni di output*o entrambi. I dati dei binding vengono forniti alla funzione come parametri.
+Il binding a una funzione è un modo per connettere in modo dichiarativo un'altra risorsa alla funzione; i binding possono essere connessi come *binding di input*, *associazioni di output* o entrambi. I dati dei binding vengono forniti alla funzione come parametri.
 
 È possibile combinare binding diversi in base alle esigenze. I binding sono facoltativi e una funzione potrebbe avere uno o più binding di input e/o di output.
 
@@ -88,6 +88,10 @@ Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambien
 Usare la tabella seguente per trovare esempi di tipi di binding specifici che mostrano come usare le associazioni nelle funzioni. Per prima cosa, scegliere la scheda lingua corrispondente al progetto. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Binding personalizzati
+
+È possibile creare binding di input e di output personalizzati. I binding devono essere creati in .NET, ma possono essere utilizzati da qualsiasi linguaggio supportato. Per ulteriori informazioni sulla creazione di associazioni personalizzate, vedere [creazione di binding di input e output personalizzati](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## <a name="resources"></a>Risorse
 - [Modelli ed espressioni di associazione](./functions-bindings-expressions-patterns.md)

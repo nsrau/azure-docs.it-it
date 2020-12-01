@@ -1,18 +1,18 @@
 ---
 title: Variabili nei modelli
-description: Viene descritto come definire le variabili in un modello di Azure Resource Manager.
+description: Viene descritto come definire le variabili in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916004"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353460"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variabili nel modello di Azure Resource Manager
+# <a name="variables-in-arm-template"></a>Variabili nel modello ARM
 
-Questo articolo descrive come definire e usare le variabili nel modello di Azure Resource Manager. Per semplificare il modello, è possibile usare le variabili. Anziché ripetere le espressioni complesse nell'intero modello, si definisce una variabile che contiene l'espressione complessa. Quindi, si fa riferimento a tale variabile in base alle esigenze nell'intero modello.
+Questo articolo descrive come definire e usare le variabili nel modello di Azure Resource Manager (modello ARM). Per semplificare il modello, è possibile usare le variabili. Anziché ripetere le espressioni complesse nell'intero modello, si definisce una variabile che contiene l'espressione complessa. Quindi, si fa riferimento a tale variabile in base alle esigenze nell'intero modello.
 
 Gestione risorse risolve le variabili prima di avviare le operazioni di distribuzione. Indipendentemente dalla posizione in cui viene usata la variabile nel modello, Resource Manager la sostituisce con il valore risolto.
 
@@ -95,5 +95,5 @@ Negli esempi seguenti vengono illustrati gli scenari per l'utilizzo di variabili
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle proprietà disponibili per le variabili, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
+* Per informazioni sulle proprietà disponibili per le variabili, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 * Per consigli sulla creazione di variabili, vedere procedure consigliate [-variabili](template-best-practices.md#variables).

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356621"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353664"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introduzione alle query SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,16 +34,16 @@ Per la maggior parte dei carichi di lavoro con utilizzo intensivo di lettura su 
 
 Di seguito sono riportati alcuni esempi di come eseguire **query SQL** con ogni SDK:
 
-- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
-- [SDK per Java](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
-- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
-- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [SDK per Java](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
 
 Il resto di questo documento illustra come iniziare a scrivere query SQL in Azure Cosmos DB. Le query SQL possono essere eseguite tramite SDK o portale di Azure.
 
 ## <a name="upload-sample-data"></a>Carica dati di esempio
 
-Nell'account di Cosmos DB dell'API SQL aprire il [Esplora dati](https://docs.microsoft.com/azure/cosmos-db/data-explorer) per creare un contenitore denominato `Families` . Al termine della creazione, utilizzare il browser strutture di dati per trovarlo e aprirlo. Nel `Families` contenitore viene visualizzata l' `Items` opzione immediatamente sotto il nome del contenitore. Aprire questa opzione. verrà visualizzato un pulsante, sulla barra dei menu al centro della schermata, per creare un "nuovo elemento". Questa funzionalità verrà usata per creare gli elementi JSON seguenti.
+Nell'account di Cosmos DB dell'API SQL aprire il [Esplora dati](./data-explorer.md) per creare un contenitore denominato `Families` . Al termine della creazione, utilizzare il browser strutture di dati per trovarlo e aprirlo. Nel `Families` contenitore viene visualizzata l' `Items` opzione immediatamente sotto il nome del contenitore. Aprire questa opzione. verrà visualizzato un pulsante, sulla barra dei menu al centro della schermata, per creare un "nuovo elemento". Questa funzionalità verrà usata per creare gli elementi JSON seguenti.
 
 ### <a name="create-json-items"></a>Crea elementi JSON
 

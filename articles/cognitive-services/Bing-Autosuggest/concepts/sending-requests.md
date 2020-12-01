@@ -10,25 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: a42b282ac2c42480473186f90a542e33781c8a68
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: dd845c0fb877afa76b84eb5c2d86392f763eccf7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364038"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353392"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Invio di richieste all'API Suggerimenti automatici Bing.
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Se l'applicazione invia query a una delle API Ricerca Bing, è possibile usare l'API Suggerimenti automatici Bing per migliorare l'esperienza di ricerca degli utenti. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale immessa nella casella di ricerca. Quando i caratteri vengono immessi in una casella di ricerca nell'applicazione, è possibile visualizzare i suggerimenti in un elenco a discesa. Questo articolo contiene informazioni approfondite sull'invio di richieste a questa API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Endpoint dell'API Suggerimenti automatici Bing
 
-L' **API Suggerimenti automatici Bing** include un endpoint che restituisce un elenco di query suggerite da un termine di ricerca parziale.
+L'**API Suggerimenti automatici Bing** include un endpoint che restituisce un elenco di query suggerite da un termine di ricerca parziale.
 
 Per ottenere query suggerite tramite l'API Bing, inviare una richiesta `GET` all'endpoint seguente. Usare le intestazioni e i parametri URL per definire altre specifiche.
 
@@ -110,7 +110,7 @@ Il gruppo di suggerimento Web seguente è una risposta alla richiesta precedente
 
 Il campo `displayText` contiene la query suggerita che si userebbe per popolare l'elenco a discesa della casella di ricerca. È necessario visualizzare tutti i suggerimenti inclusi nella risposta, nell'ordine indicato.  
 
-Se l'utente seleziona una query dall'elenco a discesa, è possibile usarla per chiamare una delle [API di ricerca Bing](../../bing-web-search/bing-api-comparison.md?bc=%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fen-us%252fazure%252fcognitive-services%252fbing-autosuggest%252ftoc.json) e visualizzare autonomamente i risultati. In alternativa, è possibile indirizzare l'utente alla pagina dei risultati di Bing tramite il campo `url` restituito.
+Se l'utente seleziona una query dall'elenco a discesa, è possibile usarla per chiamare una delle [API di ricerca Bing](../../bing-web-search/bing-api-comparison.md?bc=%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fen-us%2fazure%2fcognitive-services%2fbing-autosuggest%2ftoc.json) e visualizzare autonomamente i risultati. In alternativa, è possibile indirizzare l'utente alla pagina dei risultati di Bing tramite il campo `url` restituito.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

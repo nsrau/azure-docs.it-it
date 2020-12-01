@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376192"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353154"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testare la Knowledge base in QnA Maker
 
@@ -18,7 +18,7 @@ Testare la Knowledge Base di QnA Maker è una parte importante di un processo it
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Eseguire test in modo interattivo nel portale QnA Maker
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 1. Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
 1. Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione.
@@ -66,15 +66,15 @@ Selezionare **Save and train** (Salva ed esegui training) per salvare questa ris
 > [!NOTE]
 > Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante **Save and train** (Salva ed esegui training).
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 1. Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
 1. Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione. 
-1. Verrà visualizzata una casella di controllo nella parte superiore della **risposta breve visualizzata** , selezionata per impostazione predefinita. Questa opzione viene usata per abilitare il rilevamento dell'intervallo di risposte basato su MRC nel pannello di test. 
+1. Verrà visualizzata una casella di controllo nella parte superiore della **risposta breve visualizzata**, selezionata per impostazione predefinita. Questa opzione viene usata per abilitare il rilevamento dell'intervallo di risposte basato su MRC nel pannello di test. 
 1. Immettere una query nella casella di testo e premere Invio. 
 1. Per ogni query, se è presente una risposta precisa/risposta breve nel passaggio di risposta, insieme al passaggio di risposta con la corrispondenza più appropriata, presente nella Knowledge base, sarà disponibile anche una breve risposta per la query.
-    ![Riquadro di test abilitato gestito](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
-1. Se si deseleziona la **visualizzazione della risposta breve** , viene restituito come risposta solo il passaggio della risposta con la corrispondenza più appropriata della Knowledge base.
+    ![Riquadro del test abilitato per la modalità gestita](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Se si deseleziona la **visualizzazione della risposta breve**, viene restituito come risposta solo il passaggio della risposta con la corrispondenza più appropriata della Knowledge base.
 
 ### <a name="clear-test-panel"></a>Cancellare il pannello Test
 
@@ -144,7 +144,7 @@ Utilizzare lo strumento di test batch quando si desidera:
 ### <a name="create-a-new-knowledge-base-from-the-multi-turn-sampledocx-file"></a>Creare una nuova knowledge base dal file sample.docx multiturno
 
 1. Selezionare **Create a knowledge base** (Crea una knowledge base) sulla barra degli strumenti.
-1. Ignorare il **passaggio 1** , perché si dovrebbe avere già una risorsa QnA Maker, e procedere con il **passaggio 2** per selezionare le informazioni sulla risorsa esistente:
+1. Ignorare il **passaggio 1**, perché si dovrebbe avere già una risorsa QnA Maker, e procedere con il **passaggio 2** per selezionare le informazioni sulla risorsa esistente:
     * ID di Azure Active Directory
     * Nome della sottoscrizione di Azure
     * Nome del servizio QnA di Azure
@@ -160,7 +160,7 @@ Utilizzare lo strumento di test batch quando si desidera:
     |**+ Add File** (+ Aggiungi file)|Selezionare il file `.docx` scaricato come da prerequisiti.|
     |**Chit-chat**|Selezionare **Professional**|
 
-1. Nel **passaggio 5** , selezionare **Create your KB** (Crea la KB).
+1. Nel **passaggio 5**, selezionare **Create your KB** (Crea la KB).
 
     Al termine del processo di creazione, nel portale viene visualizzata la knowledge base modificabile.
 
@@ -273,8 +273,8 @@ Usare il grafico seguente per informazioni su come trovare i valori dei campi pe
 ### <a name="create-a-second-batch-test"></a>Creare un secondo test batch
 
 Esistono due scenari principali per i test batch:
-* **Elaborare i file di log della chat** : determinare la risposta principale per una domanda in precedenza non vista; la situazione più comune è il caso in cui sia necessario elaborare un file di log di query, ad esempio le domande dell'utente di un chatbot. Creare un test di file batch solo con le colonne necessarie. Il test restituisce la risposta principale per ogni domanda. Questo non significa che tale risposta sia quella corretta. Una volta completato questo test, passare al test di convalida.
-* **Test di convalida** : convalidare la risposta prevista. Per questo test è necessario che siano state convalidate tutte le domande e le risposte previste corrispondenti nel test batch. Questa operazione potrebbe richiedere un processo manuale.
+* **Elaborare i file di log della chat**: determinare la risposta principale per una domanda in precedenza non vista; la situazione più comune è il caso in cui sia necessario elaborare un file di log di query, ad esempio le domande dell'utente di un chatbot. Creare un test di file batch solo con le colonne necessarie. Il test restituisce la risposta principale per ogni domanda. Questo non significa che tale risposta sia quella corretta. Una volta completato questo test, passare al test di convalida.
+* **Test di convalida**: convalidare la risposta prevista. Per questo test è necessario che siano state convalidate tutte le domande e le risposte previste corrispondenti nel test batch. Questa operazione potrebbe richiedere un processo manuale.
 
 La procedura seguente presuppone che lo scenario consista nell'elaborare i log della chat
 
@@ -323,4 +323,4 @@ Se non si intende continuare a usare questa knowledge base, eliminarla seguendo 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Pubblicare una knowledge base](./publish-knowledge-base.md)
+> [Pubblicare una knowledge base](../quickstarts/create-publish-knowledge-base.md)

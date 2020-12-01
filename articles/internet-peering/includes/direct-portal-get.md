@@ -8,14 +8,14 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e50f53c65c330265d3d9ec1b1804a7910b632b1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3507aacc68de25f7368cbe3cda917077564c56eb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81678832"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356245"
 ---
-1. Passare a **gruppi di risorse**e selezionare il gruppo di risorse selezionato quando è stata creata la risorsa **peering** . Utilizzare la casella **filtro** se sono presenti troppi gruppi di risorse.
+1. Passare a **gruppi di risorse** e selezionare il gruppo di risorse selezionato quando è stata creata la risorsa **peering** . Utilizzare la casella **filtro** se sono presenti troppi gruppi di risorse.
 
     > [!div class="mx-imgBorder"]
     > ![Gruppi di risorse](../media/setup-direct-get-resourcegroup.png)
@@ -23,7 +23,7 @@ ms.locfileid: "81678832"
 1. Selezionare la risorsa di **peering** creata.
 
     > [!div class="mx-imgBorder"]
-    > ![Visualizzazione risorse peering](../media/setup-direct-get-open.png)
+    > ![La pagina panoramica è selezionata nel riquadro sinistro. Mostra informazioni su PeeringResourceGroup. Nell'elenco peering, AshburnPeering è evidenziato.](../media/setup-direct-get-open.png)
 
 1. La pagina **Overview** Mostra informazioni di alto livello, come illustrato di seguito.
 
@@ -42,4 +42,4 @@ ms.locfileid: "81678832"
 
     * **Lo stato della connessione** corrisponde allo stato della configurazione della connessione peering. Gli stati visualizzati in questo campo seguono il diagramma di stato illustrato nella [procedura dettagliata relativa al peering diretto](../walkthrough-direct-all.md).
     * Lo stato della sessione **IPv4** e **lo stato della sessione IPv6** corrispondono rispettivamente agli Stati di sessione BGP IPv4 e IPv6. 
-    * Quando si seleziona una riga nella parte superiore della schermata, nella sezione **connessione** nella parte inferiore vengono visualizzati i dettagli per ogni connessione. Selezionare le frecce per espandere **configurazione**, **indirizzo IPv4**e **indirizzo IPv6**.
+    * Quando si seleziona una riga nella parte superiore della schermata, nella sezione **connessione** nella parte inferiore vengono visualizzati i dettagli per ogni connessione. Selezionare le frecce per espandere **configurazione**, **indirizzo IPv4** e **indirizzo IPv6**.

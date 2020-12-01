@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b836038aa2f8f60e25c51d1d5674d22497b3ce44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6b767a2cf4739a0b36b9f5c5c960e3e3ead58262
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96018962"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353086"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -94,7 +94,7 @@ Per creare un endpoint con i messaggi non recapitabili abilitati, è necessario 
 
 Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. Specificare l'URL per il contenitore durante la creazione dell'endpoint. Il messaggio non recapitabile viene fornito come URL del contenitore con un token di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Per altre informazioni sui token SAS, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](/azure/storage/common/storage-sas-overview)
+Per altre informazioni sui token SAS, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../storage/common/storage-sas-overview.md)
 
 Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: route degli eventi*](concepts-route-events.md#dead-letter-events).
 

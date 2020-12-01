@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776868"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353188"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Aggiungere un'origine dati di SharePoint protetta alla Knowledge base
 
@@ -27,7 +27,7 @@ Se il gestore QnA Maker Knowledge base non è il Active Directory Manager, sarà
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Aggiungere tipi di file supportati alla Knowledge base
 
-È possibile aggiungere tutti i tipi di [file](../Concepts/content-types.md) supportati da QnA Maker da un sito di SharePoint alla Knowledge base. Se la risorsa file è protetta, potrebbe essere necessario concedere le [autorizzazioni](#permissions) .
+È possibile aggiungere tutti i tipi di [file](../index.yml) supportati da QnA Maker da un sito di SharePoint alla Knowledge base. Se la risorsa file è protetta, potrebbe essere necessario concedere le [autorizzazioni](#permissions) .
 
 1. Dalla libreria con il sito di SharePoint, selezionare il menu con i puntini di sospensione del file `...` .
 1. Copiare l'URL del file.
@@ -119,7 +119,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     [![Cercare QnAMakerPortalSharePoint nell'elenco di app aziendali](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. In **sicurezza**passare a **autorizzazioni**. Selezionare **concedi il consenso dell'amministratore per l'organizzazione**.
+1. In **sicurezza** passare a **autorizzazioni**. Selezionare **concedi il consenso dell'amministratore per l'organizzazione**.
 
     [![Selezionare utente autenticato per Active Directory amministratore](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
@@ -156,7 +156,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -188,4 +188,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Collaborare alla Knowledge Base](collaborate-knowledge-base.md)
+> [Collaborare alla Knowledge Base](../index.yml)

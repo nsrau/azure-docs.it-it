@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024331"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353766"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
-Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## <a name="general"></a>Generale
 
@@ -71,7 +71,7 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **D: Le richieste vengono registrate?**
 
-**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa* opzione di endpoint quando si [Crea un endpoint personalizzato](how-to-custom-speech-deploy-model.md) per abilitare la traccia. Quindi le richieste verranno registrate in Azure in un archivio protetto.
+**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa* opzione di endpoint quando si [Crea un endpoint personalizzato](./how-to-custom-speech-train-model.md) per abilitare la traccia. Quindi le richieste verranno registrate in Azure in un archivio protetto.
 
 **D: Le richieste sono limitate?**
 

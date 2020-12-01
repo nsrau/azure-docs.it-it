@@ -4,15 +4,15 @@ description: Informazioni su come connettersi a un server di Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c91cfe24aa7a5dd224fd1aed31b6b0dee44e687f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013730"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352814"
 ---
 # <a name="connect-with-excel"></a>Connettersi con Excel
 
@@ -26,7 +26,7 @@ L'account con cui si esegue l'accesso deve appartenere a un ruolo del database m
 
 La connessione a un server in Excel è supportata con la funzione Dati in Excel 2016 e versioni successive. La connessione tramite l'Importazione guidata tabella in Power Pivot non è supportata. 
 
-1. Sulla barra multifunzione **Dati** di Excel fare clic su **Recupera dati esterni** > **Da altre origini** > **Da Analysis Services**.
+1. In Excel, sulla barra multifunzione **dati** , fare clic su **Ottieni dati**  >  **da database**  >  **da Analysis Services**.
 
 2. Nella Connessione guidata dati, in **Nome Server**, immettere il nome del server, inclusi il protocollo e l'URI. Ad esempio, asazure://westcentralus.asazure.windows.net/advworks. In **Credenziali di accesso** selezionare **Usa nome utente e password seguenti** e quindi digitare il nome utente dell'organizzazione, ad esempio nancy@adventureworks.com, e la password.
 

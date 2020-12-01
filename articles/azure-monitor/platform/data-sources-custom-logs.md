@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2b27da096ed18170ca8c9d70f31dc955fb74950
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911737"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352831"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Raccogliere log personalizzati con Log Analytics Agent in monitoraggio di Azure
 
@@ -30,7 +30,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 
 - Il file di log non deve consentire registrazioni circolari o rotazioni dei log in cui il file viene sovrascritto con le nuove voci.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
-- Per Linux, il fuso orario converesion non è supportato per gli indicatori temporali nei log.
+- Per Linux, la conversione del fuso orario non è supportata per gli indicatori temporali nei log.
 
 >[!NOTE]
 > Se sono presenti voci duplicate nel file di log, Monitoraggio di Azure le raccoglierà. Tuttavia, i risultati delle query non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati. È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  

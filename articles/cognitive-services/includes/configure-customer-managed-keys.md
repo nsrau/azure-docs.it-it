@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 17dff6056564b421f0741f55ce8171f3251c94c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c79846b0a5b675c34e4e7919e9ecd9d591bfefe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026783"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356359"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chiavi gestite dal cliente con Azure Key Vault
 
@@ -38,8 +38,8 @@ Con le chiavi gestite dal cliente è necessario impostare due proprietà nell'in
 
 Per informazioni su come abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, vedere le sezioni **Abilitazione dell'eliminazione temporanea** e **Abilitazione della protezione dall'eliminazione** in uno degli articoli seguenti:
 
-- [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md).
-- [Come usare l'eliminazione temporanea con l'interfaccia](../../key-vault/general/soft-delete-cli.md)della riga di comando.
+- [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/key-vault-recovery.md).
+- [Come usare l'eliminazione temporanea con l'interfaccia](../../key-vault/general/key-vault-recovery.md)della riga di comando.
 
 Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA della dimensione 2048. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/general/about-keys-secrets-certificates.md).
 

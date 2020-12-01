@@ -1,20 +1,20 @@
 ---
 title: Funzioni definite dall'utente nei modelli
-description: Viene descritto come definire e utilizzare funzioni definite dall'utente in un modello di Azure Resource Manager.
+description: Viene descritto come definire e usare funzioni definite dall'utente in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672936"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353477"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funzioni definite dall'utente nel modello di Azure Resource Manager
+# <a name="user-defined-functions-in-arm-template"></a>Funzioni definite dall'utente nel modello ARM
 
 Nel modello è possibile creare funzioni personalizzate. Tali funzioni sono disponibili per usare il modello. Le funzioni definite dall'utente sono separate dalle [funzioni di modello standard](template-functions.md) che sono automaticamente disponibili all'interno del modello. Creare funzioni personalizzate quando si hanno espressioni complesse che vengono usate più volte nel modello.
 
-Questo articolo descrive come aggiungere funzioni definite dall'utente nel modello di Azure Resource Manager.
+Questo articolo descrive come aggiungere funzioni definite dall'utente nel modello di Azure Resource Manager (modello ARM).
 
 ## <a name="define-the-function"></a>Definire la funzione
 

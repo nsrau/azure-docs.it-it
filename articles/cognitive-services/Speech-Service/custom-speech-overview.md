@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f8fb0488c863868b1076ad5b3fa7868d1880a6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658469"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353783"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è il servizio Riconoscimento vocale personalizzato?
 
@@ -31,7 +31,7 @@ In questo diagramma vengono evidenziati i componenti che costituiscono il [porta
 
 1. [Sottoscrivere e creare un progetto](#set-up-your-azure-account) : creare un account Azure e sottoscrivere il servizio di riconoscimento vocale. Questa sottoscrizione unificata consente di accedere a sintesi vocale, sintesi vocale, traduzione vocale e il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Quindi, usando la sottoscrizione al servizio vocale, creare il primo progetto Riconoscimento vocale personalizzato.
 
-1. [Carica i dati di test](how-to-custom-speech-test-data.md) : carica i dati di test (file audio) per valutare l'offerta di sintesi vocale di Microsoft per le applicazioni, gli strumenti e i prodotti.
+1. [Carica i dati di test](./how-to-custom-speech-test-and-train.md) : carica i dati di test (file audio) per valutare l'offerta di sintesi vocale di Microsoft per le applicazioni, gli strumenti e i prodotti.
 
 1. [Controllare la qualità del riconoscimento](how-to-custom-speech-inspect-data.md) : usare il [portale riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per riprodurre l'audio caricato e controllare la qualità del riconoscimento vocale dei dati di test. Per le misurazioni quantitative, vedere [esaminare i dati](how-to-custom-speech-inspect-data.md).
 
@@ -101,7 +101,7 @@ Si noti che è possibile aggiornare il modello in un endpoint di riconoscimento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Preparare e testare i dati](how-to-custom-speech-test-data.md)
+* [Preparare e testare i dati](./how-to-custom-speech-test-and-train.md)
 * [Esaminare i dati](how-to-custom-speech-inspect-data.md)
 * [Valutare e migliorare l'accuratezza del modello](how-to-custom-speech-evaluate-data.md)
 * [Eseguire il training di un modello e distribuirlo](how-to-custom-speech-train-model.md)

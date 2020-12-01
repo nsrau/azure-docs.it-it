@@ -8,19 +8,19 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3212acd5015edbb639b8904b885c718d654e5b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81681041"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356262"
 ---
 Questa sezione descrive come eseguire le operazioni di modifica seguenti per il peering diretto.
 
 ### <a name="add-direct-peering-connections"></a>Aggiungi connessioni peering diretto
 1. Selezionare il pulsante **+ Aggiungi connessioni** e configurare una nuova connessione peering.
     > [!div class="mx-imgBorder"]
-    > ![Visualizzazione risorse peering](../media/setup-direct-modify-addconnection.png)
+    > ![La pagina AshburnPeering-Connections elenca le connessioni. Il pulsante + Aggiungi connessioni è evidenziato.](../media/setup-direct-modify-addconnection.png)
 
 1. Compilare il modulo di **connessione peering diretto** e selezionare **Salva**. Per informazioni sulla configurazione di una connessione di peering, vedere la procedura descritta nella sezione "creazione e provisioning di un peering diretto".
     > [!div class="mx-imgBorder"]

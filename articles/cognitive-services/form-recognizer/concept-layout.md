@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95741730"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353698"
 ---
 # <a name="form-recognizer-layout-service"></a>Servizio di layout riconoscimento moduli
 
-Il riconoscitore di form di Azure può estrarre testo, tabelle, contrassegni di selezione e informazioni sulla struttura dai documenti usando il servizio di layout. L'API di layout consente ai clienti di prendere documenti in un'ampia gamma di formati e restituire dati strutturati e rappresentazione del documento. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con i documenti relativi ai modelli di apprendimento avanzato per estrarre testo, tabelle, contrassegni di selezione e struttura di documenti. 
+Il riconoscitore di form di Azure può estrarre testo, tabelle, contrassegni di selezione e informazioni sulla struttura dai documenti usando il servizio di layout. L'API di layout consente ai clienti di prendere documenti in un'ampia gamma di formati e restituire dati strutturati e rappresentazione del documento. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/concept-recognizing-text.md) con i documenti relativi ai modelli di apprendimento avanzato per estrarre testo, tabelle, contrassegni di selezione e struttura di documenti. 
 
 ## <a name="what-does-the-layout-service-do"></a>Cosa funziona il servizio di layout?
 
@@ -54,7 +54,7 @@ L'operazione [Analyze layout](https://westcentralus.dev.cognitive.microsoft.com/
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di analisi del layout. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. 
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | `notStarted`: L'operazione di analisi non è stata avviata.<br /><br />`running`: È in corso l'operazione di analisi.<br /><br />`failed`: L'operazione di analisi non è riuscita.<br /><br />`succeeded`: L'operazione di analisi ha avuto esito positivo.|
 
@@ -96,7 +96,3 @@ Il layout estrae anche i contrassegni di selezione dai documenti. I contrassegni
 
 * [Informazioni su Riconoscimento modulo](./overview.md)
 * [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
-
-
-
-

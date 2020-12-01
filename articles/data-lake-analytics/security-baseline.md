@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 03d960f95aed4c6843e29dbebd37feec64b6eae2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cd4b26e81df8ce57a09b4cdddc923035a41308e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221146"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352899"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Baseline della sicurezza di Azure per Data Lake Analytics
 
@@ -192,7 +192,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Per ulteriori informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Per ulteriori informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -348,7 +348,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
+* [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -973,9 +973,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
+**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia Microsoft e l'esecuzione dei test di penetrazione del sito live e Red Teaming sull'infrastruttura cloud gestita da Microsoft, sui servizi e sulle applicazioni.
 
-* [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regole di ingaggio per i test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

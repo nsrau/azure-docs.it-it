@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353749"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
-Il sistema di riconoscimento dei moduli di Azure può analizzare ed estrarre le informazioni dalle fatture di vendita usando i modelli di fattura predefiniti. L'API per la fatturazione consente ai clienti di ottenere fatture in diversi formati e restituire dati strutturati per automatizzare l'elaborazione della fattura. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con la comprensione dei modelli di apprendimento avanzato per estrarre le informazioni chiave dalle fatture in inglese. Estrae il testo, le tabelle e le informazioni, ad esempio cliente, fornitore, ID fattura, data di scadenza della fattura, totale, importo della fattura, importo dell'imposta, spedizione, fatturazione e altro ancora. L'API per la fatturazione predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview.
+Il sistema di riconoscimento dei moduli di Azure può analizzare ed estrarre le informazioni dalle fatture di vendita usando i modelli di fattura predefiniti. L'API per la fatturazione consente ai clienti di ottenere fatture in diversi formati e restituire dati strutturati per automatizzare l'elaborazione della fattura. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/concept-recognizing-text.md) con la comprensione dei modelli di apprendimento avanzato per estrarre le informazioni chiave dalle fatture in inglese. Estrae il testo, le tabelle e le informazioni, ad esempio cliente, fornitore, ID fattura, data di scadenza della fattura, totale, importo della fattura, importo dell'imposta, spedizione, fatturazione e altro ancora. L'API per la fatturazione predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview.
 
 ## <a name="what-does-the-invoice-service-do"></a>Che cosa fa il servizio di fatturazione?
 
@@ -32,7 +32,7 @@ L'API per la fatturazione estrae i campi chiave dalle fatture e li restituisce i
 Per provare il modulo del servizio di fatturazione di riconoscimento, passare allo strumento dell'interfaccia utente di esempio online:
 
 > [!div class="nextstepaction"]
-> [Prova modelli predefiniti](https://fott-preview.azurewebsites.net/)
+> [Provare i modelli predefiniti](https://fott-preview.azurewebsites.net/)
 
 È necessaria una sottoscrizione di Azure ([crearne una gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e un modulo e una chiave dell'endpoint della [risorsa riconoscimento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) per provare il servizio di fatturazione del modulo di riconoscimento. 
 
@@ -55,7 +55,7 @@ L'operazione [Analyze fattura](https://westcentralus.dev.cognitive.microsoft.com
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di analisi della fattura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
@@ -74,7 +74,7 @@ L'output JSON è costituito da 3 parti:
 
 Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Invoice. Di seguito sono riportati i campi estratti da una fattura nella risposta di output JSON (l'output seguente usa questa [fattura di esempio](./media/sample-invoice.jpg))  
 
-|Nome| Type | Descrizione | Testo | Valore (output standardizzato) |
+|Nome| Tipo | Descrizione | Testo | Valore (output standardizzato) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente che viene fatturato | Microsoft Corp |  |
 | CustomerId | string | ID di riferimento per il cliente | CID-12345 |  |
@@ -113,4 +113,3 @@ Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Inv
 
 * [Informazioni su Riconoscimento modulo](./overview.md)
 * [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-

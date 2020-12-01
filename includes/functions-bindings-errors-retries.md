@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93406715"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356194"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
 
@@ -41,7 +41,7 @@ Il numero massimo di **tentativi** è il numero massimo di volte in cui un'esecu
 
 La **strategia di ripetizione dei tentativi** controlla il comportamento dei tentativi.  Di seguito sono riportate due opzioni di ripetizione dei tentativi supportate:
 
-| Opzione | Description|
+| Opzione | Descrizione|
 |---|---|
 |**`fixedDelay`**| Una quantità di tempo specificata può trascorrere tra un tentativo e l'altro.|
 | **`exponentialBackoff`**| Il primo tentativo attende il ritardo minimo. Nei successivi tentativi, il tempo viene aggiunto in modo esponenziale alla durata iniziale per ogni ripetizione, fino a quando non viene raggiunto il ritardo massimo.  Il back-off esponenziale aggiunge una piccola sequenza casuale ai ritardi per scaglionare i tentativi negli scenari con velocità effettiva elevata.|
@@ -130,6 +130,27 @@ Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
 ```
 
 # <a name="java"></a>[Java](#tab/java)
+
+Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
 
@@ -249,9 +270,30 @@ Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
 ---
 
-|Proprietà di function.json  |Proprietà Attribute | Description |
+|Proprietà di function.json  |Proprietà Attribute | Descrizione |
 |---------|---------|---------| 
 |strategia|n/d|Obbligatorio. La strategia di ripetizione dei tentativi da usare. I valori validi sono `fixedDelay` o `exponentialBackoff`.|
 |maxRetryCount|n/d|Obbligatorio. Numero massimo di tentativi consentiti per l'esecuzione di una funzione. `-1` indica di riprovare a tempo indefinito.|

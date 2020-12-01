@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione da un'immagine gestita a una versione di immagine con l'interfaccia della riga di comando di Azure
-description: Informazioni su come eseguire la migrazione da un'immagine gestita a una versione di immagine in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure.
+title: Clonare un'immagine gestita in una versione di immagine con l'interfaccia della riga di comando di Azure
+description: Informazioni su come clonare un'immagine gestita in una versione di immagine in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,15 +10,15 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502886"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352865"
 ---
-# <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Eseguire la migrazione da un'immagine gestita a una versione di immagine usando l'interfaccia della riga di comando di Azure
-Se si vuole eseguire la migrazione di un'immagine gestita esistente in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando [PowerShell](image-version-managed-image-powershell.md).
+# <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonare un'immagine gestita in una versione dell'immagine usando l'interfaccia della riga di comando di Azure
+Se si vuole clonare un'immagine gestita esistente in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando [PowerShell](image-version-managed-image-powershell.md).
 
 Le immagini in una raccolta immagini hanno due componenti, che verrà creato in questo esempio:
 - Una **definizione di immagine** contiene informazioni sull'immagine e sui requisiti per l'utilizzo. Questo include la possibilità di specificare se l'immagine è Windows o Linux, le note sulla versione e i requisiti di memoria minimi e massimi. Si tratta della definizione di un tipo di immagine. 
@@ -45,7 +45,7 @@ Per altre informazioni sui valori che è possibile specificare per la definizion
 
 Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un'immagine del sistema operativo Linux [generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
+In questo esempio, la definizione dell'immagine è denominata *myImageDefinition* ed è per un'immagine del sistema operativo Linux [generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -63,7 +63,7 @@ az sig image-definition create \
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione di immagine
+## <a name="create-the-image-version"></a>Creare una versione di immagine
 
 Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [AZ Image List](/cli/azure/image?view#az-image-list) per ottenere gli ID per le immagini. 
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777808"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353222"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -82,7 +82,7 @@ Quando si aggiunge un documento gerarchico, QnA Maker determina le richieste di 
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creare una Knowledge base con prompt a più turni con l'API di creazione
 
-È possibile creare un Knowledge case con i prompt a più turni usando il [QnA Maker creare un'API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella matrice della `context` proprietà `prompts` .
+È possibile creare un Knowledge case con i prompt a più turni usando il [QnA Maker creare un'API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella matrice della `context` proprietà `prompts` .
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostra domande e risposte con il contesto
 
@@ -94,7 +94,7 @@ Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto**. Nell
 
 Il contesto a più turni viene visualizzato nella prima colonna.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot mostra un esempio della struttura in un manuale dell'utente." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot mostra la sezione del contesto evidenziata." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Nell'immagine precedente, **#1** indica il testo in grassetto nella colonna, che indica la domanda corrente. La domanda padre è l'elemento principale della riga. Eventuali domande che seguono sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili, in modo che sia possibile passare immediatamente agli altri elementi di contesto.
 
@@ -107,7 +107,7 @@ La domanda originale, **My account**, presenta richieste di completamento, ad es
 Aggiungere una richiesta di completamento a una coppia di domande e risposte esistente attualmente non collegata. Poiché la domanda non è collegata ad alcuna coppia di domande e risposte, è necessario modificare l'impostazione di visualizzazione corrente.
 
 1. Per collegare una coppia di domande e risposte esistente come prompt di completamento, selezionare la riga per la coppia domanda-risposta. Per la superficie manuale, cercare la **disconnessione** per ridurre l'elenco.
-1. Nella riga per la **disconnessione**selezionare **Aggiungi richiesta di completamento**nella colonna **risposta** .
+1. Nella riga per la **disconnessione** selezionare **Aggiungi richiesta di completamento** nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
     |Campo|Valore|
@@ -135,7 +135,7 @@ Quando viene creata una richiesta di completamento e viene immessa una coppia di
 
 1. Nella finestra popup della **richiesta di completamento** modificare il testo visualizzato esistente.
 1. Al termine della modifica del testo visualizzato, selezionare **Salva**.
-1. Nella barra di spostamento superiore, **salvare e**eseguire il training.
+1. Nella barra di spostamento superiore, **salvare e** eseguire il training.
 
 
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Aggiungere una nuova coppia di domande e risposte come richiesta di completamento
@@ -151,13 +151,13 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
-    |Collegamento a risposta|Immettere il testo seguente come risposta:<br>* [Creare](https://account.microsoft.com/) un account di Windows con un account di posta elettronica nuovo o esistente*.<br>Quando si salva e si esegue il training del database, questo testo verrà convertito. |
+    |Collegamento a risposta|Immettere il testo seguente come risposta:<br>*[Creare](https://account.microsoft.com/) un account di Windows con un account di posta elettronica nuovo o esistente*.<br>Quando si salva e si esegue il training del database, questo testo verrà convertito. |
     |||
 
     ![Crea una nuova domanda e una risposta di richiesta](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Selezionare **Crea nuovo**e quindi fare clic su **Salva**.
+1. Selezionare **Crea nuovo** e quindi fare clic su **Salva**.
 
     Questa azione crea una nuova coppia di domande e risposte e collega la domanda selezionata come richiesta di completamento. La colonna **context** , per entrambe le domande, indica una relazione di richiesta di completamento.
 
@@ -169,7 +169,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 
     La domanda padre Visualizza una nuova domanda come una delle scelte.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot mostra un esempio della struttura in un manuale dell'utente." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot mostra la colonna del contesto, per entrambe le domande, indica una relazione di richiesta di completamento." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Dopo aver aggiunto la richiesta di completamento, selezionare **Salva e** Esegui il training nella barra di spostamento superiore.
 
@@ -197,7 +197,7 @@ Usare l' `context` oggetto vuoto per richiedere la risposta alla domanda dell'ut
 
 ## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire una risposta iniziale e richieste di completamento
 
-Nella sezione precedente è stata richiesta una risposta ed eventuali richieste di completamento per gli **account e l'accesso**. La risposta include le informazioni sulla richiesta, che si trovano in *Answers [0]. Context*e il testo da visualizzare all'utente.
+Nella sezione precedente è stata richiesta una risposta ed eventuali richieste di completamento per gli **account e l'accesso**. La risposta include le informazioni sulla richiesta, che si trovano in *Answers [0]. Context* e il testo da visualizzare all'utente.
 
 ```JSON
 {
@@ -357,11 +357,11 @@ Se si compila un'applicazione personalizzata usando la funzionalità a più turn
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L'ordine di visualizzazione è supportato nell'API di aggiornamento
 
-Il [testo visualizzato e l'ordine di visualizzazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), restituiti nella risposta JSON, sono supportati per la modifica da parte dell' [API di aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
+Il [testo visualizzato e l'ordine di visualizzazione](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), restituiti nella risposta JSON, sono supportati per la modifica da parte dell' [API di aggiornamento](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Aggiungere o eliminare richieste a più turni con l'API di aggiornamento
 
-È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice della `context` proprietà `promptsToAdd` e nella `promptsToDelete` matrice.
+È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice della `context` proprietà `promptsToAdd` e nella `promptsToDelete` matrice.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Esporta Knowledge base per il controllo della versione
 
@@ -369,7 +369,7 @@ QnA Maker supporta il controllo della versione includendo passaggi di conversazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o altre informazioni sulla [progettazione di bot concettuali per conversazioni a più turni](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o altre informazioni sulla [progettazione di bot concettuali per conversazioni a più turni](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione di una knowledge base](../Tutorials/migrate-knowledge-base.md)

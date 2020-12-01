@@ -1,18 +1,18 @@
 ---
 title: Parametri nei modelli
-description: Viene descritto come definire i parametri in un modello di Azure Resource Manager.
+description: Viene descritto come definire i parametri in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911414"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353511"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parametri nei modelli di Azure Resource Manager
+# <a name="parameters-in-arm-templates"></a>Parametri nei modelli ARM
 
-Questo articolo descrive come definire e usare i parametri nel modello di Azure Resource Manager. Fornendo valori diversi per i parametri, è possibile riutilizzare un modello per ambienti diversi.
+Questo articolo descrive come definire e usare i parametri nel modello di Azure Resource Manager (modello ARM). Fornendo valori diversi per i parametri, è possibile riutilizzare un modello per ambienti diversi.
 
 Gestione risorse risolve i valori dei parametri prima di avviare le operazioni di distribuzione. Quando il parametro viene usato nel modello, Gestione risorse lo sostituisce con il valore risolto.
 
@@ -159,9 +159,8 @@ Negli esempi seguenti vengono illustrati scenari per l'utilizzo di parametri.
 |[parametri con funzioni per i valori predefiniti](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Illustra come usare le funzioni di modello quando si definiscono valori predefiniti per i parametri. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
 |[Parameter (oggetto)](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Illustra l'uso di un oggetto per un parametro. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle proprietà disponibili per i parametri, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
+* Per informazioni sulle proprietà disponibili per i parametri, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 * Per informazioni sul passaggio dei valori dei parametri come file, vedere [creare Gestione risorse file di parametri](parameter-files.md).
 * Per consigli sulla creazione di parametri, vedere procedure consigliate [-parametri](template-best-practices.md#parameters).

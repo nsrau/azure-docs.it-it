@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006167"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353307"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -81,7 +81,7 @@ Per aggiornare lo SKU di gestione di QnA Maker:
 
  Quando la Knowledge base deve servire più richieste dall'app client, aggiornare il piano tariffario del servizio app.
 
-È possibile [aumentare](https://docs.microsoft.com/azure/app-service/manage-scale-up) o ridurre il servizio app.
+È possibile [aumentare](../../../app-service/manage-scale-up.md) o ridurre il servizio app.
 
 Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzione di **scalabilità verticale** o **orizzontale** secondo le esigenze.
 
@@ -154,13 +154,13 @@ L'obiettivo primario del piano di continuità aziendale è creare un endpoint di
 
 L'idea generale è la seguente:
 
-1. Impostare due [servizi QnA Maker](set-up-qnamaker-service-azure.md) paralleli in [aree associate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Impostare due [servizi QnA Maker](set-up-qnamaker-service-azure.md) paralleli in [aree associate di Azure](../../../best-practices-availability-paired-regions.md).
 
 1. [Eseguire il backup](../../../app-service/manage-backup.md) del servizio app QnA Maker primario e [ripristinarlo](../../../app-service/web-sites-restore.md) nell'installazione secondaria. In questo modo, entrambe le configurazioni funzioneranno con lo stesso nome host e le stesse chiavi.
 
 1. Mantieni sincronizzati gli indici di ricerca di Azure primaria e secondaria. Usare l'esempio GitHub [qui](https://github.com/pchoudhari/QnAMakerBackupRestore) per informazioni su come eseguire il backup e ripristinare gli indici di Azure.
 
-1. Eseguire il backup di Application Insights usando l'[esportazione continua](../../../application-insights/app-insights-export-telemetry.md).
+1. Eseguire il backup di Application Insights usando l'[esportazione continua](../../../azure-monitor/app/export-telemetry.md).
 
 1. Una volta impostati gli stack primario e secondario, usare [Gestione traffico](../../../traffic-manager/traffic-manager-overview.md) per configurare i due endpoint e impostare un metodo di routing.
 
@@ -256,7 +256,7 @@ Informazioni su come aggiornare le risorse utilizzate dalla Knowledge base. QnA 
 
 Se si prevede di avere molte Knowledge base, aggiornare il piano tariffario del servizio ricerca cognitiva di Azure.
 
-Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
+Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A tale scopo, attenersi alla seguente procedura:
 
 1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
 
@@ -345,7 +345,7 @@ Le risorse di ricerca gratuite vengono eliminate dopo 90 giorni senza ricevere u
 
 Se si prevede di avere molte Knowledge base, aggiornare il piano tariffario del servizio ricerca cognitiva di Azure.
 
-Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
+Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A tale scopo, attenersi alla seguente procedura:
 
 1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
 
@@ -386,4 +386,4 @@ Se si elimina una delle risorse di Azure usate per le knowledge base di QnA Make
 Altre informazioni sul servizio [app](../../../app-service/index.yml) e il [servizio di ricerca](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Informazioni su come creare con altri utenti](../how-to/collaborate-knowledge-base.md)
+> [Informazioni su come creare con altri utenti](../index.yml)
