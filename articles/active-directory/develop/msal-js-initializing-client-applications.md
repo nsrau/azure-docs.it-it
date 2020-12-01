@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674090"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343587"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inizializzare applicazioni client usando MSAL.js
 
@@ -34,11 +34,11 @@ Prima di inizializzare un'applicazione, è innanzitutto necessario [registrarla 
 
 Al termine della registrazione dell'app, sono necessari alcuni o tutti i valori seguenti che è possibile trovare nella portale di Azure.
 
-| valore | Obbligatoria | Descrizione |
+| Valore | Obbligatorio | Descrizione |
 |:----- | :------: | :---------- |
-| ID applicazione (client) | Obbligatoria | GUID che identifica in modo univoco l'applicazione all'interno della piattaforma di identità Microsoft. |
-| Authority | Facoltativo | URL del provider di identità (l' *istanza* ) e *destinatari dell'accesso* per l'applicazione. L'istanza e i destinatari di accesso, se concatenati, costituiscono l' *autorità* . |
-| ID directory (tenant) | Facoltativo | Specificare questa impostazione se si sta creando un'applicazione line-of-business esclusivamente per la propria organizzazione, spesso definita *applicazione a tenant singolo* . |
+| ID applicazione (client) | Necessario | GUID che identifica in modo univoco l'applicazione all'interno della piattaforma di identità Microsoft. |
+| Authority | Facoltativo | URL del provider di identità (l' *istanza*) e *destinatari dell'accesso* per l'applicazione. L'istanza e i destinatari di accesso, se concatenati, costituiscono l' *autorità*. |
+| ID directory (tenant) | Facoltativo | Specificare questa impostazione se si sta creando un'applicazione line-of-business esclusivamente per la propria organizzazione, spesso definita *applicazione a tenant singolo*. |
 | URI di reindirizzamento | Facoltativo | Se si sta compilando un'app Web, `redirectUri` specifica la posizione in cui il provider di identità (la piattaforma di identità Microsoft) deve restituire i token di sicurezza emessi. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Inizializzare app MSAL.js 2. x

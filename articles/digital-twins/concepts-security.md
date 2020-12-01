@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279887"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344148"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -24,7 +24,7 @@ I dispositivi gemelli digitali di Azure supportano anche la crittografia dei dat
 
 Il controllo degli accessi in base al ruolo di Azure viene fornito ai gemelli digitali di Azure tramite l'integrazione con Azure AD [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 
-È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un' *entità di sicurezza* , che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD e riceve un token OAuth 2,0 in return. Questo token può essere usato per autorizzare una richiesta di accesso a un'istanza di Azure Digital gemelli.
+È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un' *entità di sicurezza*, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD e riceve un token OAuth 2,0 in return. Questo token può essere usato per autorizzare una richiesta di accesso a un'istanza di Azure Digital gemelli.
 
 ### <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
@@ -93,7 +93,7 @@ Se un utente tenta di eseguire un'azione non consentita dal ruolo, può ricevere
 
 Un **tag di servizio** rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per ulteriori informazioni sui tag di servizio, vedere la pagina relativa ai  [*tag della rete virtuale*](../virtual-network/service-tags-overview.md). 
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules)   di rete o nel [firewall di Azure](../firewall/service-tags.md), usando i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (in questo caso, **AzureDigitalTwins** ) nel *source*   campo di origine o *destinazione* appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules)   di rete o nel [firewall di Azure](../firewall/service-tags.md), usando i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (in questo caso, **AzureDigitalTwins**) nel *source*   campo di origine o *destinazione* appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
 
 Di seguito sono riportati i dettagli del tag del servizio **AzureDigitalTwins** .
 
@@ -121,7 +121,7 @@ I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inat
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Condivisione risorse tra le origini (CORS)
 
-I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
+I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
 
 Per risolvere questo errore, esegui una delle operazioni seguenti:
 * Rimuovere l'intestazione CORS `Access-Control-Allow-Origin` dal messaggio. Questa intestazione indica se la risposta può essere condivisa. 

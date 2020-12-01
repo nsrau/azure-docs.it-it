@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 91a55782492c1b2612652b147e0aca37941bf4db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 635e33223b054aafb1d91c217a44fdd6d9b369b9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388205"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345168"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Google usando criteri personalizzati in Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Questo articolo illustra come abilitare l'accesso per gli utenti con un account 
 Per consentire l'accesso agli utenti da un account Google, è necessario creare un progetto di applicazione Google.
 
 1. Accedere alla [console per sviluppatori di Google](https://console.developers.google.com/) con le credenziali del proprio account.
-2. Immettere un **Nome progetto**, fare clic su **Crea**e quindi assicurarsi di usare il nuovo progetto.
+2. Immettere un **Nome progetto**, fare clic su **Crea** e quindi assicurarsi di usare il nuovo progetto.
 3. Selezionare **Credenziali** nel menu a sinistra e quindi **Crea credenziali > ID client Oauth**.
 4. Selezionare **Configure consent screen** (Configura schermata di consenso).
 5. Selezionare o specificare un **indirizzo di posta elettronica**, inserire il **nome del prodotto** visualizzato agli utenti, immettere `b2clogin.com` in **Domini autorizzati** e quindi fare clic su **Salva**.
@@ -84,7 +84,7 @@ Per consentire agli utenti di accedere con un account Google, è necessario defi
             <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
             <Item Key="scope">email profile</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Google application ID</Item>
           </Metadata>
           <CryptographicKeys>

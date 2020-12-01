@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperfq2
-ms.openlocfilehash: 4c37923b0955652a0627808b19762095c18bdedc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a1d83f91ad82bddacb7e806e31151b8e4a7ab612
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737659"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344930"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Riferimento per la scrittura di espressioni per i mapping degli attributi in Azure AD
 
@@ -51,8 +51,8 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffix** |Necessario |string |Stringa da aggiungere alla fine del valore di origine. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -69,8 +69,8 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value1** |Obbligatoria |num |Valore numerico che deve essere unire con and con value2|
-| **Value2** |Obbligatoria |num |Valore numerico che deve essere unire con and con value1|
+| **value1** |Necessario |num |Valore numerico che deve essere unire con and con value2|
+| **Value2** |Necessario |num |Valore numerico che deve essere unire con and con value1|
 
 **Esempio**
 `BitAnd(&HF, &HF7)`
@@ -83,13 +83,13 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 `CBool(Expression)`
 
 **Descrizione:**  
- `CBool` Restituisce un valore booleano basato sull'espressione valutata. Se l'espressione restituisce un valore diverso da zero, `CBool` restituisce *true* ; in caso contrario, restituisce *false* .
+ `CBool` Restituisce un valore booleano basato sull'espressione valutata. Se l'espressione restituisce un valore diverso da zero, `CBool` restituisce *true*; in caso contrario, restituisce *false*.
 
 **Parametri** 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria | expression | Qualsiasi espressione valida |
+| **expression** |Necessario | expression | Qualsiasi espressione valida |
 
 **Esempio:** 
 `CBool([attribute1] = [attribute2])`                                                                    
@@ -105,7 +105,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source1 … sourceN** | Obbligatoria | string |Obbligatorio, numero variabile di volte. In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source1 … sourceN** | Necessario | string |Obbligatorio, numero variabile di volte. In genere è il nome dell'attributo dell'oggetto di origine. |
 | **defaultValue** | Facoltativo | String | Valore predefinito da utilizzare quando tutti i valori di origine sono NULL. Può essere una stringa vuota ("").
 
 ---
@@ -118,7 +118,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |Stringa da convertire in base 64|
+| **source** |Necessario |string |Stringa da convertire in base 64|
 
 **Esempio**
 `ConvertToBase64("Hello world!")`
@@ -135,7 +135,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |Stringa da convertire in esadecimale UTF8|
+| **source** |Necessario |string |Stringa da convertire in esadecimale UTF8|
 
 **Esempio**
 `ConvertToUTF8Hex("Hello world!")`
@@ -152,7 +152,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **attributo** |Obbligatoria |Attributo |Attributo multivalore che avrà elementi conteggiati|
+| **attributo** |Necessario |Attributo |Attributo multivalore che avrà elementi conteggiati|
 
 ---
 ### <a name="cstr"></a>CStr
@@ -164,7 +164,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value** |Obbligatoria | numeric, Reference o Boolean | può essere un valore numerico, un attributo di riferimento o un valore booleano. |
+| **value** |Necessario | numeric, Reference o Boolean | può essere un valore numerico, un attributo di riferimento o un valore booleano. |
 
 **Esempio**
 `CStr([dn])`
@@ -181,7 +181,7 @@ Restituisce "CN = Joe, DC = contoso, DC = com"
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value** |Obbligatoria | Data | Data di annuncio da convertire nel tipo DateTime |
+| **value** |Necessario | Data | Data di annuncio da convertire nel tipo DateTime |
 
 **Esempio**
 `DateFromNum([lastLogonTimestamp])`
@@ -200,12 +200,12 @@ Restituisce un valore DateTime che rappresenta il 1 ° gennaio 2012 alle 11.00.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per i formati supportati, vedere [/DotNet/standard/base-types/Custom-date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-| **outputFormat** |Obbligatoria |string |Formato della data di output. |
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Necessario |string |Formato previsto del valore source. Per i formati supportati, vedere [/DotNet/standard/base-types/Custom-date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **outputFormat** |Necessario |string |Formato della data di output. |
 
 ---
-### <a name="guid"></a>Guid
+### <a name="guid"></a>GUID
 **Funzione:** GUID ()
 
 **Descrizione:** Il GUID della funzione genera un nuovo GUID casuale
@@ -220,9 +220,9 @@ Restituisce un valore DateTime che rappresenta il 1 ° gennaio 2012 alle 11.00.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **condizione** |Obbligatoria |Variabile o espressione |Qualsiasi valore o espressione che possa restituire true o false. |
-| **valueIfTrue** |Obbligatoria |Variabile o stringa | se la condizione restituisce true, il valore restituito. |
-| **valueIfFalse** |Obbligatoria |Variabile o stringa |se la condizione restituisce false, il valore restituito.|
+| **condizione** |Necessario |Variabile o espressione |Qualsiasi valore o espressione che possa restituire true o false. |
+| **valueIfTrue** |Necessario |Variabile o stringa | se la condizione restituisce true, il valore restituito. |
+| **valueIfFalse** |Necessario |Variabile o stringa |se la condizione restituisce false, il valore restituito.|
 
 **Esempio**
 `IIF([country]="USA",[country],[department])`
@@ -237,8 +237,8 @@ Restituisce un valore DateTime che rappresenta il 1 ° gennaio 2012 alle 11.00.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value1** |Obbligatoria |string |Stringa da cercare |
-| **Value2** |Obbligatoria |string |Stringa da trovare |
+| **value1** |Necessario |string |Stringa da cercare |
+| **Value2** |Necessario |string |Stringa da trovare |
 | **start** |Facoltativo |Intero |Posizione iniziale per trovare la sottostringa|
 | **compareType** |Facoltativo |Enumerazione |Può essere vbTextCompare o vbBinaryCompare |
 
@@ -261,7 +261,7 @@ Restituisce 5
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |expression |Espressione da valutare |
+| **expression** |Necessario |expression |Espressione da valutare |
 
 **Esempio**
 `IsNull([displayName])`
@@ -279,7 +279,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |expression |Espressione da valutare |
+| **expression** |Necessario |expression |Espressione da valutare |
 
 **Esempio**
 `IsNullOrEmpty([displayName])`
@@ -296,7 +296,7 @@ Restituisce true se l'attributo non è presente o è una stringa vuota.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |expression |Espressione da valutare |
+| **expression** |Necessario |expression |Espressione da valutare |
 
 **Esempio**
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -311,10 +311,10 @@ Restituisce true se l'attributo non è presente o è una stringa vuota.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |expression |Espressione da valutare |
+| **expression** |Necessario |expression |Espressione da valutare |
 
 ---
-### <a name="item"></a>Item
+### <a name="item"></a>Elemento
 **Funzione:** Item (attributo, indice)
 
 **Descrizione:** La funzione Item restituisce un elemento da una stringa o un attributo multivalore.
@@ -323,7 +323,7 @@ Restituisce true se l'attributo non è presente o è una stringa vuota.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **attributo** |Obbligatoria |Attributo |Attributo multivalore da cercare |
+| **attributo** |Necessario |Attributo |Attributo multivalore da cercare |
 | **index** |Obbligatoria |Intero | Indice di un elemento nella stringa multivalore|
 
 **Esempio**
@@ -341,7 +341,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+| **separator** |Necessario |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
 | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 ---
@@ -357,7 +357,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **Stringa** |Obbligatoria |Attributo | Stringa da cui restituire i caratteri |
+| **Stringa** |Necessario |Attributo | Stringa da cui restituire i caratteri |
 | **NumChars** |Obbligatoria |Intero | Numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa|
 
 **Esempio**
@@ -375,9 +375,9 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
-| **start** |Obbligatoria |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** |Obbligatoria |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source** , la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source** . |
+| **source** |Necessario |string |Corrisponde in genere al nome dell'attributo. |
+| **start** |Necessario |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** |Necessario |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -389,19 +389,19 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string | In genere un attributo nome o cognome. |
+| **source** |Necessario |string | In genere un attributo nome o cognome. |
 
 ---
-### <a name="not"></a>Not
+### <a name="not"></a>not
 **Funzione:** Not (origine)
 
-**Descrizione:** Capovolge il valore booleano dell' **origine** . Se il valore di **origine** è true, restituisce false. In caso contrario, restituisce true.
+**Descrizione:** Capovolge il valore booleano dell' **origine**. Se il valore di **origine** è true, restituisce false. In caso contrario, restituisce true.
 
 **Parametri** 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+| **source** |Necessario |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -413,7 +413,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value** |Obbligatoria | string | Stringa data/ora nel formato supportato. Per informazioni sui formati supportati, vedere https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Necessario | string | Stringa data/ora nel formato supportato. Per informazioni sui formati supportati, vedere https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Esempio:**
 * Esempio di giornata lavorativa presupponendo che si voglia eseguire il mapping dell'attributo *ContractEndDate* dalla giornata lavorativa nel formato *2020-12-31-08:00* al campo *accountExpires* in ad, di seguito viene illustrato come usare questa funzione e modificare la differenza del fuso orario in modo che corrisponda alle impostazioni locali. 
@@ -433,7 +433,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **attributo** |Obbligatoria |Attributo multivalore |Attributo multivalore in cui vengono rimossi i duplicati|
+| **attributo** |Necessario |Attributo multivalore |Attributo multivalore in cui vengono rimossi i duplicati|
 
 **Esempio:** 
  `RemoveDuplicates([proxyAddresses])` Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
@@ -444,19 +444,19 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 **Descrizione:** Sostituisce i valori all'interno di una stringa con distinzione tra maiuscole e minuscole. La funzione si comporta in modo diverso a seconda dei parametri forniti:
 
-* Se vengono forniti **oldValue** e **replacementValue** :
+* Se vengono forniti **oldValue** e **replacementValue**:
   
   * Sostituisce tutte le occorrenze di **OldValue** nell' **origine**  con **replacementValue**
-* Se vengono forniti **oldValue** e **template** :
+* Se vengono forniti **oldValue** e **template**:
   
-  * Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source** .
-* Se vengono forniti **regexPattern** e **replacementValue** :
+  * Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**.
+* Se vengono forniti **regexPattern** e **replacementValue**:
 
   * La funzione applica **regexPattern** alla stringa **source** ed è possibile usare i nomi del gruppo di regex per creare la stringa per **replacementValue**
-* Se vengono forniti **regexPattern** , **regexGroupName** e **replacementValue** :
+* Se vengono forniti **regexPattern**, **regexGroupName** e **replacementValue**:
   
   * La funzione applica **regexPattern** alla stringa **source** e sostituisce tutti i valori che corrispondono a **regexGroupName** con **replacementValue**
-* Se vengono forniti **regexPattern** , **regexGroupName** e **replacementAttributeName** :
+* Se vengono forniti **regexPattern**, **regexGroupName** e **replacementAttributeName**:
   
   * Se **source** non ha alcun valore, viene restituito **source**
   * Se **source** include un valore, la funzione applica **regexPattern** alla stringa **source** e sostituisce tutti i valori corrispondenti a **regexGroupName** con il valore associato a **replacementAttributeName**
@@ -465,10 +465,10 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere il nome dell'attributo dall'oggetto di **origine** . |
-| **oldValue** |Facoltativo |String |Valore da sostituire in **source** o **template** . |
-| **regexPattern** |Facoltativo |String |Modello Regex per il valore da sostituire in **source** . Se invece si usa **replacementPropertyName** , corrisponde al modello usato per estrarre il valore da **replacementPropertyName** . |
-| **regexGroupName** |Facoltativo |String |Nome del gruppo in **regexPattern** . Solo se si usa **replacementPropertyName** , il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName** . |
+| **source** |Necessario |string |In genere il nome dell'attributo dall'oggetto di **origine** . |
+| **oldValue** |Facoltativo |String |Valore da sostituire in **source** o **template**. |
+| **regexPattern** |Facoltativo |String |Modello Regex per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
+| **regexGroupName** |Facoltativo |String |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
 | **replacementValue** |Facoltativo |String |Nuovo valore con cui sostituire il precedente. |
 | **replacementAttributeName** |Facoltativo |String |Nome dell'attributo da usare per il valore di sostituzione |
 | **modello** |Facoltativo |String |Quando viene specificato il valore del **modello** , si cercherà **OldValue** all'interno del modello e lo si sostituirà con il valore **source** . |
@@ -482,7 +482,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
  - Si tratta di una funzione di primo livello che non può essere annidata.
  - Questa funzione non può essere applicata agli attributi con precedenza abbinamento.   
- - Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto** .
+ - Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
  - Questa funzione è attualmente supportata solo per il "provisioning utenti da Workday ad Active Directory". Non può essere usata con altre applicazioni di provisioning. 
 
 
@@ -503,7 +503,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]** . |
+| **[appRoleAssignments]** |Necessario |string |Oggetto **[appRoleAssignments]**. |
 
 ---
 ### <a name="split"></a>Doppia visualizzazione
@@ -515,8 +515,8 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |**Valore source** da aggiornare. |
-| **delimitatore** |Obbligatoria |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+| **source** |Necessario |string |**Valore source** da aggiornare. |
+| **delimitatore** |Necessario |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -528,48 +528,48 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |**Valore source** da aggiornare. |
+| **source** |Necessario |string |**Valore source** da aggiornare. |
 
 ---
 ### <a name="switch"></a>Opzione
 **Funzione:** Switch (source, defaultValue, Key1, value1, Key2, value2,...)
 
-**Descrizione:** Quando il valore **source** corrisponde a una **chiave** , restituisce il **valore** per tale **chiave** . Se il valore di **source** non corrisponde ad alcuna chiave, verrà restituito un valore **defaultValue** .  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri. La funzione non deve essere usata per gli attributi referenziali, ad esempio Manager. 
+**Descrizione:** Quando il valore **source** corrisponde a una **chiave**, restituisce il **valore** per tale **chiave**. Se il valore di **source** non corrisponde ad alcuna chiave, verrà restituito un valore **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri. La funzione non deve essere usata per gli attributi referenziali, ad esempio Manager. 
 
 **Parametri** 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |**Source** da aggiornare. |
+| **source** |Necessario |string |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |String |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source** . |
-| **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **key** |Necessario |string |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Necessario |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
 **Funzione:** ToLower (origine, impostazioni cultura)
 
-**Descrizione:** Accetta un valore di stringa di *origine* e lo converte in lettere minuscole usando le regole delle impostazioni cultura specificate. Se non sono specificate informazioni per le *impostazioni cultura* , verranno usate le impostazioni cultura inglese non dipendenti da paese/area geografica.
+**Descrizione:** Accetta un valore di stringa di *origine* e lo converte in lettere minuscole usando le regole delle impostazioni cultura specificate. Se non sono specificate informazioni per le *impostazioni cultura*, verranno usate le impostazioni cultura inglese non dipendenti da paese/area geografica.
 
 **Parametri** 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2* , in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
 **Funzione:** ToUpper (origine, impostazioni cultura)
 
-**Descrizione:** Accetta un valore di stringa di *origine* e lo converte in lettere maiuscole usando le regole delle impostazioni cultura specificate. Se non sono specificate informazioni per le *impostazioni cultura* , verranno usate le impostazioni cultura inglese non dipendenti da paese/area geografica.
+**Descrizione:** Accetta un valore di stringa di *origine* e lo converte in lettere maiuscole usando le regole delle impostazioni cultura specificate. Se non sono specificate informazioni per le *impostazioni cultura*, verranno usate le impostazioni cultura inglese non dipendenti da paese/area geografica.
 
 **Parametri** 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2* , in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -585,9 +585,9 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **Stringa** |Obbligatoria |Attributo multivalore |Stringa da cui restituire una parola.|
+| **Stringa** |Necessario |Attributo multivalore |Stringa da cui restituire una parola.|
 | **WordNumber** |Obbligatoria | Intero | Numero che identifica il numero di parola da restituire|
-| **delimitatori** |Obbligatoria |string| Stringa che rappresenta i delimitatori da usare per identificare le parole|
+| **delimitatori** |Necessario |string| Stringa che rappresenta i delimitatori da usare per identificare le parole|
 
 **Esempio**
 `Word("The quick brown fox",3," ")`
@@ -610,7 +610,7 @@ Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di
 **Input/output di esempio:** 
 
 * **INPUT** (mail): "john.doe@contoso.com"
-* **Output** : "John. Doe"
+* **Output**: "John. Doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Aggiungere un suffisso costante al nome utente
 Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere un suffisso a tutti i nomi utente prima di sincronizzarli.
@@ -621,7 +621,7 @@ Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere 
 **Input/output di esempio:** 
 
 * **INPUT** (userPrincipalName): "John.Doe@contoso.com"
-* **Output** : " John.Doe@contoso.com.test "
+* **Output**: " John.Doe@contoso.com.test "
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generare un alias utente concatenando parti del nome e del cognome
 Occorre generare un alias utente contenente le prime tre lettere del nome e le prime cinque lettere del cognome dell'utente.
@@ -633,7 +633,7 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
-* **OUTPUT** : "JohDoe"
+* **OUTPUT**: "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Rimuovere i segni diacritici da una stringa
 È necessario sostituire i caratteri contenenti accenti con gli equivalenti caratteri non contenenti accenti.
@@ -643,7 +643,7 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 **Input/output di esempio:** 
 
 * **INPUT** (givenName): "Zoë"
-* **OUTPUT** : "Zoe"
+* **OUTPUT**: "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Dividere una stringa in una matrice multivalore
 È necessario partire da un elenco di stringhe delimitate da virgole e dividerlo in una matrice che possa essere inserita in un attributo multivalore come l'attributo PermissionSets di Salesforce. In questo esempio un elenco di set di autorizzazioni è stato popolato in extensionAttribute5 in Azure AD.
@@ -652,8 +652,8 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 
 **Input/output di esempio:** 
 
-* **Input** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
-* **OUTPUT** : ["PermissionSetOne", "PermissionSetTwo"]
+* **Input** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
+* **OUTPUT**: ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Eseguire l'output della data come stringa in un formato specifico
 Occorre inviare date a un'applicazione SaaS in un formato specifico, Ad esempio, formattare le date per ServiceNow.
@@ -665,7 +665,7 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, Ad esempio,
 **Input/output di esempio:**
 
 * **INPUT** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT** : "2015-01-23"
+* **OUTPUT**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Sostituire un valore in base a un set di opzioni predefinito
 
@@ -677,7 +677,7 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, Ad esempio,
 **Input/output di esempio:**
 
 * **INPUT** (state): "QLD"
-* **OUTPUT** : "Australia/Brisbane"
+* **OUTPUT**: "Australia/Brisbane"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Sostituire caratteri usando un'espressione regolare
 È necessario trovare i caratteri che corrispondono al valore di un'espressione regolare e rimuoverli.
@@ -689,7 +689,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **Input/output di esempio:**
 
 * **INPUT** (mailNickname: "john_doe72"
-* **Output** : "72"
+* **Output**: "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converte il valore userPrincipalName (UPN) generato in caratteri minuscoli
 Nell'esempio seguente il valore UPN viene generato concatenando i campi di origine PreferredFirstName e PreferredLastName e la funzione ToLower viene usata con la stringa generata per convertire tutti i caratteri in minuscolo. 
@@ -700,7 +700,7 @@ Nell'esempio seguente il valore UPN viene generato concatenando i campi di origi
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **Output** : " john.smith@contoso.com "
+* **Output**: " john.smith@contoso.com "
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generare un valore univoco per l'attributo userPrincipalName (UPN)
 In base al nome, al secondo nome e al cognome dell'utente, è necessario generare un valore per l'attributo UPN e verificarne l'univocità nella directory di AD di destinazione prima di assegnare il valore all'attributo UPN.
@@ -719,9 +719,9 @@ In base al nome, al secondo nome e al cognome dell'utente, è necessario generar
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **Output** : " John.Smith@contoso.com " Se il valore UPN di John.Smith@contoso.com non esiste già nella directory
-* **Output** : " J.Smith@contoso.com " Se il valore UPN di John.Smith@contoso.com esiste già nella directory
-* **Output** : " Jo.Smith@contoso.com " se i due valori UPN precedenti sono già presenti nella directory
+* **Output**: " John.Smith@contoso.com " Se il valore UPN di John.Smith@contoso.com non esiste già nella directory
+* **Output**: " J.Smith@contoso.com " Se il valore UPN di John.Smith@contoso.com esiste già nella directory
+* **Output**: " Jo.Smith@contoso.com " se i due valori UPN precedenti sono già presenti nella directory
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valore della posta del flusso se non NULL; in caso contrario, Flow userPrincipalName
 Si desidera che il flusso dell'attributo mail sia presente. In caso contrario, si vuole invece propagare il valore di userPrincipalName.
@@ -733,7 +733,7 @@ Si desidera che il flusso dell'attributo mail sia presente. In caso contrario, s
 
 * **Input** (mail): null
 * **Input** (userPrincipalName): " John.Doe@contoso.com "
-* **Output** : " John.Doe@contoso.com "
+* **Output**: " John.Doe@contoso.com "
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](../app-provisioning/user-provisioning.md)

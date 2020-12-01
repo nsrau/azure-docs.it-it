@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889334"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344194"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Usare i notebook Jupyter per ricercare minacce alla sicurezza
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Usare Jupyter Notebook per cercare minacce per la sicurezza
 
 La base di Azure Sentinel è l'archivio dati. combina query a prestazioni elevate, schemi dinamici e scalabilità a volumi di dati di grandi dimensioni. Il portale di Azure e tutti gli strumenti di Azure Sentinel usano un'API comune per accedere a questo archivio dati. La stessa API è disponibile anche per strumenti esterni come Python e i notebook [Jupyter](https://jupyter.org/). Mentre è possibile eseguire nel portale molte attività comuni, Jupyter estende l'ambito delle operazioni che è possibile eseguire con questi dati. Combina la programmabilità completa con una vasta raccolta di librerie per l'apprendimento automatico, la visualizzazione e l'analisi dei dati. Questi attributi rendono Jupyter uno strumento efficace per l'analisi e la ricerca della sicurezza.
 
@@ -54,7 +54,7 @@ Per usare i notebook, è necessario innanzitutto creare un'area di lavoro di Azu
     > [!div class="mx-imgBorder"]
     > ![avviare notebook per avviare l'area di lavoro di Azure ml](./media/notebooks/sentinel-notebooks-launch.png)
 
-1. In **area di lavoro AzureML**selezionare **Crea nuovo**.
+1. In **area di lavoro AzureML** selezionare **Crea nuovo**.
 
     > [!div class="mx-imgBorder"]
     > ![Crea area di lavoro](./media/notebooks/sentinel-notebooks-azureml-create.png)
@@ -140,7 +140,7 @@ Qualsiasi feedback, suggerimento, richiesta di funzionalità, notebook con contr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si sono apprese le attività iniziali da svolgere con i notebook Jupyter in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo articolo si è appreso come iniziare a usare Jupyter Notebook in Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 
 - [Cercare le minacce in modo proattivo](hunting.md)
 - [Usare i segnalibri per salvare informazioni utili durante la ricerca](bookmarks.md)

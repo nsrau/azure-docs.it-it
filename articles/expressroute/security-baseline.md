@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99594ad5fe07f18f639b4870f4e0faa59a697afc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a92802f0b121a332afccf7f6c12e876b3263bd82
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843180"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343944"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Baseline della sicurezza di Azure per ExpressRoute
 
@@ -56,9 +56,9 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Linee guida**: non applicabile; i delle expressroute di ogni cliente sono contenuti all'interno dei propri domini di routing ed eseguono il tunneling nella propria rete virtuale. Sebbene delle expressroute siano isolati, per una protezione aggiuntiva di altre risorse che condividono la stessa rete virtuale, è possibile abilitare protezione DDoS standard per proteggersi da attacchi DDoS.
 
-* [Informazioni sui controlli di sicurezza per Azure ExpressRoute](./expressroute-security-controls.md)
+* [Informazioni sui controlli di sicurezza per Azure ExpressRoute]()
 
-* [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
+* [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -76,7 +76,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Linee guida**: non applicabile; i delle expressroute di ogni cliente sono contenuti all'interno dei propri domini di routing ed eseguono il tunneling nella propria rete virtuale.
 
-* [Informazioni sui controlli di sicurezza per Azure ExpressRoute](./expressroute-security-controls.md)
+* [Informazioni sui controlli di sicurezza per Azure ExpressRoute]()
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -447,7 +447,7 @@ Come configurare IPSEC da sito a sito su ExpressRoute: https://docs.microsoft.co
 
 **Linee guida**: non applicabile; Azure ExpressRoute non archivia i dati dei clienti.
 
-* [Informazioni sui controlli di sicurezza per Azure ExpressRoute](./expressroute-security-controls.md)
+* [Informazioni sui controlli di sicurezza per Azure ExpressRoute]()
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -861,7 +861,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: non applicabile; Azure ExpressRoute non archivia i dati dei clienti.
 
-* [Informazioni sui controlli di sicurezza per Azure ExpressRoute](./expressroute-security-controls.md)
+* [Informazioni sui controlli di sicurezza per Azure ExpressRoute]()
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

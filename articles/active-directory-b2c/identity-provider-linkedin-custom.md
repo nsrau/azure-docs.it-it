@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 084a8e247ab8bb3e6e6c75cf8cfe8e204384f549
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388154"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345151"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Per usare LinkedIn come provider di identità in Azure AD B2C, è necessario cre
 
 1. Accedere al sito Web per la [gestione delle applicazioni LinkedIn](https://www.linkedin.com/secure/developer?newapp=) con le credenziali dell'account LinkedIn.
 1. Selezionare **Crea app**.
-1. Immettere un **nome**per l'app.
+1. Immettere un **nome** per l'app.
 1. Immettere il nome di una **società** corrispondente a un nome di pagina di LinkedIn. Se non si dispone già di una pagina di LinkedIn, crearne una.
 1. Opzionale Immettere un **URL per l'informativa sulla privacy**. Deve essere un URL valido, ma non deve essere un endpoint raggiungibile.
 1. Immettere un **messaggio di posta elettronica aziendale**.
@@ -52,7 +52,7 @@ Per usare LinkedIn come provider di identità in Azure AD B2C, è necessario cre
 1. Selezionare la scheda **autenticazione** .
 1. Registrare l' **ID client**.
 1. Rivelare e registrare il **segreto client**.
-1. In **impostazioni OAuth 2,0**aggiungere l'URL di **Reindirizzamento**seguente. Sostituire `your-tenant` con il nome del tenant. Usare **tutte le lettere minuscole** per il nome del tenant anche se è definito con lettere maiuscole in Azure ad B2C.
+1. In **impostazioni OAuth 2,0** aggiungere l'URL di **Reindirizzamento** seguente. Sostituire `your-tenant` con il nome del tenant. Usare **tutte le lettere minuscole** per il nome del tenant anche se è definito con lettere maiuscole in Azure ad B2C.
 
     `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
 
@@ -77,8 +77,8 @@ Per consentire agli utenti di accedere con un account LinkedIn, è necessario de
 
 Definire un account LinkedIn come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
 
-1. Aprire il file *SocialAndLocalAccounts/* * TrustFrameworkExtensions.xml** * nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
-1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
+1. Aprire il file * SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
+1. Trovare l'elemento _ *ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
 1. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
 
     ```xml
@@ -99,7 +99,7 @@ Definire un account LinkedIn come provider di attestazioni aggiungendolo all'ele
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -239,7 +239,7 @@ LinkedIn ha [aggiornato di recente le API dalla versione 1.0 alla versione 2.0](
 
 ### <a name="replace-items-in-the-metadata"></a>Sostituisci elementi nei metadati
 
-Nell'elemento dei **metadati** esistente di **TechnicalProfile**aggiornare gli elementi di **elemento** seguenti da:
+Nell'elemento dei **metadati** esistente di **TechnicalProfile** aggiornare gli elementi di **elemento** seguenti da:
 
 ```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
@@ -255,7 +255,7 @@ Con:
 
 ### <a name="add-items-to-the-metadata"></a>Aggiungere elementi ai metadati
 
-Nei **metadati** di **TechnicalProfile**aggiungere gli elementi **Item** seguenti:
+Nei **metadati** di **TechnicalProfile** aggiungere gli elementi **Item** seguenti:
 
 ```xml
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -265,7 +265,7 @@ Nei **metadati** di **TechnicalProfile**aggiungere gli elementi **Item** seguent
 
 ### <a name="update-the-outputclaims"></a>Aggiornare OutputClaims
 
-Nella **OutputClaims** esistente di **TechnicalProfile**aggiornare gli elementi **OutputClaim** seguenti da:
+Nella **OutputClaims** esistente di **TechnicalProfile** aggiornare gli elementi **OutputClaim** seguenti da:
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
@@ -281,7 +281,7 @@ Con:
 
 ### <a name="add-new-outputclaimstransformation-elements"></a>Aggiungi nuovi elementi OutputClaimsTransformation
 
-In **OutputClaimsTransformations** di **TechnicalProfile**aggiungere gli elementi **OutputClaimsTransformation** seguenti:
+In **OutputClaimsTransformations** di **TechnicalProfile** aggiungere gli elementi **OutputClaimsTransformation** seguenti:
 
 ```xml
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />

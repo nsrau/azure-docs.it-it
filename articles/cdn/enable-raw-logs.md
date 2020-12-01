@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e73b4b2eefeb26dad4d028f617cbe453dbd1870d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778032"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342465"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitoraggio delle metriche e dei log non elaborati per la rete CDN di Azure da Microsoft
 Con la rete CDN di Azure di Microsoft, è possibile monitorare le risorse nei modi seguenti per risolvere i problemi, rilevare ed eseguire il debug dei problemi. 
@@ -40,9 +40,9 @@ Per configurare i log non elaborati per la rete CDN di Azure dal Microsoft:
 
 1. Scegliere **tutte le risorse** dal menu portale di Azure  >>  **\<your-CDN-profile>** .
 
-2. In **Monitoraggio** selezionare **Impostazioni di diagnostica** .
+2. In **Monitoraggio** selezionare **Impostazioni di diagnostica**.
 
-3. Fare clic su **+ Aggiungi impostazione di diagnostica** .
+3. Fare clic su **+ Aggiungi impostazione di diagnostica**.
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
     
@@ -53,17 +53,17 @@ Per configurare i log non elaborati per la rete CDN di Azure dal Microsoft:
 
 5. Selezionare il **AzureCdnAccessLog** e impostare la conservazione in giorni.
 
-6. Selezionare i **Dettagli destinazione** . Le opzioni di destinazione sono:
+6. Selezionare i **Dettagli destinazione**. Le opzioni di destinazione sono:
     * **Invia a Log Analytics**
-        * Selezionare la **sottoscrizione** e l' **area di lavoro Log Analytics** .
+        * Selezionare la **sottoscrizione** e l'**area di lavoro Log Analytics**.
     * **Archivia in un account di archiviazione**
-        * Selezionare la **sottoscrizione** e l' **account di archiviazione** .
+        * Selezionare la **sottoscrizione** e l'**account di archiviazione**.
     * **Streaming in un hub eventi**
-        * Selezionare la **sottoscrizione** , lo **spazio dei nomi dell'hub eventi** , il **nome dell'hub eventi (facoltativo)** e il **nome criterio hub eventi** .
+        * Selezionare la **sottoscrizione**, lo **spazio dei nomi dell'hub eventi**, il **nome dell'hub eventi (facoltativo)** e il **nome criterio hub eventi**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configurare la destinazione per le impostazioni del log." border="true":::
 
-7. Selezionare **Salva** .
+7. Selezionare **Salva**.
 
 ## <a name="configuration---azure-powershell"></a>Configurazione-Azure PowerShell
 
@@ -178,7 +178,7 @@ La rete CDN di Azure di Servizi Microsoft attualmente fornisce log non elaborati
     ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Deprecazione inviata a schermata di origine
-La proprietà del log non elaborato **isSentToOriginShield** è stata deprecata e sostituita da un nuovo campo **isReceivedFromClient** . Utilizzare il nuovo campo se si sta già utilizzando il campo deprecato. 
+La proprietà del log non elaborato **isSentToOriginShield** è stata deprecata e sostituita da un nuovo campo **isReceivedFromClient**. Utilizzare il nuovo campo se si sta già utilizzando il campo deprecato. 
 
 I log non elaborati includono i log generati dal perimetro della rete CDN (POP figlio) e dallo scudo di origine. Shield di origine si riferisce ai nodi padre posizionati in modo strategico in tutto il mondo. Questi nodi comunicano con i server di origine e riducono il carico di traffico all'origine. 
 
@@ -201,7 +201,7 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> La funzionalità dei log non elaborati HTTP è disponibile automaticamente per tutti i profili creati o aggiornati dopo il **25 febbraio 2020** . Per i profili della rete CDN creati in precedenza, è necessario aggiornare l'endpoint della rete CDN dopo aver configurato la registrazione. È ad esempio possibile passare al filtro geografico negli endpoint della rete CDN e bloccare i paesi/le aree geografiche non pertinenti per il carico di lavoro e quindi fare clic su Salva.
+> La funzionalità dei log non elaborati HTTP è disponibile automaticamente per tutti i profili creati o aggiornati dopo il **25 febbraio 2020**. Per i profili della rete CDN creati in precedenza, è necessario aggiornare l'endpoint della rete CDN dopo aver configurato la registrazione. È ad esempio possibile passare al filtro geografico negli endpoint della rete CDN e bloccare i paesi/le aree geografiche non pertinenti per il carico di lavoro e quindi fare clic su Salva.
 
 
 ## <a name="metrics"></a>Metriche
@@ -220,7 +220,7 @@ Per altre informazioni, vedere [metriche di monitoraggio di Azure](../azure-moni
 | Percentuale riscontri byte * | Percentuale di uscita dalla cache della rete CDN, calcolata rispetto al totale in uscita.                                      | Endpoint                                                                                    |
 | RequestCount    | Il numero di richieste client gestite dalla rete CDN.                                                                     | Endpoint </br> Paese del client. </br> Area client. </br> Stato HTTP. </br> Gruppo di stato HTTP. |
 | ResponseSize    | Numero di byte inviati come risposte dal perimetro della rete CDN ai client.                                                  |Endpoint </br> Paese del client. </br> Area client. </br> Stato HTTP. </br> Gruppo di stato HTTP.                                                                                          |
-| TotalLatency    | Tempo totale dalla richiesta client ricevuta dalla rete CDN **fino all'invio dell'ultimo byte di risposta dalla rete CDN al client** . |Endpoint </br> Paese del client. </br> Area client. </br> Stato HTTP. </br> Gruppo di stato HTTP.                                                                                             |
+| TotalLatency    | Tempo totale dalla richiesta client ricevuta dalla rete CDN **fino all'invio dell'ultimo byte di risposta dalla rete CDN al client**. |Endpoint </br> Paese del client. </br> Area client. </br> Stato HTTP. </br> Gruppo di stato HTTP.                                                                                             |
 
 **_Byte raggiunti razione = (in uscita da Edge-uscita dall'origine)/egress da Edge_*
 
@@ -233,33 +233,33 @@ Scenari esclusi dal calcolo della percentuale di riscontri in byte:
 
 1. Scegliere **tutte le risorse** dal menu portale di Azure  >>  **\<your-CDN-profile>** .
 
-2. In **monitoraggio** selezionare **metriche** :
+2. In **monitoraggio** selezionare **metriche**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metriche per il profilo di rete CDN." border="true":::
 
 3. Selezionare **Aggiungi metrica** e selezionare la metrica da aggiungere:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Aggiungere e selezionare metrica per profilo di rete CDN." border="true":::
 
 4. Selezionare **Aggiungi filtro** per aggiungere un filtro:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Applicare il filtro alla metrica." border="true":::
 
 5. Selezionare **applica** suddivisione per visualizzare la tendenza in base a dimensioni diverse:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Applicare la suddivisione alla metrica." border="true":::
 
 6. Selezionare **nuovo grafico** per aggiungere un nuovo grafico:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Aggiungere un nuovo grafico alla visualizzazione metrica." border="true":::
 
 ### <a name="alerts"></a>Avvisi
 
-È possibile configurare gli avvisi sulla rete CDN Microsoft selezionando avvisi di **monitoraggio**  >>  **Alerts** .
+È possibile configurare gli avvisi sulla rete CDN Microsoft selezionando avvisi di **monitoraggio**  >>  **Alerts**.
 
 Selezionare **nuova regola di avviso** per le metriche elencate nella sezione metrica:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configurare gli avvisi per l'endpoint della rete CDN." border="true":::
 
 L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazioni sugli avvisi, vedere [avvisi di monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md).
 
@@ -270,21 +270,21 @@ L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazi
 
 2. Selezionare l'area di lavoro di Log Analytics creata:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selezionare l'area di lavoro di log Analytics" border="true":::   
 
-3. Selezionare **log** in **generale** nell'area di lavoro di log Analytics.  Quindi selezionare **inizia** :
+3. Selezionare **log** in **generale** nell'area di lavoro di log Analytics.  Quindi selezionare **inizia**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Area di lavoro risorse di log Analytics." border="true":::   
  
 4. Selezionare **profili** di rete CDN.  Selezionare una query di esempio per eseguire o chiudere la schermata di esempio per immettere una query personalizzata:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Schermata di query di esempio." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Esecuzione della query." border="true":::   
 
-4. Per visualizzare i dati in base al grafico, selezionare **grafico** .  Selezionare **Aggiungi al dashboard** per aggiungere il grafico al dashboard di Azure:
+4. Per visualizzare i dati in base al grafico, selezionare **grafico**.  Selezionare **Aggiungi al dashboard** per aggiungere il grafico al dashboard di Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Aggiungere il grafico al dashboard." border="true"::: 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono stati abilitati i log non elaborati HTTP per il servizio rete CDN Microsoft.
@@ -295,4 +295,4 @@ Per altre informazioni sulla rete CDN di Azure e sugli altri servizi di Azure me
 
 * Altre informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md).
 
-* Configurare [Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).
+* Configurare [Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).

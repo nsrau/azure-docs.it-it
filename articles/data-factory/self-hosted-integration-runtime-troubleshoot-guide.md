@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296955"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341785"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -167,7 +167,7 @@ Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscont
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Esempio: 
+Ad esempio: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -752,7 +752,7 @@ Due possibili motivi per questo problema:
 - Per il motivo 1, verificare che il certificato del server ADF e la relativa catena di certificati siano considerati attendibili dal computer in cui è installato.
 - Per il motivo 2, considerare attendibile la CA radice sostituita nel computer di una macchina virtuale o configurare il proxy in modo che non sostituisca il certificato del server ADF.
 
-Per informazioni dettagliate su come considerare attendibile un certificato in Windows, vedere [questo articolo](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) .
+Per informazioni dettagliate su come considerare attendibile un certificato in Windows, vedere [questo articolo](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) .
 
 #### <a name="additional-info"></a>Informazioni aggiuntive
 È in corso il rollup di un nuovo certificato SSL, firmato da DigiCert, verificare se DigiCert Global radice G2 si trova nella CA radice attendibile.

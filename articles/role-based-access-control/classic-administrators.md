@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916166"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344003"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -105,7 +105,7 @@ Attenersi alla seguente procedura per modificare l'amministratore del servizio n
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
 
-1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
+1. Aprire **Gestione costi e fatturazione** e selezionare una sottoscrizione.
 
 1. Nel percorso di spostamento a sinistra fare clic su **Proprietà**.
 
@@ -140,7 +140,7 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
+1. Aprire **Gestione costi e fatturazione** e selezionare una sottoscrizione.
 
 1. Nel percorso di spostamento a sinistra fare clic su **Proprietà**.
 
