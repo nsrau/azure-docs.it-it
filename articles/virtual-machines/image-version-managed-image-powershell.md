@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di un'immagine gestita a una raccolta di immagini condivise
-description: Informazioni su come usare Azure PowerShell per eseguire la migrazione di un'immagine gestita a una versione di immagine in una raccolta di immagini condivise.
+title: Clonare un'immagine gestita in una raccolta di immagini condivise
+description: Informazioni su come usare Azure PowerShell per clonare un'immagine gestita in una versione di immagine in una raccolta di immagini condivise.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964882"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349923"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Eseguire la migrazione da un'immagine gestita a un'immagine della raccolta immagini condivisa
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clonare un'immagine gestita in un'immagine della raccolta immagini condivisa
 
-Se si vuole eseguire la migrazione di un'immagine gestita esistente in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando l'interfaccia della riga di comando di [Azure](image-version-managed-image-cli.md).
+Se si dispone di un'immagine gestita esistente che si vuole clonare e spostare in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando l'interfaccia della riga di comando di [Azure](image-version-managed-image-cli.md).
 
 Le immagini in una raccolta immagini hanno due componenti, che verrà creato in questo esempio:
 - Una **definizione di immagine** contiene informazioni sull'immagine e sui requisiti per l'utilizzo. Questo include la possibilità di specificare se l'immagine è Windows o Linux, le note sulla versione e i requisiti di memoria minimi e massimi. Si tratta della definizione di un tipo di immagine. 

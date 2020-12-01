@@ -4,15 +4,15 @@ description: Questo articolo descrive come gestire gli amministratori del server
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019436"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351725"
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 
@@ -20,10 +20,12 @@ Gli amministratori del server devono essere un utente, un'entità servizio o un 
 
 Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid` . Le entità servizio non sono supportate nei gruppi di sicurezza aggiunti al ruolo di amministratore del server.
 
+Se il firewall del server è abilitato, gli indirizzi IP del computer client dell'amministratore del server devono essere inclusi in una regola del firewall. Per altre informazioni, vedere [configurare il firewall del server](analysis-services-qs-firewall.md).
+
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Per aggiungere amministratori del server usando il portale di Azure
 
 1. Nel portale, per il server fare clic su **Amministratori di Analysis Services**.
-2. In ** \<servername> Analysis Services amministratori**, fare clic su **Aggiungi**.
+2. In **\<servername> Analysis Services amministratori**, fare clic su **Aggiungi**.
 3. In **Aggiungi amministratori del server** selezionare gli account utente da Azure AD o invitare gli utenti esterni in base all'indirizzo di posta elettronica.
 
     ![Amministratori del server nel portale di Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
-ms.openlocfilehash: 58efeaebcc9f643c725cde54fcbda6f65c4bd700
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415166"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350784"
 ---
 # <a name="ddos-protection-on-front-door"></a>Protezione DDoS sulla porta anteriore
 
@@ -36,7 +36,7 @@ La porta anteriore è un servizio ampiamente distribuito a livello globale. Ci s
 
 ## <a name="caching"></a>Memorizzazione nella cache
 
-Le [funzionalità di memorizzazione nella cache della porta anteriore](./front-door-caching.md) possono essere usate per proteggere i backend da volumi di traffico elevati generati da un attacco. Le risorse memorizzate nella cache verranno restituite dai nodi perimetrali front-end in modo che non vengano trasmesse al back-end. Anche i tempi di scadenza della cache brevi (secondi o minuti) sulle risposte dinamiche possono ridurre notevolmente il carico dei servizi back-end. Per ulteriori informazioni sulla memorizzazione nella cache di concetti e modelli, vedere [considerazioni sulla memorizzazione nella](https://docs.microsoft.com/azure/architecture/best-practices/caching) cache e [modello cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
+Le [funzionalità di memorizzazione nella cache della porta anteriore](./front-door-caching.md) possono essere usate per proteggere i backend da volumi di traffico elevati generati da un attacco. Le risorse memorizzate nella cache verranno restituite dai nodi perimetrali front-end in modo che non vengano trasmesse al back-end. Anche i tempi di scadenza della cache brevi (secondi o minuti) sulle risposte dinamiche possono ridurre notevolmente il carico dei servizi back-end. Per ulteriori informazioni sulla memorizzazione nella cache di concetti e modelli, vedere [considerazioni sulla memorizzazione nella](/azure/architecture/best-practices/caching) cache e [modello cache-aside](/azure/architecture/patterns/cache-aside).
 
 ## <a name="web-application-firewall-waf"></a>WAF (Web application firewall)
 

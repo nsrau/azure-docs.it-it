@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376576"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352423"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Ottenere analisi sulla Knowledge Base
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 QnA Maker archivia tutti i log di chat e altri dati di telemetria, se è stata abilitata Application Insights durante la [creazione del servizio di QnA Maker](./set-up-qnamaker-service-azure.md). Eseguire le query di esempio per ottenere i log della chat da Application Insights.
 
@@ -48,11 +48,11 @@ QnA Maker archivia tutti i log di chat e altri dati di telemetria, se è stata a
 
     [![Eseguire la query per determinare domande, risposte e Punteggio dagli utenti](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 QnA Maker Managed (Preview) usa la registrazione diagnostica di Azure per archiviare i dati di telemetria e i log di chat. Attenersi ai passaggi seguenti per eseguire query di esempio per ottenere analisi sull'utilizzo della Knowledge base QnA Maker.
 
-1. [Abilitare la registrazione diagnostica](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) per il servizio di QnA Maker gestito (anteprima).
+1. [Abilitare la registrazione diagnostica](../../diagnostic-logging.md) per il servizio di QnA Maker gestito (anteprima).
 
 2. Nel passaggio precedente, selezionare **Trace** oltre a **audit, RequestResponse e AllMetrics** per la registrazione
 
@@ -62,7 +62,7 @@ QnA Maker Managed (Preview) usa la registrazione diagnostica di Azure per archiv
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Eseguire query per ottenere altre analisi sulla Knowledge Base di QnA Maker
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 ### <a name="total-90-day-traffic"></a>Traffico totale di 90 giorni
 
@@ -132,7 +132,7 @@ traces | extend id = operation_ParentId
 | order  by timestamp  desc
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 ### <a name="all-qna-chat-log"></a>Tutti i log chat QnA
 

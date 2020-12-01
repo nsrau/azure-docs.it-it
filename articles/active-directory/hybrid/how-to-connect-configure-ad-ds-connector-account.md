@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279296"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349940"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
@@ -149,7 +149,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurare le autorizzazioni MS-DS-Consistency-Guid 
-Per impostare le autorizzazioni per l'account del connettore di Active Directory Domain Services quando si usa l'attributo ms-Ds-Consistency-Guid come ancoraggio di origine (ovvero l'opzione "Consenti ad Azure di gestire automaticamente l'ancoraggio di origine"), eseguire: 
+Per impostare le autorizzazioni per l'account del connettore servizi di dominio Active Directory quando si usa l'attributo ms-DS-coerenza-GUID come ancoraggio di origine (noto anche come opzione "Consenti a Azure di gestire l'ancoraggio di origine"), eseguire: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

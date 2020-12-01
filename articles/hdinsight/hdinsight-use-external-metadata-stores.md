@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a001f3a13daf40a1af712f09e35d93fd045ea133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629955"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350246"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -67,7 +67,7 @@ Creare o disporre di un database SQL di Azure esistente prima di configurare un 
 
 Durante la creazione del cluster, il servizio HDInsight deve connettersi al Metastore esterno e verificare le credenziali. Configurare le regole del firewall del database SQL di Azure per consentire ai servizi e alle risorse di Azure di accedere al server. Abilitare questa opzione nel portale di Azure selezionando **imposta firewall server**. Selezionare quindi **No** sotto **Nega accesso alla rete pubblica** e **Sì** sottostante **Consenti ai servizi e alle risorse di Azure di accedere al server per il** database SQL di Azure. Per altre informazioni, vedere [creare e gestire regole del firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Gli endpoint privati per gli archivi SQL sono supportati solo nei cluster creati con `outbound` ResourceProviderConnection. Per ulteriori informazioni, vedere la [documentazione](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link)a.
+Gli endpoint privati per gli archivi SQL sono supportati solo nei cluster creati con `outbound` ResourceProviderConnection. Per ulteriori informazioni, vedere la [documentazione](./hdinsight-private-link.md)a.
 
 ![pulsante Imposta firewall del server](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

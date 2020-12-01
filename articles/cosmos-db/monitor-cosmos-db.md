@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017798"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350399"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorare Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -93,7 +93,7 @@ Tutte le metriche per Azure Cosmos DB si trovano nello spazio dei nomi **Metrich
 * Region
 * StatusCode
 
-Come riferimento, è possibile visualizzare un elenco di [tutte le metriche delle risorse supportate in monitoraggio di Azure](/azure/azure-monitor/platform/metrics-supported).
+Come riferimento, è possibile visualizzare un elenco di [tutte le metriche delle risorse supportate in monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche a livello di operazione per Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Come riferimento, è possibile visualizzare un elenco di [tutte le metriche dell
 
 I dati nei log di Monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche.
 
-Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). Per un elenco dei tipi di log delle risorse raccolti per Azure Cosmos DB, vedere [monitoraggio Azure Cosmos DB riferimento ai dati] ((monitoraggio-Cosmos-DB-Reference. MD # Resource-logs)  
+Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Per un elenco dei tipi di log delle risorse raccolti per Azure Cosmos DB, vedere [monitoraggio Azure Cosmos DB dati di riferimento](monitor-cosmos-db-reference.md#resource-logs).
 
 Il [log attività](/azure/azure-monitor/platform/activity-log) è un account di accesso della piattaforma Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. È possibile visualizzarlo in modo indipendente o instradarlo ai log di monitoraggio di Azure, in cui è possibile eseguire query molto più complesse usando Log Analytics.  
 
@@ -172,7 +172,7 @@ Di seguito sono riportate alcune query che è possibile immettere nella barra di
 
 ## <a name="alerts"></a>Avvisi
 
-Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](/azure/azure-monitor/platform/alerts-metric-overview), [log](/azure/azure-monitor/platform/alerts-unified-log)e [log attività](/azure/azure-monitor/platform/activity-log-alerts). Tipi diversi di avvisi hanno vantaggi e svantaggi
+Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](../azure-monitor/platform/alerts-metric-overview.md), [log](../azure-monitor/platform/alerts-unified-log.md)e [log attività](../azure-monitor/platform/activity-log-alerts.md). Tipi diversi di avvisi hanno vantaggi e svantaggi
 
 Ad esempio, nella tabella seguente sono elencate alcune regole di avviso per le risorse. È possibile trovare un elenco dettagliato delle regole di avviso dalla portale di Azure. Per altre informazioni, vedere [How to Configure Alerts](create-alerts.md) article.  
 

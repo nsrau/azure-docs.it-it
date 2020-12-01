@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849263"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350671"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creare un pool con la crittografia disco abilitata
 
@@ -25,8 +25,8 @@ Con un pool di batch, è possibile accedere e archiviare i dati nel sistema oper
 
 Batch applicherà una di queste tecnologie di crittografia del disco nei nodi di calcolo, in base alla configurazione del pool e al supporto tecnico regionale.
 
-- [Crittografia dei dischi gestiti inattivi con chiavi gestite dalla piattaforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Crittografia nell'host mediante una chiave gestita dalla piattaforma](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Crittografia dei dischi gestiti inattivi con chiavi gestite dalla piattaforma](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Crittografia nell'host mediante una chiave gestita dalla piattaforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Quando si crea un pool di batch nella portale di Azure, selezionare **TemporaryD
 
 Dopo aver creato il pool, è possibile visualizzare le destinazioni di configurazione della crittografia del disco nella sezione **Proprietà** del pool.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot dell'opzione di configurazione della crittografia del disco nel portale di Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot che mostra le destinazioni di configurazione della crittografia del disco nel portale di Azure.":::
 
 ## <a name="examples"></a>Esempi
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla [crittografia lato server dei archiviazione su disco di Azure](../virtual-machines/windows/disk-encryption.md).
+- Altre informazioni sulla [crittografia lato server dei archiviazione su disco di Azure](../virtual-machines/disk-encryption.md).
 - Per una panoramica approfondita di Batch, vedere [Flusso di lavoro e risorse del servizio Batch](batch-service-workflow-features.md).

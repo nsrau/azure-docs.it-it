@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376797"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351896"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
@@ -18,7 +18,7 @@ QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Per compre
 
 ## <a name="resource-planning"></a>Pianificazione delle risorse
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Quando si sviluppa una QnA Maker Knowledge base nella fase di prototipo, è comune disporre di una singola risorsa QnA Maker per i test e la produzione.
 
@@ -30,7 +30,7 @@ Quando si passa alla fase di sviluppo del progetto, è consigliabile prendere in
 
 Pianificare un'unica risorsa QnA Maker contenere tutte le Knowledge base con lo stesso linguaggio, la stessa area e la stessa combinazione di dominio soggetto.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Quando si sviluppa per la prima volta una Knowledge base gestita QnA Maker, nella fase di prototipo è comune disporre di una singola risorsa gestita QnA Maker per il test e la produzione.
 
@@ -44,21 +44,21 @@ Quando si passa alla fase di sviluppo del progetto, è consigliabile prendere in
 
 ## <a name="pricing-tier-considerations"></a>Considerazioni sui piani tariffari
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Ci sono generalmente tre parametri da considerare:
 
-* **La velocità effettiva che il servizio deve fornire** :
-    * scegliere il [piano app](https://azure.microsoft.com/pricing/details/app-service/plans/) appropriato per il servizio app in base alle proprie esigenze. È possibile [aumentare](https://docs.microsoft.com/azure/app-service/manage-scale-up) o ridurre le prestazioni dell'app.
-    * Questo dovrebbe influire anche sulla selezione dello SKU **ricerca cognitiva** di Azure. per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/search/search-sku-tier). Inoltre, potrebbe essere necessario regolare ricerca cognitiva [capacità](../../../search/search-capacity-planning.md) con le repliche.
+* **La velocità effettiva che il servizio deve fornire**:
+    * scegliere il [piano app](https://azure.microsoft.com/pricing/details/app-service/plans/) appropriato per il servizio app in base alle proprie esigenze. È possibile [aumentare](../../../app-service/manage-scale-up.md) o ridurre le prestazioni dell'app.
+    * Questo dovrebbe influire anche sulla selezione dello SKU **ricerca cognitiva** di Azure. per altre informazioni, vedere [qui](../../../search/search-sku-tier.md). Inoltre, potrebbe essere necessario regolare ricerca cognitiva [capacità](../../../search/search-capacity-planning.md) con le repliche.
 
-* **Dimensioni e numero di Knowledge Base** : scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. In genere, si decide il numero di Knowledge base necessarie in base al numero di domini soggetto diversi. Una volta che il dominio dell'oggetto (per un singolo linguaggio) deve trovarsi in una Knowledge base.
+* **Dimensioni e numero di Knowledge Base**: scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. In genere, si decide il numero di Knowledge base necessarie in base al numero di domini soggetto diversi. Una volta che il dominio dell'oggetto (per un singolo linguaggio) deve trovarsi in una Knowledge base.
 
     È possibile pubblicare N-1 Knowledge Base in un particolare livello, dove N è il numero massimo di indici consentiti nel livello. Verificare anche le dimensioni massime e il numero di documenti consentiti per ogni livello.
 
     Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice viene usato per tutti gli articoli della knowledge base per la creazione e il testing.
 
-* **Numero di documenti come origini** : lo SKU gratuito del servizio di gestione di QnA Maker limita a 3 (1 MB ciascuno) il numero di documenti gestibili tramite il portale e le API. Lo SKU Standard non pone limiti al numero di documenti gestibili. Per informazioni dettagliate, vedere [qui](https://aka.ms/qnamaker-pricing).
+* **Numero di documenti come origini**: lo SKU gratuito del servizio di gestione di QnA Maker limita a 3 (1 MB ciascuno) il numero di documenti gestibili tramite il portale e le API. Lo SKU Standard non pone limiti al numero di documenti gestibili. Per informazioni dettagliate, vedere [qui](https://aka.ms/qnamaker-pricing).
 
 La tabella seguente indica alcune linee guida generali.
 
@@ -68,15 +68,15 @@ La tabella seguente indica alcune linee guida generali.
 | **Ambiente di sviluppo/test**   | SKU Standard         | Condiviso      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
 | **Ambiente di produzione** | SKU Standard         | Basic       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Ci sono generalmente tre parametri da considerare:
 
-* **La velocità effettiva che il servizio deve fornire** :
+* **La velocità effettiva che il servizio deve fornire**:
     * QnA Maker Managed (Preview) è un servizio gratuito e la velocità effettiva è attualmente limitata a 10 TPS per le API di gestione e le API di stima.
-    * Questo dovrebbe influire anche sulla selezione dello SKU **ricerca cognitiva** di Azure. per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/search/search-sku-tier). Inoltre, potrebbe essere necessario regolare ricerca cognitiva [capacità](../../../search/search-capacity-planning.md) con le repliche.
+    * Questo dovrebbe influire anche sulla selezione dello SKU **ricerca cognitiva** di Azure. per altre informazioni, vedere [qui](../../../search/search-sku-tier.md). Inoltre, potrebbe essere necessario regolare ricerca cognitiva [capacità](../../../search/search-capacity-planning.md) con le repliche.
 
-* **Dimensioni e numero di Knowledge Base** : scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. In genere, si decide il numero di Knowledge base necessarie in base al numero di domini soggetto diversi. Una volta che il dominio dell'oggetto (per un singolo linguaggio) deve trovarsi in una Knowledge base.
+* **Dimensioni e numero di Knowledge Base**: scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. In genere, si decide il numero di Knowledge base necessarie in base al numero di domini soggetto diversi. Una volta che il dominio dell'oggetto (per un singolo linguaggio) deve trovarsi in una Knowledge base.
 
     Con QnA Maker Managed (Preview) è possibile scegliere di configurare il servizio QnA Maker per KBs in una sola lingua o in più lingue. È possibile effettuare questa selezione quando si crea la prima Knowledge base nel servizio QnA Maker gestito (anteprima).
 
@@ -86,7 +86,7 @@ Ci sono generalmente tre parametri da considerare:
 
     Se, ad esempio, il livello include 15 indici consentiti, è possibile pubblicare 14 Knowledge base dello stesso linguaggio (1 indice per ogni Knowledge base pubblicata). Il quindicesimo indice viene usato per tutti gli articoli della knowledge base per la creazione e il testing. Se si sceglie di avere Knowledge base in lingue diverse, è possibile pubblicare solo 7 Knowledge base.
 
-* **Numero di documenti come origini** : QnA Maker Managed (Preview) è un servizio gratuito e non sono previsti limiti per il numero di documenti che è possibile aggiungere come origini. Per informazioni dettagliate, vedere [qui](https://aka.ms/qnamaker-pricing).
+* **Numero di documenti come origini**: QnA Maker Managed (Preview) è un servizio gratuito e non sono previsti limiti per il numero di documenti che è possibile aggiungere come origini. Per informazioni dettagliate, vedere [qui](https://aka.ms/qnamaker-pricing).
 
 La tabella seguente indica alcune linee guida generali.
 
@@ -100,7 +100,7 @@ La tabella seguente indica alcune linee guida generali.
 
 ## <a name="recommended-settings"></a>Impostazioni consigliate
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 |QUERY al secondo di destinazione | Servizio app | Ricerca cognitiva di Azure |
 | -------------------- | ----------- | ------------ |
@@ -110,7 +110,7 @@ La tabella seguente indica alcune linee guida generali.
 | 100         | P3V2, 10 istanze  | S3, 12 istanze, 3 partizioni   |
 | da 200 a 250         | P3V2, 20 istanze | S3, 12 istanze, 3 partizioni    |
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 QnA Maker Managed è un servizio gratuito e la velocità effettiva è attualmente limitata a 10 transazioni al secondo per le API di gestione e le API di stima. Per raggiungere 10 transazioni al secondo per il servizio, è consigliabile usare lo SKU S1 (1 istanza) di Azure ricerca cognitiva.
 
@@ -118,7 +118,7 @@ QnA Maker Managed è un servizio gratuito e la velocità effettiva è attualment
 
 ## <a name="when-to-change-a-pricing-tier"></a>Quando modificare un piano tariffario
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 |Aggiornamento|Motivo|
 |--|--|
@@ -128,7 +128,7 @@ QnA Maker Managed è un servizio gratuito e la velocità effettiva è attualment
 
 Per ottenere gli aggiornamenti più recenti del runtime, [aggiornare il servizio app nel portale di Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 [Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) di Azure ricerca cognitiva Service quando si prevede di avere molte Knowledge base.
 
@@ -136,7 +136,7 @@ Per ottenere gli aggiornamenti più recenti del runtime, [aggiornare il servizio
 
 ## <a name="resource-naming-considerations"></a>Considerazioni sulla denominazione delle risorse
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Il nome della risorsa per la risorsa QnA Maker, ad esempio `qna-westus-f0-b` , viene usato anche per assegnare un nome alle altre risorse.
 
@@ -210,7 +210,7 @@ Per eseguire una query sulla Knowledge base pubblicata, tutte le Knowledge base 
 
 QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
 
-|Servizio|Condivisione|Motivo|
+|Service|Condivisione|Motivo|
 |--|--|--|
 |Servizi cognitivi|X|Non possibile dalla progettazione|
 |Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|
@@ -232,7 +232,7 @@ Il servizio di gestione di QnA Maker viene usato solo per il portale di QnA Make
 
 Il servizio QnA Maker gestisce due tipi di chiavi: la **creazione** di chiavi e le **chiavi dell'endpoint di query** usate con il runtime ospitato nel servizio app.
 
-Se si sta cercando la **chiave della sottoscrizione** , [la terminologia è cambiata](#subscription-keys).
+Se si sta cercando la **chiave della sottoscrizione**, [la terminologia è cambiata](#subscription-keys).
 
 Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
@@ -240,7 +240,7 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 |Nome|Location|Scopo|
 |--|--|--|
-|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
 |Chiave endpoint query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per eseguire una query sull'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint di query viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione
@@ -251,13 +251,13 @@ Per conoscere la chiave che è necessario trovare, è necessario conoscere il ti
 
 ### <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
 
-* Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Proteggere il servizio app (Runtime QnA) dall'accesso pubblico:
     * Consentire il traffico solo da indirizzi IP del servizio cognitivi. Questi sono già inclusi nel tag di servizio "CognitiveServicesManagement". Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure.
     * Assicurarsi di consentire anche altri punti di ingresso come il servizio bot, il portale QnA Maker (potrebbe essere il Corpnet) e così via per l'accesso all'API "GenerateAnswer" per la stima.
-    * Vedere [altre informazioni sui tag del servizio.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+    * Vedere [altre informazioni sui tag del servizio.](../../../virtual-network/service-tags-overview.md)
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Il nome della risorsa per la risorsa QnA Maker gestita (anteprima), ad esempio `qna-westus-f0-b` , viene usato anche per assegnare un nome alle altre risorse.
 
@@ -309,7 +309,7 @@ In QnA Maker Managed (Preview) sia la gestione che i servizi di stima si trovano
 
 Il servizio QnA Maker gestito (anteprima) gestisce due tipi di chiavi: la **creazione** di chiavi e le **chiavi di ricerca cognitiva di Azure** usate per accedere al servizio nella sottoscrizione del cliente.
 
-Se si sta cercando la **chiave della sottoscrizione** , [la terminologia è cambiata](#subscription-keys).
+Se si sta cercando la **chiave della sottoscrizione**, [la terminologia è cambiata](#subscription-keys).
 
 Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
@@ -317,8 +317,8 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 |Nome|Location|Scopo|
 |--|--|--|
-|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
-|Chiave amministratore di Azure ricerca cognitiva|[Azure portal](https://docs.microsoft.com/azure/search/search-security-api-keys)|Queste chiavi vengono usate per comunicare con il servizio di ricerca cognitivo di Azure distribuito nella sottoscrizione di Azure dell'utente. Quando si associa una ricerca cognitiva di Azure al servizio QnA Maker gestito (anteprima), la chiave di amministrazione viene passata automaticamente al servizio di QnA Maker. <br><br>È possibile trovare queste chiavi nella risorsa **ricerca cognitiva di Azure** nella pagina **chiavi** .|
+|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave amministratore di Azure ricerca cognitiva|[Portale di Azure](../../../search/search-security-api-keys.md)|Queste chiavi vengono usate per comunicare con il servizio di ricerca cognitivo di Azure distribuito nella sottoscrizione di Azure dell'utente. Quando si associa una ricerca cognitiva di Azure al servizio QnA Maker gestito (anteprima), la chiave di amministrazione viene passata automaticamente al servizio di QnA Maker. <br><br>È possibile trovare queste chiavi nella risorsa **ricerca cognitiva di Azure** nella pagina **chiavi** .|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione
 
@@ -328,13 +328,12 @@ Per conoscere la chiave che è necessario trovare, è necessario conoscere il ti
 
 ### <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete 
 
-Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulla QnA Maker [Knowledge base](knowledge-base.md)
+* Informazioni sulla QnA Maker [Knowledge base](../index.yml)
 * Informazioni sul [ciclo di vita della Knowledge base](development-lifecycle-knowledge-base.md)
 * Esaminare i [limiti](../limits.md) del servizio e della Knowledge base
-

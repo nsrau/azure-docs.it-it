@@ -2,14 +2,14 @@
 title: Provider di risorse e tipi di risorse
 description: Vengono descritti i provider di risorse che supportano Azure Resource Manager. Vengono descritti gli schemi, le versioni API disponibili e le aree in cui è possibile ospitare le risorse.
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972539"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352100"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
@@ -36,6 +36,9 @@ Prima di usare un provider di risorse, è necessario che la sottoscrizione di Az
 
 Questo articolo illustra come controllare lo stato di registrazione di un provider di risorse e registrarlo in base alle esigenze. È necessario disporre dell'autorizzazione per eseguire l' `/register/action` operazione per il provider di risorse. L'autorizzazione è inclusa nei ruoli collaboratore e proprietario.
 
+> [!IMPORTANT]
+> Registrare un provider di risorse solo quando si è pronti a usarlo. Il passaggio di registrazione consente di mantenere i privilegi minimi all'interno della sottoscrizione. Un utente malintenzionato non può usare i provider di risorse che non sono registrati.
+
 Il codice dell'applicazione non deve bloccare la creazione di risorse per un provider di risorse che si trova nello stato di **registrazione** . Quando si registra il provider di risorse, l'operazione viene eseguita singolarmente per ogni area supportata. Per creare risorse in un'area, è necessario completare la registrazione solo in quell'area. Non bloccando il provider di risorse nello stato di registrazione, l'applicazione può continuare molto prima di attendere il completamento di tutte le aree.
 
 Non è possibile annullare la registrazione di un provider di risorse quando i tipi di risorse del provider di risorse sono ancora presenti nella sottoscrizione.
@@ -55,7 +58,7 @@ Per visualizzare tutti i provider di risorse e lo stato di registrazione della p
 
     ![visualizzare i provider di risorse](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. Per registrare un provider di risorse, selezionare **Registra**. Nello screenshot precedente il collegamento **Registra** è evidenziato per **Microsoft.Blueprint**.
+6. Per registrare un provider di risorse, selezionare **Registra**. Nello screenshot precedente il collegamento **Registra** è evidenziato per **Microsoft.Blueprint**. Per mantenere i privilegi minimi nella sottoscrizione, registrare solo i provider di risorse che si è pronti a usare.
 
 Per visualizzare le informazioni relative uno specifico provider di risorse:
 
@@ -107,7 +110,7 @@ Per visualizzare tutti i provider di risorse registrati per la sottoscrizione, u
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-Per registrare un provider di risorse, usare:
+Per mantenere i privilegi minimi nella sottoscrizione, registrare solo i provider di risorse che si è pronti a usare. Per registrare un provider di risorse, usare:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -216,7 +219,7 @@ Per visualizzare tutti i provider di risorse registrati per la sottoscrizione, u
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-Per registrare un provider di risorse, usare:
+Per mantenere i privilegi minimi nella sottoscrizione, registrare solo i provider di risorse che si è pronti a usare. Per registrare un provider di risorse, usare:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch

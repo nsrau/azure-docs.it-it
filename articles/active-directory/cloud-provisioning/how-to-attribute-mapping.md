@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637220"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348804"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Mapping di attributo per il provisioning del Cloud Azure AD Connect
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect mapping degli attributi di provisioning cloud
 
 Azure AD Connect provisioning cloud ha introdotto una nuova funzionalità che consente di eseguire facilmente il mapping degli attributi tra gli oggetti utente/gruppo locali e gli oggetti in Azure AD.  Questa funzionalità è stata aggiunta alla configurazione del provisioning del cloud.
 
@@ -54,13 +54,13 @@ Oltre a questa proprietà i mapping degli attributi supportano i seguenti attrib
 ## <a name="using-attribute-mapping"></a>Uso del mapping degli attributi
 Per usare la nuova funzionalità, attenersi alla procedura riportata di seguito.
 
- 1.  Nella portale di Azure selezionare **Azure Active Directory**.
+ 1.  Nel portale di Azure selezionare **Azure Active Directory**.
  2.  Selezionare **Azure AD Connect**.
  3.  Selezionare **Gestisci provisioning**.
 
    ![Gestire il provisioning](media/how-to-configure/manage1.png)
  
- 4. In **configurazione**selezionare la configurazione.
+ 4. In **configurazione** selezionare la configurazione.
  5. Selezionare **fare clic per modificare i mapping**.  Verrà visualizzata la schermata mapping attributi.
 
  ![Aggiunta di attributi](media/how-to-attribute-mapping/mapping6.png)
@@ -82,10 +82,10 @@ Per usare la nuova funzionalità, attenersi alla procedura riportata di seguito.
 ## <a name="test-your-attribute-mapping"></a>Testare il mapping degli attributi
 Per testare il mapping degli attributi, è possibile usare [il provisioning su richiesta](how-to-on-demand-provision.md).  Dall' 
 
-1.  Nella portale di Azure selezionare **Azure Active Directory**.
+1.  Nel portale di Azure selezionare **Azure Active Directory**.
 2.  Selezionare **Azure AD Connect**.
 3.  Selezionare **Gestisci provisioning**.
-4. In **configurazione**selezionare la configurazione.
+4. In **configurazione** selezionare la configurazione.
 5. In **convalida** fare clic sul pulsante Esegui il **provisioning di un utente** . 
 6. Nella schermata di provisioning su richiesta.  Immettere il **nome distinto** di un utente o di un gruppo e fare clic sul pulsante **provisioning** .  
 7. Al termine, verrà visualizzata una schermata operazione completata e 4 caselle di controllo verde che indicano che è stato eseguito correttamente il provisioning.  

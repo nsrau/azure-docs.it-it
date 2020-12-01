@@ -4,12 +4,12 @@ description: Informazioni su come accedere a livello di codice alle proprie cred
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337492"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350688"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Accedere in modo sicuro a Key Vault con Batch
 
@@ -46,7 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-L'accesso a Key Vault può essere concesso a un **utente** o a un' **entità servizio**. Per accedere a Key Vault a livello di codice, usare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il certificato creato nel passaggio precedente. L'entità servizio deve trovarsi nello stesso tenant Azure AD di Key Vault.
+L'accesso a Key Vault può essere concesso a un **utente** o a un'**entità servizio**. Per accedere a Key Vault a livello di codice, usare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il certificato creato nel passaggio precedente. L'entità servizio deve trovarsi nello stesso tenant Azure AD di Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -67,7 +67,7 @@ Gli URL per l'applicazione non sono importanti, perché vengono utilizzati solo 
 
 ## <a name="grant-rights-to-key-vault"></a>Concedere i diritti per Key Vault
 
-Per recuperare i segreti da Key Vault, l'entità servizio creata in precedenza deve essere autorizzata. L'autorizzazione può essere concessa tramite il [portale di Azure](/azure/key-vault/general/assign-access-policy-portal) o con il comando di PowerShell riportato di seguito.
+Per recuperare i segreti da Key Vault, l'entità servizio creata in precedenza deve essere autorizzata. L'autorizzazione può essere concessa tramite il [portale di Azure](../key-vault/general/assign-access-policy-portal.md) o con il comando di PowerShell riportato di seguito.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -94,7 +94,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Accedere all'insieme di credenziali delle chiavi
 
-A questo punto si è pronti ad accedere Key Vault negli script in esecuzione nei nodi batch. Per accedere a Key Vault con uno script, è sufficiente autenticare lo script in Azure AD usando il certificato. Per farlo con PowerShell, usare i comandi di esempio seguenti. Specificare il GUID appropriato per **Identificazione personale** , **ID app** (l'ID dell'entità servizio) e **ID tenant** (il tenant in cui si trova l'entità servizio).
+A questo punto si è pronti ad accedere Key Vault negli script in esecuzione nei nodi batch. Per accedere a Key Vault con uno script, è sufficiente autenticare lo script in Azure AD usando il certificato. Per farlo con PowerShell, usare i comandi di esempio seguenti. Specificare il GUID appropriato per **Identificazione personale**, **ID app** (l'ID dell'entità servizio) e **ID tenant** (il tenant in cui si trova l'entità servizio).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

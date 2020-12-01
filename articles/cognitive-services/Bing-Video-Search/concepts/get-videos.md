@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 2fab4a57a939f9516140562cb8b8508b2ba69dc0
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 10277efe1f06de3633b2d614e2ee5ec0cc351c76
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351930"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
 
 > [!WARNING]
-> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
-> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L'API Ricerca video Bing facilita l'integrazione delle funzionalità di ricerca notizie cognitive di Bing nelle applicazioni. Oltre a trovare e restituire principalmente i video pertinenti dal Web, l'API offre diverse funzionalità per il recupero intelligente e mirato dei video sul Web.
 
@@ -149,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Espansione della query
 
-Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini* , le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo** , **Computer** di pulizia dei margini e pulizia dei margini **facile**.
+Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini*, le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo**, **Computer** di pulizia dei margini e pulizia dei margini **facile**.
 
 Il seguente esempio mostra le query espanse per *Pulizia dei margini*.
 
@@ -180,7 +180,7 @@ Il campo `queryExpansions` contiene un elenco di oggetto [Query](/rest/api/cogni
 
 ## <a name="pivoting-the-query"></a>Trasformazione tramite Pivot della query
 
-Se Bing può segmentare la query di ricerca originale, significa che l'oggetto [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `pivotSuggestions`. Se ad esempio la query originale fosse *Pulizia dei margini* , Bing potrebbe segmentare la query in *Pulizia* e *Margini*.
+Se Bing può segmentare la query di ricerca originale, significa che l'oggetto [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `pivotSuggestions`. Se ad esempio la query originale fosse *Pulizia dei margini*, Bing potrebbe segmentare la query in *Pulizia* e *Margini*.
 
 Il seguente esempio mostra i suggerimenti di pivot per *Pulizia dei margini*.
 

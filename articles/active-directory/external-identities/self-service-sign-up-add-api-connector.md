@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441675"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351760"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
 
@@ -35,7 +35,7 @@ Per usare un [connettore API](api-connectors-overview.md), è necessario innanzi
 6. Specificare l' **URL dell'endpoint** per la chiamata API.
 7. Fornire le informazioni di autenticazione per l'API.
 
-   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, HTTPS []() ://contoso.azurewebsites.NET/API/endpoint<b>? Code = 0123456789</b>).
+   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, HTTPS []() ://contoso.azurewebsites.NET/API/endpoint <b>? Code = 0123456789</b>).
 
    ![Configurare un nuovo connettore API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Selezionare **Salva**.
@@ -75,7 +75,7 @@ Content-type: application/json
 }
 ```
 
-Nella richiesta sono disponibili solo le proprietà utente e **Azure Active Directory**gli attributi personalizzati elencati nell'esperienza degli  >  **External Identities**  >  **attributi utente personalizzati** Azure Active Directory identità esterne.
+Nella richiesta sono disponibili solo le proprietà utente e **Azure Active Directory** gli attributi personalizzati elencati nell'esperienza degli  >  **External Identities**  >  **attributi utente personalizzati** Azure Active Directory identità esterne.
 
 Gli attributi personalizzati sono disponibili nel formato **extension_ \<extensions-app-id> _AttributeName**  nella directory. L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati per i flussi di iscrizione self-service](user-flow-add-custom-attributes.md).
 
@@ -95,7 +95,7 @@ Seguire questi passaggi per aggiungere un connettore API a un flusso utente di i
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
 4. Selezionare **flussi utente (anteprima)** e quindi selezionare il flusso utente a cui si vuole aggiungere il connettore API.
-5. Selezionare **connettori API**e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
+5. Selezionare **connettori API** e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
 
    - **Dopo aver eseguito l'accesso con un provider di identità**
    - **Prima della creazione dell'utente**
@@ -106,7 +106,7 @@ Seguire questi passaggi per aggiungere un connettore API a un flusso utente di i
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Dopo aver eseguito l'accesso con un provider di identità
 
-Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (Google, Facebook, Azure AD). Questo passaggio precede la **_pagina della raccolta di attributi_*_, che è il form presentato all'utente per raccogliere gli attributi utente. 
+Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (Google, Facebook, Azure AD). Questo passaggio precede la **_pagina della raccolta di attributi_* _, che è il form presentato all'utente per raccogliere gli attributi utente. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -248,7 +248,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori possono essere archiviati nella directory se hanno selezionato come*attestazione _ per ricevere** nella configurazione del connettore API e negli **attributi utente** per un flusso utente. I valori possono essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori possono essere archiviati nella directory se hanno selezionato come *attestazione _ per ricevere** nella configurazione del connettore API e negli **attributi utente** per un flusso utente. I valori possono essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione restituita non deve contenere `_<extensions-app-id>_` . I valori vengono archiviati nella directory se hanno selezionato come **attestazione per la ricezione** nella configurazione del connettore API e nell' **attributo utente** per un flusso utente. Gli attributi personalizzati non possono essere restituiti nel token. |
 
 ### <a name="example-of-a-blocking-response"></a>Esempio di una risposta di blocco

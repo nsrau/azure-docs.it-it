@@ -3,12 +3,12 @@ title: Raccogli & analizzare i log delle risorse
 description: Registrare e analizzare gli eventi del log delle risorse per Container Registry di Azure, ad esempio autenticazione, push di immagini e pull di immagini.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553377"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348586"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Log di Azure Container Registry per la valutazione diagnostica e il controllo
 
@@ -70,7 +70,7 @@ Nell'immagine seguente viene illustrata la creazione di un'impostazione di diagn
 
 Dopo aver abilitato la raccolta dei log di diagnostica in Log Analytics, potrebbero essere necessari alcuni minuti prima che i dati vengano visualizzati in monitoraggio di Azure. Per visualizzare i dati nel portale, selezionare il registro di sistema e selezionare **monitoraggio > log**. Selezionare una delle tabelle che contiene i dati per il registro di sistema. 
 
-Eseguire query per visualizzare i dati. Sono state fornite diverse query di esempio o ne è stata eseguita una personalizzata. Ad esempio, la query seguente recupera le ultime 24 ore di dati dalla tabella **ContainerRegistryRepositoryEvents** :
+Eseguire query per visualizzare i dati. Sono disponibili numerose query di esempio oppure eseguire una query personalizzata. Ad esempio, la query seguente recupera le ultime 24 ore di dati dalla tabella **ContainerRegistryRepositoryEvents** :
 
 ```Kusto
 ContainerRegistryRepositoryEvents
@@ -81,7 +81,7 @@ L'immagine seguente mostra l'output di esempio:
 
 ![Eseguire query sui dati di log](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Per un'esercitazione sull'uso di Log Analytics nella portale di Azure, vedere [Introduzione a monitoraggio di Azure log Analytics](../azure-monitor/log-query/get-started-portal.md)oppure provare l' [ambiente demo](https://portal.loganalytics.io/demo)log Analytics. 
+Per un'esercitazione sull'uso di Log Analytics nella portale di Azure, vedere [Introduzione a monitoraggio di Azure log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)oppure provare l' [ambiente demo](https://portal.loganalytics.io/demo)log Analytics. 
 
 Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Oltre a inviare i log a Log Analytics o in alternativa, uno scenario comune cons
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sull'uso di [log Analytics](../azure-monitor/log-query/get-started-portal.md) e sulla creazione di [query di log](../azure-monitor/log-query/get-started-queries.md).
+* Altre informazioni sull'uso di [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) e sulla creazione di [query di log](../azure-monitor/log-query/get-started-queries.md).
 * Vedere [Panoramica dei log della piattaforma Azure](../azure-monitor/platform/platform-logs-overview.md) per informazioni sui log della piattaforma disponibili in diversi livelli di Azure.

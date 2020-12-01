@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 877aa96b189de47d158721df6585cb94ace4a855
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932914"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349181"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrare i dati da Cassandra a Azure Cosmos DB account API Cassandra usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> Le `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` configurazioni e sono importanti per evitare la [limitazione della frequenza](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), che si verifica quando le richieste di Cosmos DB superano la velocità effettiva con provisioning (unità di[richiesta](https://docs.microsoft.com/azure/cosmos-db/request-units)). Potrebbe essere necessario modificare queste impostazioni in base al numero di esecutori del cluster Spark e potenzialmente alla dimensione (e quindi al costo UR) di ogni record scritto nelle tabelle di destinazione.
+> Le `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` configurazioni e sono importanti per evitare la [limitazione della frequenza](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), che si verifica quando le richieste di Cosmos DB superano la velocità effettiva con provisioning (unità di[richiesta](./request-units.md)). Potrebbe essere necessario modificare queste impostazioni in base al numero di esecutori del cluster Spark e potenzialmente alla dimensione (e quindi al costo UR) di ogni record scritto nelle tabelle di destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368866"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349266"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -23,8 +23,8 @@ Servizi cognitivi fornisce funzionalità di machine learning per risolvere i pro
 |Categoria servizio|Scopo|
 |--|--|
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
-|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
-|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiungi le API di Ricerca Bing alle tue app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata all'API.|
+|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Consente alle app di elaborare il linguaggio naturale con script precompilati, di effettuare valutazioni e riconoscere i desideri degli utenti.|
+|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiunge le API di Ricerca Bing alle app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata API.|
 |[Voce](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
 |[Visione](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.|
 ||||
@@ -38,13 +38,13 @@ Usare un'altra soluzione di apprendimento automatico quando si:
 
 * È necessario scegliere l'algoritmo ed è necessario eseguire il training su dati molto specifici.
 
-## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
+## <a name="what-is-machine-learning"></a>Che cos'è Machine Learning?
 
 Machine Learning è un concetto in cui è possibile riunire i dati e un algoritmo per risolvere una necessità specifica. Una volta sottoposto a training i dati e l'algoritmo, l'output è un modello che è possibile utilizzare di nuovo con dati diversi. Il modello con training fornisce informazioni dettagliate in base ai nuovi dati. 
 
 Il processo di creazione di un sistema di apprendimento automatico richiede una certa conoscenza di Machine Learning o data science.
 
-Machine Learning viene fornito usando i [prodotti e i servizi Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+Machine Learning viene fornito usando i [prodotti e i servizi Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Che cos'è un servizio cognitivo?
 

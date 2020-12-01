@@ -3,12 +3,12 @@ title: Risolvere i problemi di rete con il registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148454"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351794"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
 
@@ -103,7 +103,7 @@ Collegamenti correlati:
 
 ### <a name="configure-service-access"></a>Configurare l'accesso al servizio
 
-Attualmente, il Centro sicurezza di Azure non è in grado di eseguire l' [analisi delle vulnerabilità delle immagini](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) in un registro che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. Inoltre, le risorse dei servizi seguenti non sono in grado di accedere a un registro contenitori con restrizioni di rete:
+Attualmente, il Centro sicurezza di Azure non è in grado di eseguire l' [analisi delle vulnerabilità delle immagini](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in un registro che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. Inoltre, le risorse dei servizi seguenti non sono in grado di accedere a un registro contenitori con restrizioni di rete:
 
 * Azure DevOps Services 
 * Istanze di Azure Container

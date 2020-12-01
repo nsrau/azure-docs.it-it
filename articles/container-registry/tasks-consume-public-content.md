@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: stevelas
 ms.date: 10/29/2020
 ms.custom: ''
-ms.openlocfilehash: 261604b66d393723b35b472415b8840b047bc36e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fba6290b4973e797c13943fc9be4fadb19f3274
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133700"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349283"
 ---
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>Come usare e gestire il contenuto pubblico con le attività di Container Registry di Azure
 
@@ -39,7 +39,7 @@ Per completare questa procedura dettagliata, è possibile usare l'Azure Cloud Sh
 
 Questa procedura dettagliata configura:
 
-1. Tre **registri contenitori** , che rappresentano:
+1. Tre **registri contenitori**, che rappresentano:
    * Un [Hub Docker][docker-hub] simulato ( `publicregistry` ) per supportare la modifica dell'immagine di base
    * Registro del team ( `contoso` ) per condividere immagini private
    * Registro di sistema condiviso società/team ( `baseartifacts` ) per il contenuto pubblico importato
@@ -47,9 +47,9 @@ Questa procedura dettagliata configura:
    1. Creare un'immagine pubblica simulata `node`
    1. Importare e convalidare l' `node` immagine nel registro di sistema condiviso aziendale/team
    1. Compilare e distribuire l' `hello-world` immagine
-1. **Definizioni di attività ACR** , incluse le configurazioni per:
-1. Raccolta di **credenziali del registro di sistema** , che sono puntatori a Key Vault
-1. Raccolta di **segreti** , disponibile all'interno di un `acr-task.yaml` , che sono puntatori a Key Vault
+1. **Definizioni di attività ACR**, incluse le configurazioni per:
+1. Raccolta di **credenziali del registro di sistema**, che sono puntatori a Key Vault
+1. Raccolta di **segreti**, disponibile all'interno di un `acr-task.yaml` , che sono puntatori a Key Vault
 1. Raccolta di **valori configurati** utilizzati all'interno di un oggetto. `acr-task.yaml`
 1. **Azure Key Vault** per proteggere tutti i segreti
 1. **Istanza di contenitore di Azure** che ospita l' `hello-world` applicazione di compilazione
@@ -751,11 +751,11 @@ In questo articolo. sono state usate le attività ACR per creare un flusso di la
 
 [install-cli]:                  /cli/azure/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -766,11 +766,7 @@ In questo articolo. sono state usate le attività ACR per creare un flusso di la
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.io
-
-
-
-

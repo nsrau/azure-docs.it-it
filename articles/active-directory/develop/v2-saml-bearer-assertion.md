@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227917"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348760"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform e flusso dell'asserzione SAML Bearer di OAuth 2.0
 Il flusso dell'asserzione SAML Bearer di OAuth 2.0 consente di richiedere un token di accesso OAuth tramite un'asserzione SAML quando un client deve usare una relazione di trust esistente. La firma applicata all'asserzione SAML fornisce l'autenticazione dell'app autorizzata. Un'asserzione SAML è un token di sicurezza XML rilasciato da un provider di identità e usato da un provider di servizi. Il provider di servizi si basa sul contenuto del token per identificare l'oggetto dell'asserzione per finalità correlate alla sicurezza.
@@ -32,7 +32,7 @@ Il flusso di asserzione della portar SAML di OAuth è supportato solo per gli ut
 ![Flusso OAuth](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Chiamare Graph con l'asserzione SAML Bearer
-A questo punto si passerà al recupero effettivo dell'asserzione SAML a livello di programmazione. Questo approccio viene testato con AD FS, ma funziona con qualsiasi provider di identità che supporti la restituzione dell'asserzione SAML a livello di programmazione. Il processo di base consiste nell'ottenere un'asserzione SAML, ottenere un token di accesso e accedere a Microsoft Graph.
+A questo punto è possibile comprendere in che modo sia possibile recuperare l'asserzione SAML a livello di codice. Questo approccio viene testato con AD FS, Tuttavia, funziona con qualsiasi provider di identità che supporta la restituzione dell'asserzione SAML a livello di codice. Il processo di base consiste nell'ottenere un'asserzione SAML, ottenere un token di accesso e accedere a Microsoft Graph.
 
 ### <a name="prerequisites"></a>Prerequisiti
 

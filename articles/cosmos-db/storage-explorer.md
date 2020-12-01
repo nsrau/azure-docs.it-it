@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010572"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348654"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB tramite Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "96010572"
 Usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. È possibile gestire Azure Cosmos DB entità, manipolare i dati, aggiornare stored procedure e trigger insieme ad altre entità di Azure, ad esempio BLOB di archiviazione e code. Azure Storage Explorer supporta gli account Cosmos configurati per le API SQL, MongoDB, Graph e Table.
 
 > [!NOTE]
-> L'integrazione di Azure Cosmos DB con Storage Explorer è stata deprecata. Tutte le funzionalità esistenti non verranno rimosse per almeno un anno a partire da questa versione. In alternativa è consigliabile usare il [portale di Azure](https://portal.azure.com/), l'[app desktop del portale di Azure](https://portal.azure.com/App/Download) o la versione autonoma [Azure Cosmos Explorer](data-explorer.md). Le opzioni alternative contengono molte nuove funzionalità che attualmente non sono supportate in Storage Explorer.
+> L'integrazione di Azure Cosmos DB con Storage Explorer è stata deprecata. Tutte le funzionalità esistenti non verranno rimosse per almeno un anno a partire da questa versione. È invece consigliabile usare il [portale di Azure](https://portal.azure.com/), l' [app desktop del portale di azure](https://portal.azure.com/App/Download) o il [Azure Cosmos DB Explorer](data-explorer.md) autonomo. Le opzioni alternative contengono molte nuove funzionalità che attualmente non sono supportate in Storage Explorer.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

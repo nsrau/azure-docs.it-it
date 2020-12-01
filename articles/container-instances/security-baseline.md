@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148626"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351811"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Baseline della sicurezza di Azure per le istanze di contenitore
 
@@ -263,7 +263,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 * [Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure](./container-instances-log-analytics.md)
 
-* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -582,7 +582,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: per impostazione predefinita, tutti i dati di distribuzione nelle istanze di contenitore di Azure vengono crittografati a riposo usando chiavi gestite da Microsoft. Facoltativamente, gestire la crittografia con una chiave personalizzata (chiave gestita dal cliente).
 
-* [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
+* [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md)
 
 * [Crittografare i dati di distribuzione con istanze di contenitore di Azure](./container-instances-encrypt-data.md)
 
@@ -750,7 +750,7 @@ Monitorare i log di istanze di contenitore di Azure per un comportamento anomalo
 
 * [Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure](./container-instances-log-analytics.md)
 
-* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -1194,7 +1194,7 @@ Inoltre, contrassegnare chiaramente le sottoscrizioni, ad esempio. produzione, n
 
 **Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
 
-* [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regole di ingaggio per i test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

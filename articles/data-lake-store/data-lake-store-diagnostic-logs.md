@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 4476e20772c0736f35c074b200ea9fd47a0ae81c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109171"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350042"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accesso ai log di diagnostica per Azure Data Lake Storage Gen1
 Informazioni su come abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 e visualizzare i log raccolti per l'account.
@@ -46,7 +46,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per l'account A
         
         * Selezionare l'opzione per eseguire lo **streaming in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Molto probabilmente questa opzione viene utilizzata se si dispone di una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-        * Consente di selezionare l'opzione da **inviare a log Analytics** per usare il servizio monitoraggio di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro Log Analytics che si vuole usare per eseguire l'analisi dei log. Per informazioni dettagliate sull'uso dei log di monitoraggio di Azure, vedere [visualizzare o analizzare i dati raccolti con i log di monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md) .
+        * Consente di selezionare l'opzione da **inviare a log Analytics** per usare il servizio monitoraggio di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro Log Analytics che si vuole usare per eseguire l'analisi dei log. Per informazioni dettagliate sull'uso dei log di monitoraggio di Azure, vedere [visualizzare o analizzare i dati raccolti con i log di monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md) .
      
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
    * Specificare il numero di giorni per cui devono essere conservati i dati. La conservazione dei dati è disponibile solo se si usano account di archiviazione di Azure per archiviare i dati del log.
@@ -115,7 +115,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 ```
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -128,7 +128,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | Percorso |string |Il percorso coinvolto nell'operazione |
@@ -164,7 +164,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 ```
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -177,12 +177,12 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | StreamName |string |Il percorso coinvolto nell'operazione |
 
 ## <a name="samples-to-process-the-log-data"></a>Esempi per elaborare i dati di log
-Quando si inviano log da Azure Data Lake Storage Gen1 ai log di monitoraggio di Azure (vedere [visualizzare o analizzare i dati raccolti con](../azure-monitor/log-query/get-started-portal.md) i log di monitoraggio di Azure ricerca per informazioni dettagliate sull'uso dei log di monitoraggio di Azure), la query seguente restituisce una tabella contenente un elenco di nomi visualizzati dall'utente, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:
+Quando si inviano log da Azure Data Lake Storage Gen1 ai log di monitoraggio di Azure (vedere [visualizzare o analizzare i dati raccolti con](../azure-monitor/log-query/log-analytics-tutorial.md) i log di monitoraggio di Azure ricerca per informazioni dettagliate sull'uso dei log di monitoraggio di Azure), la query seguente restituisce una tabella contenente un elenco di nomi visualizzati dall'utente, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:
 
 ```
 search *

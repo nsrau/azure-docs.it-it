@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000097"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351708"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -128,11 +128,11 @@ Selezionare periodicamente **Salva e** Esegui il training dopo avere apportato m
 
 La modifica delle risposte con [testo RTF](#add-an-editorial-qna-set) consente, come autore, di utilizzare una barra degli strumenti di formattazione per selezionare e formattare rapidamente il testo.
 
-[Markdown](../reference-markdown-format.md) è uno strumento migliore quando è necessario generare automaticamente contenuto per creare Knowledge base da importare come parte di una pipeline di integrazione continua/recapito continuo o per i [test batch](../Quickstarts/batch-testing.md).
+[Markdown](../reference-markdown-format.md) è uno strumento migliore quando è necessario generare automaticamente contenuto per creare Knowledge base da importare come parte di una pipeline di integrazione continua/recapito continuo o per i [test batch](../index.yml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Collaborare a una Knowledge Base](./collaborate-knowledge-base.md)
+> [Collaborare a una Knowledge Base](../index.yml)
 
 * [Gestire le risorse di Azure usate da QnA Maker](set-up-qnamaker-service-azure.md)

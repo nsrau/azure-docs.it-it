@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916781"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352219"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un runtime di integrazione self-hosted come proxy per un Azure-SSIS IR in Azure Data Factory
 
@@ -70,7 +70,7 @@ Se non è già stato fatto, creare un servizio collegato di archiviazione BLOB d
 - In **metodo di autenticazione** selezionare **chiave account**, **URI SAS**, **entità servizio** o **identità gestita**.  
 
 >[!TIP]
->Se si seleziona il metodo dell' **entità servizio** , concedere all'entità servizio almeno un ruolo di *collaboratore dati BLOB di archiviazione* . Per altre informazioni, vedere [connettore di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties). Se si seleziona il metodo di **identità gestito** , concedere ai ruoli appropriati dell'identità gestita di ADF di accedere all'archivio BLOB di Azure. Per altre informazioni, vedere [accedere all'archiviazione BLOB di Azure con l'autenticazione di Azure Active Directory con l'identità gestita di ADF](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>Se si seleziona il metodo dell' **entità servizio** , concedere all'entità servizio almeno un ruolo di *collaboratore dati BLOB di archiviazione* . Per altre informazioni, vedere [connettore di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties). Se si seleziona il metodo di **identità gestito** , concedere ai ruoli appropriati dell'identità gestita di ADF di accedere all'archivio BLOB di Azure. Per altre informazioni, vedere [accedere all'archiviazione BLOB di Azure con l'autenticazione di Azure Active Directory con l'identità gestita di ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Preparare il servizio collegato di archiviazione BLOB di Azure per la gestione temporanea](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -157,7 +157,7 @@ Quando si progettano nuovi pacchetti contenenti attività flusso di dati con com
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Eseguire il debug delle attività di gestione temporanea in locale e nel cloud
 
-Nel runtime di integrazione self-hosted è possibile trovare i log di runtime nella cartella *C:\ProgramData\SSISTelemetry* e i log di esecuzione delle attività di gestione temporanea locali nella cartella *C:\ProgramData\SSISTelemetry\ExecutionLog* .  È possibile trovare i log di esecuzione delle attività di gestione temporanea nel database SSISDB, i percorsi dei file di registrazione specificati o il monitoraggio di Azure, a seconda che i pacchetti siano archiviati in SSISDB, abilitare l' [integrazione di monitoraggio di Azure](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)e così via. È anche possibile trovare gli ID univoci delle attività di staging locali nei log di esecuzione delle attività di gestione temporanea del cloud. 
+Nel runtime di integrazione self-hosted è possibile trovare i log di runtime nella cartella *C:\ProgramData\SSISTelemetry* e i log di esecuzione delle attività di gestione temporanea locali nella cartella *C:\ProgramData\SSISTelemetry\ExecutionLog* .  È possibile trovare i log di esecuzione delle attività di gestione temporanea nel database SSISDB, i percorsi dei file di registrazione specificati o il monitoraggio di Azure, a seconda che i pacchetti siano archiviati in SSISDB, abilitare l' [integrazione di monitoraggio di Azure](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)e così via. È anche possibile trovare gli ID univoci delle attività di staging locali nei log di esecuzione delle attività di gestione temporanea del cloud. 
 
 ![ID univoco della prima attività di staging](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -173,7 +173,7 @@ Le attività di staging cloud eseguite nel Azure-SSIS IR non vengono fatturate s
 
 Per abilitare i componenti personalizzati/di terze parti per accedere ai dati locali usando il runtime di integrazione self-hosted come proxy per Azure-SSIS IR, seguire queste istruzioni:
 
-1. Installare i componenti personalizzati/di terze parti destinati a SQL Server 2017 in Azure-SSIS IR tramite [configurazioni personalizzate standard o Express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+1. Installare i componenti personalizzati/di terze parti destinati a SQL Server 2017 in Azure-SSIS IR tramite [configurazioni personalizzate standard o Express](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 1. Creare le seguenti chiavi del registro di sistema DTSPath nel runtime di integrazione self-hosted se non esistono già:
    1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` impostato su `C:\Program Files\Microsoft SQL Server\140\DTS\`
@@ -197,7 +197,7 @@ Se è necessario usare il protocollo di rete Secure Cryptography/più sicuro (TL
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Sono attualmente supportati solo i componenti del flusso di dati predefiniti o preinstallati in Azure-SSIS IR Standard Edition, eccetto i componenti Hadoop/HDFS/DQS. vedere [tutti i componenti predefiniti/preinstallati in Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Sono attualmente supportati solo i componenti del flusso di dati predefiniti o preinstallati in Azure-SSIS IR Standard Edition, eccetto i componenti Hadoop/HDFS/DQS. vedere [tutti i componenti predefiniti/preinstallati in Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 - Attualmente sono supportati solo i componenti del flusso di dati personalizzati o di terze parti scritti in codice gestito (.NET Framework), quelli scritti in codice nativo (C++) attualmente non supportati.
 - La modifica dei valori delle variabili nelle attività di gestione temporanea in locale e nel cloud non è attualmente supportata.
 - La modifica dei valori delle variabili di tipo Object nelle attività di gestione temporanea locale non verrà applicata ad altre attività.

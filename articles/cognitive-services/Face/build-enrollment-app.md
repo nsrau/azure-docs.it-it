@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025783"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350365"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Creare un'app di registrazione per Android con React
 
@@ -74,7 +74,7 @@ Per estendere la funzionalità dell'app per coprire l'esperienza di registrazion
 
 ### <a name="android"></a>Android
 
-Assicurarsi prima di tutto che l'app sia pronta per la distribuzione di produzione: rimuovere le chiavi o i segreti dal codice dell'app e assicurarsi di aver seguito le [procedure di sicurezza consigliate](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+Assicurarsi prima di tutto che l'app sia pronta per la distribuzione di produzione: rimuovere le chiavi o i segreti dal codice dell'app e assicurarsi di aver seguito le [procedure di sicurezza consigliate](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 Quando si è pronti per rilasciare l'app per la produzione, verrà generato un file APK pronto per la versione, che è il formato di file del pacchetto per le app Android. Questo file APK deve essere firmato con una chiave privata. Con questa build di rilascio è possibile iniziare a distribuire direttamente l'app nei dispositivi. 
 

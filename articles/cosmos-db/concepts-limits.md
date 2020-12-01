@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175917"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349130"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -78,8 +78,8 @@ In sintesi, di seguito sono riportati i limiti minimi di provisioning delle UR.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Numero minimo di ur per contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Numero minimo di ur per database ([modalità con provisioning della velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 400 ur/sec per i primi 25 contenitori. Altre 100 ur/sec per ogni contenitore in seguito. |
+| Numero minimo di ur per contenitore ([modalità di provisioning della velocità effettiva dedicata](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Numero minimo di ur per database ([modalità con provisioning della velocità effettiva condivisa](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 ur/sec per i primi 25 contenitori. Altre 100 ur/sec per ogni contenitore in seguito. |
 
 Cosmos DB supporta il ridimensionamento a livello di codice della velocità effettiva (UR/sec) per ogni contenitore o database tramite gli SDK o il portale.    
 

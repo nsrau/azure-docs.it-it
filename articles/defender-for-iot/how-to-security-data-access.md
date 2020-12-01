@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 677ab3327f2357ce7b242c314b44702370779def
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938715"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351674"
 ---
 # <a name="access-your-security-data"></a>Accedere ai dati di sicurezza
 
@@ -30,14 +30,14 @@ Per configurare quale area di lavoro Log Analytics viene utilizzata:
 
 1. Aprire l'hub IoT.
 1. Fare clic sul pannello **Impostazioni** nella sezione **sicurezza** .
-1. Fare clic su **raccolta dati**e modificare la configurazione dell'area di lavoro log Analytics.
+1. Fare clic su **raccolta dati** e modificare la configurazione dell'area di lavoro log Analytics.
 
 Per accedere agli avvisi e alle raccomandazioni nell'area di lavoro Log Analytics dopo la configurazione:
 
 1. Scegliere un avviso o una raccomandazione in Defender per l'intero.
 1. Fare clic su **ulteriori indagini**, quindi fare clic **per visualizzare i dispositivi con questo avviso fare clic qui e visualizzare la colonna DeviceID**.
 
-Per informazioni dettagliate sull'esecuzione di query sui dati di Log Analytics, vedere [Introduzione alle query in log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
+Per informazioni dettagliate sull'esecuzione di query sui dati di Log Analytics, vedere [Introduzione alle query in log Analytics](//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279958"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350824"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -20,7 +20,7 @@ I dispositivi gemelli digitali di Azure usano le **route degli eventi** per invi
 
 Esistono due casi principali per l'invio di dati dei dispositivi gemelli digitali di Azure:
 * Invio di dati da un gemello nel grafico dei gemelli digitali di Azure a un altro. Ad esempio, quando una proprietà di un dispositivo gemello digitale cambia, è possibile che si voglia inviare una notifica e aggiornare un altro gemello digitale di conseguenza.
-* Invio di dati a downstream Data Services per l'archiviazione o l'elaborazione aggiuntiva (noti anche come *dati in uscita* ). Ad esempio,
+* Invio di dati a downstream Data Services per l'archiviazione o l'elaborazione aggiuntiva (noti anche come *dati in uscita*). Ad esempio,
   - Un ospedale potrebbe voler inviare i dati degli eventi di Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md)per registrare i dati delle serie temporali degli eventi correlati a mani per l'analisi in blocco.
   - Un'azienda che usa già [mappe di Azure](../azure-maps/about-azure-maps.md) potrebbe voler usare i dispositivi gemelli digitali di Azure per migliorare la propria soluzione. È possibile abilitare rapidamente una mappa di Azure dopo aver configurato i dispositivi gemelli digitali di Azure, importare le entità mappa di Azure in dispositivi gemelli digitali di Azure come [gemelli digitali](concepts-twins-graph.md) nel grafico gemello o eseguire query potenti sfruttando le mappe di Azure e i dati di Azure Digital gemelli insieme.
 
@@ -103,7 +103,7 @@ Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapi
 
 Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. Specificare l'URL per il contenitore durante la creazione dell'endpoint. Il messaggio non recapitabile viene fornito come URL del contenitore con un token di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Per altre informazioni sui token SAS, vedere [ *concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Per altre informazioni sui token SAS, vedere [ *concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)*](../storage/common/storage-sas-overview.md)
 
 Per informazioni su come configurare un endpoint con messaggi non recapitabili, vedere [*How-to: Manage Endpoints and routes in Azure Digital gemells (API e CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

@@ -6,18 +6,18 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/22/2020
-ms.openlocfilehash: 1a68cea423678dd8582d65b839d57076e84de940
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 288b7463098b1c63b816f5544581e6222c7548c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029541"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351555"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 
 
 > [!CAUTION]
-> Al 2020 novembre, per il monitoraggio delle applicazioni Java è consigliabile usare la strumentazione automatica con monitoraggio di Azure Application Insights agente 3,0. Per altre informazioni su come iniziare, vedere [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
+> Al 2020 novembre, per il monitoraggio delle applicazioni Java è consigliabile usare la strumentazione automatica con monitoraggio di Azure Application Insights agente Java 3,0. Per altre informazioni su come iniziare, vedere [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
 
 In questa Guida introduttiva si usa Application Insights SDK per instrumentare la richiesta, tenere traccia delle dipendenze e raccogliere i contatori delle prestazioni, diagnosticare i problemi di prestazioni e le eccezioni e scrivere codice per tenere traccia delle operazioni eseguite dagli utenti con l'app.
 

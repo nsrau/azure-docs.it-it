@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023432"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350943"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 
@@ -167,7 +167,7 @@ Se si seleziona la casella di controllo, sarà necessario completare la procedur
 Selezionare **Verifica connessione** se applicabile e, in caso di esito positivo, selezionare **Avanti**.
 
 > [!NOTE]
-   > Se si usa il server di database SQL di Azure per ospitare SSISDB, i dati verranno archiviati nell'archiviazione con ridondanza geografica per i backup per impostazione predefinita. Se non si vuole che i dati vengano replicati in altre aree, seguire le istruzioni per [configurare la ridondanza dell'archiviazione di backup usando PowerShell](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+   > Se si usa il server di database SQL di Azure per ospitare SSISDB, i dati verranno archiviati nell'archiviazione con ridondanza geografica per i backup per impostazione predefinita. Se non si vuole che i dati vengano replicati in altre aree, seguire le istruzioni per [configurare la ridondanza dell'archiviazione di backup usando PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Creazione di archivi pacchetti Azure-SSIS IR
 

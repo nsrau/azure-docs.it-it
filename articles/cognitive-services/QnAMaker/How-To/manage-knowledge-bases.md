@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011048"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352338"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creazione della Knowledge base e gestione delle impostazioni
 
@@ -73,7 +73,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
        |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
        |Aggiorna contenuto|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La Knowledge base verrà aggiornata con il contenuto dell'URL più recente. Questa operazione non sta impostando una pianificazione regolare degli aggiornamenti.|
        |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
-    |Importa|È inoltre possibile importare qualsiasi Knowledge Base esistente selezionando il pulsante **Importa Knowledge base** . |
+    |Comando Importa|È inoltre possibile importare qualsiasi Knowledge Base esistente selezionando il pulsante **Importa Knowledge base** . |
     |Aggiornamento|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione da portale di Azure.
 
   1. Dopo aver apportato le modifiche alla Knowledge base, selezionare **Salva e** Esegui il training nell'angolo superiore destro della pagina per rendere permanente le modifiche.
@@ -107,7 +107,7 @@ Se si condivide la Knowledge base con collaboratori,] (collaborate-Knowledge-bas
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulla [gestione della lingua](language-knowledge-base.md) di tutte le Knowledge base in una risorsa.
+Informazioni sulla [gestione della lingua](../index.yml) di tutte le Knowledge base in una risorsa.
 
 * Modifica coppie QnA
 * Gestire le risorse di Azure usate da QnA Maker

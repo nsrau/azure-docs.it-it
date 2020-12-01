@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 921c88f4771fedb910dc41983d559987a8cdfb0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542015"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349334"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
 
@@ -278,7 +278,7 @@ Per creare molte esecuzioni figlio in modo efficiente, utilizzare il [`create_ch
 
 ### <a name="submit-child-runs"></a>Invia esecuzioni figlio
 
-Le esecuzioni figlio possono essere inviate anche da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio. 
+Le esecuzioni figlio possono essere inviate anche da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio. Non è possibile creare un'esecuzione figlio senza padre: anche se l'esecuzione padre non esegue alcuna operazione ma avvia le esecuzioni figlio, è comunque necessario creare la gerarchia. Lo stato di tutte le esecuzioni è indipendente: un elemento padre può trovarsi nello `"Completed"` stato di esito positivo anche se una o più esecuzioni figlio sono state annullate o non riuscite.  
 
 È possibile che l'esecuzione del figlio usi una configurazione di esecuzione diversa da quella dell'esecuzione padre. Ad esempio, è possibile usare una configurazione meno potente basata sulla CPU per l'elemento padre, usando le configurazioni basate su GPU per gli elementi figlio. Un altro desiderio comune è passare ogni elemento figlio e dati diversi. Per personalizzare un'esecuzione figlio, creare un `ScriptRunConfig` oggetto per l'esecuzione figlio. Il codice seguente esegue le operazioni seguenti:
 
@@ -327,6 +327,24 @@ Per eseguire una query sulle esecuzioni figlio di un elemento padre specifico, u
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Registra nell'elemento padre o nell'esecuzione radice
+
+È possibile usare il `Run.parent` campo per accedere all'esecuzione che ha avviato l'esecuzione figlio corrente. Un caso d'uso comune è quando si desidera consolidare i risultati dei log in un'unica posizione. Si noti che le esecuzioni figlio vengono eseguite in modo asincrono e non esiste alcuna garanzia di ordinamento o sincronizzazione oltre la possibilità che l'elemento padre attenda il completamento delle esecuzioni figlio.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Esegui tag e trova
 

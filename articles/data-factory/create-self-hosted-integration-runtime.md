@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 4a58f25e6183c674990d1d7722ce3196cce0f47c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96023355"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350467"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 Ecco i dettagli dei parametri e delle proprietà dell'applicazione: 
 
-| Proprietà                                                    | Descrizione                                                  | Obbligatoria |
+| Proprietà                                                    | Descrizione                                                  | Obbligatorio |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione specificata. | No       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione e il nome del nodo specificati. | No       |
@@ -150,7 +150,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 - Usare un runtime di integrazione self-hosted per supportare l'integrazione dei dati all'interno di una rete virtuale di Azure.
 - Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per connettere il servizio all'origine dati.
 - Usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud in una macchina virtuale di infrastruttura distribuita come servizio (IaaS) di Azure.
-- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per ovviare a questo problema, sono disponibili due opzioni: archiviare le credenziali/i valori del segreto in un Azure Key Vault o disabilitare la crittografia conforme a FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se si usa il [runtime di integrazione self-hosted come proxy per il runtime di integrazione SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), la crittografia conforme a FIPS può essere abilitata e verrà usata quando si trasferiscono i dati da locale ad archiviazione BLOB di Azure come area di gestione temporanea.
+- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per ovviare a questo problema, sono disponibili due opzioni: archiviare le credenziali/i valori del segreto in un Azure Key Vault o disabilitare la crittografia conforme a FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se si usa il [runtime di integrazione self-hosted come proxy per il runtime di integrazione SSIS](./self-hosted-integration-runtime-proxy-ssis.md), la crittografia conforme a FIPS può essere abilitata e verrà usata quando si trasferiscono i dati da locale ad archiviazione BLOB di Azure come area di gestione temporanea.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

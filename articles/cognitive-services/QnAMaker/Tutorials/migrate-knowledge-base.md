@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427667"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350926"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 
@@ -34,7 +34,7 @@ Per eseguire la migrazione di una Knowledge base è necessario esportare da una 
 1. Accedere al [portale di QnA Maker](https://qnamaker.ai).
 1. Selezionare la Knowledge base Origin che si desidera migrare.
 
-1. Nella pagina **Impostazioni** selezionare **Esporta Knowledge base** per scaricare un file con estensione TSV che contiene il contenuto della Knowledge base di origine: domande, risposte, metadati, richieste di completamento e i nomi delle origini dati da cui sono stati estratti. Gli ID QnA esportati con domande e risposte possono essere usati per aggiornare una coppia di QnA specifica tramite l' [API di aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). L'ID QnA per una coppia di QnA specifica rimane invariato tra più operazioni di esportazione.
+1. Nella pagina **Impostazioni** selezionare **Esporta Knowledge base** per scaricare un file con estensione TSV che contiene il contenuto della Knowledge base di origine: domande, risposte, metadati, richieste di completamento e i nomi delle origini dati da cui sono stati estratti. Gli ID QnA esportati con domande e risposte possono essere usati per aggiornare una coppia di QnA specifica tramite l' [API di aggiornamento](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). L'ID QnA per una coppia di QnA specifica rimane invariato tra più operazioni di esportazione.
 
 1. Selezionare **Crea una Knowledge base** dal menu in alto e quindi creare una Knowledge base _vuota_ . È vuota perché quando viene creata, non verrà aggiunto alcun URL o file. Questi vengono aggiunti durante il passaggio di importazione, dopo la creazione.
 
@@ -59,16 +59,16 @@ Il processo di migrazione è disponibile a livello di codice usando le API REST 
 
 **Export**
 
-* [Scarica API Knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Scarica API Knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importa**
 
-* [Sostituisci API (ricarica con lo stesso ID Knowledge base)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Crea API (carica con nuovo ID Knowledge base)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Sostituisci API (ricarica con lo stesso ID Knowledge base)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Crea API (carica con nuovo ID Knowledge base)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Chatlog e modifiche
-Le modifiche (sinonimi) senza distinzione tra maiuscole e minuscole non vengono importate automaticamente. Usare le [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) per spostare le modifiche nella nuova Knowledge base.
+Le modifiche (sinonimi) senza distinzione tra maiuscole e minuscole non vengono importate automaticamente. Usare le [API V4](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) per spostare le modifiche nella nuova Knowledge base.
 
 Non è possibile eseguire la migrazione dei chatlog, poiché la nuova knowledge base usa Application Insights per l'archiviazione dei chatlog.
 

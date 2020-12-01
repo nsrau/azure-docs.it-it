@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95247235"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349351"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory
 
@@ -58,7 +58,7 @@ Tuttavia, se un'applicazione esistente prevede di utilizzare le informazioni sul
 
 - Quando si usa l'appartenenza a un gruppo per scopi di autorizzazione all'interno dell'applicazione, è preferibile usare il valore ObjectID del gruppo. Il valore ObjectID del gruppo non è modificabile e univoco in Azure Active Directory e disponibile per tutti i gruppi.
 - Se si usa il gruppo locale sAMAccountName per l'autorizzazione, usare i nomi completi del dominio;  è possibile che si verifichi un conflitto tra i nomi. sAMAccountName può essere univoco all'interno di un dominio di Active Directory, ma se più di un dominio di Active Directory viene sincronizzato con un tenant Azure Active Directory è possibile che più di un gruppo abbia lo stesso nome.
-- Si consiglia di usare i [ruoli applicazione](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) per fornire un livello di riferimento indiretto tra l'appartenenza al gruppo e l'applicazione.   L'applicazione quindi prende le decisioni di autorizzazione interne basate su vongole del ruolo nel token.
+- Si consiglia di usare i [ruoli applicazione](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) per fornire un livello di riferimento indiretto tra l'appartenenza al gruppo e l'applicazione.   L'applicazione quindi prende le decisioni di autorizzazione interne basate sulle attestazioni di ruolo nel token.
 - Se l'applicazione è configurata in modo da ottenere gli attributi di gruppo sincronizzati da Active Directory e un gruppo non contiene tali attributi, non verrà incluso nelle attestazioni.
 - Le attestazioni di gruppo nei token includono gruppi annidati tranne quando si usa l'opzione per limitare le attestazioni di gruppo ai gruppi assegnati all'applicazione.  Se un utente è un membro di GroupB e GroupB è un membro di GroupA, le attestazioni di gruppo per l'utente conterranno sia GroupA che GroupB. Quando gli utenti di un'organizzazione hanno un numero elevato di appartenenze a gruppi, il numero di gruppi elencati nel token può aumentare le dimensioni del token.  Azure Active Directory limita il numero di gruppi che emetterà in un token a 150 per le asserzioni SAML e 200 per JWT.  Se un utente è membro di un numero maggiore di gruppi, i gruppi vengono omessi e viene invece incluso un collegamento all'endpoint Graph per ottenere informazioni sul gruppo.
 
@@ -192,7 +192,7 @@ I valori validi sono:
    > [!NOTE]
    > Se viene usata la proprietà "emit_as_roles", i ruoli applicazione configurati a cui l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Creare gruppi come nomi di gruppo nei token di accesso OAuth in formato dnsDomainName\SAMAccountName
 

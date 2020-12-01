@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351845"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi implementazione del contenuto e delle informazioni associate eseguita dalle API di ricerca Bing elencate di seguito, inclusi metadati, relazioni e altri segnali.
 
@@ -104,7 +104,7 @@ Non:
 ### <a name="notices-and-branding"></a>Informative e marchio 
 Cosa fare
 
-- Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Etichettare il collegamento ipertestuale **Microsoft Privacy Statement** .
+- Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Etichettare il collegamento ipertestuale **Microsoft Privacy Statement**.
 
 - Visualizzare in posizione prominente il marchio Bing, coerentemente con le [linee guida per l'utilizzo del marchio Bing](https://go.microsoft.com/fwlink/?linkid=833278), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Le informazioni di marchio devono indicare chiaramente all'utente che l'esperienza di ricerca Internet è offerta e gestita da Microsoft.
 
@@ -172,5 +172,4 @@ Le sezioni precedenti dei requisiti per l'uso e la visualizzazione delle API di 
 
 ## <a name="gdpr-compliance"></a>Conformità al Regolamento generale sulla protezione dei dati (GDPR)  
 
-Con riferimento a tutti i dati personali soggetti al Regolamento generale sulla protezione dei dati (GDPR) ed elaborati in relazione alle chiamate alle API di ricerca, l'API Controllo ortografico Bing o l'API Suggerimenti automatici Bing, l'utente prende atto di essere oltre a Microsoft titolare del trattamento dei dati indipendente in base al regolamento GDPR. L'utente è responsabile in modo indipendente della conformità al regolamento GDPR.  
-
+Con riferimento a tutti i dati personali soggetti al Regolamento generale sulla protezione dei dati (GDPR) ed elaborati in relazione alle chiamate alle API di ricerca, l'API Controllo ortografico Bing o l'API Suggerimenti automatici Bing, l'utente prende atto di essere oltre a Microsoft titolare del trattamento dei dati indipendente in base al regolamento GDPR. L'utente è responsabile in modo indipendente della conformità al regolamento GDPR.

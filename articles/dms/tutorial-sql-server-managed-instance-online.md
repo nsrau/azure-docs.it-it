@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 3674c6a0579eb901cc490d08bb8a4893296884c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020654"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350110"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a Istanza gestita di SQL di Azure con Servizio Migrazione del database
 
@@ -220,7 +220,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
     ![Configurare le impostazioni di migrazione](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
     > [!NOTE]
-    > Se Servizio Migrazione del database di Azure visualizza l'errore 'Errore di sistema 53' o 'Errore di sistema 57', è possibile che Servizio Migrazione del database di Azure non possa accedere alla condivisione file di Azure. Se si verifica uno di questi errori, concedere l'accesso all'account di archiviazione dalla rete virtuale seguendo le istruzioni riportate [qui](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+    > Se Servizio Migrazione del database di Azure visualizza l'errore 'Errore di sistema 53' o 'Errore di sistema 57', è possibile che Servizio Migrazione del database di Azure non possa accedere alla condivisione file di Azure. Se si verifica uno di questi errori, concedere l'accesso all'account di archiviazione dalla rete virtuale seguendo le istruzioni riportate [qui](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
     > [!IMPORTANT]
     > Se la funzionalità di controllo del loopback è abilitata e la condivisione file e l'istanza di SQL Server di origine si trovano nello stesso computer, l'origine non riuscirà ad accedere alla condivisione file usando il nome di dominio completo. Per risolvere questo problema, disabilitare la funzionalità di controllo del loopback usando le istruzioni disponibili [qui](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
