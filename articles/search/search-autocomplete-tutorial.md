@@ -1,5 +1,5 @@
 ---
-title: Aggiungi completamento automatico e suggerimenti in una casella di ricerca
+title: Aggiungi completamento automatico a una casella di ricerca
 titleSuffix: Azure Cognitive Search
 description: Abilitare le azioni di query in base al tipo di ricerca in Azure ricerca cognitiva creando suggerimenti e formulando richieste che completano una casella di ricerca con termini o frasi completati. È anche possibile restituire le corrispondenze suggerite.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029014"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339609"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Aggiungere il completamento automatico e suggerimenti alle app client usando Azure ricerca cognitiva
 
 Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query avviate dall'utente. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico*, che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Una seconda esperienza utente è costituita da *suggerimenti* o da un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio relativa a tale libro). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521017"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340255"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -54,7 +54,7 @@ Per creare un cluster HDInsight con un Data Lake Storage Gen1 come account di ar
     * **Seleziona account Data Lake Store**: selezionare un account Azure Data Lake Storage Gen1 esistente. È necessario un account Azure Data Lake Storage Gen1 esistente.  Vedere [Prerequisiti](#prerequisites).
     * **Percorso radice**: immettere un percorso in cui archiviare i file specifici del cluster. Nello screenshot è __/clusters/myhdiadlcluster/__, in cui la cartella __/clusters__ deve esistere e il portale crea la cartella *myhdicluster*.  *myhdicluster* è il nome del cluster.
     * **Accesso a Data Lake Store**: configurare l'accesso tra l'account Data Lake Storage Gen1 e il cluster HDInsight. Per istruzioni, vedere [Configurare l'accesso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
-    * **Account**di archiviazione aggiuntivi: aggiungere account di archiviazione di Azure come account di archiviazione aggiuntivi per il cluster. Per aggiungere altri account Data Lake Storage Gen1, assegnare al cluster le autorizzazioni per i dati in più account Data Lake Storage Gen1 durante la configurazione di un account Data Lake Storage Gen1 come tipo di archiviazione primario. Vedere [Configurare l'accesso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
+    * **Account** di archiviazione aggiuntivi: aggiungere account di archiviazione di Azure come account di archiviazione aggiuntivi per il cluster. Per aggiungere altri account Data Lake Storage Gen1, assegnare al cluster le autorizzazioni per i dati in più account Data Lake Storage Gen1 durante la configurazione di un account Data Lake Storage Gen1 come tipo di archiviazione primario. Vedere [Configurare l'accesso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
 
 4. In **Accesso a Data Lake Store** fare clic su **Seleziona** e continuare con la creazione del cluster come descritto in [Creare cluster Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -70,7 +70,7 @@ Per creare un cluster HDInsight con Data Lake Storage Gen1 come account di archi
 
     ![Impostazioni dell'account di archiviazione HDInsight archiviazione aggiuntiva](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
 
-    * **Metodo di selezione** : per specificare un account di archiviazione che fa parte della sottoscrizione di Azure, selezionare **sottoscrizioni personali**e quindi selezionare l'account di archiviazione. Per specificare un account di archiviazione esterno alla sottoscrizione di Azure, selezionare **Chiave di accesso**, quindi immettere le informazioni per l'account di archiviazione esterno.
+    * **Metodo di selezione** : per specificare un account di archiviazione che fa parte della sottoscrizione di Azure, selezionare **sottoscrizioni personali** e quindi selezionare l'account di archiviazione. Per specificare un account di archiviazione esterno alla sottoscrizione di Azure, selezionare **Chiave di accesso**, quindi immettere le informazioni per l'account di archiviazione esterno.
 
     * **Contenitore predefinito** : usare il valore predefinito o specificare un nome personalizzato.
     * **Account di archiviazione aggiuntivi** : aggiungere altri account di archiviazione di Azure come risorsa di archiviazione aggiuntiva.
@@ -85,7 +85,7 @@ In questa sezione è possibile configurare l'accesso a Data Lake Storage Gen1 da
 Dal portale di Azure è possibile usare un'entità servizio esistente o crearne una nuova.
 
 Per creare un'entità servizio dal portale di Azure:
-1. Vedere [creare un'entità servizio e certificati](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
+1. Vedere [creare un'entità servizio e certificati](../active-directory/develop/howto-create-service-principal-portal.md) usando Azure Active Directory.
 
 Per usare un'entità servizio esistente dal portale di Azure:
 
@@ -123,11 +123,11 @@ Per assegnare l'autorizzazione all'account di archiviazione con Data Lake Storag
 
     ![Selezionare le autorizzazioni per i file](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png)
 
-   Per impostazione predefinita, le impostazioni di __lettura__, __scrittura__ed __esecuzione__ sono tutte selezionate.
+   Per impostazione predefinita, le impostazioni di __lettura__, __scrittura__ ed __esecuzione__ sono tutte selezionate.
 
 1. Fare clic su **Seleziona** nella parte inferiore della pagina.
 1. Selezionare **Esegui** per assegnare l'autorizzazione.
-1. Selezionare **Operazione completata**.
+1. Selezionare **Fine**.
 
 Per assegnare l'autorizzazione a livello di radice del cluster HDInsight:
 
@@ -137,7 +137,7 @@ Per assegnare l'autorizzazione a livello di radice del cluster HDInsight:
 1. Impostare le autorizzazioni per la cartella.  Per impostazione predefinita, sono selezionate lettura, scrittura ed esecuzione.
 1. Fare clic su **Seleziona** nella parte inferiore della pagina.
 1. Selezionare **Run** (Esegui).
-1. Selezionare **Operazione completata**.
+1. Selezionare **Fine**.
 
 Se si usa Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario assegnare autorizzazioni solo per le cartella a cui si vuole accedere dal cluster HDInsight. Ad esempio, nella schermata seguente si fornisce l'accesso solo alla cartella **myNewFolder** in un account di archiviazione con data Lake storage Gen1.
 
@@ -200,4 +200,4 @@ Per informazioni su come copiare dati da un archivio BLOB a un account di archiv
 * [PowerShell: Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

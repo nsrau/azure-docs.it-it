@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 888fdbb2352c4ac972eac8b24c29d22ce973e04d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3fe3e910134080f6620023f539913454670d093
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939747"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339915"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Introduzione ad Azure Defender per gli agenti di sicurezza dei dispositivi
 
@@ -31,9 +31,9 @@ Gli agenti di sicurezza Defender for Internet gestiscono la raccolta di eventi n
 Usare il flusso di lavoro seguente per distribuire e testare il Defender per gli agenti di sicurezza:
 
 1. [Abilitare Defender per il servizio Internet delle cose nell'hub Internet delle cose](quickstart-onboard-iot-hub.md)
-1. Se l'hub Internet delle cose non ha dispositivi registrati, [registrare un nuovo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. Se l'hub Internet delle cose non ha dispositivi registrati, [registrare un nuovo dispositivo](../iot-accelerators/quickstart-device-simulation-deploy.md).
 1. [Creare un modulo di sicurezza azureiotsecurity](quickstart-create-security-twin.md) per i dispositivi.
-1. Per installare l'agente in un dispositivo simulato di Azure anziché installare in un dispositivo effettivo, [creare una nuova macchina virtuale (VM) di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in una zona disponibile.
+1. Per installare l'agente in un dispositivo simulato di Azure anziché installare in un dispositivo effettivo, [creare una nuova macchina virtuale (VM) di Azure](../virtual-machines/linux/quick-create-portal.md) in una zona disponibile.
 1. [Distribuire un Defender per l'agente sicurezza di Internet delle](how-to-deploy-linux-cs.md) cose nel dispositivo Internet delle cose o in una nuova macchina virtuale.
 1. Seguire le istruzioni per [trigger_events](https://aka.ms/iot-security-github-trigger-events) per eseguire una simulazione innocua di un attacco.
 1. Verificare il Defender per gli avvisi di Internet delle cose in risposta all'attacco simulato nel passaggio precedente. Inizia la verifica cinque minuti dopo l'esecuzione dello script.

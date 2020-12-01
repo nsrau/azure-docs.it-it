@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090064"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340017"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Introduzione ad Azure Defender per l'it
 
@@ -30,9 +30,9 @@ Completare la procedura seguente per fare in modo che Azure Defender sia attivo 
 
 ## <a name="1-set-up-azure"></a>1. configurare Azure
 
-- Configurare un account Azure. Per altre informazioni, vedere [creare un account Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Configurare un account Azure. Per altre informazioni, vedere [creare un account Azure](/learn/modules/create-an-azure-account/).
 
-- Firewall o proxy: se si dispone di un firewall o di un dispositivo di rete simile configurato per consentire connessioni specifiche, verificare che *. azure-devices.net:443 sia aperto al firewall o al proxy. Se i caratteri jolly non sono supportati o si desidera un maggiore controllo, il nome di dominio completo dell'hub Internet deve essere aperto nel FW o nel proxy. Per altre informazioni, vedere [endpoint dell'hub di riferimento-](/azure/iot-hub/iot-hub-devguide-endpoints)Internet.
+- Firewall o proxy: se si dispone di un firewall o di un dispositivo di rete simile configurato per consentire connessioni specifiche, verificare che *. azure-devices.net:443 sia aperto al firewall o al proxy. Se i caratteri jolly non sono supportati o si desidera un maggiore controllo, il nome di dominio completo dell'hub Internet deve essere aperto nel FW o nel proxy. Per altre informazioni, vedere [endpoint dell'hub di riferimento-](../iot-hub/iot-hub-devguide-endpoints.md)Internet.
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. distribuire l'hardware, il software e l'onboarding nel sensore
 

@@ -3,12 +3,12 @@ title: Hub eventi di Azure-eccezioni (legacy)
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica di Hub eventi di Azure e le relative azioni consigliate.
 ms.topic: article
 ms.date: 11/02/2020
-ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289329"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340968"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Eccezioni di messaggistica di hub eventi-.NET (legacy)
 Questa sezione elenca le eccezioni .NET generate dalle API .NET Framework. 
@@ -70,7 +70,7 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | L'entità associata all'operazione non esiste o è stata eliminata. | Assicurarsi che l'entità esista. | Ripetere l'operazione non serve. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Il client non riesce a stabilire una connessione con Hub eventi. |Assicurarsi che il nome host fornito sia corretto e l'host sia raggiungibile. | Se sono presenti problemi di connettività intermittente, può essere utile ripetere l'operazione. |
 | [Microsoft. ServiceBus. Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | In questo momento il servizio non è in grado di elaborare la richiesta. | Il client può attendere per un certo periodo di tempo ed è quindi opportuno ripetere l'operazione. <br /> Vedere [ServerBusyException](#serverbusyexception). | Il client può riprovare dopo un determinato intervallo. Se viene generata un'eccezione diversa, controllare il comportamento di ripetizione del tentativo della nuova eccezione. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Eccezione di messaggistica generica che può essere generata nei casi seguenti: È stato eseguito un tentativo di creare una classe [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) usando un nome o un percorso appartenente a un tipo di entità diverso, ad esempio un argomento. È stato eseguito un tentativo di inviare un messaggio di dimensioni superiori a 1 MB. Si è verificato un errore nel server o nel servizio durante l'elaborazione della richiesta. Per informazioni dettagliate, vedere il messaggio di eccezione. Si tratta in genere di un'eccezione temporanea. | Controllare il codice e verificare che per il corpo del messaggio siano stati usati solo oggetti serializzabili (oppure usare un serializzatore personalizzato). Consultare la documentazione per identificare i tipi di valori delle proprietà supportati e usare solo quelli. Controllare la proprietà [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Se è **true** , è possibile ripetere l'operazione. | Il comportamento di ripetizione dei tentativi non è definito e ripetere l'operazione può non essere utile. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Eccezione di messaggistica generica che può essere generata nei casi seguenti: È stato eseguito un tentativo di creare una classe [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) usando un nome o un percorso appartenente a un tipo di entità diverso, ad esempio un argomento. È stato eseguito un tentativo di inviare un messaggio di dimensioni superiori a 1 MB. Si è verificato un errore nel server o nel servizio durante l'elaborazione della richiesta. Per informazioni dettagliate, vedere il messaggio di eccezione. Si tratta in genere di un'eccezione temporanea. | Controllare il codice e verificare che per il corpo del messaggio siano stati usati solo oggetti serializzabili (oppure usare un serializzatore personalizzato). Consultare la documentazione per identificare i tipi di valori delle proprietà supportati e usare solo quelli. Controllare la proprietà [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Se è **true**, è possibile ripetere l'operazione. | Il comportamento di ripetizione dei tentativi non è definito e ripetere l'operazione può non essere utile. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | È stato eseguito un tentativo di creare un'entità con un nome già usato da un'altra entità dello stesso spazio dei nomi del servizio. | Eliminare l'entità esistente o scegliere un nome diverso per l'entità da creare. | Ripetere l'operazione non serve. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | L'entità di messaggistica ha raggiunto le dimensioni massime consentite. Questa eccezione può verificarsi se a livello di gruppo di consumer è già stato aperto il numero massimo di ricevitori, ovvero 5. | Creare spazio nell'entità mediante la ricezione di messaggi dall'entità o dalle relative code secondarie. <br /> Vedere [QuotaExceededException](#quotaexceededexception) | Se nel frattempo sono stati rimossi i messaggi, può essere utile ripetere l'operazione. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | È stata inoltrata una richiesta per un'operazione di runtime su un'entità disattivata. |Attivare l'entità. | Se nel frattempo l'entità è stata attivata, può essere utile ripetere l'operazione. |
@@ -96,7 +96,7 @@ Si prevede che i timeout avvengano durante o tra le operazioni di manutenzione, 
 Per questo errore, esistono due cause comuni: una configurazione errata o un errore temporaneo del servizio.
 
 - **Configurazione errata** : il valore di timeout dell'operazione è troppo piccolo per la condizione operativa. Il valore predefinito per il timeout dell'operazione dell'SDK client è 60 secondi. Verificare se il codice contiene un valore troppo piccolo. La condizione di utilizzo della rete e della CPU può influire sul tempo necessario per il completamento di una determinata operazione, quindi il timeout dell'operazione non deve essere impostato su un valore ridotto.
-- **Errore temporaneo del servizio** : a volte il servizio di Hub eventi può subire ritardi nell'elaborazione delle richieste, ad esempio durante periodi di traffico elevato. In questi casi, è possibile ritentare l'operazione dopo un ritardo fino a quando l'operazione ha esito positivo. Se la stessa operazione continua ad avere esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
+- **Errore temporaneo del servizio**: a volte il servizio di Hub eventi può subire ritardi nell'elaborazione delle richieste, ad esempio durante periodi di traffico elevato. In questi casi, è possibile ritentare l'operazione dopo un ritardo fino a quando l'operazione ha esito positivo. Se la stessa operazione continua ad avere esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
 
 ## <a name="serverbusyexception"></a>ServerBusyException
 
@@ -107,11 +107,11 @@ Questo errore può verificarsi per uno dei due motivi:
 
 - Il carico non viene distribuito uniformemente tra tutte le partizioni nell'hub eventi e una partizione raggiunge il limite dell'unità di velocità effettiva locale.
     
-    **Soluzione** : rivedere la strategia di distribuzione della partizione o provare [EventHubClient. Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) potrebbe essere utile.
+    **Soluzione**: rivedere la strategia di distribuzione della partizione o provare [EventHubClient. Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) potrebbe essere utile.
 
 - Lo spazio dei nomi di hub eventi non dispone di unità di velocità effettiva sufficienti (è possibile controllare la schermata **metrica** nella finestra dello spazio dei nomi di hub eventi nel [portale di Azure](https://portal.azure.com) per confermare). Il portale Mostra informazioni aggregate (1 minuto), ma la velocità effettiva viene misurata in tempo reale, quindi si tratta solo di una stima.
 
-    **Soluzione** : l'aumento delle unità di velocità effettiva nello spazio dei nomi può essere utile. 
+    **Soluzione**: l'aumento delle unità di velocità effettiva nello spazio dei nomi può essere utile. 
 
     È possibile configurare unità di velocità effettiva nella pagina **scala** o **Panoramica** della pagina **dello spazio dei nomi di hub eventi** nel portale di Azure. In alternativa, è possibile usare la scalabilità [automatica](event-hubs-auto-inflate.md), che aumenta automaticamente le prestazioni aumentando il numero di unità di velocità effettiva per soddisfare le esigenze di utilizzo.
 
@@ -123,13 +123,13 @@ Questo errore può verificarsi per uno dei due motivi:
     
     Nella sezione **Mostra metriche** della pagina **Panoramica** passare alla scheda **velocità effettiva** . Selezionare il grafico per aprirlo in una finestra più grande con intervalli di 1 minuto sull'asse x. Esaminare i valori di picco e suddividerli per 60 per ottenere i byte in ingresso al secondo o i byte in uscita al secondo. Usare un approccio simile per calcolare il numero di richieste al secondo in momenti di picco nella scheda **richieste** . 
 
-    Se i valori sono superiori al numero di limiti di TUs * (1 MB al secondo per il traffico in ingresso o 1000 richieste per il traffico in ingresso al secondo, 2 MB al secondo per l'uscita), aumentare il numero di TUs usando la pagina **scala** (nel menu a sinistra) di uno spazio dei nomi di hub eventi per scalare manualmente più a lungo o usare la funzionalità di aumento [automatico](event-hubs-auto-inflate.md) degli Si noti che il gonfiaggio automatico può aumentare fino a 20 TUS. Per elevarlo esattamente 40 TUs, inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    Se i valori sono superiori al numero di limiti di TUs * (1 MB al secondo per il traffico in ingresso o 1000 richieste per il traffico in ingresso al secondo, 2 MB al secondo per l'uscita), aumentare il numero di TUs usando la pagina **scala** (nel menu a sinistra) di uno spazio dei nomi di hub eventi per scalare manualmente più a lungo o usare la funzionalità di aumento [automatico](event-hubs-auto-inflate.md) degli Si noti che il gonfiaggio automatico può aumentare fino a 20 TUS. Per elevarlo esattamente 40 TUs, inviare una [richiesta di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="error-code-50001"></a>Codice errore 50001
 
 Questo errore si verifica raramente. Si verifica quando il contenitore che esegue il codice per lo spazio dei nomi è insufficiente per la CPU, occorrono pochi secondi prima che il bilanciamento del carico dell'Hub eventi inizi.
 
-**Soluzione** : limitare le chiamate al Metodo GetRuntimeInformation. Hub eventi di Azure supporta fino a 50 chiamate al secondo al GetRuntimeInfo al secondo. Una volta raggiunto il limite, è possibile che venga generata un'eccezione simile alla seguente:
+**Soluzione**: limitare le chiamate al Metodo GetRuntimeInformation. Hub eventi di Azure supporta fino a 50 chiamate al secondo al GetRuntimeInfo al secondo. Una volta raggiunto il limite, è possibile che venga generata un'eccezione simile alla seguente:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

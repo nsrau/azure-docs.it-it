@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: cdda14bb579fc94414f9da89b8b1f1aa04ec3bf5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: fd341a4f6e2402ce934bdffd4f024e0ef569eec1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628102"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340918"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -417,7 +417,7 @@ Per l'accesso di un utente di dominio a un dominio o a un computer aggiunto ad A
 
 ### <a name="constraints"></a>Vincoli
 
-- L'autenticazione integrata di Windows è utilizzabile solo per gli utenti *federati* , ovvero gli utenti creati in Active Directory e supportati da Azure AD. Gli utenti creati direttamente in Azure AD senza supporto per Active Directory, noti anche come utenti *gestiti* non possono usare questo flusso di autenticazione. Questa limitazione non influisce sul flusso di nome utente e password.
+- L'autenticazione integrata di Windows è utilizzabile solo per gli utenti *federati*, ovvero gli utenti creati in Active Directory e supportati da Azure AD. Gli utenti creati direttamente in Azure AD senza supporto per Active Directory, noti anche come utenti *gestiti* non possono usare questo flusso di autenticazione. Questa limitazione non influisce sul flusso di nome utente e password.
 - L'autenticazione integrata di Windows è destinata alle app scritte per .NET Framework, .NET Core e piattaforme UWP (Universal Windows Platform).
 - L'autenticazione integrata di Windows non ignora l'[autenticazione a più fattori (MFA)](../authentication/concept-mfa-howitworks.md). Se è configurata l'autenticazione a più fattori, l'autenticazione integrata di Windows potrebbe avere esito negativo se è necessaria una richiesta di verifica di autenticazione a più fattori, in quanto richiede l'interazione dell'utente.
   > [!NOTE]

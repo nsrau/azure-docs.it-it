@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892316"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339746"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Risolvere i problemi di connettività-griglia di eventi di Azure
 
@@ -50,7 +50,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Quando si lavora con Azure, a volte è necessario consentire URL o intervalli di indirizzi IP specifici nel firewall o nel proxy aziendale per accedere a tutti i servizi di Azure in uso o che si sta tentando di usare. Verificare che il traffico sia consentito sugli indirizzi IP usati da griglia di eventi. Per gli indirizzi IP usati da griglia di eventi di Azure: vedere [intervalli IP e tag di servizio di Azure-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) e [tag del servizio-AzureEventGrid](network-security.md#service-tags).
 
-Gli [intervalli IP di Azure e i tag di servizio-documento cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) elencano anche gli indirizzi IP **in base all'area** . È possibile consentire gli intervalli di indirizzi per l' **area dell'argomento** e l' **area abbinata** nel firewall o nel proxy aziendale. Per un'area abbinata per un'area, vedere [continuità aziendale e ripristino di emergenza (BCdR): aree abbinate di Azure](/azure/best-practices-availability-paired-regions). 
+Gli [intervalli IP di Azure e i tag di servizio-documento cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) elencano anche gli indirizzi IP **in base all'area**. È possibile consentire gli intervalli di indirizzi per l' **area dell'argomento** e l' **area abbinata** nel firewall o nel proxy aziendale. Per un'area abbinata per un'area, vedere [continuità aziendale e ripristino di emergenza (BCdR): aree abbinate di Azure](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > È possibile aggiungere nuovi indirizzi IP al tag del servizio AzureEventGrid, anche se non è usuale. Quindi, è opportuno eseguire un controllo settimanale sui tag del servizio.

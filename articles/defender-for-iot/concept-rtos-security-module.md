@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9f816b35fd79d3f158ea12fd2c7e1d811823dc8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f521bd593369509fd520831f90ce9c601227f09
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939505"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340051"
 ---
 # <a name="security-module-for-azure-rtos-preview"></a>Modulo di sicurezza per Azure RTO (anteprima)
 
@@ -32,7 +32,7 @@ Il modulo di sicurezza per Azure RTO viene eseguito in background e offre un'esp
 
 ## <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-Azure RTO NetX Duo è uno stack di rete TCP/IP avanzato e di livello industriale progettato in modo specifico per le applicazioni in tempo reale e in tempo reale incorporate. Azure RTO NetX Duo è uno stack di rete IPv4 e IPv6 duale che fornisce un set completo di protocolli, tra cui sicurezza e cloud. Scopri di più sulle soluzioni [Azure RTO NETX Duo](https://aka.ms/netxduo) .
+Azure RTO NetX Duo è uno stack di rete TCP/IP avanzato e di livello industriale progettato in modo specifico per le applicazioni in tempo reale e in tempo reale incorporate. Azure RTO NetX Duo è uno stack di rete IPv4 e IPv6 duale che fornisce un set completo di protocolli, tra cui sicurezza e cloud. Scopri di più sulle soluzioni [Azure RTO NETX Duo](/azure/rtos/netx-duo/) .
 
 Il modulo offre le funzionalità seguenti:
 
@@ -47,11 +47,11 @@ Il modulo di sicurezza per Azure RTO viene inizializzato dalla piattaforma middl
 :::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Diagramma di stato del modulo di sicurezza di Azure e flusso di informazioni":::
 
 Il modulo Security per Azure RTO monitora le attività e le informazioni del dispositivo seguenti con tre agenti di raccolta:
-- Attività di rete del dispositivo **TCP**, **UDP**e **ICM**
+- Attività di rete del dispositivo **TCP**, **UDP** e **ICM**
 - Informazioni di sistema come versioni di **threadX** e **NETX Duo**
 - Eventi heartbeat
 
-Ogni agente di raccolta è collegato a un gruppo di priorità e a ogni gruppo di priorità è associato un intervallo con i valori possibili di **basso**, **medio**e **alto**. Gli intervalli influiscono sull'intervallo di tempo in cui i dati vengono raccolti e inviati.
+Ogni agente di raccolta è collegato a un gruppo di priorità e a ogni gruppo di priorità è associato un intervallo con i valori possibili di **basso**, **medio** e **alto**. Gli intervalli influiscono sull'intervallo di tempo in cui i dati vengono raccolti e inviati.
 
 Ogni intervallo di tempo è configurabile e i connettori di Internet delle cose possono essere abilitati e disabilitati per [personalizzare ulteriormente la soluzione](how-to-azure-rtos-security-module.md). 
 
@@ -68,4 +68,3 @@ Il modulo Security per Azure RTO è disponibile come download gratuito per i dis
 - Introduzione al modulo Security per i [prerequisiti e l'installazione](quickstart-azure-rtos-security-module.md)di Azure RTO.
 - Altre informazioni sul modulo Security per gli avvisi di sicurezza di Azure RTO [e il supporto per le raccomandazioni](concept-rtos-security-alerts-recommendations.md). 
 - Usare il modulo di sicurezza per l' [API di riferimento](azure-rtos-security-module-api.md)di Azure RTO.
-

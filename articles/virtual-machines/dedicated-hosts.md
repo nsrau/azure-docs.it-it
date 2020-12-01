@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542151"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339592"
 ---
 # <a name="azure-dedicated-hosts"></a>Host dedicati di Azure
 
@@ -165,6 +165,8 @@ Il *tipo* è la generazione dell'hardware. Tipi di hardware diversi per la stess
 
 Le dimensioni e i tipi di hardware variano in base all'area. Per ulteriori informazioni, fare riferimento alla [pagina dei prezzi](https://aka.ms/ADHPricing) dell'host.
 
+> [!NOTE]
+> Quando un host dedicato è spazio, non è possibile modificare le dimensioni o il tipo. Se sono necessarie dimensioni diverse del tipo, sarà necessario creare un nuovo host.  
 
 ## <a name="host-life-cycle"></a>Ciclo di vita dell'host
 

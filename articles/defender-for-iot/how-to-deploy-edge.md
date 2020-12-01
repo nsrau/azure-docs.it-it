@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368809"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339932"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Usare la procedura seguente per distribuire un modulo di sicurezza Defender for 
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Nell'hub Internet delle cose assicurarsi che il dispositivo sia [registrato come dispositivo IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device).
+1. Nell'hub Internet delle cose assicurarsi che il dispositivo sia [registrato come dispositivo IOT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
 
 1. Defender for IoT Edge Module richiede che il [Framework controllato](https://linux.die.net/man/8/auditd) sia installato nel dispositivo IOT Edge.
 
@@ -57,7 +57,7 @@ Usare la procedura seguente per distribuire un modulo di sicurezza Defender for 
 
 1. Fare clic su **Crea** per configurare la distribuzione.
 
-1. Scegliere la **sottoscrizione** di Azure dell'hub Internet delle cose, quindi selezionare l' **Hub**Internet.<br>Selezionare **Distribuisci in un dispositivo** per fare riferimento a un singolo dispositivo o selezionare **Distribuisci su scala** per fare riferimento a più dispositivi, quindi fare clic su **Crea**. Per ulteriori informazioni sulla distribuzione su larga scala, vedere [How to deploy](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
+1. Scegliere la **sottoscrizione** di Azure dell'hub Internet delle cose, quindi selezionare l' **Hub** Internet.<br>Selezionare **Distribuisci in un dispositivo** per fare riferimento a un singolo dispositivo o selezionare **Distribuisci su scala** per fare riferimento a più dispositivi, quindi fare clic su **Crea**. Per ulteriori informazioni sulla distribuzione su larga scala, vedere [How to deploy](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >Se è stata selezionata l'opzione **Distribuisci su scala**, aggiungere il nome e i dettagli del dispositivo prima di continuare con la scheda **Aggiungi moduli** nelle istruzioni seguenti.
@@ -105,14 +105,14 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
      }
    ```
     
-   Per ulteriori informazioni sulla configurazione dell'agente, vedere [configurare gli agenti di sicurezza](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
+   Per ulteriori informazioni sulla configurazione dell'agente, vedere [configurare gli agenti di sicurezza](./how-to-agent-configuration.md).
 
 1. Selezionare **Aggiorna**.
 
 #### <a name="step-2-runtime-settings"></a>Passaggio 2: impostazioni di runtime
 
 1. Selezionare **le impostazioni di runtime**.
-1. In **Hub Edge**modificare l' **immagine** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. In **Hub Edge** modificare l' **immagine** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
 1. Verificare che **Crea opzioni** sia impostato sulla configurazione seguente:
 
     ``` json
@@ -145,7 +145,7 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
 
 #### <a name="step-3-specify-routes"></a>Passaggio 3: specificare le route
 
-1. Nella scheda **specificare le route** verificare che sia presente una route (esplicita o implicita) che inoltra i messaggi dal modulo **azureiotsecurity** a **$upstream** in base agli esempi seguenti. Selezionare **Avanti**solo quando è attiva la route.
+1. Nella scheda **specificare le route** verificare che sia presente una route (esplicita o implicita) che inoltra i messaggi dal modulo **azureiotsecurity** a **$upstream** in base agli esempi seguenti. Selezionare **Avanti** solo quando è attiva la route.
 
    Route di esempio:
 
@@ -175,7 +175,7 @@ Se si verifica un problema, i log del contenitore rappresentano il modo migliore
 
 1. Verificare che siano in esecuzione i seguenti contenitori:
 
-   | Name | IMAGE |
+   | Nome | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

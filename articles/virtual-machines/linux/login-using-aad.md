@@ -5,14 +5,14 @@ author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/29/2019
+ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 882df9d0dcb01d6321455b845fed087a5e14ccc6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c11e8c9cbd767bb95e094535a8a6cd7c8fe84fc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016166"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340884"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -92,7 +92,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-La creazione della VM e delle risorse di supporto richiede alcuni minuti.
+La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installare l'estensione della macchina virtuale per l'accesso ad Azure AD
 

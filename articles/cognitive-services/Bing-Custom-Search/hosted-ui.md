@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367387"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338368"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Ricerca personalizzata Bing offre un'interfaccia utente ospitata che è possibile integrare facilmente in applicazioni Web e pagine Web come frammento di codice JavaScript. Tramite il portale di Ricerca personalizzata Bing è possibile configurare layout, colore e opzioni di ricerca dell'interfaccia utente.
 
@@ -105,7 +105,7 @@ Per altre informazioni, tra cui l'ID di configurazione personalizzato, vedere **
 - Risultati Web per pagina: numero di risultati della ricerca Web da visualizzare alla volta (il valore massimo è 50 risultati per pagina).
 - Didascalia immagine: determina se le immagini vengono visualizzate con i risultati della ricerca.
 
-Se si fa clic su **Mostra configurazioni avanzate** , vengono visualizzate le configurazioni seguenti:
+Se si fa clic su **Mostra configurazioni avanzate**, vengono visualizzate le configurazioni seguenti:
 
 - Highlight Words: determina se i risultati vengono visualizzati con i termini di ricerca in grassetto.
 - Destinazione collegamento: determina se la pagina Web viene aperta in una nuova scheda del browser (vuota) o nella stessa scheda del browser (self) quando l'utente fa clic su un risultato della ricerca.

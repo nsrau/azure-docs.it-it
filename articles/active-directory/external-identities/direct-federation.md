@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442083"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339473"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con Active Directory Federation Services (AD FS) e provider di terze parti per utenti guest (anteprima)
 
@@ -45,7 +45,7 @@ Con la federazione diretta, gli utenti guest possono accedere al tenant di Azure
 ## <a name="limitations"></a>Limitazioni
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domini con verifica DNS in Azure AD
-Il dominio di cui si vuole eseguire la Federazione con deve ***non**essere verificato da DNS in Azure ad. È consentito configurare la federazione diretta con tenant di Azure AD non gestiti (verificati tramite posta elettronica o "virali") perché sono senza verifica DNS.
+Il dominio di cui si vuole eseguire la Federazione con deve ***non** essere verificato da DNS in Azure ad. È consentito configurare la federazione diretta con tenant di Azure AD non gestiti (verificati tramite posta elettronica o "virali") perché sono senza verifica DNS.
 
 ### <a name="authentication-url"></a>URL di autenticazione
 La federazione diretta è consentita solo per i criteri in cui il dominio dell'URL di autenticazione corrisponde al dominio di destinazione o in cui l'URL di autenticazione è uno di questi provider di identità consentiti (questo elenco è soggetto a modifiche):
@@ -146,7 +146,7 @@ Si procederà ora alla configurazione della federazione con il provider di ident
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Nel riquadro sinistro selezionare **Azure Active Directory**. 
 2. Selezionare **Identità esterne** > **Tutti i provider di identità**.
-3. Selezionare quindi **Nuovo provider di identità SAML/WS-Fed**.
+3. Selezionare, quindi selezionare **nuovo IDP SAML/WS-Fed**.
 
     ![Screenshot che mostra il pulsante per l'aggiunta di un nuovo provider di identità SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 

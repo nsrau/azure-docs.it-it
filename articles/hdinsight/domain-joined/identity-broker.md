@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302682"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338130"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker ID Azure HDInsight (HIB)
 
@@ -146,7 +146,7 @@ Per ogni cluster, un'applicazione di terze parti verrà registrata in AAD con l'
 In AAD, il consenso è necessario per tutte le applicazioni di terze parti prima di poter autenticare gli utenti o accedere ai dati.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>Il consenso può essere approvato a livello?
-Microsoft Graph API consente di automatizzare il consenso, vedere la [documentazione dell'API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) la sequenza per automatizzare il consenso è:
+Microsoft Graph API consente di automatizzare il consenso, vedere la [documentazione dell'API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) la sequenza per automatizzare il consenso è:
 
 * Registrare un'app e concedere all'app le autorizzazioni Application. ReadWrite. all per accedere Microsoft Graph
 * Dopo aver creato un cluster, eseguire una query per l'app cluster in base all'URI dell'identificatore

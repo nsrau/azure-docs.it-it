@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 12f65d0e7f9c380f77fe4189d26fdeafd426295b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c5c0f74ed8a5688b20eea4e74f747d3ff6dd0e63
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090795"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340000"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Connetti i tuoi dati da Defender for Internet a Sentinel di Azure (anteprima)
 
@@ -46,9 +46,9 @@ Grazie all'integrazione più rigorosa di Azure Defender con Azure Sentinel, il p
 
 1. In Sentinel di Azure selezionare **connettori dati** e quindi fare clic sul riquadro **Defender for** Internet.
 1. Nella parte inferiore del riquadro destro fare clic su **Apri pagina connettore**.
-1. Fare clic su **Connetti**accanto a ogni sottoscrizione dell'hub Internet con avvisi e avvisi del dispositivo che si vuole trasmettere in Azure Sentinel.
+1. Fare clic su **Connetti** accanto a ogni sottoscrizione dell'hub Internet con avvisi e avvisi del dispositivo che si vuole trasmettere in Azure Sentinel.
     - Se Defender for Internet non è abilitato nell'hub, verrà visualizzato un messaggio di avviso di abilitazione. Fare clic sul collegamento **Enable (Abilita** ) per avviare e abilitare il servizio.
-1. È possibile decidere se si desidera che gli avvisi da Defender per gli eventi per generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **Abilita** per abilitare la regola per la creazione automatica degli eventi imprevisti dagli avvisi generati.  Questa regola può essere modificata o modificata in **analisi**  >  regole**attive** .
+1. È possibile decidere se si desidera che gli avvisi da Defender per gli eventi per generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **Abilita** per abilitare la regola per la creazione automatica degli eventi imprevisti dagli avvisi generati.  Questa regola può essere modificata o modificata in **analisi**  >  regole **attive** .
 
 > [!NOTE]
 >Per aggiornare l'elenco di hub dopo aver apportato le modifiche alla connessione, può essere necessario più di 10 secondi.
@@ -57,7 +57,7 @@ Grazie all'integrazione più rigorosa di Azure Defender con Azure Sentinel, il p
 
 Per utilizzare lo schema pertinente in Log Analytics per visualizzare il Defender per gli avvisi di Internet delle cose:
 
-1. Aprire **logs**  >  **SecurityInsights**  >  **SecurityAlert**o cercare **SecurityAlert**.
+1. Aprire **logs**  >  **SecurityInsights**  >  **SecurityAlert** o cercare **SecurityAlert**.
 1. Filtrare per visualizzare solo il Defender per gli avvisi generati da un sacco di elementi usando il filtro KQL seguente:
 
 ```kusto
@@ -72,6 +72,6 @@ Dopo la connessione di un hub Internet delle cose, i dati dell'hub sono disponib
 
 In questo documento si è appreso come connettere Defender per le cose a sentinella di Azure. Per ulteriori informazioni sul rilevamento delle minacce e sull'accesso ai dati di sicurezza, vedere gli articoli seguenti:
 
-- Informazioni su come usare Sentinel di Azure per [ottenere visibilità dei dati e potenziali minacce](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility).
+- Informazioni su come usare Sentinel di Azure per [ottenere visibilità dei dati e potenziali minacce](../sentinel/quickstart-get-visibility.md).
 
 - Informazioni su come [accedere ai dati sulla sicurezza](how-to-security-data-access.md)
