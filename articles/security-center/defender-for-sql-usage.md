@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: a80747a88087e1ad3a70f198a260e41a6848e34f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445653"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512279"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -30,7 +30,7 @@ Si vedranno avvisi su attività di database sospette, potenziali vulnerabilità 
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stato della versione:|Disponibile a livello generale|
 |Prezzi:|**Azure Defender per SQL Server nei computer** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
 |Versioni di SQL protette:|Azure SQL Server (tutte le versioni coperte dal supporto tecnico Microsoft)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
@@ -68,7 +68,7 @@ Entrambi sono descritti di seguito.
 
         ![Ricerca dell'area di lavoro non predefinita in base al titolo](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. Impostare l'opzione per **Azure Defender per SQL Server nei computer (anteprima)** piano **su on**. 
+1. Impostare l'opzione per **Azure Defender per SQL Server in macchine virtuali** piano **su on**. 
 
     ![Pagina dei prezzi del Centro sicurezza con piani facoltativi](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -79,7 +79,7 @@ Entrambi sono descritti di seguito.
 
 
 1. Facoltativamente, configurare la notifica tramite posta elettronica per gli avvisi di sicurezza. 
-    È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md).
+    È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene una SK diretta all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md).
 
 
 

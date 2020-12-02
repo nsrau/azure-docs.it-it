@@ -2,19 +2,19 @@
 title: Configurare app Python in Linux
 description: Informazioni su come configurare il contenitore Python in cui vengono eseguite app Web, usando sia il portale di Azure che l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
-ms.date: 11/06/2020
+ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425916"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873846"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
-Questo articolo descrive il modo in cui il [servizio app di Azure](overview.md) esegue le app Python e come è possibile personalizzare il comportamento del servizio app quando è necessario. Le app Python devono essere distribuite con tutti i moduli [pip](https://pypi.org/project/pip/) richiesti.
+Questo articolo descrive come vengono eseguite le app Python nel [servizio app di Azure](overview.md), come eseguire la migrazione delle app esistenti ad Azure e come personalizzare il comportamento del servizio app quando è necessario. Le app Python devono essere distribuite con tutti i moduli [pip](https://pypi.org/project/pip/) richiesti.
 
 Il motore di distribuzione del servizio app attiva automaticamente un ambiente virtuale ed esegue `pip install -r requirements.txt` quando si distribuisce un [repository Git](deploy-local-git.md) o un [pacchetto ZIP](deploy-zip.md).
 
@@ -94,7 +94,31 @@ Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di 
 > [!NOTE]
 > Usare sempre percorsi relativi negli script di pre- e post-compilazione, perché il contenitore di compilazione in cui viene eseguito Oryx è diverso dal contenitore di runtime in cui viene eseguita l'app. Non fare mai affidamento sul posizionamento esatto della cartella di progetto dell'app all'interno del contenitore, ad esempio che si trova in *site/wwwroot*.
 
-## <a name="production-settings-for-django-apps"></a>Impostazioni di produzione per le app Django
+## <a name="migrate-existing-applications-to-azure"></a>Eseguire la migrazione delle applicazioni esistenti ad Azure
+
+Le applicazione Web esistenti possono essere ridistribuite in Azure come indicato di seguito:
+
+1. **Repository di origine**: mantenere il codice sorgente in un repository adatto, come GitHub, per configurare la distribuzione continua più avanti nel processo.
+    1. Il file *requirements.txt* deve trovarsi alla radice del repository affinché il servizio app installi automaticamente i pacchetti necessari.    
+
+1. **Database**: se l'app dipende da un database, effettuare anche il provisioning delle risorse necessarie in Azure. Vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Creare un database](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) per un esempio.
+
+1. **Risorse del servizio app**: creare un gruppo di risorse, un piano di servizio app e un app Web del servizio app in cui ospitare l'applicazione. Per semplificare notevolmente questa procedura, eseguire una distribuzione iniziale del codice tramite il comando `az webapp up` dell'interfaccia della riga di comando di Azure, come illustrato in [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Distribuire il codice](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Sostituire i nomi del gruppo di risorse, del piano di servizio app e dell'app Web in base ai requisiti dell'applicazione.
+
+1. **Environment variables** (Variabili di ambiente): se l'applicazione richiede variabili di ambiente, creare [impostazione applicazione equivalenti del servizio app](configure-common.md#configure-app-settings). Queste impostazioni del servizio app vengono visualizzate nel codice come variabili di ambiente, come descritto in [Accedere alle variabili di ambiente](#access-app-settings-as-environment-variables).
+    - Le connessioni di database, ad esempio, vengono spesso gestite tramite tali impostazioni, come illustrato in [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Configurare le variabili per la connessione del database](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Per le impostazioni specifiche di tipiche app Django, vedere [Impostazioni di produzione per le app Django](#production-settings-for-django-apps).
+
+1. **Avvio dell'app**: per informazioni sul modo in cui il servizio app prova a eseguire l'app, vedere la sezione [Processo di avvio del contenitore](#container-startup-process) più avanti in questo articolo. Il servizio app usa il server Web Gunicorn per impostazione predefinita, che deve essere in grado di trovare l'oggetto app o la cartella *wsgi.py*. Se necessario, è possibile [personalizzare il comando di avvio](#customize-startup-command).
+
+1. **Distribuzione continua**: configurare la distribuzione continua come descritto in [Distribuzione continua nel servizio app di Azure](deploy-continuous-deployment.md), se si usa una distribuzione di Azure Pipelines o Kudu, oppure come descritto in [Eseguire la distribuzione nel servizio app usando GitHub Actions](deploy-github-actions.md), se si usano azioni GitHub.
+
+1. **Azioni personalizzate**: per eseguire azioni all'interno del contenitore del servizio app che ospita l'app, ad esempio migrazioni di database Django, è possibile [connettersi al contenitore tramite SSH](configure-linux-open-ssh-session.md). Per un esempio di migrazioni di database Django, vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Eseguire migrazioni di database](tutorial-python-postgresql-app.md#run-django-database-migrations).
+    - Con la distribuzione continua, è possibile eseguire queste azioni usando comandi di post-compilazione, come descritto in precedenza nella sezione [Personalizzare l'automazione della compilazione](#customize-build-automation).
+
+Una volta completati questi passaggi, sarà possibile eseguire il commit delle modifiche nel repository di origine e distribuire automaticamente tali aggiornamenti nel servizio app.
+
+### <a name="production-settings-for-django-apps"></a>Impostazioni di produzione per le app Django
 
 Per un ambiente di produzione come il servizio app di Azure, le app Django devono seguire l'[elenco di controllo della distribuzione ](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) di Django (djangoproject.com).
 

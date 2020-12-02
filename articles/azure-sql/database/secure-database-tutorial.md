@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: b9afb35a0e8a1c2513ce032030271599d181cd14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792685"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985859"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Esercitazione: Proteggere un database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Per tutti i passaggi dell'esercitazione, accedere al [portale di Azure](https://
 
 I database nel database SQL sono protetti da firewall in Azure. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e al database. Per altre informazioni, vedere [regole del firewall a livello di server e di database](firewall-configure.md).
 
-La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Servizi di Azure** su **NO** . Quindi, creare un [IP riservato (distribuzione classica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) per la risorsa da connettere, ad esempio una macchina virtuale di Azure o un servizio cloud, e consentire l'accesso tramite il firewall solo a questo indirizzo IP. Se si usa il modello di distribuzione di [Resource Manager](../../virtual-network/public-ip-addresses.md), è necessario un indirizzo IP pubblico dedicato per ogni risorsa.
+La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Servizi di Azure** su **NO**. Quindi, creare un [IP riservato (distribuzione classica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) per la risorsa da connettere, ad esempio una macchina virtuale di Azure o un servizio cloud, e consentire l'accesso tramite il firewall solo a questo indirizzo IP. Se si usa il modello di distribuzione di [Resource Manager](../../virtual-network/public-ip-addresses.md), è necessario un indirizzo IP pubblico dedicato per ogni risorsa.
 
 > [!NOTE]
 > Il database SQL comunica attraverso la porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non è possibile connettersi al server a meno che l'amministratore non apra la porta 1433.
@@ -73,20 +73,20 @@ Le regole del firewall IP a livello di server si applicano a tutti i database al
 
 Per configurare una regola del firewall a livello di server:
 
-1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL** .
+1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
     ![Regola del firewall del server](./media/secure-database-tutorial/server-name.png)
 
     > [!NOTE]
-    > Assicurarsi di copiare il nome completo del server, ad esempio *server.database.windows.net* , per l'uso successivo nell'esercitazione.
+    > Assicurarsi di copiare il nome completo del server, ad esempio *server.database.windows.net*, per l'uso successivo nell'esercitazione.
 
-1. Nella pagina **Panoramica** selezionare **Imposta firewall server** . Verrà visualizzata la pagina **Impostazioni del firewall** per il server.
+1. Nella pagina **Panoramica** selezionare **Imposta firewall server**. Verrà visualizzata la pagina **Impostazioni del firewall** per il server.
 
-   1. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. La regola può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP. Selezionare **Salva** .
+   1. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. La regola può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP. Selezionare **Salva**.
 
       ![Impostare la regola del firewall del server](./media/secure-database-tutorial/server-firewall-rule2.png)
 
-   1. Selezionare **OK** e chiudere la pagina **Impostazioni del firewall** .
+   1. Selezionare **OK** e chiudere la pagina **Impostazioni del firewall**.
 
 È ora possibile connettersi a qualsiasi database nel server con l'indirizzo IP specificato o con un intervallo di indirizzi IP.
 
@@ -98,7 +98,7 @@ Per configurare una regola del firewall a livello di database:
 
 1. Connettersi al database, ad esempio usando [SQL Server Management Studio](connect-query-ssms.md).
 
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query** .
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
 1. Nella finestra della query aggiungere questa istruzione e sostituire l'indirizzo IP con l'indirizzo IP pubblico:
 
@@ -109,7 +109,7 @@ Per configurare una regola del firewall a livello di database:
 1. Sulla barra degli strumenti selezionare **Esegui** per creare la regola del firewall.
 
 > [!NOTE]
-> È anche possibile creare una regola del firewall a livello di server in SSMS usando il comando [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), ma è necessario essere connessi al database *master* .
+> È anche possibile creare una regola del firewall a livello di server in SSMS usando il comando [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), ma è necessario essere connessi al database *master*.
 
 ## <a name="create-an-azure-ad-admin"></a>Creare un amministratore di Azure AD
 
@@ -119,23 +119,23 @@ Assicurarsi di usare il dominio gestito di Azure Active Directory (AD) appropria
 
 Per impostare l'amministratore di Azure AD:
 
-1. Nella pagina **SQL Server** del portale di Azure selezionare **Amministratore di Active Directory** . Quindi selezionare **Imposta amministratore** .
+1. Nella pagina **SQL Server** del portale di Azure selezionare **Amministratore di Active Directory**. Quindi selezionare **Imposta amministratore**.
 
     ![Active Directory: selezione](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
     > Per eseguire questa attività, è necessario essere un amministratore della società o un amministratore globale.
 
-1. Nella pagina **Aggiungi amministratore** individuare e selezionare l'utente o il gruppo di AD, quindi scegliere **Seleziona** . L'elenco include tutti i membri e i gruppi di Active Directory e quelli disattivati non sono supportati come amministratori di Azure AD. Vedere [Funzionalità e limitazioni di Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
+1. Nella pagina **Aggiungi amministratore** individuare e selezionare l'utente o il gruppo di AD, quindi scegliere **Seleziona**. L'elenco include tutti i membri e i gruppi di Active Directory e quelli disattivati non sono supportati come amministratori di Azure AD. Vedere [Funzionalità e limitazioni di Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
     ![Selezionare l'amministratore](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > Il controllo degli accessi in base al ruolo si applica solo al portale e non viene propagato a SQL Server.
+    > Il Controllo degli accessi in base al ruolo di Azure si applica solo al portale e non viene propagato a SQL Server.
 
-1. Nella parte superiore della pagina **Amministratore di Active Directory** selezionare **Salva** .
+1. Nella parte superiore della pagina **Amministratore di Active Directory** selezionare **Salva**.
 
-    Il processo di modifica dell'amministratore può richiedere diversi minuti. Il nuovo amministratore verrà visualizzato nella casella **Amministratore di Active Directory** .
+    Il processo di modifica dell'amministratore può richiedere diversi minuti. Il nuovo amministratore verrà visualizzato nella casella **Amministratore di Active Directory**.
 
 > [!NOTE]
 > Quando si imposta un amministratore di Azure AD, il nome del nuovo amministratore (utente o gruppo) non può essere già presente nel database *master* come utente o account di accesso di SQL Server. Se presente, la configurazione non riesce e verrà eseguito il rollback delle modifiche, a indicare che tale nome di amministratore esiste già. Poiché l'utente o l'account di accesso di SQL Server non fa parte di Azure AD, non è possibile connetterlo al server tramite l'autenticazione di Azure AD.
@@ -155,9 +155,9 @@ Per gestire l'accesso al database, aggiungervi gli utenti oppure consentire loro
 
 Per aggiungere utenti, scegliere il tipo di autenticazione del database:
 
-- **Autenticazione di SQL** : usa nome utente e password per gli accessi, che sono validi solo nel contesto di uno specifico database all'interno del server
+- **Autenticazione di SQL**: usa nome utente e password per gli accessi, che sono validi solo nel contesto di uno specifico database all'interno del server
 
-- **Autenticazione di Azure AD** : usa le identità gestite da Azure AD
+- **Autenticazione di Azure AD**: usa le identità gestite da Azure AD
 
 ### <a name="sql-authentication"></a>Autenticazione SQL
 
@@ -165,7 +165,7 @@ Per aggiungere un utente con l'autenticazione di SQL:
 
 1. Connettersi al database, ad esempio usando [SQL Server Management Studio](connect-query-ssms.md).
 
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query** .
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
 1. Nella finestra della query immettere il comando seguente:
 
@@ -187,7 +187,7 @@ Per aggiungere un utente con l'autenticazione di SQL:
 
 ### <a name="azure-ad-authentication"></a>Autenticazione di Azure AD
 
-Per l'autenticazione di Azure Active Directory, è necessario che gli utenti del database vengano creati come utenti di database indipendente. L'utente di un database indipendente viene mappato a un'identità nella directory di Azure AD associata al database e non ha un account di accesso nel database *master* . L'identità di Azure AD può essere relativa un singolo utente o a un gruppo. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable) e consultare l'[esercitazione di Azure AD](authentication-aad-configure.md) sull'autenticazione tramite Azure AD.
+Per l'autenticazione di Azure Active Directory, è necessario che gli utenti del database vengano creati come utenti di database indipendente. L'utente di un database indipendente viene mappato a un'identità nella directory di Azure AD associata al database e non ha un account di accesso nel database *master*. L'identità di Azure AD può essere relativa un singolo utente o a un gruppo. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable) e consultare l'[esercitazione di Azure AD](authentication-aad-configure.md) sull'autenticazione tramite Azure AD.
 
 > [!NOTE]
 > Gli utenti del database, ad eccezione degli amministratori, non possono essere creati tramite il portale di Azure. I ruoli di Azure non vengono propagati in SQL Server, database o data warehouse. Vengono usati solo per la gestione delle risorse di Azure e non si applicano alle autorizzazioni per il database.
@@ -199,9 +199,9 @@ Per l'autenticazione di Azure Active Directory, è necessario che gli utenti del
 
 Per aggiungere un utente con l'autenticazione di Azure AD:
 
-1. Connettersi al server in Azure usando un account Azure AD che abbia almeno l'autorizzazione *ALTER ANY USER* .
+1. Connettersi al server in Azure usando un account Azure AD che abbia almeno l'autorizzazione *ALTER ANY USER*.
 
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query** .
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
 
 1. Nella finestra della query immettere il comando seguente e sostituire `<Azure_AD_principal_name>` con il nome dell'entità utente di Azure AD o con il nome visualizzato di un gruppo di Azure AD:
 
@@ -223,9 +223,9 @@ La connessione viene stabilita tramite Transport Layer Security (TLS), riducendo
 
 Per copiare una stringa di connessione sicura:
 
-1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL** .
+1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
-1. Nella pagina **Panoramica** selezionare **Mostra stringhe di connessione del database** .
+1. Nella pagina **Panoramica** selezionare **Mostra stringhe di connessione del database**.
 
 1. Selezionare la scheda di un driver e copiare la stringa di connessione completa.
 
@@ -244,19 +244,19 @@ La funzionalità Azure Defender per SQL rileva le potenziali minacce nel momento
 
 Per abilitare Azure Defender per SQL:
 
-1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL** .
+1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
-1. Nella pagina **Panoramica** selezionare il collegamento **Nome server** . Verrà visualizzata la pagina del server.
+1. Nella pagina **Panoramica** selezionare il collegamento **Nome server**. Verrà visualizzata la pagina del server.
 
-1. Nella pagina **SQL Server** cercare la sezione **Sicurezza** e selezionare **Centro sicurezza** .
+1. Nella pagina **SQL Server** cercare la sezione **Sicurezza** e selezionare **Centro sicurezza**.
 
-   1. Selezionare **ON** in **Azure Defender per SQL** per abilitare la funzionalità. Scegliere un account di archiviazione per il salvataggio dei risultati della valutazione della vulnerabilità. Selezionare quindi **Salva** .
+   1. Selezionare **ON** in **Azure Defender per SQL** per abilitare la funzionalità. Scegliere un account di archiviazione per il salvataggio dei risultati della valutazione della vulnerabilità. Selezionare quindi **Salva**.
 
       ![Riquadro di spostamento](./media/secure-database-tutorial/threat-settings.png)
 
       È anche possibile configurare gli indirizzi di posta elettronica a cui ricevere avvisi di sicurezza, dettagli sulle risorse di archiviazione e tipi di rilevamento delle minacce.
 
-1. Tornare nella pagina **Database SQL** del database e selezionare **Centro sicurezza** nella sezione **Sicurezza** . In questa sezione sono disponibili vari indicatori della sicurezza per il database.
+1. Tornare nella pagina **Database SQL** del database e selezionare **Centro sicurezza** nella sezione **Sicurezza**. In questa sezione sono disponibili vari indicatori della sicurezza per il database.
 
     ![Stato minacce](./media/secure-database-tutorial/threat-status.png)
 
@@ -270,29 +270,29 @@ La funzionalità di controllo tiene traccia degli eventi del database e li scriv
 
 Per abilitare il controllo:
 
-1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL** .
+1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
-1. Nella sezione **Sicurezza** selezionare **Controllo** .
+1. Nella sezione **Sicurezza** selezionare **Controllo**.
 
 1. Nelle impostazioni di **Controllo** specificare i valori seguenti:
 
-   1. Impostare **Controllo** su **SÌ** .
+   1. Impostare **Controllo** su **SÌ**.
 
-   1. Selezionare una delle opzioni seguenti per **Destinazione del log di controllo** :
+   1. Selezionare una delle opzioni seguenti per **Destinazione del log di controllo**:
 
-       - **Archiviazione** , un account di archiviazione di Azure in cui vengono salvati i log degli eventi, che possono essere scaricati come file con estensione *xel*
+       - **Archiviazione**, un account di archiviazione di Azure in cui vengono salvati i log degli eventi, che possono essere scaricati come file con estensione *xel*
 
           > [!TIP]
           > Per sfruttare al meglio i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
 
-       - **Log Analytics** , un servizio che archivia automaticamente gli eventi per le query o per ulteriori analisi
+       - **Log Analytics**, un servizio che archivia automaticamente gli eventi per le query o per ulteriori analisi
 
            > [!NOTE]
-           > Per supportare funzionalità avanzate come l'analisi, le regole personalizzate degli avvisi e le esportazioni in Excel o Power BI, è necessaria un' **area di lavoro di Log Analytics** . Senza quest'area di lavoro, è disponibile solo l'editor di query.
+           > Per supportare funzionalità avanzate come l'analisi, le regole personalizzate degli avvisi e le esportazioni in Excel o Power BI, è necessaria un'**area di lavoro di Log Analytics**. Senza quest'area di lavoro, è disponibile solo l'editor di query.
 
-       - **Hub eventi** , che consente di instradare gli eventi per l'uso in altre applicazioni
+       - **Hub eventi**, che consente di instradare gli eventi per l'uso in altre applicazioni
 
-   1. Selezionare **Salva** .
+   1. Selezionare **Salva**.
 
       ![Impostazione di Controllo](./media/secure-database-tutorial/audit-settings.png)
 
@@ -309,15 +309,15 @@ La funzionalità di maschera dei dati nasconde automaticamente i dati sensibili 
 
 Per abilitare la maschera dei dati:
 
-1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL** .
+1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
-1. Nella sezione **Sicurezza** selezionare **Dynamic Data Masking** .
+1. Nella sezione **Sicurezza** selezionare **Dynamic Data Masking**.
 
 1. Nelle impostazioni di **Dynamic Data Masking** selezionare **Aggiungi maschera** per aggiungere una regola di mascheramento. Azure popola automaticamente gli schemi, le tabelle e le colonne del database disponibili tra cui scegliere.
 
     ![Impostazioni della maschera](./media/secure-database-tutorial/mask-settings.png)
 
-1. Selezionare **Salva** . Le informazioni selezionate saranno ora mascherate per la privacy.
+1. Selezionare **Salva**. Le informazioni selezionate saranno ora mascherate per la privacy.
 
     ![Esempio di maschera](./media/secure-database-tutorial/mask-query.png)
 
@@ -327,11 +327,11 @@ Questa funzionalità crittografa automaticamente i dati inattivi e non richiede 
 
 Per abilitare o verificare la crittografia:
 
-1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL** .
+1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
-1. Nella sezione **Sicurezza** selezionare **Transparent Data Encryption** .
+1. Nella sezione **Sicurezza** selezionare **Transparent Data Encryption**.
 
-1. Se necessario, impostare **Crittografia dati** su **SÌ** . Selezionare **Salva** .
+1. Se necessario, impostare **Crittografia dati** su **SÌ**. Selezionare **Salva**.
 
     ![Transparent Data Encryption](./media/secure-database-tutorial/encryption-settings.png)
 

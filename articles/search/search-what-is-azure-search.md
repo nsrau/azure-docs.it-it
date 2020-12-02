@@ -7,38 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 19be1155476ca7c295e2d0311e8285bc2128dd1d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701083"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030765"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
-Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è un servizio di ricerca cloud che offre agli sviluppatori le API e gli strumenti per creare un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali.
+Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è un servizio di ricerca cloud che offre agli sviluppatori le API e gli strumenti per creare un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. 
 
-Quando si crea un servizio Ricerca cognitiva, si ottiene un motore di ricerca che esegue l'indicizzazione e l'esecuzione di query, l'archiviazione permanente degli indici creati e gestiti e un linguaggio di query per la composizione di query semplici a complesse. Facoltativamente, un servizio di ricerca si integra con altri servizi di Azure sotto forma di *indicizzatori* che automatizzano l'inserimento o il recupero dei dati dalle origini dati di Azure e *set di competenze* che incorporano l'intelligenza artificiale utilizzabile da Servizi cognitivi, ad esempio l'analisi di immagini e testo o l'intelligenza artificiale personalizzata creata in Azure Machine Learning o incorporata all'interno di Funzioni di Azure.
+Quando si crea un servizio di Ricerca cognitiva, si ottiene:
+
++ Un motore di ricerca che esegue l'indicizzazione e le query
++ Un'analisi incentrata su intelligenza artificiale e la trasformazione di immagini e testo indifferenziato durante l'indicizzazione
++ Uno spazio di archiviazione persistente per gli indici di ricerca creati e gestiti
++ Un linguaggio di query per la composizione di query semplici o complesse
+
+A livello di architettura, un servizio di ricerca risiede tra gli archivi dati esterni che contengono i dati non indicizzati e un'app client che invia richieste di query a un indice di ricerca e gestisce la risposta.
 
 ![Architettura di Ricerca cognitiva di Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architettura di Ricerca cognitiva di Azure")
 
-A livello di architettura, un servizio di ricerca risiede tra gli archivi dati esterni che contengono i dati non indicizzati e un'app client che invia richieste di query a un indice di ricerca e gestisce la risposta.  Uno schema di indice determina la struttura del contenuto ricercabile. 
+Esternamente, un servizio di ricerca si integra con altri servizi di Azure sotto forma di *indicizzatori*, che automatizzano l'inserimento o il recupero dei dati dalle origini dati di Azure, e *set di competenze*, che incorporano l'intelligenza artificiale utilizzabile da Servizi cognitivi, ad esempio l'analisi di immagini e testo oppure l'intelligenza artificiale personalizzata creata in Azure Machine Learning o incorporata all'interno di Funzioni di Azure.
 
-I due carichi di lavoro primari di un servizio di ricerca sono *indicizzazione* e *query*.
+Nel servizio di ricerca stesso i due carichi di lavoro principali sono *indicizzazione* ed *esecuzione di query*. 
 
-+ L'indicizzazione porta il testo nel servizio di ricerca e lo rende ricercabile. Internamente, il testo in ingresso viene elaborato in token e archiviato in indici invertiti per consentire analisi rapide. Durante l'indicizzazione si ha la possibilità di aggiungere *competenze cognitive*, quelle predefinite di Microsoft o le competenze personalizzate create dall'utente. L'analisi e le trasformazioni successive possono generare nuove informazioni e strutture che non esistevano in precedenza, risultando così particolarmente utili per molti scenari di ricerca e di data mining.
++ L'indicizzazione porta il testo nel servizio di ricerca e lo rende ricercabile. Internamente, il testo in ingresso viene elaborato in token e archiviato in indici invertiti per consentire analisi rapide. 
+
+  Durante l'indicizzazione si ha la possibilità di aggiungere *arricchimento tramite intelligenza artificiale* con [competenze cognitive](cognitive-search-working-with-skillsets.md), che possono essere quelle predefinite di Microsoft o altre personalizzate appositamente create. L'analisi e le trasformazioni successive possono generare nuove informazioni e strutture che non esistevano in precedenza, risultando così particolarmente utili per molti scenari di ricerca e di data mining.
 
 + Dopo che l'indice è stato popolato con dati ricercabili, l'app client invia richieste di query a un servizio di ricerca e gestisce le risposte. Tutte le query vengono eseguite su un indice di ricerca creato dall'utente e di sua proprietà che viene archiviato nel servizio. Nell'app client l'esperienza di ricerca viene definita usando le API di Ricerca cognitiva di Azure e può includere l'ottimizzazione della pertinenza, il completamento automatico, la corrispondenza dei sinonimi, la corrispondenza fuzzy, i criteri di ricerca, il filtro e l'ordinamento.
 
 La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchservice/) o un [SDK .NET](search-howto-dotnet-sdk.md) che maschera la complessità intrinseca del recupero delle informazioni. È anche possibile usare il portale di Azure per l'amministrazione del servizio e la gestione dei contenuti, con strumenti per la creazione di prototipi e per l'esecuzione di query su indici e set di competenze. Poiché il servizio viene eseguito nel cloud, disponibilità e infrastruttura sono gestite da Microsoft.
 
-## <a name="when-to-use-cognitive-search"></a>Quando usare Ricerca cognitiva
+## <a name="why-use-cognitive-search"></a>Perché usare Ricerca cognitiva
 
 Ricerca cognitiva di Azure è una soluzione particolarmente adatta agli scenari di applicazione seguenti:
 
-+ Consolidamento di tipi di contenuto eterogenei in un indice di ricerca privato definito dall'utente. È possibile popolare un indice con flussi di documenti JSON da qualsiasi origine. Per le origini supportate in Azure, usare un *indicizzatore* per automatizzare l'indicizzazione. Il controllo sullo schema dell'indice e sulla pianificazione degli aggiornamenti è uno dei vantaggi principali di Ricerca cognitiva.
++ Consolidamento di contenuti eterogenei in un indice di ricerca privato definito dall'utente. È possibile popolare un indice con flussi di documenti JSON da qualsiasi origine. Per le origini supportate in Azure, usare un *indicizzatore* per automatizzare l'indicizzazione. Il controllo sullo schema dell'indice e sulla pianificazione degli aggiornamenti è uno dei vantaggi principali di Ricerca cognitiva.
 
 + Facile implementazione delle funzionalità correlate alla ricerca. Le API di ricerca semplificano la costruzione di query, l'esplorazione in base a facet, i filtri (inclusa la ricerca geospaziale), il mapping dei sinonimi, il completamento automatico e l'ottimizzazione della pertinenza. Grazie alle funzionalità predefinite, è possibile soddisfare le aspettative degli utenti finali per un'esperienza di ricerca simile ai motori di ricerca Web commerciali.
 
@@ -48,39 +57,20 @@ Ricerca cognitiva di Azure è una soluzione particolarmente adatta agli scenari 
 
 Per altre informazioni sulle funzionalità specifiche, vedere [Funzionalità di Ricerca cognitiva di Azure](search-features-list.md)
 
-## <a name="how-to-use-cognitive-search"></a>Come usare Ricerca cognitiva
+## <a name="how-to-get-started"></a>Operazioni preliminari
 
-### <a name="step-1-provision-service"></a>Passaggio 1: Servizio di provisioning
+Per un'esplorazione end-to-end delle principali funzionalità di ricerca, seguire questi quattro passaggi:
 
-È possibile [creare un servizio gratuito](search-create-service-portal.md) condiviso con altri sottoscrittori o scegliere un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) che dedica risorse usate solo dal proprio servizio. Tutte le guide introduttive e le esercitazioni possono essere completate nel servizio gratuito.
+1. [**Creare un servizio di ricerca**](search-create-service-portal.md) nel livello gratuito condiviso con altri sottoscrittori o scegliere un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) per avere risorse dedicate usate solo dal proprio servizio. Tutte le guide introduttive e le esercitazioni possono essere completate nel servizio gratuito.
 
-Per i livelli a pagamento, sono disponibili due dimensioni del servizio per calibrare le risorse in base ai requisiti di produzione:
+1. [**Creare un indice di ricerca**](search-what-is-an-index.md) usando il portale, l'[API REST](/rest/api/searchservice/create-index), [.NET SDK](search-howto-dotnet-sdk.md) un altro SDK. Lo schema di indice definisce la struttura del contenuto ricercabile.
 
-+ Aggiungere repliche per aumentare la capacità di gestire carichi di lavoro elevati di query
-+ Aggiungere partizioni per aumentare lo spazio di archiviazione per più documenti
+1. [**Caricare il contenuto**](search-what-is-data-import.md) nell'indice. Usare il [modello "push"](tutorial-optimize-indexing-push-api.md) per eseguire il push di documenti JSON provenienti da qualsiasi origine oppure usare il [modello "pull" (indicizzatori)](search-indexer-overview.md) se i dati di origine si trovano in Azure.
 
-### <a name="step-2-create-an-index"></a>Passaggio 2: Creare un indice
-
-Definire lo schema dell'indice del mapping affinché rifletta la struttura dei documenti in cui eseguire le ricerche, in modo analogo ai campi in un database. Un indice di ricerca è una struttura dei dati specializzata ottimizzata per l'esecuzione rapida di query.
-
-È possibile [creare lo schema dell'indice nel portale di Azure](search-what-is-an-index.md) o a livello di codice usando [.NET SDK](search-howto-dotnet-sdk.md) o l'[API REST](/rest/api/searchservice/).
+1. [**Eseguire query su un indice**](search-query-overview.md) usando [Esplora ricerche](search-explorer.md) nel portale, l'[API REST](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search) o un altro SDK.
 
 > [!TIP]
-> Iniziare con la guida dell'[Avvio rapido: Importazione guidata dei dati](search-get-started-portal.md) per creare, caricare ed eseguire query su un indice in pochi minuti.
-
-### <a name="step-3-load-data"></a>Passaggio 3: Caricare dati
-
-Dopo aver definito un indice, si è pronti per caricare il contenuto. È possibile usare un modello push o pull.
-
-Il modello push esegue il push dei documenti JSON in un indice usando le API [REST](search-howto-dotnet-sdk.md) o di un [SDK](/rest/api/searchservice/addupdate-or-delete-documents). Il set di dati esterno può essere praticamente qualsiasi origine dati, purché i documenti siano nel formato JSON.
-
-Il modello pull esegue il pull dei dati dalle origini in Azure e li invia a un indice di ricerca. È implementato tramite [*indicizzatori*](/rest/api/searchservice/Indexer-operations) che semplificano e automatizzano aspetti dell'operazione di inserimento di dati, ad esempio la connessione, la lettura e la serializzazione dei dati. Le origini dati supportate includono Azure Cosmos DB, SQL di Azure e Archiviazione di Azure.
-
-### <a name="step-4-send-queries-and-handle-responses"></a>Passaggio 4: Inviare query e gestire le risposte
-
-Dopo avere compilato un indice, è possibile [eseguire query di ricerca](search-query-overview.md) nell'endpoint di servizio tramite semplici richieste HTTP con l'[API REST](/rest/api/searchservice/Search-Documents) o [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search).
-
-Per creare ed estendere una pagina Web che raccoglie l'input degli utenti e gestisce i risultati, vedere [Creare la prima app di ricerca](tutorial-csharp-create-first-app.md). Per eseguire query su un indice esistente, è anche possibile usare [Postman o Visual Studio Code](search-get-started-rest.md) per le chiamate REST interattive oppure [Esplora ricerche](search-explorer.md) integrato nel portale di Azure.
+> Consolidare i passaggi iniziando dalla [**procedura guidata Importa dati**](search-get-started-portal.md) e da un'origine dati di Azure per creare, caricare ed eseguire query su un indice in pochi minuti.
 
 ## <a name="how-it-compares"></a>Confronto
 

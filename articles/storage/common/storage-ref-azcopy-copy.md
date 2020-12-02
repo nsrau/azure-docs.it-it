@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781737"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512155"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere la sezione Esempi di questo articolo.
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Avanzate
+## <a name="advanced"></a>Avanzato
 
 AzCopy rileva automaticamente il tipo di contenuto dei file quando vengono caricati dal disco locale. AzCopy rileva il tipo di contenuto in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -107,6 +107,14 @@ Caricare file e directory usando un token SAS e caratteri jolly (*):
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Caricare i file e le directory nell'account di archiviazione di Azure e impostare i tag codificati della stringa di query nel BLOB. 
+
+- Per impostare i tag {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, usare la sintassi seguente: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Chiavi e valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale (' &')
+
+- Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive (' t'per i tag) nella firma di accesso condiviso senza cui il servizio restituirà un errore di autorizzazione.
 
 Scaricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato effettuato l'accesso a AzCopy, eseguire il `azcopy login` comando prima di eseguire il comando seguente.
 
@@ -214,9 +222,19 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Trasferire i file e le directory nell'account di archiviazione di Azure e impostare i tag codificati della stringa di query specificati nel BLOB. 
+
+- Per impostare i tag {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, usare la sintassi seguente: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Chiavi e valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale (' &')
+    
+- Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive (' t'per i tag) nella firma di accesso condiviso senza cui il servizio restituirà un errore di autorizzazione.
+
 ## <a name="options"></a>Opzioni
 
 **--backup** Attiva SeBackupPrivilege di Windows per i caricamenti o SeRestorePrivilege per i download, in modo da consentire a AzCopy di visualizzare e leggere tutti i file, indipendentemente dalle autorizzazioni file system e di ripristinare tutte le autorizzazioni. Richiede che l'account che esegue AzCopy disponga già di queste autorizzazioni (ad esempio, dispone di diritti di amministratore o è un membro del `Backup Operators` gruppo). Questo flag attiva i privilegi già presenti nell'account.
+
+**--BLOB-Tag** set di stringhe sui BLOB per categorizzare i dati nell'account di archiviazione.
 
 **--BLOB-type** String definisce il tipo di BLOB nella destinazione. Viene usato per il caricamento di BLOB e per la copia tra gli account (impostazione predefinita `Detect` ). I valori validi includono `Detect`, `BlockBlob`, `PageBlob`e `AppendBlob`. Quando si esegue la copia tra gli account, un valore `Detect` fa sì che AzCopy usi il tipo di BLOB di origine per determinare il tipo di BLOB di destinazione. Quando si carica un file, `Detect` determina se il file è un disco rigido virtuale o un file VHDX basato sull'estensione del file. Se il file è un file VHD o VHDX, AzCopy considera il file come un BLOB di pagine. (valore predefinito "rileva")
 

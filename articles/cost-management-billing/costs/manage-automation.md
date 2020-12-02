@@ -3,17 +3,17 @@ title: Gestire i costi di Azure con l'automazione
 description: Questo articolo illustra come gestire i costi di Azure con l'automazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
-ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.reviewer: adwise
+ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131973"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956093"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -63,11 +63,18 @@ Le richieste di esempio seguenti vengono usate dai clienti Microsoft negli scena
 
 ### <a name="get-usage-details-for-a-scope-during-specific-date-range"></a>Ottenere i dettagli di utilizzo per un ambito durante un intervallo di date specifico
 
-I dati di utilizzo restituiti dalla richiesta corrispondono alla data in cui sono stati ricevuti dal sistema di fatturazione. Possono includere i costi di più fatture.
+I dati di utilizzo restituiti dalla richiesta corrispondono alla data in cui sono stati ricevuti dal sistema di fatturazione. Possono includere i costi di più fatture. La chiamata da usare varia in base al tipo di sottoscrizione.
+
+Per i clienti legacy con un contratto Enterprise (EA) o una sottoscrizione con pagamento in base al consumo, usare la chiamata seguente:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+Per i clienti moderni con un Contratto del cliente Microsoft, usare la chiamata seguente:
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>Ottenere dettagli sui costi ammortizzati

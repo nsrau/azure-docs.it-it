@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: fef949e9285264ef46fbaed05a4385a15b27e65e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 70acc696f1cb366d25299f616744e52491a54471
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354469"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024178"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
@@ -129,7 +129,7 @@ Dopo aver creato un flusso di eventi di chiamata, è possibile creare un process
 
 1. Per creare un processo di Analisi di flusso, passare al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **Crea una risorsa** e cercare **Processo di Analisi di flusso**. Selezionare il riquadro **Processo di Analisi di flusso** e fare clic su **Crea**.
+2. Selezionare **Crea una risorsa** e cercare **Processo di Analisi di flusso**. Selezionare il riquadro **Processo di Analisi di flusso** e quindi **Crea**.
 
 3. Compilare il modulo **Nuovo processo di Analisi di flusso** con i valori seguenti:
 

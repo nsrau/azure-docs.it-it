@@ -1,198 +1,210 @@
 ---
-title: Usare le code del bus di servizio di Azure in Node.js con il pacchetto azure-sb
-description: Informazioni su come creare applicazioni Node.js per inviare e ricevere messaggi da una coda del bus di servizio di Azure usando il pacchetto azure-sb.
+title: Come usare le code di azure/service-bus in JavaScript
+description: Informazioni su come scrivere un programma JavaScript che usa l'ultima versione di anteprima del pacchetto @azure/service-bus per inviare e ricevere messaggi da una coda del bus di servizio.
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 0e94d21bd6550a7d62ef3e7dec302c53f9851a4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-js
+ms.openlocfilehash: ec5bb299bed5545c3935b2f0ae28a50de9d79c45
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326321"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808888"
 ---
-# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Guida introduttiva: Usare le code del bus di servizio in Azure con Node.js e il pacchetto azure-sb
-Questa esercitazione illustra come creare applicazioni Node.js per inviare e ricevere messaggi da una coda del bus di servizio di Azure usando il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb). Gli esempi sono scritti in JavaScript e usano il [modulo di Azure](https://www.npmjs.com/package/azure) per Node.js che internamente usa il pacchetto azure-sb.
-
-> [!IMPORTANT]
-> Il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). L'esperienza può risultare più rapida usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) che impiega il [protocollo AMQP 1.0](service-bus-amqp-overview.md) più veloce. 
-> 
-> Per altre informazioni sul nuovo pacchetto, vedere [Come usare le code del bus di servizio con Node.js e il pacchetto @azure/service-bus](./service-bus-nodejs-how-to-use-queues-new-package.md), in caso contrario continuare a leggere questo articolo per sapere come usare il pacchetto [azure](https://www.npmjs.com/package/azure).
+# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Inviare e ricevere messaggi dalle code del bus di servizio di Azure (JavaScript)
+Questa esercitazione illustra come usare il pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) in un programma JavaScript per inviare e ricevere messaggi da una coda del bus di servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
-    1. Leggere la breve **panoramica** delle **code** del bus di servizio. 
-    2. Creare uno **spazio dei nomi** del bus di servizio. 
-    3. Ottenere la **stringa di connessione**. 
+- Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una. Prendere nota della **stringa di connessione** per lo spazio dei nomi del bus di servizio e del nome della **coda** creata.
 
-        > [!NOTE]
-        > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio usando Node.js. 
- 
+> [!NOTE]
+> - Questa esercitazione usa esempi che è possibile copiare ed eseguire usando [NodeJS](https://nodejs.org/). Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure](../app-service/quickstart-nodejs.md) oppure [Servizio cloud Node.js tramite PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 
-## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Create and deploy a Node.js application to an Azure Website][Servizio cloud Node.js][Node.js Cloud Service] usando Windows PowerShell.
+### <a name="use-node-package-manager-npm-to-install-the-package"></a>Usare Node Package Manager (NPM) per installare il pacchetto
+Per installare il pacchetto npm per il bus di servizio, aprire un prompt dei comandi il cui percorso comprenda `npm`, passare alla cartella in cui si vogliono archiviare gli esempi, quindi eseguire questo comando.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node.js che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
-
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usare Node Package Manager (NPM) per ottenere il pacchetto
-1. Usare la finestra di comando **Windows PowerShell per Node.js** per passare alla cartella **c:\\node\\sbqueues\\WebRole1** in cui è stata creata l'applicazione di esempio.
-2. Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire un output simile all'esempio seguente:
-
-    ```
-    azure@0.7.5 node_modules\azure
-        ├── dateformat@1.0.2-1.2.3
-        ├── xmlbuilder@0.4.2
-        ├── node-uuid@1.2.0
-        ├── mime@1.2.9
-        ├── underscore@1.4.4
-        ├── validator@1.1.1
-        ├── tunnel@0.0.2
-        ├── wns@0.5.3
-        ├── xml2js@0.2.7 (sax@0.5.2)
-        └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
-    ```
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di tale cartella individuare il pacchetto **azure**, che contiene le librerie necessarie per accedere alle code del bus di servizio.
-
-### <a name="import-the-module"></a>Importare il modulo
-Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
-
-```javascript
-var azure = require('azure');
-```
-
-### <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
-Il modulo di Azure legge la variabile di ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione al bus di servizio. Se questa variabile di ambiente non è impostata, è necessario specificare le informazioni relative all'account durante la chiamata di `createServiceBusService`.
-
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure][Azure portal] per un sito Web di Azure, vedere [Applicazione Web Node.js con Archiviazione][Node.js Web Application with Storage].
-
-## <a name="create-a-queue"></a>Creare una coda
-L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per importare il modulo Azure:
-
-```javascript
-var serviceBusService = azure.createServiceBusService();
-```
-
-Chiamando `createQueueIfNotExists` nell'oggetto **ServiceBusService**, viene restituita la coda specificata, se esistente, oppure viene creata una nuova coda con il nome specificato. Il codice seguente usa `createQueueIfNotExists` per connettersi alla coda denominata `myqueue` o crearla:
-
-```javascript
-serviceBusService.createQueueIfNotExists('myqueue', function(error){
-    if(!error){
-        // Queue exists
-    }
-});
-```
-
-Il metodo `createServiceBusService` supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni predefinite delle code, come la durata (TTL) dei messaggi o le dimensioni massime della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e una durata (TTL) di 1 minuto:
-
-```javascript
-var queueOptions = {
-      MaxSizeInMegabytes: '5120',
-      DefaultMessageTimeToLive: 'PT1M'
-    };
-
-serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error){
-    if(!error){
-        // Queue exists
-    }
-});
-```
-
-### <a name="filters"></a>Filtri
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **ServiceBusService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
-
-```javascript
-function handle (requestOptions, next)
-```
-
-Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare `next` passando un callback con la seguente firma:
-
-```javascript
-function (returnObject, finalCallback, next)
-```
-
-Dopo l'elaborazione di `returnObject` (vale a dire della risposta della richiesta al server), questo callback deve richiamare `next`, se esistente, per continuare a elaborare altri filtri, oppure richiamare `finalCallback` per terminare la chiamata al servizio.
-
-In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. Il codice seguente crea un oggetto `ServiceBusService` che usa `ExponentialRetryPolicyFilter`:
-
-```javascript
-var retryOperations = new azure.ExponentialRetryPolicyFilter();
-var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```bash
+npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Inviare messaggi a una coda
-Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama il metodo `sendQueueMessage` per l'oggetto **ServiceBusService**. I messaggi inviati e ricevuti dalle code del bus di servizio sono oggetti **BrokeredMessage** e includono un set di proprietà standard, ad esempio **Label** e **TimeToLive**, un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Un'applicazione può impostare il corpo del messaggio passando una stringa come messaggio. Le proprietà standard necessarie vengono popolate con i valori predefiniti.
+Il codice di esempio seguente illustra come inviare un messaggio a una coda.
 
-L'esempio seguente illustra come inviare un messaggio di prova alla coda denominata `myqueue` usando `sendQueueMessage`:
+1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com/).
+2. Creare un file denominato `send.js` e incollarvi il codice riportato di seguito. Questo codice invierà un messaggio alla coda. Il messaggio include un'etichetta (Scientist) e un corpo (Einstein).
 
-```javascript
-var message = {
-    body: 'Test message',
-    customProperties: {
-        testproperty: 'TestValue'
-    }};
-serviceBusService.sendQueueMessage('myqueue', message, function(error){
-    if(!error){
-        // message sent
+    ```javascript
+    const { ServiceBusClient } = require("@azure/service-bus");
+    
+    // connection string to your Service Bus namespace
+    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
+
+    // name of the queue
+    const queueName = "<QUEUE NAME>"
+    
+    const messages = [
+        { body: "Albert Einstein" },
+        { body: "Werner Heisenberg" },
+        { body: "Marie Curie" },
+        { body: "Steven Hawking" },
+        { body: "Isaac Newton" },
+        { body: "Niels Bohr" },
+        { body: "Michael Faraday" },
+        { body: "Galileo Galilei" },
+        { body: "Johannes Kepler" },
+        { body: "Nikolaus Kopernikus" }
+     ];
+    
+    async function main() {
+        // create a Service Bus client using the connection string to the Service Bus namespace
+        const sbClient = new ServiceBusClient(connectionString);
+     
+        // createSender() can also be used to create a sender for a topic.
+        const sender = sbClient.createSender(queueName);
+     
+        try {
+            // Tries to send all messages in a single batch.
+            // Will fail if the messages cannot fit in a batch.
+            // await sender.sendMessages(messages);
+     
+            // create a batch object
+            let batch = await sender.createMessageBatch(); 
+            for (let i = 0; i < messages.length; i++) {
+                // for each message in the arry         
+    
+                // try to add the message to the batch
+                if (!batch.tryAddMessage(messages[i])) {            
+                    // if it fails to add the message to the current batch
+                    // send the current batch as it is full
+                    await sender.sendMessages(batch);
+    
+                    // then, create a new batch 
+                    batch = await sender.createBatch();
+     
+                    // now, add the message failed to be added to the previous batch to this batch
+                    if (!batch.tryAddMessage(messages[i])) {
+                        // if it still can't be added to the batch, the message is probably too big to fit in a batch
+                        throw new Error("Message too big to fit in a batch");
+                    }
+                }
+            }
+    
+            // Send the last created batch of messages to the queue
+            await sender.sendMessages(batch);
+     
+            console.log(`Sent a batch of messages to the queue: ${queueName}`);
+                    
+            // Close the sender
+            await sender.close();
+        } finally {
+            await sbClient.close();
+        }
     }
-});
-```
+    
+    // call the main function
+    main().catch((err) => {
+        console.log("Error occurred: ", err);
+        process.exit(1);
+     });
+    ```
+3. Sostituire `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` con la stringa di connessione allo spazio dei nomi del bus di servizio.
+1. Sostituire `<QUEUE NAME>` con il nome della coda. 
+1. Quindi eseguire il comando in un prompt dei comandi per eseguire questo file.
 
-Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esistono limiti al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alle dimensioni totali dei messaggi in una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
+    ```console
+    node send.js 
+    ```
+1. Viene visualizzato l'output seguente.
+
+    ```console
+    Sent a batch of messages to the queue: myqueue
+    ```
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
-I messaggi vengono ricevuti da una coda usando il metodo `receiveQueueMessage` nell'oggetto **ServiceBusService**. Per impostazione predefinita, i messaggi vengono eliminati dalla coda non appena vengono letti. È tuttavia possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro facoltativo `isPeekLock` su **true**.
 
-Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo comportamento, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio avrà contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
+1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com/).
+2. Creare un file denominato `receive.js` e incollarvi il codice seguente.
 
-Se il parametro `isPeekLock` è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `deleteMessage` e specificando il messaggio da eliminare come parametro. Il metodo `deleteMessage` contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
+    ```javascript
+    const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
 
-Nell'esempio seguente viene illustrato come ricevere ed elaborare i messaggi tramite `receiveQueueMessage`. L'esempio prima di tutto riceve ed elimina un messaggio, quindi riceve un messaggio con `isPeekLock` impostato su **true** e infine elimina il messaggio con `deleteMessage`:
+    // connection string to your Service Bus namespace
+    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
 
-```javascript
-serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
-    if(!error){
-        // Message received and deleted
-    }
-});
-serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
-    if(!error){
-        // Message received and locked
-        serviceBusService.deleteMessage(lockedMessage, function (deleteError){
-            if(!deleteError){
-                // Message deleted
-            }
+    // name of the queue
+    const queueName = "<QUEUE NAME>"
+
+     async function main() {
+        // create a Service Bus client using the connection string to the Service Bus namespace
+        const sbClient = new ServiceBusClient(connectionString);
+     
+        // createReceiver() can also be used to create a receiver for a subscription.
+        const receiver = sbClient.createReceiver(queueName);
+    
+        // function to handle messages
+        const myMessageHandler = async (messageReceived) => {
+            console.log(`Received message: ${messageReceived.body}`);
+        };
+    
+        // function to handle any errors
+        const myErrorHandler = async (error) => {
+            console.log(error);
+        };
+    
+        // subscribe and specify the message and error handlers
+        receiver.subscribe({
+            processMessage: myMessageHandler,
+            processError: myErrorHandler
         });
-    }
-});
-```
+    
+        // Waiting long enough before closing the sender to send messages
+        await delay(5000);
+    
+        await receiver.close(); 
+        await sbClient.close();
+    }    
+    // call the main function
+    main().catch((err) => {
+        console.log("Error occurred: ", err);
+        process.exit(1);
+     });
+    ```
+3. Sostituire `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` con la stringa di connessione allo spazio dei nomi del bus di servizio.
+1. Sostituire `<QUEUE NAME>` con il nome della coda. 
+1. Quindi eseguire il comando in un prompt dei comandi per eseguire questo file.
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Come gestire arresti anomali e messaggi illeggibili dell'applicazione
-Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevente non riesce a elaborare il messaggio per qualsiasi motivo, può chiamare il metodo `unlockMessage` nell'oggetto **ServiceBusService**. In questo modo, il bus di servizio sbloccherà il messaggio nella coda rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
+    ```console
+    node receive.js
+    ```
+1. Viene visualizzato l'output seguente.
 
-Al messaggio bloccato nella coda è anche associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
+    ```console
+    Received message: Albert Einstein
+    Received message: Werner Heisenberg
+    Received message: Marie Curie
+    Received message: Steven Hawking
+    Received message: Isaac Newton
+    Received message: Niels Bohr
+    Received message: Michael Faraday
+    Received message: Galileo Galilei
+    Received message: Johannes Kepler
+    Received message: Nikolaus Kopernikus
+    ```
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `deleteMessage`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo approccio di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dell'applicazione dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+Nella pagina **Panoramica** dello spazio dei nomi del bus di servizio nel portale di Azure è possibile visualizzare il numero di messaggi **in ingresso** e **in uscita**. Può essere necessario aspettare circa un minuto e quindi aggiornare la pagina per vedere i valori più recenti. 
 
-> [!NOTE]
-> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Numero di messaggi in ingresso e in uscita":::
 
+Selezionare la coda in questa pagina **Panoramica** per passare alla pagina **Coda del bus di servizio**. Anche in questa pagina viene visualizzato il numero di messaggi **in ingresso** e **in uscita**. Vengono visualizzate anche altre informazioni, come le **dimensioni correnti** della coda, le **dimensioni massime**, il **numero di messaggi attivi** e così via. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Dettagli della coda":::
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle code, vedere le risorse seguenti.
+Vedere la documentazione e gli esempi seguenti: 
 
-* [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions]
-* Repository [Azure SDK per Node][Azure SDK for Node] su GitHub
-* [Centro per sviluppatori di Node. js](https://azure.microsoft.com/develop/nodejs/)
-
-[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure portal]: https://portal.azure.com
-
-[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Create and deploy a Node.js application to an Azure Website]: ../app-service/quickstart-nodejs.md
-[Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
-[Service Bus quotas]: service-bus-quotas.md
+- [Libreria client del bus di servizio di Azure per Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). La cartella **javascript** contiene esempi in JavaScript e la cartella **typescript** esempi in TypeScript. 
+- [Documentazione di riferimento di azure-servicebus](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)

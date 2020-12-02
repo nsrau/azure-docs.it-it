@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/21/2020
+ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592448"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241931"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -65,9 +65,9 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
 
 Il pool di Spark indica ad Azure Synapse il numero di risorse Spark da usare. Verranno addebitati i costi solo per le risorse usate. Quando si interrompe attivamente l'uso del pool, le risorse raggiungono automaticamente il timeout e vengono riciclate.
 
-## <a name="the-serverless-sql-pool"></a>Pool SQL serverless
+## <a name="the-built-in-serverless-sql-pool"></a>Pool SQL serverless predefinito
 
-Ogni area di lavoro include un pool predefinito denominato **Predefinito**. Questo pool non può essere eliminato. Il pool SQL serverless consente di usare SQL senza la necessità di creare o gestire un pool SQL serverless in Azure Synapse. Diversamente dai pool SQL dedicati, la fatturazione per un pool SQL serverless è basata sulla quantità di dati analizzati per eseguire la query e non sul numero di risorse usate per eseguirla.
+Ogni area di lavoro include un pool SQL serverless predefinito denominato **Predefinito**. Questo pool non può essere eliminato. I pool SQL serverless consentono di usare SQL senza la necessità di riservare capacità con i pool SQL dedicati. Diversamente dai pool SQL dedicati, la fatturazione per un pool SQL serverless è basata sulla quantità di dati analizzati per eseguire la query e non sulla capacità allocata al pool.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

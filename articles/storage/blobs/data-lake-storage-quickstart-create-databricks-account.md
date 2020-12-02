@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 908bf21d2fe101731b11e3a8ad783f17728c8ed3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677337"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912825"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Guida introduttiva: Analizzare i dati con Databricks
 
@@ -23,7 +23,7 @@ In questo argomento di avvio rapido viene eseguito un processo di Apache Spark u
 
 * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Il nome dell'account di archiviazione Azure Data Lake Gen2. [Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* Un account di archiviazione in cui è abilitata la funzionalità dello spazio dei nomi gerarchico. Per crearne uno, vedere [Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * L'ID tenant, l'ID app e la password di un'entità servizio di Azure con un ruolo assegnato di **Collaboratore ai dati dei BLOB di archiviazione**. [Creare un'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -162,7 +162,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
 
     ![Dati JSON di esempio](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "Dati JSON di esempio")
 
-    Tra i vari dettagli, i dati di esempio acquisiscono il sesso del pubblico di un canale radio (nome colonna **gender** ) e se l'abbonamento è gratuito o a pagamento (nome colonna **level** ).
+    Tra i vari dettagli, i dati di esempio acquisiscono il sesso del pubblico di un canale radio (nome colonna **gender**) e se l'abbonamento è gratuito o a pagamento (nome colonna **level**).
 
 4. È ora possibile creare una rappresentazione visiva dei dati da visualizzare in base al sesso, con l'indicazione di quanti utenti usano un account gratuito e quanti sono abbonati a pagamento. Nella parte inferiore della tabella dei risultati fare clic sull'icona del **grafico a barre** e quindi su **Plot Options** (Opzioni grafico).
 
@@ -198,7 +198,7 @@ In questo articolo è stato creato un cluster Spark in Azure Databricks ed è st
 Passare all'articolo successivo per informazioni su come eseguire un'operazione ETL (estrazione, trasformazione e caricamento dati) tramite Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Estrarre, trasformare e caricare dati tramite Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Estrarre, trasformare e caricare dati tramite Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - Per informazioni su come importare dati da altre origini dati in Azure Databricks, vedere [Origini dati di Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 

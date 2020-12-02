@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492013"
+ms.locfileid: "96512070"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -74,11 +74,12 @@ Se l'applicazione in uso è a thread singolo, questa configurazione può determi
 
 ### <a name="cause"></a>Causa
 
-La macchina virtuale (VM) client potrebbe trovarsi in un'area diversa dalla condivisione file.
+La macchina virtuale (VM) client potrebbe trovarsi in un'area diversa dalla condivisione file. Un altro motivo per la latenza elevata potrebbe essere dovuto alla latenza causata dal client o dalla rete.
 
 ### <a name="solution"></a>Soluzione
 
 - Eseguire l'applicazione da una macchina virtuale che si trova nella stessa area della condivisione file.
+- Per l'account di archiviazione, esaminare le metriche delle transazioni **SuccessE2ELatency** e  **SuccessServerLatency** tramite **monitoraggio di Azure** in portale di Azure. Una differenza elevata tra i valori delle metriche SuccessE2ELatency e SuccessServerLatency è un'indicazione della latenza probabilmente causata dalla rete o dal client. Vedere [metriche delle transazioni](storage-files-monitoring-reference.md#transaction-metrics) in file di Azure riferimento ai dati di monitoraggio.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Il client non è in grado di raggiungere la velocità effettiva massima supportata dalla rete
 

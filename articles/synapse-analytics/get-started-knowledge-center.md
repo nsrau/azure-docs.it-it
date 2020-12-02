@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685427"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254239"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
@@ -33,8 +33,8 @@ Scegliere uno dei due metodi e aprire il **Knowledge Center**.
 ## <a name="overview"></a>Panoramica
 
 Il **Knowledge Center** consente di eseguire tre operazioni:
-* **Use samples immediately** (Usa immediatamente gli esempi). Questa opzione è ideale per visualizzare l'esecuzione dell'analisi il più rapidamente possibile. Per un esempio rapido del funzionamento di Synapse, scegliere questa opzione.
-* **Browse available samples** (Sfoglia gli esempi disponibili). Questa opzione consente di collegare i set di dati di esempio e di aggiungere il codice di esempio sotto forma di script SQL, notebook e pipeline.
+* **Use samples immediately** (Usa immediatamente gli esempi). Per un esempio rapido del funzionamento di Synapse, scegliere questa opzione.
+* **Esplora raccolta**. Questa opzione consente di collegare i set di dati di esempio e di aggiungere il codice di esempio sotto forma di script SQL, notebook e pipeline.
 * **Tour Synapse studio** (Esplora Synapse Studio). Questa opzione consente di esplorare rapidamente gli elementi di base di Synapse Studio. È utile se non si è mai usato Synapse Studio prima.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Esplorare l'archivio BLOB con il pool SQL serverless
@@ -47,7 +47,7 @@ Il **Knowledge Center** consente di eseguire tre operazioni:
 1. Fare clic su Esegui. Il testo selezionato verrà eseguito.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Caricamento di altri dati di NYC Taxi
-1. Nel **Knowledge Center** fare clic su **Browse available samples** (Esplora gli esempi disponibili) 
+1. Passare a **Centro informazioni** e fare clic su **Esplora raccolta** 
 1. Selezionare la scheda **Script SQL** nella parte superiore
 1. Selezionare **Load the New York Taxicab dataset** (Carica il set di dati relativi ai taxi di New York)
 1. In **Input** scegliere **Seleziona un pool esistente** e selezionare **SQLDB1**

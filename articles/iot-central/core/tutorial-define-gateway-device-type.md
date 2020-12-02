@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967917"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995523"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
 
@@ -51,11 +51,11 @@ Per creare un modello di dispositivo per un dispositivo **S1 Sensor**:
 
 1. Nella pagina **Verifica** selezionare **Crea** per aggiungere il modello di dispositivo all'applicazione. 
 
-Per creare un modello di dispositivo per un dispositivo ***RS40 Occupancy Sensor**:
+Per creare un modello per un dispositivo **_RS40 Occupancy Sensor_*:
 
 1. Nel riquadro sinistro selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
 
-1. Scorrere verso il basso finché non viene visualizzato il riquadro del dispositivo ***RS40 Occupancy Sensor**. Selezionare il riquadro e quindi selezionare **Avanti: Personalizza**.
+1. Scorrere verso il basso finché non viene visualizzato il riquadro del dispositivo **_RS40 Occupancy Sensor_*. Selezionare il riquadro e quindi selezionare **Avanti: Personalizza**.
 
 1. Nella pagina **Verifica** selezionare **Crea** per aggiungere il modello di dispositivo all'applicazione. 
 
@@ -142,7 +142,7 @@ Per pubblicare il modello di dispositivo gateway:
 
 3. Nella finestra di dialogo **Publish a Device Template** (Pubblica un modello di dispositivo) scegliere **Pubblica**.
 
-Dopo la pubblicazione, un modello di dispositivo viene visualizzato nella pagina **Dispositivi** ed è visibile all'operatore. In un modello di dispositivo pubblicato non è possibile modificare un modello di funzionalità di dispositivo senza creare una nuova versione. È tuttavia possibile apportare aggiornamenti a proprietà cloud, personalizzazioni e visualizzazioni in un modello di dispositivo pubblicato. Questi aggiornamenti non comportano la creazione di una nuova versione. Dopo aver apportato le modifiche, selezionare **Pubblica** per eseguire il push delle modifiche all'operatore.
+Dopo la pubblicazione, un modello di dispositivo viene visualizzato nella pagina **Dispositivi** ed è visibile all'operatore. In un modello di dispositivo pubblicato non è possibile modificare un modello di dispositivo senza creare una nuova versione. È tuttavia possibile apportare aggiornamenti a proprietà cloud, personalizzazioni e visualizzazioni in un modello di dispositivo pubblicato. Questi aggiornamenti non comportano la creazione di una nuova versione. Dopo aver apportato le modifiche, selezionare **Pubblica** per eseguire il push delle modifiche all'operatore.
 
 ## <a name="create-the-simulated-devices"></a>Creare i dispositivi simulati
 

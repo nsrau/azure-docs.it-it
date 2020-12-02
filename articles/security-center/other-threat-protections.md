@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d03416f390abb8656ac1aed81419864443122ce6
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900389"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122421"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
 Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
@@ -29,7 +29,7 @@ Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centr
 ## <a name="threat-protection-for-azure-network-layer"></a>Protezione dalle minacce per il livello di rete di Azure <a name="network-layer"></a>
 L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), di esempio, intestazioni di pacchetti raccolte dai router core di Azure. In base a questo feed di dati, il Centro sicurezza usa modelli di Machine Learning per identificare e contrassegnare le attività di traffico dannose. Il Centro sicurezza usa anche il database di intelligence sulle minacce di Microsoft per arricchire gli indirizzi IP.
 
-Alcune configurazioni di rete potrebbero impedire al Centro sicurezza di generare avvisi sulle attività di rete sospette. Per consentire al Centro sicurezza di generare avvisi di rete, verificare che:
+Alcune configurazioni di rete impediscono al Centro sicurezza di generare avvisi sulle attività di rete sospette. Per consentire al Centro sicurezza di generare avvisi di rete, verificare che:
 - La macchina virtuale abbia un indirizzo IP pubblico o si trovi in un servizio di bilanciamento del carico con un indirizzo IP pubblico.
 - Il traffico di rete in uscita della macchina virtuale non sia bloccato da una soluzione IDS esterna.
 
@@ -58,7 +58,7 @@ Per un elenco degli avvisi di Azure Resource Manager (anteprima), vedere la [tab
 
 1. Impostare l'area di lavoro in cui si installa l'agente. Assicurarsi che l'area di lavoro si trovi nella stessa sottoscrizione che si usa nel Centro sicurezza e di disporre delle autorizzazioni di lettura/scrittura nell'area di lavoro.
 
-1. Abilitare **Azure Defender** , quindi selezionare **Salva**.
+1. Abilitare **Azure Defender**, quindi selezionare **Salva**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Protezione dalle minacce per Azure Cosmos DB (anteprima)<a name="cosmos-db"></a>

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833963"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512206"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -32,6 +32,14 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 **D**: sta registrando un dispositivo che accetta di concedere all'azienda o al servizio l'accesso al dispositivo?
 
 **R**: la registrazione di un dispositivo consente al dispositivo di accedere ai servizi dell'organizzazione e non consente all'organizzazione di accedere al dispositivo.
+
+## <a name="too-many-app-permissions"></a>Troppe autorizzazioni per le app
+
+**D**: perché l'app richiede così tante autorizzazioni?
+
+**R**: di seguito è riportato l'elenco completo delle autorizzazioni che potrebbero essere richieste e il modo in cui vengono usate dall'app. Le autorizzazioni specifiche visualizzate dipendono dal tipo di telefono in uso.
+
+- **Località**. A volte l'organizzazione vuole conoscere la propria posizione prima di consentire l'accesso ad alcune risorse. L'app richiederà questa autorizzazione solo se l'organizzazione dispone di criteri che richiedono la posizione. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Supporto di APNs legacy deprecato
 

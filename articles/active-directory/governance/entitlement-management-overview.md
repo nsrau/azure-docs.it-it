@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362468"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95738143"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -66,7 +66,7 @@ Ecco alcune funzionalità della gestione entitlement:
 
 ## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>Che cosa sono i pacchetti di accesso e quali risorse consentono di gestire?
 
-La gestione entitlement introduce in Azure AD il concetto di *pacchetto di accesso* . Un pacchetto di accesso è un'aggregazione di tutte le risorse a cui un utente deve poter accedere per lavorare su un progetto o svolgere le proprie attività. I pacchetti di accesso vengono usati per regolamentare l'accesso per i dipendenti interni e anche per gli utenti esterni all'organizzazione.
+La gestione entitlement introduce in Azure AD il concetto di *pacchetto di accesso*. Un pacchetto di accesso è un'aggregazione di tutte le risorse a cui un utente deve poter accedere per lavorare su un progetto o svolgere le proprie attività. I pacchetti di accesso vengono usati per regolamentare l'accesso per i dipendenti interni e anche per gli utenti esterni all'organizzazione.
 
  Ecco i tipi di risorse per cui è possibile gestire l'accesso degli utenti con la gestione entitlement:
 
@@ -85,7 +85,7 @@ La gestione entitlement introduce in Azure AD il concetto di *pacchetto di acces
 
 Un amministratore o un responsabile dei pacchetti di accesso con delega elenca le risorse (gruppi, app e siti) e i ruoli corrispondenti necessari per gli utenti.
 
-I pacchetti di accesso possono anche includere uno o più *criteri* . Un criterio definisce le regole o i vincoli per l'assegnazione a un pacchetto di accesso. Ogni criterio può essere usato per garantire che solo gli utenti appropriati siano in grado di richiedere l'accesso, che siano presenti responsabili approvazione per la richiesta e che l'accesso a tali risorse sia limitato nel tempo e scada se non rinnovato.
+I pacchetti di accesso possono anche includere uno o più *criteri*. Un criterio definisce le regole o i vincoli per l'assegnazione a un pacchetto di accesso. Ogni criterio può essere usato per garantire che solo gli utenti appropriati siano in grado di richiedere l'accesso, che siano presenti responsabili approvazione per la richiesta e che l'accesso a tali risorse sia limitato nel tempo e scada se non rinnovato.
 
 ![Pacchetti di accesso e criteri](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione del
 
 ## <a name="how-do-i-delegate-access"></a>Come si delega l'accesso?
 
- I pacchetti di accesso sono definiti in contenitori denominati *cataloghi* .  È possibile avere un singolo catalogo per tutti i pacchetti di accesso oppure designare persone per la creazione di specifici cataloghi di loro proprietà. Un amministratore può aggiungere risorse a qualsiasi catalogo, mentre un non amministratore può aggiungere a un catalogo solo le risorse di sua proprietà. Un proprietario di catalogo può aggiungere altri utenti come comproprietari oppure come responsabili del pacchetto di accesso.  Questi scenari sono descritti ulteriormente nell'articolo [Delega e ruoli nella gestione entitlement di Azure AD](entitlement-management-delegate.md).
+ I pacchetti di accesso sono definiti in contenitori denominati *cataloghi*.  È possibile avere un singolo catalogo per tutti i pacchetti di accesso oppure designare persone per la creazione di specifici cataloghi di loro proprietà. Un amministratore può aggiungere risorse a qualsiasi catalogo, mentre un non amministratore può aggiungere a un catalogo solo le risorse di sua proprietà. Un proprietario di catalogo può aggiungere altri utenti come comproprietari oppure come responsabili del pacchetto di accesso.  Questi scenari sono descritti ulteriormente nell'articolo [Delega e ruoli nella gestione entitlement di Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Riepilogo della terminologia
 
@@ -144,17 +144,22 @@ I cloud specializzati, ad esempio Azure Germania e Azure Cina (21Vianet), non so
 Assicurarsi che la directory abbia un numero di licenze di Azure AD Premium P2 almeno uguale al numero di:
 
 - Utenti membro che **possono** richiedere un pacchetto di accesso.
-- Utenti membro e guest che richiedono un pacchetto di accesso.
-- Utenti membro e guest che approvano le richieste per un pacchetto di accesso.
-- Utenti membro e guest che hanno un'assegnazione diretta a un pacchetto di accesso.
+- Utenti membro che <u>richiedono</u> un pacchetto di accesso.
+- Utenti membro che <u>approvano le richieste</u> di un pacchetto di accesso.
+- Utenti membro che <u>esaminano le assegnazioni</u> di un pacchetto di accesso. 
+- Utenti membro che hanno un'<u>assegnazione diretta</u> a un pacchetto di accesso.
+
+Per gli utenti guest, le esigenze di licenza dipendono dal [modello di licenza](../external-identities/external-identities-pricing.md) in uso. Tuttavia, le attività degli utenti guest seguenti vengono considerate come utilizzo di Azure AD Premium P2:
+- Utenti guest che <u>richiedono</u> un pacchetto di accesso. 
+- Utenti guest che <u>approvano le richieste</u> di un pacchetto di accesso.
+- Utenti guest che <u>esaminano le assegnazioni</u> di un pacchetto di accesso.
+- Utenti guest che hanno un'<u>assegnazione diretta</u> a un pacchetto di accesso. 
 
 Le licenze di Azure AD Premium P2 **non** sono necessarie per le attività seguenti:
 
 - Non sono necessarie licenze per gli utenti con il ruolo di amministratore globale che configura inizialmente i cataloghi, i pacchetti di accesso e i criteri e che delega le attività amministrative ad altri utenti.
 - Non sono necessarie licenze per gli utenti a cui sono state delegate attività amministrative, ad esempio autore del catalogo, proprietario del catalogo e responsabile dei pacchetti di accesso.
 - Non sono necessarie licenze per gli utenti guest che **possono** richiedere pacchetti di accesso ma **non** li richiedono.
-
-I prezzi delle identità esterne di Azure AD (utente guest) si basano sugli utenti attivi mensili, ovvero sul numero di utenti univoci con attività di autenticazione entro un mese di calendario. Questo modello sostituisce il modello di fatturazione con rapporto 1:5, che consentiva fino a cinque utenti guest per ogni licenza di Azure AD Premium nel tenant. Se il tenant è collegato a una sottoscrizione e si usano le funzionalità di identità esterne per collaborare con utenti guest, la fatturazione verrà eseguita automaticamente usando il modello di fatturazione basato sugli utenti attivi mensili. Per altre informazioni, vedere il modello di fatturazione per [identità esterne di Azure AD](../external-identities/external-identities-pricing.md).
 
 Per altre informazioni sulle licenze, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 

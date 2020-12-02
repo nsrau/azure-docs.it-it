@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630278"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512172"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -133,7 +133,7 @@ Questa sezione illustra le considerazioni relative alla distribuzione dei divers
 
 Probabilmente sarà necessario distribuire diversi account di archiviazione di Azure. Ognuno di essi conterrà un numero inferiore di condivisioni file di Azure, in base al piano di distribuzione, completato nella sezione precedente di questo articolo. Passare alla portale di Azure per [distribuire gli account di archiviazione pianificati](../common/storage-account-create.md#create-a-storage-account). Considerare l'opportunità di rispettare le seguenti impostazioni di base per qualsiasi nuovo account di archiviazione.
 
-#### <a name="subscription"></a>Sottoscrizione
+#### <a name="subscription"></a>Subscription
 
 È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant corretto. È possibile spostare solo l'intera sottoscrizione. Le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
 
@@ -141,11 +141,11 @@ Probabilmente sarà necessario distribuire diversi account di archiviazione di A
 
 I gruppi di risorse sono in aiuto con l'organizzazione delle risorse e le autorizzazioni di gestione amministratore. Scopri di più sui [gruppi di risorse in Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-#### <a name="storage-account-name"></a>Nome account di archiviazione
+#### <a name="storage-account-name"></a>Nome dell'account di archiviazione
 
 Il nome dell'account di archiviazione diventerà parte di un URL e avrà alcune limitazioni relative ai caratteri. Nella convenzione di denominazione, tenere presente che i nomi degli account di archiviazione devono essere univoci in tutto il mondo, consentire solo lettere minuscole e numeri, richiedere da 3 a 24 caratteri e non consentire caratteri speciali come trattini o caratteri di sottolineatura. Per altre informazioni, vedere [regole di denominazione delle risorse di archiviazione di Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>Località
+#### <a name="location"></a>Location
 
 Il percorso o l'area di Azure di un account di archiviazione è molto importante. Se si usa Sincronizzazione file di Azure, tutti gli account di archiviazione devono trovarsi nella stessa area della risorsa del servizio di sincronizzazione archiviazione. L'area di Azure scelta deve essere vicina o centrale ai server e agli utenti locali. Dopo che la risorsa è stata distribuita, non è possibile modificarne l'area.
 
@@ -163,7 +163,7 @@ Non si è ancora sicuri?
 * Se sono necessarie le [prestazioni di una condivisione file di Azure Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares), scegliere archiviazione Premium.
 * Scegliere archiviazione standard per carichi di lavoro di file server per utilizzo generico, che includono dati sensibili e dati di archiviazione. Scegliere anche archiviazione standard se verrà Sincronizzazione file di Azure il solo carico di lavoro nella condivisione nel cloud.
 
-#### <a name="account-kind"></a>Tipologia account
+#### <a name="account-kind"></a>Tipo di account
 
 * Per archiviazione standard scegliere *archiviazione V2 (utilizzo generico v2)*.
 * Per le condivisioni file Premium, scegliere *filestorage*.
@@ -175,7 +175,7 @@ Sono disponibili diverse impostazioni di replica. Altre informazioni sui diversi
 Scegliere una delle due opzioni seguenti:
 
 * *Archiviazione con ridondanza locale (con ridondanza locale)*.
-* *Archiviazione con ridondanza della zona (ZRS)* , che non è disponibile in tutte le aree di Azure.
+* *Archiviazione con ridondanza della zona (ZRS)*, che non è disponibile in tutte le aree di Azure.
 
 > [!NOTE]
 > Solo i tipi di ridondanza con ridondanza locale e ZRS sono compatibili con le grandi condivisioni file di Azure 100-TiB-Capacity.
@@ -273,7 +273,7 @@ Un mapping è espresso da sinistra a destra: [percorso \Source] \> [percorso \ta
 | **\>**                     | [Source] e l'operatore [target-mapping].     |
 |**\|** o RETURN (nuova riga) | Separatore di due istruzioni per il mapping di cartelle. </br>In alternativa, è possibile omettere questo carattere e premere **invio** per ottenere l'espressione di mapping successiva sulla propria riga.        |
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 Sposta il contenuto dei *dati utente* della cartella nella radice della condivisione file di destinazione:
 ``` console
 \User data > \
@@ -320,8 +320,8 @@ Alla fine della fase 3, i processi del servizio di trasformazione dei dati vengo
 
 Esistono due strategie principali per accedere alle condivisioni file di Azure:
 
-* **Sincronizzazione file di Azure** : [distribuire Sincronizzazione file di Azure](#deploy-azure-file-sync) a un'istanza di Windows Server locale. Sincronizzazione file di Azure offre tutti i vantaggi di una cache locale, proprio come StorSimple.
-* **Direct-Share-Access** : [distribuzione diretta-condivisione-accesso](#deploy-direct-share-access). Usare questa strategia se lo scenario di accesso per una condivisione file di Azure specificata non trarrà vantaggio dalla memorizzazione nella cache locale oppure non è più possibile ospitare un'istanza di Windows Server locale. In questo caso, gli utenti e le app continueranno ad accedere alle condivisioni SMB tramite il protocollo SMB. Queste condivisioni non si trovano più in un server locale, ma direttamente nel cloud.
+* **Sincronizzazione file di Azure**: [distribuire Sincronizzazione file di Azure](#deploy-azure-file-sync) a un'istanza di Windows Server locale. Sincronizzazione file di Azure offre tutti i vantaggi di una cache locale, proprio come StorSimple.
+* **Direct-Share-Access**: [distribuzione diretta-condivisione-accesso](#deploy-direct-share-access). Usare questa strategia se lo scenario di accesso per una condivisione file di Azure specificata non trarrà vantaggio dalla memorizzazione nella cache locale oppure non è più possibile ospitare un'istanza di Windows Server locale. In questo caso, gli utenti e le app continueranno ad accedere alle condivisioni SMB tramite il protocollo SMB. Queste condivisioni non si trovano più in un server locale, ma direttamente nel cloud.
 
 È necessario avere già deciso quale opzione è più adatta alle proprie esigenze nella [fase 1](#phase-1-prepare-for-migration) di questa guida.
 
@@ -418,8 +418,8 @@ Quando si usa Sincronizzazione file di Azure per una condivisione file di Azure,
 È possibile usare il portale di Azure per vedere quando lo spazio dei nomi è stato completamente raggiunto.
 
 * Accedere al portale di Azure e passare al gruppo di sincronizzazione. Verificare lo stato di sincronizzazione del gruppo di sincronizzazione e dell'endpoint server.
-* La direzione interessante è download. Se viene appena effettuato il provisioning dell'endpoint server, verrà visualizzata la **sincronizzazione iniziale** , che indica che lo spazio dei nomi è ancora in arrivo.
-Dopo aver apportato modifiche alla **sincronizzazione iniziale** , lo spazio dei nomi verrà popolato completamente nel server. È ora possibile procedere con un RoboCopy locale.
+* La direzione interessante è download. Se viene appena effettuato il provisioning dell'endpoint server, verrà visualizzata la **sincronizzazione iniziale**, che indica che lo spazio dei nomi è ancora in arrivo.
+Dopo aver apportato modifiche alla **sincronizzazione iniziale**, lo spazio dei nomi verrà popolato completamente nel server. È ora possibile procedere con un RoboCopy locale.
 
 #### <a name="windows-server-event-viewer"></a>Windows Server Visualizzatore eventi
 
@@ -428,8 +428,8 @@ Dopo aver apportato modifiche alla **sincronizzazione iniziale** , lo spazio dei
 1. Aprire il **Visualizzatore eventi** e passare ad **applicazioni e servizi**.
 1. Passare a e aprire **Microsoft\FileSync\Agent\Telemetry**.
 1. Cercare l' **evento 9102** più recente, che corrisponde a una sessione di sincronizzazione completata.
-1. Selezionare **Details (dettagli** ) e confermare che si sta cercando un evento in cui il valore **SyncDirection** è **download**.
-1. Per il momento in cui lo spazio dei nomi ha completato il download sul server, sarà presente un solo evento con **scenario** , il valore **FullGhostedSync** e **HRESULT**  =  **0**.
+1. Selezionare **Details (dettagli**) e confermare che si sta cercando un evento in cui il valore **SyncDirection** è **download**.
+1. Per il momento in cui lo spazio dei nomi ha completato il download sul server, sarà presente un solo evento con **scenario**, il valore **FullGhostedSync** e **HRESULT**  =  **0**.
 1. Se si dimentica questo evento, è anche possibile cercare altri **eventi 9102** con il **SyncDirection**  =  **download** e lo **scenario**  =  **"RegularSync"** di SyncDirection. La ricerca di uno di questi eventi indica inoltre che lo spazio dei nomi ha terminato il download e la sincronizzazione in sessioni regolari di sincronizzazione, indipendentemente dalla sincronizzazione.
 
 ### <a name="a-final-robocopy"></a>RoboCopy finale
@@ -448,7 +448,7 @@ A questo punto, esistono differenze tra l'istanza locale di Windows Server e l'a
 RoboCopy presenta diversi parametri. Nell'esempio seguente viene presentato un comando finito e un elenco di motivi per la scelta di questi parametri.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Sfondo:
@@ -475,6 +475,14 @@ Sfondo:
    :::column-end:::
    :::column span="1":::
       Output nella finestra della console. Utilizzato in combinazione con l'output in un file di log.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Omette la registrazione dello stato di avanzamento per rendere leggibile il log.
    :::column-end:::
 :::row-end:::
 :::row:::

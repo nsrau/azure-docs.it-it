@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94495364"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756214"
 ---
 # <a name="log-analytics-tutorial"></a>Esercitazione su Log Analytics
 Log Analytics è uno strumento disponibile nel portale di Azure che consente di modificare ed eseguire query su log dai dati raccolti dai log di Monitoraggio di Azure e analizzarne i risultati in modo interattivo. È possibile usare le query di Log Analytics per recuperare i record che corrispondono a determinati criteri, identificare le tendenze, analizzare i modelli e fornire un'ampia varietà di informazioni dettagliate sui dati. 
@@ -23,7 +23,7 @@ Questa esercitazione descrive l'interfaccia di Log Analytics, illustra come iniz
 > * Scrivere ed eseguire query semplici e modificare l'intervallo di tempo per le query
 > * Filtrare, ordinare e raggruppare i risultati delle query
 > * Visualizzare, modificare e condividere gli oggetti visivi dei risultati delle query
-> * Salvare, caricare, esportare e copiare query e risultati
+> * Caricare, esportare e copiare query e risultati
 
 > [!IMPORTANT]
 > Questa esercitazione usa le funzionalità di Log Analytics per compilare ed eseguire una query anziché usare la query stessa. Verranno usate le funzionalità di Log Analytics per compilare una query e usare un'altra query di esempio. Quando si è pronti per apprendere la sintassi delle query e iniziare a modificare direttamente la query stessa, passare all'[esercitazione sul linguaggio di query Kusto](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor), che mostra varie query di esempio che è possibile modificare ed eseguire in Log Analytics, sfruttando molte delle funzionalità che verranno illustrate in questa esercitazione.

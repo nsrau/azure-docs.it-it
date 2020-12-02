@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d6449a00886b7366bcd1f6e2fcec910fd3cb38db
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461049"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512036"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API di evasione SaaS versione 2 nel Marketplace commerciale
 
@@ -20,7 +20,7 @@ Questo articolo illustra in dettaglio le API che consentono ai partner di vender
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gestione del ciclo di vita della sottoscrizione SaaS
 
-Il Marketplace commerciale gestisce l'intero ciclo di vita di una sottoscrizione SaaS dopo l'acquisto da parte dell'utente finale.  Usa la pagina di destinazione, le API di evasione, le API operative e il webhook come meccanismo per gestire l'attivazione, l'utilizzo, gli aggiornamenti e l'annullamento della sottoscrizione SaaS effettivi.  La fattura dell'utente finale è basata sullo stato della sottoscrizione SaaS gestita da Microsoft. 
+Il Marketplace commerciale gestisce l'intero ciclo di vita di una sottoscrizione SaaS dopo l'acquisto da parte dell'utente finale. Usa la pagina di destinazione, le API di evasione, le API operative e il webhook come meccanismo per gestire l'attivazione, l'utilizzo, gli aggiornamenti e l'annullamento della sottoscrizione SaaS effettivi. La fattura dell'utente finale è basata sullo stato della sottoscrizione SaaS gestita da Microsoft. 
 
 ### <a name="states-of-a-saas-subscription"></a>Stati di una sottoscrizione SaaS
 
@@ -44,11 +44,11 @@ Un esempio di tale chiamata è `https://contoso.com/signup?token=<blob>` , mentr
 
 L'URL della pagina di destinazione deve essere attivo e in esecuzione tutto il giorno, ogni giorno e pronto per ricevere sempre nuove chiamate da Microsoft. Se la pagina di destinazione non è più disponibile, i clienti non saranno in grado di iscriversi al servizio SaaS e iniziare a usarlo.
 
-Successivamente, il server di pubblicazione deve passare nuovamente il *token* a Microsoft chiamando l' [API di risoluzione Saas](#resolve-a-purchased-subscription)e immettendo il token come valore del `x-ms-marketplace-token header` parametro di intestazione.  Come risultato della chiamata all'API Resolve, il token viene scambiato per i dettagli dell'acquisto SaaS, ad esempio l'ID univoco dell'acquisto, l'ID offerta acquistato e l'ID del piano acquistato.
+Successivamente, il server di pubblicazione deve passare nuovamente il *token* a Microsoft chiamando l' [API di risoluzione Saas](#resolve-a-purchased-subscription)e immettendo il token come valore del `x-ms-marketplace-token header` parametro di intestazione. Come risultato della chiamata all'API Resolve, il token viene scambiato per i dettagli dell'acquisto SaaS, ad esempio l'ID univoco dell'acquisto, l'ID offerta acquistato e l'ID del piano acquistato.
 
 Nella pagina di destinazione, il cliente deve essere connesso all'account SaaS nuovo o esistente tramite Azure Active Directory (Azure AD) Single Sign-On (SSO).
 
-Il server di pubblicazione deve implementare SSO per fornire l'esperienza utente richiesta da Microsoft per questo flusso. Assicurarsi di usare l'applicazione multi-tenant Azure AD e consentire account aziendali o dell'Istituto di istruzione o account Microsoft personali durante la configurazione di SSO.  Questo requisito si applica solo alla pagina di destinazione, per gli utenti che vengono reindirizzati al servizio SaaS quando hanno già effettuato l'accesso con le credenziali Microsoft. L'accesso SSO non è necessario per tutti gli accessi al servizio SaaS.
+Il server di pubblicazione deve implementare SSO per fornire l'esperienza utente richiesta da Microsoft per questo flusso. Assicurarsi di usare l'applicazione multi-tenant Azure AD e consentire account aziendali o dell'Istituto di istruzione o account Microsoft personali durante la configurazione di SSO. Questo requisito si applica solo alla pagina di destinazione, per gli utenti che vengono reindirizzati al servizio SaaS quando hanno già effettuato l'accesso con le credenziali Microsoft. L'accesso SSO non è necessario per tutti gli accessi al servizio SaaS.
 
 > [!NOTE]
 >Se SSO richiede che un amministratore debba concedere l'autorizzazione a un'app, la descrizione dell'offerta nel centro per i partner deve rivelare che è necessario l'accesso a livello di amministratore. Questa divulgazione è conforme ai [criteri di certificazione del Marketplace commerciale](/legal/marketplace/certification-policies#10003-authentication-options).
@@ -82,11 +82,11 @@ Sono disponibili due tipi di aggiornamenti per una sottoscrizione SaaS:
 
 ##### <a name="update-initiated-from-the-commercial-marketplace"></a>Aggiornamento avviato dal Marketplace commerciale
 
-In questo flusso il cliente modifica il piano di sottoscrizione o la quantità di postazioni dall'interfaccia di Amministrazione portale di Azure o Microsoft 365.  
+In questo flusso il cliente modifica il piano di sottoscrizione o la quantità di postazioni dall'interfaccia di Amministrazione portale di Azure o Microsoft 365.
 
-1. Dopo l'immissione di un aggiornamento, Microsoft chiamerà l'URL del webhook dell'editore, configurato nel campo **connessione webhook** nel centro per i partner, con un valore appropriato per l' *azione* e altri parametri pertinenti.  
+1. Dopo l'immissione di un aggiornamento, Microsoft chiamerà l'URL del webhook dell'editore, configurato nel campo **connessione webhook** nel centro per i partner, con un valore appropriato per l' *azione* e altri parametri pertinenti. 
 1. Il lato server di pubblicazione deve apportare le modifiche necessarie al servizio SaaS e inviare una notifica a Microsoft al termine chiamando lo [stato di aggiornamento dell'API dell'operazione](#update-the-status-of-an-operation).
-1. Se la patch viene inviata con lo stato di *errore* , il processo di aggiornamento non verrà completato sul lato Microsoft.  La sottoscrizione SaaS manterrà il piano esistente e la quantità di postazioni.
+1. Se la patch viene inviata con lo stato di *errore* , il processo di aggiornamento non verrà completato sul lato Microsoft. La sottoscrizione SaaS manterrà il piano esistente e la quantità di postazioni.
 
 > [!NOTE]
 > Il server di pubblicazione deve richiamare PATCH per [aggiornare lo stato dell'API dell'operazione](#update-the-status-of-an-operation) con una risposta di errore/esito positivo *entro un intervallo di tempo di 10 secondi* dopo la ricezione della notifica del webhook. Se la PATCH dello stato dell'operazione non viene ricevuta entro 10 secondi, il piano di modifica viene *automaticamente patchato come operazione riuscita*. 
@@ -101,7 +101,7 @@ In questo flusso il cliente modifica il piano di sottoscrizione o la quantità d
 
 1. Il codice dell'editore deve chiamare l' [API del piano di modifica](#change-the-plan-on-the-subscription) e/o l'API di modifica della [quantità](#change-the-quantity-of-seats-on-the-saas-subscription) prima di apportare la modifica richiesta sul lato del server di pubblicazione. 
 
-1. Microsoft applicherà la modifica alla sottoscrizione e quindi invierà una notifica al server di pubblicazione tramite il **webhook di connessione** per applicare la stessa modifica.  
+1. Microsoft applicherà la modifica alla sottoscrizione e quindi invierà una notifica al server di pubblicazione tramite il **webhook di connessione** per applicare la stessa modifica.
 
 1. Solo a questo punto l'autore deve apportare la modifica necessaria alla sottoscrizione SaaS e inviare una notifica a Microsoft quando la modifica viene eseguita chiamando [lo stato di aggiornamento dell'API dell'operazione](#update-the-status-of-an-operation).
 
@@ -113,7 +113,7 @@ Il diagramma seguente illustra la sequenza di chiamate API per uno scenario di a
 
 Questo stato indica che il pagamento di un cliente per il servizio SaaS non è stato ricevuto. Il server di pubblicazione riceverà una notifica di questa modifica nello stato della sottoscrizione SaaS da parte di Microsoft. La notifica viene eseguita tramite una chiamata al webhook con il parametro *Action* impostato su *suspended*.
 
-Il server di pubblicazione potrebbe o meno apportare modifiche al servizio SaaS sul lato server di pubblicazione. È consigliabile che il server di pubblicazione renda disponibili tali informazioni ai clienti sospesi e limiti o blocchi l'accesso del cliente al servizio SaaS.  Esiste una probabilità che il pagamento non venga mai ricevuto.
+Il server di pubblicazione potrebbe o meno apportare modifiche al servizio SaaS sul lato server di pubblicazione. È consigliabile che il server di pubblicazione renda disponibili tali informazioni ai clienti sospesi e limiti o blocchi l'accesso del cliente al servizio SaaS. Esiste una probabilità che il pagamento non venga mai ricevuto.
 
 Microsoft concede al cliente un periodo di tolleranza di 30 giorni prima di annullare automaticamente la sottoscrizione. Quando una sottoscrizione è in stato *sospeso* :
 
@@ -126,26 +126,26 @@ Lo stato della sottoscrizione viene modificato in sospeso sul lato Microsoft pri
 
 Questa azione indica che lo strumento di pagamento del cliente è stato nuovamente valido, è stato effettuato un pagamento per la sottoscrizione SaaS e la sottoscrizione è stata ripristinata. In questo caso: 
 
-1. Microsoft chiama il webhook con un parametro di *azione* impostato sul valore di *reintegro* .  
+1. Microsoft chiama il webhook con un parametro di *azione* impostato sul valore di *reintegro* .
 1. Il server di pubblicazione verifica che la sottoscrizione sia nuovamente operativa sul lato server di pubblicazione.
-1. Il server di pubblicazione chiama l' [API dell'operazione patch](#update-the-status-of-an-operation) con stato di esito positivo.  
+1. Il server di pubblicazione chiama l' [API dell'operazione patch](#update-the-status-of-an-operation) con stato di esito positivo.
 1. Il processo di reintegro ha esito positivo e viene fatturato di nuovo il cliente per la sottoscrizione SaaS. 
 
 Se la patch viene inviata con lo stato di *errore* , il processo di ripristino non verrà completato sul lato Microsoft e la sottoscrizione rimarrà *sospesa*.
 
-È possibile ripristinare solo una sottoscrizione sospesa.  La sottoscrizione SaaS sospesa rimane in stato *sospeso* mentre viene ripristinata.  Al termine dell'operazione, lo stato della sottoscrizione diventerà *attivo*.
+È possibile ripristinare solo una sottoscrizione sospesa. La sottoscrizione SaaS sospesa rimane in stato *sospeso* mentre viene ripristinata. Al termine dell'operazione, lo stato della sottoscrizione diventerà *attivo*.
 
 #### <a name="renewed-subscribed"></a>Rinnovato (*sottoscritto*)
 
-La sottoscrizione SaaS viene rinnovata automaticamente da Microsoft alla fine del periodo di validità della sottoscrizione di un mese o un anno.  Il valore predefinito per l'impostazione di rinnovo automatico è *true* per tutte le sottoscrizioni Saas. Le sottoscrizioni SaaS attive continueranno a essere rinnovate a cadenza regolare. Microsoft non invia una notifica al server di pubblicazione quando viene rinnovata una sottoscrizione. Un cliente può disabilitare il rinnovo automatico per una sottoscrizione SaaS tramite il portale di amministrazione Microsoft 365 o tramite il portale di Azure.  In questo caso, la sottoscrizione SaaS verrà annullata automaticamente alla fine del periodo di fatturazione corrente.  I clienti possono anche annullare la sottoscrizione SaaS in qualsiasi momento.
+La sottoscrizione SaaS viene rinnovata automaticamente da Microsoft alla fine del periodo di validità della sottoscrizione di un mese o un anno. Il valore predefinito per l'impostazione di rinnovo automatico è *true* per tutte le sottoscrizioni Saas. Le sottoscrizioni SaaS attive continueranno a essere rinnovate a cadenza regolare. Microsoft non invia una notifica al server di pubblicazione quando viene rinnovata una sottoscrizione. Un cliente può disabilitare il rinnovo automatico per una sottoscrizione SaaS tramite il portale di amministrazione Microsoft 365. In questo caso, la sottoscrizione SaaS verrà annullata automaticamente alla fine del periodo di fatturazione corrente. I clienti possono anche annullare la sottoscrizione SaaS in qualsiasi momento.
 
-Solo le sottoscrizioni attive vengono rinnovate automaticamente.  Le sottoscrizioni resteranno attive durante il processo di rinnovo e se il rinnovo automatico ha esito positivo.  Dopo il rinnovo, le date di inizio e di fine del periodo di validità della sottoscrizione vengono aggiornate alle date del nuovo periodo.
+Solo le sottoscrizioni attive vengono rinnovate automaticamente. Le sottoscrizioni resteranno attive durante il processo di rinnovo e se il rinnovo automatico ha esito positivo. Dopo il rinnovo, le date di inizio e di fine del periodo di validità della sottoscrizione vengono aggiornate alle date del nuovo periodo.
 
 Se un rinnovo automatico non riesce a causa di un problema relativo al pagamento, la sottoscrizione verrà *sospesa* e verrà inviata una notifica al server di pubblicazione.
 
 #### <a name="canceled-unsubscribed"></a>Annullato (annullamento della *sottoscrizione*) 
 
-Le sottoscrizioni raggiungono questo stato in risposta a un'azione esplicita del cliente o del CSP mediante l'annullamento di una sottoscrizione dal sito del server di pubblicazione, dall'portale di Azure o dall'interfaccia di amministrazione di Microsoft 365.  Una sottoscrizione può anche essere annullata in modo implicito, in seguito al mancato pagamento delle quote, dopo che è stato *sospeso* per 30 giorni.
+Le sottoscrizioni raggiungono questo stato in risposta a un'azione esplicita del cliente o del CSP mediante l'annullamento di una sottoscrizione dal sito del server di pubblicazione, dall'portale di Azure o dall'interfaccia di amministrazione di Microsoft 365. Una sottoscrizione può anche essere annullata in modo implicito, in seguito al mancato pagamento delle quote, dopo che è stato *sospeso* per 30 giorni.
 
 Dopo la ricezione di una chiamata al webhook di annullamento, il server di pubblicazione deve conservare i dati del cliente per il ripristino su richiesta per almeno sette giorni. Solo a questo punto i dati del cliente possono essere eliminati.
 
@@ -163,7 +163,7 @@ Le **API di sottoscrizione** devono essere usate per gestire il ciclo di vita de
 * Ottenere un elenco di app in attesa di operazioni in attesa di essere riconosciute dal server di pubblicazione.
 
 > [!NOTE]
-> La versione di TLS 1,2 verrà applicata presto come versione minima per le comunicazioni HTTPS. Assicurarsi di usare questa versione di TLS nel codice.  Le versioni di TLS 1,0 e 1,1 verranno presto deprecate.
+> La versione di TLS 1,2 verrà applicata presto come versione minima per le comunicazioni HTTPS. Assicurarsi di usare questa versione di TLS nel codice. Le versioni di TLS 1,0 e 1,1 verranno presto deprecate.
 
 ### <a name="subscription-apis"></a>API di sottoscrizione
 
@@ -181,13 +181,13 @@ La chiamata all'API Resolve restituirà i dettagli e lo stato della sottoscrizio
 
 *Parametri di query:*
 
-|  Parametro         | valore            |
+|  Parametro         | Valore            |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilizzare 2018-08-31.   |
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json` |
 |  `x-ms-requestid`    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -259,7 +259,7 @@ Dopo aver configurato l'account SaaS per un utente finale, è necessario che il 
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Utilizzare 2018-08-31.   |
 | `subscriptionId` | Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l' [API di risoluzione](#resolve-a-purchased-subscription).
@@ -267,7 +267,7 @@ Dopo aver configurato l'account SaaS per un utente finale, è necessario che il 
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -314,14 +314,14 @@ L'API restituisce i risultati impaginati di 100 per pagina.
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Utilizzare 2018-08-31.  |
 | `continuationToken`  | Parametro facoltativo. Per recuperare la prima pagina di risultati, lasciare vuoto.  Usare il valore restituito in `@nextLink` Parameter per recuperare la pagina successiva. |
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -421,14 +421,14 @@ Questa API recupera una sottoscrizione SaaS acquistata specificata per un'offert
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 | `ApiVersion`        |   Utilizzare 2018-08-31. |
 | `subscriptionId`     |  Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione. |
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`      |  `application/json`  |
 |  `x-ms-requestid`    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -493,14 +493,14 @@ Questa chiamata restituisce un elenco di piani disponibili per il cliente oltre 
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilizzare 2018-08-31.  |
 |  `subscriptionId`    |  Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione. |
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |   `content-type`     |  `application/json` |
 |   `x-ms-requestid`   |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -548,14 +548,14 @@ Questa API può essere chiamata solo per le sottoscrizioni *attive* .  Qualsiasi
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilizzare 2018-08-31.  |
 | `subscriptionId`     | Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione. |
 
 *Intestazioni della richiesta:*
  
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
@@ -578,7 +578,7 @@ Il partner riceverà anche una notifica webhook quando l'azione è pronta per es
 
 *Intestazioni risposta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `Operation-Location`        |  URL per ottenere lo stato dell'operazione.  Ad esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
@@ -613,14 +613,14 @@ La quantità di postazioni non può essere superiore alla quantità consentita n
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilizzare 2018-08-31.  |
 |  `subscriptionId`     | Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione.  |
 
 *Intestazioni della richiesta:*
  
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
@@ -643,7 +643,7 @@ Il partner riceverà anche una notifica webhook quando l'azione è pronta per es
 
 *Intestazioni risposta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `Operation-Location`        |  Collegamento a una risorsa per ottenere lo stato dell'operazione.  Ad esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
@@ -686,14 +686,14 @@ Il cliente verrà fatturato se una sottoscrizione viene annullata dopo i periodi
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilizzare 2018-08-31.  |
 |  `subscriptionId`     | Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione.  |
 
 *Intestazioni della richiesta:*
  
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
@@ -708,7 +708,7 @@ Il partner riceverà anche una notifica webhook quando l'azione viene completata
 
 *Intestazioni risposta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `Operation-Location`        |  Collegamento a una risorsa per ottenere lo stato dell'operazione.  Ad esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
@@ -734,14 +734,14 @@ Attualmente solo **le operazioni di reintegro** vengono restituite come risposta
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Utilizzare 2018-08-31.         |
 |    `subscriptionId` | Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione.  |
 
 *Intestazioni della richiesta:*
  
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`     |  `application/json` |
 |  `x-ms-requestid`    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
@@ -795,7 +795,7 @@ Questa API consente al server di pubblicazione di tenere traccia dello stato del
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilizzare 2018-08-31.  |
 |  `subscriptionId`    |  Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione. |
@@ -803,7 +803,7 @@ Questa API consente al server di pubblicazione di tenere traccia dello stato del
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |  `content-type`      |  `application/json`   |
 |  `x-ms-requestid`    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -855,7 +855,7 @@ Usare questa API per aggiornare lo stato di un'operazione in sospeso per indicar
 
 *Parametri di query:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |   `ApiVersion`       |  Utilizzare 2018-08-31.  |
 |   `subscriptionId`   |  Identificatore univoco della sottoscrizione SaaS acquistata.  Questo ID viene ottenuto dopo la risoluzione del token di autorizzazione del Marketplace commerciale usando l'API di risoluzione.  |
@@ -863,7 +863,7 @@ Usare questa API per aggiornare lo stato di un'operazione in sospeso per indicar
 
 *Intestazioni della richiesta:*
 
-|  Parametro         | valore             |
+|  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
 |   `content-type`   | `application/json`   |
 |   `x-ms-requestid`   |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID.  Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |

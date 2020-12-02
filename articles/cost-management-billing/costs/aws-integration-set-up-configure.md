@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2b8a008decc41a5686fb2c8d9fee271f95f0fef3
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517345"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122411"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione del report di costi e utilizzo di AWS
 
@@ -58,7 +58,7 @@ Possono essere necessarie fino a 24 ore prima che AWS inizi a recapitare i repor
 
 Gestione costi di Azure accede più volte al giorno al bucket S3 in cui si trova il report di costi e utilizzo. Il servizio necessita dell'accesso alle credenziali per verificare la presenza di nuovi dati. Per consentire a Gestione costi di accedere, creare un ruolo e un criterio in AWS.
 
-Per abilitare l'accesso in base al ruolo a un account AWS in Gestione costi, il ruolo viene creato nella console di AWS. È necessario ottenere il _ruolo ARN_ e l' _ID esterno_ dalla console di AWS. Verranno usati più avanti nella pagina **Crea un connettore AWS** in Gestione costi.
+Per abilitare l'accesso in base al ruolo a un account AWS in Gestione costi, il ruolo viene creato nella console di AWS. È necessario ottenere il _ruolo ARN_ e l'_ID esterno_ dalla console di AWS. Verranno usati più avanti nella pagina **Crea un connettore AWS** in Gestione costi.
 
 Usare la procedura guidata Create a New Role (Crea un nuovo ruolo):
 
@@ -150,7 +150,8 @@ Il codice JSON del criterio deve essere simile all'esempio riportato di seguito.
 Usare le informazioni seguenti per creare un connettore AWS e iniziare a monitorare i costi di AWS:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare a **Gestione dei costi e fatturazione** > **Gestione costi**.
+2. Passare alla schermata iniziale di Azure facendo clic su **Home** nel menu a sinistra (icona del menu "hamburger" con tre linee).
+3. Passare a **Strumenti** > **Gestione costi** in fondo alla pagina.
 3. In **Impostazioni** selezionare **Connettori per AWS**.  
 4. Selezionare **+ Aggiungi** nella parte superiore della pagina per creare un connettore.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Esempio che mostra l'impostazione Connettori per AWS" :::
@@ -180,7 +181,7 @@ L'assegnazione delle autorizzazioni per il connettore agli utenti dopo l'individ
 
 ## <a name="manage-aws-connectors"></a>Gestire i connettori AWS
 
-Quando si seleziona un connettore nella pagina **Connettori per AWS** , è possibile:
+Quando si seleziona un connettore nella pagina **Connettori per AWS**, è possibile:
 
 - Selezionare **Vai all'account di fatturazione** per visualizzare le informazioni relative all'account AWS consolidato.
 - Selezionare **Controllo di accesso** per gestire l'assegnazione di ruolo per il connettore.

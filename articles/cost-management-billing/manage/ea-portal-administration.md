@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683646"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893359"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -146,7 +146,7 @@ Prima di eseguire il trasferimento della proprietà, è importante conoscere i c
 - Quando si eseguono trasferimenti di proprietà di sottoscrizioni o account tra due ID organizzativi nello stesso tenant, i criteri di controllo degli accessi in base al ruolo di Azure e i ruoli di amministratore del servizio e coamministratore esistenti vengono mantenuti.
 - I trasferimenti di proprietà di sottoscrizioni o account fra tenant diversi generano la perdita dei criteri di controllo degli accessi in base al ruolo di Azure e delle assegnazioni di ruoli.
 - I criteri e i ruoli di amministratore non vengono trasferiti tra directory diverse. Gli amministratori del servizio vengono aggiornati nel proprietario dell'account di destinazione.
-- Per evitare la perdita dei criteri di controllo degli accessi in base al ruolo e delle assegnazioni di ruoli durante il trasferimento della proprietà di una sottoscrizione fra tenant, assicurarsi che la casella di controllo **Move the subscriptions to the recipient's Azure AD tenant** (Sposta le sottoscrizioni nel tenant di Azure AD del destinatario) rimanga **deselezionata**. In questo modo verranno mantenuti i servizi, i ruoli Controllo degli accessi in base al ruolo e i criteri nel tenant di Azure AD corrente e verrà trasferita solo la proprietà di fatturazione dell'account.  
+- Per evitare la perdita dei criteri di Controllo degli accessi in base al ruolo di Azure e delle assegnazioni di ruoli durante il trasferimento della sottoscrizione tra tenant, assicurarsi che la casella di controllo **Move the subscriptions to the recipient's Azure AD tenant** (Sposta le sottoscrizioni nel tenant di Azure AD del destinatario) rimanga **deselezionata**. In questo modo verranno mantenuti i servizi, i ruoli di Azure e i criteri nel tenant di Azure AD corrente e verrà trasferita solo la proprietà di fatturazione dell'account.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Immagine che mostra la casella di controllo per il trasferimento di sottoscrizioni al tenant Azure AD non selezionata" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ Azure EA Portal consente di amministrare i costi e l'utilizzo del contratto Ente
 
 Ogni ruolo ha un livello di accesso e autorità diverso.
 
-Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazione](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazione](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Aggiungere un account EA di Azure
 

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/02/2020
+ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421363"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511917"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning usa la distribuzione anaconda di Python, che include molt
 
 Per un elenco completo, vedere la sezione [pacchetti Python preinstallati](#preinstalled-python-packages).
 
-Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie* ), aggiungere il codice seguente allo script: 
+Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie*), aggiungere il codice seguente allo script: 
 
 ```python
 import os
@@ -60,7 +60,37 @@ if spec is None:
 > [!WARNING]
 > Il modulo di script Python di excute non supporta l'installazione di pacchetti che dipendono da librerie native aggiuntive con comando come "apt-get", ad esempio Java, PyODBC e così via. Questo è dovuto al fatto che questo modulo viene eseguito in un ambiente semplice con Python preinstallato e con autorizzazioni non amministrative.  
 
-## <a name="upload-files"></a>Caricare i file
+## <a name="access-to-registered-datasets"></a>Accesso ai set di impostazioni registrati
+
+Per accedere ai [set di impostazioni registrati](../how-to-create-register-datasets.md) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
+
+## <a name="upload-files"></a>Caricare file
 Il modulo Execute Python script supporta il caricamento di file tramite il [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 L'esempio seguente illustra come caricare un file di immagine nel modulo Execute Python script:
@@ -197,9 +227,9 @@ I risultati di qualsiasi calcolo dal codice Python incorporato devono essere for
 
 Il modulo restituisce due set di impostazioni:  
   
-+ Il set di dati **dei risultati 1** , definito dal primo frame di dati Pandas restituito in uno script Python.
++ Il set di dati **dei risultati 1**, definito dal primo frame di dati Pandas restituito in uno script Python.
 
-+ Set di dati di **risultati 2** , definito dal secondo frame di dati Pandas restituito in uno script Python.
++ Set di dati di **risultati 2**, definito dal secondo frame di dati Pandas restituito in uno script Python.
 
 ## <a name="preinstalled-python-packages"></a>Pacchetti Python preinstallati
 I pacchetti preinstallati sono:

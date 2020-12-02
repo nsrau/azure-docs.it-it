@@ -7,15 +7,15 @@ ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/21/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: e9ad580ae5e3ffe7a7f5781423f96897272a4844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5397bb4ebd5909406d0bae1ef68ec2c6453549d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972079"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026336"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Come pagare la fattura per Microsoft Azure
 
@@ -29,7 +29,7 @@ Se il metodo di pagamento predefinito è una carta di credito, l'importo dovuto 
 
 ## <a name="pay-now-in-the-azure-portal"></a>Pagamento immediato nel portale di Azure
 
-Per pagare le fatture nel portale di Azure, è necessario essere l'amministratore dell'account di fatturazione. L'amministratore dell'account di fatturazione è l'utente che ha originariamente effettuato l'iscrizione per l'account del Contratto del cliente Microsoft.
+Per pagare le fatture nel portale di Azure, è necessario avere l'[autorizzazione del Contratto del cliente Microsoft](../manage/understand-mca-roles.md) corretta o essere l'amministratore dell'account di fatturazione. L'amministratore dell'account di fatturazione è l'utente che ha originariamente effettuato l'iscrizione per l'account del Contratto del cliente Microsoft.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Eseguire ricerche in **Gestione dei costi e fatturazione**.

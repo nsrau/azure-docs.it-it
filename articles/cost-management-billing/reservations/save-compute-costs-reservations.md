@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147460"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887213"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -90,7 +90,7 @@ Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazio
 - **Istanza di macchina virtuale riservata**: una prenotazione copre solo i costi di calcolo della macchina virtuale e dei servizi cloud. Non copre i costi aggiuntivi relativi a software, Windows, rete o archiviazione.
 - **Capacità riservata di Archiviazione di Azure**: una prenotazione copre la capacità di archiviazione per gli account di archiviazione standard per l'archiviazione BLOB o Azure Data Lake Gen2. La prenotazione non copre la velocità della larghezza di banda o delle transazioni.
 - **Capacità riservata di Azure Cosmos DB**: una prenotazione copre le unità di elaborazione di cui è stato effettuato il provisioning per le risorse. Non copre i costi di archiviazione e rete.
-- **vCore riservato del database SQL**: in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza SQL vengono fatturati separatamente.
+- **vCore riservati di database SQL**: copre sia Istanza gestita di SQL che il pool elastico/istanza singola di database SQL. in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza SQL vengono fatturati separatamente. 
 - **Azure Synapse Analytics**: una prenotazione riguarda l'uso di unità Data Warehouse a elevato utilizzo di calcolo. Non copre gli addebiti per le risorse di archiviazione o di rete associate all'utilizzo di Azure Synapse Analytics.
 - **Azure Databricks**: una prenotazione copre solo l'utilizzo di unità Databricks. Gli altri addebiti, ad esempio per il calcolo, l'archiviazione e la rete, vengono applicati separatamente.
 - **Tariffa stamp del servizio app**: una prenotazione copre l'utilizzo di stamp. Non si applica ai ruoli di lavoro, quindi qualsiasi altra risorsa associata allo stamp viene addebitata separatamente.

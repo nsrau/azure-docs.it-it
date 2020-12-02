@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367007"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511730"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
 > [!IMPORTANT]
-> Il grafico di analisi è attualmente disponibile in anteprima pubblica.
-> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Il grafico di analisi è attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
 
 
 Questa esercitazione consente di esaminare gli eventi imprevisti con Sentinel di Azure. Dopo aver connesso le origini dati ad Azure Sentinel, è necessario ricevere una notifica quando si verifica un evento sospetto. Per consentire l'esecuzione di questa operazione, Azure Sentinel consente di creare regole di avviso avanzate che generano eventi imprevisti che è possibile assegnare ed esaminare.
@@ -46,7 +44,7 @@ Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di
 
 ## <a name="how-to-investigate-incidents"></a>Come analizzare gli eventi imprevisti
 
-1. Selezionare **eventi imprevisti**. Nella pagina **eventi imprevisti** è possibile verificare il numero di eventi imprevisti, il numero di eventi aperti, il numero di eventi impostati **in corso**e il numero di eventi chiusi. Per ogni evento imprevisto, è possibile visualizzare l'ora in cui si è verificata e lo stato dell'evento imprevisto. Esaminare la gravità per decidere quali eventi imprevisti gestire per primi.
+1. Selezionare **eventi imprevisti**. Nella pagina **eventi imprevisti** è possibile verificare il numero di eventi imprevisti, il numero di eventi aperti, il numero di eventi impostati **in corso** e il numero di eventi chiusi. Per ogni evento imprevisto, è possibile visualizzare l'ora in cui si è verificata e lo stato dell'evento imprevisto. Esaminare la gravità per decidere quali eventi imprevisti gestire per primi.
 
     ![Visualizza gravità evento imprevisto](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -80,10 +78,12 @@ Il grafico di indagine fornisce:
 
 Per usare il grafico di analisi:
 
-1. Selezionare un evento imprevisto, quindi fare clic **su**Cerca. In questo modo si passa al grafico di analisi. Il grafico fornisce una mappa illustrativa delle entità connesse direttamente all'avviso e ogni risorsa è connessa.
+1. Selezionare un evento imprevisto, quindi fare clic **su** Cerca. In questo modo si passa al grafico di analisi. Il grafico fornisce una mappa illustrativa delle entità connesse direttamente all'avviso e ogni risorsa è connessa.
 
    > [!IMPORTANT] 
-   > È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
+   > - È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
+   >
+   > - Azure Sentinel supporta attualmente l'analisi degli **eventi imprevisti fino a 30 giorni** prima.
 
    ![Visualizzare la mappa](media/tutorial-investigate-cases/map1.png)
 
@@ -99,7 +99,7 @@ Per usare il grafico di analisi:
 
     ![Visualizza avvisi correlati](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query utilizzata in Log Analytics, selezionando **gli eventi \> **.
+1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query utilizzata in Log Analytics, selezionando **gli eventi \>**.
 
 1. Per comprendere l'evento imprevisto, il grafico fornisce una sequenza temporale parallela.
 
@@ -123,7 +123,7 @@ Una volta risolto un evento imprevisto specifico, ad esempio quando l'indagine h
 
 Dopo aver scelto la classificazione appropriata, aggiungere un testo descrittivo nel campo del **Commento** . Questa operazione sarà utile nel caso in cui sia necessario riferire a questo evento imprevisto. Al termine, fare clic su **applica** per chiudere l'evento imprevisto.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Screenshot che evidenzia le classificazioni disponibili nell'elenco Seleziona classificazione.":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come iniziare a esaminare gli eventi imprevisti usando Sentinel di Azure. Continuare con l'esercitazione su [come rispondere alle minacce usando i PlayBook automatici](tutorial-respond-threats-playbook.md).

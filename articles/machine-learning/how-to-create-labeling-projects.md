@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543222"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992319"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -250,7 +250,7 @@ Usare questi passaggi per aggiungere una o più etichette a un progetto:
 
 ## <a name="export-the-labels"></a>Esportare le etichette
 
-In qualsiasi momento, è possibile esportare i dati delle etichette per la sperimentazione di Machine Learning. Le etichette delle immagini possono essere esportate in [formato COCO](http://cocodataset.org/#format-data) o come set di dati di Azure Machine Learning. Usare il pulsante **Esporta** nella pagina **Dettagli del progetto** del progetto di etichettatura.
+In qualsiasi momento, è possibile esportare i dati delle etichette per la sperimentazione di Machine Learning. Le etichette delle immagini possono essere esportate in [formato COCO](http://cocodataset.org/#format-data) oppure come [set di dati di Azure Machine Learning con etichette](how-to-use-labeled-dataset.md). Usare il pulsante **Esporta** nella pagina **Dettagli del progetto** del progetto di etichettatura.
 
 Il file COCO viene creato nell'archivio BLOB predefinito dell'area di lavoro di Azure Machine Learning in una cartella all'interno di *export/coco*. È possibile accedere al set di dati di Azure Machine Learning esportato nella sezione **Set di dati** di Machine Learning. La pagina Dettagli del set di dati fornisce anche il codice di esempio per accedere alle etichette da Python.
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f1ea8d16a441230323b4f0213229d223a0b035bc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dbf3b5de4b908eb831158b73b2b17472bc4895e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778648"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020964"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Quali sono le differenze tra le funzionalità dei prodotti della rete CDN di Azure?
 
@@ -23,7 +23,7 @@ La rete CDN di Azure include quattro prodotti:
 * **Rete CDN Standard di Azure offerta da Microsoft**
 * **Rete CDN Standard di Azure offerta da Akamai**
 * **Rete CDN Standard di Azure offerta da Verizon**
-* **Rete CDN Premium di Azure offerta da Verizon** . 
+* **Rete CDN Premium di Azure offerta da Verizon**. 
 
 La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 
@@ -72,11 +72,11 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | Integrazione semplice con i servizi di Azure, come [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [App Web](cdn-add-to-web-app.md) e [Servizi multimediali](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestione tramite [API REST](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) oppure [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Tipi MIME con compressione](./cdn-improve-performance.md)  |Solo predefinito |Configurabile |Configurabile  |Configurabile  |
-| Codifiche di compressione  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
+| Codifiche di compressione  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
 
 ## <a name="migration"></a>Migrazione
 
-Per informazioni sulla migrazione di un profilo di **rete CDN di Azure Standard di Verizon** a un profilo di **rete CDN di Azure Premium di Verizon** , vedere [Migrare un profilo di rete CDN di Azure da Standard Verizon a Premium Verizon](cdn-migrate.md). 
+Per informazioni sulla migrazione di un profilo di **rete CDN di Azure Standard di Verizon** a un profilo di **rete CDN di Azure Premium di Verizon**, vedere [Migrare un profilo di rete CDN di Azure da Standard Verizon a Premium Verizon](cdn-migrate.md). 
 
 > [!NOTE]
 > Anche se è previsto un percorso di aggiornamento da Standard Verizon a Premium Verizon, al momento non esiste un meccanismo di conversione tra altri prodotti.

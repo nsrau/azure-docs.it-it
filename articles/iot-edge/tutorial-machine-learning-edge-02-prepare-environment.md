@@ -8,19 +8,20 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047659"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959595"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Esercitazione: Configurare un ambiente di Machine Learning in IoT Edge
 
-> [!NOTE]
-> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
-
 Questo articolo illustra come preparare l'ambiente per lo sviluppo e la distribuzione. Configurare prima di tutto un computer di sviluppo con tutti gli strumenti necessari. Quindi creare le risorse cloud necessarie in Azure.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Ogni articolo della serie si basa sulle attività di quello precedente. Se questo articolo è stato aperto direttamente, vedere il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie.
 
 ## <a name="set-up-the-development-vm"></a>Configurare la VM di sviluppo
 
@@ -173,7 +174,7 @@ In questa sezione viene usato uno script per creare un hub IoT di Azure e un acc
     * Verrà visualizzata la richiesta di accedere ad Azure.
     * Lo script verifica le informazioni per la creazione dell'hub e dell'account di archiviazione. Premere **y** o **INVIO** per continuare.
 
-Per eseguire lo script, sono necessari circa due minuti. Al termine, lo script genera il nome dell'hub IoT e dell'account di archiviazione.
+Per eseguire lo script sono necessari circa due minuti. Al termine, lo script genera il nome dell'hub IoT e dell'account di archiviazione.
 
 ## <a name="review-route-to-storage-in-iot-hub"></a>Esaminare la route all'account di archiviazione nell'hub IoT
 
@@ -216,7 +217,7 @@ In questo articolo è stato creato un hub IoT ed è stata configurata una route 
 Per altre informazioni sui passaggi descritti in questa sezione dell'esercitazione su Machine Learning in IoT Edge, vedere:
 
 * [Nozioni fondamentali su Azure IoT](../iot-fundamentals/index.yml)
-* [Configurare il routing dei messaggi con l'hub IoT](../iot-hub/tutorial-routing.md)
+* [configurare il routing dei messaggi con l'hub IoT](../iot-hub/tutorial-routing.md)
 * [Creare un hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md)
 
 Continuare con l'articolo successivo per creare un dispositivo simulato da monitorare.

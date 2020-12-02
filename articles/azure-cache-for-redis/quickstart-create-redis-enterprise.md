@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127986"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95795680"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Guida introduttiva: Crea una cache di livello Enterprise (anteprima)
 
@@ -22,7 +22,7 @@ I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/).
+Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account](https://azure.microsoft.com/). Per altre informazioni, vedere i [requisiti del livello Enterprise](cache-overview.md#enterprise-tier-requirements).
 
 ## <a name="create-a-cache"></a>Creare una cache
 1. Per creare una cache, accedere al portale di Azure seguendo il collegamento nell'invito all'anteprima e quindi selezionare **Crea una risorsa**.
@@ -71,7 +71,7 @@ Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha un
 
 1. Rivedere le impostazioni e fare clic su **Crea**.
    
-   La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso.
+   La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

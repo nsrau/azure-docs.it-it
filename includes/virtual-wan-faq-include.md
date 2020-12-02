@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330976"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187400"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>La rete WAN virtuale di Azure è disponibile a livello generale?
 
@@ -273,3 +273,7 @@ Vedere la sezione [Limiti della rete WAN virtuale](../articles/azure-resource-ma
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quali sono le differenze tra i tipi di rete WAN virtuale (Basic e Standard)?
 
 Vedere [Reti WAN virtuali Basic e Standard](../articles/virtual-wan/virtual-wan-about.md#basicstandard). Per i prezzi, vedere la pagina dei [Prezzi](https://azure.microsoft.com/pricing/details/virtual-wan/).
+
+### <a name="does-virtual-wan-store-customer-data"></a>La rete WAN virtuale archivia i dati dei clienti? 
+
+No. La rete WAN virtuale non archivia alcun dato dei clienti.

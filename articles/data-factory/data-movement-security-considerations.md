@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: b381f2f1871ea7e26950d5b02d5906a50c6129d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9e34ce05d055e6933ecfbacf672bb8b1eba544bd
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445010"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512308"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -32,7 +32,7 @@ In una soluzione Data Factory si creano una o più [pipeline](concepts-pipelines
 
 Sebbene Data Factory sia disponibile solo in alcune regioni, il servizio di spostamento dati è [disponibile a livello globale](concepts-integration-runtime.md#integration-runtime-location) per garantire la conformità dei dati, l'efficienza e costi ridotti per il trasferimento di dati in uscita dalla rete. 
 
-Azure Data Factory non archivia i dati a eccezione delle credenziali del servizio collegato per gli archivi di dati cloud, che vengono crittografate usando i certificati. Con Data Factory, è possibile creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) e l'elaborazione di dati usando i [servizi di calcolo](compute-linked-services.md) in altre aree o in un ambiente locale. È anche possibile monitorare e gestire i flussi di lavoro usando SDK e Monitoraggio di Azure.
+Azure Data Factory incluso Integration Runtime non archivia i dati ad eccezione delle credenziali del servizio collegato per gli archivi dati cloud, che vengono crittografati usando i certificati. Con Data Factory, è possibile creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) e l'elaborazione di dati usando i [servizi di calcolo](compute-linked-services.md) in altre aree o in un ambiente locale. È anche possibile monitorare e gestire i flussi di lavoro usando SDK e Monitoraggio di Azure.
 
 Data Factory è stato certificato per:
 

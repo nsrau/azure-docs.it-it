@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/06/2020
+ms.date: 11/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38992c15c23216aa81cda566a333d8e45f90b17e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004688"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511321"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attivare i ruoli di Azure AD in PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse in Azure AD e in altri Servizi online Microsoft come Microsoft 365 o Microsoft Intune.  
 
-Se è stato reso idoneo per un ruolo amministrativo, è necessario attivare l'assegnazione di ruolo quando è necessario eseguire azioni con privilegi. Ad esempio, se talvolta si gestiscono le funzionalità di Microsoft 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non rendano un amministratore globale permanente, perché questo ruolo influisca anche su altri servizi. L'utente è invece considerato idoneo per ruoli di Azure AD, ad esempio amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
+Se è stato reso *idoneo* per un ruolo amministrativo, è necessario *attivare* l'assegnazione di ruolo quando è necessario eseguire azioni con privilegi. Ad esempio, se talvolta si gestiscono le funzionalità di Microsoft 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non rendano un amministratore globale permanente, perché questo ruolo influisca anche su altri servizi. Al contrario, si renderebbe idonei per Azure AD ruoli come amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
 
 Questo articolo è per gli amministratori che devono attivare il proprio ruolo di Azure AD in Privileged Identity Management.
 
@@ -56,19 +56,19 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     ![Ruoli di Azure AD-elenco dei ruoli idonei](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Selezionare **Activate (attiva** ) per aprire la pagina Activate (attiva).
+1. Selezionare **Activate (attiva** ) per aprire il riquadro Activate (attiva).
 
     ![Ruoli di Azure AD: la pagina di attivazione contiene la durata e l'ambito](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Se il ruolo richiede l'autenticazione a più fattori, fare clic su **Verificare la propria identità prima di procedere**. È sufficiente eseguire l'autenticazione una volta per sessione.
-
-    ![Verificare l'identità con l'autenticazione a più fattori prima dell'attivazione del ruolo](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
-
-1. Selezionare **verifica l'identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
+1. Selezionare **verifica aggiuntiva richiesta**"* * e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza. È necessario eseguire l'autenticazione solo una volta per sessione.
 
     ![Schermata per fornire la verifica della sicurezza, ad esempio un codice PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. Se si desidera specificare un ambito ridotto, selezionare **ambito** per aprire il riquadro filtro. Nel riquadro filtro è possibile specificare le risorse Azure AD a cui è necessario accedere. È consigliabile richiedere l'accesso solo alle risorse necessarie.
+1. Dopo la funzionalità di autenticazione a più fattori, selezionare **Activate (attiva) prima di procedere**.
+
+    ![Verificare la mia identità con l'autenticazione a più fattori prima dell'attivazione del ruolo](./media/pim-how-to-activate-role/activate-role-mfa-banner.png)
+
+1. Se si desidera specificare un ambito ridotto, selezionare **ambito** per aprire il riquadro filtro. Nel riquadro filtro è possibile specificare le risorse Azure AD a cui è necessario accedere. È consigliabile richiedere l'accesso al minor numero di risorse necessarie.
 
 1. Se necessario, specificare un'ora di inizio di attivazione personalizzata. Il ruolo Azure AD viene attivato dopo l'ora selezionata.
 
@@ -126,9 +126,9 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
 1. Aprire **Azure ad Privileged Identity Management**. Per informazioni su come aggiungere il riquadro Privileged Identity Management al dashboard, vedere iniziare a [usare Privileged Identity Management](pim-getting-started.md).
 
-1. Fare clic su **Ruoli di Azure AD**.
+1. Selezionare **Azure ad ruoli**.
 
-1. Fare clic su **ruoli personali** per visualizzare un elenco dei ruoli Azure ad idonei.
+1. Selezionare **ruoli personali** per visualizzare un elenco dei ruoli di Azure ad idonei.
 
     ![Ruoli di Azure AD-ruoli personali che mostrano l'elenco dei ruoli idonei o attivi](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
@@ -136,17 +136,17 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     ![Ruoli di Azure AD-elenco dei ruoli idonei che mostra il collegamento di attivazione](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
-1. Fare clic su **Attiva** per aprire il riquadro dei dettagli di attivazione del ruolo.
+1. Selezionare **Activate (attiva** ) per aprire il riquadro dei dettagli di attivazione del ruolo.
 
-1. Se il ruolo richiede l'autenticazione a più fattori (MFA), fare clic su **Verificare la propria identità prima di procedere**. È sufficiente eseguire l'autenticazione una volta per sessione.
+1. Se il ruolo richiede l'autenticazione a più fattori, selezionare **verificare la propria identità prima di procedere**. È sufficiente eseguire l'autenticazione una volta per sessione.
 
     ![Verificare il riquadro identità con l'autenticazione a più fattori prima dell'attivazione del ruolo](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
-1. Fare clic su **Verifica la mia identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
+1. Selezionare **verifica l'identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
 
     ![Pagina di verifica aggiuntiva di sicurezza che chiede come contattare l'utente](./media/pim-how-to-activate-role/additional-security-verification.png)
 
-1. Fare clic su **Attiva** per aprire il riquadro di attivazione.
+1. Selezionare **Activate (attiva** ) per aprire il riquadro attivazione.
 
     ![Riquadro attivazione per specificare l'ora di inizio, la durata, il ticket e il motivo](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
@@ -158,13 +158,13 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     ![Riquadro attivazione completato con un'ora di inizio, una durata, un ticket e un motivo personalizzati](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
-1. Fare clic su **Attiva**.
+1. Selezionare **Attiva**.
 
     Se il ruolo non richiede l'approvazione, viene visualizzato un riquadro **stato attivazione** che visualizza lo stato dell'attivazione.
 
     ![Pagina relativa allo stato di attivazione che mostra le tre fasi di attivazione](./media/pim-how-to-activate-role/activation-status.png)
 
-    Una volta completate tutte le fasi, fare clic **sul collegamento di disconnessione per** disconnettersi dal portale di Azure. Quando si accede al portale, è ora possibile usare il ruolo.
+    Una volta completate tutte le fasi, selezionare **il collegamento per la** disconnessione per disconnettersi dal portale di Azure. Quando si accede al portale, è ora possibile usare il ruolo.
 
     Se il [ruolo richiede l'approvazione](./azure-ad-pim-approval-workflow.md) per l'attivazione, viene visualizzata una notifica di Azure nell'angolo superiore destro del browser che informa che la richiesta è in attesa di approvazione.
 
@@ -174,9 +174,9 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli di Azure AD**.
+1. Selezionare **Azure ad ruoli**.
 
-1. Fare clic su **Richieste personali** per visualizzare un elenco delle richieste.
+1. Selezionare **richieste personali** per visualizzare un elenco delle richieste.
 
     ![Ruoli di Azure AD-elenco richieste personali](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
@@ -188,13 +188,13 @@ Se si completano le attività dell'amministratore prima del raggiungimento del l
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli di Azure AD**.
+1. Selezionare **Azure ad ruoli**.
 
-1. Fare clic su **Ruoli personali**.
+1. Selezionare **ruoli personali**.
 
-1. Fare clic su **Ruoli attivi** per visualizzare l'elenco di ruoli attivi.
+1. Selezionare **ruoli attivi** per visualizzare l'elenco dei ruoli attivi.
 
-1. Individuare il ruolo da non usare ulteriormente e quindi fare clic su **Disattiva**.
+1. Individuare il ruolo che si sta utilizzando e quindi selezionare **Disattiva**.
 
 ## <a name="cancel-a-pending-request-previous-version"></a>Annulla una richiesta in sospeso (versione precedente)
 
@@ -202,13 +202,13 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli di Azure AD**.
+1. Selezionare **Azure ad ruoli**.
 
-1. Fare clic su **Richieste personali**.
+1. Selezionare **richieste personali**.
 
-1. Per il ruolo che si vuole annullare, scegliere il pulsante **Annulla**.
+1. Per il ruolo che si desidera annullare, selezionare il pulsante **Annulla** .
 
-    Quando si fa clic su Annulla, la richiesta verrà annullata. Per attivare nuovamente il ruolo, è necessario inviare una nuova richiesta per l'attivazione.
+    Quando si seleziona **Annulla**, la richiesta verrà annullata. Per attivare nuovamente il ruolo, è necessario inviare una nuova richiesta per l'attivazione.
 
    ![Elenco richieste personali con il pulsante Annulla evidenziato](./media/pim-how-to-activate-role/directory-role-cancel.png)
 

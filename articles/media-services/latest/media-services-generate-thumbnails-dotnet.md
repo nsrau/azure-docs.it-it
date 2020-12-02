@@ -11,21 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4ad7ba75edd1899cbe2d7cd7d3b1b6c124ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887ac4197321b4015eff7cc839abd8f57ae67760
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267650"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512019"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Come generare anteprime usando il codificatore standard con .NET
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format).
+È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input nei formati di file di immagine [JPEG](https://en.wikipedia.org/wiki/JPEG) o [png](https://en.wikipedia.org/wiki/Portable_Network_Graphics) .
 
 ## <a name="recommended-reading-and-practice"></a>Letture e procedure consigliate
 
