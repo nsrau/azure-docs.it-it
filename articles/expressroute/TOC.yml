@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è ExpressRoute?
       href: expressroute-introduction.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare un circuito ExpressRoute - Portale
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -162,6 +162,8 @@
           href: expressroute-howto-coexist-resource-manager.md
         - name: Creare un gateway di rete virtuale con ridondanza della zona nelle zone di disponibilità di Azure
           href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Pianificare e gestire i costi
+      href: plan-manage-cost.md
     - name: Passaggio dal modello classico a Resource Manager
       items:
         - name: Spostare un circuito dal modello classico a Resource Manager

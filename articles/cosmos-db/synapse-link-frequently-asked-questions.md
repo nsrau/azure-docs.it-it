@@ -5,13 +5,13 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/30/2020
+ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341291"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488715"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ Collegamento ad Azure Synapse per Azure Cosmos DB crea una stretta integrazione 
 
 ### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Il collegamento a sinapsi di Azure è supportato per tutte le API Azure Cosmos DB?
 
-Nella versione di anteprima pubblica, il collegamento sinapsi di Azure è supportato per l'API Azure Cosmos DB SQL (Core) e per l'API Azure Cosmos DB per MongoDB. 
+Il collegamento sinapsi di Azure è supportato per l'API Azure Cosmos DB SQL (Core) e per l'API Azure Cosmos DB per MongoDB. 
 
 ### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Il collegamento a sinapsi di Azure è supportato per gli account Azure Cosmos DB di più aree?
 
@@ -32,7 +32,7 @@ Quando si pianifica la configurazione di un account Azure Cosmos DB per più are
 
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>È possibile scegliere di abilitare il collegamento sinapsi di Azure solo per determinate aree geografiche e non tutte le aree in una configurazione di account in più aree?
 
-Nella versione di anteprima, quando il collegamento sinapsi di Azure è abilitato per un account in più aree, l'archivio analitico viene creato in tutte le aree. I dati sottostanti sono ottimizzati per la velocità effettiva e per la coerenza transazionale nell'archivio transazionale.
+Quando il collegamento sinapsi di Azure è abilitato per un account in più aree, l'archivio analitico viene creato in tutte le aree. I dati sottostanti sono ottimizzati per la velocità effettiva e per la coerenza transazionale nell'archivio transazionale.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Il backup e il ripristino sono supportati per gli account abilitati per il collegamento sinapsi di Azure?
 
@@ -42,9 +42,13 @@ Quando il collegamento sinapsi è abilitato in un account di database, Azure Cos
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>È possibile disabilitare la funzionalità di collegamento di Azure sinapsi per l'account Azure Cosmos DB?
 
-Attualmente, dopo aver abilitato la funzionalità Collegamento a Synapse a livello di account, non è possibile disabilitarla. Tenere presente che, se si abilita la funzionalità Collegamento a Synapse a livello di account ma non sono disponibili contenitori abilitati per l'archivio analitico, non si verificano implicazioni in termini di fatturazione. 
+Attualmente, dopo aver abilitato la funzionalità Collegamento a Synapse a livello di account, non è possibile disabilitarla. Tenere presente che, se si abilita la funzionalità Collegamento a Synapse a livello di account ma non sono disponibili contenitori abilitati per l'archivio analitico, non si verificano implicazioni in termini di fatturazione.
 
 Se è necessario disattivare la funzionalità, sono disponibili due opzioni. La prima consiste nell'eliminare e ricreare un nuovo account di Azure Cosmos DB, eseguendo la migrazione dei dati, se necessario. La seconda opzione consiste nell'aprire un ticket di supporto per ottenere supporto sulla migrazione dei dati a un altro account.
+
+### <a name="does-analytical-store-have-any-impact-on-cosmos-db-transactional-slas"></a>L'archivio analitico ha un effetto sui contratti di Cosmos DB transazionali?
+
+No, non vi è alcun effetto.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Archivio analitico di Azure Cosmos DB
 
@@ -73,7 +77,7 @@ Sì, le eliminazioni e gli aggiornamenti dei dati nell'archivio transazionale si
 È possibile accedere ed eseguire query sull'archivio analitico solo con i vari runtime forniti da Azure Synapse Analytics. È possibile eseguire analisi e query sull'archivio analitico usando:
 
 * Synapse Spark con supporto completo per Scala, Python, SparkSQL e C#. Synapse Spark è fondamentale per gli scenari di ingegneria dei dati e data science
-* SQL serverless con linguaggio T-SQL e supporto per strumenti di BI familiari, ad esempio Power BI Premium e così via.
+* Pool SQL senza server con linguaggio T-SQL e supporto per gli strumenti di business intelligence noti, ad esempio Power BI Premium e così via.
 
 ### <a name="can-i-connect-to-analytical-store-from-synapse-sql-provisioned"></a>È possibile connettersi all'archivio analitico da Synapse SQL con provisioning?
 
@@ -121,7 +125,12 @@ Tutti gli aggiornamenti e le eliminazioni transazionali vengono copiati nell'arc
 
 ### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Qual è il modello di fatturazione del collegamento sinapsi di Azure per Azure Cosmos DB?
 
-L'[archivio analitico di Azure Cosmos DB](analytical-store-introduction.md) è disponibile in anteprima pubblica senza alcun addebito fino al 30 agosto 2020. Synapse Spark e Synapse SQL prevedono la fatturazione [a consumo del servizio Synapse](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+Il modello di fatturazione di Collegamento ad Azure Synapse include i costi sostenuti con l'uso dell'archivio analitico di Azure Cosmos DB e del runtime di Synapse. Per altre informazioni, vedere gli articoli [Prezzi dell'archivio analitico di Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) e [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+
+### <a name="what-is-the-billing-impact-if-i-enable-synapse-link-in-my-azure-cosmos-db-database-account"></a>Qual è l'effetto di fatturazione se si Abilita il collegamento sinapsi nell'account del database Azure Cosmos DB?
+
+No. Il costo verrà addebitato solo quando si crea un contenitore di archivio analitico abilitato e si inizia a caricare i dati.
+
 
 ## <a name="security"></a>Sicurezza
 
@@ -136,10 +145,10 @@ L'autenticazione con l'archivio analitico è identica a quella di un archivio tr
 |Runtime di sinapsi di Azure |Supporto corrente |
 |---------|---------|
 |Pool Spark di Azure sinapsi | Lettura, scrittura (tramite archivio transazionale), tabella, visualizzazione temporanea |
-|Pool SQL senza server per la sinapsi di Azure    | Lettura, visualizzazione |
+|Pool SQL senza server della sinapsi di Azure    | Lettura, visualizzazione |
 |Provisioning di SQL sinapsi di Azure   |  Non disponibile |
 
-### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Le tabelle Spark di Azure sinapsi sono sincronizzate con le mie tabelle SQL senza server di Azure sinapsi nello stesso modo in cui funzionano con Azure Data Lake?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-serverless-sql-pool-tables-the-same-way-they-do-with-azure-data-lake"></a>Le tabelle di Spark di Azure sinapsi sono sincronizzate con le tabelle del pool SQL senza server della sinapsi di Azure in modo analogo a quanto avviene con Azure Data Lake?
 
 Questa funzionalità non è attualmente disponibile.
 

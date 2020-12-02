@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322924"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488566"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informazioni sull'utilizzo della macchina virtuale di Azure
 Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere informazioni dettagliate sul consumo che assicurano una migliore gestione e allocazione dei costi in tutta l'organizzazione. Questo documento offre un approfondimento sui dettagli relativi al consumo di Calcolo di Azure. Per altre informazioni sull'utilizzo generale di Azure, vedere [Comprendere la fattura](../cost-management-billing/understand/review-individual-bill.md).
@@ -37,7 +37,7 @@ Per iniziare, [scaricare i dettagli di utilizzo](../cost-management-billing/mana
 | Servizio utilizzato | Il servizio della piattaforma Azure che è stato utilizzato.| `Microsoft.Compute`|
 | Gruppo di risorse | Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md).|`MyRG`|
 | ID istanza | Identificatore della risorsa. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. Per le macchine virtuali, l'ID istanza includerà i campi SubscriptionId, ResourceGroupName e VMName (o il nome del set di scalabilità per l'utilizzo del set di scalabilità).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>oppure<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| Tag| Tag assegnato alla risorsa. Usare i tag per raggruppare i record di fatturazione. Informazioni su come contrassegnare le macchine virtuali usando l' [interfaccia](./linux/tag.md) della riga di comando o [PowerShell](./windows/tag.md) disponibile solo per gestione risorse macchine virtuali.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Tag| Tag assegnato alla risorsa. Usare i tag per raggruppare i record di fatturazione. Informazioni su come contrassegnare le macchine virtuali usando l' [interfaccia](./tag-cli.md) della riga di comando o [PowerShell](./tag-portal.md) disponibile solo per gestione risorse macchine virtuali.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Informazioni aggiuntive | Metadati specifici del servizio. Per le macchine virtuali, è necessario specificare i dati seguenti nel campo Informazioni aggiuntive: <br><br> Image Type: l'immagine specifica che è stata eseguita. L'elenco completo delle stringhe supportate è disponibile di seguito in Tipo di immagine.<br><br> Service Type: la dimensione che è stata distribuita.<br><br> VMName: il nome della macchina virtuale. Questo campo viene popolato solo per le macchine virtuali dei set di scalabilità. Il nome della macchina virtuale per le macchine virtuali dei set di scalabilità è disponibile nella stringa ID istanza precedente.<br><br> UsageType: specifica il tipo di utilizzo che rappresenta.<br><br> ComputeHR è l'utilizzo delle ore di calcolo per la macchina virtuale sottostante, ad esempio Standard_D1_v2.<br><br> ComputeHR_SW è l'addebito per il software Premium se la macchina virtuale usa un software Premium, come Microsoft R Server. | Macchine virtuali<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Set di scalabilità di macchine virtuali<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Tipo di immagine

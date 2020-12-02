@@ -5,24 +5,24 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399432"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490109"
 ---
 # <a name="what-are-security-partner-providers"></a>Che cosa sono i provider del partner di sicurezza?
 
-I *provider di partner di sicurezza* in Azure Firewall Manager consentono di usare le proprie offerte di sicurezza come servizio (secar) di terze parti per proteggere l'accesso a Internet per gli utenti.
+I *provider di partner di sicurezza* in gestione firewall di Azure consentono di usare le proprie offerte di sicurezza come servizio (secar) di terze parti per proteggere l'accesso a Internet per gli utenti.
 
 Con una configurazione rapida, è possibile proteggere un hub con un partner di sicurezza supportato e indirizzare e filtrare il traffico Internet dalle reti virtuali (reti virtuali) o dalle sedi delle succursali all'interno di un'area. Questa operazione può essere eseguita con la gestione automatica delle route senza configurare e gestire route definite dall'utente (UDR).
 
 Puoi distribuire Hub protetti configurati con il partner di sicurezza che preferisci in più aree di Azure per ottenere connettività e sicurezza per gli utenti in qualsiasi punto del mondo in tali aree. Grazie alla possibilità di usare l'offerta del partner di sicurezza per il traffico delle applicazioni Internet/SaaS e il firewall di Azure per il traffico privato negli hub protetti, ora puoi iniziare a creare il tuo perimetro di sicurezza in Azure, che è vicino a utenti e applicazioni distribuiti a livello globale.
 
-I partner di sicurezza supportati sono **ZScaler**, **Check Point** (Preview) e **iboss** (Preview).
+I partner di sicurezza supportati sono **zScaler**, **[Check Point](check-point-overview.md)** e **iboss**.
 
 ![Provider del partner di sicurezza](media/trusted-security-partners/trusted-security-partners.png)
 

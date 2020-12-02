@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489820"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -229,12 +229,12 @@ La protezione dell'accesso con privilegi è il primo fondamentale passo per prot
 
 Gli account con privilegi sono gli account che amministrano e gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione. Per proteggere l'accesso con privilegi, è necessario isolare gli account e i sistemi dal rischio di esposizione a utenti malintenzionati.
 
-Si consiglia di sviluppare e seguire una roadmap per proteggere l'accesso con privilegi dagli utenti malintenzionati. Per informazioni sulla creazione di una roadmap dettagliata per proteggere le identità e l'accesso gestiti o segnalati in Azure AD, Microsoft Azure, Microsoft 365 e altri servizi cloud, vedere la pagina relativa alla [protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure ad](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+Si consiglia di sviluppare e seguire una roadmap per proteggere l'accesso con privilegi dagli utenti malintenzionati. Per informazioni sulla creazione di una roadmap dettagliata per proteggere le identità e l'accesso gestiti o segnalati in Azure AD, Microsoft Azure, Microsoft 365 e altri servizi cloud, vedere la pagina relativa alla [protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure ad](../../active-directory/roles/security-planning.md).
 
-Di seguito sono riassunte le procedure consigliate disponibili in [Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md):
+Di seguito sono riassunte le procedure consigliate disponibili in [Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD](../../active-directory/roles/security-planning.md):
 
 **Procedura consigliata**: gestire, controllare e monitorare l'accesso ad account con privilegi.   
-**Dettagli**: attivare [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md). Dopo l'attivazione di Privileged Identity Management, si riceveranno messaggi di posta elettronica di notifica in caso di modifiche ai ruoli di accesso con privilegi. Queste notifiche forniscono un avviso tempestivo in caso di aggiunta di ulteriori utenti a ruoli con privilegi elevati nella directory.
+**Dettagli**: attivare [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md). Dopo l'attivazione di Privileged Identity Management, si riceveranno messaggi di posta elettronica di notifica in caso di modifiche ai ruoli di accesso con privilegi. Queste notifiche forniscono un avviso tempestivo in caso di aggiunta di ulteriori utenti a ruoli con privilegi elevati nella directory.
 
 **Procedura consigliata**: assicurarsi che tutti gli account amministratore critici siano account di Azure AD gestiti.
 **Dettagli**: rimuovere gli account consumer dai ruoli di amministratore critici, ad esempio account Microsoft come hotmail.com, live.com e outlook.com.
@@ -261,10 +261,10 @@ Di seguito sono riassunte le procedure consigliate disponibili in [Protezione de
 **Procedura consigliata**: definire almeno due account di accesso di emergenza.   
 **Dettagli**: gli account di accesso di emergenza consentono alle organizzazioni di limitare l'accesso con privilegi in un ambiente Azure Active Directory esistente. Si tratta di account con privilegi elevati non assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati a scenari in cui non è possibile usare i normali account amministrativi. Le organizzazioni devono limitare l'utilizzo degli account di emergenza per la sola quantità di tempo necessaria.
 
-Valutare gli account assegnati o idonei per il ruolo di amministratore globale. Se non sono presenti account solo cloud con il dominio `*.onmicrosoft.com` (destinati all'accesso di emergenza), crearli. Per altre informazioni, vedere [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md).
+Valutare gli account assegnati o idonei per il ruolo di amministratore globale. Se non sono presenti account solo cloud con il dominio `*.onmicrosoft.com` (destinati all'accesso di emergenza), crearli. Per altre informazioni, vedere [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../../active-directory/roles/security-emergency-access.md).
 
 **Procedura consigliata**: definire un processo di scenario critico in caso di emergenza.
-**Dettagli**: seguire la procedura illustrata in [Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+**Dettagli**: seguire la procedura illustrata in [Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD](../../active-directory/roles/security-planning.md).
 
 **Procedura consigliata**: richiedere che tutti gli account amministratore critici siano senza password (scelta consigliata) o richiedere l'autenticazione MFA.
 **Dettagli**: Usare l'[app Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) per accedere a qualsiasi account di Azure AD senza usare una password. Analogamente a [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare credenziali utente associate a un dispositivo e usa l'autenticazione biometrica o un PIN.
@@ -284,25 +284,25 @@ Richiedere Azure AD Multi-Factor Authentication all'accesso per tutti i singoli 
 **Dettagli**: usare Microsoft 365 simulatore di attacco o un'offerta di terze parti per eseguire scenari di attacco realistici nell'organizzazione. In questo modo è possibile trovare utenti vulnerabili prima che si verifichi un attacco reale.
 
 **Procedura consigliata**: intervenire per mitigare l'effetto delle tecniche di attacco usate più di frequente.  
-**Dettagli**: [identificare gli account Microsoft in ruoli amministrativi per cui è necessario passare ad account aziendali o dell'istituto di istruzione](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts).  
+**Dettagli**: [identificare gli account Microsoft in ruoli amministrativi per cui è necessario passare ad account aziendali o dell'istituto di istruzione](../../active-directory/roles/security-planning.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts).  
 
-[Separare gli account utente e l'inoltro della posta elettronica per gli account amministratore globale](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[Separare gli account utente e l'inoltro della posta elettronica per gli account amministratore globale](../../active-directory/roles/security-planning.md)  
 
-[Verificare che le password degli account amministrativi siano state modificate di recente](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Verificare che le password degli account amministrativi siano state modificate di recente](../../active-directory/roles/security-planning.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[Attivare la sincronizzazione dell'hash delle password](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[Attivare la sincronizzazione dell'hash delle password](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[Richiedere l'autenticazione a più fattori per gli utenti con tutti i ruoli con privilegi e gli utenti esposti](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Richiedere l'autenticazione a più fattori per gli utenti con tutti i ruoli con privilegi e gli utenti esposti](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Ottenere il Punteggio sicuro Microsoft 365 (se si usa Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Ottenere il Punteggio sicuro Microsoft 365 (se si usa Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Esaminare le linee guida per la sicurezza Microsoft 365 (se si usa Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Esaminare le linee guida per la sicurezza Microsoft 365 (se si usa Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Configurare il monitoraggio dell'attività Microsoft 365 (se si usa Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Configurare il monitoraggio dell'attività Microsoft 365 (se si usa Microsoft 365)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
-[Stabilire i proprietari del piano di risposta a eventi imprevisti ed emergenze](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
+[Stabilire i proprietari del piano di risposta a eventi imprevisti ed emergenze](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
-[Proteggere gli account amministrativi con privilegi locali](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[Proteggere gli account amministrativi con privilegi locali](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)
 
 Se non si protegge l'accesso con privilegi, si noterà che troppi utenti hanno ruoli con privilegi elevati che sono più vulnerabili agli attacchi. Attori dannosi, come gli utenti malintenzionati, prendono spesso di mira gli account amministratore e altri elementi di accesso con privilegi per accedere ai dati sensibili e ai sistemi usando attacchi con furto di credenziali.
 

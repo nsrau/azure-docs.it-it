@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0f236292fff0d0e806e6eec32e1e058cbf67545c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 2fb6aa7d7c655a1ba4b44dabc33e32ce04ae458f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144478"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489276"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh
 
@@ -33,33 +33,33 @@ Aprire l'app a cui si vuole aggiungere il supporto dell'orchestrazione dei conte
 
 Se si vuole provare un esempio, è possibile usare il codice di esempio [eShop](https://github.com/MikkelHegn/ContainersSFLab). Il resto dell'articolo presuppone che si usi quel progetto, ma è possibile applicare queste procedure anche a un progetto personalizzato.
 
-Creare una copia del progetto **eShop** :
+Creare una copia del progetto **eShop**:
 
 ```git
 git clone https://github.com/MikkelHegn/ContainersSFLab.git
 ```
 
-Dopo averlo scaricato, in Visual Studio 2017 aprire **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln** .
+Dopo averlo scaricato, in Visual Studio 2017 aprire **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln**.
 
 ## <a name="add-container-support"></a>Aggiungere il supporto dei contenitori
  
 Aggiungere il supporto dell'orchestrazione dei contenitori a un progetto ASP.NET o Console esistente usando Service Fabric Mesh con la procedura seguente:
 
-In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto (nell'esempio **eShopLegacyWebForms** ) e quindi scegliere **Aggiungi** > **Supporto per l'agente di orchestrazione del contenitore** .
-Viene visualizzata la finestra di dialogo **Aggiungi supporto per l'agente di orchestrazione del contenitore** .
+In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto (nell'esempio **eShopLegacyWebForms**) e quindi scegliere **Aggiungi** > **Supporto per l'agente di orchestrazione del contenitore**.
+Viene visualizzata la finestra di dialogo **Aggiungi supporto per l'agente di orchestrazione del contenitore**.
 
 ![Finestra di dialogo Aggiungi supporto per l'agente di orchestrazione del contenitore di Visual Studio](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
-Selezionare **Service Fabric Mesh** dall'elenco a discesa e fare clic su **OK** .
+Selezionare **Service Fabric Mesh** dall'elenco a discesa e fare clic su **OK**.
 
 
 >[!NOTE]
-> A partire dal 2 novembre 2020, i [limiti di velocità di download si applicano](https://docs.docker.com/docker-hub/download-rate-limit/) alle richieste anonime e autenticate all'hub Docker dagli account dei piani gratuiti Docker e vengono applicati dall'indirizzo IP. Per altri dettagli, vedere [eseguire l'autenticazione con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> A partire dal 2 novembre 2020, i [limiti della frequenza di download si applicano](https://docs.docker.com/docker-hub/download-rate-limit/) a richieste anonime e autenticate inviate a Docker Hub da account con il piano Docker Free vengono imposti in base all'indirizzo IP. Per altre informazioni, vedere [Eseguire l'autenticazione con Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 >
 > Per evitare la limitazione della frequenza, assicurarsi che l'impostazione predefinita `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` nella Dockerfile sia sostituita da `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 
 Lo strumento verifica quindi che Docker sia installato, aggiunge un Dockerfile al progetto e scarica un'immagine Docker per il progetto.  
-Alla soluzione viene aggiunto un progetto di applicazione Service Fabric Mesh. Contiene i profili di pubblicazione e i file di configurazione di Service Fabric Mesh. Il nome corrisponde al nome del progetto con "Application" concatenato alla fine, ad esempio **eShopLegacyWebFormsApplication** . 
+Alla soluzione viene aggiunto un progetto di applicazione Service Fabric Mesh. Contiene i profili di pubblicazione e i file di configurazione di Service Fabric Mesh. Il nome corrisponde al nome del progetto con "Application" concatenato alla fine, ad esempio **eShopLegacyWebFormsApplication**. 
 
 Nel nuovo progetto Mesh sono presenti due cartelle che è opportuno conoscere:
 - **App Resources** (Risorse dell'app), che contiene file YAML che descrivono risorse Mesh aggiuntive, come la rete.

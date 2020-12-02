@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331659"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489889"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -64,7 +64,7 @@ Customer Lockbox è attualmente abilitato per l'accesso da desktop remoto alle m
 - Set di scalabilità di macchine virtuali - Windows e Linux
 
 > [!NOTE]
-> Le istanze classiche di IaaS non sono supportate da Customer Lockbox. Se si dispone di carichi di lavoro in esecuzione in istanze IaaS classiche, è consigliabile eseguire la migrazione da modelli di distribuzione classica a Gestione risorse. Per istruzioni, vedere [Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> Le istanze classiche di IaaS non sono supportate da Customer Lockbox. Se si dispone di carichi di lavoro in esecuzione in istanze IaaS classiche, è consigliabile eseguire la migrazione da modelli di distribuzione classica a Gestione risorse. Per istruzioni, vedere [Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Log di controllo dettagliati
 

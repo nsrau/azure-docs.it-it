@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489965"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490041"
 ---
 # <a name="what-is-a-test-drive"></a>Che cos'è un test drive?
 
@@ -24,7 +24,7 @@ I clienti traggono vantaggio anche da un test drive. Consentendo loro di provare
 
 Le unità di test sono istanze gestite che avviano la soluzione o l'applicazione su richiesta per i clienti che lo richiedono. Una volta assegnata un'istanza di test drive, è disponibile per l'utilizzo da parte del cliente per un periodo di tempo stabilito. Una volta terminato il periodo, viene eliminato per creare spazio per un altro cliente.
 
-Come server di pubblicazione, è possibile gestire e configurare le impostazioni di test drive nel centro per i partner. I dettagli relativi alla configurazione tecnica variano a seconda del tipo di offerta. Per istruzioni dettagliate, vedere la pagina relativa alla [configurazione tecnica di test drive](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Come server di pubblicazione, è possibile gestire e configurare le impostazioni di test drive nel centro per i partner. I dettagli relativi alla configurazione tecnica variano a seconda del tipo di offerta. Per istruzioni dettagliate, vedere la pagina relativa alla [configurazione tecnica di test drive](./test-drive-technical-configuration.md).
 
 I clienti potenziali possono individuare i test drive come CTA nell'offerta in [AppSource](https://appsource.microsoft.com/en-US/). Forniscono le informazioni di contatto e accettano le condizioni dell'offerta e l'informativa sulla privacy, quindi ottengono l'accesso all'ambiente preconfigurato per provarlo per un periodo di tempo fisso. I clienti ricevono una versione di valutazione pratica e autonoma delle funzionalità e dei vantaggi principali del prodotto e si riceve un vantaggio prezioso.
 
@@ -43,7 +43,7 @@ Nel Marketplace commerciale sono disponibili diverse unità di test per le offer
 - App per la logica (solo in modalità di supporto)
 - Power BI
 
-Per informazioni dettagliate sulla configurazione di una di queste unità di test, vedere [configurazione tecnica di test drive](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+Per informazioni dettagliate sulla configurazione di una di queste unità di test, vedere [configurazione tecnica di test drive](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -65,7 +65,7 @@ Una test drive ospitata Elimina la complessità dell'installazione consentendo a
 
 ### <a name="logic-app-test-drive"></a>test drive app per la logica
 
-Questo tipo di test drive non è ospitato da Microsoft e usa i modelli di Azure Resource Manager (ARM) per i tipi di offerta Dynamics AX/CRM. Sarà necessario eseguire il modello ARM per creare le risorse necessarie nella sottoscrizione di Azure. L'unità di test per l'app per la logica è attualmente in modalità di supporto e non è consigliata da Microsoft per informazioni dettagliate sulla configurazione di un'unità di test per la logica. vedere [configurazione tecnica di test drive](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Questo tipo di test drive non è ospitato da Microsoft e usa i modelli di Azure Resource Manager (ARM) per i tipi di offerta Dynamics AX/CRM. Sarà necessario eseguire il modello ARM per creare le risorse necessarie nella sottoscrizione di Azure. L'unità di test per l'app per la logica è attualmente in modalità di supporto e non è consigliata da Microsoft per informazioni dettagliate sulla configurazione di un'unità di test per la logica. vedere [configurazione tecnica di test drive](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Test drive di Power BI
 

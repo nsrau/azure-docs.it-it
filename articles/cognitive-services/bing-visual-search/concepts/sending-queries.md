@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369495"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490976"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Invio di query di ricerca all'API Ricerca visiva Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Questo articolo descrive i parametri e gli attributi delle richieste inviate all'API Ricerca visiva Bing, nonché l'oggetto risposta. 
 
@@ -78,7 +78,7 @@ Le richieste devono essere inviate solo come richieste HTTP POST.
 
 Di seguito vengono indicati i parametri di query da specificare nella richiesta. Come minimo, è necessario includere il `mkt` parametro di query:
 
-| Nome | Valore | Type | Necessario |
+| Nome | Valore | Tipo | Necessario |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | Codice paese a due caratteri che rappresenta la provenienza dei risultati.<br /><br /> Se si imposta questo parametro, è necessario specificare anche l'intestazione [Accept-Language](#acceptlanguage). Bing usa la prima lingua supportata individuata nell'elenco delle lingue e combina la lingua con il codice paese specificato per determinare il mercato da cui restituire i risultati. Se nell'elenco non è presenta alcuna lingua supportata, Bing rileva la lingua e il mercato più vicini che supportano la richiesta. In alternativa, Bing può usare un mercato aggregato o predefinito per i risultati anziché quello specificato.<br /><br /> È necessario usare questo parametro di query e il parametro di query `Accept-Language` solo se si specificano più lingue. In caso contrario, è necessario usare i parametri di query `mkt` e `setLang`.<br /><br /> Tale parametro e il parametro di query [mkt](#mkt) si escludono a vicenda&mdash;non specificarli entrambi. | string | No       |
 | <a name="mkt"></a>mkt   | Mercato dal quale provengono i risultati. <br /><br /> **Nota:** È necessario specificare sempre il mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi. | string | Sì      |
@@ -109,7 +109,7 @@ Di seguito vengono indicate le intestazioni che la richiesta deve specificare. L
 
 ### <a name="content-form-types"></a>Tipi di formato per il contenuto
 
-Ogni richiesta deve includere l' `Content-Type` intestazione. L'intestazione deve essere impostata su: `multipart/form-data; boundary=\<boundary string\>` , dove \<boundary string\> è una stringa opaca univoca che identifica il limite dei dati del form. Ad esempio, `boundary=boundary_1234-abcd`
+Ogni richiesta deve includere l' `Content-Type` intestazione. L'intestazione deve essere impostata su: `multipart/form-data; boundary=\<boundary string\>` , dove \<boundary string\> è una stringa opaca univoca che identifica il limite dei dati del form. Ad esempio: `boundary=boundary_1234-abcd`.
 
 Se si invia Ricerca visiva un token di immagine o un URL, il frammento di codice seguente mostra i dati del modulo che è necessario includere nel corpo del POST. I dati del modulo devono includere l' `Content-Disposition` intestazione ed è necessario impostare il relativo `name` parametro su "knowledgeRequest". Per informazioni dettagliate sull' `imageInfo` oggetto, vedere la richiesta.
 

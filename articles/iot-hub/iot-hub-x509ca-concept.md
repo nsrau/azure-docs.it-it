@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308113"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490721"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Comprensione concettuale dei certificati x.509 nel settore IoT
 
@@ -40,6 +40,8 @@ Un attributo distintivo dell'autenticazione dell'autorità di certificazione X.5
 Un altro attributo importante dell'autenticazione dell'autorità di certificazione X.509 è una semplificazione della logistica della catena di alimentazione. L'autenticazione sicura dei dispositivi richiede che ogni dispositivo usi un segreto univoco come ad esempio chiave come base per essere considerato attendibile. Nell'autenticazione basata sui certificati il segreto è una chiave privata. Un tipico flusso di produzione del dispositivo prevede più passaggi e responsabili. La gestione sicura delle chiavi private del dispositivo in più responsabili e il mantenimento dell'attendibilità è un'operazione complessa e costosa. Usando le autorità di certificazione si risolve questo problema, poiché ogni responsabile firma in una catena di crittografia considerata attendibile invece che dimostrarsi attendibile con delle chiavi private del dispositivo. Ogni responsabile a turno firma i dispositivi nella rispettiva fase del processo del flusso di produzione. Il risultato complessivo è una catena di alimentazione ottimale con una responsabilità incorporata tramite l'uso della catena di crittografia di attendibilità. Vale la pena notare che questo processo produce maggiore protezione quando i dispositivi proteggono le chiavi private univoche. A tal fine, l'utente è invitato a usare i moduli di protezione hardware (HSM) in grado di generare internamente le chiavi private che non vedranno mai la luce del giorno.
 
 In questo articolo si offre una vista end-to-end dell'uso dell'autenticazione dell'autorità di certificazione X.509, dalla configurazione della catena di alimentazione alla connessione del dispositivo, mentre si usa un esempio reale per consolidare la comprensione.
+
+È anche possibile usare i gruppi di registrazione con il servizio Device provisioning in hub Azure (DPS) per gestire il provisioning dei dispositivi negli hub. Per altre informazioni sull'uso di DPS per il provisioning dei dispositivi certificati X. 509, vedere [esercitazione: effettuare il provisioning di più dispositivi x. 509 usando i gruppi di registrazione](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -75,7 +77,7 @@ Il processo di creazione di un certificato della CA Self-Signed X. 509 è simile
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrare il certificato X.509 all'hub IoT
 
-La Società-X deve registrare l'autorità di certificazione X.509 sull'hub IoT in cui verrà usata per autenticare gli Smart-X-Widgets al momento della connessione. Si tratta di un processo unico che offre la possibilità di autenticare e gestire un numero qualsiasi di dispositivi Smart-X-Widget. Questo processo è unico a causa di una relazione uno/molti tra l'autorità di certificazione e i dispositivi e costituisce anche uno dei principali vantaggi dell'uso del metodo di autenticazione dell'autorità di certificazione X.509. L'alternativa consiste nel caricare le identificazioni personali del certificato singolo per ogni dispositivo Smart-X-Widget aggiungendo così dei costi operativi.
+La Società-X deve registrare l'autorità di certificazione X.509 sull'hub IoT in cui verrà usata per autenticare gli Smart-X-Widgets al momento della connessione. Si tratta di un processo unico che offre la possibilità di autenticare e gestire un numero qualsiasi di dispositivi Smart-X-Widget. Si tratta di un processo monouso a causa di una relazione uno-a-molti tra certificati della CA e certificati del dispositivo firmati dal certificato della CA o da un certificato intermedio. Questa relazione rappresenta uno dei principali vantaggi dell'utilizzo del metodo di autenticazione della CA X. 509. L'alternativa consiste nel caricare le identificazioni personali del certificato singolo per ogni dispositivo Smart-X-Widget aggiungendo così dei costi operativi.
 
 La registrazione del certificato della CA X.509 è un processo in due fasi, il caricamento del certificato e la proof-of-possession del certificato.
 

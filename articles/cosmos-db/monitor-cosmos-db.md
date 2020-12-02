@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350399"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488783"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorare Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ Le metriche e i log che è possibile raccogliere sono descritti nelle sezioni se
 
 Azure Cosmos DB offre un'esperienza personalizzata per lavorare con le metriche. È possibile analizzare le metriche per Azure Cosmos DB con le metriche di altri servizi di Azure usando Esplora metriche aprendo **Metriche** dal menu **Monitoraggio di Azure**. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../azure-monitor/platform/metrics-getting-started.md). È anche possibile eseguire il checkout come monitorare la [latenza lato server](monitor-server-side-latency.md), l' [utilizzo delle unità richiesta](monitor-request-unit-usage.md)e l' [utilizzo normalizzato delle unità richiesta](monitor-normalized-request-units.md) per le risorse Azure Cosmos DB.
 
-Per un elenco delle metriche della piattaforma raccolte per Azure Cosmos DB, vedere l'articolo [monitoraggio Azure Cosmos DB metriche di riferimento ai dati] monitoraggio-Cosmos-DB-Reference. MD # metrica).
+Per un elenco delle metriche della piattaforma raccolte per Azure Cosmos DB, vedere l'articolo [monitoraggio delle metriche di riferimento ai dati Azure Cosmos DB](monitor-cosmos-db-reference.md#metrics) .
 
 Tutte le metriche per Azure Cosmos DB si trovano nello spazio dei nomi **Metriche standard di Cosmos DB**. Quando si aggiunge un filtro a un grafico, è possibile usare le dimensioni seguenti con queste metriche:
 

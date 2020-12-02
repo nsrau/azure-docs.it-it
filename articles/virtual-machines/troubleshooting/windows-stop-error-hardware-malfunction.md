@@ -1,5 +1,5 @@
 ---
-title: Errore di arresto di Windows-guasto hardware
+title: Errore di arresto di Windows - Malfunzionamento hardware
 description: Questo articolo illustra la procedura per risolvere i problemi relativi all'arresto anomalo di macchine virtuali Windows Server 2008 con un messaggio di errore che indica che si è verificato un malfunzionamento dell'hardware.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: eb4e0a246d6a33c3fad5f44b99a37997e4462f05
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663866"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488647"
 ---
-# <a name="windows-stop-error---hardware-malfunction"></a>Errore di arresto di Windows-guasto hardware
+# <a name="windows-stop-error---hardware-malfunction"></a>Errore di arresto di Windows - Malfunzionamento hardware
 
 Questo articolo illustra la procedura per risolvere i problemi relativi all'arresto anomalo di macchine virtuali Windows Server 2008 con un messaggio di errore che indica che si è verificato un malfunzionamento dell'hardware.
 
@@ -63,7 +63,7 @@ Questa schermata viene visualizzata quando il sistema operativo guest non è sta
     ```
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
-    [Visualizzare altre informazioni sul comando REG ADD](https://docs.microsoft.com/windows-server/administration/windows-commands/reg-add)
+    [Visualizzare altre informazioni sul comando REG ADD](/windows-server/administration/windows-commands/reg-add)
 4. *(Facoltativo)* Configurare la raccolta di dump della memoria:
 
     ```
@@ -77,13 +77,13 @@ Questa schermata viene visualizzata quando il sistema operativo guest non è sta
     BCDEDIT /ems {current} on, or bcdedit /ems '{current}' on if you are using PowerShell
     BCDEDIT /emssettings EMSPORT:1 EMSBAUDRATE:115200 
     ```
-    [Visualizzare altre informazioni sul comando BCDEDIT](https://docs.microsoft.com/windows-server/administration/windows-commands/bcdedit)
+    [Visualizzare altre informazioni sul comando BCDEDIT](/windows-server/administration/windows-commands/bcdedit)
 6. Riavviare la macchina virtuale con il comando seguente:
 
     ```
     SHUTDOWN /r /t 0 /f 
     ```
-    [Visualizzare altre informazioni sul comando SHUTDOWN](https://docs.microsoft.com/windows-server/administration/windows-commands/shutdown)
+    [Visualizzare altre informazioni sul comando SHUTDOWN](/windows-server/administration/windows-commands/shutdown)
 
 > [!IMPORTANT]
 > Il problema è ora corretto.
