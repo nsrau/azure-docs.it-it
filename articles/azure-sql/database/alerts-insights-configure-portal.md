@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 512f6044e46fba49ea1c63a89d11135751e7ce43
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675140"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455975"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creare avvisi per il database SQL di Azure e l'analisi delle sinapsi di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675140"
 
 ## <a name="overview"></a>Panoramica
 
-Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure e in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata.
+Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure e in Azure sinapsi Analytics usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata.
 
 > [!NOTE]
 > Per istruzioni specifiche di Azure SQL Istanza gestita, vedere [creare avvisi per istanza gestita SQL di Azure](../managed-instance/alerts-create.md).
@@ -57,13 +57,13 @@ Questo articolo illustra come configurare gli avvisi per i database nel database
 3. Selezionare il pulsante **nuova regola di avviso** per aprire la pagina **Crea regola** .
   ![Crea regola](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. Nella sezione **condizione** fare clic su **Aggiungi** .
+4. Nella sezione **condizione** fare clic su **Aggiungi**.
   ![Definire la condizione](./media/alerts-insights-configure-portal/create-rule.png)
 5. Nella pagina **Configura logica** per i segnali selezionare un segnale.
   ![Seleziona segnale](./media/alerts-insights-configure-portal/select-signal.png)
-6. Dopo aver selezionato un segnale, ad esempio **percentuale CPU** , viene visualizzata la pagina **Configura logica segnale** .
+6. Dopo aver selezionato un segnale, ad esempio **percentuale CPU**, viene visualizzata la pagina **Configura logica segnale** .
   ![Configurare la logica dei segnali](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Fare quindi clic su **Done** .
+7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Fare quindi clic su **Done**.
 8. Nella **regola crea** selezionare un **gruppo di azioni** esistente o crearne uno nuovo. Un gruppo di azione consente di definire l'azione da intraprendere quando si verifica una condizione di avviso.
   ![Definire il gruppo di azioni](./media/alerts-insights-configure-portal/action-group.png)
 

@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f90299daed46d06dad9ab37103e3b8f53763ed4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841241"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454384"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurare Multi-Factor Authentication per SQL Server Management Studio e Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Questo articolo illustra come usare Azure Active Directory (Azure AD) multi-factor authentication con SQL Server Management Studio (SSMS). Azure AD autenticazione a più fattori può essere usata per la connessione di SSMS o SqlPackage.exe a [database SQL di Azure](sql-database-paas-overview.md), [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica dell'autenticazione a più fattori, vedere [autenticazione universale con database SQL, sql istanza gestita e sinapsi di Azure (supporto di SSMS per](../database/authentication-mfa-ssms-overview.md)l'autenticazione a più fattori).
+Questo articolo illustra come usare Azure Active Directory (Azure AD) multi-factor authentication con SQL Server Management Studio (SSMS). Azure AD autenticazione a più fattori può essere usata per la connessione di SSMS o SqlPackage.exe a [database SQL di Azure](sql-database-paas-overview.md), [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica dell'autenticazione a più fattori, vedere [autenticazione universale con database SQL, sql istanza gestita e sinapsi di Azure (supporto di SSMS per](../database/authentication-mfa-ssms-overview.md)l'autenticazione a più fattori).
 
 > [!IMPORTANT]
-> I database nel database SQL di Azure, Azure SQL Istanza gestita e la sinapsi di Azure (in precedenza SQL Data Warehouse) sono definiti collettivamente nel resto di questo articolo come database e il server fa riferimento al [Server](logical-servers.md) che ospita i database per il database SQL di Azure e la sinapsi di Azure.
+> I database nel database SQL di Azure, Azure SQL Istanza gestita e la sinapsi di Azure vengono definiti collettivamente nel resto di questo articolo come database e il server fa riferimento al [Server](logical-servers.md) che ospita i database per il database SQL di Azure e la sinapsi di Azure.
 
 ## <a name="configuration-steps"></a>Passaggi di configurazione
 

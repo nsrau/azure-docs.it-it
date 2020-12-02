@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127842"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455445"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API di invio del Centro per i partner per eseguire l'onboarding di app di Azure nel Centro per i partner
 
-Usare l' *API di invio del Centro per i partner* per eseguire query a livello programmatico, creare invii per offerte di Azure e pubblicarle.  Questa API è utile se l'account gestisce molte offerte e si vuole automatizzare e ottimizzare il processo di invio per queste offerte.
+Usare l'*API di invio del Centro per i partner* per eseguire query a livello programmatico, creare invii per offerte di Azure e pubblicarle.  Questa API è utile se l'account gestisce molte offerte e si vuole automatizzare e ottimizzare il processo di invio per queste offerte.
 
 ## <a name="api-prerequisites"></a>Prerequisiti delle API
 
@@ -41,9 +41,9 @@ Per usare l'API di invio Microsoft Store, è necessario associare un'applicazion
 >È sufficiente eseguire questa attività una sola volta. Quando si dispone di ID tenant, ID client e chiave, è possibile riutilizzarli ogni volta che è necessario creare un nuovo token di accesso Azure AD.
 
 1. Nel Centro per i partner, [associare l'account del Centro per i partner dell'organizzazione alla directory di Azure AD dell'organizzazione](/windows/uwp/publish/associate-azure-ad-with-partner-center).
-1. Quindi, dalla pagina **Utenti** nella sezione **Impostazioni account** del Centro per i partner, [aggiungere l'applicazione Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) che rappresenta l'app o il servizio che verrà usato per accedere agli invii per l'account del Centro per i partner. Assicurarsi di assegnare a questa applicazione il ruolo di **Manager** . Se l'applicazione non esiste ancora nella directory di Azure AD, è possibile [creare una nuova applicazione Azure AD nel Centro per i partner](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
-1. Tornare alla pagina **Utenti** , fare clic sul nome dell'applicazione Azure AD per passare alle impostazioni e copiare i valori di **ID tenant** e **ID client** .
-1. Fare clic su **Aggiungi nuova chiave** . Nella schermata seguente, copiare il valore della **chiave** . Non sarà più possibile accedere a queste informazioni dopo aver lasciato la pagina. Per altre informazioni, vedere [Gestire le chiavi per un'applicazione Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Quindi, dalla pagina **Utenti** nella sezione **Impostazioni account** del Centro per i partner, [aggiungere l'applicazione Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) che rappresenta l'app o il servizio che verrà usato per accedere agli invii per l'account del Centro per i partner. Assicurarsi di assegnare a questa applicazione il ruolo di **Manager**. Se l'applicazione non esiste ancora nella directory di Azure AD, è possibile [creare una nuova applicazione Azure AD nel Centro per i partner](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. Tornare alla pagina **Utenti**, fare clic sul nome dell'applicazione Azure AD per passare alle impostazioni e copiare i valori di **ID tenant** e **ID client**.
+1. Fare clic su **Aggiungi nuova chiave**. Nella schermata seguente, copiare il valore della **chiave**. Non sarà più possibile accedere a queste informazioni dopo aver lasciato la pagina. Per altre informazioni, vedere [Gestire le chiavi per un'applicazione Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Passaggio 2: Ottenere un token di accesso di Azure AD
 
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Per il valore *tenant_id* in `POST URI` e i parametri *client_id* e *client_secret* , specificare l'ID tenant, l'ID client e la chiave per l'applicazione recuperata dal Centro per i partner nella sezione precedente. Per il parametro *resource* è necessario specificare `https://api.partner.microsoft.com`.
+Per il valore *tenant_id* in `POST URI` e i parametri *client_id* e *client_secret*, specificare l'ID tenant, l'ID client e la chiave per l'applicazione recuperata dal Centro per i partner nella sezione precedente. Per il parametro *resource* è necessario specificare `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Passaggio 3: Usare un'API di invio Microsoft Store
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [Creare un asset tecnico per macchine virtuali di Azure](create-azure-container-technical-assets.md)
-* Informazioni su come creare un'[offerta di contenitore di Azure](create-azure-container-offer.md)
+* Informazioni su come [Creare un asset tecnico per macchine virtuali di Azure](../create-azure-container-technical-assets.md)
+* Informazioni su come creare un'[offerta di contenitore di Azure](../create-azure-container-offer.md)

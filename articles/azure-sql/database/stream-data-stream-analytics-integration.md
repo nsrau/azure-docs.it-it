@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: b796d6689db143cf59ae4ca0a180c2c7c317b7bd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36a96a1927aeedb5f841083241d487e0c61d6813
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789438"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454016"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Trasmettere i dati nel database SQL di Azure tramite l'integrazione di analisi di flusso di Azure (anteprima)
 
@@ -31,7 +31,7 @@ Ora gli utenti possono inserire, elaborare, visualizzare e analizzare i dati in 
 - Maggiore facilità di utilizzo con i dati di anteprima: visualizzare l'anteprima dei dati in arrivo dall'origine eventi (hub eventi/hub degli eventi) nel contesto della tabella selezionata
 
 > [!IMPORTANT]
-> Un processo di analisi di flusso di Azure può restituire il database SQL di Azure, Azure SQL Istanza gestita o Azure sinapsi Analytics (in precedenza SQL Data Warehouse). Per ulteriori informazioni, vedere [output](../../stream-analytics/stream-analytics-define-outputs.md).
+> Un processo di analisi di flusso di Azure può restituire il database SQL di Azure, Azure SQL Istanza gestita o Azure sinapsi Analytics. Per ulteriori informazioni, vedere [output](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,21 +44,21 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
 ## <a name="configure-stream-analytics-integration"></a>Configurare l'integrazione di analisi di flusso
 
 1. Accedere al portale di Azure.
-2. Passare al database in cui si desidera inserire i dati di streaming. Selezionare **analisi di flusso (anteprima)** .
+2. Passare al database in cui si desidera inserire i dati di streaming. Selezionare **analisi di flusso (anteprima)**.
 
     ![Analisi di flusso](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Per iniziare a inserire i dati in streaming in questo database, selezionare **Crea** e assegnare un nome al processo di streaming, quindi selezionare **Avanti: input** .
+3. Per iniziare a inserire i dati in streaming in questo database, selezionare **Crea** e assegnare un nome al processo di streaming, quindi selezionare **Avanti: input**.
 
     ![configurare i concetti di base del processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create-job.png)
 
-4. Immettere i dettagli dell'origine eventi e quindi selezionare **Avanti: output** .
+4. Immettere i dettagli dell'origine eventi e quindi selezionare **Avanti: output**.
 
-   - **Tipo di input** : Hub eventi/hub tutto
-   - **Alias di input** : immettere un nome per identificare l'origine eventi
-   - **Sottoscrizione** : uguale alla sottoscrizione del database SQL di Azure
-   - **Spazio dei nomi dell'hub eventi** : nome dello spazio dei nomi
-   - **Nome dell'hub eventi** : nome dell'hub eventi nello spazio dei nomi selezionato
+   - **Tipo di input**: Hub eventi/hub tutto
+   - **Alias di input**: immettere un nome per identificare l'origine eventi
+   - **Sottoscrizione**: uguale alla sottoscrizione del database SQL di Azure
+   - **Spazio dei nomi dell'hub eventi**: nome dello spazio dei nomi
+   - **Nome dell'hub eventi**: nome dell'hub eventi nello spazio dei nomi selezionato
    - **Nome criterio Hub eventi** (impostazione predefinita: Crea nuovo): assegnare un nome ai criteri
    - **Gruppo di consumer dell'hub eventi** (predefinito per crearne uno nuovo): assegnare un nome al gruppo di consumer  
 
@@ -66,10 +66,10 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
 
      ![configurare l'output del processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
-5. Consente di selezionare la tabella in cui si desidera inserire i dati in streaming. Al termine, selezionare **Crea** .
+5. Consente di selezionare la tabella in cui si desidera inserire i dati in streaming. Al termine, selezionare **Crea**.
 
-   - **Nome utente** , **password** : immettere le credenziali per l'autenticazione di SQL Server. Selezionare **Convalida** .
-   - **Tabella** : selezionare **Crea nuovo** o **Usa esistente** . In questo flusso selezionare **Crea** . Quando si avvia il processo di analisi di flusso, verrà creata una nuova tabella.
+   - **Nome utente**, **password**: immettere le credenziali per l'autenticazione di SQL Server. Selezionare **Convalida**.
+   - **Tabella**: selezionare **Crea nuovo** o **Usa esistente**. In questo flusso selezionare **Crea**. Quando si avvia il processo di analisi di flusso, verrà creata una nuova tabella.
 
      ![Crea processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create.png)
 
@@ -78,7 +78,7 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
    - **Input** (origine eventi di input) dal quale si inseriranno i dati  
    - **Output** (tabella di output) in cui vengono archiviati i dati trasformati
    - Esempio di [query SAQL](../../stream-analytics/stream-analytics-stream-analytics-query-patterns.md) con l'istruzione SELECT.
-   - **Input Preview** : Mostra lo snapshot dei dati in arrivo più recenti dall'origine degli eventi di input.
+   - **Input Preview**: Mostra lo snapshot dei dati in arrivo più recenti dall'origine degli eventi di input.
      - Il tipo di serializzazione nei dati viene rilevato automaticamente (JSON/CSV). È possibile modificarla manualmente anche in JSON/CSV/AVRO.
      - È possibile visualizzare in anteprima i dati in ingresso nel formato tabella o in formato non elaborato.
      - Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti.
@@ -87,38 +87,38 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
 
      ![query di test](./media/stream-data-stream-analytics-integration/test-query.png)
 
-   - **Risultati del test** : selezionare **query di test** ed è possibile visualizzare i risultati della query di streaming
+   - **Risultati del test**: selezionare **query di test** ed è possibile visualizzare i risultati della query di streaming
 
      ![risultati test](./media/stream-data-stream-analytics-integration/test-results.png)
 
-   - **Schema risultati test** : Mostra lo schema dei risultati della query di streaming dopo il test. Verificare che lo schema dei risultati del test corrisponda allo schema di output.
+   - **Schema risultati test**: Mostra lo schema dei risultati della query di streaming dopo il test. Verificare che lo schema dei risultati del test corrisponda allo schema di output.
 
      ![schema dei risultati del test](./media/stream-data-stream-analytics-integration/test-results-schema.png)
 
-   - **Schema di output** : contiene lo schema della tabella selezionata nel passaggio 5 (nuovo o esistente).
+   - **Schema di output**: contiene lo schema della tabella selezionata nel passaggio 5 (nuovo o esistente).
 
       - Crea nuovo: se è stata selezionata questa opzione nel passaggio 5, lo schema non sarà ancora visibile fino a quando non si avvia il processo di streaming. Quando si crea una nuova tabella, selezionare l'indice della tabella appropriato. Per ulteriori informazioni sull'indicizzazione di tabelle, vedere [Descrizione di indici cluster e non cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/).
       - Usa esistente: se è stata selezionata questa opzione nel passaggio 5, verrà visualizzato lo schema della tabella selezionata.
 
-7. Al termine della creazione & test della query, selezionare **Salva query** . Selezionare **Avvia processo di analisi di flusso** per iniziare a inserire i dati trasformati nella tabella SQL. Dopo aver completato i campi seguenti, **avviare** il processo.
-   - **Ora di inizio dell'output** : definisce l'ora del primo output del processo.  
+7. Al termine della creazione & test della query, selezionare **Salva query**. Selezionare **Avvia processo di analisi di flusso** per iniziare a inserire i dati trasformati nella tabella SQL. Dopo aver completato i campi seguenti, **avviare** il processo.
+   - **Ora di inizio dell'output**: definisce l'ora del primo output del processo.  
      - Ora: il processo verrà avviato ora ed elaborerà i nuovi dati in arrivo.
      - Personalizzata: il processo verrà avviato adesso, ma elaborerà i dati da un momento specifico, che può essere in passato o in futuro. Per altre informazioni, vedere [come avviare un processo di analisi di flusso di Azure](../../stream-analytics/start-job.md).
-   - **Unità di streaming** : i prezzi di analisi di flusso di Azure vengono calcolati in base al numero di unità di streaming necessarie per elaborare i dati nel servizio. Per altre informazioni, vedere [prezzi di analisi di flusso di Azure](https://azure.microsoft.com/pricing/details/stream-analytics/).
-   - **Gestione degli errori dei dati di output** :  
+   - **Unità di streaming**: i prezzi di analisi di flusso di Azure vengono calcolati in base al numero di unità di streaming necessarie per elaborare i dati nel servizio. Per altre informazioni, vedere [prezzi di analisi di flusso di Azure](https://azure.microsoft.com/pricing/details/stream-analytics/).
+   - **Gestione degli errori dei dati di output**:  
      - Nuovo tentativo: quando si verifica un errore, analisi di flusso di Azure tenta di scrivere l'evento all'infinito fino a quando la scrittura ha esito positivo. Nessun timeout per i tentativi. Alla fine, l'elaborazione di tutti gli eventi successivi viene bloccata dall'evento in fase di esecuzione. Questa opzione è il criterio di gestione degli errori di output predefinito.
      - Drop: analisi di flusso di Azure eliminerà qualsiasi evento di output che genera un errore di conversione dei dati. Non è possibile recuperare gli eventi eliminati per la rielaborazione in un secondo momento. Tutti gli errori temporanei (ad esempio, gli errori di rete) vengono ritentati indipendentemente dalla configurazione dei criteri di gestione degli errori di output.
-   - **Impostazioni di output del database SQL** : opzione per l'ereditarietà dello schema di partizionamento del passaggio precedente della query, per consentire la topologia completamente parallela con più writer alla tabella. Per altre informazioni, consultare [Output di Analisi di flusso di Azure in Database SQL di Azure](../../stream-analytics/stream-analytics-sql-output-perf.md).
-   - Numero **massimo batch** : il limite superiore consigliato per il numero di record inviati con ogni transazione di inserimento bulk.  
+   - **Impostazioni di output del database SQL**: opzione per l'ereditarietà dello schema di partizionamento del passaggio precedente della query, per consentire la topologia completamente parallela con più writer alla tabella. Per altre informazioni, consultare [Output di Analisi di flusso di Azure in Database SQL di Azure](../../stream-analytics/stream-analytics-sql-output-perf.md).
+   - Numero **massimo batch**: il limite superiore consigliato per il numero di record inviati con ogni transazione di inserimento bulk.  
     Per altre informazioni sulla gestione degli errori di output, vedere [output Error Policies in Azure Stream Analytics](../../stream-analytics/stream-analytics-output-error-policy.md).  
 
      ![Avvia processo](./media/stream-data-stream-analytics-integration/start-job.png)
 
 8. Una volta avviato il processo, il processo in esecuzione verrà visualizzato nell'elenco ed è possibile eseguire le azioni seguenti:
-   - **Avviare/arrestare il processo** : se il processo è in esecuzione, è possibile arrestare il processo. Se il processo viene arrestato, è possibile avviare il processo.
-   - **Modifica processo** : è possibile modificare la query. Se si vuole eseguire altre modifiche al processo, aggiungere altri input/output, quindi aprire il processo in analisi di flusso. L'opzione di modifica è disabilitata quando il processo è in esecuzione.
-   - **Anteprima tabella di output** : è possibile visualizzare l'anteprima della tabella nell'editor di query SQL.
-   - **Apri in analisi di flusso** : aprire il processo in analisi di flusso per visualizzare il monitoraggio e i dettagli di debug del processo.
+   - **Avviare/arrestare il processo**: se il processo è in esecuzione, è possibile arrestare il processo. Se il processo viene arrestato, è possibile avviare il processo.
+   - **Modifica processo**: è possibile modificare la query. Se si vuole eseguire altre modifiche al processo, aggiungere altri input/output, quindi aprire il processo in analisi di flusso. L'opzione di modifica è disabilitata quando il processo è in esecuzione.
+   - **Anteprima tabella di output**: è possibile visualizzare l'anteprima della tabella nell'editor di query SQL.
+   - **Apri in analisi di flusso**: aprire il processo in analisi di flusso per visualizzare il monitoraggio e i dettagli di debug del processo.
 
      ![processi di analisi di flusso](./media/stream-data-stream-analytics-integration/jobs.png)
 

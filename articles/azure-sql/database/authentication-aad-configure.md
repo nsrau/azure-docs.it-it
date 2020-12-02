@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990109"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454504"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione di Azure AD con Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Questo articolo illustra come creare e popolare un'istanza di Azure Active Directory (Azure AD) e quindi usare Azure AD con il [database SQL di Azure](sql-database-paas-overview.md), [istanza gestita di Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)e [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica, vedere [autenticazione Azure Active Directory](authentication-aad-overview.md).
+Questo articolo illustra come creare e popolare un'istanza di Azure Active Directory (Azure AD) e quindi usare Azure AD con il [database SQL](sql-database-paas-overview.md)di azure, [istanza gestita di Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)e [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica, vedere [autenticazione Azure Active Directory](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Metodi di autenticazione di Azure AD
 

@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973258"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455087"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
 Creare una nuova macchina virtuale collegando un disco gestito specializzato come disco del sistema operativo. Un disco specializzato è una copia di un disco rigido virtuale proveniente da una macchina virtuale esistente che contiene gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
-
-Quando si usa un disco rigido virtuale specializzato per creare una nuova VM, la nuova VM mantiene il nome computer della VM originale. Vengono mantenute anche altre informazioni specifiche del computer e, in alcuni casi, queste informazioni duplicate possono causare problemi. Quando si copia una macchina virtuale, tenere presente quali tipi di informazioni specifiche del computer vengono usate dalle applicazioni.
 
 Sono disponibili diverse opzioni:
 * [Usare un disco gestito esistente](#option-1-use-an-existing-disk). Questa opzione è utile se la macchina virtuale disponibile non funziona correttamente. È possibile eliminare la macchina virtuale e quindi riutilizzare il disco gestito per creare una nuova macchina virtuale. 
@@ -28,6 +26,11 @@ Sono disponibili diverse opzioni:
 È anche possibile usare il portale di Azure per [creare una nuova macchina virtuale da un disco rigido virtuale specializzato](create-vm-specialized-portal.md).
 
 Questo articolo illustra come usare i dischi gestiti. Se è presente una distribuzione legacy che richiede l'uso di un account di archiviazione, vedere [Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> Quando si usa un disco specializzato per creare una nuova macchina virtuale, la nuova VM conserva il nome del computer della macchina virtuale originale. Vengono mantenute anche altre informazioni specifiche del computer (ad esempio, CMID) e, in alcuni casi, le informazioni duplicate potrebbero causare problemi. Quando si copia una macchina virtuale, tenere presente quali tipi di informazioni specifiche del computer vengono usate dalle applicazioni.  
+> Quindi, non usare un disco specializzato se si vuole creare più macchine virtuali. Per distribuzioni di maggiori dimensioni, [creare invece un'immagine](capture-image-resource.md) e quindi [usare tale immagine per creare più macchine virtuali](create-vm-generalized-managed.md).
 
 È consigliabile limitare il numero delle distribuzioni simultanee a 20 VM per ogni disco rigido virtuale o snapshot. 
 

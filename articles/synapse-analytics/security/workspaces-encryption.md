@@ -8,17 +8,17 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 17dbdbbef45e0068601835197a1177ee20d98ca3
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296803"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455186"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces-preview"></a>Crittografia per Azure sinapsi Analytics (aree di lavoro in anteprima)
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Crittografia per le aree di lavoro di Azure sinapsi Analytics
 
 In questo articolo verrà illustrato quanto segue:
-* Crittografia dei dati inattivi nelle aree di lavoro di Azure sinapsi Analytics.
+* Crittografia dei dati inattivi nelle aree di lavoro di sinapsi Analytics.
 * Configurazione delle aree di lavoro sinapsi per abilitare la crittografia con una chiave gestita dal cliente.
 * Gestione delle chiavi usate per crittografare i dati nelle aree di lavoro.
 

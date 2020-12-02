@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 5916a687c4eff4c6c8890b14a8c204cbabc145ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792192"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456000"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire i pool elastici nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ Con un pool elastico si determina la quantità di risorse di cui il pool elastic
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-Tutte le impostazioni del pool sono reperibili in una stessa area dell'interfaccia, ovvero il pannello **Configura pool** . Per accedere a questa pagina, trovare un pool elastico nella portale di Azure e fare clic su **Configura pool** nella parte superiore del pannello oppure dal menu delle risorse a sinistra.
+Tutte le impostazioni del pool sono reperibili in una stessa area dell'interfaccia, ovvero il pannello **Configura pool**. Per accedere a questa pagina, trovare un pool elastico nella portale di Azure e fare clic su **Configura pool** nella parte superiore del pannello oppure dal menu delle risorse a sinistra.
 
 Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle elencate di seguito e salvarle in un unico batch:
 
@@ -94,7 +94,7 @@ Per creare e spostare i database all'interno dei pool elastici esistenti o per r
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Consente di spostare un database all'interno, all'esterno o tra pool elastici.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
 |[sys.elastic_pool_resource_stats (Database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Restituisce le statistiche di utilizzo delle risorse per tutti i pool elastici in un server. Per ogni pool elastico è presente una riga per ogni finestra di report di 15 secondi (quattro righe al minuto). Sono inclusi CPU, IO, Log, uso dell'archiviazione e uso di richieste/sessioni simultanee da parte di tutti i database nel pool.|
-|[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per un database nel database SQL o in Azure sinapsi Analytics (in precedenza SQL Data Warehouse). Se si è connessi al database master in un server, in vengono restituite informazioni su tutti i database. Per Azure sinapsi Analytics, è necessario essere connessi al database master.|
+|[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per un database nel database SQL o in Azure sinapsi Analytics. Se si è connessi al database master in un server, in vengono restituite informazioni su tutti i database. Per Azure sinapsi Analytics, è necessario essere connessi al database master.|
 
 ## <a name="rest-api"></a>API REST
 

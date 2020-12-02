@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed6b77f77c9df0bb69edeb7451022605f1633aa3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890693"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454319"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell
 
@@ -103,7 +103,7 @@ Questa sottoscrizione verrà usata per distribuire le macchine virtuali.
     
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure, ad esempio account di archiviazione, disco, disco gestito.
+Creare un gruppo di risorse di Azure con [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure, ad esempio account di archiviazione, disco, disco gestito.
 
 > [!IMPORTANT]
 > Tutte le risorse vengono create nella stessa posizione del dispositivo e la posizione è impostata su **DBELocal**.
@@ -227,7 +227,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
 
 ```powershell
 Tags               :
@@ -267,7 +267,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -463,11 +463,11 @@ Eseguire il cmdlet seguente per attivare una macchina virtuale in esecuzione nel
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-Per ulteriori informazioni su questo cmdlet, vedere [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+Per ulteriori informazioni su questo cmdlet, vedere [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Sospendere o arrestare la VM
 
-Eseguire il cmdlet seguente per arrestare o arrestare una macchina virtuale in esecuzione nel dispositivo:
+Eseguire il cmdlet seguente per bloccare o arrestare una macchina virtuale in esecuzione sul dispositivo:
 
 
 ```powershell
@@ -475,7 +475,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
 
 ### <a name="add-a-data-disk"></a>Aggiungere un disco dati
 
@@ -495,7 +495,7 @@ Eseguire il cmdlet seguente per rimuovere una macchina virtuale dal dispositivo:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Remove-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
 
 ## <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
@@ -553,7 +553,7 @@ Nel client usato per accedere al dispositivo Azure Stack Edge Pro, impostare una
 
 ### <a name="on-windows-client"></a>Nel client Windows 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### <a name="on-linux-client"></a>Sul client Linux
 
@@ -567,4 +567,4 @@ Per verificare se la variabile di ambiente per AzCopy è stata impostata corrett
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Cmdlet di Azure Resource Manager](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

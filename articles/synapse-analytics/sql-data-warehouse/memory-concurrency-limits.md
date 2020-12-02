@@ -1,6 +1,6 @@
 ---
 title: Limiti di concorrenza e memoria
-description: Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure Synapse Analytics.
+description: Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse per il pool SQL dedicato in Azure sinapsi Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0ad93fb4a1269b4cca02b114c0427f0c44a31b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441681"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455354"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di concorrenza e memoria per Azure Synapse Analytics
+# <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limiti di memoria e concorrenza per il pool SQL dedicato in Azure sinapsi Analytics
 
 Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure Synapse Analytics.  
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283249"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455125"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
 
@@ -26,7 +26,10 @@ Esistono diversi modi per creare una macchina virtuale in Azure:
  
 - È possibile creare una macchina virtuale di Azure da un disco rigido virtuale locale caricandolo e collegandolo a una nuova macchina virtuale. Per caricare il disco rigido virtuale in un account di archiviazione, si usa PowerShell o un altro strumento e quindi si crea un disco gestito dal disco rigido virtuale. Per altre informazioni, vedere [Caricare un disco rigido virtuale specializzato](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Non usare un disco specializzato se si vogliono creare più macchine virtuali. Per distribuzioni di maggiori dimensioni, [creare invece un'immagine](capture-image-resource.md) e quindi [usare tale immagine per creare più macchine virtuali](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> Quando si usa un disco specializzato per creare una nuova macchina virtuale, la nuova VM conserva il nome del computer della macchina virtuale originale. Vengono mantenute anche altre informazioni specifiche del computer (ad esempio, CMID) e, in alcuni casi, le informazioni duplicate potrebbero causare problemi. Quando si copia una macchina virtuale, tenere presente quali tipi di informazioni specifiche del computer vengono usate dalle applicazioni.  
+> Quindi, non usare un disco specializzato se si vuole creare più macchine virtuali. Per distribuzioni di maggiori dimensioni, [creare invece un'immagine](capture-image-resource.md) e quindi [usare tale immagine per creare più macchine virtuali](create-vm-generalized-managed.md).
 
 È consigliabile limitare il numero di distribuzioni simultanee a 20 VM da un singolo snapshot o VHD. 
 

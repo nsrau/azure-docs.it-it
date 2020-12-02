@@ -1,6 +1,6 @@
 ---
-title: Analizzare il carico di lavoro
-description: Tecniche per l'analisi della priorità delle query per il carico di lavoro in Azure sinapsi Analytics.
+title: Analizzare il carico di lavoro per il pool SQL dedicato
+description: Tecniche per l'analisi della priorità delle query per il pool SQL dedicato in Azure sinapsi Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208400"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454534"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analizzare il carico di lavoro in Azure sinapsi Analytics
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Analizzare il carico di lavoro per il pool SQL dedicato in Azure sinapsi Analytics
 
-Tecniche per l'analisi del carico di lavoro SQL sinapsi in Azure sinapsi Analytics. 
+Tecniche per l'analisi del carico di lavoro del pool SQL dedicato in Azure sinapsi Analytics. 
 
 ## <a name="resource-classes"></a>Classi di risorse
 
-Sinapsi SQL fornisce le classi di risorse per assegnare le risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [classi di risorse & gestione del carico di lavoro](resource-classes-for-workload-management.md).  Le query attendono se la classe di risorse assegnata a una query richiede più risorse rispetto a quelle attualmente disponibili.
+Il pool SQL dedicato fornisce le classi di risorse per assegnare le risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [classi di risorse & gestione del carico di lavoro](resource-classes-for-workload-management.md).  Le query attendono se la classe di risorse assegnata a una query richiede più risorse rispetto a quelle attualmente disponibili.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Rilevamento di query in coda e altre viste a gestione dinamica
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Il tipo di attesa di sinapsi SQL è il seguente:
+Il pool SQL dedicato presenta i tipi di attesa seguenti:
 
 * **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
 * **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare la qualità degli indici columnstore cluster, vedere [ricompilazione degli indici per migliorare la qualità dei segmenti](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [proteggere un pool SQL dedicato (in precedenza SQL DW)](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare la qualità degli indici columnstore cluster, vedere [ricompilazione degli indici per migliorare la qualità dei segmenti](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

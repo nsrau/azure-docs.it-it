@@ -1,6 +1,6 @@
 ---
 title: Autenticazione di Azure Active Directory
-description: Informazioni su come usare Azure Active Directory per l'autenticazione con il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics
+description: Informazioni su come usare Azure Active Directory per l'autenticazione con database SQL di Azure, Azure SQL Istanza gestita e sinapsi SQL in Azure sinapsi Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675093"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454304"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usa autenticazione Azure Active Directory
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L'autenticazione Azure Active Directory (Azure AD) è un meccanismo per la connessione al [database SQL](sql-database-paas-overview.md)di Azure, ad [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md)e ad [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure ad.
+L'autenticazione Azure Active Directory (Azure AD) è un meccanismo per la connessione al [database SQL](sql-database-paas-overview.md)di Azure, al [istanza gestita SQL di Azure](../managed-instance/sql-managed-instance-paas-overview.md)e alla [sinapsi SQL in Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure ad.
 
 > [!NOTE]
 > Questo articolo si applica al database SQL di Azure, a SQL Istanza gestita e ad Azure sinapsi Analytics.
@@ -61,7 +61,7 @@ I passaggi di configurazione includono le procedure seguenti per configurare e u
 6. Connettersi al database usando le identità di Azure AD.
 
 > [!NOTE]
-> Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure, SQL Istanza gestita e la sinapsi di Azure, vedere [configurare Azure ad con il database SQL di Azure](authentication-aad-configure.md).
+> Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure, SQL Istanza gestita e sinapsi SQL in Azure sinapsi Analytics, vedere [configurare Azure ad con il database SQL di Azure](authentication-aad-configure.md).
 
 ## <a name="trust-architecture"></a>Architettura di attendibilità
 
@@ -108,7 +108,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, in SQL 
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Assegnare il ruolo `db_owner` direttamente all'utente di Azure AD per mitigare il problema **CREATE DATABASE SCOPED CREDENTIAL** .
+    Assegnare il ruolo `db_owner` direttamente all'utente di Azure AD per mitigare il problema **CREATE DATABASE SCOPED CREDENTIAL**.
 
 - Queste funzioni di sistema restituiscono valori NULL quando vengono eseguite nell'ambito di entità di sicurezza di Azure AD:
 

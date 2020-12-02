@@ -8,7 +8,7 @@
       href: introduction.md
     - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una data factory - Interfaccia utente
@@ -259,7 +259,7 @@
           href: connector-azure-sql-database.md
         - name: Istanza gestita di SQL di Azure
           href: connector-azure-sql-managed-instance.md
-        - name: Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+        - name: Azure Synapse Analytics
           href: connector-azure-sql-data-warehouse.md
         - name: Archiviazione tabelle di Azure
           href: connector-azure-table-storage.md

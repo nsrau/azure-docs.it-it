@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 17648b9bc973285764bb0bd6242506122a043780
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317487"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454255"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -656,6 +656,12 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fund
 
 - Il collegamento dell'area di lavoro al cluster non riuscirà se è collegato a un altro cluster.
 
+- L'archivio protetto non è attualmente disponibile in Cina. 
+
+- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dal 2020 ottobre nelle aree supportate. È possibile verificare se il cluster è configurato per la crittografia doppia mediante una richiesta GET nel cluster e osservando il `"isDoubleEncryptionEnabled"` valore della proprietà per i `true` cluster con crittografia doppia abilitata. 
+  - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster senza crittografia doppia. Aggiungere `"properties": {"isDoubleEncryptionEnabled": false}` la proprietà nel corpo della richiesta REST.
+  - Non è possibile modificare l'impostazione di crittografia doppia dopo la creazione del cluster.
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 - Comportamento con la disponibilità di Key Vault
@@ -682,10 +688,6 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fund
 - Alcune operazioni sono lunghe e possono richiedere del tempo per essere completate, ovvero creazione di cluster, aggiornamento della chiave del cluster e eliminazione del cluster. È possibile controllare lo stato dell'operazione in due modi:
   1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
   2. Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
-
-- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dal 2020 ottobre nelle aree supportate. È possibile verificare se il cluster è configurato per la crittografia doppia mediante una richiesta GET nel cluster e osservando il `"isDoubleEncryptionEnabled"` valore della proprietà per i `true` cluster con crittografia doppia abilitata. 
-  - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster senza crittografia doppia. Aggiungere `"properties": {"isDoubleEncryptionEnabled": false}` il corpo della richiesta REST.
-  - Non è possibile modificare l'impostazione di crittografia doppia dopo la creazione del cluster.
 
 - messaggi di errore
   

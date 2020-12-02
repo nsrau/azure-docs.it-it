@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: f0546a76974e429b625ba03fdf4598da7d32c990
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433365"
+ms.locfileid: "96455651"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -85,8 +85,8 @@ Per i tipi di offerta supportati nel centro per i partner, tutte le offerte sono
 | Dynamics 365 for Operations | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di Dynamics 365 per le operazioni](partner-center-portal/create-new-operations-offer.md). |
 | App Power BI | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'app Power BI per AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Modulo IoT Edge | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni [, vedere creare, configurare e pubblicare un'offerta di modulo IOT Edge in Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Contenitore | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di contenitore di Azure](partner-center-portal/create-azure-container-offer.md). |
-| Servizio di consulenza | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di servizi di consulenza](partner-center-portal/create-consulting-service-offer.md). |
+| Contenitore | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di contenitore di Azure](./create-azure-container-offer.md). |
+| Servizio di consulenza | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di servizi di consulenza](./create-consulting-service-offer.md). |
 | Servizio gestito | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di servizio gestito](partner-center-portal/create-new-managed-service-offer.md). |
 | Servizio gestito di Dynamics NAV | No | Microsoft ha sviluppato il servizio gestito di Dynamics NAV in [dynamics 365 business Central](/dynamics365/business-central/), quindi è stato annullato l'elenco delle offerte Live di Dynamics NAV gestito da AppSource. Queste offerte non sono più individuabili dai clienti e non sono state spostate nel centro per i partner. Per rendere disponibili le offerte in AppSource, adattarle alle offerte di Dynamics 365 business Central e inviarle al centro per i [partner](https://partner.microsoft.com/). Per altre informazioni, vedere [creare un'offerta di Dynamics 365 business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Cortana Intelligence | No | Microsoft ha sviluppato la mappa stradale del prodotto per Cortana Intelligence, quindi è stato annullato l'elenco Cortana Intelligence offerte Live di AppSource. Queste offerte non sono più individuabili dai clienti e non sono state spostate nel centro per i partner. Per rendere disponibili le offerte nel Marketplace commerciale, adattare le offerte alle offerte SaaS (software as a Service) e inviarle al centro per i [partner](https://partner.microsoft.com/). Per altre informazioni, vedere l'elenco di controllo per la [creazione di un'offerta SaaS nel centro](./plan-saas-offer.md) |

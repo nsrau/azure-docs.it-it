@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -1143,6 +1143,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Grafico
               href: platform/workbooks-graph-visualizations.md
+            - name: Mappa
+              href: platform/workbooks-map-visualizations.md
             - name: A nido d'ape
               href: platform/workbooks-honey-comb.md
             - name: Barra composita
