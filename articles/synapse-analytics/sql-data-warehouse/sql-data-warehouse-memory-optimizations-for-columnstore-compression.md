@@ -1,6 +1,6 @@
 ---
-title: Migliorare le prestazioni degli indici columnstore
-description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per ottimizzare il numero di righe all'interno di ogni rowgroup.
+title: Migliorare le prestazioni dell'indice columnstore per il pool SQL dedicato
+description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per ottimizzare il numero di righe all'interno di ogni rowgroup nel pool SQL dedicato.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797769"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453718"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Ottimizzazione della qualità di rowgroup per gli indici columnstore nel pool SQL dedicato 
 
 La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. Aumentando la memoria disponibile è possibile massimizzare il numero di righe che un indice columnstore comprime in ogni rowgroup.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
 
@@ -99,7 +99,7 @@ La memoria massima necessaria per comprimere un gruppo di righe è circa
 
 Le stringhe lunghe vengono compresse con un metodo di compressione progettato per la compressione del testo. Questo metodo di compressione usa un *dizionario* per archiviare i modelli di testo. La dimensione massima di un oggetto dictionary è 16 MB. Esiste un solo dizionario per ogni colonna stringa lunga nel gruppo di righe.
 
-Per una descrizione approfondita dei requisiti di memoria per columnstore, vedere il video relativo al [ridimensionamento del pool SQL di sinapsi: configurazione e indicazioni](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Per una descrizione approfondita dei requisiti di memoria columnstore, vedere il video dedicato relativo al [ridimensionamento del pool SQL: configurazione e linee guida](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Modi per ridurre i requisiti di memoria
 
@@ -122,7 +122,7 @@ Requisiti di memoria aggiuntivi per la compressione di stringhe:
 
 ### <a name="avoid-over-partitioning"></a>Evitare il partizionamento eccessivo
 
-Gli indici columnstore creano uno o più gruppi di righe per partizione. Per il pool SQL in Azure sinapsi Analytics, il numero di partizioni cresce rapidamente perché i dati vengono distribuiti e ogni distribuzione è partizionata.
+Gli indici columnstore creano uno o più gruppi di righe per partizione. Per il pool SQL dedicato in Azure sinapsi Analytics, il numero di partizioni cresce rapidamente perché i dati vengono distribuiti e ogni distribuzione è partizionata.
 
 Se la tabella ha troppe partizioni, potrebbero esserci abbastanza righe per riempire i gruppi di righe. La mancanza di righe non crea un numero eccessivo di richieste di memoria durante la compressione. Ma conduce a RowGroups che non raggiungono le migliori prestazioni di query columnstore.
 
@@ -165,4 +165,4 @@ Per aumentare la concessione di memoria per una query di caricamento, è possibi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori modi per migliorare le prestazioni del pool SQL, vedere [Panoramica delle prestazioni](cheat-sheet.md).
+Per ulteriori modi per migliorare le prestazioni per il pool SQL dedicato, vedere [Panoramica delle prestazioni](cheat-sheet.md).

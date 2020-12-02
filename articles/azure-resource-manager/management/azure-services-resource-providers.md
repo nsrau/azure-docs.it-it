@@ -2,19 +2,21 @@
 title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436828"
+ms.locfileid: "96452627"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
 Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provider di risorse ai servizi di Azure.
 
 ## <a name="match-resource-provider-to-service"></a>Associare il provider di risorse al servizio
+
+I provider di risorse contrassegnati con **-registered** sono registrati per impostazione predefinita per la sottoscrizione. Per ulteriori informazioni, vedere la pagina relativa alla [registrazione](#registration).
 
 | Spazio dei nomi del provider di risorse | Servizio di Azure |
 | --------------------------- | ------------- |

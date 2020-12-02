@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5631cbdd0b1eae343899be2147720d980e605dbb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010250"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452723"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Come distribuire Windows 10 in Azure con Multitenant Hosting Rights 
 Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Desktop Access per utente (licenze di sottoscrizione utente o licenze di sottoscrizione utente per i componenti aggiuntivi) Multitenant Hosting Rights per Windows 10 consente di trasferire le licenze di Windows 10 nel cloud ed eseguire macchine virtuali di Windows 10 in Azure senza sostenere i costi di un'altra licenza. Per altre informazioni vedere la pagina relativa all'[hosting multi-tenant per Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -24,7 +24,7 @@ Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Deskt
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuzione dell'immagine di Windows 10 da Azure Marketplace 
-Per le distribuzioni di modelli PowerShell, dell'interfaccia della riga di comando e di Azure Resource Manager, l'immagine di Windows 10 è disponibile con gli elementi publishername, offer e sku seguenti.
+Per le distribuzioni di PowerShell, dell'interfaccia della riga di comando e del modello di Azure Resource Manager, è possibile trovare l'immagine di Windows 10 con il seguente editorename, offerta, SKU.
 
 | OS  |      PublisherName      |  Offerta | Sku |
 |:----------|:-------------:|:------|:------|
@@ -33,6 +33,15 @@ Per le distribuzioni di modelli PowerShell, dell'interfaccia della riga di coman
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualifica per i diritti di hosting multi-tenant 
+Per qualificarsi per i diritti di hosting multi-tenant e per eseguire immagini Windows 10 negli utenti di Azure, è necessario disporre di una delle seguenti sottoscrizioni: 
+
+-   Microsoft 365 E3/E5/F3/a3/a5
+-   Windows 10 Enterprise E3/E5 
+-   Windows 10 Education a3/a5
+-   Windows VDA E3/E5
+
+
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Caricamento di un disco rigido virtuale di Windows 10 in Azure
 Se si carica un disco rigido virtuale generalizzato di Windows 10, tenere presente che per impostazione predefinita in Windows 10 non è abilitato un account predefinito Administrator. Per abilitare l'account predefinito Administrator, includere il comando seguente come parte dell'estensione Script personalizzato.
 
@@ -40,7 +49,7 @@ Se si carica un disco rigido virtuale generalizzato di Windows 10, tenere presen
 Net user <username> /active:yes
 ```
 
-Il frammento di codice di PowerShell seguente consiste nel contrassegnare tutti gli account Administrator come attivi, incluso l'account predefinito Administrator. Questo esempio è utile se il nome utente dell'account predefinito Administrator è sconosciuto.
+Il frammento di codice di PowerShell seguente consente di contrassegnare tutti gli account amministratore come attivi, incluso l'amministratore predefinito. Questo esempio è utile se il nome utente dell'account predefinito Administrator è sconosciuto.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)

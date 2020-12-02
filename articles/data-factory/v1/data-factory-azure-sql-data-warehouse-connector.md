@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da e verso Azure sinapsi Analytics (in precedenza SQL Data Warehouse)
-description: Informazioni su come copiare dati da e verso Azure sinapsi Analytics (in precedenza SQL Data Warehouse) con Azure Data Factory
+title: Copiare dati da e verso Azure sinapsi Analytics
+description: Informazioni su come copiare dati da e verso Azure sinapsi Analytics usando Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55582fb8c4fc80ab005a01ec015035963404e639
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452359"
 ---
-# <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Copiare dati da e verso Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando Azure Data Factory
+# <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copiare dati da e verso Azure sinapsi Analytics usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-sql-data-warehouse.md)
@@ -37,12 +37,12 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-È possibile copiare i dati dagli archivi dati seguenti **in Azure sinapsi Analytics** :
+È possibile copiare i dati dagli archivi dati seguenti **in Azure sinapsi Analytics**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> Quando si copiano dati da SQL Server o da un database SQL di Azure ad Azure sinapsi Analytics, se la tabella non esiste nell'archivio di destinazione, Data Factory possibile creare automaticamente la tabella in sinapsi Analytics usando lo schema della tabella nell'archivio dati di origine. Per informazioni dettagliate vedere [Creazione automatica della tabella](#auto-table-creation).
+> Quando si copiano dati da SQL Server o da un database SQL di Azure ad Azure sinapsi Analytics, se la tabella non esiste nell'archivio di destinazione, Data Factory possibile creare automaticamente la tabella in Azure sinapsi Analytics usando lo schema della tabella nell'archivio dati di origine. Per informazioni dettagliate vedere [Creazione automatica della tabella](#auto-table-creation).
 
 ## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
 Il connettore Azure sinapsi Analytics supporta l'autenticazione di base.
@@ -50,13 +50,13 @@ Il connettore Azure sinapsi Analytics supporta l'autenticazione di base.
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che sposta i dati da e verso un'analisi delle sinapsi di Azure usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline che copia i dati da e verso Azure sinapsi Analytics consiste nell'usare la procedura guidata copia dati. Vedere [esercitazione: caricare i dati in sinapsi Analytics con data factory](../load-azure-sql-data-warehouse.md) per una rapida procedura dettagliata sulla creazione di una pipeline con la copia guidata dati.
+Il modo più semplice per creare una pipeline che copia i dati da e verso Azure sinapsi Analytics consiste nell'usare la procedura guidata copia dati. Vedere [esercitazione: caricare i dati in Azure sinapsi Analytics con data factory](../load-azure-sql-data-warehouse.md) per una rapida procedura dettagliata sulla creazione di una pipeline usando la copia guidata dati.
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager modello** , **API .NET** e **API REST** . Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET** e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
-1. Creare un **Data Factory** . Una data factory può contenere una o più pipeline. 
+1. Creare un **Data Factory**. Una data factory può contenere una o più pipeline. 
 2. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory. Ad esempio, se si copiano dati da un archivio BLOB di Azure a un'analisi di sinapsi di Azure, si creano due servizi collegati per collegare l'account di archiviazione di Azure e l'analisi delle sinapsi di Azure al data factory. Per le proprietà del servizio collegato specifiche di Azure sinapsi Analytics, vedere la sezione [proprietà del servizio collegato](#linked-service-properties) . 
 3. Creare **set** di dati per rappresentare i dati di input e di output per l'operazione di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea quindi un altro set di dati per specificare la tabella in Azure sinapsi Analytics che include i dati copiati dall'archiviazione BLOB. Per le proprietà del set di dati specifiche di Azure sinapsi Analytics, vedere la sezione [Proprietà set di dati](#dataset-properties) .
 4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e SqlDWSink come sink per l'attività di copia. Analogamente, se si esegue la copia da Azure sinapsi Analytics all'archivio BLOB di Azure, si usano SqlDWSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche di Azure sinapsi Analytics, vedere la sezione [proprietà dell'attività di copia](#copy-activity-properties) . Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
@@ -81,7 +81,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureSqlDWTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella o della vista nel database di analisi delle sinapsi di Azure a cui fa riferimento il servizio collegato. |Sì |
 
@@ -94,7 +94,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
 ### <a name="sqldwsource"></a>SqlDWSource
-In caso di origine di tipo **SqlDWSource** , nella sezione **typeProperties** sono disponibili le proprietà seguenti:
+In caso di origine di tipo **SqlDWSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
@@ -146,7 +146,7 @@ GO
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per informazioni dettagliate, vedere la sezione relativa alla [ripetibilità](#repeatability-during-copy). |Istruzione di query. |No |
 | allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> **L'uso di polibase è il modo consigliato per caricare i dati in Azure sinapsi Analytics.** Per i vincoli e i dettagli, vedere [usare la codebase per caricare i dati nella sezione analisi delle sinapsi di Azure](#use-polybase-to-load-data-into-azure-synapse-analytics) . |True <br/>False (impostazione predefinita) |No |
-| polyBaseSettings |Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true** . |&nbsp; |No |
+| polyBaseSettings |Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. |&nbsp; |No |
 | rejectValue |Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo. <br/><br/>Altre informazioni sulle opzioni di rifiuto della polibase nella sezione **argomenti** dell'argomento [Create external Table (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) . |0 (impostazione predefinita), 1, 2, … |No |
 | rejectType |Indica se l'opzione rejectValue viene specificata come valore letterale o come percentuale. |Value (impostazione predefinita), Percentage |No |
 | rejectSampleValue |Determina il numero di righe da recuperare prima che PolyBase ricalcoli la percentuale di righe rifiutate. |1, 2, … |Sì se **rejectType** è **percentage** |
@@ -167,7 +167,7 @@ GO
 L'uso di **[polibase](/sql/relational-databases/polybase/polybase-guide)** è un modo efficiente per caricare grandi quantità di dati in Azure sinapsi Analytics con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito. Vedere [Copiare il numero di riferimento prestazioni](data-factory-copy-activity-performance.md#performance-reference) con il confronto dettagliato. Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 * Se i dati di origine si trova in un **BLOB di Azure o in Azure Data Lake Store** e il formato è compatibile con la polibase, è possibile eseguire la copia direttamente in Azure sinapsi Analytics usando la polibase. Vedere **[Copia diretta tramite PolyBase](#direct-copy-using-polybase)** con i relativi dettagli.
-* Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, è possibile usare la funzione **[copia di staging tramite PolyBase](#staged-copy-using-polybase)** . Viene inoltre generata una migliore velocità effettiva tramite la conversione automatica dei dati nel formato compatibile con PolyBase e l'archiviazione dei dati in Archiviazione BLOB di Azure. Quindi carica i dati in Azure sinapsi Analytics.
+* Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, è possibile usare la funzione **[copia di staging tramite PolyBase](#staged-copy-using-polybase)**. Viene inoltre generata una migliore velocità effettiva tramite la conversione automatica dei dati nel formato compatibile con PolyBase e l'archiviazione dei dati in Archiviazione BLOB di Azure. Quindi carica i dati in Azure sinapsi Analytics.
 
 Impostare la `allowPolyBase` proprietà su **true** , come illustrato nell'esempio seguente per Azure Data Factory usare la polibase per copiare i dati in Azure sinapsi Analytics. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà `polyBaseSettings`. Per informazioni dettagliate sulle proprietà che è possibile usare con polyBaseSettings, vedere la sezione [SqlDWSink](#sqldwsink) .
 
@@ -193,14 +193,14 @@ Azure sinapsi Analytics supporta direttamente il BLOB di Azure e Azure Data Lake
 
 Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
-1. Il **servizio collegato all'origine** è di tipo: **AzureStorage** o **AzureDataLakeStore con autenticazione dell'entità servizio** .
-2. Il **set di dati di input** è di tipo **AzureBlob** o **AzureDataLakeStore** e il tipo di formato nelle proprietà `type` è **OrcFormat****ParquetFormat** o **TextFormat** , con le configurazioni seguenti:
+1. Il **servizio collegato all'origine** è di tipo: **AzureStorage** o **AzureDataLakeStore con autenticazione dell'entità servizio**.
+2. Il **set di dati di input** è di tipo **AzureBlob** o **AzureDataLakeStore** e il tipo di formato nelle proprietà `type` è **OrcFormat****ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
 
-   1. `rowDelimiter` deve essere **\n** .
-   2. `nullValue` è impostato su **stringa vuota** ("") o `treatEmptyAsNull` è impostato su **true** .
-   3. `encodingName` è impostato su **utf-8** , ovvero il valore **predefinito** .
+   1. `rowDelimiter` deve essere **\n**.
+   2. `nullValue` è impostato su **stringa vuota** ("") o `treatEmptyAsNull` è impostato su **true**.
+   3. `encodingName` è impostato su **utf-8**, ovvero il valore **predefinito**.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` non sono specificati.
-   5. `compression` può essere **no compression** , **GZip** o **Deflate** .
+   5. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
       ```JSON
       "typeProperties": {
@@ -220,7 +220,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
       ```
 
 3. Non è disponibile alcuna impostazione `skipHeaderLineCount` in **BlobSource** o **AzureDataLakeStore** per l'attività di copia nella pipeline.
-4. Non è disponibile alcuna impostazione `sliceIdentifierColumnName` in **SqlDWSink** per l'attività di copia nella pipeline. PolyBase garantisce che tutti i dati verranno aggiornati o che nessun dato verrà aggiornato in una singola esecuzione. Per ottenere la **ripetibilità** , è possibile usare `sqlWriterCleanupScript`.
+4. Non è disponibile alcuna impostazione `sliceIdentifierColumnName` in **SqlDWSink** per l'attività di copia nella pipeline. PolyBase garantisce che tutti i dati verranno aggiornati o che nessun dato verrà aggiornato in una singola esecuzione. Per ottenere la **ripetibilità**, è possibile usare `sqlWriterCleanupScript`.
 5. Nell'attività di copia associata non viene usato alcun valore `columnMapping`.
 
 ### <a name="staged-copy-using-polybase"></a>copia di staging tramite PolyBase
@@ -305,7 +305,7 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| bit | bit |
+| Bit | Bit |
 | Decimal | Decimal |
 | Numeric | Decimal |
 | Float | Float |
@@ -317,7 +317,7 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | Data | Data |
 | Datetime | Datetime |
 | DateTime2 | DateTime2 |
-| Ora | Ora |
+| Tempo | Tempo |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Testo | Varchar (fino a 8000) |
@@ -370,12 +370,12 @@ Il mapping è uguale al [mapping del tipo di dati SQL Server per ADO.NET](/dotne
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| xml |Xml |
 
 È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
@@ -511,7 +511,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Attività di copia in una pipeline con SqlDWSource e BlobSink:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlDWSource** e il tipo di **sink** è impostato su **BlobSink** . La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlDWSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
 
 ```JSON
 {
@@ -695,7 +695,7 @@ L'esempio copia i dati in una tabella denominata "MyTable" in Azure sinapsi Anal
 ```
 **Copiare attività in una pipeline con BlobSource e SqlDWSink:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlDWSink** .
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlDWSink**.
 
 ```JSON
 {

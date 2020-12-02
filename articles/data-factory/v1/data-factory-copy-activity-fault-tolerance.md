@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436392"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452283"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Aggiungere la tolleranza di errore all'attività di copia ignorando le righe incompatibili
 
@@ -48,7 +48,7 @@ L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i 
     Ad esempio: si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
 
 >[!NOTE]
->Questa funzionalità non si applica quando l'attività di copia è configurata in modo da richiamare un meccanismo di caricamento dati esterno, tra cui [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) o il servizio di [scaricamento](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Per il caricamento di dati in Azure sinapsi Analytics usando la modalità polibase, usare il supporto per la tolleranza di errore nativa della polibase specificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" nell'attività di copia.
+>Questa funzionalità non si applica quando l'attività di copia è configurata per richiamare un meccanismo di caricamento dati esterno, tra cui la [base di analisi di sinapsi di Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) o lo [scaricamento](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift) Per il caricamento di dati in Azure sinapsi Analytics usando la modalità polibase, usare il supporto per la tolleranza di errore nativa della polibase specificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" nell'attività di copia.
 
 ## <a name="configuration"></a>Configurazione
 L'esempio seguente offre la definizione JSON per specificare di ignorare le righe incompatibili nell'attività di copia:

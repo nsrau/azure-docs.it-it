@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e911ad6bdf5a478d46e425f8700740ece56c6e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720538"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452667"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Caricare i dati in ambienti di archiviazione per l'analisi
 
-Per il processo di analisi scientifica dei dati per i team è necessario inserire o caricare i dati nel modo più appropriato in ogni fase. Le destinazioni dei dati possono includere archiviazione BLOB di Azure, database SQL Azure, SQL Server in VM di Azure, HDInsight (Hadoop), sinapsi Analytics e Azure Machine Learning. 
+Per il processo di analisi scientifica dei dati per i team è necessario inserire o caricare i dati nel modo più appropriato in ogni fase. Le destinazioni dei dati possono includere archiviazione BLOB di Azure, database SQL Azure, SQL Server in VM di Azure, HDInsight (Hadoop), Azure sinapsi Analytics e Azure Machine Learning. 
 
 Gli articoli seguenti descrivono come inserire dati in diversi ambienti di destinazione dove i dati vengono archiviati ed elaborati.
 

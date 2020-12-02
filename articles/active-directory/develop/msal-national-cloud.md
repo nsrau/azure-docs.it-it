@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348408"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453596"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -150,9 +150,9 @@ Per abilitare l'applicazione MSAL Python per i cloud sovrani:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Per chiamare Microsoft Graph è necessario un URL dell'endpoint grafico specifico che dipende dal cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- La chiamata dell'API Microsoft Graph richiede un URL di endpoint specifico per il cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Di seguito è riportato un esempio di un endpoint Graph con ambito:
+    Di seguito è riportato un esempio di Microsoft Graph endpoint con ambito:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Ecco un'autorità di esempio:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Per chiamare Microsoft Graph è necessario un URL dell'endpoint grafico specifico che dipende dal cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- La chiamata dell'API Microsoft Graph richiede un URL di endpoint specifico per il cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Di seguito è riportato un esempio di un endpoint Graph con ambito:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su:
+Per un elenco degli URL portale di Azure e degli endpoint di token per ogni cloud, vedere [endpoint di autenticazione cloud nazionale](authentication-national-cloud.md) .
 
-- [Autenticazione nei cloud nazionali](authentication-national-cloud.md)
+Documentazione sul cloud nazionale:
+
 - [Azure per enti pubblici](../../azure-government/index.yml)
 - [Azure Cina (21Vianet)](/azure/china/)
 - [Azure Germania](../../germany/index.yml)

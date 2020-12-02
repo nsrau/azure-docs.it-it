@@ -1,24 +1,21 @@
 ---
-title: Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
+title: Che cos'è l'archivio analitico di Azure Cosmos DB?
 description: Informazioni sull'archivio transazionale (basato su righe) e sull'archivio analitico (basato su colonne) di Azure Cosmos DB. Vantaggi dell'archivio analitico, impatto sulle prestazioni per carichi di lavoro su larga scala e sincronizzazione automatica dei dati dall'archivio transazionale all'archivio analitico
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337407"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452854"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è Azure Cosmos DB archivio analitico (anteprima)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>Che cos'è Azure Cosmos DB archivio analitico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> L'archivio analitico di Azure Cosmos DB attualmente è disponibile in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB archivio analitico è un archivio colonne completamente isolato per l'abilitazione di analisi su larga scala rispetto ai dati operativi nel Azure Cosmos DB, senza alcun effetto sui carichi di lavoro transazionali. 
 
@@ -36,7 +33,7 @@ Anche le pipeline ETL diventano complesse quando si gestiscono gli aggiornamenti
 
 L'archivio analitico di Azure Cosmos DB risolve i problemi di complessità e latenza che si verificano con le pipeline ETL tradizionali. L'archivio analitico di Azure Cosmos DB può sincronizzare automaticamente i dati operativi in un archivio colonne separato. Il formato dell'archivio colonne è adatto per l'esecuzione di query analitiche su larga scala in modo ottimizzato, con conseguente miglioramento della latenza di tali query.
 
-Usando Collegamento ad Azure Synapse, è ora possibile creare soluzioni HTAP senza ETL collegandosi direttamente all'archivio analitico di Azure Cosmos DB da Synapse Analytics. Consente di eseguire analisi su larga scala in near real-time sui dati operativi.
+Usando il collegamento a sinapsi di Azure, è ora possibile creare soluzioni HTAP senza ETL collegandosi direttamente a Azure Cosmos DB archivio analitico da Azure sinapsi Analytics. Consente di eseguire analisi su larga scala in near real-time sui dati operativi.
 
 ## <a name="features-of-analytical-store"></a>Funzionalità dell'archivio analitico 
 
@@ -181,10 +178,10 @@ L'autenticazione con l'archivio analitico è identica a quella dell'archivio tra
 
 L'archivio analitico è ottimizzato per offrire scalabilità, elasticità e prestazioni per carichi di lavoro analitici senza alcuna dipendenza dai runtime di calcolo. La tecnologia di archiviazione è gestita automaticamente per ottimizzare i carichi di lavoro analitici senza interventi manuali.
 
-Separando il sistema di archiviazione analitico dal sistema di calcolo analitico, è possibile eseguire simultaneamente query sui dati nell'archivio analitico di Azure Cosmos DB da diversi runtime di analisi supportati da Azure Synapse Analytics. Attualmente, Synapse Analytics supporta Apache Spark e SQL serverless con l'archivio analitico di Azure Cosmos DB.
+Separando il sistema di archiviazione analitico dal sistema di calcolo analitico, è possibile eseguire simultaneamente query sui dati nell'archivio analitico di Azure Cosmos DB da diversi runtime di analisi supportati da Azure Synapse Analytics. Attualmente, Azure sinapsi Analytics supporta Apache Spark e il pool SQL senza server con Azure Cosmos DB archivio analitico.
 
 > [!NOTE]
-> È possibile leggere dall'archivio analitico solo con il runtime di Synapse Analytics. È possibile scrivere di nuovo i dati nell'archivio transazionale come livello di gestione.
+> È possibile leggere solo dall'archivio analitico usando Azure sinapsi Analytics run time. È possibile scrivere di nuovo i dati nell'archivio transazionale come livello di gestione.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Prezzi
 
@@ -194,10 +191,7 @@ L'archivio analitico segue un modello di prezzi a consumo in base al quale viene
 
 * Operazioni di scrittura analitica: sincronizzazione completamente gestita degli aggiornamenti dei dati operativi nell'archivio analitico dall'archivio transazionale (sincronizzazione automatica)
 
-* Operazioni di lettura analitica: le operazioni di lettura eseguite sull'archivio analitico da Spark Analytics Spark e da SQL Server Run times.
-
-> [!NOTE]
-> Azure Cosmos DB archivio analitico è attualmente disponibile in versione di anteprima pubblica senza alcun addebito.
+* Operazioni di lettura analitica: le operazioni di lettura eseguite sull'archivio analitico dal pool Spark Analytics di Azure e dai tempi di esecuzione del pool SQL senza server.
 
 Il prezzo dell'archivio analitico è separato dal modello di prezzi dell'archivio transazioni. Non esiste alcun concetto di UR con provisioning nell'archivio analitico. Per informazioni dettagliate sul modello di prezzi per l'archivio analitico, vedere la [pagina dei prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145766"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452334"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Previsioni meteorologiche che usano i dati del sensore dell'hub Internet in Azure Machine Learning Studio (versione classica)
 
@@ -46,7 +46,7 @@ Si apprenderà come usare Azure Machine Learning Studio (classico) per le previs
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione client che invia messaggi ad Azure IoT hub.
 - Un account di [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net/).
-- È preferibile un account di [archiviazione di Azure](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), un account per **utilizzo generico V2** , ma anche qualsiasi account di archiviazione di Azure che supporta l'archiviazione BLOB di Azure.
+- È preferibile un account di [archiviazione di Azure](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), un account per **utilizzo generico V2** , ma anche qualsiasi account di archiviazione di Azure che supporta l'archiviazione BLOB di Azure.
 
 > [!Note]
 > Questo articolo USA analisi di flusso di Azure e molti altri servizi a pagamento. Sono stati addebitati costi aggiuntivi in analisi di flusso di Azure quando i dati devono essere trasferiti tra le aree di Azure. Per questo motivo, è opportuno assicurarsi che il gruppo di risorse, l'hub di Internet e l'account di archiviazione di Azure, oltre all'area di lavoro Machine Learning Studio (classica) e al processo di analisi di flusso di Azure aggiunto più avanti in questa esercitazione, si trovino tutti nella stessa area di Azure. È possibile controllare il supporto a livello di area per Azure Machine Learning Studio (classico) e altri servizi di Azure nella [pagina disponibilità del prodotto Azure in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -148,7 +148,7 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
 
    ![Creare un processo di analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
@@ -160,7 +160,7 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
 
    **Sottoscrizione**: selezionare la sottoscrizione se è diversa da quella predefinita.
 
-   **Hub**Internet delle cose: selezionare l'hub Internet delle cose dalla sottoscrizione.
+   **Hub** Internet delle cose: selezionare l'hub Internet delle cose dalla sottoscrizione.
 
    **Nome dei criteri di accesso condiviso**: selezionare il  **servizio**. È anche possibile usare **iothubowner**.
 
@@ -193,8 +193,8 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Aggiungere una funzione al processo di Analisi di flusso per chiamare il servizio Web che è stato distribuito
 
-1. In **topologia processo**selezionare **funzioni**.
-1. Nel riquadro **funzioni** selezionare **Aggiungi**e quindi selezionare **Azure ml Studio** dall'elenco a discesa. Assicurarsi di selezionare **azure ml Studio**, non il **servizio Azure ml**. Nel riquadro **nuova funzione** scegliere **specificare le impostazioni della funzione Azure Machine Learning manualmente** e immettere le informazioni seguenti:
+1. In **topologia processo** selezionare **funzioni**.
+1. Nel riquadro **funzioni** selezionare **Aggiungi** e quindi selezionare **Azure ml Studio** dall'elenco a discesa. Assicurarsi di selezionare **azure ml Studio**, non il **servizio Azure ml**. Nel riquadro **nuova funzione** scegliere **specificare le impostazioni della funzione Azure Machine Learning manualmente** e immettere le informazioni seguenti:
 
    **Alias di funzione**: Immettere `machinelearning`.
 
@@ -215,7 +215,7 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```

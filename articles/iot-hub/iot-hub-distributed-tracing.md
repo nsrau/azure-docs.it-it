@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538579"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452393"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -55,17 +55,17 @@ In questa sezione si configurerà un hub IoT per registrare gli attributi della 
 
 1. Passare all'hub Internet delle cose nel [portale di Azure](https://portal.azure.com/).
 
-1. Nel riquadro sinistro dell'hub IoT scorrere verso il basso fino alla sezione **Monitoraggio** e fare clic su **Impostazioni di diagnostica** .
+1. Nel riquadro sinistro dell'hub IoT scorrere verso il basso fino alla sezione **Monitoraggio** e fare clic su **Impostazioni di diagnostica**.
 
-1. Fare clic su **Aggiungi impostazione di diagnostica** .
+1. Fare clic su **Aggiungi impostazione di diagnostica**.
 
-1. Nel campo **Nome** immettere un nome di una nuova impostazione di diagnostica, ad esempio **DistributedTracingSettings** .
+1. Nel campo **Nome** immettere un nome di una nuova impostazione di diagnostica, ad esempio **DistributedTracingSettings**.
 
 1. Scegliere una o più delle opzioni seguenti che determinano dove verrà inviata la registrazione:
 
-    - **Archivia in un account di archiviazione** : configurare un account di archiviazione per contenere le informazioni di registrazione.
-    - **Eseguire lo streaming in un hub eventi** : configurare un hub eventi in modo che contenga le informazioni di registrazione.
-    - **Invia a log Analytics** : configurare un'area di lavoro di log Analytics per contenere le informazioni di registrazione.
+    - **Archivia in un account di archiviazione**: configurare un account di archiviazione per contenere le informazioni di registrazione.
+    - **Eseguire lo streaming in un hub eventi**: configurare un hub eventi in modo che contenga le informazioni di registrazione.
+    - **Invia a log Analytics**: configurare un'area di lavoro di log Analytics per contenere le informazioni di registrazione.
 
 1. Nella sezione **Log** selezionare le operazioni per le quali devono essere registrate le informazioni.
 
@@ -183,7 +183,7 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
 
 Non è **semplice** visualizzare l'anteprima della funzionalità di traccia distribuita senza usare C SDK. Pertanto, questo approccio non è consigliato.
 
-Prima di tutto, è necessario implementare tutte le primitive di protocollo dell'hub Internet nei messaggi seguendo le istruzioni della Guida per sviluppatori [creare e leggere i messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet. Modificare quindi le proprietà del protocollo nei messaggi MQTT/AMQP da aggiungere `tracestate` come **proprietà di sistema** . ovvero:
+Prima di tutto, è necessario implementare tutte le primitive di protocollo dell'hub Internet nei messaggi seguendo le istruzioni della Guida per sviluppatori [creare e leggere i messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet. Modificare quindi le proprietà del protocollo nei messaggi MQTT/AMQP da aggiungere `tracestate` come **proprietà di sistema**. ovvero:
 
 * Per MQTT, aggiungere `%24.tracestate=timestamp%3d1539243209` all'argomento del messaggio, dove `1539243209` deve essere sostituito con l'ora di creazione del messaggio nel formato timestamp UNIX. Come esempio, fare riferimento all'implementazione [in C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) .
 * Per AMQP, aggiungere `key("tracestate")` e `value("timestamp=1539243209")` come annotazione del messaggio. Per un'implementazione di riferimento, vedere [qui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -196,19 +196,19 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 ### <a name="update-using-the-portal"></a>Eseguire l'aggiornamento tramite il portale
 
-1. Passare all'hub IoT nel [portale di Azure](https://portal.azure.com/) e quindi fare clic su **Dispositivi IoT** .
+1. Passare all'hub IoT nel [portale di Azure](https://portal.azure.com/) e quindi fare clic su **Dispositivi IoT**.
 
 1. Fare clic sul proprio dispositivo.
 
-1. Cercare **Enable distributed tracing (preview)** (Abilita traccia distribuita - anteprima) e quindi selezionare **Abilita** .
+1. Cercare **Enable distributed tracing (preview)** (Abilita traccia distribuita - anteprima) e quindi selezionare **Abilita**.
 
     ![Abilitare la traccia distribuita nel portale di Azure](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Per **Velocità di campionamento** scegliere un valore compreso tra 0% e 100%.
 
-1. Fare clic su **Save** .
+1. Fare clic su **Salva**.
 
-1. Attendere alcuni secondi e selezionare **Aggiorna** . In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
+1. Attendere alcuni secondi e selezionare **Aggiorna**. In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
 
 1. Tornare alla finestra della console per l'app dei messaggi di telemetria. Verranno visualizzati i messaggi inviati con `tracestate` nelle proprietà dell'applicazione.
 
@@ -249,7 +249,7 @@ Per aggiornare la configurazione di campionamento della traccia distribuita per 
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Type | Descrizione |
+| Nome dell'elemento | Obbligatorio | Tipo | Descrizione |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` per attivare e `2` per disattivare. |
 | `sampling_rate` | Sì | Integer | Questo valore indica una percentuale. Sono consentiti solo valori compresi tra `0` e `100` (estremi inclusi).  |
@@ -295,7 +295,7 @@ L'immagine seguente mostra la traccia distribuita in Mappa delle applicazioni co
 
 ### <a name="context"></a>Context
 
-Molte soluzioni IoT, inclusa l'[architettura di riferimento](https://aka.ms/iotrefarchitecture) (solo in inglese), in genere seguono una variante dell'[architettura di microservizi](/azure/architecture/microservices/). Man mano che una soluzione IoT diventa più complessa, si accumula una dozzina o più di microservizi, non tutti necessariamente di Azure. L'individuazione delle posizioni in cui i messaggi IoT vengono eliminati o rallentano può risultare complicata. Si supponga ad esempio di disporre di una soluzione IoT che usa cinque diversi servizi di Azure e 1500 dispositivi attivi. Ogni dispositivo invia 10 messaggi da dispositivo a cloud al secondo (per un totale di 15.000 messaggi al secondo), ma si nota che la propria applicazione Web rileva solo 10.000 messaggi al secondo. Dove è il problema? Come è possibile individuarne la causa?
+Molte soluzioni IoT, inclusa l'[architettura di riferimento](/azure/architecture/reference-architectures/iot) (solo in inglese), in genere seguono una variante dell'[architettura di microservizi](/azure/architecture/microservices/). Man mano che una soluzione IoT diventa più complessa, si accumula una dozzina o più di microservizi, non tutti necessariamente di Azure. L'individuazione delle posizioni in cui i messaggi IoT vengono eliminati o rallentano può risultare complicata. Si supponga ad esempio di disporre di una soluzione IoT che usa cinque diversi servizi di Azure e 1500 dispositivi attivi. Ogni dispositivo invia 10 messaggi da dispositivo a cloud al secondo (per un totale di 15.000 messaggi al secondo), ma si nota che la propria applicazione Web rileva solo 10.000 messaggi al secondo. Dove è il problema? Come è possibile individuarne la causa?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Modello di traccia distribuita in un'architettura di microservizi
 

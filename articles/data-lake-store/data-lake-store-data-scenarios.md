@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: fe911ac8985f9997125eb5149348b50a7fa83222
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109256"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452241"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen1 per i requisiti di Big Data
 
@@ -130,5 +130,5 @@ In questi casi, è possibile usare le opzioni seguenti:
 
 ![Visualizzare i dati in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Storage Gen1")
 
-* È possibile iniziare usando [Azure Data Factory per spostare i dati da data Lake storage Gen1 ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
+* È possibile iniziare usando [Azure Data Factory per spostare i dati da data Lake storage Gen1 ad Azure sinapsi Analytics](../data-factory/copy-activity-overview.md)
 * Successivamente, è possibile [integrare Power bi con Azure sinapsi Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) per creare una rappresentazione visiva dei dati.

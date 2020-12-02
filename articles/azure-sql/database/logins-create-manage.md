@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782740"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452422"
 ---
-# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database SQL, SQL Istanza gestita e Azure sinapsi Analytics
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database a database SQL, Istanza gestita di SQL e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In questo articolo vengono fornite informazioni su:
 
-- Opzioni per la configurazione di database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) per consentire agli utenti di eseguire attività amministrative e di accedere ai dati archiviati in questi database.
+- Opzioni per la configurazione di database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics per consentire agli utenti di eseguire attività amministrative e di accedere ai dati archiviati in questi database.
 - Configurazione dell'accesso e dell'autorizzazione dopo la creazione iniziale di un nuovo server.
 - Come aggiungere account di accesso e account utente nel database master e negli account utente, quindi concedere a tali account le autorizzazioni amministrative.
 - Come aggiungere gli account utente nei database utente, associati ad account di accesso o come account utente indipendenti.
@@ -46,7 +46,7 @@ Quando un utente tenta di connettersi a un database, fornisce un account utente 
 
   Con questo metodo di autenticazione, l'utente invia un nome di account utente e richiede che il servizio utilizzi le informazioni sulle credenziali archiviate nel Azure Active Directory (Azure AD).
 
-Account di **accesso e utenti** : un account utente in un database può essere associato a un account di accesso archiviato nel database master oppure può essere un nome utente archiviato in un singolo database.
+Account di **accesso e utenti**: un account utente in un database può essere associato a un account di accesso archiviato nel database master oppure può essere un nome utente archiviato in un singolo database.
 
 - Un account di **accesso** è un account singolo nel database master, al quale è possibile collegare un account utente in uno o più database. Con un account di accesso, le informazioni sulle credenziali per l'account utente vengono archiviate con l'account di accesso.
 - Un **account utente** è un account singolo in qualsiasi database che può essere, ma non deve essere collegato a un account di accesso. Con un account utente non collegato a un account di accesso, le informazioni sulle credenziali vengono archiviate con l'account utente.
@@ -55,7 +55,7 @@ L' [**autorizzazione**](security-overview.md#authorization) per accedere ai dati
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Account di accesso e account utente esistenti dopo la creazione di un nuovo database
 
-Quando si distribuisce per la prima volta SQL di Azure, è necessario specificare un account di accesso amministratore e una password associata per tale account di accesso. Questo account amministrativo è denominato **amministratore del server** . La seguente configurazione di account di accesso e utenti nei database master e utente si verifica durante la distribuzione:
+Quando si distribuisce per la prima volta SQL di Azure, è necessario specificare un account di accesso amministratore e una password associata per tale account di accesso. Questo account amministrativo è denominato **amministratore del server**. La seguente configurazione di account di accesso e utenti nei database master e utente si verifica durante la distribuzione:
 
 - Viene creato un account di accesso SQL con privilegi amministrativi usando il nome dell'account di accesso specificato. Un account di [accesso](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) è un singolo account utente per l'accesso al database SQL, a SQL istanza gestita e a sinapsi di Azure.
 - A questo account di accesso vengono concesse autorizzazioni amministrative complete per tutti i database come [entità di livello server](/sql/relational-databases/security/authentication-access/principals-database-engine). L'account di accesso dispone di tutte le autorizzazioni disponibili e non può essere limitato. In un Istanza gestita SQL, questo account di accesso viene aggiunto al ruolo predefinito del [server sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (questo ruolo non esiste nel database SQL di Azure).
@@ -68,7 +68,7 @@ Per identificare gli account amministratore per un database, aprire il portale d
 ![Schermata che evidenzia l'opzione del menu proprietà.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> Il nome dell'account di accesso dell'amministratore non può essere modificato dopo che è stato creato. Per reimpostare la password per l'amministratore del servizio, aprire il [portale di Azure](https://portal.azure.com), fare clic su **SQL Server** , selezionare il server dall'elenco e quindi fare clic su **Reimposta password** . Per reimpostare la password per il Istanza gestita SQL, passare al portale di Azure, fare clic sull'istanza e quindi fare clic su **Reimposta password** . È anche possibile usare PowerShell o l'interfaccia della riga di comando di Azure.
+> Il nome dell'account di accesso dell'amministratore non può essere modificato dopo che è stato creato. Per reimpostare la password per l'amministratore del servizio, aprire il [portale di Azure](https://portal.azure.com), fare clic su **SQL Server**, selezionare il server dall'elenco e quindi fare clic su **Reimposta password**. Per reimpostare la password per il Istanza gestita SQL, passare al portale di Azure, fare clic sull'istanza e quindi fare clic su **Reimposta password**. È anche possibile usare PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Creare altri account di accesso e utenti con autorizzazioni amministrative
 
@@ -137,7 +137,7 @@ Dopo aver creato un account utente in un database, in base a un account di acces
 
 - **Ruoli predefiniti del database**
 
-  Aggiungere l'account utente a un [ruolo predefinito del database](/sql/relational-databases/security/authentication-access/database-level-roles). Sono disponibili 9 ruoli predefiniti del database, ognuno con un set di autorizzazioni definito. I ruoli predefiniti del database più comuni sono: **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** e **db_denydatareader** . Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db_owner** . Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. Ad esempio, il ruolo predefinito del database **db_datareader** concede l'accesso in lettura a ogni tabella del database, che è più che strettamente necessario.
+  Aggiungere l'account utente a un [ruolo predefinito del database](/sql/relational-databases/security/authentication-access/database-level-roles). Sono disponibili 9 ruoli predefiniti del database, ognuno con un set di autorizzazioni definito. I ruoli predefiniti del database più comuni sono: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. Ad esempio, il ruolo predefinito del database **db_datareader** concede l'accesso in lettura a ogni tabella del database, che è più che strettamente necessario.
 
   - Per aggiungere un utente a un ruolo predefinito del database:
 

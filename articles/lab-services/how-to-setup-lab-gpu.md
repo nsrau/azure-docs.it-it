@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433989"
+ms.locfileid: "96452377"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurare un Lab con macchine virtuali GPU
 
@@ -37,7 +37,7 @@ Le dimensioni della GPU di *visualizzazione* sono destinate a applicazioni a ele
 | Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
 | GPU small (visualizzazione) | -&nbsp;6 &nbsp; Core<br>-&nbsp;56 &nbsp; GB di &nbsp; RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
-| GPU medium (visualizzazione) | -&nbsp;12 &nbsp; Core<br>-&nbsp;112 &nbsp; GB di &nbsp; RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
+| GPU medium (visualizzazione) | -&nbsp;12 &nbsp; Core<br>-&nbsp;112 &nbsp; GB di &nbsp; RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
 
 > [!NOTE]
 > È possibile che alcune di queste dimensioni di macchina virtuale non vengano visualizzate nell'elenco durante la creazione di un lab per le classi. L'elenco viene popolato in base alla capacità corrente della località del lab. Se l'autore dell'account lab [consente agli autori del lab di selezionare una località per il lab](allow-lab-creator-pick-lab-location.md), è possibile provare a scegliere una località diversa per il lab e verificare se le dimensioni della macchina virtuale sono disponibili. Per la disponibilità delle macchine virtuali, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -76,7 +76,7 @@ Per installare manualmente i driver per le dimensioni della GPU di calcolo, proc
 1. Dopo aver installato i driver e altri software necessari per la classe, selezionare **pubblica** per creare le macchine virtuali degli studenti.
 
 > [!NOTE]
-> Se si usa un'immagine Linux, dopo aver scaricato il programma di installazione, installare i driver seguendo le istruzioni riportate in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
+> Se si usa un'immagine Linux, dopo aver scaricato il programma di installazione, installare i driver seguendo le istruzioni riportate in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Installare i driver GPU per la visualizzazione
 
@@ -86,7 +86,7 @@ Per installare manualmente i driver per le dimensioni della GPU di visualizzazio
 1. Dopo aver creato il Lab, connettersi alla macchina virtuale modello per installare i driver appropriati.
 1. Installare i driver della griglia forniti da Microsoft nella macchina virtuale modello seguendo le istruzioni per il sistema operativo in uso:
    -  [Driver della griglia di Windows NVIDIA](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
-   -  [Driver NVIDIA GRID Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
+   -  [Driver NVIDIA GRID Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Riavviare la macchina virtuale del modello.
 1. Verificare che i driver siano installati correttamente seguendo le istruzioni riportate nella sezione [convalidare i driver installati](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .

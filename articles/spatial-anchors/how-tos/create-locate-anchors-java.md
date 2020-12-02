@@ -1,20 +1,20 @@
 ---
 title: Creare e individuare gli ancoraggi in Java
 description: Descrizione approfondita di come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Java.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.custom: devx-track-java
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9b9199668b50ad0bfa4a6ac34073ea2835405edb
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 7c50c1b1de2dbad4ec26b259791fed202b4990d9
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097508"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96000624"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Java
 

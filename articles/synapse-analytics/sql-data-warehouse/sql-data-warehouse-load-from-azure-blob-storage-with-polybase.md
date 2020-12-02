@@ -1,26 +1,26 @@
 ---
-title: Caricare i dati di Contoso retail in sinapsi SQL
-description: Usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in sinapsi SQL.
+title: Caricare i dati di Contoso retail in pool SQL dedicati
+description: Usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in pool SQL dedicati.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461698"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452881"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Caricare i dati di Contoso retail in sinapsi SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Caricare i dati di Contoso retail in pool SQL dedicati in Azure sinapsi Analytics
 
-In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in sinapsi SQL.
+In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in pool SQL dedicati.
 
 In questa esercitazione si apprenderà come:
 
@@ -30,11 +30,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per eseguire questa esercitazione, è necessario un account Azure che dispone già di una sinapsi SQL. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse e impostare la regola del firewall a livello di server](create-data-warehouse-portal.md).
+Per eseguire questa esercitazione, è necessario un account Azure che dispone già di un pool SQL dedicato. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse e impostare la regola del firewall a livello di server](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurare l'origine dati
 
-PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate in sinapsi SQL. I dati vengono archiviati esternamente.
+PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate in pool SQL dedicati. I dati vengono archiviati esternamente.
 
 ## <a name="create-a-credential"></a>Creare una credenziale
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Ottimizzare la compressione columnstore
 
-Per impostazione predefinita, sinapsi SQL archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
+Per impostazione predefinita, i pool SQL dedicati archiviano la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
 
 Per ottimizzare le prestazioni delle query e la compressione columnstore dopo un'operazione di caricamento, ricompilare la tabella per forzare l'indice columnstore per comprimere tutte le righe.
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
 
-I dati pubblici sono stati caricati nel data warehouse. Risposta esatta.
+I dati pubblici sono stati caricati nel data warehouse. Ecco fatto,
 
 È ora possibile iniziare a eseguire query sulle tabelle per esplorare i dati. Eseguire la query seguente per trovare le vendite totali per marchio:
 

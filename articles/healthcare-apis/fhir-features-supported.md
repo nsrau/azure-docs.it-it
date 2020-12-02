@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520085"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452927"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -61,7 +61,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | token                 | Sì       | Sì       | Sì       |         |
 | Informazioni di riferimento             | Sì       | Sì       | Sì       |         |
 | Composite             | Sì       | Sì       | Sì       |         |
-| Quantity              | Sì       | Sì       | Sì       |         |
+| Quantità              | Sì       | Sì       | Sì       |         |
 | URI                   | Sì       | Sì       | Sì       |         |
 | Speciali               | No        | No        | No        |         |
 
@@ -135,7 +135,7 @@ Attualmente, le azioni consentite per un determinato ruolo vengono applicate a *
 
 ## <a name="service-limits"></a>Limiti del servizio
 
-* [**Unità richiesta (UR)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) : è possibile configurare fino a 10.000 UR nel portale per l'API di Azure per FHIR. Sarà necessario un minimo di 400 ur o 10 UR/GB, a seconda del valore maggiore. Se sono necessarie più di 10.000 UR, è possibile inserire un ticket di supporto per aumentare il numero di unità. Il valore massimo disponibile è 1 milione.
+* [**Unità richiesta (UR)**](../cosmos-db/concepts-limits.md) : è possibile configurare fino a 10.000 UR nel portale per l'API di Azure per FHIR. Sarà necessario un minimo di 400 ur o 10 UR/GB, a seconda del valore maggiore. Se sono necessarie più di 10.000 UR, è possibile inserire un ticket di supporto per aumentare il numero di unità. Il valore massimo disponibile è 1 milione.
 
 * Connessioni e **istanze** **simultanee** : per dafault, sono disponibili cinque connessioni simultanee in due istanze del cluster (per un totale di 10 richieste simultanee). Se ritieni di avere bisogno di più richieste simultanee, Apri un ticket di supporto con i dettagli sulle tue esigenze.
 

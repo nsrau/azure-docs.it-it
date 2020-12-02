@@ -1,6 +1,6 @@
 ---
-title: Risorse per lo sviluppo di un pool SQL dedicato in Azure sinapsi Analytics
-description: Concetti di sviluppo, decisioni di progettazione, consigli e tecniche di codifica per un pool SQL dedicato in Azure sinapsi Analytics.
+title: Risorse per lo sviluppo di un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
+description: Concetti di sviluppo, decisioni di progettazione, consigli e tecniche di codifica per un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f158655cd7aeba647480325966c7f0cfcf65b13c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6b34c70b453c26fe27a51e1aa802564864640cb9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322137"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453689"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per un pool SQL dedicato in Azure sinapsi Analytics 
+# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
 
- In questo articolo sono disponibili risorse aggiuntive che consentono di comprendere meglio le decisioni di progettazione, le raccomandazioni e le tecniche di codifica per un pool SQL dedicato in sinapsi di Azure.
+ In questo articolo sono disponibili risorse aggiuntive che consentono di comprendere meglio le decisioni di progettazione, le raccomandazioni e le tecniche di codifica per un pool SQL dedicato (in precedenza SQL DW) in sinapsi di Azure.
 
 ## <a name="key-design-decisions"></a>Decisioni chiave nella progettazione
 
-Gli articoli seguenti illustrano i concetti e le decisioni di progettazione per lo sviluppo di un data warehouse distribuito usando la funzionalità del pool SQL dedicata in sinapsi di Azure:
+Negli articoli seguenti vengono illustrati i concetti e le decisioni di progettazione per lo sviluppo di un data warehouse distribuito utilizzando la funzionalità pool SQL dedicato (in precedenza SQL DW) in sinapsi di Azure:
 
-* [connessioni](../sql/connect-overview.md)
+* [connessioni](sql-data-warehouse-connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
 * [transazioni](sql-data-warehouse-develop-transactions.md)
 * [schemi definiti dall'utente](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -37,7 +37,7 @@ Gli articoli seguenti illustrano i concetti e le decisioni di progettazione per 
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Sviluppo dei suggerimenti e delle tecniche di codifica
 
-Negli articoli seguenti sono disponibili tecniche di codifica, suggerimenti e consigli specifici per lo sviluppo di un pool SQL dedicato:
+Negli articoli seguenti sono disponibili tecniche di codifica, suggerimenti e consigli specifici per lo sviluppo di un pool SQL dedicato (in precedenza SQL DW):
 
 * [stored procedure](sql-data-warehouse-develop-stored-procedures.md)
 * [etichette](sql-data-warehouse-develop-label.md)

@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 09/30/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577584"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452959"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -31,7 +31,7 @@ Il pacchetto agente computer connesso di Azure contiene diversi componenti logic
     * L'assegnazione Guest viene archiviata localmente per 14 giorni. Nel periodo di 14 giorni, se l'agente del computer connesso si riconnette al servizio, verranno riapplicate le assegnazioni dei criteri.
     * Le assegnazioni vengono eliminate dopo 14 giorni e non vengono riassegnate al computer dopo il periodo di 14 giorni.
 
-* L'agente di estensione gestisce le estensioni della macchina virtuale, tra cui installazione, disinstallazione e aggiornamento. Le estensioni vengono scaricate da Azure e copiate nella `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` cartella in Windows e per Linux in `/opt/GC_Ext/downloads` . In Windows, l'estensione viene installata nel percorso seguente `%SystemDrive%\Packages\Plugins\<extension>` e in Linux l'estensione viene installata in `/var/lib/waagent/<extension>` .
+* L'agente di estensione gestisce le estensioni della macchina virtuale, tra cui installazione, disinstallazione e aggiornamento. Le estensioni vengono scaricate da Azure e copiate nella `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` cartella in Windows e per Linux in `/opt/GC_Ext/downloads` . In Windows, l'estensione viene installata nel percorso seguente `%SystemDrive%\Packages\Plugins\<extension>` e in Linux l'estensione viene installata in `/var/lib/waagent/<extension>` .
 
 ## <a name="download-agents"></a>Scaricare agenti
 
@@ -170,9 +170,9 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
     |%ProgramData%\AzureConnectedMachineAgent |Contiene i file di configurazione dell'agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contiene i token acquisiti.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contiene il file di configurazione dell'agente `agentconfig.json`, che documenta le informazioni di registrazione con il servizio.|
-    |Files\ArcConnectedMachineAgent\ExtensionService\GC%SystemDrive%\Program | Percorso di installazione contenente i file dell'agente di configurazione Guest. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Percorso di installazione contenente i file dell'agente di configurazione Guest. |
     |%ProgramData%\GuestConfig |Contiene i criteri applicati da Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Le estensioni vengono scaricate da Azure e copiate qui.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Le estensioni vengono scaricate da Azure e copiate qui.|
 
 * I servizi Windows seguenti vengono creati nel computer di destinazione durante l'installazione dell'agente.
 
@@ -196,14 +196,14 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contiene l'output dei comandi dello strumento azcmagent, quando viene usato l'argomento verbose (-v).|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Registra informazioni dettagliate sull'attività del servizio DSC,<br> in particolare la connettività tra il servizio HIMDS e i criteri di Azure.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Registra informazioni dettagliate sulla telemetria del servizio DSC e la registrazione dettagliata.|
-    |Ext_mgr_logs%SystemDrive%\ProgramData\GuestConfig\|Registra informazioni dettagliate sul componente agente di estensione.|
-    |Extension_logs%SystemDrive%\ProgramData\GuestConfig\\<Extension>|Registra i dettagli dall'estensione installata.|
+    |Ext_mgr_logs%ProgramData%\GuestConfig\|Registra informazioni dettagliate sul componente agente di estensione.|
+    |Extension_logs%ProgramData%\GuestConfig\\<Extension>|Registra i dettagli dall'estensione installata.|
 
 * Viene creato il gruppo di sicurezza locale **applicazioni di estensione dell'agente ibrido**.
 
 * Durante la disinstallazione dell'agente, non vengono rimossi gli artefatti seguenti.
 
-    * *%ProgramData%\AzureConnectedMachineAgent\Log
+    * %ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent e sottodirectory
     * %ProgramData%\GuestConfig
 

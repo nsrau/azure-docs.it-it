@@ -1,6 +1,6 @@
 ---
-title: Monitorare il carico di lavoro del pool SQL con DMV
-description: Informazioni su come monitorare il carico di lavoro del pool SQL di Azure sinapsi Analytics e l'esecuzione di query con DMV.
+title: Monitorare il carico di lavoro del pool SQL dedicato usando DMV
+description: Informazioni su come monitorare il carico di lavoro del pool SQL dedicato di Azure sinapsi Analytics e l'esecuzione di query con DMV.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515730"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453801"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Monitorare il carico di lavoro del pool SQL di Azure sinapsi Analytics usando DMV
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Monitorare il carico di lavoro del pool SQL dedicato di Azure sinapsi Analytics con DMV
 
 Questo articolo descrive come usare le viste a gestione dinamica (DMV) per monitorare il carico di lavoro, inclusa l'analisi dell'esecuzione di query nel pool SQL.
 

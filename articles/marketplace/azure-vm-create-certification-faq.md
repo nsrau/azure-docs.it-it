@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5124e7084a8e878e54e594424ec0926410f002ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682486"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452686"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -201,7 +201,7 @@ Inviare nuovamente la richiesta con una dimensione minore o uguale a 1023 GB.
 
 Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferimento alle regole seguenti. Quando si invia una richiesta, verificare che le dimensioni del disco del sistema operativo siano comprese nel limite per Linux o Windows.
 
-|Sistema operativo|Dimensioni del disco rigido virtuale consigliate|
+|OS|Dimensioni del disco rigido virtuale consigliate|
 |---|---|
 |Linux|da 30 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
@@ -224,7 +224,7 @@ Per evitare un potenziale attacco correlato al virus WannaCry, verificare che tu
 
 La tabella seguente illustra la versione minima con patch di Windows Server: 
 
-|Sistema operativo|Versione|
+|OS|Version|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
@@ -247,7 +247,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 - CVE-2019-11478 
 - CVE-2019-11479
 
-|Famiglia del sistema operativo|Versione|Kernel|
+|Famiglia del sistema operativo|Version|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-Azure|
@@ -474,7 +474,7 @@ Se tutte le immagini tratte da Azure Marketplace devono essere riutilizzate, il 
 
 * Per **Windows**, le immagini di Windows vengono generalizzate mediante `sysreptool` .
 
-  Per ulteriori informazioni sullo `sysreptool` strumento, vedere [Cenni preliminari sulla preparazione del sistema (Sysprep)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  Per ulteriori informazioni sullo `sysreptool` strumento, vedere [Cenni preliminari sulla preparazione del sistema (Sysprep)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## <a name="datadisk-errors"></a>Errori DataDisk
 

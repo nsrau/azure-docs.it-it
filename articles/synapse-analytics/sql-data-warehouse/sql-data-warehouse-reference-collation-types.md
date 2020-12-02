@@ -1,6 +1,6 @@
 ---
 title: Tipi di regole di confronto del data warehouse
-description: Tipi di regole di confronto supportati per il pool SQL dedicato in Azure sinapsi Analytics.
+description: Tipi di regole di confronto supportati per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39b89f8d303c10eead63839420141a74d3d3c74c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305254"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452759"
 ---
-# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Supporto delle regole di confronto del database per il pool SQL dedicato in Azure sinapsi Analytics 
+# <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Supporto delle regole di confronto del database per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
 
-È possibile modificare le regole di confronto predefinite del database dal portale di Azure quando si crea un nuovo database del pool SQL dedicato. Questa funzionalità rende ancora più semplice la creazione di un nuovo database usando una delle regole di confronto del database supportate da 3800.
+È possibile modificare le regole di confronto predefinite del database dal portale di Azure quando si crea un nuovo pool SQL dedicato (in precedenza SQL DW). Questa funzionalità rende ancora più semplice la creazione di un nuovo database usando una delle regole di confronto del database supportate da 3800.
 
 Le regole di confronto forniscono le impostazioni locali, la tabella codici, il tipo di ordinamento e la riservatezza dei caratteri per i tipi di dati basati su caratteri. Una volta scelte, tutte le colonne e le espressioni che richiedono le informazioni sulle regole di confronto ereditano le regole di confronto selezionate dall'impostazione del database. È possibile eseguire l'override dell'ereditarietà predefinita specificando in modo esplicito una regola di confronto diversa per un tipo di dati basato su caratteri.
 

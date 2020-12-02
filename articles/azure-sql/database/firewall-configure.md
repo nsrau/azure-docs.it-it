@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841130"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452486"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e della sinapsi di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando si crea un nuovo server nel database SQL di Azure o in Azure sinapsi Analytics denominato *SqlServer*, ad esempio, un firewall a livello di server blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET*). Per semplicità, il *database SQL* viene usato per fare riferimento sia al database SQL che ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+Quando si crea un nuovo server nel database SQL di Azure o in Azure sinapsi Analytics denominato *SqlServer*, ad esempio, un firewall a livello di server blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET*). Per semplicità, il *database SQL* viene usato per fare riferimento a database SQL e ad analisi sinapsi di Azure.
 
 > [!IMPORTANT]
 > Questo articolo *non* si applica a *Istanza gestita di SQL di Azure*. Per informazioni sulla configurazione di rete, vedere [connettere l'applicazione ad Azure SQL istanza gestita](../managed-instance/connect-application-instance.md).

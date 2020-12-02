@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324521"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452727"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Progettare tabelle con sinapsi SQL in Azure sinapsi Analytics
 
-Questo documento include i concetti chiave per la progettazione di tabelle con pool SQL dedicato e pool SQL senza server (anteprima).  
+Questo documento include i concetti chiave per la progettazione di tabelle con pool SQL dedicato e pool SQL senza server.  
 
-Il [pool SQL senza server (anteprima)](on-demand-workspace-overview.md) è un servizio di query sui dati del data Lake. Non dispone di archiviazione locale per l'inserimento dei dati. Il [pool SQL dedicato](best-practices-sql-pool.md) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning quando si usa sinapsi SQL. La dimensione di un pool SQL dedicato è determinata dalle unità di data warehousing (DWU).
+Il [pool SQL senza server](on-demand-workspace-overview.md) è un servizio di query sui dati in data Lake. Non dispone di archiviazione locale per l'inserimento dei dati. Il [pool SQL dedicato](best-practices-sql-pool.md) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning quando si usa sinapsi SQL. Le dimensioni di un pool SQL dedicato sono determinate dalle unità Data Warehouse (DWU).
 
 La tabella seguente elenca gli argomenti rilevanti per il pool SQL dedicato rispetto al pool SQL senza server:
 
-| Argomento                                                        | pool SQL dedicato | pool SQL senza server |
+| Argomento                                                        | pool SQL dedicato | Pool SQL serverless |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Determinare la categoria della tabella](#determine-table-category)        | Sì                | No                      |
 | [Nomi di schemi.](#schema-names)                                | Sì                | Sì                     |
@@ -76,7 +76,7 @@ Per visualizzare l'organizzazione delle tabelle nel pool SQL dedicato, è possib
 | Tabella WideWorldImportersDW  | Tipo di tabella. | pool SQL dedicato |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
-| JSON | Fact | wwi.FactOrder |
+| Ordine | Fact | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle
 
