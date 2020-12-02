@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127179"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483063"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installare Micro Focus Enterprise Server 5,0 e Enterprise Developer 5,0 in Azure
 
@@ -42,12 +42,12 @@ Prima di iniziare, verificare i prerequisiti seguenti:
     > [!Note]
     > Sono disponibili alcune opzioni per il controllo dell'accesso alle macchine virtuali:
     > -   Una procedura consigliata consiste nell'impostare [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-    > -   Un tunnel [di rete privata virtuale (VPN) da sito a sito](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) .
+    > -   Un tunnel [di rete privata virtuale (VPN) da sito a sito](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) .
     > -   Una macchina virtuale JumpBox.
 
 ## <a name="install-enterprise-server"></a>Installare Enterprise Server
 
-1.  Per migliorare la sicurezza e la gestibilità, è consigliabile creare un nuovo gruppo di risorse solo per questo progetto, ad esempio **RGMicroFocusEntServer** . Usare la prima parte del nome in Azure per scegliere il tipo di risorsa per facilitarne l'individuazione in un elenco.
+1.  Per migliorare la sicurezza e la gestibilità, è consigliabile creare un nuovo gruppo di risorse solo per questo progetto, ad esempio **RGMicroFocusEntServer**. Usare la prima parte del nome in Azure per scegliere il tipo di risorsa per facilitarne l'individuazione in un elenco.
 
 2.  Creare una macchina virtuale. Da Azure Marketplace selezionare la macchina virtuale e il sistema operativo desiderati. Ecco una configurazione consigliata:
 
@@ -87,7 +87,7 @@ Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiorn
 
 1.  Avviare l'amministrazione della licenza di Micro Focus.
 
-2.  Selezionare **Avvia** \> **Micro Focus License Manager License Manager** \> **License Administration** , quindi fare clic sulla scheda **Installa** . scegliere il tipo di formato di licenza da caricare: un file di licenza o un codice di licenza a 16 caratteri. Ad esempio, per un file, in **file di licenza** , passare al `mflic` file * caricato in precedenza nella macchina virtuale e selezionare **Installa licenze** .
+2.  Selezionare **Avvia** \> **Micro Focus License Manager License Manager** \> **License Administration**, quindi fare clic sulla scheda **Installa** . scegliere il tipo di formato di licenza da caricare: un file di licenza o un codice di licenza a 16 caratteri. Ad esempio, per un file, in **file di licenza**, passare al `mflic` file * caricato in precedenza nella macchina virtuale e selezionare **Installa licenze**.
 
     ![Screenshot mostra la finestra di dialogo Amministrazione licenza Micro Focus in cui è possibile selezionare Installa licenze.](media/install-image-3.png)
 
@@ -97,9 +97,9 @@ Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiorn
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Installare Enterprise Developer nel computer di sviluppo
 
-1.  Selezionare il gruppo di risorse creato in precedenza (ad esempio, **RGMicroFocusEntServer** ), quindi selezionare l'immagine per sviluppatori.
+1.  Selezionare il gruppo di risorse creato in precedenza (ad esempio, **RGMicroFocusEntServer**), quindi selezionare l'immagine per sviluppatori.
 
-2.  Per accedere alla macchina virtuale, passare alla sezione **Panoramica** e selezionare **Connetti** . Questo accesso avvia una sessione RDP. Accedere usando le credenziali create per la macchina virtuale.
+2.  Per accedere alla macchina virtuale, passare alla sezione **Panoramica** e selezionare **Connetti**. Questo accesso avvia una sessione RDP. Accedere usando le credenziali create per la macchina virtuale.
 
 3.  Dalla sessione RDP, caricare i due file seguenti (trascinamento della selezione se si desidera):
 
@@ -115,9 +115,9 @@ Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiorn
 
     ![Messaggio di installazione riuscita](media/install-image-6.png)
 
-6.  Avviare Micro Focus License Manager esattamente come per Enterprise Server. Scegliere **Avvia** \> **Micro Focus License Manager** \> **License Administration** , quindi fare clic sulla scheda **Installa** .
+6.  Avviare Micro Focus License Manager esattamente come per Enterprise Server. Scegliere **Avvia** \> **Micro Focus License Manager** \> **License Administration**, quindi fare clic sulla scheda **Installa** .
 
-7.  Scegliere il tipo di formato di licenza da caricare: un file di licenza o un codice di licenza a 16 caratteri. Ad esempio, per un file, in **file di licenza** , passare al `mflic` file caricato in precedenza nella macchina virtuale e selezionare  **Installa licenze** .
+7.  Scegliere il tipo di formato di licenza da caricare: un file di licenza o un codice di licenza a 16 caratteri. Ad esempio, per un file, in **file di licenza**, passare al `mflic` file caricato in precedenza nella macchina virtuale e selezionare  **Installa licenze**.
 
     ![Finestra di dialogo Amministrazione licenza Micro Focus](media/install-image-7.png)
 

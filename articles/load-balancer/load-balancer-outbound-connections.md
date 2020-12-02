@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694781"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483590"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Uso di SNAT per le connessioni in uscita
 
@@ -182,8 +182,6 @@ Per ulteriori informazioni sulla rete virtuale di Azure NAT, vedere informazioni
 
 ## <a name="constraints"></a>Vincoli
 
-*   Le porte verranno rilasciate dopo 15 secondi se viene ricevuto o inviato un **RST TCP**
-*   Le porte verranno rilasciate dopo 240 secondi se viene ricevuto o inviato un **FINACK**
 *   Quando una connessione è inattiva e non viene inviato alcun nuovo pacchetto, le porte verranno rilasciate dopo 4 – 120 minuti.
   * Questa soglia può essere configurata tramite regole in uscita.
 *   Ogni indirizzo IP fornisce porte 64.000 che è possibile usare per SNAT.

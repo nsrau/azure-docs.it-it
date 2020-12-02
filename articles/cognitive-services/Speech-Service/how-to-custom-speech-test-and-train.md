@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165333"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484006"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -204,4 +204,4 @@ Usare la tabella seguente per assicurarsi che il file di dati correlato per le p
 * [Esaminare i dati](how-to-custom-speech-inspect-data.md)
 * [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
 * [Eseguire il training del modello](how-to-custom-speech-train-model.md)
-* [Distribuire il modello](how-to-custom-speech-deploy-model.md)
+* [Distribuire il modello](./how-to-custom-speech-train-model.md)

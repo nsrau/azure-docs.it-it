@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze basate su agente in Azure Migrate 
 description: Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302843"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483471"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
@@ -21,7 +21,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze basate su a
     - [Server fisici](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Macchine virtuali Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Assicurarsi di:
-    - Avere un progetto Azure Migrate. In caso contrario, [crearne](how-to-add-tool-first-time.md) uno ora.
+    - Avere un progetto Azure Migrate. In caso contrario, [crearne](./create-manage-projects.md) uno ora.
     - Verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server Assessment al progetto.
     - Configurare un' [appliance Azure migrate](migrate-appliance.md) per individuare i computer locali. L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. Configurare un'appliance per:
         - [VMware](how-to-set-up-appliance-vmware.md) Macchine virtuali.
@@ -147,7 +147,7 @@ Dopo aver creato il gruppo, è consigliabile installare gli agenti in tutti i co
 È possibile eseguire query sui dati delle dipendenze acquisiti da Mapping dei servizi nell'area di lavoro Log Analytics associata al progetto Azure Migrate. Log Analytics viene usato per scrivere ed eseguire query di log di monitoraggio di Azure.
 
 - [Informazioni su come](../azure-monitor/insights/service-map.md#log-analytics-records) cercare i dati Mapping dei servizi in log Analytics.
-- [Ottenere una panoramica sulla](../azure-monitor/log-query/get-started-queries.md)  scrittura di query di log in [log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Ottenere una panoramica sulla](../azure-monitor/log-query/get-started-queries.md)  scrittura di query di log in [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Eseguire una query per i dati di dipendenza come segue:
 

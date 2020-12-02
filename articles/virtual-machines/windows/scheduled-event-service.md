@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015520"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483301"
 ---
 # <a name="monitoring-scheduled-events"></a>Monitoraggio di Eventi pianificati
 
@@ -132,7 +132,7 @@ Viene installato [Microsoft Monitoring Agent](../extensions/oms-windows.md) nell
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Creare di una regola di avviso con Monitoraggio di Azure 
 
 
-Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguire questa [query](../../azure-monitor/log-query/get-started-portal.md) per cercare gli eventi di pianificazione.
+Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguire questa [query](../../azure-monitor/log-query/log-analytics-tutorial.md) per cercare gli eventi di pianificazione.
 
 1. Nella parte superiore della pagina selezionare **Log** e incollare il codice seguente nella casella di testo:
 

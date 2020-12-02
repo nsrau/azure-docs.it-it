@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 420259929afc50b2884bf075212402d80b6b52f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85549914"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483539"
 ---
 # <a name="create-a-group-for-assessment"></a>Creare un gruppo per la valutazione
 
@@ -37,12 +37,12 @@ Se si desidera creare un gruppo manualmente al di fuori della creazione di una v
 
 1. Nella **panoramica**> progetto Azure migrate fare clic su **valuta ed Esegui la migrazione dei server**. In **Azure migrate: server Assessment**, fare clic su **gruppi**
     - Se non è ancora stato aggiunto lo strumento Azure Migrate: server Assessment, fare clic per aggiungerlo. [Altre informazioni](how-to-assess.md)
-    - Se non è ancora stato creato un progetto di Azure Migrate, vedere [altre informazioni](how-to-add-tool-first-time.md).
+    - Se non è ancora stato creato un progetto di Azure Migrate, vedere [altre informazioni](./create-manage-projects.md).
 
     ![Selezionare i gruppi](./media/how-to-create-a-group/select-groups.png)
 
 2. Fare clic sull'icona di **gruppo** .
-3. In **Crea gruppo**specificare un nome per il gruppo e in **nome Appliance**Selezionare il dispositivo Azure migrate in uso per l'individuazione del computer.
+3. In **Crea gruppo** specificare un nome per il gruppo e in **nome Appliance** Selezionare il dispositivo Azure migrate in uso per l'individuazione del computer.
 4. Dall'elenco computer, selezionare i computer che si desidera aggiungere al gruppo > **Crea**.
 
     ![Creare un gruppo](./media/how-to-create-a-group/create-group.png)
@@ -89,4 +89,3 @@ Se è già stato [configurato il mapping delle dipendenze](how-to-create-group-m
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come configurare e usare il [mapping delle dipendenze](how-to-create-group-machine-dependencies.md) per creare gruppi con attendibilità elevata.
-

@@ -3,12 +3,12 @@ title: Individuare app, ruoli e funzionalità nei server locali con Azure Migrat
 description: Informazioni su come individuare app, ruoli e funzionalità nei server locali con Azure Migrate Assessment server.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315203"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483454"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
@@ -23,14 +23,14 @@ L'individuazione dell'inventario di app, ruoli e funzionalità in esecuzione in 
 ## <a name="before-you-start"></a>Prima di iniziare
 
 - Assicurarsi di avere:
-    - [Creazione](how-to-add-tool-first-time.md) di un progetto Azure migrate.
+    - [Creazione](./create-manage-projects.md) di un progetto Azure migrate.
     - [Aggiunta](how-to-assess.md) dello strumento di valutazione Azure migrate: server a un progetto.
 - Esaminare i [requisiti e il supporto per l'individuazione delle app](migrate-support-matrix-vmware.md#vmware-requirements).
 - Verificare che le macchine virtuali in cui è in esecuzione App-Discovery dispongano di PowerShell versione 2,0 o successiva e che siano installati gli strumenti VMware (successivi a 10.2.0).
 - Verificare i [requisiti](migrate-appliance.md) per la distribuzione di Azure migrate Appliance.
 
 
-## <a name="deploy-the-azure-migrate-appliance"></a>Distribuire il dispositivo Azure Migrate
+## <a name="deploy-the-azure-migrate-appliance"></a>Distribuire l'appliance Azure Migrate
 
 1. [Esaminare](migrate-appliance.md#appliance---vmware) i requisiti per la distribuzione di Azure migrate Appliance.
 2. Esaminare gli URL di Azure a cui l'appliance dovrà accedere nei cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls).
@@ -46,7 +46,7 @@ Dopo che l'appliance è stata distribuita e sono state fornite le credenziali, l
 
 ## <a name="verify-permissions"></a>Verificare le autorizzazioni
 
-È [stato creato un server vCenter account](./tutorial-discover-vmware.md#prepare-vmware) di sola lettura per l'individuazione e la valutazione. L'account di sola lettura necessita di privilegi abilitati per **Virtual Machines**  >  **le operazioni Guest**delle macchine virtuali, per interagire con la macchina virtuale per l'individuazione delle app.
+È [stato creato un server vCenter account](./tutorial-discover-vmware.md#prepare-vmware) di sola lettura per l'individuazione e la valutazione. L'account di sola lettura necessita di privilegi abilitati per **Virtual Machines**  >  **le operazioni Guest** delle macchine virtuali, per interagire con la macchina virtuale per l'individuazione delle app.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Aggiungere l'account utente al dispositivo
 
@@ -54,7 +54,7 @@ Aggiungere l'account utente come segue:
 
 1. Aprire l'app gestione Appliance. 
 2. Passare al pannello **specificare i dettagli di vCenter** .
-3. In **individua applicazione e dipendenze dalle macchine virtuali**fare clic su **Aggiungi credenziali** .
+3. In **individua applicazione e dipendenze dalle macchine virtuali** fare clic su **Aggiungi credenziali** .
 3. Scegliere il **sistema operativo**, specificare un nome descrittivo per l'account e la password del **nome utente** / **Password**
 6. Fare clic su **Salva**.
 7. Fare clic su **Salva e avvia individuazione**.
@@ -71,9 +71,9 @@ Al termine dell'individuazione, se sono state fornite le credenziali per l'indiv
     > [!NOTE]
     > In questa fase è anche possibile impostare facoltativamente l'analisi delle dipendenze per i computer individuati, in modo che sia possibile visualizzare le dipendenze tra i computer che si desidera valutare. [Altre](concepts-dependency-visualization.md) informazioni sull'analisi delle dipendenze.
 
-2. In **applicazioni individuate**fare clic sul conteggio visualizzato.
-3. Nell' **inventario delle applicazioni**è possibile esaminare le app, i ruoli e le funzionalità individuate.
-4. Per esportare l'inventario, in **server individuati**fare clic su **Esporta inventario delle app**.
+2. In **applicazioni individuate** fare clic sul conteggio visualizzato.
+3. Nell' **inventario delle applicazioni** è possibile esaminare le app, i ruoli e le funzionalità individuate.
+4. Per esportare l'inventario, in **server individuati** fare clic su **Esporta inventario delle app**.
 
 L'inventario delle app viene esportato e scaricato in formato Excel. Il foglio di **inventario dell'applicazione** Visualizza tutte le app individuate in tutti i computer.
 

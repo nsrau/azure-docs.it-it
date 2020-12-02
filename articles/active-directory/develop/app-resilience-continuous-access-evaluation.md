@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348467"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484040"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Come usare le API abilitate per la valutazione dell'accesso continuo nelle applicazioni
 
@@ -27,9 +27,9 @@ Questo articolo illustra come usare le API abilitate per CAE nelle applicazioni.
 
 ## <a name="implementation-considerations"></a>Considerazioni sull'implementazione
 
-Per usare la valutazione di accesso continuo, sia l'app che l'API delle risorse a cui accede devono essere abilitate per la funzionalità CAE. Tuttavia, la preparazione del codice per l'uso di una risorsa abilitata per il CAE non impedirà l'uso di API che non sono abilitate per il CAE. 
+Per usare la valutazione di accesso continuo, sia l'app che l'API delle risorse a cui accede devono essere abilitate per la funzionalità CAE. Tuttavia, la preparazione del codice per l'uso di una risorsa abilitata per il CAE non impedirà l'uso di API che non sono abilitate per il CAE.
 
-Se un'API della risorsa implementa CAE e l'applicazione dichiara che può gestire il CAE, l'app otterrà i token CAE per tale risorsa. Per questo motivo, se si dichiara che il CAE dell'app è pronto, l'applicazione deve gestire la richiesta di attestazione CAE per tutte le API delle risorse che accettano i token di accesso di Microsoft Identity. Se non si gestiscono le risposte CAE in queste chiamate API, l'app potrebbe finire in un ciclo ritentando una chiamata API con un token che si trova ancora nella durata del token restituita, ma è stato revocato a causa di CAE. 
+Se un'API della risorsa implementa CAE e l'applicazione dichiara che può gestire il CAE, l'app otterrà i token CAE per tale risorsa. Per questo motivo, se si dichiara che il CAE dell'app è pronto, l'applicazione deve gestire la richiesta di attestazione CAE per tutte le API delle risorse che accettano i token di accesso di Microsoft Identity. Se non si gestiscono le risposte CAE in queste chiamate API, l'app potrebbe finire in un ciclo ritentando una chiamata API con un token che si trova ancora nella durata del token restituita, ma è stato revocato a causa di CAE.
 
 ## <a name="the-code"></a>Codice
 
@@ -116,4 +116,4 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [valutazione dell'accesso continuo](/conditional-access/concept-continuous-access-evaluation.md).
+Per altre informazioni, vedere [valutazione dell'accesso continuo](../conditional-access/concept-continuous-access-evaluation.md).

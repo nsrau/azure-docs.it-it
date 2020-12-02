@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961749"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483798"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
@@ -61,7 +61,7 @@ I log di diagnostica forniscono informazioni dettagliate sulle operazioni e sugl
 
 I log attività forniscono informazioni approfondite sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Log attività":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Log di diagnostica":::
 
 Per configurare i log di diagnostica per la porta anteriore:
 
@@ -91,10 +91,11 @@ La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). 
 | RulesEngineMatchNames | Nomi delle regole corrispondenti alla richiesta. |
 | SecurityProtocol | Versione del protocollo TLS/SSL usata dalla richiesta o Null se non è stato usato alcun tipo di crittografia. |
 | SentToOriginShield </br> (obsoleto) * **vedere le note sulla deprecazione nella sezione seguente.**| Se true, la risposta alla richiesta proviene dalla cache dello shield di origine anziché dal POP perimetrale. Lo shield di origine è una cache padre usata per migliorare la percentuale di riscontri nella cache. |
-| isReceivedFromClient | Se true, significa che la richiesta proviene dal client. Se false, la richiesta non è presente nel perimetro (POP figlio) e viene risposta da Shield di origine (POP padre). 
+| isReceivedFromClient | Se true, significa che la richiesta proviene dal client. Se false, la richiesta non è presente nel perimetro (POP figlio) e viene risposta da Shield di origine (POP padre). |
 | TimeTaken | Intervallo di tempo dal primo byte della richiesta alla porta anteriore all'ultimo byte di risposta, in secondi. |
 | TrackingReference | Stringa di riferimento univoca che identifica una richiesta fornita da Frontdoor, inviata anche come intestazione X-Azure-Ref al client. Obbligatoria per la ricerca di dettagli nei log di accesso per una richiesta specifica. |
 | UserAgent | Tipo di browser usato dal client. |
+| ErrorInfo | Questo campo contiene il tipo di errore specifico per ulteriori operazioni di risoluzione dei problemi. </br> I valori possibili sono: </br> **NOERROR**: indica che non è stato trovato alcun errore. </br> **CertificateError**: errore di certificato SSL generico.</br> **CertificateNameCheckFailed**: il nome host nel certificato SSL non è valido o non corrisponde. </br> **ClientDisconnected**: errore della richiesta a causa della connessione di rete del client. </br> **UnspecifiedClientError**: errore del client generico. </br> **InvalidRequest**: richiesta non valida. Potrebbe verificarsi a causa di un'intestazione, un corpo e un URL non validi. </br> **DNSFailure**: errore DNS. </br> **DNSNameNotResolved**: non è stato possibile risolvere il nome o l'indirizzo del server. </br> **OriginConnectionAborted**: la connessione con l'origine è stata interrotta bruscamente. </br> **OriginConnectionError**: errore di connessione all'origine generica. </br> **OriginConnectionRefused**: non è stato possibile stabilire la connessione con l'origine. </br> **OriginError**: errore di origine generico. </br> **OriginInvalidResponse**: Origin ha restituito una risposta non valida o non riconosciuta. </br> **OriginTimeout**: il periodo di timeout per la richiesta di origine è scaduto. </br> **ResponseHeaderTooBig**: l'origine ha restituito troppo grande di un'intestazione di risposta. </br> **RestrictedIP**: la richiesta è stata bloccata a causa dell'IP limitato. </br> **SSLHandshakeError**: Impossibile stabilire una connessione con l'origine a causa di un errore di scuotimento della mano SSL. </br> **UnspecifiedError**: si è verificato un errore che non rientrava in nessuno degli errori della tabella. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Deprecazione inviata a schermata di origine
 La proprietà del log non elaborato **isSentToOriginShield** è stata deprecata e sostituita da un nuovo campo **isReceivedFromClient**. Utilizzare il nuovo campo se si sta già utilizzando il campo deprecato. 
@@ -120,12 +121,12 @@ Se il valore è false, significa che la richiesta è stata risposta dalla scherm
 
 | Scenari | Numero di voci di log | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | True | CONFIG_NOCACHE |
-| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Vuoto | True | COLPITO |
-| Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache al POP perimetrale, ma riscontro nella cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. vuoto | 1. true</br>2. false | 1. MISS</br>2. HIT |
-| Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache al POP perimetrale ma riscontro nella cache parziale nel POP della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. back-end che consente di popolare la cache | 1. true</br>2. false | 1. MISS</br>2. PARTIAL_HIT |
+| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | Vero | CONFIG_NOCACHE |
+| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Empty | Vero | COLPITO |
+| Regola di routing con memorizzazione nella cache abilitata. Mancati riscontri nella cache al pop perimetrale, ma riscontro nella cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. vuoto | 1. true</br>2. false | 1. MISS</br>2. HIT |
+| Regola di routing con memorizzazione nella cache abilitata. Mancata memorizzazione nella cache al POP perimetrale ma riscontro nella cache parziale nel POP della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. back-end che consente di popolare la cache | 1. true</br>2. false | 1. MISS</br>2. PARTIAL_HIT |
 | Regola di routing con memorizzazione nella cache abilitata. PARTIAL_HIT della cache al POP perimetrale ma riscontri nella cache nel POP della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. true</br>2. false | 1. PARTIAL_HIT</br>2. HIT |
-| Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache dei bordi e della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. true</br>2. false | 1. MISS</br>2. MISS |
+| Regola di routing con memorizzazione nella cache abilitata. Mancati riscontri nella cache in corrispondenza del blocco e della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. true</br>2. false | 1. MISS</br>2. MISS |
 
 > [!NOTE]
 > Per gli scenari di memorizzazione nella cache, il valore per lo stato della cache verrà partial_hit quando alcuni byte per una richiesta vengono serviti dal bordo anteriore o dalla cache dello scudo di origine, mentre alcuni byte vengono serviti dall'origine per oggetti di grandi dimensioni.

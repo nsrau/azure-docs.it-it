@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89b795011460ee2803d07d14b9c2abe9c8ffca55
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260021"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483352"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal cliente
 
@@ -22,12 +22,12 @@ L'esperienza del portale per la migrazione di Azure Migrate Server consente [di 
 
 Gli esempi in questo articolo usano [Azure PowerShell](/powershell/azure/new-azureps-module-az) per eseguire le attività necessarie per creare e distribuire il modello di gestione risorse.
 
-[Altre](../virtual-machines/windows/disk-encryption.md) informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente (CMK) per Managed Disks.
+[Altre](../virtual-machines/disk-encryption.md) informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente (CMK) per Managed Disks.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Per informazioni sui requisiti dello strumento, [vedere l'esercitazione](tutorial-migrate-vmware.md) sulla migrazione di macchine virtuali VMware in Azure con replica senza agente.
-- [Seguire queste istruzioni](how-to-add-tool-first-time.md) per creare un progetto Azure migrate e aggiungere lo strumento di **migrazione Azure migrate: server** al progetto.
+- [Seguire queste istruzioni](./create-manage-projects.md) per creare un progetto Azure migrate e aggiungere lo strumento di **migrazione Azure migrate: server** al progetto.
 - [Seguire queste istruzioni](how-to-set-up-appliance-vmware.md) per configurare l'appliance Azure migrate per VMware nell'ambiente locale e completare l'individuazione.
 
 ## <a name="prepare-for-replication"></a>Preparare per la replica

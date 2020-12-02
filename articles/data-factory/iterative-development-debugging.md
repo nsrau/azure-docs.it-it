@@ -7,14 +7,14 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102071"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485247"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Per un'introduzione di otto minuti e una dimostrazione di questa funzionalità, 
 
 ## <a name="debugging-a-pipeline"></a>Debug di una pipeline
 
-Quando si crea usando l'area di disegno della pipeline, è possibile testare le attività usando la funzionalità di **debug** . Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Data Factory prima di selezionare **Debug** . Questa funzione risulta utile negli scenari in cui ci si vuole assicurare che le modifiche funzionino come previsto prima di aggiornare il flusso di lavoro di Data Factory.
+Quando si crea usando l'area di disegno della pipeline, è possibile testare le attività usando la funzionalità di **debug** . Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Data Factory prima di selezionare **Debug**. Questa funzione risulta utile negli scenari in cui ci si vuole assicurare che le modifiche funzionino come previsto prima di aggiornare il flusso di lavoro di Data Factory.
 
 ![Funzionalità di debug nel canvas della pipeline](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ Quando un'esecuzione dei test ha esito positivo, aggiungere altre attività alla
 
 ### <a name="setting-breakpoints"></a>Impostazione di punti di interruzione
 
-Azure Data Factory consente di eseguire il debug di una pipeline fino a quando non si raggiunge una determinata attività nell'area di disegno della pipeline. Inserire un punto di interruzione nell'attività fino a quando si desidera eseguire il test e selezionare **debug** . Data Factory esegue i test solo fino all'attività con il punto di interruzione nel canvas della pipeline. Questa funzionalità *Debug Until* (Debug fino a) è utile quando non si vuole testare l'intera pipeline, ma solo un subset delle attività all'interno della pipeline.
+Azure Data Factory consente di eseguire il debug di una pipeline fino a quando non si raggiunge una determinata attività nell'area di disegno della pipeline. Inserire un punto di interruzione nell'attività fino a quando si desidera eseguire il test e selezionare **debug**. Data Factory esegue i test solo fino all'attività con il punto di interruzione nel canvas della pipeline. Questa funzionalità *Debug Until* (Debug fino a) è utile quando non si vuole testare l'intera pipeline, ma solo un subset delle attività all'interno della pipeline.
 
 ![Punti di interruzione nel canvas della pipeline](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -52,7 +52,7 @@ Per impostare un punto di interruzione, selezionare un elemento nel canvas della
 
 ![Prima dell'impostazione di un punto di interruzione sull'elemento selezionato](media/iterative-development-debugging/iterative-development-4.png)
 
-Dopo avere selezionato l'opzione *Debug fino a* , diventa un cerchio rosso pieno per indicare che il punto di interruzione è abilitato.
+Dopo avere selezionato l'opzione *Debug fino a*, diventa un cerchio rosso pieno per indicare che il punto di interruzione è abilitato.
 
 ![Dopo l'impostazione di un punto di interruzione sull'elemento selezionato](media/iterative-development-debugging/iterative-development-5.png)
 

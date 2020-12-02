@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e37065e6fa61f3784d1a6165bd88c515bdfc29f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706184"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484108"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -118,6 +118,7 @@ Le applicazioni vengono aggiunte ad Azure AD per sfruttare uno o più dei serviz
 * Controllo degli accessi in base al ruolo. È possibile usare la directory per definire i ruoli dell'applicazione per eseguire i controlli di autorizzazione in base al ruolo in un'applicazione.
 * Servizi di autorizzazione OAuth: usati da Microsoft 365 e altre applicazioni Microsoft per autorizzare l'accesso ad API/risorse
 * Proxy e pubblicazione dell'applicazione. È possibile pubblicare un'applicazione in Internet da una rete privata.
+* Attributi estensione dello schema di directory: [estendere lo schema degli oggetti entità servizio e utente](active-directory-schema-extensions.md) per archiviare dati aggiuntivi in Azure ad 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Chi è autorizzato ad aggiungere applicazioni alla mia istanza di Azure AD?
 

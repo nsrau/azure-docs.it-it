@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e786c4caae13ffaa541697d083158e17d42383fb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122556"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483955"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -40,14 +40,13 @@ ms.locfileid: "96122556"
 
 **Nuove funzionalità**
 - **Linux**: è stato aggiunto il supporto per Debian 10 e Ubuntu 20,04 LTS.
-- **Python/Objective-C**: è stato aggiunto il supporto per l' `KeywordRecognizer` API. La documentazione sarà disponibile [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
+- **Python/Objective-C**: è stato aggiunto il supporto per l' `KeywordRecognizer` API. La documentazione sarà disponibile [qui](./custom-keyword-basics.md).
 - **C++/Java/C #**: è stato aggiunto il supporto per impostare qualsiasi `HttpHeader` chiave/valore tramite `ServicePropertyChannel::HttpHeader` .
-- **JavaScript**: è stato aggiunto il supporto per l' `ConversationTranscriber` API. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/c #**: aggiunto nuovo `AudioDataStream FromWavFileInput` Metodo (per la lettura. File WAV) [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [qui (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
--  **C++/c #/Java/Python/Objective-C/Swift**: è stato aggiunto un `stopSpeakingAsync()` metodo per arrestare la sintesi da testo a discorso. Leggere qui la documentazione di riferimento [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), qui ( [C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), qui ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech), [qui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [qui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
-- **C#, C++, Java**: aggiunta `FromDialogServiceConnector()` di una funzione alla `Connection` classe che può essere usata per monitorare gli eventi di connessione e disconnessione per `DialogServiceConnector` . Leggere qui la documentazione di riferimento [(C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [qui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection).
-- **C++/c #/Java/Python/Objective-C/Swift**: è stato aggiunto il supporto per la valutazione della pronuncia, che valuta la pronuncia vocale e fornisce commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment).
+- **JavaScript**: è stato aggiunto il supporto per l' `ConversationTranscriber` API. Leggi la documentazione [qui](./how-to-use-conversation-transcription.md?pivots=programming-language-javascript). 
+- **C++/c #**: aggiunto nuovo `AudioDataStream FromWavFileInput` Metodo (per la lettura. File WAV) [qui (C++)](/cpp/cognitive-services/speech/audiodatastream) e [qui (C#)](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
+-  **C++/c #/Java/Python/Objective-C/Swift**: è stato aggiunto un `stopSpeakingAsync()` metodo per arrestare la sintesi da testo a discorso. Leggere qui la documentazione di riferimento [(C++)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), qui ( [C#)](/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), qui ( [Java)](/java/api/com.microsoft.cognitiveservices.speech), [qui (Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [qui (Objective-C/Swift)](/objectivec/cognitive-services/speech/).
+- **C#, C++, Java**: aggiunta `FromDialogServiceConnector()` di una funzione alla `Connection` classe che può essere usata per monitorare gli eventi di connessione e disconnessione per `DialogServiceConnector` . Leggere qui la documentazione di riferimento [(C#)](/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [qui (C++)](/cpp/cognitive-services/speech/connection)e [qui (Java)](/java/api/com.microsoft.cognitiveservices.speech.connection).
+- **C++/c #/Java/Python/Objective-C/Swift**: è stato aggiunto il supporto per la valutazione della pronuncia, che valuta la pronuncia vocale e fornisce commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Leggi la documentazione [qui](how-to-pronunciation-assessment.md).
 
 **Modifica di rilievo**
 - **JavaScript**: PullAudioOutputStream. Read () ha una modifica del tipo restituito da una promessa interna a una promessa JavaScript nativa.
@@ -83,7 +82,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 Rimanere integro.
 
 ## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>INTERFACCIA della riga di comando vocale (anche nota come SPX): 2020-versione di ottobre
-SPX è l'interfaccia della riga di comando per usare il servizio riconoscimento vocale di Azure senza scrivere codice. Scaricare la versione più recente [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+SPX è l'interfaccia della riga di comando per usare il servizio riconoscimento vocale di Azure senza scrivere codice. Scaricare la versione più recente [qui](./spx-basics.md). <br>
 
 **Nuove funzionalità**
 - `spx csr dataset upload --kind audio|language|acoustic` : creare set di dati da dati locali, non solo da URL.
@@ -156,26 +155,26 @@ Riconoscimento vocale rilasciate 26 nuove impostazioni locali nell'agosto: 2 lin
 
 | Impostazioni locali  | Linguaggio                          |
 |---------|-----------------------------------|
-| `cs-CZ` | Ceco (Repubblica Ceca)            | 
+| `cs-CZ` | Ceco (Repubblica ceca)            | 
 | `en-HK` | Inglese (Hong Kong)               | 
 | `en-IE` | Inglese (Irlanda)                 | 
 | `en-PH` | Inglese (Filippine)             | 
 | `en-SG` | Inglese (Singapore)               | 
-| `en-ZA` | Inglese (Sud Africa)            | 
+| `en-ZA` | Inglese (Sudafrica)            | 
 | `es-AR` | Spagnolo (Argentina)               | 
 | `es-BO` | Spagnolo (Bolivia)                 | 
 | `es-CL` | Spagnolo (Cile)                   | 
 | `es-CO` | Spagnolo (Colombia)                | 
 | `es-CR` | Spagnolo (Costa Rica)              | 
 | `es-CU` | Spagnolo (Cuba)                    | 
-| `es-DO` | Spagnolo (Repubblica Dominicana)      | 
+| `es-DO` | Spagnolo (Repubblica dominicana)      | 
 | `es-EC` | Spagnolo (Ecuador)                 | 
 | `es-GT` | Spagnolo (Guatemala)               | 
 | `es-HN` | Spagnolo (Honduras)                | 
 | `es-NI` | Spagnolo (Nicaragua)               | 
 | `es-PA` | Spagnolo (Panama)                  | 
 | `es-PE` | Spagnolo (Perù)                    | 
-| `es-PR` | Spagnolo (Porto Rico)             | 
+| `es-PR` | Spagnolo (Puerto Rico)             | 
 | `es-PY` | Spagnolo (Paraguay)                | 
 | `es-SV` | Spagnolo (El Salvador)             | 
 | `es-US` | Spagnolo (Stati Uniti)                     | 

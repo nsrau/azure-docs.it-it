@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483815"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servizio di riconoscimento vocale: novità di docs
 
@@ -32,7 +32,7 @@ Per informazioni sugli aggiornamenti per il servizio riconoscimento vocale, l'SD
 
 ### <a name="new-articles"></a>Nuovi articoli
 
-* [Migliorare un modello per Riconoscimento vocale personalizzato](how-to-custom-speech-improve-accuracy.md)
+* [Migliorare un modello per Riconoscimento vocale personalizzato](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
@@ -44,7 +44,7 @@ Per informazioni sugli aggiornamenti per il servizio riconoscimento vocale, l'SD
 * [Guida introduttiva: sintesi asincrona per audio a lungo termine in Python (anteprima):](./long-audio-api.md) aggiornata con il supporto per le voci neurali pubbliche e i parametri associati.
 * [Guida introduttiva: riconoscimento vocale da un file audio](./get-started-speech-to-text.md) -aggiunta di istruzioni JavaScript alla documentazione.
 * [Guida introduttiva: riconoscere il riconoscimento vocale da un microfono](./get-started-speech-to-text.md) -aggiunta di istruzioni go e JavaScript alla documentazione.
-* [Guida introduttiva: riconoscere il riconoscimento vocale archiviato nell'archiviazione BLOB](quickstarts/from-blob.md) -sono state aggiunte istruzioni JavaScript alla documentazione.
+* [Guida introduttiva: riconoscere il riconoscimento vocale archiviato nell'archiviazione BLOB](./batch-transcription.md) -sono state aggiunte istruzioni JavaScript alla documentazione.
 * [Guida introduttiva: riconoscere sintesi vocale, Intent ed entità con Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Guida introduttiva: configurare l'ambiente di sviluppo](quickstarts/setup-platform.md) -sono state aggiunte istruzioni JavaScript alla documentazione.
 * [Guida introduttiva: sintetizzare sintesi vocale in un file audio](./get-started-text-to-speech.md) : istruzioni JavaScript aggiunte alla documentazione.

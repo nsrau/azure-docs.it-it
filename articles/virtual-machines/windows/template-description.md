@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 0a2a386264be0ec13e29b7a7546926819c5d931a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 228814db76ea14fa8b74c0c5d634e5afd6d54ac6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012732"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483046"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -282,7 +282,7 @@ Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elem
 
 ## <a name="disks-and-images"></a>Dischi e immagini
    
-In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una macchina virtuale specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più macchine virtuali, viene considerato un'immagine.   
+In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una macchina virtuale specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più macchine virtuali, viene considerato un'immagine.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creare nuove macchine virtuali e nuovi dischi da un'immagine della piattaforma
 

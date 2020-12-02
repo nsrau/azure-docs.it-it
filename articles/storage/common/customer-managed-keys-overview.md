@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782230"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483284"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chiavi gestite dal cliente per la crittografia di archiviazione di Azure
 
@@ -113,10 +113,10 @@ Per revocare l'accesso alle chiavi gestite dal cliente, usare [PowerShell](./cus
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Chiavi gestite dal cliente per Azure Managed Disks
 
-Le chiavi gestite dal cliente sono disponibili anche per la gestione della crittografia di Azure Managed Disks. Le chiavi gestite dal cliente hanno un comportamento diverso per i dischi gestiti rispetto alle risorse di archiviazione di Azure. Per altre informazioni, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) per Windows o la [crittografia lato server di Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) per Linux.
+Le chiavi gestite dal cliente sono disponibili anche per la gestione della crittografia di Azure Managed Disks. Le chiavi gestite dal cliente hanno un comportamento diverso per i dischi gestiti rispetto alle risorse di archiviazione di Azure. Per altre informazioni, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/disk-encryption.md) per Windows o la [crittografia lato server di Azure Managed disks](../../virtual-machines/disk-encryption.md) per Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
-- [Configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Configurare la crittografia con le chiavi gestite dal cliente archiviate in Azure Key Vault](customer-managed-keys-configure-key-vault.md)
 - [Configurare la crittografia con chiavi gestite dal cliente archiviate nel modulo di protezione hardware Azure Key Vault gestito (anteprima)](customer-managed-keys-configure-key-vault-hsm.md)

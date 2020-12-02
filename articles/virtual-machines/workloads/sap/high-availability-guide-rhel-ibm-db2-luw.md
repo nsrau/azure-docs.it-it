@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: be455de2a1f8aebc7327af4741e0652a4be76665
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fcc247e9e3122515ebe9230f58860df8c6dd3948
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956433"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484329"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Disponibilità elevata di IBN Db2 LUW in macchine virtuali di Azure su Red Hat Enterprise Linux Server
 
@@ -34,7 +34,7 @@ Le versioni supportate di IBM DB2 sono 10,5 e versioni successive, come descritt
 
 Prima di iniziare un'installazione, vedere le note e la documentazione SAP seguenti:
 
-| Nota SAP | Description |
+| Nota SAP | Descrizione |
 | --- | --- |
 | [1928533] | Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
 | [2015553] | SAP in Azure: prerequisiti per il supporto |
@@ -405,7 +405,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 > Lo SKU Load Balancer Standard presenta restrizioni per l'accesso agli indirizzi IP pubblici dai nodi sotto la Load Balancer. L'articolo [connettività dell'endpoint pubblico per le macchine virtuali che usano Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) descrive come abilitare tali nodi per accedere a indirizzi IP pubblici
 
 > [!IMPORTANT]
-> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.  
+> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.  
 
 
 1. Creare un pool di indirizzi IP front-end:

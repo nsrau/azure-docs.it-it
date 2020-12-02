@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959170"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484431"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -46,8 +46,8 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 | **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (applicazione di patch/aggiornamenti gestita da Azure) |
 | **Risorsa** |Dedicato  |Condivisa con altri client|
 | **Aree** |Data center |[Coppie di aree](../../regions.md#region-pairs)|
-| **Archiviazione** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-| **Ridimensionamento** |Scalabilità verticale |Scalabilità orizzontale|
+| **Storage** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Ridimensiona** |Scalabilità verticale |Scalabilità orizzontale|
 
 
 ### <a name="requirements"></a>Requisiti
@@ -138,7 +138,7 @@ In base ai requisiti di larghezza di banda della rete, sono disponibili diversi 
 - La latenza di rete è superiore rispetto a una distribuzione locale. La riduzione dei round trip di rete può migliorare notevolmente le prestazioni.
 - Per ridurre i round trip, consolidare le applicazioni con transazioni elevate o con un livello di comunicazioni elevato nella stessa macchina virtuale.
 - Usare macchine virtuali con [rete accelerata](../../../virtual-network/create-vm-accelerated-networking-cli.md) per migliorare le prestazioni di rete.
-- Per alcune distribuzioni di Linux, prendere in considerazione l'abilitazione del [supporto Trim/annullare](../../linux/configure-lvm.md#trimunmap-support).
+- Per alcune distribuzioni di Linux, prendere in considerazione l'abilitazione del [supporto Trim/annullare](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installare [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) in una macchina virtuale separata.
 - Per impostazione predefinita, le pagine di grandi dimensioni non sono abilitate in Linux. Prendere in considerazione l'abilitazione di pagine di grandi dimensioni e impostare `use_large_pages = ONLY` sul Oracle DB. Questo può contribuire a migliorare le prestazioni. Altre informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 

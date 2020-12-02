@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 834fd32d17c4a5ff112dd11a331a59336d7cbcb7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f9fdff54cbd795c6aeda1708dcae8d00022a6a43
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315263"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483505"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creare una valutazione della soluzione VMware di Azure (AVS)
 
@@ -21,7 +21,7 @@ Questo articolo descrive come creare una valutazione della soluzione VMware di A
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
+- Assicurarsi di aver [creato](./create-manage-projects.md) un progetto Azure migrate.
 - Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
 - Per creare una valutazione, è necessario configurare un'appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md), che individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure migrate: valutazione del server. [Altre informazioni](migrate-appliance.md)
 - È anche possibile [importare i metadati del server](./tutorial-discover-import.md) nel formato con valori delimitati da virgole (CSV).
@@ -58,7 +58,7 @@ Eseguire una valutazione della soluzione VMware di Azure (AVS) come indicato di 
 
     ![Screenshot mostra i server Azure Migrate con valutazione selezionata in strumenti di valutazione.](./media/how-to-create-assessment/assess.png)
 
-3. In **valuta Server**selezionare il tipo di valutazione come "soluzione VMware di Azure (AVS)", selezionare l'origine di individuazione e specificare il nome della valutazione.
+3. In **valuta Server** selezionare il tipo di valutazione come "soluzione VMware di Azure (AVS)", selezionare l'origine di individuazione e specificare il nome della valutazione.
 
     ![Informazioni di base sulla valutazione](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
@@ -101,7 +101,7 @@ Una valutazione della soluzione VMware di Azure (AVS) descrive:
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Esaminare la conformità della soluzione VMware di Azure (AVS)
 
-1. In **Azure conformità**verificare se le macchine virtuali sono pronte per la migrazione a AVS.
+1. In **Azure conformità** verificare se le macchine virtuali sono pronte per la migrazione a AVS.
 
 2. Verificare lo stato delle VM:
     - **Pronto per AVS**: è possibile eseguire la migrazione del computer in Azure (AVS) senza alcuna modifica. Verrà avviato in AVS con supporto AVS completo.

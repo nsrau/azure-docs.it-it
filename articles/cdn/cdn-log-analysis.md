@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073043"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483989"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analizzare i modelli di utilizzo della rete CDN di Azure
 
@@ -31,7 +31,7 @@ Con un profilo Microsoft standard, è possibile abilitare i log non elaborati e 
 
 Con Azure Log Analytics è possibile visualizzare le metriche di monitoraggio e configurare gli avvisi. 
 
-Per altre informazioni, vedere la pagina relativa ai [log Raw http](enable-raw-logs.md)della rete CDN di Azure.
+Per altre informazioni, vedere la pagina relativa ai [log Raw http](monitoring-and-access-log.md)della rete CDN di Azure.
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analisi principale tramite i log di diagnostica di Azure
@@ -61,6 +61,4 @@ In questo articolo sono state illustrate le diverse opzioni per i report di anal
 Per altre informazioni sulla rete CDN di Azure e sugli altri servizi di Azure menzionati in questo articolo, vedere:
 
 * [Che cos'è la rete CDN di Azure?](cdn-overview.md)
-* [Log non elaborati HTTP della rete CDN di Azure](enable-raw-logs.md)
-
-
+* [Log non elaborati HTTP della rete CDN di Azure](monitoring-and-access-log.md)

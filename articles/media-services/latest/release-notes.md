@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505258"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483628"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -51,7 +51,7 @@ Per ulteriori informazioni sulla modalità di base dell'analizzatore audio, vede
 
 Gli aggiornamenti alla maggior parte delle proprietà sono ora consentiti quando gli eventi live vengono arrestati. Inoltre, gli utenti possono specificare un prefisso per il nome host statico per gli URL di input e di anteprima dell'evento Live. VanityUrl viene ora chiamato `useStaticHostName` per riflettere meglio lo scopo della proprietà.
 
-Gli eventi Live hanno ora uno stato StandBy.  Vedere [eventi live e output Live in servizi multimediali](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+Gli eventi Live hanno ora uno stato StandBy.  Vedere [eventi live e output Live in servizi multimediali](./live-events-outputs-concept.md).
 
 Un evento Live supporta la ricezione di diverse proporzioni di input. La modalità Stretch consente ai clienti di specificare il comportamento di adattamento per l'output.
 

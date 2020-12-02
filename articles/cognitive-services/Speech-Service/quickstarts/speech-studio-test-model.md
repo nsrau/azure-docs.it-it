@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565804"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485077"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testare un modello usando un file audio in Speech Studio
 
@@ -23,7 +23,7 @@ In questa procedura si usa Speech Studio per convertire il parlato di un file au
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di usare il portale del Servizio di riconoscimento vocale, [seguire queste istruzioni per creare un account Azure e sottoscrivere il servizio Voce](../how-to-custom-speech.md#set-up-your-azure-account). Questa sottoscrizione unificata consente di accedere a riconoscimento vocale, sintesi vocale, traduzione vocale e il portale di Riconoscimento vocale personalizzato.
+Prima di usare il portale del Servizio di riconoscimento vocale, [seguire queste istruzioni per creare un account Azure e sottoscrivere il servizio Voce](../custom-speech-overview.md#set-up-your-azure-account). Questa sottoscrizione unificata consente di accedere a riconoscimento vocale, sintesi vocale, traduzione vocale e il portale di Riconoscimento vocale personalizzato.
 
 ## <a name="download-an-audio-file"></a>Scaricare un file audio
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386708"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485264"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -30,7 +30,7 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 
 ## <a name="on-premises-servers"></a>Server locali
 
-**Server** | **Requirements** | **Dettagli**
+**Server** | **Requirements** | **Informazioni dettagliate**
 --- | --- | ---
 Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti <br/><br/> **Nota:** Sono supportate anche l'installazione dei componenti di base del server di questi sistemi operativi. | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata.
 Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Nota:** Sono supportate anche l'installazione dei componenti di base del server di questi sistemi operativi.  | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.
@@ -43,7 +43,7 @@ Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 20
 
 La tabella seguente riepiloga il supporto per VM. Site Recovery supporta i carichi di lavoro in esecuzione in un sistema operativo supportato.
 
- **Componente** | **Dettagli**
+ **Componente** | **Informazioni dettagliate**
 --- | ---
 Configurazione della macchina virtuale | Le VM che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
 Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases).<br/><br/> Windows Server 2016 Nano Server non è supportato.
@@ -136,7 +136,7 @@ Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
 Crittografia per dati inattivi (SSE)| Sì | Sì
 Crittografia dei dati inattivi (CMK) <br></br> (Solo per failover a Managed Disks)| Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
-Crittografia a doppio inattivo <br></br> (Solo per failover a Managed Disks) <br></br> Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
+Crittografia a doppio inattivo <br></br> (Solo per failover a Managed Disks) <br></br> Altre informazioni sulle aree supportate per [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
 Archiviazione Premium | Sì | Sì
 Archiviazione standard | Sì | Sì
 Servizio di importazione/esportazione | No | No
@@ -157,7 +157,7 @@ Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback d
 
 Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti per le VM di Azure riepilogati in questa tabella.
 
-**Componente** | **Requirements** | **Dettagli**
+**Componente** | **Requirements** | **Informazioni dettagliate**
 --- | --- | ---
 Sistema operativo guest | Site Recovery supporta tutti i sistemi operativi [supportati da Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 32 bit (Windows Server 2008)/64-bit | Il controllo dei prerequisiti ha esito negativo se non supportato.
@@ -188,7 +188,7 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 
 Per assicurarsi che la distribuzione sia compatibile con le impostazioni in questo articolo, accertarsi di eseguire le versioni più recenti del provider e dell'agente.
 
-**Nome** | **Descrizione** | **Dettagli**
+**Nome** | **Descrizione** | **Informazioni dettagliate**
 --- | --- | --- 
 Provider di Azure Site Recovery | Coordina le comunicazioni tra server locali e Azure <br/><br/> Hyper-V con Virtual Machine Manager: installato nei server Virtual Machine Manager<br/><br/> Hyper-V senza Virtual Machine Manager: installato negli host Hyper-V| Versione più recente: 5.1.2700.1 (disponibile dal portale di Azure)<br/><br/> [Funzionalità e correzioni più recenti](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agente di Servizi di ripristino di Microsoft Azure | Coordina la replica tra le macchine virtuali Hyper-V e Azure<br/><br/> Installato nei server Hyper-V locali (con o senza Virtual Machine Manager) | Agente più recente disponibile dal portale

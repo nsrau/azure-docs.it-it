@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635212"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484890"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -77,7 +77,7 @@ I log di archiviazione di Azure acquisiscono informazioni dettagliate sulle rich
 
 Per registrare le richieste nell'account di archiviazione di Azure per valutare il modo in cui sono autorizzate, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../blobs/monitor-blob-storage.md).
 
-Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Creare un'impostazione di diagnostica nel portale di Azure
 
@@ -88,9 +88,9 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
 1. Selezionare il servizio di archiviazione di Azure per cui si vogliono registrare le richieste. Ad esempio, scegliere **BLOB** per registrare le richieste nell'archivio BLOB.
-1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Selezionare **Aggiungi impostazione di diagnostica**.
 1. Consente di specificare un nome per l'impostazione di diagnostica.
-1. In **Dettagli categoria** , nella sezione **log** , scegliere **StorageRead** , **StorageWrite** e **StorageDelete** per registrare tutte le richieste di dati al servizio selezionato.
+1. In **Dettagli categoria**, nella sezione **log** , scegliere **StorageRead**, **StorageWrite** e **StorageDelete** per registrare tutte le richieste di dati al servizio selezionato.
 1. In **Dettagli destinazione** selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
@@ -215,10 +215,10 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 |-|-|
 | Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supportato per l'archiviazione BLOB. Per informazioni su come autorizzare le operazioni di AzCopy, vedere [scegliere come fornire le credenziali di autorizzazione](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) nella documentazione di AzCopy. |
-| Azure Storage Explorer | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Esplora archivi Azure | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell per operazioni BLOB o di Accodamento con Azure AD, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-powershell.md) o [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati della coda](../queues/authorize-data-operations-powershell.md). |
-| Interfaccia della riga di comando di Azure | Supportata. Per informazioni su come autorizzare i comandi dell'interfaccia della riga di comando di Azure con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi dell'interfaccia della riga di comando di Azure con Azure ad credenziali per accedere ai dati BLOB](authorize-data-operations-cli.md) |
-| Hub IoT di Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
+| Interfaccia della riga di comando di Azure | Supportata. Per informazioni su come autorizzare i comandi dell'interfaccia della riga di comando di Azure con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi dell'interfaccia della riga di comando di Azure con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-cli.md) |
+| Hub IoT Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
@@ -239,7 +239,7 @@ Le metriche e la registrazione di Azure in monitoraggio di Azure non distinguono
 - Un token di firma di accesso condiviso del servizio o un token di firma di accesso condiviso dell'account è autorizzato con chiave condivisa e non sarà consentito per una richiesta all'archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false**.
 - Una firma di accesso condiviso di delega utente è autorizzata con Azure AD e sarà consentita su una richiesta di archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false**.
 
-Quando si valuta il traffico verso l'account di archiviazione, tenere presente che le metriche e i log come descritto in [rilevare il tipo di autorizzazione usato dalle applicazioni client](#detect-the-type-of-authorization-used-by-client-applications) possono includere le richieste effettuate con una firma di accesso condiviso dell'utente. Per altre informazioni sul modo in cui archiviazione di Azure risponde a una firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** è impostata su **false** , vedere [informazioni sulla disabilitazione della chiave condivisa sui token SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
+Quando si valuta il traffico verso l'account di archiviazione, tenere presente che le metriche e i log come descritto in [rilevare il tipo di autorizzazione usato dalle applicazioni client](#detect-the-type-of-authorization-used-by-client-applications) possono includere le richieste effettuate con una firma di accesso condiviso dell'utente. Per altre informazioni sul modo in cui archiviazione di Azure risponde a una firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** è impostata su **false**, vedere [informazioni sulla disabilitazione della chiave condivisa sui token SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Le richieste con token di firma di accesso condiviso sono consentite per le code, le tabelle e i file quando AllowSharedKeyAccess è false
 

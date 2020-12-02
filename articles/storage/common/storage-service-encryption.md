@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785783"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484601"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -32,7 +32,7 @@ Ogni BLOB in blocchi, BLOB di accodamento o BLOB di pagine che è stato scritto 
 
 Per altre informazioni sui moduli di crittografia sottostanti la crittografia di archiviazione di Azure, vedere [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed disks, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) per macchine virtuali Windows o [la crittografia lato server di Azure Managed](../../virtual-machines/linux/disk-encryption.md) disks per macchine virtuali Linux.
+Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed disks, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/disk-encryption.md) per macchine virtuali Windows o [la crittografia lato server di Azure Managed](../../virtual-machines/disk-encryption.md) disks per macchine virtuali Linux.
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 

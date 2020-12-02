@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eb71de223e2d840e0caa0444b837e16e1f091414
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787670"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484788"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 
@@ -57,11 +57,11 @@ Tutti i log vengono archiviati in Blob in blocchi in un contenitore denominato `
 > [!NOTE]
 >  Il contenitore `$logs` non viene visualizzato quando viene eseguita un'operazione di inclusione nell'elenco del contenitore, ad esempio, l'operazione ListContainers. È necessario effettuare l'accesso diretto. Ad esempio, è possibile usare l'operazione ListBlobs per accedere ai BLOB nel contenitore `$logs`.
 
-Nel momento in cui vengono registrate le richieste, Analisi archiviazione carica i risultati intermedi come blocchi. Analisi archiviazione invierà periodicamente questi blocchi e li renderà disponibili come BLOB. A causa della frequenza con cui il servizio di archiviazione scarica i writer dei log, la visualizzazione dei dati dei BLOB presenti nel contenitore **$logs** può richiedere fino a un'ora. Per i log creati nella stessa ora possono esistere record duplicati. È possibile determinare se un record è un duplicato controllandone il numero **RequestId** e **Operation** .
+Nel momento in cui vengono registrate le richieste, Analisi archiviazione carica i risultati intermedi come blocchi. Analisi archiviazione invierà periodicamente questi blocchi e li renderà disponibili come BLOB. A causa della frequenza con cui il servizio di archiviazione scarica i writer dei log, la visualizzazione dei dati dei BLOB presenti nel contenitore **$logs** può richiedere fino a un'ora. Per i log creati nella stessa ora possono esistere record duplicati. È possibile determinare se un record è un duplicato controllandone il numero **RequestId** e **Operation**.
 
 Se ogni ora vengono registrati ingenti volumi di dati memorizzati in diversi file, è possibile usare i metadati dei BLOB per determinare i dati contenuti nel log esaminando i campi dei metadati. Questa procedura può rivelarsi utile perché in alcune occasioni i dati vengono scritti nei file di log con un ritardo: i metadati dei BLOB forniscono un'indicazione più accurata del contenuto del BLOB rispetto al nome di quest'ultimo.
 
-La maggior parte degli strumenti di esplorazione delle informazioni archiviate consente di visualizzare i metadati dei BLOB. È possibile anche leggere queste informazioni a livello di codice o usando PowerShell. Il seguente frammento di codice PowerShell è un esempio di filtro dell'elenco di BLOB di log in base al nome per specificare un'ora e in base ai metadati per identificare soltanto i log contenenti operazioni di **scrittura** .  
+La maggior parte degli strumenti di esplorazione delle informazioni archiviate consente di visualizzare i metadati dei BLOB. È possibile anche leggere queste informazioni a livello di codice o usando PowerShell. Il seguente frammento di codice PowerShell è un esempio di filtro dell'elenco di BLOB di log in base al nome per specificare un'ora e in base ai metadati per identificare soltanto i log contenenti operazioni di **scrittura**.  
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -139,7 +139,7 @@ Nel portale di Azure usare il pannello **Impostazioni di diagnostica (versione c
 
  È possibile usare PowerShell nel computer locale per configurare la registrazione dell'archiviazione nell'account di archiviazione usando il cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** per recuperare le impostazioni correnti e il cmdlet **set-AzStorageServiceLoggingProperty** per modificare le impostazioni correnti.  
 
- I cmdlet che controllano Registrazione archiviazione usano il parametro **LoggingOperations** , costituito da una stringa contenente un elenco separato da virgole dei tipi di richiesta da registrare. I tre tipi possibili di richiesta sono **read** , **write** e **delete** . Per disattivare la registrazione, usare il valore **none** per il parametro **LoggingOperations** .  
+ I cmdlet che controllano Registrazione archiviazione usano il parametro **LoggingOperations**, costituito da una stringa contenente un elenco separato da virgole dei tipi di richiesta da registrare. I tre tipi possibili di richiesta sono **read**, **write** e **delete**. Per disattivare la registrazione, usare il valore **none** per il parametro **LoggingOperations**.  
 
  Il seguente comando attiva la registrazione per le richieste di lettura, scrittura ed eliminazione per il Servizio di accodamento nell'account di archiviazione predefinito, con periodo di conservazione di cinque giorni:  
 
@@ -204,7 +204,7 @@ Nell'esempio seguente viene illustrato come è possibile scaricare i dati di log
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Per altre informazioni su come scaricare file specifici, vedere [Scaricare file specifici](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
+Per altre informazioni su come scaricare file specifici, vedere [Scaricare file specifici](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Una volta scaricati i dati di log, è possibile visualizzare le voci di log nei file. Questi file di log utilizzano un formato di testo delimitato che molti strumenti di lettura log sono in grado di analizzare (per ulteriori informazioni, vedere la Guida [monitoraggio, diagnosi e risoluzione dei problemi archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Altri strumenti dispongono di funzionalità differenti per la formattazione, il filtro, l'ordinamento e la ricerca nei contenuti dei file di log. Per altre informazioni sul formato dei file di log di Registrazione archiviazione, vedere [Formato del log di Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format) e [Operazioni e messaggi di stato registrati di Analisi archiviazione](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
