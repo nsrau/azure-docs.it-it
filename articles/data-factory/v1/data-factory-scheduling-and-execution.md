@@ -3,20 +3,20 @@ title: Pianificazione ed esecuzione con Data Factory
 description: Informazioni sugli aspetti di pianificazione ed esecuzione del modello applicativo di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60410eb2a9a5f18abf2daf87646943ffdc944402
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319721"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495175"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Pianificazione ed esecuzione con Data Factory
 > [!NOTE]
@@ -182,7 +182,7 @@ Nell'esempio precedente, la pianificazione specificata per i set di dati di inpu
 ### <a name="dataset-availability"></a>Disponibilità dei set di dati 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione **Availability** :
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |N/D |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b> : se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Sì |N/D |
@@ -230,10 +230,10 @@ Per un set di dati è possibile definire anche un criterio di convalida che spec
 
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare. La tabella seguente descrive le proprietà che è possibile usare nella sezione **policy**:
 
-| Nome criterio | Descrizione | Applicato a | Obbligatoria | Predefinito |
+| Nome criterio | Descrizione | Applicato a | Necessario | Predefinito |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Verifica che i dati in un **BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |BLOB Azure |No |N/D |
-| minimumRows | Verifica che i dati nel **database SQL di Azure** o nella **tabella di Azure** contengano il numero minimo di righe. |<ul><li>database SQL di Azure</li><li>tabella di Azure</li></ul> |No |N/D |
+| minimumRows | Verifica che i dati nel **database SQL di Azure** o nella **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>tabella di Azure</li></ul> |No |N/D |
 
 #### <a name="examples"></a>Esempi
 **minimumSizeMB:**
@@ -294,7 +294,7 @@ Il diagramma illustra che in una delle tre sezioni recenti si è verificato un e
 
 Gli strumenti di monitoraggio e gestione di Data Factory consentono inoltre di analizzare i log di diagnostica relativi alla sezione con esito negativo e individuare facilmente la causa principale del problema per permetterne la risoluzione. Dopo aver risolto il problema, è possibile avviare facilmente l'esecuzione di attività per generare la sezione non riuscita. Per altre informazioni su come riavviare le esecuzioni o per comprendere le transizioni di stato per le sezioni di dati, vedere [Monitorare e gestire le pipeline con i pannelli del portale di Azure](data-factory-monitor-manage-pipelines.md) o [App di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
-Dopo che la sezione 9-10 AM di **Dataset2**è stata eseguita nuovamente, Data Factory avvia l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale.
+Dopo che la sezione 9-10 AM di **Dataset2** è stata eseguita nuovamente, Data Factory avvia l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale.
 
 ![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 

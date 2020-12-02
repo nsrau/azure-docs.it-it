@@ -3,20 +3,20 @@ title: Chiamare i programmi Spark da Azure Data Factory
 description: Informazioni su come chiamare programmi Spark da una data factory di Azure usando l'attività MapReduce.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359952"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495073"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -112,7 +112,7 @@ In questo passaggio, l'account di archiviazione viene collegato alla data factor
 #### <a name="create-an-hdinsight-linked-service"></a>Creare un servizio collegato HDInsight
 In questo passaggio viene creato un servizio collegato HDInsight per collegare il cluster Spark HDInsight alla data factory. In questo esempio il cluster HDInsight viene usato per eseguire il programma Spark specificato nell'attività Spark della pipeline.
 
-1. Nell'editor di **Data Factory selezionare**  >  **nuovo**  >  **cluster HDInsight**di calcolo.
+1. Nell'editor di **Data Factory selezionare**  >  **nuovo**  >  **cluster HDInsight** di calcolo.
 
     ![Creare un servizio collegato HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, JavaEE, microprofile, Open Liberty, WebSphere-Liberty, Aro, OpenShift, Red Hat
-ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018393"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493943"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Distribuire un'applicazione Java con Open Liberty/WebSphere Liberty in un cluster Azure Red Hat OpenShift 4
 
@@ -25,26 +25,26 @@ Questa guida illustra come eseguire l'applicazione Java, Java EE, [Jakarta EE](h
 Per esaminare correttamente questa guida, completare i prerequisiti seguenti.
 
 > [!NOTE]
-> Azure Red Hat OpenShift richiede almeno 40 core per creare ed eseguire un cluster OpenShift. La quota di risorse di Azure predefinita per una nuova sottoscrizione di Azure non soddisfa questo requisito. Per richiedere un aumento del limite di risorse, vedere [Quota standard: aumentare i limiti per serie di macchine virtuali](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Si noti che la sottoscrizione di valutazione gratuita non è idonea per un aumento della quota, è [possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) consumo prima di richiedere un aumento della quota.
+> Azure Red Hat OpenShift richiede almeno 40 core per creare ed eseguire un cluster OpenShift. La quota di risorse di Azure predefinita per una nuova sottoscrizione di Azure non soddisfa questo requisito. Per richiedere un aumento del limite di risorse, vedere [Quota standard: aumentare i limiti per serie di macchine virtuali](../azure-portal/supportability/per-vm-quota-requests.md). Si noti che la sottoscrizione di valutazione gratuita non è idonea per un aumento della quota, è [possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al](../cost-management-billing/manage/upgrade-azure-subscription.md) consumo prima di richiedere un aumento della quota.
 
 1. Preparare un computer locale con un sistema operativo simile a UNIX installato (ad esempio, Ubuntu, macOS).
 1. Installare un'implementazione di Java SE (ad esempio, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Installare [Maven](https://maven.apache.org/download.cgi) 3.5.0 o versione successiva.
 1. Installare [Docker](https://docs.docker.com/get-docker/) per il sistema operativo.
-1. Installare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 2.0.75.
+1. Installare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75.
 1. Controllare e installare [`envsubst`](https://command-not-found.com/envsubst) se non è preinstallato nel sistema operativo.
 1. Clonare il codice per questo esempio nel sistema locale. L'esempio è su [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-1. Seguire le istruzioni riportate in [creare un cluster Azure Red Hat OpenShift 4](/azure/openshift/tutorial-create-cluster).
+1. Seguire le istruzioni riportate in [creare un cluster Azure Red Hat OpenShift 4](./tutorial-create-cluster.md).
 
    Sebbene il passaggio "Get a Red Hat pull Secret" sia contrassegnato come facoltativo, è **obbligatorio per questo articolo**.  Il segreto di pull consente al cluster OpenShift di Azure Red Hat di trovare l'operatore Open Liberty.
 
    Se si prevede di eseguire applicazioni con utilizzo intensivo della memoria nel cluster, specificare le dimensioni appropriate della macchina virtuale per i nodi di lavoro utilizzando il `--worker-vm-size` parametro. Ad esempio, `Standard_E4s_v3` è la dimensione minima della macchina virtuale per installare l'operatore elasticsearch in un cluster. Per altre informazioni, vedere:
 
-   * [INTERFACCIA della riga di comando di Azure per creare un cluster](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
-   * [Dimensioni delle macchine virtuali supportate per l'ottimizzazione della memoria](/azure/openshift/support-policies-v4#memory-optimized)
+   * [INTERFACCIA della riga di comando di Azure per creare un cluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [Dimensioni delle macchine virtuali supportate per l'ottimizzazione della memoria](./support-policies-v4.md#memory-optimized)
    * [Prerequisiti per l'installazione dell'operatore elasticsearch](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. Connettersi al cluster attenendosi alla procedura descritta in [connettersi a un cluster Azure Red Hat OpenShift 4](/azure/openshift/tutorial-connect-cluster).
+1. Connettersi al cluster attenendosi alla procedura descritta in [connettersi a un cluster Azure Red Hat OpenShift 4](./tutorial-connect-cluster.md).
    * Assicurarsi di seguire la procedura descritta in "installare l'interfaccia della riga di comando di OpenShift" perché il comando verrà usato `oc` più avanti in questo articolo.
    * Annotare l'URL della console del cluster simile a `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` .
    * Prendere nota delle `kubeadmin` credenziali.
@@ -241,7 +241,7 @@ Poiché si usa l'operatore Open Liberty per gestire le applicazioni Liberty, è 
    ![Contenimento di ARO Java](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Selezionare **Crea OpenLibertyApplication**
 1. Sostituire l'oggetto YAML generato con il proprio, disponibile in `<path-to-repo>/2-simple/openlibertyapplication.yaml` .
-1. Selezionare **Crea**. Verrà restituito l'elenco di OpenLibertyApplications.
+1. Selezionare **Create** (Crea). Verrà restituito l'elenco di OpenLibertyApplications.
 1. Selezionare **JavaEE-Café-Simple**.
 1. Al centro della pagina selezionare **risorse**.
 1. Nella tabella selezionare il collegamento per **JavaEE-Café-Simple** con il **tipo** di **Route**.
@@ -314,7 +314,7 @@ oc delete -f openlibertyapplication.yaml
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Eliminare il cluster ARO attenendosi alla procedura descritta in [esercitazione: eliminare un cluster di Azure Red Hat OpenShift 4](/azure/openshift/tutorial-delete-cluster)
+Eliminare il cluster ARO attenendosi alla procedura descritta in [esercitazione: eliminare un cluster di Azure Red Hat OpenShift 4](./tutorial-delete-cluster.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

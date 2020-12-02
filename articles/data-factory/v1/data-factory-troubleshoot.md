@@ -8,17 +8,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637072"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494971"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Risolvere i problemi di Data factory
 > [!NOTE]
@@ -65,7 +65,7 @@ L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o
 Avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer gateway. Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .   
 
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problema: le sezioni di input sono in stato di attesa per sempre
-Le sezioni potrebbero essere **In attesa** per diversi motivi. Uno dei motivi più comuni è che la proprietà **external** non è impostata su **true** . Eventuali set di dati prodotti all'esterno dell'ambito di Azure Data Factory devono essere contrassegnati con la proprietà **external** . Questa proprietà indica che i dati sono esterni e non sono supportati da alcuna pipeline nel Data Factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
+Le sezioni potrebbero essere **In attesa** per diversi motivi. Uno dei motivi più comuni è che la proprietà **external** non è impostata su **true**. Eventuali set di dati prodotti all'esterno dell'ambito di Azure Data Factory devono essere contrassegnati con la proprietà **external** . Questa proprietà indica che i dati sono esterni e non sono supportati da alcuna pipeline nel Data Factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
 Per l'uso della proprietà **external** , vedere l'esempio seguente. Facoltativamente, è possibile specificare **externalData** _ quando si imposta External su true.
 
@@ -97,7 +97,7 @@ Per altre informazioni su questa proprietà, vedere [Set di dati in Azure Data F
 }
 ```
 
-Per risolvere l'errore, aggiungere la proprietà _ *External* * e la sezione facoltativa **EXTERNALDATA** alla definizione JSON della tabella di input e ricreare la tabella.
+Per risolvere l'errore, aggiungere la proprietà _ *External** e la sezione facoltativa **EXTERNALDATA** alla definizione JSON della tabella di input e ricreare la tabella.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problema: l'operazione di copia ibrida non riesce
 Per le procedure di risoluzione dei problemi relativi alla copia da e verso un archivio dati locale usando il gateway di gestione dati, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).

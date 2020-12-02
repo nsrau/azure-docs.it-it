@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315778"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494444"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -31,7 +31,7 @@ Se viene visualizzato l'errore "il file manifesto specificato non è valido: voc
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
-   - In **Home**  >  **Inventory**selezionare **file**  >  **deploy OVF template**. Passare a OVA e completare la distribuzione.
+   - In **Home**  >  **Inventory** selezionare **file**  >  **deploy OVF template**. Passare a OVA e completare la distribuzione.
 4. Se l'errore di distribuzione persiste, contattare il supporto di Azure Migrate.
 
 ## <a name="cant-connect-to-the-internet"></a>Non è possibile connettersi a Internet
@@ -80,7 +80,7 @@ Se viene ricevuto questo errore di connessione, potrebbe non essere possibile co
     - [Altre](./migrate-appliance.md#appliance---vmware) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
 - Errore 60039: "è possibile che l'appliance non sia stata registrata correttamente nel progetto Azure Migrate" se la registrazione non riesce perché il progetto Azure Migrate usato per registrare l'appliance non è stato trovato.
     - Nel portale di Azure e verificare se il progetto esiste nel gruppo di risorse.
-    - Se il progetto non esiste, creare un nuovo progetto di Azure Migrate nel gruppo di risorse e registrare di nuovo l'appliance. [Informazioni su come](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) creare un nuovo progetto.
+    - Se il progetto non esiste, creare un nuovo progetto di Azure Migrate nel gruppo di risorse e registrare di nuovo l'appliance. [Informazioni su come](./create-manage-projects.md#create-a-project-for-the-first-time) creare un nuovo progetto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Errore 60030/60031: operazione di gestione Key Vault non riuscita
 
@@ -98,7 +98,7 @@ Errore 60028: "Impossibile avviare l'individuazione a causa di un errore. L'oper
 - Se si verifica un errore di convalida, rivedere le indicazioni per la correzione per correggere gli errori, quindi provare a eseguire di nuovo l'opzione **Salva e avvia individuazione** .
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Errore 60025: operazione Azure AD non riuscita 
-Errore 60025: "un'operazione Azure AD non è riuscita. L'errore si è verificato durante la creazione o l'aggiornamento dell'applicazione Azure AD "si verifica quando l'account utente di Azure usato per avviare l'individuazione è diverso dall'account usato per registrare l'appliance. Eseguire una delle operazioni seguenti:
+Errore 60025: "un'operazione Azure AD non è riuscita. L'errore si è verificato durante la creazione o l'aggiornamento dell'applicazione Azure AD "si verifica quando l'account utente di Azure usato per avviare l'individuazione è diverso dall'account usato per registrare l'appliance. Eseguire una di queste operazioni:
 
 - Assicurarsi che l'account utente che avvia l'individuazione sia uguale a quello usato per registrare l'appliance.
 - Fornire Azure Active Directory le autorizzazioni di accesso alle applicazioni per l'account utente per il quale l'operazione di individuazione ha esito negativo.
@@ -157,8 +157,8 @@ Se questa operazione non funziona e si stanno scoprendo i server VMware:
 
 Se le macchine virtuali individuate non vengono visualizzate nel portale o se i dati della macchina virtuale sono obsoleti, attendere alcuni minuti. Sono necessari fino a 30 minuti per la visualizzazione delle modifiche nei dati di configurazione della macchina virtuale individuati nel portale. Potrebbero essere necessarie alcune ore per visualizzare le modifiche apportate ai dati dell'applicazione. Se non sono presenti dati dopo questa volta, provare ad aggiornare, come indicato di seguito.
 
-1. In **Server**  >  **Azure migrate Assessment server**selezionare **Panoramica**.
-2. In **Gestisci**selezionare **integrità agente**.
+1. In **Server**  >  **Azure migrate Assessment server** selezionare **Panoramica**.
+2. In **Gestisci** selezionare **integrità agente**.
 3. Selezionare **Aggiorna agente**.
 4. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
 
@@ -179,8 +179,8 @@ Questo stato viene visualizzato se il caricamento del file CSV non è riuscito a
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Non visualizzare i dettagli dell'applicazione anche dopo l'aggiornamento delle credenziali Guest
 L'individuazione dell'applicazione viene eseguita ogni 24 ore. Se si desidera visualizzare immediatamente i dettagli, aggiornare come indicato di seguito. L'operazione potrebbe richiedere alcuni minuti a seconda del numero di minuti. delle macchine virtuali individuate.
 
-1. In **Server**  >  **Azure migrate Assessment server**selezionare **Panoramica**.
-2. In **Gestisci**selezionare **integrità agente**.
+1. In **Server**  >  **Azure migrate Assessment server** selezionare **Panoramica**.
+2. In **Gestisci** selezionare **integrità agente**.
 3. Selezionare **Aggiorna agente**.
 4. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
 

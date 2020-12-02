@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018104"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493985"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -59,7 +59,7 @@ I log dei flussi sono l'origine della verità per tutte le attività di rete nel
 **Concetti di base**
 
 - Le reti definite da software sono organizzate intorno alle reti virtuali (reti virtuali) e alle subnet. La sicurezza di questi reti virtuali e subnet può essere gestita tramite un NSG.
-- Un gruppo di sicurezza di rete (NSG) contiene un elenco di _regole di sicurezza_ che consentono o negano il traffico di rete nelle risorse a cui è connessa. Gruppi può essere associato a subnet, singole VM o singole interfacce di rete collegate alle VM (Gestione risorse). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- Un gruppo di sicurezza di rete (NSG) contiene un elenco di _regole di sicurezza_ che consentono o negano il traffico di rete nelle risorse a cui è connessa. Gruppi può essere associato a subnet, singole VM o singole interfacce di rete collegate alle VM (Gestione risorse). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Tutti i flussi di traffico nella rete vengono valutati usando le regole nel NSG applicabile.
 - Il risultato di queste valutazioni è NSG Flow log. I log di flusso vengono raccolti tramite la piattaforma Azure e non richiedono alcuna modifica alle risorse del cliente.
 - Nota: le regole sono di due tipi, ovvero terminano & non fatali, ognuna con diversi comportamenti di registrazione.

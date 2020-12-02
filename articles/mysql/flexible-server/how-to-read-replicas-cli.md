@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 151b72eb11600713b115d45e5927d8170a519ad1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: a7d63fd76a88430495c9f55200308f63b11c89d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635773"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494308"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Come creare e gestire le repliche di lettura nel database di Azure per il server flessibile MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -44,7 +44,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 ``` 
 
 > [!NOTE]
-> Le repliche di lettura vengono create con la stessa configurazione del server dell'origine. La configurazione del server di replica può essere modificata dopo la creazione. Il server di replica viene sempre creato nello stesso gruppo di risorse, nello stesso percorso e nella stessa sottoscrizione del server di origine. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) dopo averlo creato. È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con l'origine.
+> Le repliche di lettura vengono create con la stessa configurazione del server dell'origine. La configurazione del server di replica può essere modificata dopo la creazione. Il server di replica viene sempre creato nello stesso gruppo di risorse, nello stesso percorso e nella stessa sottoscrizione del server di origine. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) dopo averlo creato. È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con l'origine.
 
 
 ### <a name="list-replicas-for-a-source-server"></a>Elencare le repliche per un server di origine

@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: af9254bc536dedc425aac53199665ae399e60a5a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314651"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494410"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Risolvere i problemi relativi ai progetti di Azure Migrate
 
@@ -19,7 +19,7 @@ Questo articolo consente di risolvere i problemi durante la creazione e la gesti
 
 ## <a name="how-to-add-new-project"></a>Come aggiungere un nuovo progetto
 
-È possibile che una sottoscrizione contenga più progetti Azure Migrate. [Informazioni su come](how-to-add-tool-first-time.md) creare un progetto per la prima volta o [aggiungere altri](create-manage-projects.md#create-additional-projects) progetti.
+È possibile che una sottoscrizione contenga più progetti Azure Migrate. [Informazioni su come](./create-manage-projects.md) creare un progetto per la prima volta o [aggiungere altri](create-manage-projects.md#create-additional-projects) progetti.
 
 ## <a name="what-azure-permissions-are-needed"></a>Quali sono le autorizzazioni di Azure necessarie?
 
@@ -40,13 +40,13 @@ La ricerca di un progetto di Azure Migrate esistente dipende dal fatto che si st
 
 ## <a name="can-i-upgrade-old-project"></a>È possibile aggiornare il progetto precedente?
 
-Non è possibile aggiornare i progetti della versione precedente di Azure Migrate. È necessario [creare un nuovo progetto](how-to-add-tool-first-time.md)e aggiungervi strumenti.
+Non è possibile aggiornare i progetti della versione precedente di Azure Migrate. È necessario [creare un nuovo progetto](./create-manage-projects.md)e aggiungervi strumenti.
 
 ## <a name="cant-create-a-project"></a>Non è possibile creare un progetto
 
 Se si tenta di creare un progetto e si verifica un errore di distribuzione:
 
-- Provare a creare di nuovo il progetto in caso di errore temporaneo. In **distribuzioni**fare clic su **Ridistribuisci** per riprovare.
+- Provare a creare di nuovo il progetto in caso di errore temporaneo. In **distribuzioni** fare clic su **Ridistribuisci** per riprovare.
 - Verificare di disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 - Se si esegue la distribuzione in una geografia appena aggiunta, attendere un breve periodo di tempo e riprovare.
 - Se viene visualizzato l'errore "le richieste devono contenere intestazioni di identità utente", questo potrebbe indicare che non si ha accesso al tenant Azure Active Directory (Azure AD) dell'organizzazione. In questo caso:
@@ -61,7 +61,7 @@ Se si tenta di creare un progetto e si verifica un errore di distribuzione:
 
 ## <a name="added-tools-dont-show"></a>Gli strumenti aggiunti non vengono visualizzati
 
-Assicurarsi che sia selezionato il progetto appropriato. Nell'hub Azure Migrate > **Server** o in **database**fare clic su **modifica** accanto a **Esegui migrazione progetto (modifica)** nell'angolo superiore destro dello schermo. Scegliere la sottoscrizione e il nome del progetto corretti > **OK**. La pagina verrà aggiornata con gli strumenti aggiunti del progetto selezionato.
+Assicurarsi che sia selezionato il progetto appropriato. Nell'hub Azure Migrate > **Server** o in **database** fare clic su **modifica** accanto a **Esegui migrazione progetto (modifica)** nell'angolo superiore destro dello schermo. Scegliere la sottoscrizione e il nome del progetto corretti > **OK**. La pagina verrà aggiornata con gli strumenti aggiunti del progetto selezionato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

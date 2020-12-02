@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d2493a3a1e4fbb49c0b7f6dad29771b6e9faae8e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 15a23ab5b05ad1093069b4297ad1d292beeb3a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146808"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494954"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Disponibilità elevata con servizi multimediali e video on demand (VOD)
 
@@ -26,7 +26,7 @@ ms.locfileid: "93146808"
 
 ## <a name="high-availability-for-vod"></a>Disponibilità elevata per VOD
 
-È disponibile un modello di progettazione a disponibilità elevata denominato [geodi](https://docs.microsoft.com/azure/architecture/patterns/geodes) nella documentazione sull'architettura di Azure. Descrive il modo in cui vengono distribuite le risorse duplicate in aree geografiche diverse per garantire scalabilità e resilienza.  È possibile usare i servizi di Azure per creare un'architettura di questo tipo per coprire molte considerazioni sulla progettazione della disponibilità elevata, ad esempio ridondanza, monitoraggio dello stato, bilanciamento del carico e backup e ripristino dei dati.  Una di tali architetture è illustrata di seguito con i dettagli su ogni servizio usato nella soluzione, nonché su come i singoli servizi possono essere usati per creare un'architettura a disponibilità elevata per l'applicazione VOD.
+È disponibile un modello di progettazione a disponibilità elevata denominato [geodi](/azure/architecture/patterns/geodes) nella documentazione sull'architettura di Azure. Descrive il modo in cui vengono distribuite le risorse duplicate in aree geografiche diverse per garantire scalabilità e resilienza.  È possibile usare i servizi di Azure per creare un'architettura di questo tipo per coprire molte considerazioni sulla progettazione della disponibilità elevata, ad esempio ridondanza, monitoraggio dello stato, bilanciamento del carico e backup e ripristino dei dati.  Una di tali architetture è illustrata di seguito con i dettagli su ogni servizio usato nella soluzione, nonché su come i singoli servizi possono essere usati per creare un'architettura a disponibilità elevata per l'applicazione VOD.
 
 ### <a name="sample"></a>Esempio
 
@@ -87,4 +87,4 @@ Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Estrai [esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
+* Estrai [esempi di codice](/samples/browse/?products=azure-media-services)
