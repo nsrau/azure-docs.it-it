@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667742"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452217"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 consente di attivare un firewall e limitare l'accesso sol
 
 ![Impostazioni del firewall in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Impostazioni del firewall in Data Lake Storage Gen1")
 
-Una volta abilitato il firewall, solo i servizi di Azure come HDInsight, Data Factory, Azure sinapsi Analytics (in precedenza SQL Data Warehouse) e così via possono accedere ai Data Lake Storage Gen1. A causa del processo interno Network Address Translation usato da Azure, il firewall di Data Lake Storage Gen1 non supporta la limitazione di servizi specifici in base all'IP ed è pensato solo per limitare gli endpoint esterni ad Azure, ad esempio in locale.
+Una volta abilitato il firewall, solo i servizi di Azure come HDInsight, Data Factory, Azure sinapsi Analytics e così via possono accedere ai Data Lake Storage Gen1. A causa del processo interno Network Address Translation usato da Azure, il firewall di Data Lake Storage Gen1 non supporta la limitazione di servizi specifici in base all'IP ed è pensato solo per limitare gli endpoint esterni ad Azure, ad esempio in locale.
 
 ## <a name="performance-and-scale-considerations"></a>Considerazioni su prestazioni e scalabilità
 
@@ -114,7 +114,7 @@ I processi di copia possono essere attivati dai flussi di lavoro di Apache Oozie
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usare Azure Data Factory per pianificare i processi di copia
 
-Azure Data Factory può essere utilizzato anche per pianificare processi di copia mediante un' **attività di copia**e può anche essere configurato con una frequenza tramite la **Copia guidata**. Tenere presente che Azure Data Factory prevede un limite di unità di spostamento dei dati cloud (DMU) e applica limiti relativi a velocità effettiva e calcolo per i carichi di lavoro con dati di grandi dimensioni. Inoltre, Azure Data Factory attualmente non consente gli aggiornamenti delta tra account Data Lake Storage Gen1, quindi cartelle quali le tabelle Hive richiedono una copia completa per la replica. Per altre informazioni sulla copia con Data Factory, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md).
+Azure Data Factory può essere utilizzato anche per pianificare processi di copia mediante un' **attività di copia** e può anche essere configurato con una frequenza tramite la **Copia guidata**. Tenere presente che Azure Data Factory prevede un limite di unità di spostamento dei dati cloud (DMU) e applica limiti relativi a velocità effettiva e calcolo per i carichi di lavoro con dati di grandi dimensioni. Inoltre, Azure Data Factory attualmente non consente gli aggiornamenti delta tra account Data Lake Storage Gen1, quindi cartelle quali le tabelle Hive richiedono una copia completa per la replica. Per altre informazioni sulla copia con Data Factory, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md).
 
 ### <a name="adlcopy"></a>AdlCopy
 

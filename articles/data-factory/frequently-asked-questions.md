@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f65ee85b37e74f0ca16ccf6988eb2117231c3bc5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635763"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452212"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 
@@ -67,7 +67,7 @@ Gli utenti possono anche usare le API REST documentate per interfacciarsi con Da
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Sviluppo e debug iterativi tramite strumenti visivi
 Azure Data Factory strumenti visivi abilitano lo sviluppo e il debug iterativi. È possibile creare le pipeline ed eseguire le esecuzioni dei test usando la funzionalità di **debug** nel Canvas della pipeline senza scrivere una sola riga di codice. È possibile visualizzare i risultati delle esecuzioni dei test nella finestra **output** dell'area di disegno della pipeline. Una volta completata l'esecuzione dei test, è possibile aggiungere altre attività alla pipeline e continuare il debug in modo iterativo. È anche possibile annullare le esecuzioni dei test dopo che sono in corso. 
 
-Non è necessario pubblicare le modifiche nel servizio data factory prima di selezionare **debug** . Questa operazione è utile negli scenari in cui si desidera assicurarsi che le nuove aggiunte o modifiche funzioneranno come previsto prima di aggiornare i flussi di lavoro di data factory in ambienti di sviluppo, test o produzione. 
+Non è necessario pubblicare le modifiche nel servizio data factory prima di selezionare **debug**. Questa operazione è utile negli scenari in cui si desidera assicurarsi che le nuove aggiunte o modifiche funzioneranno come previsto prima di aggiornare i flussi di lavoro di data factory in ambienti di sviluppo, test o produzione. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Possibilità di distribuire pacchetti SSIS in Azure 
 Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Un runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](./tutorial-deploy-ssis-packages-azure.md). 
@@ -96,8 +96,8 @@ Dalla versione di anteprima pubblica iniziale in 2017, Data Factory ha aggiunto 
 Integration Runtime è l'infrastruttura di calcolo che Azure Data Factory USA per fornire le funzionalità di integrazione dei dati seguenti in diversi ambienti di rete:
 
 - **Spostamento dei** dati: per lo spostamento dei dati, il runtime di integrazione Sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori incorporati, conversione di formato, mapping di colonne e trasferimento di dati scalabile e a prestazioni elevate.
-- **Attività di invio** : per la trasformazione, il runtime di integrazione fornisce funzionalità per l'esecuzione nativa di pacchetti SSIS.
-- **Eseguire pacchetti SSIS** : il runtime di integrazione esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Integration Runtime supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in un'ampia gamma di servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL e SQL Server.
+- **Attività di invio**: per la trasformazione, il runtime di integrazione fornisce funzionalità per l'esecuzione nativa di pacchetti SSIS.
+- **Eseguire pacchetti SSIS**: il runtime di integrazione esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Integration Runtime supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in un'ampia gamma di servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL e SQL Server.
 
 È possibile distribuire una o più istanze del runtime di integrazione come richiesto per lo spostamento e la trasformazione dei dati. Il runtime di integrazione può essere eseguito in una rete pubblica di Azure o in una rete privata (locale, rete virtuale di Azure o Amazon Web Services cloud privato virtuale [VPC]). 
 
@@ -190,7 +190,7 @@ Quando Microsoft fornisce la guida o la risoluzione dei problemi relativi ai flu
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Ricerca per categorie accedere ai dati usando gli altri tipi di set di dati 90 Data Factory?
 
-La funzionalità del flusso di dati di mapping consente attualmente il database SQL di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), i file di testo delimitati dall'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 e i file parquet dall'archiviazione BLOB o Data Lake Storage Gen2 in modo nativo per l'origine e il sink. 
+La funzionalità del flusso di dati di mapping consente attualmente il database SQL di Azure, Azure sinapsi Analytics, i file di testo delimitati dall'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 e i file parquet dall'archiviazione BLOB o Data Lake Storage Gen2 in modo nativo per l'origine e il sink. 
 
 Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri connettori, quindi eseguire un'attività flusso di dati per trasformare i dati dopo che sono stati gestiti in modo temporaneo. Ad esempio, la pipeline verrà prima copiata nell'archivio BLOB e quindi un'attività flusso di dati utilizzerà un set di dati in origine per trasformare i dati.
 
@@ -270,9 +270,9 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * Datetime
 * datetime2
 * smalldatetime
-* timestamp
+*  timestamp
 * UNIQUEIDENTIFIER
-* Xml
+* xml
 
 Altri tipi di dati saranno supportati in futuro.
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445490"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452177"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -36,7 +36,7 @@ Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un s
 
 * L'entità di sicurezza di un **gruppo** identifica un set di utenti creati in Azure Active Directory. Tutti i ruoli o le autorizzazioni assegnati al gruppo vengono concessi a tutti gli utenti all'interno del gruppo.
 
-* Un' **entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** o il **certificato** dell'entità servizio funge da password. Molti servizi di Azure supportano l'assegnazione di [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) con la gestione automatica dell' **ID client** e del **certificato**. L'identità gestita è l'opzione più sicura e consigliata per l'autenticazione in Azure.
+* Un'**entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** o il **certificato** dell'entità servizio funge da password. Molti servizi di Azure supportano l'assegnazione di [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) con la gestione automatica dell' **ID client** e del **certificato**. L'identità gestita è l'opzione più sicura e consigliata per l'autenticazione in Azure.
 
 Per ulteriori informazioni sull'autenticazione per Key Vault, vedere [eseguire l'autenticazione a Azure Key Vault](authentication.md)
 
@@ -44,9 +44,9 @@ Per ulteriori informazioni sull'autenticazione per Key Vault, vedere [eseguire l
 
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere a Key Vault in tre modi:
 
-- **Solo applicazione** : l'applicazione rappresenta un'entità servizio o un'identità gestita. Questa identità è lo scenario più comune per le applicazioni che devono periodicamente accedere a certificati, chiavi o segreti dall'insieme di credenziali delle chiavi. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare l'oggetto dell'applicazione nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
-- **Solo utente** : l'utente accede all'insieme di credenziali delle chiavi da qualsiasi applicazione registrata nel tenant. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare il parametro dell'utente nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
-- **Application-Plus-User** (noto anche come _identità composta_ ): l'utente deve accedere all'insieme di credenziali delle chiavi da un'applicazione specifica _e_ l'applicazione deve usare il flusso di autenticazione (OBO) per rappresentare l'utente. Per il corretto funzionamento di questo scenario `applicationId` , `objectId` è necessario specificare sia che nei criteri di accesso. `applicationId`Identifica l'applicazione richiesta e `objectId` identifica l'utente. Attualmente questa opzione non è disponibile per il piano dati Azure RBAC (anteprima).
+- **Solo applicazione**: l'applicazione rappresenta un'entità servizio o un'identità gestita. Questa identità è lo scenario più comune per le applicazioni che devono periodicamente accedere a certificati, chiavi o segreti dall'insieme di credenziali delle chiavi. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare l'oggetto dell'applicazione nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
+- **Solo utente**: l'utente accede all'insieme di credenziali delle chiavi da qualsiasi applicazione registrata nel tenant. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare il parametro dell'utente nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
+- **Application-Plus-User** (noto anche come _identità composta_): l'utente deve accedere all'insieme di credenziali delle chiavi da un'applicazione specifica _e_ l'applicazione deve usare il flusso di autenticazione (OBO) per rappresentare l'utente. Per il corretto funzionamento di questo scenario `applicationId` , `objectId` è necessario specificare sia che nei criteri di accesso. `applicationId`Identifica l'applicazione richiesta e `objectId` identifica l'utente. Attualmente questa opzione non è disponibile per il piano dati Azure RBAC (anteprima).
 
 In tutti i tipi di accesso, l'applicazione esegue l'autenticazione con Azure AD. L'applicazione usa qualsiasi [metodo di autenticazione supportato](../../active-directory/develop/authentication-vs-authorization.md) in base al tipo di applicazione. L'applicazione acquisisce un token per una risorsa del piano per la concessione dell'accesso. La risorsa è un endpoint nel piano dati o di gestione, in base all'ambiente di Azure. L'applicazione usa il token e invia una richiesta API REST all'insieme di credenziali delle chiavi. Per altre informazioni, vedere l'[intero flusso di autenticazione](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -73,9 +73,9 @@ Nel piano di gestione si usa il [controllo degli accessi in base al ruolo di Azu
 
 Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Si concede l'accesso a un livello di ambito specifico assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente per gestire gli insiemi di credenziali delle chiavi, assegnare un ruolo di [collaboratore Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) predefinito all'utente in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
 
-- **Sottoscrizione** : un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
-- **Gruppo di risorse** : un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
-- **Risorsa specifica** : un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Sottoscrizione**: un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
+- **Gruppo di risorse**: un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
+- **Risorsa specifica**: un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
 Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). 
 
@@ -130,19 +130,19 @@ Per altre informazioni su Key Vault firewall e sulle reti virtuali, vedere [conf
 
 ## <a name="private-endpoint-connection"></a>Connessione all'endpoint privato
 
-In caso di necessità di bloccare completamente Key Vault l'esposizione al pubblico, è possibile usare un [endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) . Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+In caso di necessità di bloccare completamente Key Vault l'esposizione al pubblico, è possibile usare un [endpoint privato di Azure](../../private-link/private-endpoint-overview.md) . Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 Scenari comuni per l'uso del collegamento privato per i servizi di Azure:
 
-- **Accesso privato ai servizi nella piattaforma Azure** : connettere la rete virtuale ai servizi in Azure senza un indirizzo IP pubblico all'origine o alla destinazione. I provider possono offrire i servizi nella loro rete virtuale e i clienti possono accedervi nella loro rete virtuale locale. La piattaforma di Collegamento privato gestirà la connettività tra l'utente e i servizi tramite la rete backbone di Azure. 
+- **Accesso privato ai servizi nella piattaforma Azure**: connettere la rete virtuale ai servizi in Azure senza un indirizzo IP pubblico all'origine o alla destinazione. I provider possono offrire i servizi nella loro rete virtuale e i clienti possono accedervi nella loro rete virtuale locale. La piattaforma di Collegamento privato gestirà la connettività tra l'utente e i servizi tramite la rete backbone di Azure. 
  
-- **Reti locali e con peering** : accedere ai servizi in esecuzione in Azure dall'ambiente locale tramite peering privato ExpressRoute, tunnel VPN e reti virtuali con peering usando endpoint privati. Non è necessario configurare il peering pubblico o attraversare Internet per raggiungere il servizio. Collegamento privato offre un modo sicuro per eseguire la migrazione dei carichi di lavoro ad Azure.
+- **Reti locali e con peering**: accedere ai servizi in esecuzione in Azure dall'ambiente locale tramite peering privato ExpressRoute, tunnel VPN e reti virtuali con peering usando endpoint privati. Non è necessario configurare il peering pubblico o attraversare Internet per raggiungere il servizio. Collegamento privato offre un modo sicuro per eseguire la migrazione dei carichi di lavoro ad Azure.
  
-- **Protezione dall'esfiltrazione di dati** : un endpoint privato viene mappato a un'istanza di una risorsa PaaS invece che all'intero servizio. Gli utenti possono connettersi solo alla risorsa specifica. L'accesso a qualsiasi altra risorsa del servizio è bloccato. Questo meccanismo offre protezione dai rischi di perdita dei dati. 
+- **Protezione dall'esfiltrazione di dati**: un endpoint privato viene mappato a un'istanza di una risorsa PaaS invece che all'intero servizio. Gli utenti possono connettersi solo alla risorsa specifica. L'accesso a qualsiasi altra risorsa del servizio è bloccato. Questo meccanismo offre protezione dai rischi di perdita dei dati. 
  
-- **Copertura globale** : è possibile connettersi privatamente a servizi in esecuzione in altre aree. La rete virtuale dell'utente può pertanto trovarsi nell'area A e connettersi ai servizi con Collegamento privato nell'area B.  
+- **Copertura globale**: è possibile connettersi privatamente a servizi in esecuzione in altre aree. La rete virtuale dell'utente può pertanto trovarsi nell'area A e connettersi ai servizi con Collegamento privato nell'area B.  
  
-- **Estensione a servizi personalizzati** : la stessa esperienza e le stesse funzionalità possono essere sfruttate per offrire privatamente un servizio personalizzato agli utenti in Azure. Posizionando un servizio dietro Azure Load Balancer, è possibile abilitarlo per Collegamento privato. L'utente potrà quindi connettersi direttamente al servizio usando un endpoint privato nella propria rete virtuale. È possibile gestire queste richieste di connessione con un semplice flusso di chiamate di approvazione. Collegamento privato di Azure funziona anche per utenti e servizi appartenenti a tenant di Azure Active Directory diversi. 
+- **Estensione a servizi personalizzati**: la stessa esperienza e le stesse funzionalità possono essere sfruttate per offrire privatamente un servizio personalizzato agli utenti in Azure. Posizionando un servizio dietro Azure Load Balancer, è possibile abilitarlo per Collegamento privato. L'utente potrà quindi connettersi direttamente al servizio usando un endpoint privato nella propria rete virtuale. È possibile gestire queste richieste di connessione con un semplice flusso di chiamate di approvazione. Collegamento privato di Azure funziona anche per utenti e servizi appartenenti a tenant di Azure Active Directory diversi. 
 
 Per altre informazioni sugli endpoint privati, vedere [Key Vault con collegamento privato di Azure](./private-link-service.md)
 
@@ -151,15 +151,15 @@ Per altre informazioni sugli endpoint privati, vedere [Key Vault con collegament
 In questo esempio si sta sviluppando un'applicazione che usa un certificato per TLS/SSL, archiviazione di Azure per archiviare i dati e una chiave RSA a 2.048 bit per la crittografia dei dati in archiviazione di Azure. L'applicazione viene eseguita in una macchina virtuale di Azure (o un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare i segreti dell'applicazione. È possibile archiviare il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure AD.
 
 È necessario l'accesso alle chiavi e ai segreti seguenti:
-- **Certificato TLS/SSL** : Usato per TLS/SSL.
-- **Chiave di archiviazione** : usata per accedere all'account di archiviazione.
-- **Chiave RSA a 2.048 bit** : usata per la chiave di crittografia dei dati a wrapping/Unwrap mediante archiviazione di Azure.
-- **Identità gestita dall'applicazione** : usata per l'autenticazione con Azure ad. Dopo aver concesso l'accesso Key Vault, l'applicazione può recuperare la chiave di archiviazione e il certificato.
+- **Certificato TLS/SSL**: Usato per TLS/SSL.
+- **Chiave di archiviazione**: usata per accedere all'account di archiviazione.
+- **Chiave RSA a 2.048 bit**: usata per la chiave di crittografia dei dati a wrapping/Unwrap mediante archiviazione di Azure.
+- **Identità gestita dall'applicazione**: usata per l'autenticazione con Azure ad. Dopo aver concesso l'accesso Key Vault, l'applicazione può recuperare la chiave di archiviazione e il certificato.
 
 È necessario definire i ruoli seguenti per specificare chi può gestire, distribuire e controllare l'applicazione:
-- **Team responsabile della sicurezza** : personale IT che lavora nell'ufficio del responsabile della sicurezza o collaboratori analoghi. Il team responsabile della sicurezza si occupa della salvaguardia di segreti. I segreti possono includere certificati TLS/SSL, chiavi RSA per la crittografia, stringhe di connessione e chiavi dell'account di archiviazione.
-- **Sviluppatori e operatori** : il personale che sviluppa l'applicazione e la distribuisce in Azure. I membri di questo team non fanno parte del personale responsabile della sicurezza. Non devono avere accesso ai dati sensibili, come i certificati TLS/SSL e le chiavi RSA. Solo l'applicazione da loro distribuita deve avere accesso ai dati sensibili.
-- **Revisori** : questo ruolo è per i collaboratori che non sono membri del personale IT generico o di sviluppo. Queste persone verificano l'uso e la gestione di certificati, chiavi e segreti per garantire la conformità agli standard di sicurezza.
+- **Team responsabile della sicurezza**: personale IT che lavora nell'ufficio del responsabile della sicurezza o collaboratori analoghi. Il team responsabile della sicurezza si occupa della salvaguardia di segreti. I segreti possono includere certificati TLS/SSL, chiavi RSA per la crittografia, stringhe di connessione e chiavi dell'account di archiviazione.
+- **Sviluppatori e operatori**: il personale che sviluppa l'applicazione e la distribuisce in Azure. I membri di questo team non fanno parte del personale responsabile della sicurezza. Non devono avere accesso ai dati sensibili, come i certificati TLS/SSL e le chiavi RSA. Solo l'applicazione da loro distribuita deve avere accesso ai dati sensibili.
+- **Revisori**: questo ruolo è per i collaboratori che non sono membri del personale IT generico o di sviluppo. Queste persone verificano l'uso e la gestione di certificati, chiavi e segreti per garantire la conformità agli standard di sicurezza.
 
 C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministratore della sottoscrizione (o del gruppo di risorse). L'amministratore della sottoscrizione configura le autorizzazioni di accesso iniziali per il team responsabile della sicurezza. L'accesso al team responsabile della sicurezza viene concesso tramite un gruppo di risorse che contiene le risorse necessarie per l'applicazione.
 
@@ -185,8 +185,8 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 | Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati-criteri di accesso all'insieme di credenziali | Autorizzazioni del piano dati-RBAC di Azure (anteprima)  |
 | --- | --- | --- | --- |
 | Team responsabile della sicurezza | [Collaboratore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | [Amministratore Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
-| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota** : Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno | nessuno |
-| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota** : Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore Key Vault (anteprima)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno | nessuno |
+| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore Key Vault (anteprima)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
 | Account di archiviazione di Azure | Nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Crittografia del servizio di crittografia Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
 | Applicazione | nessuno | Segreti: Get, List <br> Certificati: Get, List | [Lettore di Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [utente segreto Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 

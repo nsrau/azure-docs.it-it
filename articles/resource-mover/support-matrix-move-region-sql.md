@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 573d52b836aef36063dd288bf5a5016b98d220ef
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 22a7738c2d4d3cc02c03c233e0821f07b459dd94
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524131"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452091"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Supporto per lo trasferimento di risorse SQL di Azure tra aree di Azure
 
@@ -22,9 +22,9 @@ Questo articolo riepiloga il supporto e i prerequisiti per lo spostamento delle 
 
 I requisiti sono riepilogati nella tabella seguente.
 
-**Funzionalità** | **Supportato/Non supportato** | **Dettagli**
+**Funzionalità** | **Supportato/Non supportato** | **Informazioni dettagliate**
 --- | --- | ---
-**Hyperscale nel database SQL di Azure** | Non supportate | Non è possibile spostare i database nel livello di servizio dell'iperscalabilità SQL di Azure con il motore di risorse.
+**Hyperscale nel database SQL di Azure** | Non supportato | Non è possibile spostare i database nel livello di servizio dell'iperscalabilità SQL di Azure con il motore di risorse.
 **Ridondanza della zona** | Supportato |  Opzioni di spostamento supportate:<br/><br/> -Tra aree che supportano la ridondanza della zona.<br/><br/> -Tra aree che non supportano la ridondanza della zona.<br/><br/> -Tra un'area che supporta la ridondanza della zona in un'area che non supporta la ridondanza della zona.<br/><br/> -Tra un'area che non supporta la ridondanza della zona in un'area che supporta la ridondanza della zona. 
 **Sincronizzazione dati** | Database hub/Sync: non supportato<br/><br/> Membro di sincronizzazione: supportato. | Se un membro di sincronizzazione viene spostato, è necessario configurare la sincronizzazione dei dati per il nuovo database di destinazione.
 **Replica geografica esistente** | Supportato | Le repliche geografiche esistenti vengono mappate nuovamente al nuovo database primario nell'area di destinazione.<br/><br/> Il seeding deve essere inizializzato dopo lo spostamento. [Altre informazioni](../azure-sql/database/active-geo-replication-configure-portal.md)
@@ -38,7 +38,7 @@ I requisiti sono riepilogati nella tabella seguente.
 **Ottimizzazione automatica** | Non supportata. | Soluzione alternativa: impostare le impostazioni di ottimizzazione automatica dopo lo spostamento. [Altre informazioni](../azure-sql/database/automatic-tuning-enable.md)
 **Avvisi del database** | Non supportata. | Soluzione temporanea: impostare gli avvisi dopo lo spostamento. [Altre informazioni](../azure-sql/database/alerts-insights-configure-portal.md)
 **stretch database SQL Server di Azure** | Non supportato | Non è possibile spostare SQL Server stretch database con il motore di risorse.
-**Azure Synapse Analytics** | Non supportato | Non è possibile spostare l'analisi sinapsi (in precedenza SQL Data Warehouse) con il motore di risorse.
+**Azure Synapse Analytics** | Non supportato | Non è possibile spostare Azure sinapsi Analytics con il motore di risorse.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Provare [le risorse SQL di Azure](tutorial-move-region-sql.md) in un'altra area con il motore di risorse.

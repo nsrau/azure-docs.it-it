@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578026"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452132"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
@@ -29,7 +29,7 @@ Informazioni su come distribuire un modello da Azure Machine Learning come app W
 Con Azure Machine Learning, è possibile creare immagini Docker da modelli di apprendimento automatico sottoposti a training. Questa immagine contiene un servizio Web che riceve i dati, li invia al modello e quindi restituisce la risposta. App Azure servizio può essere usato per distribuire l'immagine e fornisce le funzionalità seguenti:
 
 * [Autenticazione](../app-service/configure-authentication-provider-aad.md) avanzata per la sicurezza avanzata. I metodi di autenticazione includono sia Azure Active Directory che l'autenticazione a più fattori.
-* [Ridimensionamento](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json) automatico senza dover ridistribuire.
+* [Ridimensionamento](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) automatico senza dover ridistribuire.
 * [Supporto TLS](../app-service/configure-ssl-certificate-in-code.md) per proteggere le comunicazioni tra i client e il servizio.
 
 Per altre informazioni sulle funzionalità fornite dal servizio app Azure, vedere [Panoramica del servizio app](../app-service/overview.md).
@@ -70,7 +70,7 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
 
     Per altre informazioni sugli script di immissione, vedere [Distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Dipendenze** , ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
+* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
 Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Quando `show_output=True` viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Ad esempio, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`
+Quando `show_output=True` viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Ad esempio: `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Salvare le informazioni sul percorso, così come vengono usate durante la distribuzione dell'immagine.
@@ -247,7 +247,7 @@ Questo comando restituisce informazioni simili al nome host seguente: `<app-name
 
 ## <a name="use-the-web-app"></a>Usare l'app Web
 
-Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score` . Ad esempio, `https://<app-name>.azurewebsites.net/score` Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
+Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score` . Ad esempio: `https://<app-name>.azurewebsites.net/score`. Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
 
 ```python
 import requests
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come configurare l'app Web nel [servizio app](/azure/app-service/containers/) nella documentazione di Linux.
-* Per altre informazioni sul ridimensionamento, [vedere Introduzione alla scalabilità automatica in Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json).
+* Per altre informazioni sul ridimensionamento, [vedere Introduzione alla scalabilità automatica in Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Usare un certificato TLS/SSL nel servizio app Azure](../app-service/configure-ssl-certificate-in-code.md).
 * [Configurare l'app del servizio app per usare Azure Active Directory l'accesso](../app-service/configure-authentication-provider-aad.md).
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
