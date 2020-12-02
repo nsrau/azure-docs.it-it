@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006967"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Cosmos DB
 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Tenere presente che se non si riesce a eseguire un'operazione, è possibile che non si disponga delle autorizzazioni appropriate. Se si vuole accedere in scrittura alle chiavi, è necessario usare un ruolo di Controllo degli accessi in base al ruolo come Collaboratore Account DocumentDB oppure creare un ruolo personalizzato. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Tenere presente che se non si riesce a eseguire un'operazione, è possibile che non si disponga delle autorizzazioni appropriate. Se si vuole accedere in scrittura alle chiavi, è necessario usare un ruolo di Azure come Collaboratore Account DocumentDB oppure creare un ruolo personalizzato. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
 ## <a name="access-data"></a>Accedere ai dati
 

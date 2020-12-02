@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627891"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974392"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
-Questa guida illustra come un'applicazione .NET per Windows Desktop (XAML) nativa usa un token di accesso per chiamare l'API Microsoft Graph. L'app può accedere anche ad altre API che richiedono token di accesso da Microsoft Identity Platform.
+In questa esercitazione verrà creata un'app Windows Desktop .NET (XAML) nativa che concede l'accesso agli utenti e ottiene un token di accesso per chiamare l'API Microsoft Graph. 
 
 Dopo aver completato la Guida, l'applicazione sarà in grado di chiamare un'API protetta che usa account personali (inclusi outlook.com, live.com e altri). L'applicazione userà anche account di lavoro e di formazione da qualsiasi società o organizzazione che usa Azure Active Directory.
 

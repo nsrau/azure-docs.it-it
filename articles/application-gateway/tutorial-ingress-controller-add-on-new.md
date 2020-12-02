@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 43aadee627c7dc12a37a8f3895ba4dfed472808c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182904"
+ms.locfileid: "96296251"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso (anteprima) per un nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione
 
@@ -34,7 +34,10 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+ - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. Se si usa l'interfaccia della riga di comando di Azure, sarà necessario installare l'estensione in anteprima nell'interfaccia della riga di comando usando il comando seguente, se non è già installata:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
  - Per registrare il flag di funzionalità *AKS-IngressApplicationGatewayAddon*, usare il comando [az feature register](/cli/azure/feature#az-feature-register), come illustrato nell'esempio seguente. È necessario eseguire questa operazione una sola volta per ogni sottoscrizione finché il componente aggiuntivo è disponibile in anteprima.
     ```azurecli-interactive

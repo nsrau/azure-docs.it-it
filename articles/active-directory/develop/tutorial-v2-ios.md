@@ -13,16 +13,16 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611113"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746728"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Esercitazione: Accesso utenti e chiamata di Microsoft Graph da un'app iOS o macOS
 
-In questa esercitazione si apprenderà come integrare un'app iOS o macOS con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph.
+In questa esercitazione si creerà un'app iOS o macOS che si integra con Microsoft Identity Platform per consentire l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph.
 
 Al termine della guida, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda o organizzazione che usa Azure Active Directory. Questa esercitazione è applicabile alle app iOS e macOS. Alcuni passaggi sono diversi tra le due piattaforme.
 

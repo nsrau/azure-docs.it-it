@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 5e27aaebc015f47e0fcdb5da81770d49b86ad000
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67a21dd86059f6cf1f017ce3eada285d2faab1e6
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934328"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012425"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre i dati dei biglietti da visita usando l'API REST Riconoscimento modulo con Python
 
@@ -30,7 +30,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 - Un'immagine di un biglietto da visita. Per questo argomento di avvio rapido è possibile usare un'[immagine di esempio](../media/business-card-english.jpg).
 
 > [!NOTE]
-> Questa guida di avvio rapido usa un file locale. Per usare un'immagine di biglietto da visita accessibile tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> Questa guida di avvio rapido usa un file locale. Per usare un'immagine di biglietto da visita accessibile tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -38,7 +38,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 
 ## <a name="analyze-a-business-card"></a>Analizzare un biglietto da visita
 
-Per iniziare ad analizzare un biglietto da visita, chiamare l'API di **[analisi biglietti da visita](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)** usando lo script Python seguente. Prima di eseguire lo script, apportare queste modifiche:
+Per iniziare ad analizzare un biglietto da visita, chiamare l'API di **[analisi biglietti da visita](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** usando lo script Python seguente. Prima di eseguire lo script, apportare queste modifiche:
 
 1. Sostituire `<endpoint>` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `<path to your business card>` con il percorso locale dell'immagine o del PDF del biglietto da visita.
@@ -55,7 +55,7 @@ Per iniziare ad analizzare un biglietto da visita, chiamare l'API di **[analisi 
     # Endpoint URL
     endpoint = r"<endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
     content_type = "<file type>"
     
@@ -91,12 +91,12 @@ Per iniziare ad analizzare un biglietto da visita, chiamare l'API di **[analisi 
 Si riceverà una risposta `202 (Success)` contenente un'intestazione **Operation-Location**, che lo script stamperà nella console. Questa intestazione contiene un ID di risultato che è possibile usare per eseguire una query sullo stato dell'operazione a esecuzione prolungata e ottenere i risultati. Nel valore di esempio seguente, la stringa dopo `operations/` è l'ID risultato.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>Ottenere i risultati del biglietto da visita
 
-Dopo aver chiamato l'API di **analisi dei biglietti da visita**, chiamare l'API di **[recupero dei risultati dell'analisi dei biglietti da visita](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult)** per ottenere lo stato dell'operazione e i dati estratti. Aggiungere il codice seguente in fondo allo script Python. Viene usato il valore dell'ID risultato in una nuova chiamata API. Questo script chiama l'API a intervalli regolari finché non vengono ottenuti i risultati. Si consiglia un intervallo di almeno un secondo.
+Dopo aver chiamato l'API di **analisi dei biglietti da visita**, chiamare l'API di **[recupero dei risultati dell'analisi dei biglietti da visita](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult)** per ottenere lo stato dell'operazione e i dati estratti. Aggiungere il codice seguente in fondo allo script Python. Viene usato il valore dell'ID risultato in una nuova chiamata API. Questo script chiama l'API a intervalli regolari finché non vengono ottenuti i risultati. Si consiglia un intervallo di almeno un secondo.
 
 ```python
 n_tries = 10
@@ -253,4 +253,4 @@ Lo script visualizzerà le risposte sulla console fino al completamento dell'ope
 In questo argomento di avvio rapido è stata usata l'API REST Riconoscimento modulo con Python per estrarre il contenuto di un biglietto da visita. A questo punto, vedere la documentazione di riferimento per esplorare l'API di Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento delle API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+> [Documentazione di riferimento delle API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

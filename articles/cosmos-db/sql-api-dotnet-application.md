@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e4e2ba15dad7459ba3f7926a965292be37249054
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097363"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010358"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -227,7 +227,7 @@ Aggiungere prima di tutto una classe che contiene la logica per connettersi e us
 
 1. Fare clic con il pulsante destro del mouse sulla cartella **Services** e scegliere **Aggiungi** > **Classe**. Assegnare alla nuova classe il nome *ICosmosDbService* e selezionare **Aggiungi**.
 
-1. Aggiungere il codice seguente alla classe *ICosmosDbService* :
+1. Aggiungere il codice seguente alla classe *ICosmosDbService*:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
@@ -291,7 +291,7 @@ Per testare l'applicazione nel computer locale, eseguire la procedura seguente:
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Screenshot della visualizzazione Index":::
   
-1. Selezionare **Modifica** accanto a un **elemento** nell'elenco. L'app apre la visualizzazione **Modifica** in cui è possibile aggiornare qualsiasi proprietà dell'oggetto, incluso il flag **Completato**. Se si seleziona **Completato** e quindi **Salva** , l'app visualizza l' **elemento** come completato nell'elenco.
+1. Selezionare **Modifica** accanto a un **elemento** nell'elenco. L'app apre la visualizzazione **Modifica** in cui è possibile aggiornare qualsiasi proprietà dell'oggetto, incluso il flag **Completato**. Se si seleziona **Completato** e quindi **Salva**, l'app visualizza l'**elemento** come completato nell'elenco.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Screenshot della visualizzazione Index con la casella Completed selezionata":::
 
@@ -317,7 +317,7 @@ Poiché ora è completa e funziona correttamente con Azure Cosmos DB, è possibi
 
 In alternativa, creare un nuovo profilo:
 
-1. Come nella procedura precedente, fare clic con il pulsante destro del mouse in **Esplora soluzioni** , quindi scegliere **Pubblica**.
+1. Come nella procedura precedente, fare clic con il pulsante destro del mouse in **Esplora soluzioni**, quindi scegliere **Pubblica**.
   
 1. In **Selezionare una destinazione di pubblicazione** selezionare **Servizio app**.
 

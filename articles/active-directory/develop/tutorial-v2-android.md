@@ -13,18 +13,20 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101984"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996203"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Esercitazione: Accesso utenti e chiamata dell'API Microsoft Graph da un'applicazione Android
 
-Questa esercitazione illustra come integrare l'app Android con Microsoft Identity Platform usando Microsoft Authentication Library per Android. Verrà illustrato come concedere l'accesso a un utente e disconnetterlo, come ottenere un token di accesso e come inviare una richiesta all'API Microsoft Graph.
+In questa esercitazione si creerà un'app Android che si integra con Microsoft Identity Platform per consentire l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph.
 
 Al termine dell'esercitazione, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda o organizzazione che usi Azure Active Directory.
+
+In questa esercitazione: 
 
 > [!div class="checklist"]
 > * Creare un progetto di app Android in *Android Studio*
@@ -76,9 +78,9 @@ Se non si dispone già di un'applicazione Android, seguire questa procedura per 
 1. Accedere al [portale di Azure](https://aka.ms/MobileAppReg).
 2. Aprire il pannello [Registrazioni per l'app](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) e fare clic su **+ Nuova registrazione**.
 3. In **Nome** immettere un nome per l'app e quindi, **senza** impostare un URI di reindirizzamento, fare clic su **Registra**.
-4. Nella sezione **Gestione** del riquadro visualizzato selezionare **Autenticazione** > **+ Aggiungi una piattaforma ** > **Android**. Per visualizzare questa sezione potrebbe essere necessario selezionare l'opzione per passare alla nuova esperienza nella parte superiore del pannello.
+4. Nella sezione **Gestione** del riquadro visualizzato selezionare **Autenticazione** > **+ Aggiungi una piattaforma** > **Android**. Per visualizzare questa sezione potrebbe essere necessario selezionare l'opzione per passare alla nuova esperienza nella parte superiore del pannello.
 5. Immettere il nome del pacchetto del progetto. Se è stato scaricato il codice, il valore è `com.azuresamples.msalandroidapp`.
-6. Nella sezione **Hash della firma ** della pagina **Configura l'app Android ** fare clic su **Generazione di un hash della firma per lo sviluppo** e copiare il comando KeyTool da usare per la piattaforma.
+6. Nella sezione **Hash della firma** della pagina **Configura l'app Android** fare clic su **Generazione di un hash della firma per lo sviluppo** e copiare il comando KeyTool da usare per la piattaforma.
 
    > [!Note]
    > KeyTool.exe viene installato come parte di Java Development Kit (JDK). Per eseguire il comando KeyTool, è necessario installare anche lo strumento OpenSSL. Per altre informazioni, vedere la [documentazione di Android relativa alla generazione di una chiave](https://developer.android.com/studio/publish/app-signing#generate-key).

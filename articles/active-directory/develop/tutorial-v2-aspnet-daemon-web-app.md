@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611096"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406600"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
-Questa esercitazione illustra come usare Microsoft Identity Platform per accedere ai dati dei clienti aziendali Microsoft in un processo non interattivo e di lunga durata. Il daemon di esempio usa la [concessione di credenziali client OAuth2](v2-oauth2-client-creds-grant-flow.md) per acquisire un token di accesso. Il daemon usa il token per chiamare [Microsoft Graph](https://graph.microsoft.io) e accedere ai dati dell'organizzazione.
+In questa esercitazione verrà scaricata ed eseguita un'app Web daemon ASP.NET che illustra l'uso della concessione di credenziali client OAuth 2.0 per ottenere un token di accesso per chiamare l'API Microsoft Graph.
+
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Integrazione di un'app daemon con Microsoft Identity Platform
@@ -116,7 +118,7 @@ Se non si vuole usare l'automazione, seguire i passaggi delle sezioni seguenti.
 1. Nella sezione **Segreti client** della pagina **Certificati e segreti** selezionare **Nuovo segreto client**. Quindi:
 
    1. Immettere una descrizione della chiave, ad esempio **segreto dell'app**.
-   1. Selezionare una durata della chiave scegliendo **Tra 1 anno**, **Tra 2 anni**o **Non scade mai**.
+   1. Selezionare una durata della chiave scegliendo **Tra 1 anno**, **Tra 2 anni** o **Non scade mai**.
    1. Fare clic sul pulsante **Aggiungi**.
    1. Quando viene visualizzato il valore della chiave, copiarlo e conservarlo in un posto sicuro. Questa chiave sarà necessaria in seguito per configurare il progetto in Visual Studio. Non verrà visualizzata di nuovo né sarà recuperabile in altri modi.
 1. Nell'elenco delle pagine per l'app selezionare **Autorizzazioni API**. Quindi:

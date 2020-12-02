@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096250"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979930"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Esercitazione: Accesso utenti e chiamata dell'API Microsoft Graph da un'applicazione a pagina singola Angular
 
-Questa esercitazione illustra come creare un'applicazione a pagina singola Angular che consente agli utenti di accedere con gli account Microsoft personali e con gli account aziendali e dell'istituto di istruzione e chiamare l'API Microsoft Graph per loro conto.
+In questa esercitazione verrà creata un'applicazione a pagina singola Angular che concede l'accesso agli utenti e chiama l'API Microsoft Graph.
 
 Contenuto dell'esercitazione:
 
@@ -74,7 +74,7 @@ Seguire le [istruzioni per registrare un'applicazione a pagina singola](./scenar
 
 Nella pagina **Panoramica** dell'app della registrazione prendere nota del valore di **ID applicazione (client)** che sarà necessario in seguito.
 
-Registrare il valore dell' **URI di reindirizzamento** come **http://localhost:4200/** e abilitare le impostazioni di concessione implicita.
+Registrare il valore dell'**URI di reindirizzamento** come **http://localhost:4200/** e abilitare le impostazioni di concessione implicita.
 
 ## <a name="configure-the-application"></a>Configurare l'applicazione
 
@@ -124,7 +124,7 @@ Registrare il valore dell' **URI di reindirizzamento** come **http://localhost:4
     |---------|---------|
     |Enter_the_Application_Id_Here|Nella pagina **Panoramica** della registrazione dell'applicazione, è il valore di **ID applicazione (client)** . |
     |Enter_the_Cloud_Instance_Id_Here|Si tratta dell'istanza del cloud di Azure. Per il cloud globale o principale di Azure, immettere **https://login.microsoftonline.com** . Per i cloud nazionali (ad esempio, Cina), vedere [Cloud nazionali](./authentication-national-cloud.md).|
-    |Enter_the_Tenant_Info_Here| Impostare il valore su una delle opzioni seguenti: Se l'applicazione supporta *account in questa directory dell'organizzazione* , sostituire questo valore con l'ID della directory (tenant) o il nome del tenant (ad esempio, **contoso.microsoft.com** ). Se l'applicazione supporta *Account in qualsiasi directory organizzativa* , sostituire questo valore con **organizations** . Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali* , sostituire questo valore con **common** . Per limitare il supporto ai *soli account Microsoft personali* , sostituire questo valore con **consumers** . |
+    |Enter_the_Tenant_Info_Here| Impostare il valore su una delle opzioni seguenti: Se l'applicazione supporta *account in questa directory dell'organizzazione*, sostituire questo valore con l'ID della directory (tenant) o il nome del tenant (ad esempio, **contoso.microsoft.com**). Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**. Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con **common**. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con **consumers**. |
     |Enter_the_Redirect_Uri_Here|Sostituire con **http://localhost:4200** .|
 
     Per altre informazioni sulle opzioni configurabili disponibili, vedere [Inizializzare le applicazioni client](msal-js-initializing-client-applications.md).

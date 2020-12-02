@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216131"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980219"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a pagina singola JavaScript usando il flusso del codice di autenticazione
 
-Questa esercitazione illustra come creare un'applicazione a pagina singola JavaScript che usa Microsoft Authentication Library (MSAL) per JavaScript v2.0 per:
+In questa esercitazione verrà creata un'applicazione a pagina singola JavaScript che concede l'accesso agli utenti e chiama Microsoft Graph usando il flusso del codice di autorizzazione con PKCE. L'applicazione a pagina singola creata usa Microsoft Authentication Library (MSAL) per JavaScript v2.0.
 
+In questa esercitazione:
 > [!div class="checklist"]
 > * Eseguire il flusso del codice di autorizzazione OAuth 2.0 con PKCE
 > * Accedere agli account Microsoft personali, oltre che agli account aziendali e dell'istituto di istruzione
@@ -619,23 +620,23 @@ La creazione dell'applicazione è stata completata ed è ora possibile avviare i
 
 Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser che visualizza la finestra di dialogo di accesso":::
 
 ### <a name="provide-consent-for-application-access"></a>Specificare il consenso per l'accesso all'applicazione
 
 La prima volta che si accede all'applicazione, viene chiesto di concedere l'accesso al proprio profilo e viene eseguito l'accesso:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Finestra di dialogo di contenuto visualizzata nel Web browser":::
 
 Se si acconsente alle autorizzazioni richieste, nelle applicazioni Web viene visualizzato il nome utente, a indicare che l'accesso è riuscito:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Risultati di un accesso riuscito nel Web browser":::
 
 ### <a name="call-the-graph-api"></a>Chiamare l'API Graph
 
 Dopo aver eseguito l'accesso, selezionare **See Profile** (Vedi profilo) per visualizzare le informazioni del profilo utente restituite in una risposta dalla chiamata all'API Microsoft Graph:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informazioni del profilo di Microsoft Graph visualizzate nel browser":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 

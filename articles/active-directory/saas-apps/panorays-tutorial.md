@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029337"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Panorays
 
@@ -75,18 +75,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
-
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
-
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
-
-    | URL di accesso |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Fare clic su **Salva**.
+1. Nella sezione **Configurazione SAML di base** l'applicazione è preconfigurata e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante Salva.
 
 1. L'applicazione Panorays prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti in cui **Identificatore utente univoco** è associato a **user.userprincipalname**. L'applicazione Panorays prevede che **Identificatore utente univoco** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping dell'attributo.
 
@@ -134,9 +123,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 #### <a name="sp-initiated"></a>Avviato da SP:
 
-1. Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Panorays, in cui è possibile avviare il flusso di accesso.  
-
-1. Passare direttamente all'URL di accesso di Panorays e avviare il flusso di accesso da questa posizione.
+Passare direttamente all'[URL di accesso di Panorays](https://www.panoraysapp.com) e avviare il flusso di accesso da questa posizione.
 
 #### <a name="idp-initiated"></a>Avviato da IDP:
 

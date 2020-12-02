@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825910"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979947"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
-In questa esercitazione viene creata un'applicazione a pagina singola in JavaScript che consente agli utenti di accedere con gli account Microsoft personali o con gli account aziendali o dell'istituto di istruzione e quindi acquisire un token di accesso per chiamare l'API Microsoft Graph.
+In questa esercitazione verrà creata un'applicazione a pagina singola JavaScript che concede l'accesso agli utenti e chiama Microsoft Graph usando il flusso implicito. L'applicazione a pagina singola creata usa Microsoft Authentication Library (MSAL) per JavaScript v1.0.
 
 Contenuto dell'esercitazione:
 
@@ -513,4 +513,3 @@ Per approfondire ulteriormente lo sviluppo di applicazioni a pagina singola in M
 
 > [!div class="nextstepaction"]
 > [Scenario: Applicazione a pagina singola](scenario-spa-overview.md)
-

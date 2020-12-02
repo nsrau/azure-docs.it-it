@@ -10,11 +10,11 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017254"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Esercitazione: Inviare notifiche push ai dispositivi Android con Firebase SDK versione 1.0.0-preview1
 
@@ -36,7 +36,7 @@ Per completare l'esercitazione, è necessario disporre di un account Azure attiv
 
 Sono necessari anche gli elementi seguenti:
 
-- È consigliabile usare la versione più recente di [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
+- È consigliabile usare la versione più recente di [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 - Il supporto minimo è il livello API 16.
 
 ## <a name="create-an-android-studio-project"></a>Creare un progetto di Android Studio
@@ -45,93 +45,93 @@ Il primo passaggio consiste nel creare un progetto in Android Studio:
 
 1. Avviare Android Studio.
 
-2. Selezionare **File**,  **New** (Nuovo), quindi **New Project** (Nuovo progetto).
+2. Selezionare **File**, quindi **New** (Nuovo) e infine **New Project** (Nuovo progetto).
 
-3. Nella pagina **Choose your project** (Scegliere il progetto) selezionare **Empty Activity** (Attività vuota) e quindi **Next** (Avanti).
+3. Nella pagina **Choose your project** (Scegliere il progetto) selezionare **Empty Activity** (Attività vuota) e quindi **Next** (Avanti).
 
-4. Nella pagina **Configure your project** (Configurare il progetto) procedere come segue:
+4. Nella pagina **Configure your project** (Configurare il progetto) eseguire queste operazioni:
    1. Immettere un nome per l'applicazione.
    2. Specificare un percorso in cui salvare i file del progetto.
-   3. Selezionare **Finish** (Fine).
+   3. Selezionare **Fine**.
 
    :::image type="content" source="media/android-sdk/configure-project.png" alt-text="Configurare il progetto":::
 
 ## <a name="create-a-firebase-project-that-supports-fcm"></a>Creare un progetto Firebase che supporta FCM
 
-1. Accedere alla [console di Firebase](https://firebase.google.com/console/). Creare un nuovo progetto Firebase se non è già disponibile.
+1. Accedere alla [console di Firebase](https://firebase.google.com/console/). Creare un nuovo progetto Firebase se non è già disponibile.
 
-2. Dopo aver creato il progetto, selezionare **Add Firebase to your Android app** (Aggiungi Firebase all'app Android).
+2. Dopo aver creato il progetto, selezionare **Add Firebase to your Android app** (Aggiungi Firebase all'app Android).
 
-   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Aggiungere Firebase":::
 
-3. Nella pagina **Add Firebase to your Android app** (Aggiungere Firebase all'app Android) procedere come segue:
+3. Nella pagina **Add Firebase to your Android app** (Aggiungi Firebase all'app Android) eseguire queste operazioni:
 
-   1. Per **Android package name** (Nome pacchetto Android), copiare il valore di **applicationId** nel file **build.gradle** dell'applicazione. In questo esempio è  `com.fabrikam.fcmtutorial1app`.
+   1. Per **Android package name** (Nome pacchetto Android), copiare il valore di **applicationId** nel file **build.gradle** dell'applicazione. In questo esempio è `com.fabrikam.fcmtutorial1app`.
 
-      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Configurare il progetto":::
+      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Specificare il nome del pacchetto":::
 
-   2. Selezionare **Register app** (Registra l'app).
+   2. Selezionare **Registra l'app**.
 
-4. Selezionare **Download google-services.json** (Scarica google-services.json), salvare il file nella cartella **app** del progetto e quindi selezionare **Next** (Avanti).
+4. Selezionare **Download google-services.json** (Scarica google-services.json), salvare il file nella cartella **app** del progetto e quindi selezionare **Avanti**.
 
-   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Scaricare il servizio Google":::
 
-5. Nella console di Firebase selezionare il file COG per il progetto. Selezionare quindi **Project Settings** (Impostazioni progetto).
+5. Nella console di Firebase selezionare il file COG per il progetto. Selezionare quindi **Project Settings** (Impostazioni progetto).
 
-   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Impostazioni del progetto":::
 
-6. Se il file **google-services.json** non è stato scaricato nella cartella **app** del progetto di Android Studio, è possibile farlo in questa pagina.
+6. Se il file **google-services.json** non è stato scaricato nella cartella **app** del progetto di Android Studio, è possibile eseguire questa operazione in questa pagina.
 
-7. Passare alla scheda **Cloud Messaging** .
+7. Passare alla scheda **Cloud Messaging**.
 
-8. Copiare e salvare la **chiave server** per un uso successivo. Questo valore viene usato per configurare l'hub.
+8. Copiare e salvare il valore di **Chiave server** per un uso successivo. Questo valore viene usato per configurare l'hub.
 
 ## <a name="configure-a-notification-hub"></a>Configurare un hub di notifica
 
-1. Accedere al  [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **Tutti i servizi** nel menu a sinistra e quindi **Hub di notifica** nella sezione **Dispositivi mobili** . Selezionare l'icona a forma di stella accanto al nome del servizio per aggiungerlo alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto **Hub di notifica** a **PREFERITI**, selezionarlo nel menu a sinistra.
+2. Scegliere **Tutti i servizi** dal menu a sinistra e quindi selezionare **Hub di notifica** nella sezione **Dispositivi mobili**. Selezionare l'icona a forma di stella accanto al nome del servizio per aggiungere il servizio alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto **Hub di notifica** a **PREFERITI**, selezionarlo nel menu a sinistra.
 
-3. Nella pagina **Hub di notifica** selezionare **Aggiungi** sulla barra degli strumenti.
+3. Nella pagina **Hub di notifica** selezionare **Aggiungi** sulla barra degli strumenti.
 
-   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Aggiungere l'hub":::
 
-4. Nella pagina **Hub di notifica** procedere come segue:
+4. Nella pagina **Hub di notifica** eseguire queste operazioni:
 
-   1. Immettere un nome in **Hub di notifica**.
+   1. Immettere un nome in **Hub di notifica**.
 
-   2. Immettere un nome in **Crea un nuovo spazio dei nomi**. Uno spazio dei nomi contiene uno o più hub.
+   2. Immettere un nome in **Crea un nuovo spazio dei nomi**. Uno spazio dei nomi contiene uno o più hub.
 
-   3. Selezionare un valore nell'elenco a discesa **Posizione** . Questo valore specifica la posizione in cui creare l'hub.
+   3. Selezionare un valore nell'elenco a discesa **Località**. Questo valore specifica la posizione in cui creare l'hub.
 
-   4. Selezionare un gruppo di risorse esistente in **Gruppo di risorse** o crearne uno nuovo.
+   4. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo.
 
-   5. Selezionare **Crea**.
+   5. Selezionare **Crea**.
 
-      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Configurare il progetto":::
+      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Creare l'hub":::
 
-5. Selezionare **Notifiche** (icona a forma di campana) e quindi **Vai alla risorsa**. È anche possibile aggiornare l'elenco nella pagina **Hub di notifica** e selezionare l'hub.
+5. Selezionare **Notifiche** (icona a forma di campanello) e quindi selezionare **Vai alla risorsa**. È anche possibile aggiornare l'elenco nella pagina **Hub di notifica** e selezionare l'hub.
 
-   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Selezionare l'hub":::
 
-6. Selezionare **Criteri di accesso** nell'elenco. Prendere nota delle due stringhe di connessione disponibili. Sono necessarie in un secondo momento per gestire le notifiche push.
+6. Selezionare **Criteri di accesso** dall'elenco. Prendere nota delle due stringhe di connessione disponibili. Sono necessarie in un secondo momento per gestire le notifiche push.
 
-   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Criteri di accesso":::
 
    > [!IMPORTANT]
-   > Non usare il criterio **DefaultFullSharedAccessSignature** nell'applicazione. Questo criterio deve essere usato solo nel back-end dell'app.
+   > Non usare il criterio **DefaultFullSharedAccessSignature** nell'applicazione. Questo criterio deve essere usato solo nel back-end dell'app.
 
 ## <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>Configurare le impostazioni di Firebase Cloud Messaging per l'hub
 
-1. Nel riquadro sinistro in **Settings** (Impostazioni) selezionare **Google (GCM/FCM)** .
+1. Nel riquadro a sinistra in **Settings** (Impostazioni) selezionare **Google (GCM/FCM)** .
 
-2. Immettere la **chiave server** per il progetto FCM salvata in precedenza.
+2. Immettere la **chiave del server** per il progetto FCM salvato in precedenza.
 
-3. Sulla barra degli strumenti selezionare **Salva**.
+3. Sulla barra degli strumenti selezionare **Save** (Salva).
 
-   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Chiave server":::
 
-4. Il portale di Azure visualizza un messaggio per indicare che l'hub è stato aggiornato correttamente. Il pulsante **Salva** è disabilitato.
+4. Il portale di Azure visualizza un messaggio per indicare che l'hub è stato aggiornato correttamente. Il pulsante **Save** (Salva) è disabilitato.
 
 L'hub di notifica è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche disponibili le stringhe di connessione necessarie per inviare notifiche a un dispositivo e registrare un'app per la ricezione di notifiche.
 
@@ -139,23 +139,23 @@ L'hub di notifica è ora configurato per l'uso di Firebase Cloud Messaging. Sono
 
 ### <a name="add-google-play-services-to-the-project"></a>Aggiungere Google Play Services al progetto
 
-1. In Android Studio scegliere **Tools** (Strumenti) dal menu e quindi selezionare  **SDK Manager**.
+1. In Android Studio selezionare **Strumenti** nel menu e quindi **SDK Manager**.
 
-2. Selezionare la versione di destinazione di Android SDK che viene usata nel progetto. Quindi selezionare **Show Package Details** (Mostra i dettagli del pacchetto).
+2. Selezionare la versione di destinazione di Android SDK che viene usata nel progetto. Quindi selezionare **Mostra i dettagli del pacchetto**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="SDK manager":::
 
-3. Selezionare **Google APIs** (API Google), se non è già installato.
+3. Selezionare **API Google**, se non è già installato.
 
-   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="API":::
 
-4. Passare alla scheda **SDK Tools** . Se lo strumento Google Play Services non è già installato, selezionare **Google Play Services** come illustrato nell'immagine seguente. Quindi selezionare **Apply** (Applica) per eseguire l'installazione. Prendere nota del percorso dell'SDK per l'uso in un passaggio successivo.
+4. Passare alla scheda **SDK Tools**. Se lo strumento Google Play Services non è già installato, fare clic su **Google Play Services** come illustrato nell'immagine di seguito. Selezionare **Applica** per installarlo. Prendere nota del percorso dell'SDK per l'uso in un passaggio successivo.
 
-   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Play services":::
 
-5. Se viene visualizzata la finestra di dialogo **Confirm Change** (Conferma modifica), selezionare **OK**. Il programma di installazione componenti installa i componenti richiesti. Al termine dell'installazione dei componenti, selezionare **Finish** (Fine).
+5. Se viene visualizzata la finestra di dialogo **Confirm Change** (Conferma modifica), selezionare **OK**. Il programma di installazione componenti installa i componenti richiesti. Al termine dell'installazione dei componenti, selezionare **Finish** (Fine).
 
-6. Selezionare **OK** per chiudere la finestra di dialogo **Settings for New Projects** (Impostazioni per nuovi progetti).
+6. Selezionare **OK** per chiudere la finestra di dialogo **Settings for New Projects** (Impostazioni per nuovi progetti).
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Aggiungere le librerie di Hub di notifica di Azure
 
@@ -188,7 +188,7 @@ L'hub di notifica è ora configurato per l'uso di Firebase Cloud Messaging. Sono
    apply plugin: 'com.google.gms.google-services'
    ```
 
-2. Selezionare **Sincronizza ora** sulla barra degli strumenti.
+2. Selezionare **Sync Now** (Sincronizza ora) sulla barra degli strumenti.
 
 ### <a name="add-code"></a>Aggiungere codice
 
@@ -215,7 +215,7 @@ L'hub di notifica è ora configurato per l'uso di Firebase Cloud Messaging. Sono
    }
    ```
 
-2. Nel metodo `OnCreate` della classe `MainActivity` aggiungere il codice seguente per avviare il processo di registrazione di Hub di notifica quando viene creata l'attività:
+2. Nel metodo `OnCreate` della classe `MainActivity` aggiungere il codice seguente per avviare il processo di registrazione di Hub di notifica quando viene creata l'attività:
 
    ```java
    @Override
@@ -229,7 +229,7 @@ L'hub di notifica è ora configurato per l'uso di Firebase Cloud Messaging. Sono
    }
    ```
 
-3. Sulla barra dei menu di Android Studio selezionare **Build** (Compila), quindi selezionare **Rebuild Project** (Ricompila progetto) per assicurarsi che il codice non contenga errori. Se si riceve un errore riguardo all'icona **ic_launcher** , rimuovere l'istruzione seguente dal file AndroidManifest.xml:
+3. Sulla barra dei menu di Android Studio selezionare **Build** (Compila), quindi selezionare **Rebuild Project** (Ricompila progetto) per assicurarsi che il codice non contenga errori. Se si riceve un errore relativo all'icona **ic_launcher**, rimuovere l'istruzione seguente dal file AndroidManifest.xml:
 
    ```xml
    android:icon="@mipmap/ic_launcher"
@@ -237,28 +237,28 @@ L'hub di notifica è ora configurato per l'uso di Firebase Cloud Messaging. Sono
 
 4. Assicurarsi di avere un dispositivo virtuale per l'esecuzione dell'app. Se non è presente, aggiungerne uno nel modo seguente:
 
-   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Configurare il progetto":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Configurare il progetto":::
+   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Gestione dispositivi":::
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Dispositivi virtuali":::
    3. Eseguire l'app nel dispositivo selezionato e verificare che venga registrata correttamente nell'hub.
 
-      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Configurare il progetto":::
+      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Registrazione del dispositivo":::
 
       > [!NOTE]
       > La registrazione può non riuscire durante l'avvio iniziale, fino a quando non viene chiamato il metodo `onTokenRefresh()` del servizio Instance ID. Un aggiornamento dovrebbe avviare una registrazione corretta con l'hub di notifica.
 
 ## <a name="send-a-test-notification"></a>Invio di una notifica di prova
 
-È possibile inviare notifiche push all'hub di notifica dal [portale di Azure](https://portal.azure.com/), come indicato di seguito:
+È possibile inviare notifiche push all'hub di notifica dal [portale di Azure](https://portal.azure.com/), come indicato di seguito:
 
-1. Nella pagina Hub di notifica per l'hub nel portale di Azure selezionare **Invio di prova** nella sezione **Risoluzione dei problemi** .
+1. Nella pagina Hub di notifica per l'hub nel portale di Azure selezionare **Invio di prova** nella sezione **Risoluzione dei problemi**.
 
-2. In **Piattaforme** selezionare **Android**.
+2. Per **Piattaforme** selezionare **Android**.
 
-3. Selezionare **Invia**. Non verrà visualizzata alcuna notifica nel dispositivo Android, perché nel dispositivo non è stata ancora eseguita l'app per dispositivi mobili. Dopo aver eseguito l'app per dispositivi mobili, selezionare di nuovo il pulsante **Invia** per visualizzare il messaggio di notifica.
+3. Selezionare **Send** (Invia). Non verrà visualizzata alcuna notifica nel dispositivo Android, perché nel dispositivo non è stata ancora eseguita l'app per dispositivi mobili. Dopo aver eseguito l'app per dispositivi mobili, selezionare di nuovo il pulsante **Invia** per visualizzare il messaggio di notifica.
 
 4. Osservare i risultati dell'operazione nell'elenco in fondo alla pagine del portale.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Configurare il progetto":::
+   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Inviare una notifica di prova":::
 
 5. Il messaggio di notifica viene visualizzato nel dispositivo.
 
@@ -266,9 +266,9 @@ Le notifiche push vengono in genere inviate in un servizio back-end come App per
 
 ## <a name="run-the-mobile-app-on-emulator"></a>Eseguire l'app per dispositivi mobili nell'emulatore
 
-Prima di testare le notifiche push all'interno dell'emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta le API Google native, è possibile che venga generata l'eccezione **SERVICE_NOT_AVAILABLE** .
+Prima di testare le notifiche push all'interno dell'emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta le API Google native, è possibile che venga generata l'eccezione **SERVICE_NOT_AVAILABLE**.
 
-Assicurarsi anche di avere aggiunto l'account Google all'emulatore in esecuzione in **Impostazioni** > **Account**. In caso contrario, i tentativi di registrazione con FCM possono generare un'eccezione **AUTHENTICATION_FAILED** .
+Assicurarsi anche di avere aggiunto l'account Google all'emulatore in esecuzione in **Impostazioni** > **Account**. In caso contrario, i tentativi di registrazione con FCM possono generare un'eccezione **AUTHENTICATION_FAILED**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -279,10 +279,10 @@ In questa esercitazione è stato usato Firebase Cloud Messaging per trasmettere 
 
 Di seguito è riportato un elenco di altre esercitazioni sull'invio di notifiche:
 
-- App per dispositivi mobili di Azure: per un esempio su come inviare notifiche dal back-end di App per dispositivi mobili integrato con Hub di notifica, vedere [Aggiungere notifiche push all'app iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- App per dispositivi mobili di Azure: per un esempio di come inviare notifiche dal back-end di un'app per dispositivi mobili integrata con Hub di notifica, vedere [Aggiungere notifiche push all'app iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
-- ASP.NET: [usare Hub di notifica per inviare notifiche push agli utenti](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
+- ASP.NET: [usare Hub di notifica per inviare notifiche push agli utenti](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 
-- Hub di notifica di Azure in Java SDK: vedere [Come usare Hub di notifica da Java](notification-hubs-java-push-notification-tutorial.md) per l'invio di notifiche da Java. È stato testato in Eclipse per lo sviluppo per Android.
+- Azure Notification Hubs Java SDK: vedere [Come usare Hub di notifica da Java](notification-hubs-java-push-notification-tutorial.md) per l'invio di notifiche da Java. È stato testato in Eclipse per lo sviluppo per Android.
 
-- PHP: [Come usare Hub di notifica da PHP](notification-hubs-php-push-notification-tutorial.md).
+- PHP: [Come usare Hub di notifica da PHP](notification-hubs-php-push-notification-tutorial.md).

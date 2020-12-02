@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
 ms.custom: include file, cog-serv-seo-aug-2020
-ms.openlocfilehash: 7e6524f4156dcc5a1adf6ea08720a90ebf365fdb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5c7508cdb6151b61263fd8daf533906ba9c42a1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95095094"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96303656"
 ---
 Usare le librerie client di LUIS (Language Understanding) per Python per:
 
@@ -168,7 +168,7 @@ Aggiungere le espressioni di esempio creando un elenco di oggetti [ExampleLabelO
 
 :::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="Screenshot parziale che mostra l'espressione di esempio etichettata nel portale. ":::
 
-Chiamare [examples.add](//python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#add-app-id--version-id--example-label-object--enable-nested-children-false--custom-headers-none--raw-false----operation-config-) con l'ID app, l'ID versione e l'esempio.
+Chiamare [examples.add](/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python) con l'ID app, l'ID versione e l'esempio.
 
 [!code-python[Add example utterance to intent](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringAddLabeledExamples)]
 

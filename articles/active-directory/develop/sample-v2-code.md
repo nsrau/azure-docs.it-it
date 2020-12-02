@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b3ea370a686e272a1d8ea201dd953fc09c1098ee
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de25aafcfefee195e8d674c60ebdbaf79cb1ae10
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628187"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406889"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice per Microsoft Identity Platform (endpoint versione 2.0)
 
@@ -59,10 +59,12 @@ Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli 
 | ![Questa immagine mostra il logo del framework ASP.NET](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [Playbook per la migrazione di applicazioni da Active Directory Federation Services ad Azure AD per sviluppatori](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) per informazioni su come eseguire la migrazione in modo affidabile e sicuro delle applicazioni integrate con Active Directory Federation Services ad Azure Active Directory (Azure AD) | |
 | ![Questa immagine mostra il logo del framework ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Guida introduttiva di ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Questa immagine mostra il logo Java](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![Questa immagine mostra il logo Java](media/sample-v2-code/logo_java.png)  | [ms-identity-b2c-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
 | ![Questa immagine mostra il logo Python](media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![Questa immagine mostra il logo Python](media/sample-v2-code/logo_python.png)  | Esercitazione su un'[app Web Python Flask](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) che consente agli utenti di accedere                   | Esercitazione su un'[app Web Python Flask](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) che consente agli utenti di accedere e chiamare Graph |
 | ![Questa immagine mostra il logo Python](media/sample-v2-code/logo_python.png)  | [App Web Python Flask](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) che consente agli utenti di accedere con B2C                    |  |
 | ![Questa immagine mostra il logo Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
+
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>App client pubbliche per dispositivi mobili e desktop
 
