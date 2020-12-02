@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b6aaad9cce330d755fb69f8be48737f9a8f6c4a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408669"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487746"
 ---
 # <a name="security-control-v2-network-security"></a>Controllo di sicurezza V2: sicurezza di rete
 
@@ -40,9 +40,9 @@ Usare Sentinel di Azure per individuare l'uso di protocolli legacy non protetti,
 
 - [Cartella di lavoro protocolli non protetti di Sentinel di Azure](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -68,9 +68,9 @@ Per connettere due o più reti virtuali in Azure, usare il peering di rete virtu
 
 - [Collegamento privato di Azure](../../private-link/private-link-service-overview.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -78,7 +78,7 @@ Per connettere due o più reti virtuali in Azure, usare il peering di rete virtu
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: stabilire l'accesso alla rete privata per i servizi di Azure
+## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Stabilire l'accesso alla rete privato ai servizi di Azure
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
@@ -92,9 +92,9 @@ L'accesso privato è una misura di difesa aggiuntiva in profondità, oltre all'a
 
 - [Informazioni sugli endpoint del servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -120,11 +120,11 @@ Proteggi le risorse di Azure da attacchi provenienti da reti esterne, tra cui at
 
 - [Come distribuire Azure WAF](../../web-application-firewall/overview.md)
 
-- [Gestire Protezione DDoS di Azure Standard nel portale di Azure](../../virtual-network/manage-ddos-protection.md)
+- [Gestire Protezione DDoS di Azure Standard nel portale di Azure](../../ddos-protection/manage-ddos-protection.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 Nessuno
 
@@ -144,9 +144,9 @@ Nota: in caso di requisiti normativi o di altro genere per l'utilizzo di ID/IP, 
 
 - [Funzionalità di Microsoft Defender ATP EDR](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -170,9 +170,9 @@ Usare i tag del servizio rete virtuale per definire i controlli di accesso alla 
 
 - [Comprendere e usare i gruppi di sicurezza delle applicazioni](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -196,9 +196,9 @@ Quando DNS di Azure viene usato come servizio DNS autorevole, assicurarsi che le
 
 - [Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini](../fundamentals/subdomain-takeover.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

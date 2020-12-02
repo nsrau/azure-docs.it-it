@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c553652d4d8abd16b4e5fd4ff896e42bdba103ad
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8602450ef7df7f728fc5bdcda4f46ae30058fc94
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408975"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487797"
 ---
 # <a name="security-control-v2-asset-management"></a>Controllo di sicurezza V2: gestione delle risorse
 
 Gestione asset copre i controlli per garantire la visibilità e la governance della sicurezza sulle risorse di Azure. Sono incluse le raccomandazioni sulle autorizzazioni per il personale di sicurezza, l'accesso alla sicurezza per l'inventario degli asset e la gestione delle approvazioni per servizi e risorse (inventario, traccia e corrette).
 
-## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: garantire ai team di sicurezza la visibilità dei rischi per gli asset
+## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: assicurarsi che il team di sicurezza abbia visibilità dei rischi per gli asset
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
@@ -26,31 +26,31 @@ Gestione asset copre i controlli per garantire la visibilità e la governance de
 
 Assicurarsi che i team di sicurezza dispongano delle autorizzazioni di lettura per la sicurezza nel tenant e nelle sottoscrizioni di Azure in modo che possano monitorare i rischi per la sicurezza tramite il Centro sicurezza 
 
-A seconda del modo in cui sono strutturate le responsabilità del team di sicurezza, il monitoraggio dei rischi per la sicurezza può essere responsabile di un team di sicurezza centrale o di un team locale. Ciò premesso, le informazioni e i rischi per la sicurezza devono sempre essere aggregati in modo centralizzato all'interno di un'organizzazione. 
+A seconda di come sono strutturate le responsabilità del team responsabile della sicurezza, il monitoraggio dei rischi per la sicurezza può essere responsabilità di un team addetto alla sicurezza centrale o di un team locale. Fatta questa premessa, le informazioni e i rischi per la sicurezza devono sempre essere aggregati in una posizione centralizzata all'interno di un'organizzazione. 
 
-Le autorizzazioni di lettura per la sicurezza possono essere applicate in modo esteso a un intero tenant (gruppo di gestione radice) o a gruppi di gestione o sottoscrizioni specifiche. 
+Le autorizzazioni di lettura per la sicurezza possono essere applicate su larga scala a un intero tenant (gruppo di gestione radice) oppure a gruppi di gestione o a sottoscrizioni specifiche. 
 
-Nota: potrebbero essere necessarie autorizzazioni aggiuntive per ottenere la visibilità dei carichi di lavoro e dei servizi. 
+Nota: potrebbero essere necessarie anche altre autorizzazioni per ottenere visibilità sui carichi di lavoro e i servizi. 
 
-- [Panoramica del ruolo lettura sicurezza](../../role-based-access-control/built-in-roles.md#security-reader)
+- [Panoramica del ruolo con autorizzazioni di lettura per la sicurezza](../../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Panoramica di Azure Gruppi di gestione](../../governance/management-groups/overview.md)
+- [Panoramica di Gruppi di gestione di Azure](../../governance/management-groups/overview.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: assicurarsi che il team di sicurezza abbia accesso all'inventario e ai metadati degli asset
+## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Assicurarsi che il team di sicurezza abbia accesso all'inventario degli asset e ai metadati
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | AM-2 | 1,1, 1,2, 1,4, 1,5, 9,1, 12,1 | CM-8, PM-5 |
 
-Assicurarsi che i team di sicurezza abbiano accesso a un inventario continuo aggiornato delle risorse in Azure. I team addetti alla sicurezza spesso necessitano di questo inventario per valutare la potenziale esposizione dell'organizzazione ai rischi emergenti e come input per migliorare costantemente la protezione. 
+Assicurarsi che i team di sicurezza abbiano accesso a un inventario continuo aggiornato delle risorse in Azure. I team di sicurezza spesso necessitano di questo inventario per valutare la potenziale esposizione dell'organizzazione ai rischi emergenti e come input per miglioramenti continui della sicurezza. 
 
 La funzionalità di inventario del Centro sicurezza di Azure e il grafico risorse di Azure possono eseguire query e individuare tutte le risorse nelle sottoscrizioni, inclusi i servizi, le applicazioni e le risorse di rete di Azure.  
 
@@ -60,23 +60,23 @@ Organizzare logicamente gli asset in base alla tassonomia dell'organizzazione us
 
 - [Gestione inventario asset del Centro sicurezza di Azure](../../security-center/asset-inventory.md)
 
-- [Per ulteriori informazioni sull'assegnazione di tag agli asset, vedere la guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [Per ulteriori informazioni sull'assegnazione di tag agli asset, vedere la guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="am-3-use-only-approved-azure-services"></a>AM-3: usare solo i servizi di Azure approvati
+## <a name="am-3-use-only-approved-azure-services"></a>AM-3: Usare solo i servizi di Azure approvati
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
-Usare criteri di Azure per controllare e limitare i servizi di cui gli utenti possono eseguire il provisioning nell'ambiente. Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.  È anche possibile usare monitoraggio di Azure per creare regole per attivare gli avvisi quando viene rilevato un servizio non approvato.
+Usare Criteri di Azure per controllare e limitare i servizi di cui gli utenti possono eseguire il provisioning nell'ambiente. Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.  È anche possibile usare Monitoraggio di Azure per creare regole per attivare gli avvisi quando viene rilevato un servizio non approvato.
 
 - [Configurare e gestire i criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -84,29 +84,29 @@ Usare criteri di Azure per controllare e limitare i servizi di cui gli utenti po
 
 - [Come creare query con Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
-## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: garantire la sicurezza della gestione del ciclo di vita degli asset
+## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>4\. Garantire la sicurezza della gestione del ciclo di vita delle risorse
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | AM-4 | 2,3, 2,4, 2,5 | CM-7, CM-8, CM-10, CM-11 |
 
-Definire o aggiornare i criteri di sicurezza che affrontano i processi di gestione del ciclo di vita delle risorse per apportare modifiche potenzialmente elevate Queste modifiche includono le modifiche apportate a: provider di identità e accesso, sensibilità dei dati, configurazione di rete e assegnazione dei privilegi amministrativi.
+Definire o aggiornare i criteri di sicurezza che affrontano i processi di gestione del ciclo di vita delle risorse per apportare modifiche potenzialmente elevate come ad esempio modifiche a: provider di identità e accessi, sensibilità dei dati, configurazione della rete e assegnazione dei privilegi amministrativi.
 
 Rimuovere le risorse di Azure quando non sono più necessarie.
 
-- [Eliminare il gruppo di risorse e la risorsa di Azure](../../azure-resource-manager/management/delete-resource-group.md)
+- [Eliminare un gruppo di risorse di Azure e le relative risorse](../../azure-resource-manager/management/delete-resource-group.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -124,9 +124,9 @@ Usare Azure AD accesso condizionale per limitare la capacità degli utenti di in
 
 - [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -154,9 +154,9 @@ A seconda del tipo di script, è possibile usare configurazioni specifiche del s
 
 - [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

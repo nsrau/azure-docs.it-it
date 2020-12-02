@@ -72,7 +72,7 @@
     - name: Procedure consigliate
       href: network-best-practices.md
     - name: Procedure consigliate per Protezione DDoS
-      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
+      href: ../../ddos-protection/fundamental-best-practices.md
     - name: Baseline sicurezza di Protezione DDoS
       href: ddos-protection-security-baseline.md
     - name: Acquisizione di sottodomini e DNS tralasciati

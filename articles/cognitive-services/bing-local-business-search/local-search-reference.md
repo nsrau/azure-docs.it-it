@@ -10,19 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364650"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487134"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L'API Local Business Search invia una query di ricerca a Bing per ottenere risultati che includono ristoranti, hotel o altre attività commerciali locali. Per le località, la query può specificare il nome dell'attività commerciale locale o una categoria, ad esempio ristoranti nelle vicinanze. I risultati relativi all'entità includono persone, località o cose. Il posizionamento in questo contesto è soggetto a entità aziendali, Stati, Paesi o aree geografiche e così via.  
 
@@ -76,7 +76,7 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query.  
   
   
-|Nome|Valore|Type|Necessario|  
+|Nome|Valore|Tipo|Necessario|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>count|Numero di risultati da restituire, a partire dall'indice specificato dal `offset` parametro.|string|No|   
 |<a name="localCategories"></a>localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|string|No|  
@@ -113,7 +113,7 @@ Definisce l'errore che si è verificato.
 ### <a name="errorresponse"></a>ErrorResponse  
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.  
   
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|string|  
 |<a name="errors"></a>errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Errore](#error)[]|  
@@ -123,7 +123,7 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="license"></a>Licenza  
 Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.  
   
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |----------|-----------|----------|  
 |name|Il nome della licenza.|string|  
 |url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|string|  
@@ -132,7 +132,7 @@ Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.
 ### <a name="link"></a>Collegamento  
 Definisce i componenti di un collegamento ipertestuale.  
   
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|string|  
 |text|Testo visualizzato.|string|  
@@ -146,7 +146,7 @@ Definisce un editore.
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
   
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |----------|-----------|----------|  
 |name|Nome dell'editore.|string|  
 |url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|string|  
@@ -156,7 +156,7 @@ Si noti che un editore può fornire il proprio nome e/o il sito Web.
 ### <a name="place"></a>Posizione  
 Definisce le informazioni su un'attività commerciale locale, ad esempio un ristorante o un hotel.  
   
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che può essere impostato su uno dei valori seguenti:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Ristorante</ul><li>|string|  
 |address|Indirizzo postale del luogo in cui si trova l'entità.|PostalAddress|  
@@ -173,33 +173,33 @@ Definisce il contesto di query usato da Bing per la richiesta.
 |Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false**.|Boolean|  
-|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind* , questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
+|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind*, questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
 |alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
 |askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true**.<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false**. Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
 |originalQuery|La stringa di query come è stata specificata nella richiesta.|string|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |-------------|-----------------|----------|
 |id|Identificatore di risorsa|string|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definisce un gruppo di risultati di ricerca, ad esempio la riga principale.
 
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |-------------|-----------------|----------|
 |items|Elenco di risultati della ricerca da visualizzare nel gruppo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definisce un elemento dei risultati della ricerca da visualizzare.
 
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |-------------|-----------------|----------|
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
 |answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|string|
 |textualIndex|Indice della risposta in textualAnswers da visualizzare.| Unsigned Integer|
-|value|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
+|Valore|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  
@@ -215,7 +215,7 @@ Definisce l'oggetto di livello superiore incluso nella risposta quando la richie
   
 Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta avrà esito positivo (con codice di stato HTTP 200 OK), ma il corpo della risposta sarà vuoto.  
   
-|Nome|Valore|Type|  
+|Nome|Valore|Tipo|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su SearchResponse.|string|  
 |places|Elenco di entità che sono rilevanti per la query di ricerca.|Oggetto JSON|  

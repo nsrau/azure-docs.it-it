@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ce9ab371c0ed1e81cf1dfb53fca7e359e1aeb35
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967500"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486522"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
 Questa guida contiene le indicazioni necessarie per configurare l'infrastruttura di Azure e gestire i sistemi SAP HANA distribuiti in macchine virtuali native di Azure. Il documento include anche informazioni sulla configurazione per lo scale-out di SAP HANA per lo SKU di VM M128s. Questo documento non deve sostituire la documentazione standard di SAP, che include:
@@ -245,8 +245,8 @@ In base alle indicazioni sulle procedure consigliate di DT 2.0, la velocità eff
 È necessario collegare più dischi di Azure alla VM DT 2.0 e creare un volume RAID (striping) di software a livello di sistema operativo per raggiungere il limite massimo della velocità effettiva dei dischi per ogni VM. Un singolo disco di Azure non può fornire la velocità effettiva per raggiungere il limite massimo per le VM in questo ambito. Archiviazione Premium di Azure è obbligatorio per eseguire DT 2.0. 
 
 - Per informazioni dettagliate sui tipi di dischi di Azure, vedere [qui](../../disks-types.md)
-- Per informazioni dettagliate sulla creazione del volume RAID del software tramite mdadm, vedere [qui](../../linux/configure-raid.md)
-- Per informazioni dettagliate sulla configurazione di LVM per creare un volume con striping per la velocità effettiva massima, vedere [qui](../../linux/configure-lvm.md)
+- Per informazioni dettagliate sulla creazione del volume RAID del software tramite mdadm, vedere [qui](/previous-versions/azure/virtual-machines/linux/configure-raid)
+- Per informazioni dettagliate sulla configurazione di LVM per creare un volume con striping per la velocità effettiva massima, vedere [qui](/previous-versions/azure/virtual-machines/linux/configure-lvm)
 
 A seconda dei requisiti delle dimensioni, sono disponibili diverse opzioni per raggiungere la velocità effettiva massima di una VM. Di seguito sono elencate le possibili configurazioni dei dischi volume di dati per ogni tipo di VM DT 2.0 per raggiungere il limite massimo di velocità effettiva della VM. La VM E32sv3 deve essere considerata come base per i carichi di lavoro più piccoli. Se non dovesse risultare abbastanza veloce, potrebbe essere necessario ridimensionare la VM a M64-32ms.
 Poiché la VM M64-32ms ha una quantità elevata di memoria, il carico di I/O potrebbe non raggiungere il limite soprattutto per i carichi di lavoro che eseguono un'intensa attività di lettura. Un numero inferiore di dischi nel set di striping potrebbe quindi essere sufficiente a seconda del carico di lavoro specifico del cliente, ma, per sicurezza, le configurazioni dei dischi seguenti sono state scelte per garantire la velocità effettiva massima:
@@ -324,4 +324,3 @@ Acquisire familiarità con gli articoli elencati
 - [Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
-

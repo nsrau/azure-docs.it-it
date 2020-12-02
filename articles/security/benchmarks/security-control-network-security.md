@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd69f239a1c65040c44da776186ab8d955f5e333
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3a232f8e8c35e265a8243ac79e465c03f6b9650e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693185"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487865"
 ---
 # <a name="security-control-network-security"></a>Controllo di sicurezza: sicurezza di rete
 
@@ -22,7 +22,7 @@ I consigli sulla sicurezza di rete sono incentrati sulla specifica di quali prot
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.1 | 9,2, 9,4, 14,1, 14,2, 14,3 | Cliente |
+| 1.1 | 9,2, 9,4, 14,1, 14,2, 14,3 | Customer |
 
 Verificare che tutte le distribuzioni di subnet della rete virtuale dispongano di un gruppo di sicurezza di rete applicato con controlli di accesso alla rete specifici delle porte e delle origini attendibili dell'applicazione. Se disponibile, usare endpoint privati con collegamento privato per proteggere le risorse dei servizi di Azure nella rete virtuale estendendo l'identità VNet al servizio. Quando gli endpoint privati e il collegamento privato non sono disponibili, usare gli endpoint del servizio. Per i requisiti specifici del servizio, fare riferimento alle raccomandazioni sulla sicurezza per il servizio specifico. 
 
@@ -42,7 +42,7 @@ In alternativa, se si ha un caso d'uso specifico, il requisito può essere soddi
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.2 | 9,3, 12,2, 12,8 | Cliente |
+| 1.2 | 9,3, 12,2, 12,8 | Customer |
 
 Usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di rete in Azure. Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi di NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
@@ -56,7 +56,7 @@ Usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezion
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.3 | 9,5 | Cliente |
+| 1.3 | 9,5 | Customer |
 
 Distribuire il Web Application Firewall (WAF) di Azure davanti alle applicazioni Web critiche per un ulteriore controllo del traffico in ingresso. Abilitare l'impostazione di diagnostica per WAF e inserire i log in un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
 
@@ -66,7 +66,7 @@ Distribuire il Web Application Firewall (WAF) di Azure davanti alle applicazioni
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.4 | 12.3 | Cliente |
+| 1.4 | 12.3 | Customer |
 
 Abilitare la protezione standard DDoS nelle reti virtuali di Azure per proteggersi da attacchi DDoS. Usare il Centro sicurezza di Azure Integrated Threat Intelligence per negare le comunicazioni con indirizzi IP dannosi noti.
 
@@ -76,7 +76,7 @@ Usare il Centro sicurezza di Azure accesso alla rete just-in-time per configurar
 
 Usare il Centro sicurezza di Azure Adaptive Network hardening per consigliare configurazioni NSG che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'Intelligence per le minacce.
 
-- [Come configurare la protezione DDoS](../../virtual-network/manage-ddos-protection.md)
+- [Come configurare la protezione DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 - [Come distribuire il firewall di Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -90,7 +90,7 @@ Usare il Centro sicurezza di Azure Adaptive Network hardening per consigliare co
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.5 | 12.5 | Cliente |
+| 1.5 | 12.5 | Customer |
 
 Abilitare Network Watcher acquisizione pacchetti per analizzare le attività anomale.
 
@@ -100,7 +100,7 @@ Abilitare Network Watcher acquisizione pacchetti per analizzare le attività ano
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.6 | 12,6, 12,7 | Cliente |
+| 1.6 | 12,6, 12,7 | Customer |
 
 Selezionare un'offerta da Azure Marketplace che supporta la funzionalità di ID/IP con le funzionalità di ispezione del payload.  Se il rilevamento e/o la prevenzione di intrusioni in base all'ispezione del payload non costituisce un requisito, è possibile usare Firewall di Azure con intelligence sulle minacce. I filtri basati sull'intelligence sulle minacce del Firewall di Azure possono creare avvisi e rifiutare il traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
 
@@ -116,7 +116,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.7 | 12,9, 12,10 | Cliente |
+| 1.7 | 12,9, 12,10 | Customer |
 
 Distribuire applicazione Azure gateway per le applicazioni Web con HTTPS/TLS abilitato per i certificati attendibili.
 
@@ -130,7 +130,7 @@ Distribuire applicazione Azure gateway per le applicazioni Web con HTTPS/TLS abi
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.8 | 1.5 | Cliente |
+| 1.8 | 1.5 | Customer |
 
 Usare i tag del servizio rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Se si specifica il nome del tag di servizio (ad esempio ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
@@ -144,7 +144,7 @@ Usare i tag del servizio rete virtuale per definire i controlli di accesso alla 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1,9 | 11,1 | Cliente |
+| 1,9 | 11,1 | Customer |
 
 Definire e implementare configurazioni di sicurezza standard per le risorse di rete con criteri di Azure.
 
@@ -160,7 +160,7 @@ Definire e implementare configurazioni di sicurezza standard per le risorse di r
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1,10 | 11.2 | Cliente |
+| 1,10 | 11.2 | Customer |
 
 Usare i tag per gruppi e altre risorse correlate alla sicurezza di rete e al flusso del traffico. Per le regole dei singoli gruppi di sicurezza di rete, usare il campo "Descrizione" per specificare le esigenze aziendali e/o la durata (e così via) per le regole che consentono il traffico da e verso una rete.
 
@@ -178,7 +178,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.11 | 11.3 | Cliente |
+| 1.11 | 11.3 | Customer |
 
 Usare log attività di Azure per monitorare le configurazioni delle risorse e rilevare le modifiche apportate alle risorse di Azure. Creare avvisi in monitoraggio di Azure che verranno attivati quando vengono apportate modifiche alle risorse critiche.
 

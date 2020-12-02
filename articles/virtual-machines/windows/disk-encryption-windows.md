@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e0409f289289aaebc760473f1f74130b34fbdd39
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ad40515475a10f41fd7ab1d8d44f89673877f054
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488318"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -135,7 +135,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nome del gruppo di risorse che contiene l'insieme di credenziali delle chiavi.|
 |  keyEncryptionKeyURL | URL della chiave di crittografia della chiave, nel formato https:// &lt; chiave Vault-Name &gt; . Vault.Azure.NET/Key/ &lt; chiave-nome &gt; . Se non si vuole usare un KEK, lasciare vuoto questo campo. |
-| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_ , _Data_ e _All_. 
+| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
 | posizione | Posizione per tutte le risorse. |
@@ -264,8 +264,8 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e le
 - Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
 - Macchine virtuali Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VM serie M con dischi acceleratore di scrittura.
-- Applicazione di ADE a una macchina virtuale con dischi crittografati con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK). Applicare anche SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
-- Migrazione di una macchina virtuale crittografata con ADE oppure crittografata con ADE, per la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md). **ever**
+- Applicazione di ADE a una macchina virtuale con dischi crittografati con la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md) (SSE + CMK). Applicare anche SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
+- Migrazione di una macchina virtuale crittografata con ADE oppure crittografata con ADE, per la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md). **ever**
 - [Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale](../azure-vms-no-temp-disk.md); in particolare, dv4, Dsv4, Ev4 e Esv4.
 
 ## <a name="next-steps"></a>Passaggi successivi

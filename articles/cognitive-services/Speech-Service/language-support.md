@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: a430333f57b3734e5977db5c104c8f6d37bfd3c4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 27cf5fef027b1e4786c0ff77f9f673bafea15f98
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487270"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -26,7 +26,7 @@ Il supporto per la lingua varia in base alla funzionalità del servizio Voce. Ne
 
 Sia Microsoft Speech SDK che l'API REST supportano le lingue seguenti (impostazioni locali). 
 
-Per migliorare l'accuratezza, è possibile personalizzare un subset di lingue caricando **Audio + Human-labeled Transcripts** (Trascrizioni audio o con etichette umane) oppure **Related Text: Sentences** (Testo correlato: Frasi). Per altre informazioni sulla personalizzazione, vedere [Introduzione a Riconoscimento vocale personalizzato](how-to-custom-speech.md).
+Per migliorare l'accuratezza, è possibile personalizzare un subset di lingue caricando **Audio + Human-labeled Transcripts** (Trascrizioni audio o con etichette umane) oppure **Related Text: Sentences** (Testo correlato: Frasi). Per altre informazioni sulla personalizzazione, vedere [Introduzione a Riconoscimento vocale personalizzato](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
@@ -55,7 +55,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Cinese (mandarino, semplificato)     |`zh-CN` | Modello acustico<br>Modello linguistico                 |
 |Cinese (mandarino taiwanese)       |`zh-TW` | Modello linguistico                                   |
 |Croato (Croazia)                 |`hr-HR` | Modello linguistico                                   |
-|Ceco (Repubblica Ceca)             |`cs-CZ` | Modello linguistico                                   |
+|Ceco (Repubblica ceca)             |`cs-CZ` | Modello linguistico                                   |
 |Danese (Danimarca)                   |`da-DK` | Modello linguistico                                   |
 |Olandese (Paesi Bassi)                |`nl-NL` | Modello linguistico                                   |
 |Inglese (Australia)                |`en-AU` | Modello acustico<br>Modello linguistico                 |
@@ -66,9 +66,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Inglese (Nuova Zelanda)              |`en-NZ` | Modello acustico<br>Modello linguistico                 |
 |Inglese (Filippine)              |`en-PH` | Modello linguistico                                   |
 |Inglese (Singapore)                |`en-SG` | Modello linguistico                                   |
-|Inglese (Sud Africa)             |`en-ZA` | Modello linguistico                                   |
+|Inglese (Sudafrica)             |`en-ZA` | Modello linguistico                                   |
 |Inglese (Regno Unito)           |`en-GB` | Modello acustico<br>Modello linguistico<br>Pronuncia|
-|Inglese (Stati Uniti)            |`en-US` | Modello acustico<br>Modello linguistico<br>Pronuncia|
+|Italiano (Italia)            |`en-US` | Modello acustico<br>Modello linguistico<br>Pronuncia|
 |Estone (Estonia)                  |`et-EE` | Modello linguistico                                   |
 |Finlandese (Finlandia)                  |`fi-FI` | Modello linguistico                                   |
 |Francese (Canada)                    |`fr-CA` | Modello acustico<br>Modello linguistico                 |
@@ -100,7 +100,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Spagnolo (Colombia)                 |`es-CO` | Modello linguistico                                   |
 |Spagnolo (Costa Rica)               |`es-CR` | Modello linguistico                                   |
 |Spagnolo (Cuba)                     |`es-CU` | Modello linguistico                                   |
-|Spagnolo (Repubblica Dominicana)       |`es-DO` | Modello linguistico                                   |
+|Spagnolo (Repubblica dominicana)       |`es-DO` | Modello linguistico                                   |
 |Spagnolo (Ecuador)                  |`es-EC` | Modello linguistico                                   |
 |Spagnolo (El Salvador)              |`es-SV` | Modello linguistico                                   |
 |Spagnolo (Guatemala)                |`es-GT` | Modello linguistico                                   |
@@ -110,7 +110,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Spagnolo (Panama)                   |`es-PA` | Modello linguistico                                   |
 |Spagnolo (Paraguay)                 |`es-PY` | Modello linguistico                                   |
 |Spagnolo (Perù)                     |`es-PE` | Modello linguistico                                   |
-|Spagnolo (Porto Rico)              |`es-PR` | Modello linguistico                                   |
+|Spagnolo (Puerto Rico)              |`es-PR` | Modello linguistico                                   |
 |Spagnolo (Spagna)                    |`es-ES` | Modello acustico<br>Modello linguistico                 |
 |Spagnolo (Uruguay)                  |`es-UY` | Modello linguistico                                   |
 |Spagnolo (Stati Uniti)                      |`es-US` | Modello linguistico                                   |
@@ -158,9 +158,9 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-LibbyNeural` | Generale |
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-MiaNeural` | Generale |
 | Inglese (Regno Unito) | `en-GB` | Male | `en-GB-RyanNeural` <sup>Nuovo</sup> | Generale |
-| Inglese (Stati Uniti) | `en-US` | Female | `en-US-AriaNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyNeural` | Generale |
-| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JennyNeural` <sup>Nuovo</sup> | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Italiano (Italia) | `en-US` | Female | `en-US-AriaNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Italiano (Italia) | `en-US` | Male | `en-US-GuyNeural` | Generale |
+| Italiano (Italia) | `en-US` | Female | `en-US-JennyNeural` <sup>Nuovo</sup> | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | Generale |
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | Generale |
 | Francese (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>Nuovo</sup> | Generale |
@@ -254,7 +254,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | Cinese (mandarino taiwanese) |  `zh-TW` | Female | `zh-TW-Yating`|
 | Cinese (mandarino taiwanese) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
 | Croato (Croazia) | `hr-HR` | Male | `hr-HR-Matej`|
-| Ceco (Repubblica Ceca) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| Ceco (Repubblica ceca) | `cs-CZ` | Male | `cs-CZ-Jakub`|
 | Danese (Danimarca) | `da-DK` | Female | `da-DK-HelleRUS`|
 | Olandese (Paesi Bassi) | `nl-NL` | Female | `nl-NL-HannaRUS`|
 | Inglese (Australia) | `en-AU` | Female | `en-AU-Catherine`|
@@ -268,10 +268,10 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | Inglese (Regno Unito) | `en-GB` | Male | `en-GB-George`|
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-HazelRUS`|
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-Susan`|
-| Inglese (Stati Uniti) | `en-US` | Male | `en-US-BenjaminRUS`|
-| Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyRUS`|
-| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JessaRUS`|
-| Inglese (Stati Uniti) | `en-US` | Female | `en-US-ZiraRUS`|
+| Italiano (Italia) | `en-US` | Male | `en-US-BenjaminRUS`|
+| Italiano (Italia) | `en-US` | Male | `en-US-GuyRUS`|
+| Italiano (Italia) | `en-US` | Female | `en-US-JessaRUS`|
+| Italiano (Italia) | `en-US` | Female | `en-US-ZiraRUS`|
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-HeidiRUS`|
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-Caroline`|
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-HarmonieRUS`|
@@ -435,4 +435,4 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Informazioni sul riconoscimento vocale in C#](./get-started-speech-to-text.md?pivots=programming-language-chsarp)

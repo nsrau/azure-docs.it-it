@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b7490723d3930a151abf1d3f72bb957e02e5988
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d88792f50e0e79dd0313694cf979761054551eac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975502"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487525"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Eseguire la migrazione di macchine virtuali di Azure a Managed Disks in Azure
 
@@ -27,7 +27,7 @@ In base alle esigenze specifiche, è possibile scegliere tra quattro tipi di opz
 |---------|---------|
 |Conversione di macchine virtuali autonome e incluse in un set di disponibilità in dischi gestiti     |[Convertire le macchine virtuali per usare i dischi gestiti](convert-unmanaged-to-managed-disks.md)         |
 |Convertire una singola macchina virtuale dal modello di distribuzione classica a Gestione risorse nei dischi gestiti     |[Creare una macchina virtuale da un disco rigido virtuale classico](create-vm-specialized-portal.md)         |
-|Convertire tutte le macchine virtuali in un vNet dal modello di distribuzione classica a quello Gestione risorse sui dischi gestiti     |[Eseguire la migrazione di risorse IaaS dal modello di distribuzione classico a Resource Manager](migration-classic-resource-manager-ps.md) e quindi [convertire una macchina virtuale da dischi non gestiti in dischi gestiti](convert-unmanaged-to-managed-disks.md)         |
+|Convertire tutte le macchine virtuali in un vNet dal modello di distribuzione classica a quello Gestione risorse sui dischi gestiti     |[Eseguire la migrazione di risorse IaaS dal modello di distribuzione classico a Resource Manager](../migration-classic-resource-manager-ps.md) e quindi [convertire una macchina virtuale da dischi non gestiti in dischi gestiti](convert-unmanaged-to-managed-disks.md)         |
 |Aggiornare le macchine virtuali con dischi non gestiti standard alle macchine virtuali con dischi Premium gestiti     | Convertire prima [di tutto una macchina virtuale Windows da dischi non gestiti a Managed disks](convert-unmanaged-to-managed-disks.md). [Aggiornare quindi il tipo di archiviazione di un disco gestito](convert-disk-storage.md).         |
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]

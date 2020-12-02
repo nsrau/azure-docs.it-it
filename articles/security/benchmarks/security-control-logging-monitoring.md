@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e88976bfbf5d033d6f5dc2318a6383e01ceb791d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8492e986b378ea19f8c3c4cb7f94fcb0f155b427
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409077"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487848"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controllo di sicurezza: registrazione e monitoraggio
 
@@ -96,7 +96,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+- [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
 

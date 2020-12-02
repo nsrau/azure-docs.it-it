@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 6e906e6c86d615852191e2fd65a2b1a58695ed34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b111dae035e7a055628642fe7c460734199ff608
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968554"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486343"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -69,6 +69,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
   * [Considerazioni sull'adozione di RHEL 8-disponibilità elevata e cluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configurare SAP S/4HANA ASCS/ERS con il Server di accodamento autonomo 2 (ENSA2) in Pacemaker in RHEL 7.6](https://access.redhat.com/articles/3974941)
+  * [RHEL per le offerte SAP in Azure](https://access.redhat.com/articles/5456301)
 
 ## <a name="cluster-installation"></a>Installazione del cluster
 
@@ -80,7 +81,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 
 Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tutti i nodi, **[1]** - applicabile solo al nodo 1 o **[2]** - applicabile solo al nodo 2.
 
-1. **[A]** registro. Questo passaggio non è necessario se si usano immagini RHEL 8. x abilitate per la disponibilità elevata.  
+1. **[A]** registro. Questo passaggio non è necessario se si usano immagini RHEL abilitate per la disponibilità elevata di SAP.  
 
    Registrare le macchine virtuali e allegarle a un pool che contiene i repository per RHEL 7.
 
@@ -90,9 +91,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Se si connette un pool a un'immagine RHEL di Azure Marketplace PAYG, l'uso di RHEL verrà fatturato in modo efficace: una volta per l'immagine PAYG e una volta per il diritto RHEL nel pool collegato. Per attenuare questo problema, Azure offre ora immagini RHEL BYOS. Altre informazioni sono disponibili [qui](../redhat/byos.md).
+   Se si connette un pool a un'immagine RHEL di Azure Marketplace PAYG, l'uso di RHEL verrà fatturato in modo efficace: una volta per l'immagine PAYG e una volta per il diritto RHEL nel pool collegato. Per attenuare questo problema, Azure offre ora immagini RHEL BYOS. Altre informazioni sono disponibili [qui](../redhat/byos.md).  
 
-1. **[A]** abilitare RHEL per i repository SAP. Questo passaggio non è necessario se si usano immagini RHEL 8. x abilitate per la disponibilità elevata.  
+1. **[A]** abilitare RHEL per i repository SAP. Questo passaggio non è necessario se si usano immagini RHEL abilitate per la disponibilità elevata di SAP.  
 
    Per installare i pacchetti necessari, abilitare i repository seguenti.
 

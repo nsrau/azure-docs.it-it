@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: a24f9e78de34b17977a1876cbefb473cc2610db0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95550046"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488239"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Ottimizzazione del Web Application Firewall (WAF) per Azure front door
  
@@ -136,7 +136,7 @@ Un vantaggio dell'uso di un elenco di esclusione è che solo la variabile di cor
  
 È importante tenere presente che le esclusioni sono un'impostazione globale. Ciò significa che l'esclusione configurata verrà applicata a tutto il traffico che passa attraverso il WAF, non solo a un'app Web o a un URI specifico. Ad esempio, potrebbe trattarsi di un problema se *1 = 1* è una richiesta valida nel corpo di una determinata app Web, ma non per altre con gli stessi criteri di WAF. Se è opportuno usare elenchi di esclusioni diversi per applicazioni diverse, è consigliabile usare criteri WAF diversi per ogni applicazione e applicarli al front-end di ogni applicazione.
  
-Quando si configurano gli elenchi di esclusione per le regole gestite, è possibile scegliere di escludere tutte le regole in un set di regole, tutte le regole all'interno di un gruppo di regole o una singola regola. È possibile configurare un elenco di esclusioni usando [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), l' [API REST](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)o la portale di Azure.
+Quando si configurano gli elenchi di esclusione per le regole gestite, è possibile scegliere di escludere tutte le regole in un set di regole, tutte le regole all'interno di un gruppo di regole o una singola regola. È possibile configurare un elenco di esclusioni usando [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), l'interfaccia della riga di comando di [Azure](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), l' [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)o la portale di Azure.
 
 * Esclusioni a livello di regola
   * L'applicazione di esclusioni a livello di regola significa che le esclusioni specificate non verranno analizzate solo in base a tale regola, mentre verranno comunque analizzate da tutte le altre regole del set di regole. Questo è il livello più granulare per le esclusioni e può essere usato per ottimizzare il set di regole gestite in base alle informazioni trovate nei log di WAF durante la risoluzione dei problemi relativi a un evento.
@@ -181,7 +181,7 @@ Nell'esempio seguente è stata creata una regola personalizzata con due condizio
 
 L'uso di una regola personalizzata consente di ottenere la massima granularità quando si ottimizzano le regole di WAF e per la gestione di falsi positivi. In questo caso, l'azione non viene eseguita solo in base al `comment` valore del corpo della richiesta, che può esistere in più siti o app con lo stesso criterio WAF. Se si include anche un'altra condizione per trovare una corrispondenza con un URI di richiesta specifico `/api/Feedbacks/` , la regola personalizzata si applica a questo caso di utilizzo esplicito che è stato esaminato. In questo modo si garantisce che lo stesso attacco, se eseguito in condizioni diverse, verrebbe comunque controllato e impedito dal motore WAF.
 
-![Log](../media/waf-front-door-tuning/custom-rule.png)
+![File di log](../media/waf-front-door-tuning/custom-rule.png)
 
 Quando si Esplora il registro, è possibile osservare che il `ruleName_s` campo contiene il nome assegnato alla regola personalizzata creata: `redirectcomment` . Nel `action_s` campo è possibile vedere che è stata eseguita l'azione di *Reindirizzamento* per questo evento. Nel `details_matches_s` campo è possibile visualizzare i dettagli di entrambe le condizioni.
 
@@ -193,7 +193,7 @@ La disabilitazione di una regola costituisce un vantaggio quando si è certi che
  
 Tuttavia, la disabilitazione di una regola è un'impostazione globale che si applica a tutti gli host front-end associati al criterio WAF. Quando si sceglie di disabilitare una regola, è possibile che si stiano lasciando le vulnerabilità esposte senza protezione o rilevamento per tutti gli altri host front-end associati al criterio WAF.
  
-Se si desidera utilizzare Azure PowerShell per disabilitare una regola gestita, vedere la [`PSAzureManagedRuleOverride`](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) documentazione dell'oggetto. Se si vuole usare l'interfaccia della riga di comando di Azure, vedere la [`az network front-door waf-policy managed-rules override`](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) documentazione.
+Se si desidera utilizzare Azure PowerShell per disabilitare una regola gestita, vedere la [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) documentazione dell'oggetto. Se si vuole usare l'interfaccia della riga di comando di Azure, vedere la [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) documentazione.
 
 ![Regole di WAF](../media/waf-front-door-tuning/waf-rules.png)
 

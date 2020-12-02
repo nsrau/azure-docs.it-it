@@ -4,15 +4,15 @@ description: Questo articolo descrive come Azure Analysis Services usa Azure Act
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833793"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487440"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
 
@@ -24,7 +24,7 @@ Azure Analysis Services supporta la [collaborazione B2B di Azure AD](../active-d
 
 ## <a name="authentication"></a>Authentication
 
-Per connettersi a un server tutti gli strumenti e le applicazioni client usano una o più [librerie client](/analysis-services/client-libraries?view=azure-analysis-services-current) di Analysis Services (AMO, MSOLAP, ADOMD). 
+Per connettersi a un server tutti gli strumenti e le applicazioni client usano una o più [librerie client](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) di Analysis Services (AMO, MSOLAP, ADOMD). 
 
 Queste tre librerie client supportano sia il flusso interattivo di Azure AD sia i metodi di autenticazione non interattivi. I due metodi di autenticazione integrata di Active Directory e della password di Active Directory non interattive possono essere usati nelle applicazioni che adottano AMOMD e MSOLAP. Questi due metodi non aprono mai finestre di dialogo popup.
 

@@ -7,61 +7,61 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ae0930e0845e8e8bd6dc4571dc3e8e27491a7be6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e4da0b288bca2517e4e0f58569215709a5f71a5e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408793"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487763"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Controllo di sicurezza V2: governance e strategia
 
 Governance e strategia fornisce linee guida per garantire una strategia di sicurezza coerente e un approccio di governance documentato per guidare e sostenere la garanzia di sicurezza, tra cui la definizione di ruoli e responsabilità per le diverse funzioni di sicurezza cloud, la strategia tecnica unificata e i criteri e gli standard di supporto.
 
-## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: definire la strategia di gestione delle risorse e della protezione dei dati
+## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definire la strategia di gestione degli asset e di protezione dei dati
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Assicurarsi di documentare e comunicare una strategia chiara per il monitoraggio e la protezione continui dei sistemi e dei dati. Definire le priorità di individuazione, valutazione, protezione e monitoraggio dei sistemi e dei dati cruciali per l'azienda. 
+Assicurarsi di documentare e comunicare una strategia chiara per il monitoraggio e la protezione continui dei sistemi e dei dati. Definire la priorità di individuazione, valutazione, protezione e monitoraggio dei dati e dei sistemi business-critical. 
 
-Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
+La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
 
 - Standard di classificazione dei dati in base ai rischi aziendali
 
-- Visibilità dell'organizzazione della sicurezza nei rischi e nell'inventario degli asset 
+- Visibilità dei rischi e dell'inventario degli asset dell'organizzazione della sicurezza 
 
-- Approvazione dell'organizzazione della sicurezza dei servizi di Azure per l'uso 
+- Approvazione dell'organizzazione della sicurezza dei servizi di Azure da usare 
 
 - Sicurezza degli asset attraverso il ciclo di vita
 
-- Strategia di controllo degli accessi obbligatoria in base alla classificazione dei dati aziendali
+- Strategia di controllo degli accessi conforme alla classificazione dei dati aziendali
 
-- Uso delle funzionalità di protezione dei dati native e di terze parti di Azure
+- Uso di funzionalità di protezione dei dati native di Azure e di terze parti
 
-- Requisiti di crittografia dei dati per i casi d'uso in transito e a riposo
+- Requisiti di crittografia dei dati per i casi d'uso di dati in transito e inattivi
 
 - Standard crittografici appropriati
 
 Per altre informazioni, vedere i riferimenti seguenti:
-- [Raccomandazione sull'architettura della sicurezza di Azure-archiviazione, dati e crittografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%252fsecurity%252fcompass%252fbreadcrumb%252ftoc.json&toc=%252fsecurity%252fcompass%252ftoc.json)
+- [Raccomandazione sull'architettura della sicurezza di Azure - Archiviazione, dati e crittografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
-- [Nozioni fondamentali sulla sicurezza di Azure: sicurezza, crittografia e archiviazione dei dati di Azure](../fundamentals/encryption-overview.md)
+- [Nozioni fondamentali sulla sicurezza di Azure - Sicurezza, crittografia e archiviazione dei dati di Azure](../fundamentals/encryption-overview.md)
 
-- [Framework di adozione cloud: procedure consigliate per la sicurezza e la crittografia dei dati di Azure](../fundamentals/data-encryption-best-practices.md?amp;bc=%252fazure%252fcloud-adoption-framework%252f_bread%252ftoc.json&toc=%252fazure%252fcloud-adoption-framework%252ftoc.json)
+- [Cloud Adoption Framework - Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](../fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Benchmark di sicurezza di Azure-gestione delle risorse](security-controls-v2-asset-management.md)
+- [Azure Security Benchmark - Gestione degli asset](security-controls-v2-asset-management.md)
 
-- [Benchmark di sicurezza di Azure-protezione dei dati](security-controls-v2-data-protection.md)
+- [Azure Security Benchmark - Protezione dei dati](security-controls-v2-data-protection.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: definire la strategia di segmentazione aziendale
+## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definire la strategia di segmentazione aziendale
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
@@ -69,7 +69,7 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 Definire una strategia a livello aziendale per segmentare l'accesso alle risorse tramite una combinazione di identità, rete, applicazione, sottoscrizione, gruppo di gestione e altri controlli.
 
-Bilanciare accuratamente la necessità di separazione di sicurezza con la necessità di abilitare il funzionamento giornaliero dei sistemi che devono comunicare tra loro e accedere ai dati.
+Bilanciare accuratamente la necessità di separazione di sicurezza con la necessità di abilitare le operazioni giornaliere dei sistemi che devono comunicare tra loro e accedere ai dati.
 
 Assicurarsi che la strategia di segmentazione venga implementata in modo coerente tra i tipi di controllo, inclusi i modelli di sicurezza di rete, identità e accesso e i modelli di accesso e autorizzazione dell'applicazione e i controlli dei processi umani.
 
@@ -77,51 +77,51 @@ Assicurarsi che la strategia di segmentazione venga implementata in modo coerent
 
 - [Linee guida sulla strategia di segmentazione in Azure (documento)](/security/compass/governance#enterprise-segmentation-strategy)
 
-- [Allinea la segmentazione della rete con la strategia di segmentazione aziendale](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+- [Allineare la segmentazione della rete alla strategia di segmentazione aziendale](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: definire la strategia di gestione delle attitudini per la sicurezza
+## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definire la strategia di gestione del comportamento di sicurezza
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | GS-3 | 20, 3, 5 | RA, CM, SC |
 
-Misura e attenua continuamente i rischi per le singole risorse e per l'ambiente in cui sono ospitate. Assegnare priorità ad asset di valore elevato e ad aree di attacco altamente esposte, ad esempio applicazioni pubblicate, punti di ingresso e uscita di rete, endpoint utente e amministratore e così via.
+Misura e attenua continuamente i rischi per le singole risorse e per l'ambiente in cui sono ospitate. Assegnare la priorità agli asset di valore elevato e alle superfici di attacco altamente esposte, ad esempio applicazioni pubblicate, punti di ingresso e di uscita della rete, endpoint utente e amministratore e così via.
 
-- [Benchmark di sicurezza di Azure-gestione di posture e vulnerabilità](security-controls-v2-posture-vulnerability-management.md)
+- [Azure Security Benchmark - Gestione del comportamento e della vulnerabilità](security-controls-v2-posture-vulnerability-management.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: allinea ruoli organizzazione, responsabilità e responsabilità
+## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Allineare i ruoli e le responsabilità dell'organizzazione
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | GS-4 | N/D | PL, PM |
 
-Assicurarsi di documentare e comunicare una strategia chiara per i ruoli e le responsabilità dell'organizzazione di sicurezza. Definire le priorità per fornire una chiara responsabilità per le decisioni relative alla sicurezza, informare tutti gli utenti sul modello di responsabilità condivisa e informare i team tecnici sulla tecnologia per proteggere il cloud.
+Assicurarsi di documentare e comunicare una strategia chiara per i ruoli e le responsabilità dell'organizzazione di sicurezza. Definire le priorità specificando una chiara responsabilità per le decisioni relative alla sicurezza, informare tutti gli utenti sul modello di responsabilità condivisa e informare i team tecnici sulla tecnologia per la protezione del cloud.
 
-- [Procedura consigliata per la sicurezza di Azure 1 – people: educare i team al percorso di sicurezza del cloud](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Procedura di sicurezza consigliata di Azure 1 - Utenti: informare i team sul percorso di sicurezza del cloud](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Procedura consigliata per la sicurezza di Azure 2-persone: istruire i team sulla tecnologia di sicurezza cloud](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+- [Procedura di sicurezza consigliata di Azure 2 - Utenti: informare i team sulla tecnologia di sicurezza del cloud](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Procedura consigliata per la sicurezza di Azure 3-processo: assegnare la responsabilità per le decisioni sulla sicurezza del cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Procedura di sicurezza consigliata di Azure 3 - Processo: assegnare la responsabilità per le decisioni sulla sicurezza del cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-5-define-network-security-strategy"></a>GS-5: definire la strategia di sicurezza di rete
+## <a name="gs-5-define-network-security-strategy"></a>GS-5: Definire la strategia della sicurezza di rete
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
@@ -129,37 +129,37 @@ Assicurarsi di documentare e comunicare una strategia chiara per i ruoli e le re
 
 Definire un approccio di sicurezza di rete di Azure come parte della strategia globale di controllo degli accessi di sicurezza dell'organizzazione.  
 
-Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
+La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
 
 - Gestione centralizzata della rete e responsabilità della sicurezza
 
-- Modello di segmentazione della rete virtuale allineato con la strategia di segmentazione aziendale
+- Modello di segmentazione della rete virtuale allineato alla strategia di segmentazione aziendale
 
-- Strategia di monitoraggio e aggiornamento in diversi scenari di minaccia e attacco
+- Strategia di correzione in diversi scenari di minaccia e attacco
 
-- Internet Edge e strategia di ingresso e uscita
+- Perimetro Internet e strategia di ingresso e uscita
 
-- Strategia di interconnettività locale e cloud ibrido
+- Cloud ibrido e strategia di interconnettività locale
 
-- Elementi di sicurezza di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
+- Artefatti di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
-- [Procedura consigliata per la sicurezza di Azure 11-architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Procedura di sicurezza consigliata di Azure 11 - Architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark di sicurezza di Azure-sicurezza di rete](security-controls-v2-network-security.md)
+- [Azure Security Benchmark - Sicurezza di rete](security-controls-v2-network-security.md)
 
 - [Panoramica della sicurezza di rete di Azure](../fundamentals/network-overview.md)
 
 - [Strategia di architettura di rete aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: definire la strategia di identità e di accesso con privilegi
+## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definire la strategia di identità e di accesso con privilegi
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
@@ -167,72 +167,72 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 Definire un approccio di identità e accesso con privilegi di Azure come parte della strategia globale di controllo degli accessi di sicurezza dell'organizzazione.  
 
-Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
+La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
 
-- Sistema di identità e autenticazione centralizzato e relativa interconnettività con altri sistemi di identità interni ed esterni
+- Sistema di identità e autenticazione centralizzato e interconnettività con altri sistemi di identità interni ed esterni
 
 - Metodi di autenticazione avanzata in diversi casi d'uso e condizioni
 
-- Protezione di utenti con privilegi elevati
+- Protezione degli utenti con privilegi elevati
 
-- Monitoraggio e gestione delle attività degli utenti anomalie  
+- Monitoraggio e gestione delle attività utente anomale  
 
-- Verifica dell'identità e dell'accesso dell'utente e processo di riconciliazione
+- Verifica dell'identità e dell'accesso utente e processo di riconciliazione
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
-- [Benchmark di sicurezza di Azure-gestione delle identità](security-controls-v2-identity-management.md)
+- [Azure Security Benchmark - Gestione delle identità](security-controls-v2-identity-management.md)
 
-- [Benchmark di sicurezza di Azure-accesso con privilegi](security-controls-v2-privileged-access.md)
+- [Azure Security Benchmark - Accesso con privilegi](security-controls-v2-privileged-access.md)
 
-- [Procedura consigliata per la sicurezza di Azure 11-architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Procedura di sicurezza consigliata di Azure 11 - Architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Informazioni generali sulla sicurezza della gestione delle identità di Azure](../fundamentals/identity-management-overview.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: definire la strategia di registrazione e di risposta alle minacce
+## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definire la strategia di registrazione e di risposta alle minacce
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
 |--|--|--|--|
 | GS-7 | 19 | IR, AU, RA, SC |
 
-Definire una strategia di registrazione e risposta alle minacce per rilevare e correggere rapidamente le minacce rispettando i requisiti di conformità. Definire le priorità fornendo gli analisti con avvisi di qualità elevata ed esperienze senza problemi, in modo che possano concentrarsi sulle minacce anziché sull'integrazione e sui passaggi manuali. 
+Definire una strategia di registrazione e risposta alle minacce per rilevare e correggere rapidamente le minacce rispettando i requisiti di conformità. Fornire prima di tutto agli analisti avvisi di alta qualità ed esperienze semplici, in modo che possano concentrarsi sulle minacce anziché sull'integrazione e sui passaggi manuali. 
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
-- Il ruolo e le responsabilità dell'organizzazione per le operazioni di sicurezza (secops) 
+- Il ruolo e le responsabilità dell'organizzazione per le operazioni di sicurezza (SecOps) 
 
 - Un processo di risposta agli eventi imprevisti ben definito allineato a NIST o a un altro framework di settore 
 
 - Acquisizione e conservazione dei log per supportare il rilevamento delle minacce, la risposta agli eventi imprevisti e le esigenze di conformità
 
-- Visibilità centralizzata delle informazioni sulla correlazione e sulle minacce, uso di SIEM, funzionalità native di Azure e altre origini 
+- Visibilità centralizzata e informazioni di correlazione su minacce, uso di SIEM, funzionalità native di Azure e altre origini 
 
 - Piano di comunicazione e notifica con i clienti, i fornitori e le parti pubbliche di interesse
 
-- Uso di piattaforme di terze parti e native di Azure per la gestione degli eventi imprevisti, ad esempio registrazione e rilevamento delle minacce, analisi forense e correzione e eliminazione degli attacchi
+- Uso di piattaforme native di Azure e di terze parti per la gestione degli eventi imprevisti, ad esempio la registrazione e il rilevamento delle minacce, l'analisi e la correzione e l'eliminazione degli attacchi
 
-- Processi per la gestione degli eventi imprevisti e delle attività post-evento, ad esempio le lezioni apprese e la conservazione delle prove
+- Processi per la gestione degli eventi imprevisti e delle attività successive all'evento imprevisto, ad esempio apprendimento e conservazione delle prove
 
 Per altre informazioni, vedere i riferimenti seguenti:
-- [Benchmark di sicurezza di Azure: registrazione e rilevamento delle minacce](security-controls-v2-logging-threat-detection.md)
+- [Azure Security Benchmark - Registrazione e rilevamento delle minacce](security-controls-v2-logging-threat-detection.md)
 
-- [Benchmark di sicurezza di Azure-risposta agli eventi imprevisti](security-controls-v2-incident-response.md)
+- [Azure Security Benchmark - Risposta agli eventi imprevisti](security-controls-v2-incident-response.md)
 
-- [Procedura consigliata per la sicurezza di Azure 4-processo. Aggiornare i processi di risposta agli eventi imprevisti per il cloud](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
+- [Procedura di sicurezza consigliata di Azure 4 - Processo. Aggiornare i processi di risposta agli eventi imprevisti per il cloud](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
-- [Guida alla decisione sul Framework di adozione di Azure, la registrazione e la creazione di report](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure Adoption Framework e guida alle decisioni di registrazione e creazione di report](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
 - [Scalabilità, gestione e monitoraggio di Azure Enterprise](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -244,7 +244,7 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 Definire una strategia di backup e ripristino di Azure per l'organizzazione. 
 
-Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
+La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
 
 - Obiettivo del tempo di ripristino (RTO) e definizioni di obiettivi del punto di ripristino (RPO) in base agli obiettivi di resilienza aziendale
 
@@ -259,8 +259,8 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Framework di adozione di Azure: continuità aziendale e ripristino di emergenza](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Tutte le parti interessate](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)

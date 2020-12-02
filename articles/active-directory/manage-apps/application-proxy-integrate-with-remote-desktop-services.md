@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348076"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488069"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -96,7 +96,7 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Ad esempio:**
+   **Per esempio:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -130,9 +130,11 @@ La configurazione descritta in questo articolo è relativa all'accesso a Servizi
 
 | Metodo di autenticazione | Configurazione client supportata |
 | --------------------- | ------------------------------ |
-| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer o la modalità di utilizzo di Microsoft [Edge Chromium](/deployedge/edge-ie-mode) + RDS ActiveX <br /> *Si noti che il portale app personali supporta solo Edge.* |
+| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 mediante Internet Explorer * o la modalità di utilizzo di Microsoft [Edge Chromium](/deployedge/edge-ie-mode) + RDS ActiveX |
 | Pre-autenticazione    | Client Web Desktop remoto: Web browser compatibile con HTML5, ad esempio Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v 55.0 e versioni successive) |
 | Pass-through | Qualsiasi altro sistema operativo che supporta l'applicazione Desktop remoto Microsoft |
+
+* La modalità di utilizzo di Microsoft Edge cromo è obbligatoria quando si usa il portale app personali per accedere all'app Desktop remoto.  
 
 Il flusso di pre-autenticazione offre più vantaggi in termini di protezione rispetto al flusso di pass-through. Con la pre-autenticazione è possibile usare Azure AD funzionalità di autenticazione come Single Sign-On, l'accesso condizionale e la verifica in due passaggi per le risorse locali. È anche possibile garantire che solo il traffico autenticato raggiunga la rete.
 

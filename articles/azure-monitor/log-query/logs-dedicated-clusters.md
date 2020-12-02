@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874645"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488035"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
-Il monitoraggio di Azure registra i cluster dedicati è un'opzione di distribuzione disponibile per gestire al meglio i clienti con volumi elevati. I clienti che inseriscono più di 4 TB di dati al giorno utilizzeranno cluster dedicati. I clienti con cluster dedicati possono scegliere le aree di lavoro da ospitare in questi cluster.
+Il monitoraggio di Azure registra i cluster dedicati è un'opzione di distribuzione che Abilita funzionalità avanzate per i clienti dei log di monitoraggio di Azure. I clienti con cluster dedicati possono scegliere le aree di lavoro da ospitare in questi cluster.
 
-Oltre al supporto per volumi elevati, l'uso di cluster dedicati comporta altri vantaggi:
+Le funzionalità che richiedono cluster dedicati sono:
 
-- **Limite di velocità** : un cliente può avere [limiti di velocità](../service-limits.md#data-ingestion-volume-rate) di inserimento più elevati solo nel cluster dedicato.
-- **Funzionalità** : alcune funzionalità aziendali sono disponibili solo in cluster dedicati, in particolare per le chiavi gestite dal cliente (CMK) e il supporto dell'archivio protetto. 
-- **Coerenza** : i clienti hanno le proprie risorse dedicate, quindi non vi è alcuna influenza da altri clienti in esecuzione nella stessa infrastruttura condivisa.
-- **Efficienza dei costi** : potrebbe essere più conveniente usare un cluster dedicato, poiché i livelli di prenotazione di capacità assegnati prendono in considerazione tutti gli inserimenti del cluster e si applicano a tutte le aree di lavoro, anche se alcune di esse sono di piccole dimensioni e non sono idonee per lo sconto sulla prenotazione della capacità.
-- Le query **tra aree di lavoro** vengono eseguite più velocemente se tutte le aree di lavoro si trovano nello stesso cluster.
+- **[Chiavi gestite dal cliente](../platform/customer-managed-keys.md)** : crittografare i dati del cluster usando chiavi fornite e controllate dal cliente.
+- **[Archivio](../platform/customer-managed-keys.md#customer-lockbox-preview)** dati: i clienti possono controllare le richieste di accesso ai tecnici del supporto tecnico Microsoft.
+- La **[crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protegge da uno scenario in cui uno degli algoritmi o delle chiavi di crittografia può essere compromesso. In questo caso, il livello di crittografia aggiuntivo continua a proteggere i dati.
+- Più **[aree di lavoro](../log-query/cross-workspace-query.md)** : se un cliente usa più di un'area di lavoro per la produzione, potrebbe avere senso usare un cluster dedicato. Le query tra aree di lavoro verranno eseguite più velocemente se tutte le aree di lavoro si trovano nello stesso cluster. Potrebbe anche essere più conveniente usare un cluster dedicato, poiché i livelli di prenotazione di capacità assegnati prendono in considerazione tutti gli inserimenti del cluster e si applicano a tutte le aree di lavoro, anche se alcune di esse sono di piccole dimensioni e non sono idonee per lo sconto sulla prenotazione della capacità.
 
 I cluster dedicati richiedono ai clienti di eseguire il commit usando una capacità di almeno 1 TB di inserimento dati al giorno. La migrazione a un cluster dedicato è semplice. Non si verificano perdite di dati o interruzioni del servizio. 
 
@@ -76,7 +75,7 @@ Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiu
 
 L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `(Microsoft.OperationalInsights/clusters/write)` .
 
-### <a name="create"></a>Creazione 
+### <a name="create"></a>Create 
 
 **PowerShell**
 
@@ -297,7 +296,7 @@ Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Propert
 
 Usare la chiamata REST seguente per il collegamento a un cluster:
 
-*Invia*
+*Send*
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
@@ -327,7 +326,7 @@ Se si usano chiavi gestite dal cliente, i dati inseriti vengono archiviati critt
 
 Una richiesta di invio ha un aspetto simile al seguente:
 
-*Invia*
+*Send*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview

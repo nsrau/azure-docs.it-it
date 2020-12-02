@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 3f90ccbc98dac957fcb9fb81cd24c7ae6c9ac664
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4175069a21fd568af46a9f7d5aefc73f1574ac0c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657551"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488188"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
 
@@ -64,7 +64,7 @@ Gli account usati per creare un peering di rete virtuale devono disporre del ruo
 |Spoke-Classic|Gestione risorse|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classico|[Collaboratore reti virtuali classiche](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-Altre informazioni sui [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](../role-based-access-control/custom-roles.md?toc=%252fazure%252fvirtual-network%252ftoc.json) (solo Resource Manager).
+Altre informazioni sui [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).
 
 ## <a name="resource-manager-to-resource-manager-peering-with-gateway-transit"></a>Peering da Resource Manager a Resource Manager con transito nel gateway
 

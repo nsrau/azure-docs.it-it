@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965358"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486658"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guida alla distribuzione della piattaforma di business intelligence SAP BusinessObjects per Linux in Azure
 
@@ -37,7 +37,7 @@ In questo esempio viene usata la versione del prodotto e il layout file system
 - Database di Azure per MySQL (versione: 8.0.15)
 - Connettore API MySQL C-libmysqlclient (versione: 6.1.11)
 
-| File system        | Description                                                                                                               | Dimensioni (GB)             | Proprietario  | Gruppo  | Archiviazione                    |
+| File system        | Descrizione                                                                                                               | Dimensioni (GB)             | Proprietario  | Gruppo  | Archiviazione                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | Il file system per l'installazione dell'istanza di SAP BOBI, dell'applicazione Web Tomcat predefinita e dei driver di database (se necessario) | Linee guida per il ridimensionamento di SAP | bl1adm | sapsys | Disco Premium gestito-SSD |
 | /usr/sap/frsinput  | La directory di montaggio è per i file condivisi in tutti gli host BOBI che verranno usati come directory del repository del file di input  | Esigenze aziendali         | bl1adm | sapsys | Azure NetApp Files         |
@@ -615,7 +615,7 @@ Per altre distribuzioni DBMS per database CMS, vedere le [guide alla distribuzio
 
 File repository server (FRS) si riferisce alle directory del disco in cui vengono archiviati contenuti come report, universi e connessioni. Viene condiviso tra tutti i server applicazioni del sistema. Quindi, è necessario assicurarsi che sia a disponibilità elevata.
 
-In Azure è possibile scegliere [file Premium di Azure](../../../storage/files/storage-files-introduction.md) o [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) per la condivisione file progettata per essere a disponibilità elevata e durevole per natura. Per ulteriori informazioni, vedere la sezione relativa alla [ridondanza](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) per file di Azure.
+In Azure è possibile scegliere [file Premium di Azure](../../../storage/files/storage-files-introduction.md) o [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) per la condivisione file progettata per essere a disponibilità elevata e durevole per natura. Per ulteriori informazioni, vedere la sezione relativa alla [ridondanza](../../../storage/files/storage-files-planning.md#redundancy) per file di Azure.
 
 > [!NOTE]
 > Il protocollo SMB per File di Azure è disponibile a livello generale, ma il supporto del protocollo NFS per File di Azure è attualmente in fase di anteprima. Per ulteriori informazioni, vedere il [supporto per NFS 4,1 per file di Azure è ora disponibile in anteprima](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -667,7 +667,7 @@ Azure Site Recovery servizio può essere usato per replicare le macchine virtual
 
   È possibile usare Azure NetApp Files la replica tra aree, attualmente in [Anteprima](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) che usa la tecnologia NetApp SnapMirror®. Quindi, solo i blocchi modificati vengono inviati in rete in un formato compresso ed efficiente. Questa tecnologia proprietaria riduce al minimo la quantità di dati necessari per la replica tra le aree, che consente di risparmiare sui costi di trasferimento dei dati. Consente inoltre di ridurre il tempo di replica, in modo che sia possibile ottenere un obiettivo del punto di ripristino più piccolo (RPO). Per ulteriori informazioni, vedere [requisiti e considerazioni per l'utilizzo della replica tra aree](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) .
 
-- **I file Premium di Azure** supportano solo localmente ridondante (con ridondanza locale) e l'archiviazione con ridondanza della zona (ZRS). Per la strategia di ripristino di emergenza di file Premium di Azure, è possibile usare [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa. Per altre informazioni, vedere [ripristino di emergenza e failover dell'account di archiviazione](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **I file Premium di Azure** supportano solo localmente ridondante (con ridondanza locale) e l'archiviazione con ridondanza della zona (ZRS). Per la strategia di ripristino di emergenza di file Premium di Azure, è possibile usare [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa. Per altre informazioni, vedere [ripristino di emergenza e failover dell'account di archiviazione](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### <a name="cms-database"></a>Database CMS
 
@@ -695,4 +695,4 @@ Di seguito è riportata la raccomandazione per il ripristino di emergenza di ogn
 - [Configurare il ripristino di emergenza per una distribuzione di app SAP a più livelli](../../../site-recovery/site-recovery-sap.md)
 - [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP](planning-guide.md)
 - [Distribuzione di Macchine virtuali di Azure per SAP](deployment-guide.md)
-- [Distribuzione DBMS di Macchine virtuali di Azure per SAP](dbms-guide.md)
+- [Distribuzione DBMS di Macchine virtuali di Azure per SAP](./dbms_guide_general.md)

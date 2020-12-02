@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 01f02efd36c51f3969ee53e9efc78fbe1664b187
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486539"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
 
@@ -396,7 +396,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 > Lo SKU Load Balancer Standard presenta restrizioni per l'accesso agli indirizzi IP pubblici dai nodi sotto la Load Balancer. L'articolo [connettività dell'endpoint pubblico per le macchine virtuali che usano Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) descrive come abilitare tali nodi per accedere a indirizzi IP pubblici
 
 > [!IMPORTANT]
-> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.  
+> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.  
 
 1. Creare un pool di indirizzi IP front-end:
 
