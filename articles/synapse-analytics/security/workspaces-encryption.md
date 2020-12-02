@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455186"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501057"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Crittografia per le aree di lavoro di Azure sinapsi Analytics
 
@@ -47,13 +47,13 @@ I dati nei componenti sinapsi seguenti vengono crittografati con la chiave gesti
 Le aree di lavoro possono essere configurate per abilitare la crittografia doppia con una chiave gestita dal cliente al momento della creazione dell'area di lavoro. Selezionare l'opzione "Abilita crittografia doppia usando una chiave gestita dal cliente" nella scheda "sicurezza" durante la creazione della nuova area di lavoro. È possibile scegliere di immettere un URI dell'identificatore di chiave oppure selezionare da un elenco di insiemi di credenziali delle chiavi nella **stessa area** dell'area di lavoro. Per il Key Vault è necessario che sia **abilitata la protezione ripulitura**.
 
 > [!IMPORTANT]
-> Al momento, l'impostazione di configurazione per la crittografia doppia non può essere modificata dopo la creazione dell'area di lavoro.
+> L'impostazione di configurazione per la crittografia doppia non può essere modificata dopo la creazione dell'area di lavoro.
 
 :::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Questo diagramma mostra l'opzione che è necessario selezionare per abilitare un'area di lavoro per la crittografia doppia con una chiave gestita dal cliente.":::
 
 ### <a name="key-access-and-workspace-activation"></a>Accesso alle chiavi e attivazione dell'area di lavoro
 
-Il modello di crittografia di Azure sinapsi con chiavi gestite dal cliente prevede che l'area di lavoro acceda alle chiavi in Azure Key Vault per la crittografia e la decrittografia in base alle esigenze. Le chiavi vengono rese accessibili all'area di lavoro tramite criteri di accesso o Azure Key Vault accesso RBAC ([Anteprima](../../key-vault/general/rbac-guide.md)). Quando si concedono le autorizzazioni tramite un criterio di accesso Azure Key Vault, scegliere l'opzione "solo applicazione" durante la creazione dei criteri.
+Il modello di crittografia di Azure sinapsi con chiavi gestite dal cliente prevede che l'area di lavoro acceda alle chiavi in Azure Key Vault per la crittografia e la decrittografia in base alle esigenze. Le chiavi vengono rese accessibili all'area di lavoro tramite criteri di accesso o Azure Key Vault accesso RBAC ([Anteprima](../../key-vault/general/rbac-guide.md)). Quando si concedono le autorizzazioni tramite un criterio di accesso Azure Key Vault, scegliere l'opzione ["solo applicazione"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante la creazione dei criteri. Selezionare l'identità gestita dell'area di lavoro e non aggiungerla come applicazione autorizzata.
 
  All'identità gestita dell'area di lavoro devono essere concesse le autorizzazioni necessarie nell'insieme di credenziali delle chiavi prima che l'area di lavoro possa essere attivata. Questo approccio graduale all'attivazione dell'area di lavoro garantisce che i dati nell'area di lavoro vengano crittografati con la chiave gestita dal cliente. Si noti che la crittografia può essere abilitata o disabilitata per i pool SQL dedicati. ogni pool non è abilitato per la crittografia per impostazione predefinita.
 
@@ -76,6 +76,9 @@ Dopo la creazione dell'area di lavoro (con crittografia doppia abilitata), rimar
 È possibile modificare la chiave gestita dal cliente utilizzata per crittografare i dati dalla pagina di **crittografia** nel portale di Azure. Qui è possibile scegliere una nuova chiave usando un identificatore di chiave oppure selezionare da insiemi di credenziali delle chiavi a cui si ha accesso nella stessa area dell'area di lavoro. Se si sceglie una chiave in un insieme di credenziali delle chiavi diverso da quelli usati in precedenza, concedere le autorizzazioni di identità gestite "Get", "Wrap" e "Unwrap" del nuovo insieme di credenziali delle chiavi per l'area di lavoro. L'area di lavoro convaliderà l'accesso al nuovo insieme di credenziali delle chiavi e tutti i dati nell'area di lavoro verranno crittografati nuovamente con la nuova chiave.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Questo diagramma mostra la sezione relativa alla crittografia dell'area di lavoro nella portale di Azure.":::
+
+>[!IMPORTANT]
+>Quando si modifica la chiave di crittografia di un'area di lavoro, mantenere la chiave finché non viene sostituita nell'area di lavoro con una nuova chiave. Per consentire la decrittografia dei dati con la chiave precedente, prima che venga ricrittografata con la nuova chiave.
 
 I criteri di insieme di credenziali delle chiavi di Azure per la rotazione periodica automatica delle chiavi o le azioni sulle chiavi possono comportare la creazione di nuove versioni chiave. È possibile scegliere di crittografare di nuovo tutti i dati nell'area di lavoro con la versione più recente della chiave attiva. Per eseguire di nuovo la crittografia, modificare la chiave nel portale di Azure in una chiave temporanea e quindi tornare alla chiave che si vuole usare per la crittografia. Ad esempio, per aggiornare la crittografia dei dati usando la versione più recente di key1 chiave attiva, modificare la chiave gestita dal cliente dell'area di lavoro in chiave temporanea, Key2. Attendere il completamento della crittografia con Key2. Passare quindi la chiave gestita dal cliente dell'area di lavoro a Key1. i dati nell'area di lavoro verranno crittografati di nuovo con la versione più recente di key1.
 

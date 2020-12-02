@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950364"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500938"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -243,8 +243,8 @@ In questa fase, raccogliere le informazioni acquisite e apprese durante le distr
     - Archiviazione Premium di Azure viene usata per i dischi sensibili alla latenza o in cui è richiesto il [contratto di contratto con una singola macchina virtuale del 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) .
     - Azure acceleratore di scrittura è stato distribuito correttamente.
         - Assicurarsi che, all'interno delle macchine virtuali, degli spazi di archiviazione o dei set di striping siano stati compilati correttamente tra i dischi che richiedono acceleratore di scrittura.
-        - Controllare la [configurazione di RAID software in Linux](../../linux/configure-raid.md).
-        - Controllare la [configurazione di LVM in macchine virtuali Linux in Azure](../../linux/configure-lvm.md).
+        - Controllare la [configurazione di RAID software in Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Controllare la [configurazione di LVM in macchine virtuali Linux in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) viene usato in modo esclusivo.
     - Le macchine virtuali sono state distribuite nei set di disponibilità corretti e zone di disponibilità.
     - La [rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è abilitata nelle macchine virtuali usate nel livello applicazione SAP e nel livello DBMS di SAP.

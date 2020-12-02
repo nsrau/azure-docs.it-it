@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299599"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500998"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -164,7 +164,7 @@ Archiviazione Premium di Azure non soddisfa SAP HANA indicatori KPI di latenza d
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funzionalità di Azure per archiviazione Premium
-Per i dischi di archiviazione Premium di Azure di dimensioni minori o uguali a 512 GiB nella capacità, viene offerta la funzionalità di espansione. Il modo esatto in cui funziona l'espansione del disco è descritto nell'articolo relativo all'espansione del [disco](../../linux/disk-bursting.md). Quando si legge l'articolo, si comprende il concetto di accumulo di IOPS e velocità effettiva nei momenti in cui il carico di lavoro di I/O è inferiore al valore di IOPS nominale e alla velocità effettiva dei dischi (per informazioni dettagliate sulla velocità effettiva nominale, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/)). Si prevede di accumulare il Delta di IOPS e la velocità effettiva tra l'utilizzo corrente e i valori nominali del disco. I picchi sono limitati a un massimo di 30 minuti.
+Per i dischi di archiviazione Premium di Azure di dimensioni minori o uguali a 512 GiB nella capacità, viene offerta la funzionalità di espansione. Il modo esatto in cui funziona l'espansione del disco è descritto nell'articolo relativo all'espansione del [disco](../../disk-bursting.md). Quando si legge l'articolo, si comprende il concetto di accumulo di IOPS e velocità effettiva nei momenti in cui il carico di lavoro di I/O è inferiore al valore di IOPS nominale e alla velocità effettiva dei dischi (per informazioni dettagliate sulla velocità effettiva nominale, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/)). Si prevede di accumulare il Delta di IOPS e la velocità effettiva tra l'utilizzo corrente e i valori nominali del disco. I picchi sono limitati a un massimo di 30 minuti.
 
 I casi ideali in cui è possibile pianificare questa funzionalità di espansione sono probabilmente i volumi o i dischi che contengono file di dati per il sistema DBMS diverso. Il carico di lavoro di I/O previsto rispetto a tali volumi, specialmente con i sistemi di piccole e medie dimensioni, dovrebbe avere un aspetto simile al seguente:
 
@@ -376,4 +376,3 @@ Leggere gli articoli:
 
 - [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](./dbms_guide_general.md)
 - [Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA](./hana-vm-operations-storage.md)
- 

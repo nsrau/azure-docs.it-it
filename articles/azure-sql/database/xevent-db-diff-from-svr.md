@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791274"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501210"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventi estesi nel database SQL di Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Gli argomenti correlati forniscono due esempi di codice:
 - Quando si esegue il comando [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) su SQL Server, si utilizza la clausola **ON SERVER** . Tuttavia, nel database SQL di Azure si usa invece la clausola **on database** .
 - La clausola **ON DATABASE** riguarda anche i comandi Transact-SQL [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) e [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql).
 
-- Una procedura consigliata consiste nell'includere l'opzione della sessione eventi di **STARTUP_STATE = ON** nelle istruzioni **CREATE EVENT SESSION** o **ALTER EVENT SESSION** .
+- Una procedura consigliata consiste nell'includere l'opzione della sessione eventi di **STARTUP_STATE = ON** nelle istruzioni **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
   - Il valore **= ON** supporta un riavvio automatico dopo una riconfigurazione del database logico a causa di un failover.
 
 ## <a name="new-catalog-views"></a>Nuove viste del catalogo
@@ -81,7 +81,7 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 | **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione eventi. |
 | **sys.database_event_sessions** |Restituisce una riga per ogni sessione di eventi nel database. |
 
-In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_* . Il modello del nome è simile a **sys.server_event_%** .
+In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello del nome è simile a **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>[DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
@@ -97,7 +97,7 @@ Il database SQL di Azure include [viste a gestione dinamica (DMV)](/sql/relation
 
 In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la parte del nome del *\_ database* , ad esempio:
 
-- **sys.dm_xe_sessions** , anziché il nome<br/>**sys.dm_xe_database_sessions** .
+- **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comuni a entrambi
 
@@ -151,11 +151,11 @@ L'API [Event Tracing for Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracin
 Esistono un paio di differenze relative alla sicurezza che si comportano nell'ambiente cloud del database SQL di Azure:
 
 - Gli eventi estesi si basano sul modello di isolamento single-tenant. Una sessione di eventi in un database non può accedere a dati o eventi da un altro database.
-- Non è possibile emettere un'istruzione **CREATE EVENT SESSION** nel contesto del database **master** .
+- Non è possibile emettere un'istruzione **CREATE EVENT SESSION** nel contesto del database **master**.
 
 ## <a name="permission-model"></a>Modello di autorizzazione
 
-È necessario avere l'autorizzazione **Controllo** nel database per emettere un'istruzione **CREATE EVENT SESSION** . Il proprietario del database (dbo) dispone dell’autorizzazione **controllo** .
+È necessario avere l'autorizzazione **Controllo** nel database per emettere un'istruzione **CREATE EVENT SESSION**. Il proprietario del database (dbo) dispone dell’autorizzazione **controllo** .
 
 ### <a name="storage-container-authorizations"></a>Autorizzazioni del contenitore di archiviazione
 
@@ -172,7 +172,7 @@ Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più m
 Se si riceve un messaggio di errore che indica che è stato applicato un massimo di memoria, alcune azioni correttive da eseguire sono:
 
 - Eseguire meno sessioni di eventi simultanee.
-- Tramite le istruzioni **CREATE** e **ALTER** per le sessioni di eventi, ridurre la quantità di memoria specificata nella clausola **MAX\_MEMORY** .
+- Tramite le istruzioni **CREATE** e **ALTER** per le sessioni di eventi, ridurre la quantità di memoria specificata nella clausola **MAX\_MEMORY**.
 
 ### <a name="network-latency"></a>Latenza di rete
 
@@ -189,7 +189,7 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 - [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
 - [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
-- La pagina Web *Aggiornamenti di Azure* , con visualizzazione limitata dal parametro ai soli aggiornamenti relativi al database SQL di Azure:
+- La pagina Web *Aggiornamenti di Azure*, con visualizzazione limitata dal parametro ai soli aggiornamenti relativi al database SQL di Azure:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 <!--

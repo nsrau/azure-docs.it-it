@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672263"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500887"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 |:--- |:--- |
 | Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
 | Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
-| Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
+| Bassa |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 > [!NOTE]
 > Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
@@ -82,13 +82,13 @@ Le raccomandazioni selezionate vengono applicate al database.
 Se l'elenco di raccomandazioni contiene voci che si vuole rimuovere dall'elenco, ignorare la raccomandazione:
 
 1. Selezionare una raccomandazione nell'elenco **Raccomandazioni** per aprire i dettagli.
-2. Fare clic su **Ignora** nella pagina **Dettagli** .
+2. Fare clic su **Ignora** nella pagina **Dettagli**.
 
 Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco **Raccomandazioni** :
 
-1. Nella pagina **Raccomandazioni** fare clic su **Visualizza rimosse** .
+1. Nella pagina **Raccomandazioni** fare clic su **Visualizza rimosse**.
 2. Selezionare un elemento ignorato nell'elenco per visualizzarne i dettagli.
-3. Facoltativamente, fare clic su **Annulla rimozione** per aggiungere nuovamente l'indice all'elenco principale di **Raccomandazioni** .
+3. Facoltativamente, fare clic su **Annulla rimozione** per aggiungere nuovamente l'indice all'elenco principale di **Raccomandazioni**.
 
 > [!NOTE]
 > Se è abilitata l'[ottimizzazione automatica](automatic-tuning-overview.md) del database SQL e se una raccomandazione è stata rimossa manualmente dall'elenco, tale raccomandazione non verrà mai applicata automaticamente. La rimozione di una raccomandazione è un modo pratico per gli utenti di abilitare l'ottimizzazione automatica nei casi che richiedono che non venga applicata una raccomandazione specifica.
@@ -98,7 +98,7 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 
 È possibile impostare il database in modo che implementi automaticamente le raccomandazioni. Man mano che le raccomandazioni vengono rese disponibili, verranno applicate automaticamente. Come per tutte le raccomandazioni gestite dal servizio, se l'impatto sulle prestazioni è negativo le raccomandazioni verranno annullate.
 
-1. Nella pagina **Raccomandazioni** fare clic su **Automatizza** :
+1. Nella pagina **Raccomandazioni** fare clic su **Automatizza**:
 
    ![Impostazioni di Advisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Selezionare le azioni da automatizzare:
@@ -112,15 +112,15 @@ Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare manualmente le raccomandazioni tramite T-SQL
 
-Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script** . Eseguire questo script nel database per applicare manualmente l'indicazione.
+Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.
 
 *Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
 
-Le raccomandazioni con stato **In sospeso** , **Convalida** oppure **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
+Le raccomandazioni con stato **In sospeso**, **Convalida** oppure **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
 
-1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione** .
+1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione**.
 2. Fare clic su **Annulla** per interrompere il processo di applicazione della raccomandazione.
 
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
@@ -146,7 +146,7 @@ Fare clic su una raccomandazione in-process nell'elenco per visualizzare altre i
 Se sono state usate le raccomandazioni per le prestazioni per applicare la raccomandazione, ovvero non è stato eseguito manualmente lo script T-SQL, la raccomandazione annulla automaticamente la modifica se viene rilevato un impatto negativo sulle prestazioni. Se per qualsiasi motivo si vuole semplicemente annullare una raccomandazione, procedere come segue:
 
 1. Selezionare una raccomandazione applicata nell'area **Cronologia ottimizzazione** .
-2. Fare clic su **Ripristina** nella pagina dei **dettagli della raccomandazione** .
+2. Fare clic su **Ripristina** nella pagina dei **dettagli della raccomandazione**.
 
 ![Indici consigliati](./media/database-advisor-find-recommendations-portal/details.png)
 

@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 5c028fc1abd77bda1a41857a7a7c77da1ad1b2d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb864837e9063aa39827abf61f7efece4c909118
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027242"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509531"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni predefinite di configurazione e sicurezza, oltre al software necessario. La configurazione della pipeline di creazione di immagini richiede tempo, infrastruttura e installazioni, ma con Image Builder per macchine virtuali di Azure è sufficiente specificare una semplice configurazione con la descrizione dell'immagine e inviarla al servizio che provvederà a compilare e distribuire l'immagine.
  
@@ -84,7 +84,7 @@ Una volta acquisita l'identità, è necessario concederle le autorizzazioni. A q
 Le autorizzazioni vengono descritte in maggior dettaglio [qui](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements), mentre gli esempi illustrano come vengono implementate.
 
 > [!Note]
-> In precedenza con Azure Image Builder era necessario usare il nome dell'entità servizio (SPN) di Azure Image Builder e assegnare le relative autorizzazioni al gruppo di risorse dell'immagine. Questo modello è stato abbandonato per consentire funzionalità future. A partire dal 26 maggio 2020, Image Builder non accetta modelli senza un'identità assegnata dall'utente. I modelli esistenti dovranno essere rinviati al servizio con un'[identità assegnata dall'utente](../articles/virtual-machines/linux/image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#identity). Gli esempi di questo articolo illustrano come creare un'identità assegnata dall'utente e aggiungerla a un modello. Per altre informazioni, vedere la [documentazione](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) sulla modifica e sugli aggiornamenti delle versioni.
+> In precedenza con Azure Image Builder era necessario usare il nome dell'entità servizio (SPN) di Azure Image Builder e assegnare le relative autorizzazioni al gruppo di risorse dell'immagine. Questo modello è stato abbandonato per consentire funzionalità future. A partire dal 26 maggio 2020, Image Builder non accetta modelli senza un'identità assegnata dall'utente. I modelli esistenti dovranno essere rinviati al servizio con un'[identità assegnata dall'utente](../articles/virtual-machines/linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#identity). Gli esempi di questo articolo illustrano come creare un'identità assegnata dall'utente e aggiungerla a un modello. Per altre informazioni, vedere la [documentazione](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) sulla modifica e sugli aggiornamenti delle versioni.
 
 ## <a name="costs"></a>Costi
 Durante la creazione, la compilazione e l'archiviazione di immagini con Azure Image Builder si incorrerà in alcuni costi di calcolo, rete e archiviazione. Questi costi sono simili a quelli sostenuti per la creazione manuale di immagini personalizzate. Per le risorse, verranno addebitate le tariffe di Azure. 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675220"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500870"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ottimizzazione automatica nel database SQL di Azure e Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure e 
 
 ### <a name="automatic-tuning-for-sql-database"></a>Ottimizzazione automatica per il database SQL
 
-L'ottimizzazione automatica per il database SQL di Azure usa le raccomandazioni **create index** , **Drop index** e **Force Last Brave** database Advisor per ottimizzare le prestazioni del database. Per altre informazioni, vedere [consigli di Advisor per database nel portale di Azure](database-advisor-find-recommendations-portal.md), in [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e nell' [API REST](/rest/api/sql/serverautomatictuning).
+L'ottimizzazione automatica per il database SQL di Azure usa le raccomandazioni **create index**, **Drop index** e **Force Last Brave** database Advisor per ottimizzare le prestazioni del database. Per altre informazioni, vedere [consigli di Advisor per database nel portale di Azure](database-advisor-find-recommendations-portal.md), in [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e nell' [API REST](/rest/api/sql/serverautomatictuning).
 
 È possibile applicare manualmente le indicazioni di ottimizzazione utilizzando il portale di Azure oppure è possibile consentire l'ottimizzazione automatica di applicare le indicazioni di ottimizzazione in modo autonomo. I vantaggi di consentire al sistema di applicare in modo autonomo le opzioni di ottimizzazione consistono nella convalida automatica della presenza di un aumento delle prestazioni del carico di lavoro e, se non vengono rilevati miglioramenti significativi delle prestazioni, nel ripristino dello stato prima dell'applicazione delle opzioni di ottimizzazione. Si noti che, in caso di query interessate da opzioni di ottimizzazione che non vengono eseguite di frequente, la fase di convalida può richiedere fino a 72 ore per impostazione predefinita.
 
@@ -90,7 +90,7 @@ Per informazioni sulla creazione di notifiche di posta elettronica per le indica
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Ottimizzazione automatica per Istanza gestita SQL di Azure
 
-L'ottimizzazione automatica per SQL Istanza gestita supporta solo **la forza ultimo piano valido** . Per ulteriori informazioni sulla configurazione delle opzioni di ottimizzazione automatica tramite T-SQL, vedere la pagina relativa all' [ottimizzazione automatica introduce la correzione](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) automatica dei piani e la [correzione automatica dei piani](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+L'ottimizzazione automatica per SQL Istanza gestita supporta solo **la forza ultimo piano valido**. Per ulteriori informazioni sulla configurazione delle opzioni di ottimizzazione automatica tramite T-SQL, vedere la pagina relativa all' [ottimizzazione automatica introduce la correzione](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) automatica dei piani e la [correzione automatica dei piani](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

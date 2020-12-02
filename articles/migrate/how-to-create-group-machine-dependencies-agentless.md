@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate serv
 description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 722ad4cc27132815c1416331aaf0691754ccee05
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337694"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500785"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizzare le dipendenze dei computer (senza agente)
 
@@ -31,7 +31,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 
 - [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati e le autorizzazioni necessarie.
 - Assicurarsi di:
-    - Avere un progetto Azure Migrate. In caso contrario, [crearne](how-to-add-tool-first-time.md) uno ora.
+    - Avere un progetto Azure Migrate. In caso contrario, [crearne](./create-manage-projects.md) uno ora.
     - Verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server Assessment al progetto.
     - Configurare un' [appliance Azure migrate](migrate-appliance.md) per individuare i computer locali. [Configurare un'appliance](how-to-set-up-appliance-vmware.md) per le macchine virtuali VMware. L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment.
 - Verificare che gli strumenti VMware (successivi a 10,2) siano installati in ogni macchina virtuale che si vuole analizzare.
@@ -49,7 +49,7 @@ Aggiungere l'account utente al dispositivo.
 1. Aprire l'app gestione Appliance. 
 2. Passare al pannello **specificare i dettagli di vCenter** .
 3. In **individua applicazione e dipendenze dalle macchine virtuali** fare clic su **Aggiungi credenziali** .
-3. Scegliere il **sistema operativo** , specificare un nome descrittivo per l'account e la password del **nome utente** / **Password**
+3. Scegliere il **sistema operativo**, specificare un nome descrittivo per l'account e la password del **nome utente** / **Password**
 6. Fare clic su **Salva**.
 7. Fare clic su **Salva e avvia individuazione**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325095"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500768"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -84,7 +84,7 @@ Quando si effettua il provisioning di un disco di archiviazione Premium, a diffe
 
 SSD Premium dimensioni inferiori a P30 offrono ora l'espansione del disco e possono aumentare le operazioni di i/o al secondo per ogni disco fino a 3.500 e la larghezza di banda fino a 170 MB/s. L'espansione è automatizzata e funziona in base a un sistema di credito. I crediti vengono accumulati automaticamente in un bucket di espansione quando il traffico del disco è inferiore alla destinazione di prestazioni con provisioning e i crediti vengono usati automaticamente quando il traffico supera la soglia, fino al limite massimo di picchi. Il limite massimo di impulsi definisce il limite di IOPS del disco & larghezza di banda anche se sono presenti crediti di espansione da utilizzare. Il provisioning del disco garantisce una maggiore tolleranza sulle modifiche imprevedibili dei modelli di i/o. È possibile sfruttarlo per l'avvio del disco del sistema operativo e le applicazioni con traffico irregolare.    
 
-Il supporto per l'espansione dei dischi verrà abilitato per le nuove distribuzioni di dimensioni del disco applicabili per impostazione predefinita, senza alcuna azione da utente. Per i dischi esistenti con le dimensioni applicabili, è possibile abilitare l'espansione con una delle due opzioni: scollegare e ricollegare il disco oppure arrestare e riavviare la macchina virtuale collegata. Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale che supporta una durata massima al limite massimo di 30 minuti. Per altre informazioni sul funzionamento del proromping nei dischi di Azure, vedere [SSD Premium](linux/disk-bursting.md)l'espansione. 
+Il supporto per l'espansione dei dischi verrà abilitato per le nuove distribuzioni di dimensioni del disco applicabili per impostazione predefinita, senza alcuna azione da utente. Per i dischi esistenti con le dimensioni applicabili, è possibile abilitare l'espansione con una delle due opzioni: scollegare e ricollegare il disco oppure arrestare e riavviare la macchina virtuale collegata. Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale che supporta una durata massima al limite massimo di 30 minuti. Per altre informazioni sul funzionamento del proromping nei dischi di Azure, vedere [SSD Premium](./disk-bursting.md)l'espansione. 
 
 ### <a name="transactions"></a>Transazioni
 
