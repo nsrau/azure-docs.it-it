@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 42dfa499e0a44d0b468d3a234e9dc88904c361b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 47d994a572d2fb0a76e1b6a713b61b70cccbd659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027041"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509168"
 ---
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure 
 | Pannello di accesso |Non sono previsti limiti per il numero di applicazioni che possono essere visualizzate nel Pannello di accesso per ogni utente, a prescindere dalle licenze assegnate.  |
 | Report | È possibile visualizzare o scaricare in qualsiasi report un massimo di 1000 righe. Eventuali dati aggiuntivi vengono troncati. |
 | Unità amministrative | Una risorsa di Azure AD può appartenere a un massimo di 30 unità amministrative. |
-| Ruoli e autorizzazioni di Azure AD | <ul><li>In un'organizzazione di Azure AD è possibile creare un massimo di 30 [ruoli personalizzati di Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context).</li><li>Non è possibile aggiungere un gruppo come [proprietario del gruppo](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#object-ownership).</li><li>La possibilità per gli utenti di leggere le informazioni del tenant di altri utenti può essere limitata solo dall'opzione a livello di organizzazione di Azure AD per disabilitare l'accesso di tutti gli utenti non amministratori alle informazioni di tutti i tenant (scelta non consigliata). Per altre informazioni, vedere [Per limitare le autorizzazioni predefinite per gli utenti membro](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#restrict-member-users-default-permissions).</li><li>Prima che le aggiunte e le revoche di appartenenza al ruolo di amministratore divengano effettive, possono essere richiesti fino a 15 minuti o può essere necessario disconnettersi e accedere di nuovo.</li></ul> |
+| Ruoli e autorizzazioni di Azure AD | <ul><li>In un'organizzazione di Azure AD è possibile creare un massimo di 30 [ruoli personalizzati di Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).</li><li>Non è possibile aggiungere un gruppo come [proprietario del gruppo](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#object-ownership).</li><li>La possibilità per gli utenti di leggere le informazioni del tenant di altri utenti può essere limitata solo dall'opzione a livello di organizzazione di Azure AD per disabilitare l'accesso di tutti gli utenti non amministratori alle informazioni di tutti i tenant (scelta non consigliata). Per altre informazioni, vedere [Per limitare le autorizzazioni predefinite per gli utenti membro](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#restrict-member-users-default-permissions).</li><li>Prima che le aggiunte e le revoche di appartenenza al ruolo di amministratore divengano effettive, possono essere richiesti fino a 15 minuti o può essere necessario disconnettersi e accedere di nuovo.</li></ul> |
