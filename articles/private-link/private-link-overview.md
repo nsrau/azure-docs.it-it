@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: ce3903bad4f7e4675406956ddedbc9011a6d2be8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522261"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454964"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -47,7 +47,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 | Archiviazione code di Azure       |  Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici       |  Supportato nel tipo di account per utilizzo generico V2 | GA <br/> [Informazioni su come creare un endpoint privato per l'archiviazione code.](tutorial-private-endpoint-storage-portal.md) |
 | Archiviazione tabelle di Azure       |  Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici       |  Supportato nel tipo di account per utilizzo generico V2 | GA <br/> [Informazioni su come creare un endpoint privato per l'archiviazione tabelle.](tutorial-private-endpoint-storage-portal.md)  |
 |  Database SQL di Azure         | Tutte le aree pubbliche <br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina      |  Supportato per i [criteri di connessione](../azure-sql/database/connectivity-architecture.md#connection-policy) proxy | GA <br/> [Informazioni su come creare un endpoint privato per Azure SQL.](create-private-endpoint-portal.md)      |
-|Azure Synapse Analytics (in precedenza SQL Data Warehouse)| Tutte le aree pubbliche <br/> Tutte le aree per enti pubblici |  Supportato per i [criteri di connessione](../azure-sql/database/connectivity-architecture.md#connection-policy) proxy |GA <br/> [Informazioni su come creare un endpoint privato per Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Synapse Analytics| Tutte le aree pubbliche <br/> Tutte le aree per enti pubblici |  Supportato per i [criteri di connessione](../azure-sql/database/connectivity-architecture.md#connection-policy) proxy |GA <br/> [Informazioni su come creare un endpoint privato per Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
 |Azure Cosmos DB|  Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici</br> Tutte le aree della Cina | |GA <br/> [Informazioni su come creare un endpoint privato per Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Database di Azure per PostgreSQL - Server singolo         | Tutte le aree pubbliche <br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina     | Supportato per i piani tariffari per utilizzo generico e con ottimizzazione per la memoria | GA <br/> [Informazioni su come creare un endpoint privato per Database di Azure per PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Database di Azure per MySQL         | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina      |  | GA <br/> [Informazioni su come creare un endpoint privato per Database di Azure per MySQL.](../mysql/concepts-data-access-security-private-link.md)     |

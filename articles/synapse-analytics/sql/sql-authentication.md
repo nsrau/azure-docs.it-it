@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317284"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462409"
 ---
 # <a name="sql-authentication"></a>Autenticazione SQL
 
@@ -29,7 +29,7 @@ Azure Active Directory consente di gestire gli utenti da una singola posizione. 
 
 ## <a name="administrative-accounts"></a>Account amministrativi
 
-Sono disponibili due account amministrativi, **Amministratore del server** e **Amministratore di Active Directory** , che agiscono come amministratori. Per identificare questi account amministratore per SQL Server, aprire il portale di Azure e passare alla scheda Proprietà di Synapse SQL.
+Sono disponibili due account amministrativi, **Amministratore del server** e **Amministratore di Active Directory**, che agiscono come amministratori. Per identificare questi account amministratore per SQL Server, aprire il portale di Azure e passare alla scheda Proprietà di Synapse SQL.
 
 ![Amministratori del server SQL](./media/sql-authentication/sql-admins.png)
 
@@ -51,7 +51,7 @@ Gli account **Amministratore del server** e **Amministratore di Azure Active Dir
 - Questi account possono aggiungere e rimuovere membri per i ruoli `dbmanager` e `loginmanager`.
 - Essi possono visualizzare la tabella di sistema `sys.sql_logins`.
 
-## <a name="serverless-sql-pool-preview"></a>[Pool SQL serverless (anteprima)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Pool SQL serverless](#tab/serverless)
 
 Per gestire gli utenti che hanno accesso al pool SQL serverless, è possibile seguire queste istruzioni.
 
@@ -77,7 +77,7 @@ Una volta creati l'account di accesso e l'utente, è possibile usare la normale 
 
 ### <a name="administrator-access-path"></a>Percorso di accesso degli amministratori
 
-Quando il firewall a livello di server è configurato correttamente, l' **amministratore del server SQL** e l' **amministratore di Azure Active Directory** possono connettersi usando strumenti client come SQL Server Management Studio o SQL Server Data Tools. Solo gli strumenti più recenti offrono tutte le caratteristiche e le funzionalità. 
+Quando il firewall a livello di server è configurato correttamente, l'**amministratore del server SQL** e l'**amministratore di Azure Active Directory** possono connettersi usando strumenti client come SQL Server Management Studio o SQL Server Data Tools. Solo gli strumenti più recenti offrono tutte le caratteristiche e le funzionalità. 
 
 Il diagramma seguente mostra una configurazione tipica per i due account amministratore:
  
@@ -127,7 +127,7 @@ L'utente potrà così connettersi al database `master` e creare nuovi database. 
 
 ### <a name="login-managers"></a>Gestione degli account di accesso
 
-L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I membri di questo ruolo possono creare nuovi account di accesso nel database master. Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager** ) per consentire a un utente di creare nuovi account di accesso nel database master. Gli account di accesso non sono in genere necessari perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I membri di questo ruolo possono creare nuovi account di accesso nel database master. Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager**) per consentire a un utente di creare nuovi account di accesso nel database master. Gli account di accesso non sono in genere necessari perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -187,9 +187,9 @@ In una gestione efficiente degli accessi vengono usate autorizzazioni assegnate 
 
 - Quando si usa l'autenticazione di SQL Server, creare utenti di database indipendenti nel database. Inserire uno o più utenti di database in un [ruolo del database](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) e quindi assegnare [autorizzazioni](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) al ruolo del database.
 
-I ruoli del database possono essere ruoli predefiniti come **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** e **db_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. 
+I ruoli del database possono essere ruoli predefiniti come **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. 
 
-Il ruolo predefinito del database **db_datareader** , ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. 
+Il ruolo predefinito del database **db_datareader**, ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. 
 
 È preferibile usare l'istruzione [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
 
@@ -208,7 +208,7 @@ Quando si gestiscono gli account di accesso e gli utenti nel database SQL, tener
 - È necessario essere connessi al database **master** durante l'esecuzione delle istruzioni `CREATE/ALTER/DROP DATABASE`.
 - L'utente di database corrispondente all'account di accesso **Amministratore del server** non può essere modificato o eliminato.
 - L'inglese americano è la lingua predefinita dell'account di accesso **Amministratore del server**.
-- Soltanto gli amministratori ( **amministratore del server** o amministratore di Azure AD) e i membri del ruolo di database **dbmanager** nel database **master** sono autorizzati a eseguire le istruzioni `CREATE DATABASE` e `DROP DATABASE`.
+- Soltanto gli amministratori (**amministratore del server** o amministratore di Azure AD) e i membri del ruolo di database **dbmanager** nel database **master** sono autorizzati a eseguire le istruzioni `CREATE DATABASE` e `DROP DATABASE`.
 - È necessario essere connessi al database master durante l'esecuzione delle istruzioni `CREATE/ALTER/DROP LOGIN` . È tuttavia sconsigliato l'uso di account di accesso. Usare invece gli utenti del database indipendente.
 - Per connettersi a un database utente è necessario specificare il nome del database nella stringa di connessione.
 - Soltanto gli utenti con accesso dell’entità di livello server e i membri del ruolo del database **loginmanager** nel database **master** sono autorizzati a eseguire le istruzioni `CREATE LOGIN`, `ALTER LOGIN` e `DROP LOGIN`.

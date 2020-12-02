@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131072"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344488"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure
 
@@ -76,8 +76,8 @@ Per risolvere questo problema, effettuare le verifiche seguenti:
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>Viene visualizzato il messaggio 'Il tipo di account corrente non è supportato'
 
-Questo problema può verificarsi se l'account è registrato in una [directory di Azure AD non gestita](../../active-directory/users-groups-roles/directory-self-service-signup.md) e non è presente nella directory di Azure AD dell'organizzazione.
-Per risolvere questo problema, iscrivere l'account Azure usando un altro account o assumere la proprietà della directory di Azure AD non gestita. Per altre informazioni, vedere [Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+Questo problema può verificarsi se l'account è registrato in una [directory di Azure AD non gestita](../../active-directory/enterprise-users/directory-self-service-signup.md) e non è presente nella directory di Azure AD dell'organizzazione.
+Per risolvere questo problema, iscrivere l'account Azure usando un altro account o assumere la proprietà della directory di Azure AD non gestita. Per altre informazioni, vedere [Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 ## <a name="identity-verification-by-phone"></a>Verifica dell'identità mediante telefono
 

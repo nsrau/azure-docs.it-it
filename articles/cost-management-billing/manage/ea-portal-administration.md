@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bb8a52a2258143e1c68ca46ac31a8c986b1bcfe7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893359"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457134"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -282,13 +282,13 @@ Azure EA Portal consente di amministrare i costi e l'utilizzo del contratto Ente
 
 Ogni ruolo ha un livello di accesso e autorità diverso.
 
-Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazione](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
+Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazione](./understand-ea-roles.md#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Aggiungere un account EA di Azure
 
 L'account Azure EA è un'unità organizzativa in EA Portal di Azure. Viene usato per l'amministrazione delle sottoscrizioni e anche per la creazione di report. Per accedere e usare i servizi di Azure, è necessario creare un account o farsene creare uno.
 
-Per altre informazioni sugli account Azure, vedere [Aggiungere un account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration#add-an-account).
+Per altre informazioni sugli account Azure, vedere [Aggiungere un account](#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Offerta Sviluppo/test Enterprise
 
@@ -361,7 +361,7 @@ Per eliminare una sottoscrizione in cui si è proprietario dell'account:
 
 Solo gli amministratori dell'account possono annullare le sottoscrizioni.
 
-Per altre informazioni, vedere [Cosa accade quando si annulla la sottoscrizione](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
+Per altre informazioni, vedere [Cosa accade quando si annulla la sottoscrizione](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
 
 ## <a name="delete-an-account"></a>Eliminare un account
 

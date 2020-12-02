@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: bda93712dd9a7501fbfddf0e75b8ae3c0088ed55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132143"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341241"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Come viene applicato lo sconto per la prenotazione di Azure alle macchine virtuali
 
@@ -106,7 +106,7 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
 - [Informazioni sulle prenotazioni di Azure](../reservations/save-compute-costs-reservations.md)
-- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gestire le prenotazioni per Azure](../reservations/manage-reserved-vm-instance.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../reservations/understand-reserved-instance-usage.md)

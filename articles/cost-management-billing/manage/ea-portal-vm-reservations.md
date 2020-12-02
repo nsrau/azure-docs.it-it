@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132534"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348926"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -65,11 +65,11 @@ Le istanze riservate possono ridurre i costi delle macchine virtuali fino al 72%
 
 Per acquistare un'istanza di macchina virtuale riservata di Azure, un amministratore delle registrazioni Enterprise di Azure deve abilitare l'opzione di acquisto _Reserve Instance_ (Prenota istanza). L'opzione è disponibile nella sezione _Dettagli registrazione_ nella scheda _Registrazione_ di [Azure EA Portal](https://ea.azure.com/).
 
-Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, qualsiasi proprietario di account con una sottoscrizione attiva associata alla registrazione EA può acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere [Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
+Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, qualsiasi proprietario di account con una sottoscrizione attiva associata alla registrazione EA può acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere [Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate](../../virtual-machines/prepay-reserved-vm-instances.md).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Come visualizzare i dettagli di acquisto di un'istanza riservata
 
-È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_ . Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione `1 year` o `3 years` accanto al nome del servizio, ad esempio: `Standard_DS1_v2 eastus 1 year` o `Standard_D2s_v3 eastus2 3 years`.
+È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_. Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione `1 year` o `3 years` accanto al nome del servizio, ad esempio: `Standard_DS1_v2 eastus 1 year` o `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Come è possibile modificare la sottoscrizione associata a un'istanza riservata o trasferire i vantaggi di un'istanza riservata a una sottoscrizione con lo stesso account?
 

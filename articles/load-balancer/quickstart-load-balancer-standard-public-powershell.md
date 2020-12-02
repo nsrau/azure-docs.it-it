@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b9bcdbdf8bdad0d1ad96fc043f29a84b962318c2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 9081ba0aae14c39d70e62818dc13aa4d92c91986
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324011"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445945"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per le macchine virtuali tramite Azure PowerShell
 
@@ -239,7 +239,7 @@ In questa sezione verranno create tre macchine virtuali per il pool back-end del
 
 * Creare tre interfacce di rete con [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Impostare nome utente e password dell'amministratore delle macchine virtuali con il comando [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential).
+* Impostare nome utente e password dell'amministratore delle macchine virtuali con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Creare le macchine virtuali con:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -618,7 +618,7 @@ In questa sezione verranno create le macchine virtuali per il pool back-end del 
 
 * Creare tre interfacce di rete con [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Impostare nome utente e password dell'amministratore delle macchine virtuali con il comando [Get-Credential](/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+* Impostare nome utente e password dell'amministratore delle macchine virtuali con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Usare [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) per creare un set di disponibilità per le macchine virtuali.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685852"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445922"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
@@ -45,13 +45,13 @@ Per aggiungere un segreto all'insieme di credenziali, seguire questa procedura:
 1. Fare clic su **Genera/Importa**.
 1. Nella schermata **Crea un segreto** selezionare i seguenti valori:
     - **Opzioni di caricamento**: manuale.
-    - **Nome**: digitare un nome per il segreto. Il nome del segreto deve essere univoco all'interno di un'istanza di Key Vault. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, che inizia con una lettera e contiene solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -. Per altre informazioni sulla denominazione, vedere [Oggetti, identificatori e controllo delle versioni di Key Vault](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)
+    - **Nome**: digitare un nome per il segreto. Il nome del segreto deve essere univoco all'interno di un'istanza di Key Vault. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, che inizia con una lettera e contiene solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -. Per altre informazioni sulla denominazione, vedere [Oggetti, identificatori e controllo delle versioni di Key Vault](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
     - **Value**: digitare un valore per il segreto. Le API di Key Vault accettano e restituiscono i valori dei segreti sotto forma di stringhe. 
     - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
 
 Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. 
 
-Per altre informazioni sugli attributi dei segreti, vedere [Informazioni sui segreti di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets)
+Per altre informazioni sugli attributi dei segreti, vedere [Informazioni sui segreti di Azure Key Vault](./about-secrets.md)
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperare un segreto dall'insieme di credenziali delle chiavi
 
@@ -75,7 +75,7 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 3. Nella casella **DIGITARE IL NOME DEL GRUPPO DI RISORSE:** digitare il nome del gruppo di risorse e selezionare **Elimina**.
 
 > [!NOTE]
-> È importante tenere presente che, dopo l'eliminazione, un segreto, una chiave, un certificato o un insieme di credenziali delle chiavi rimarrà recuperabile per un periodo configurabile di 7-90 giorni di calendario. Se non viene specificata una configurazione, il periodo di recupero predefinito verrà impostato su 90 giorni. In questo modo gli utenti hanno il tempo sufficiente per notare l'eliminazione accidentale di un segreto e intervenire. Per altre informazioni sull'eliminazione e il recupero di insiemi di credenziali delle chiavi e dei relativi oggetti, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
+> È importante tenere presente che, dopo l'eliminazione, un segreto, una chiave, un certificato o un insieme di credenziali delle chiavi rimarrà recuperabile per un periodo configurabile di 7-90 giorni di calendario. Se non viene specificata una configurazione, il periodo di recupero predefinito verrà impostato su 90 giorni. In questo modo gli utenti hanno il tempo sufficiente per notare l'eliminazione accidentale di un segreto e intervenire. Per altre informazioni sull'eliminazione e il recupero di insiemi di credenziali delle chiavi e dei relativi oggetti, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](../general/soft-delete-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

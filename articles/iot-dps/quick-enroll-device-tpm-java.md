@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0a1f4ed46ab9e467a19cfa722a2d345284fdc94a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966599"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463046"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 
@@ -27,7 +27,7 @@ Questa guida di avvio rapido descrive come creare una registrazione singola a li
 - Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 - Completamento dell'esercitazione [Leggere le chiavi di crittografia dal dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Questa guida di avvio rapido installa [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/). Funziona sia in Windows che in Linux. Questa guida di avvio rapido usa Windows.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). Questa guida di avvio rapido installa [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/). Funziona sia in Windows che in Linux. Questa guida di avvio rapido usa Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 

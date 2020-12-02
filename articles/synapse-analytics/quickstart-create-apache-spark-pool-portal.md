@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323535"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461609"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Avvio rapido: Creare un nuovo pool di Apache Spark serverless usando il portale di Azure
 
@@ -47,7 +47,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
 
 1. Nell'area di lavoro Synapse in cui creare il pool di Apache Spark selezionare **Nuovo pool di Apache Spark**.
     ![Panoramica dell'area di lavoro di Synapse con un riquadro rosso intorno al comando per la creazione di un nuovo pool di Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
-2. Immettere i dettagli seguenti nella scheda **Informazioni di base** :
+2. Immettere i dettagli seguenti nella scheda **Informazioni di base**:
 
     |Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
@@ -89,7 +89,7 @@ Seguire questa procedura per eliminare il pool di Apache Spark dall'area di lavo
 Per eliminare il pool di Apache Spark, procedere come segue:
 
 1. Passare al pannello dei pool di Apache Spark nell'area di lavoro.
-2. Selezionare il pool di Apache Spark da eliminare (in questo caso, **contosospark** ).
+2. Selezionare il pool di Apache Spark da eliminare (in questo caso, **contosospark**).
 3. Premere **CANC**.
  ![Elenco di pool di Apache Spark con il pool creato di recente selezionato.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confermare l'eliminazione e premere il pulsante **Elimina**.
@@ -99,4 +99,4 @@ Per eliminare il pool di Apache Spark, procedere come segue:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere [Avvio rapido: Creare un notebook Apache Spark](quickstart-apache-spark-notebook.md).
-- Vedere [Avvio rapido: Creare un pool SQL dedicato di Synapse con il portale di Azure](quickstart-create-sql-pool-portal.md).
+- Vedere [Avvio rapido: Creare un pool SQL dedicato con il portale di Azure](quickstart-create-sql-pool-portal.md).

@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738271"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461301"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Identità gestita dell'area di lavoro di Azure Synapse (anteprima)
+# <a name="azure-synapse-workspace-managed-identity"></a>Identità gestita dell'area di lavoro di Azure Synapse
 
 Questo articolo illustra la funzionalità dell'identità gestita nell'area di lavoro di Azure Synapse.
 
@@ -52,7 +52,7 @@ Nella finestra **New linked service** (Nuovo servizio collegato) digitare *Azure
 
 ![Creazione del servizio collegato 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-Nella finestra successiva scegliere **Identità gestita** in **Metodo di autenticazione**. Verranno visualizzati il **nome** e l' **ID oggetto** dell'identità gestita.
+Nella finestra successiva scegliere **Identità gestita** in **Metodo di autenticazione**. Verranno visualizzati il **nome** e l'**ID oggetto** dell'identità gestita.
 
 ![Creazione del servizio collegato 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

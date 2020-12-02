@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147229"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352916"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Esplora dati di Azure
 
@@ -29,7 +29,7 @@ Quando si arresta una risorsa, lo sconto per la prenotazione si applica automati
 Lo sconto per la prenotazione viene applicato al consumo di ricarico di Esplora dati di Azure su base oraria. Per le risorse di Esplora dati di Azure che non vengono eseguite per l'intera ora, lo sconto per la prenotazione viene automaticamente applicato ad altre risorse di Esplora dati di Azure che corrispondono agli attributi della prenotazione. Lo sconto può essere applicato a risorse di Esplora dati di Azure in esecuzione simultaneamente. Se non ci sono risorse di Esplora dati di Azure in esecuzione per l'ora intera e che corrispondono agli attributi della prenotazione, non è possibile ottenere il vantaggio completo dello sconto sulla prenotazione per questa ora.
 
 > [!NOTE]
-> * È **vivamente consigliato** acquistare [capacità di prenotazione](../../virtual-machines/windows/prepay-reserved-vm-instances.md) per le macchine virtuali usate per il cluster di Esplora dati di Azure per ottimizzare il risparmio sulla capacità riservata.
+> * È **vivamente consigliato** acquistare [capacità di prenotazione](../../virtual-machines/prepay-reserved-vm-instances.md) per le macchine virtuali usate per il cluster di Esplora dati di Azure per ottimizzare il risparmio sulla capacità riservata.
 > * L'acquisto della prenotazione determinerà l'applicazione di uno sconto in tutte le aree geografiche.
 
 ## <a name="examples"></a>Esempi

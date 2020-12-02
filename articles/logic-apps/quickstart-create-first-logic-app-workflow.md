@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337458"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455068"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro di App per la logica - Portale di Azure
 
@@ -112,7 +112,7 @@ L'app per la logica è ora attiva, ma non esegue alcuna operazione oltre a contr
 
 ## <a name="add-the-send-email-action"></a>Aggiungere l'azione di "invio messaggio di posta elettronica"
 
-Dopo aver [aggiunto un trigger per l'app per la logica](#add-rss-trigger), è necessario aggiungere un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) per determinare la risposta quando l'app per la logica controlla il feed RSS e viene individuato un nuovo elemento. È anche possibile creare app per la logica con azioni molto più complesse, come illustrato nell'esercitazione per l'[elaborazione di messaggi di posta elettronica con App per la logica, Funzioni di Azure e Archiviazione di Azure](/azure/logic-apps/tutorial-process-email-attachments-workflow).
+Dopo aver [aggiunto un trigger per l'app per la logica](#add-rss-trigger), è necessario aggiungere un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) per determinare la risposta quando l'app per la logica controlla il feed RSS e viene individuato un nuovo elemento. È anche possibile creare app per la logica con azioni molto più complesse, come illustrato nell'esercitazione per l'[elaborazione di messaggi di posta elettronica con App per la logica, Funzioni di Azure e Archiviazione di Azure](./tutorial-process-email-attachments-workflow.md).
 
 > [!NOTE]
 > Questo esempio usa Office 365 Outlook come servizio di posta elettronica. Se si usa un altro servizio di posta elettronica supportato nell'app per la logica, l'interfaccia utente potrebbe avere un aspetto diverso. Tuttavia, i concetti di base per la connessione a un altro servizio di posta elettronica restano invariati.
@@ -154,12 +154,12 @@ Dopo aver [aggiunto un trigger per l'app per la logica](#add-rss-trigger), è ne
 
       ![Screenshot della finestra Progettazione app per la logica, che mostra l'azione "Invia un messaggio di posta elettronica" e il cursore all'interno della casella della proprietà "Oggetto".](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
-   1. Dall'elenco **Aggiungi contenuto dinamico** selezionare **Titolo feed** , che viene fornito come output dal trigger **Quando viene pubblicato un elemento del feed**. La notifica tramite posta elettronica usa questo output per ottenere il titolo dell'elemento del feed RSS.
+   1. Dall'elenco **Aggiungi contenuto dinamico** selezionare **Titolo feed**, che viene fornito come output dal trigger **Quando viene pubblicato un elemento del feed**. La notifica tramite posta elettronica usa questo output per ottenere il titolo dell'elemento del feed RSS.
 
       ![Screenshot della finestra Progettazione app per la logica, che mostra l'azione "Invia un messaggio di posta elettronica" e il cursore all'interno della casella della proprietà "Oggetto" con un elenco di contenuto dinamico aperto e l'output "Titolo feed" selezionato.](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
 
       > [!TIP]
-      > Nell'elenco del contenuto dinamico, se non viene visualizzato alcun output dal trigger **Quando viene pubblicato un elemento del feed** , accanto all'intestazione dell'azione selezionare **Mostra più**.
+      > Nell'elenco del contenuto dinamico, se non viene visualizzato alcun output dal trigger **Quando viene pubblicato un elemento del feed**, accanto all'intestazione dell'azione selezionare **Mostra più**.
       > 
       > ![Screenshot della finestra Progettazione app per la logica, che mostra l'elenco di contenuto dinamico aperto e la voce "Mostra più" selezionata per il trigger.](./media/quickstart-create-first-logic-app-workflow/dynamic-content-list-see-more-actions.png)
 
@@ -167,9 +167,9 @@ Dopo aver [aggiunto un trigger per l'app per la logica](#add-rss-trigger), è ne
 
       ![Screenshot della finestra Progettazione app per la logica, che mostra l'azione "Invia un messaggio di posta elettronica" e un esempio di oggetto del messaggio con la proprietà "Titolo feed" inclusa.](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Se nella finestra di progettazione viene visualizzato un ciclo "For each", è stato selezionato un token per una matrice, ad esempio il token **categories-Item**. Per questi tipi di token la finestra di progettazione aggiunge automaticamente questo ciclo intorno all'azione che fa riferimento a tale token. In questo modo, l'app per la logica esegue la stessa azione su ogni elemento della matrice. Per rimuovere il ciclo, selezionare i **puntini di sospensione** ( **...** ) nella barra del titolo del ciclo e quindi scegliere **Elimina**.
+      Se nella finestra di progettazione viene visualizzato un ciclo "For each", è stato selezionato un token per una matrice, ad esempio il token **categories-Item**. Per questi tipi di token la finestra di progettazione aggiunge automaticamente questo ciclo intorno all'azione che fa riferimento a tale token. In questo modo, l'app per la logica esegue la stessa azione su ogni elemento della matrice. Per rimuovere il ciclo, selezionare i **puntini di sospensione** (**...**) nella barra del titolo del ciclo e quindi scegliere **Elimina**.
 
-   1. Nella casella **Corpo** immettere il contenuto del corpo del messaggio di posta elettronica. In questo esempio il contenuto include tre proprietà con un testo descrittivo per ognuna di esse: `Title:`, la proprietà **Titolo del feed** ; `Date published:`, la proprietà **Data di pubblicazione del feed** e `Link:`, la proprietà **Collegamento al feed primario**. Per aggiungere righe vuote in una casella di modifica, premere MAIUSC+INVIO.
+   1. Nella casella **Corpo** immettere il contenuto del corpo del messaggio di posta elettronica. In questo esempio il contenuto include tre proprietà con un testo descrittivo per ognuna di esse: `Title:`, la proprietà **Titolo del feed**; `Date published:`, la proprietà **Data di pubblicazione del feed** e `Link:`, la proprietà **Collegamento al feed primario**. Per aggiungere righe vuote in una casella di modifica, premere MAIUSC+INVIO.
 
       | Proprietà | Descrizione |
       |----------|-------------|
