@@ -6,23 +6,23 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336064"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492626"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leggere le repliche nel database di Azure per MySQL-server flessibile
 
 > [!IMPORTANT]
 > Leggere repliche nel database di Azure per MySQL: il server flessibile è in anteprima.
 
-MySQL è uno dei più diffusi motori di database per l'esecuzione di applicazioni Web e per dispositivi mobili su scala Internet. Molti dei clienti lo usano per i servizi di formazione online, i servizi di streaming video, le soluzioni di pagamento digitale, le piattaforme di e-commerce, i servizi per i giochi, i portali di notizie, i siti Web per enti pubblici e sanitari. Questi servizi devono essere usati e ridimensionati con l'aumentare del traffico nell'applicazione Web o per dispositivi mobili.
+MySQL è uno dei motori di database più diffusi per l'esecuzione di applicazioni Web e per dispositivi mobili su scala Internet. Molti clienti lo usano per servizi di formazione online, servizi di streaming video, soluzioni di pagamento digitale, piattaforme di e-commerce, servizi per videogiochi, portali di notizie, siti Web di enti pubblici e assistenza sanitaria. Per rispondere alle esigenze dei clienti, questi servizi devono poter essere ampliati con l'aumento del traffico nelle applicazioni Web o per dispositivi mobili.
 
-Sul lato applicazioni, l'applicazione viene in genere sviluppata in Java o php ed è stata eseguita la migrazione per l'esecuzione nei set di scalabilità di macchine virtuali di Azure o nei servizi app Azure o in contenitori per l'esecuzione in Azure Kubernetes Service (AKS). Con il set di scalabilità di macchine virtuali, il servizio app o AKS come infrastruttura sottostante, la scalabilità delle applicazioni è semplificata mediante il provisioning immediato di nuove macchine virtuali e la replica dei componenti senza stato delle applicazioni per soddisfare le richieste, ma spesso il database finisce a essere un collo di bottiglia come componente centralizzato con stato.
+Sul lato applicazioni, l'applicazione viene in genere sviluppata in Java o php ed è stata eseguita la migrazione per l'esecuzione nei set di scalabilità di macchine virtuali di Azure o nei servizi app Azure o in contenitori per l'esecuzione in Azure Kubernetes Service (AKS). Con il set di scalabilità di macchine virtuali, il servizio app o il servizio Azure Kubernetes come infrastruttura sottostante, la scalabilità dell'applicazione risulta semplificata tramite il provisioning istantaneo di nuove VM e la replica dei componenti senza stato per soddisfare le richieste, ma spesso il database finisce col diventare un collo di bottiglia come componente con stato centralizzato.
 
-La funzionalità di lettura della replica consente di replicare i dati da un server di database di Azure per MySQL flessibile a un server di sola lettura. È possibile eseguire la replica dal server di origine a un massimo di **10** repliche. Le repliche vengono aggiornate in modo asincrono tramite la tecnologia di replica basata su posizione del file di registro binario nativo, o binlog, del motore MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
+La funzionalità di replica in lettura consente di replicare i dati di un server flessibile di Database di Azure per MySQL in un server di sola lettura. È possibile eseguire la replica dal server di origine a un massimo di **10** repliche. Le repliche vengono aggiornate in modo asincrono tramite la tecnologia di replica basata su posizione del file di registro binario nativo, o binlog, del motore MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
 
 Le repliche sono nuovi server gestiti in modo analogo al database di Azure di origine per i server flessibili MySQL. Si incorreranno addebiti per la fatturazione per ogni replica di lettura in base al calcolo di cui è stato effettuato il provisioning in Vcore e archiviazione in GB al mese. Per ulteriori informazioni, vedere [prezzi](./concepts-compute-storage.md#pricing).
 
@@ -55,7 +55,7 @@ Se un server di origine non dispone di server di replica esistenti, l'origine vi
 Quando viene avviato il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per MySQL vuoto. Il nuovo server viene compilato con i dati presenti nel server di origine. Il tempo di creazione dipende dalla quantità di dati nell'origine e dall'ora dell'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
 
 > [!NOTE]
-> Le repliche di lettura vengono create con la stessa configurazione del server dell'origine. La configurazione del server di replica può essere modificata dopo la creazione. Il server di replica viene sempre creato nello stesso gruppo di risorse, nello stesso percorso e nella stessa sottoscrizione del server di origine. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) dopo averlo creato. È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con l'origine.
+> Le repliche di lettura vengono create con la stessa configurazione del server dell'origine. La configurazione del server di replica può essere modificata dopo la creazione. Il server di replica viene sempre creato nello stesso gruppo di risorse, nello stesso percorso e nella stessa sottoscrizione del server di origine. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) dopo averlo creato. È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con l'origine.
 
 Informazioni su come [creare una replica di lettura nel portale di Azure](how-to-read-replicas-portal.md).
 

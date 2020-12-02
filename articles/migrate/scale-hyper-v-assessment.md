@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f54283e4e63af22b30bddf97456eed75de3806cc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317168"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492965"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali Hyper-V per la migrazione ad Azure
 
@@ -75,7 +75,7 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 1. Creare un progetto Azure Migrate.
 2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
-[Altre informazioni](how-to-add-tool-first-time.md)
+[Altre informazioni](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 

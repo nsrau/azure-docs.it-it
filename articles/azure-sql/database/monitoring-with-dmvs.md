@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789557"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493642"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoraggio di database SQL di Microsoft Azure e delle prestazioni di Istanza gestita di SQL di Azure tramite le viste a gestione dinamica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -517,7 +517,7 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Quando si eseguono **sys.dm_exec_requests** e **sys.dm_exec_sessions** , se si dispone di un'autorizzazione **VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
+> Quando si eseguono **sys.dm_exec_requests** e **sys.dm_exec_sessions**, se si dispone di un'autorizzazione **VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
 
 ## <a name="monitor-resource-use"></a>Monitorare l'uso delle risorse
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Introduzione al database SQL di Azure e Istanza gestita SQL di Azure](sql-database-paas-overview.md)

@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: cecb3a150de8c19d390cafbd163f287520c3a91d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 25cc4dfaabee58a47cc33fe4be8dc7375bc804d2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519036"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491643"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
@@ -33,7 +33,7 @@ Vedere [ClearDB](https://w2.cleardb.net/) per informazioni aggiornate su questo 
 Sono disponibili diverse altre opzioni per l'hosting di MySQL in Azure:
 * [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/)
 * [Cluster MySQL in esecuzione su una VM di Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Istanza singola di MySQL in esecuzione su una VM di Azure](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)
+* [Istanza singola di MySQL in esecuzione su una VM di Azure](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>È necessaria una carta di credito per l'app Web e il modello MySQL in Azure Marketplace?
@@ -48,7 +48,7 @@ Questo dipende dal tipo di sottoscrizione in uso. Di seguito sono riportati alcu
 L'opzione predefinita del database è Titan, che ha un costo di $ 3,50. Durante la creazione del database non viene visualizzato il costo e si potrebbe acquistare erroneamente un database che non si voleva acquistare. L'esperienza è in corso di miglioramento, ma finché non è disponibile una soluzione è necessario controllare tutti i piani tariffari selezionati per app Web e database prima di scegliere **Crea** e avviare la distribuzione delle risorse.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Si esegue MySQL sulla propria macchina virtuale di Azure. È possibile connettere la propria app Web di Azure al database?
-Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all' [installazione di MySQL in una macchina virtuale](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json).
+Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all' [installazione di MySQL in una macchina virtuale](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>In quali paesi/aree geografiche sono supportati i cluster ClearDB Premium di MySQL?
 I cluster MySQL Premium ClearDB sono disponibili in tutte le aree di Azure in tutto il mondo a eccezione di India, Australia, Brasile meridionale e Cina.
@@ -106,5 +106,5 @@ L'accesso ad Azure Marketplace per i servizi di terze parti può essere gestito 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Chi contattare per domande sulla fatturazione per i servizi ClearDB nella sottoscrizione con contratto Enterprise?
 Contattare il [supporto per contratti Enterprise](https://aka.ms/AzureEntSupport) per quanto riguarda la fatturazione relativa alla registrazione con contratto Enterprise. Il team di supporto del portale per contratti Enterprise risponderà alla domanda oppure offrirà aiuto per la risoluzione del problema.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 [Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)

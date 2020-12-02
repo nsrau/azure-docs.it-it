@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5e7a8c5552165324ef154767d1605e12b0c9ad22
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: f6c4d0defbaeb484f66593e112587c16c46eed2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747860"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491605"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurare la preferenza di routing per un indirizzo IP pubblico con l'interfaccia della riga di comando di Azure
 
@@ -43,12 +43,6 @@ Per impostazione predefinita, la preferenza di routing per l'indirizzo IP pubbli
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
-
-## <a name="register-the-feature-for-your-subscription"></a>Registrare la funzionalità per la propria sottoscrizione
-La funzionalità Preferenza di routing è attualmente in anteprima. Registrare la funzionalità per la propria sottoscrizione come indicato di seguito:
-```azurecli
-az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse nell'area di Azure **Stati Uniti orientali**:

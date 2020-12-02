@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634889"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493101"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
-Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, è possibile creare un account di Video Indexer connesso alla sottoscrizione di Azure. Si paga per minuti indicizzati. per altre informazioni, vedere [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, è possibile creare un account di Video Indexer connesso alla sottoscrizione di Azure. Si pagano i minuti indicizzati. Per altre informazioni, vedere [Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 Questo articolo illustra come creare un account di Video Indexer connesso a una sottoscrizione di Azure e a un account di Servizi multimediali di Azure. L'argomento illustra i passaggi per la connessione ad Azure usando il flusso automatico (impostazione predefinita). Viene anche descritto come connettersi ad Azure manualmente (impostazioni avanzate).
 
@@ -45,7 +45,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
 
-    L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli. una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi. Per altre informazioni, vedere [visualizzare l'accesso a un utente per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+    L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli. una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi. Per altre informazioni, vedere [visualizzare l'accesso a un utente per le risorse di Azure](../../role-based-access-control/check-access.md).
 
     ![controllo di accesso](./media/create-account/access-control-iam.png)
 
@@ -53,7 +53,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
 * Registrare il provider di risorse EventGrid usando il portale di Azure.
 
-    Nel [portale di Azure](https://portal.azure.com/) passare a **Sottoscrizioni** ->[sottoscrizione]-> **Provider di risorse**.
+    Nel [portale di Azure](https://portal.azure.com/) passare a **Sottoscrizioni**->[sottoscrizione]->**Provider di risorse**.
 
     Cercare **Microsoft.Media** e **Microsoft.EventGrid**. Se lo stato non è "Registrato", fare clic su **Registra**. La registrazione richiede alcuni minuti.
 
@@ -127,7 +127,7 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
     2. Selezionare il [metodo di autenticazione basata sull'entità servizio](../previous/media-services-portal-get-started-with-aad.md).
     3. Ottenere l'ID client e il segreto client
 
-        Dopo aver selezionato **le chiavi delle impostazioni** -> **Keys** , aggiungere la **Descrizione** , fare clic su **Salva** e il valore della chiave viene popolato.
+        Dopo aver selezionato **le chiavi delle impostazioni** -> **Keys**, aggiungere la **Descrizione**, fare clic su **Salva** e il valore della chiave viene popolato.
 
         Se la chiave scade, il proprietario dell'account dovrà contattare Video Indexer supporto per rinnovare la chiave.
 
@@ -175,7 +175,7 @@ Tenere presenti le seguenti considerazioni relative a Servizi multimediali di Az
 * Se ci si connette a un account di servizi multimediali esistente, Video Indexer non modifica la configurazione di media **reserved Units** esistente.
 
    Potrebbe essere necessario modificare il tipo e il numero di media reserved unit in base al carico pianificato. Tenere presente che se il carico è elevato e le unità o la velocità non sono sufficienti, possono verificarsi errori di timeout durante l'elaborazione video.
-* Se viene eseguita la connessione a un nuovo account di Servizi multimediali, Video Indexer avvia automaticamente l' **endpoint di streaming** predefinito nell'account:
+* Se viene eseguita la connessione a un nuovo account di Servizi multimediali, Video Indexer avvia automaticamente l'**endpoint di streaming** predefinito nell'account:
 
     ![Endpoint di streaming di Servizi multimediali](./media/create-account/ams-streaming-endpoint.png)
 

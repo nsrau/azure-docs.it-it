@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: fac0db7f8c94113ff87d1c0a3091e4c0cbd5ed2b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489847"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492336"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Log in database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -24,15 +24,15 @@ Per accedere ai log di PostgreSQL per un coordinatore o un nodo di lavoro ipersc
 
 :::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="elenco di nodi":::
 
-Per il nodo selezionato, aprire **impostazioni di diagnostica**e fare clic su **+ Aggiungi impostazione di diagnostica**.
+Per il nodo selezionato, aprire **impostazioni di diagnostica** e fare clic su **+ Aggiungi impostazione di diagnostica**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="elenco di nodi":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Pulsante Aggiungi impostazioni di diagnostica":::
 
 Selezionare un nome per le nuove impostazioni di diagnostica e selezionare la casella **PostgreSQLLogs** .  Scegliere le destinazioni che devono ricevere i log.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="elenco di nodi":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Scegliere i log PostgreSQL":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione alle query di log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introduzione alle query di log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 - Informazioni su [Hub eventi di Azure](../event-hubs/event-hubs-about.md)

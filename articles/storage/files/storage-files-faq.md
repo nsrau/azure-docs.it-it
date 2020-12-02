@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629496"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492132"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard del settore e il [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -22,7 +22,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 1. Sezione dei commenti di questo articolo.
 2. [Forum di archiviazione di Azure](/answers/topics/azure-file-storage.html).
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida** , selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
+4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
 
 ## <a name="general"></a>Generale
 * <a id="why-files-useful"></a>
@@ -184,7 +184,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     - Sincronizzazione file di Azure consente di mantenere e replicare tutti gli elenchi DACL, ovvero gli elenchi di controllo di accesso discrezionale, (basati su Active Directory o locali) in tutti gli endpoint server con cui viene eseguita la sincronizzazione. 
     
-    Per una rappresentazione completa di tutti i protocolli supportati nei servizi di Archiviazione di Azure, è possibile fare riferimento a [Autorizzazione dell'accesso ai dati in Archiviazione di Azure](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
+    Per una rappresentazione completa di tutti i protocolli supportati nei servizi di Archiviazione di Azure, è possibile fare riferimento a [Autorizzazione dell'accesso ai dati in Archiviazione di Azure](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
     
 * <a id="encryption-at-rest"></a>
 **Come è possibile garantire che la condivisione file di Azure usi la crittografia dei dati inattivi?**  

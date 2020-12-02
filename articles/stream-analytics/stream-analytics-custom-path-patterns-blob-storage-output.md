@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531356"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491673"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -25,7 +25,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX), BIGINT, FLOAT o BIT (livello di compatibilità 1,2 o superiore). Per altre informazioni, vedere [tipi di dati di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX), BIGINT, FLOAT o BIT (livello di compatibilità 1,2 o superiore). Per altre informazioni, vedere [tipi di dati di analisi di flusso di Azure](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Esempio
 

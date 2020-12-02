@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c33771bc67a67d6b3b73769071126db6a913f702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492149"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -44,7 +44,7 @@ File di Azure raccoglie gli stessi tipi di dati di monitoraggio delle altre riso
 
 Vedere informazioni di [riferimento sui dati di monitoraggio file di Azure](storage-files-monitoring-reference.md) per informazioni dettagliate sulle metriche di metrica e log create da file di Azure.
 
-Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md) (Eseguire la migrazione ad Azure Resource Manager).
+Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md) (Eseguire la migrazione ad Azure Resource Manager).
 
 ## <a name="collection-and-routing"></a>Raccolta e routing
 
@@ -52,7 +52,7 @@ Le metriche della piattaforma e il log attività vengono raccolti automaticament
 
 Per raccogliere i log delle risorse, è necessario creare un'impostazione di diagnostica. Quando si crea l'impostazione, scegliere **file** come tipo di archiviazione per cui si vuole abilitare i log. Specificare quindi una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 |:---|:---|
 | StorageRead | Operazioni di lettura sugli oggetti. |
 | StorageWrite | Operazioni di scrittura su oggetti. |

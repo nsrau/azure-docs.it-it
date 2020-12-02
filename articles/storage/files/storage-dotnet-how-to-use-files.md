@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629343"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492200"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
@@ -52,7 +52,7 @@ In Visual Studio creare una nuova applicazione console di Windows. La procedura 
 
 1. Avviare Visual Studio e selezionare **Crea un nuovo progetto**.
 1. In **Crea un nuovo progetto** scegliere **App Console (.NET Framework)** per C# e quindi fare clic su **Avanti**.
-1. In **Configura il nuovo progetto** , immettere un nome per l'app e selezionare **Crea**.
+1. In **Configura il nuovo progetto**, immettere un nome per l'app e selezionare **Crea**.
 
 Aggiungere tutti gli esempi di codice di questo articolo alla `Program` classe nel file *Program.cs* .
 
@@ -70,7 +70,7 @@ Fare riferimento a questi pacchetti nel progetto:
 È possibile usare NuGet per ottenere i pacchetti. Seguire questa procedura:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-1. In **Gestione pacchetti NuGet** , selezionare **Sfoglia**. Quindi cercare e scegliere **Azure. Core** , quindi selezionare Install ( **Installa** ).
+1. In **Gestione pacchetti NuGet**, selezionare **Sfoglia**. Quindi cercare e scegliere **Azure. Core**, quindi selezionare Install ( **Installa**).
 
    Questo passaggio consente di installare il pacchetto e le relative dipendenze.
 
@@ -90,7 +90,7 @@ Fare riferimento a questi pacchetti nel progetto:
 È possibile usare NuGet per ottenere i pacchetti. Seguire questa procedura:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-1. In **Gestione pacchetti NuGet** , selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob** , quindi selezionare **Install (installa** ).
+1. In **Gestione pacchetti NuGet**, selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob**, quindi selezionare **Install (installa**).
 
    Questo passaggio consente di installare il pacchetto e le relative dipendenze.
 1. Cercare e installare i pacchetti seguenti:
@@ -316,7 +316,7 @@ Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso,
 
 A partire dalla versione 5. x della libreria client di File di Azure, è possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file.
 
-È anche possibile usare AzCopy per copiare un file in un altro o per copiare un BLOB in un file o viceversa. Vedere [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+È anche possibile usare AzCopy per copiare un file in un altro o per copiare un BLOB in un file o viceversa. Vedere [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > Se si copia un BLOB in un file o un file in un BLOB, è necessario usare una firma di accesso condiviso per autorizzare l'accesso all'oggetto di origine, anche se la copia viene eseguita nello stesso account di archiviazione.
@@ -624,7 +624,7 @@ Per ulteriori informazioni su File di Azure, vedere le risorse seguenti:
 
 ### <a name="tooling-support-for-file-storage"></a>Supporto degli strumenti per Archiviazione file
 
-- [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 - [Risolvere i problemi di File di Azure in Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Informazioni di riferimento

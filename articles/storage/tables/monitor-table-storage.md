@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: da6a1f4590257d43d2604913f2cbcedf29ea1eb6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844830"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491775"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitoraggio dell'archiviazione tabelle di Azure
 
@@ -46,7 +46,7 @@ Archiviazione tabelle di Azure raccoglie gli stessi tipi di dati di monitoraggio
 
 Vedere informazioni di [riferimento sui dati di monitoraggio dell'archiviazione tabelle di Azure](monitor-table-storage-reference.md) per informazioni dettagliate sulle metriche di metrica e log create dall'archiviazione tabelle di Azure.
 
-Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md) (Eseguire la migrazione ad Azure Resource Manager).
+Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md) (Eseguire la migrazione ad Azure Resource Manager).
 
 Se si vuole, è possibile continuare a usare le metriche e i log della versione classica. In realtà, le metriche e i log della versione classica sono disponibili in parallelo con le metriche e i log di Monitoraggio di Azure. Il supporto rimane invariato fino al termine del servizio relativo alle metriche e ai log legacy da parte di Archiviazione di Azure.
 
@@ -56,7 +56,7 @@ Le metriche della piattaforma e il log attività vengono raccolti automaticament
 
 Per raccogliere i log delle risorse, è necessario creare un'impostazione di diagnostica. Quando si crea l'impostazione, scegliere **tabella** come tipo di archiviazione per cui si vuole abilitare i log. Specificare quindi una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 |:---|:---|
 | StorageRead | Operazioni di lettura sugli oggetti. |
 | StorageWrite | Operazioni di scrittura su oggetti. |

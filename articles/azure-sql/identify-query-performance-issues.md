@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6ea17f04538e3444b1baddaa8862add2cfbbaa9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791750"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493424"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipi rilevabili di colli di bottiglia delle prestazioni delle query nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ Quando si tenta di risolvere un collo di bottiglia delle prestazioni, iniziare d
 
 ![Stati del carico di lavoro](./media/identify-query-performance-issues/workload-states.png)
 
-**Problemi relativi all'esecuzione** : i problemi correlati all'esecuzione sono in genere correlati a problemi di compilazione, causando un piano di query non ottimale o problemi di esecuzione correlati a risorse insufficienti o sovrautilizzate.
-**Problemi relativi all'attesa** : i problemi correlati all'attesa sono in genere correlati a:
+**Problemi relativi all'esecuzione**: i problemi correlati all'esecuzione sono in genere correlati a problemi di compilazione, causando un piano di query non ottimale o problemi di esecuzione correlati a risorse insufficienti o sovrautilizzate.
+**Problemi relativi all'attesa**: i problemi correlati all'attesa sono in genere correlati a:
 
 - Blocchi (blocco)
 - I/O
@@ -68,7 +68,7 @@ Diverse soluzioni alternative possono mitigare i problemi relativi a PSP. Per og
 
 - Usare l'hint per la query [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) a ogni esecuzione di query. Questa soluzione alternativa offre tempi di compilazione ridotti e una maggiore quantità di CPU per una migliore qualità del piano. L' `RECOMPILE` opzione non è spesso possibile per i carichi di lavoro che richiedono una velocità effettiva elevata.
 - Utilizzare l'hint per la query [Option (Optimize for...)](/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo con un valore di parametro tipico che produce un piano sufficientemente adatto per la maggior parte delle possibilità di valore del parametro. Questa opzione richiede una buona conoscenza dei valori di parametro ottimali e delle caratteristiche del piano associate.
-- Utilizzare l'hint per la query [Option (Optimize for Unknown)](/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo e utilizzare invece la media del vettore di densità. È anche possibile eseguire questa operazione acquisendo i valori dei parametri in ingresso nelle variabili locali e quindi usando le variabili locali all'interno dei predicati invece di usare i parametri stessi. Per questa correzione, la densità media deve essere *sufficientemente adeguata* .
+- Utilizzare l'hint per la query [Option (Optimize for Unknown)](/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo e utilizzare invece la media del vettore di densità. È anche possibile eseguire questa operazione acquisendo i valori dei parametri in ingresso nelle variabili locali e quindi usando le variabili locali all'interno dei predicati invece di usare i parametri stessi. Per questa correzione, la densità media deve essere *sufficientemente adeguata*.
 - Disabilitare interamente lo sniffing dei parametri utilizzando l'hint per la query [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) .
 - Utilizzare l'hint per la query [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) per impedire ricompilazioni nella cache. Questa soluzione si basa sul presupposto che il piano comune sufficientemente valido sia quello nella cache. È anche possibile disabilitare gli aggiornamenti automatici delle statistiche per ridurre le probabilità che venga eliminato il piano valido e che verrà compilato un nuovo piano non valido.
 - Forzare il piano in modo esplicito utilizzando l'hint per la query [use Plan](/sql/t-sql/queries/hints-transact-sql-query) riscrivendo la query e aggiungendo l'hint nel testo della query. In alternativa, impostare un piano specifico utilizzando Query Store o abilitando l' [ottimizzazione automatica](../azure-sql/database/automatic-tuning-overview.md).
@@ -137,13 +137,13 @@ Se si usa un hint RECOMPILE, un piano non verrà memorizzato nella cache.
 
 Una ricompilazione (o una nuova compilazione dopo la rimozione della cache) può comunque comportare la generazione di un piano di esecuzione della query identico all'originale. Quando il piano viene modificato rispetto al piano precedente o originale, è probabile che queste spiegazioni siano:
 
-- **Progettazione fisica modificata** : ad esempio, gli indici appena creati coprono in modo più efficace i requisiti di una query. I nuovi indici possono essere utilizzati in una nuova compilazione se il Query Optimizer decide che l'utilizzo di tale nuovo indice è più ottimale rispetto all'utilizzo della struttura di dati selezionata originariamente per la prima versione dell'esecuzione della query. Eventuali modifiche fisiche apportate agli oggetti a cui si fa riferimento possono comportare una nuova scelta del piano in fase di compilazione.
+- **Progettazione fisica modificata**: ad esempio, gli indici appena creati coprono in modo più efficace i requisiti di una query. I nuovi indici possono essere utilizzati in una nuova compilazione se il Query Optimizer decide che l'utilizzo di tale nuovo indice è più ottimale rispetto all'utilizzo della struttura di dati selezionata originariamente per la prima versione dell'esecuzione della query. Eventuali modifiche fisiche apportate agli oggetti a cui si fa riferimento possono comportare una nuova scelta del piano in fase di compilazione.
 
 - **Differenze** tra le risorse del server: quando un piano in un sistema differisce dal piano in un altro sistema, la disponibilità delle risorse, ad esempio il numero di processori disponibili, può influenzare il piano generato. Ad esempio, se un sistema dispone di più processori, è possibile che venga scelto un piano parallelo.
 
-- **Statistiche diverse** : le statistiche associate agli oggetti a cui si fa riferimento potrebbero essere state modificate o potrebbero essere materialmente diverse dalle statistiche del sistema originale. Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizza le statistiche a partire da quando sono state modificate. Le frequenze e le distribuzioni dei dati delle statistiche rivedute potrebbero essere diverse da quelle della compilazione originale. Queste modifiche vengono usate per creare stime della cardinalità. (Le *stime della cardinalità* sono il numero di righe che dovrebbero essere propagate attraverso l'albero delle query logiche). Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e gli ordini di operazioni associati. Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
+- **Statistiche diverse**: le statistiche associate agli oggetti a cui si fa riferimento potrebbero essere state modificate o potrebbero essere materialmente diverse dalle statistiche del sistema originale. Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizza le statistiche a partire da quando sono state modificate. Le frequenze e le distribuzioni dei dati delle statistiche rivedute potrebbero essere diverse da quelle della compilazione originale. Queste modifiche vengono usate per creare stime della cardinalità. (Le *stime della cardinalità* sono il numero di righe che dovrebbero essere propagate attraverso l'albero delle query logiche). Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e gli ordini di operazioni associati. Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
 
-- Modifica del **livello di compatibilità del database o della versione di stima della cardinalità** : le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che potrebbero generare un piano di esecuzione di query diverso. Oltre al livello di compatibilità del database, un flag di traccia disabilitato o abilitato 4199 o uno stato modificato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione. I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) influiscono anche sul piano.
+- Modifica del **livello di compatibilità del database o della versione di stima della cardinalità**: le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che potrebbero generare un piano di esecuzione di query diverso. Oltre al livello di compatibilità del database, un flag di traccia disabilitato o abilitato 4199 o uno stato modificato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione. I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) influiscono anche sul piano.
 
 ## <a name="resource-limits-issues"></a>Problemi relativi ai limiti delle risorse
 
@@ -173,11 +173,11 @@ In breve, se il piano di esecuzione della query non viene eseguito in modo diver
 
 Non è sempre facile identificare una modifica del volume del carico di lavoro che determina un problema di CPU. Tenere presente questi fattori:
 
-- **Modifica dell'utilizzo delle risorse** : si consideri, ad esempio, uno scenario in cui l'utilizzo della CPU è aumentato fino al 80% per un lungo periodo di tempo. Solo utilizzo CPU non significa che il volume del carico di lavoro è stato modificato. Anche le regressioni nel piano di esecuzione della query e le modifiche nella distribuzione dei dati possono contribuire a un utilizzo più delle risorse anche se l'applicazione esegue lo stesso carico di lavoro.
+- **Modifica dell'utilizzo delle risorse**: si consideri, ad esempio, uno scenario in cui l'utilizzo della CPU è aumentato fino al 80% per un lungo periodo di tempo. Solo utilizzo CPU non significa che il volume del carico di lavoro è stato modificato. Anche le regressioni nel piano di esecuzione della query e le modifiche nella distribuzione dei dati possono contribuire a un utilizzo più delle risorse anche se l'applicazione esegue lo stesso carico di lavoro.
 
-- **L'aspetto di una nuova query** : un'applicazione può guidare un nuovo set di query in momenti diversi.
+- **L'aspetto di una nuova query**: un'applicazione può guidare un nuovo set di query in momenti diversi.
 
-- **Aumento o riduzione del numero di richieste** : questo scenario è la misura più ovvia di un carico di lavoro. Il numero di query non corrisponde sempre a un maggiore utilizzo delle risorse. Tuttavia, questa metrica è ancora un segnale significativo, supponendo che altri fattori siano invariati.
+- **Aumento o riduzione del numero di richieste**: questo scenario è la misura più ovvia di un carico di lavoro. Il numero di query non corrisponde sempre a un maggiore utilizzo delle risorse. Tuttavia, questa metrica è ancora un segnale significativo, supponendo che altri fattori siano invariati.
 
 Usare Intelligent Insights per rilevare gli [aumenti del carico di lavoro](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e pianificare le [regressioni](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,7 +185,7 @@ Usare Intelligent Insights per rilevare gli [aumenti del carico di lavoro](datab
 
 Una volta eliminato un piano non ottimale e i problemi *correlati all'attesa* correlati ai problemi di esecuzione, il problema di prestazioni è in genere che le query sono in attesa di una risorsa. I problemi relativi alle attese potrebbero essere causati da:
 
-- **Blocco** :
+- **Blocco**:
 
   Una query può mantenere il blocco sugli oggetti nel database mentre altri tentano di accedere agli stessi oggetti. È possibile identificare le query di blocco usando [DMV](database/monitoring-with-dmvs.md#monitoring-blocked-queries) o [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
 - **Problemi di IO**

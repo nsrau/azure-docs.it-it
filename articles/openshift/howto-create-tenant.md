@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b57bafdc3f4748bf634955334424941b55e02fd8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221163"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492370"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creare un tenant di Azure AD per Azure Red Hat OpenShift
 
@@ -21,7 +21,7 @@ ms.locfileid: "92221163"
 > Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
 > Per domande specifiche, [Contattaci](mailto:arofeedback@microsoft.com).
 
-Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
+Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](../active-directory/develop/quickstart-create-new-tenant.md) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
 
 Se non si ha già un tenant di Azure AD, seguire queste istruzioni per crearne uno.
 
@@ -31,7 +31,7 @@ Per creare un tenant:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'account che si vuole associare al cluster Azure Red Hat OpenShift.
 2. Aprire il pannello [Azure Active Directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) per creare un nuovo tenant (anche noto come nuovo *Azure Active Directory*).
-3. Specificare un **nome**per l'organizzazione.
+3. Specificare un **nome** per l'organizzazione.
 4. Specificare un **nome di dominio iniziale**. A questa operazione verrà aggiunto *onmicrosoft.com* . È possibile riusare il valore per *nome organizzazione* qui.
 5. Scegliere un paese o un'area geografica in cui verrà creato il tenant.
 6. Fare clic su **Crea**.

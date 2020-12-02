@@ -6,30 +6,30 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505785"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493662"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Aggiornare il database PostgreSQL con dump e ripristino
 
 È possibile aggiornare il server PostgreSQL distribuito nel database di Azure per PostgreSQL-server singolo migrando i database in un server di versione principale più elevato usando i metodi seguenti.
 * Metodo **offline** con [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) PostgreSQL e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) che comporta tempi di inattività per la migrazione dei dati. Questo documento riguarda questo metodo di aggiornamento/migrazione.
-* Metodo **online** con il [servizio migrazione del database](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Questo metodo consente una migrazione ridotta del tempo di inattività e mantiene il database di destinazione sincronizzato con con l'origine ed è possibile scegliere quando eseguire il troncamento. Tuttavia, esistono alcuni prerequisiti e restrizioni da affrontare per l'uso di DMS. Per informazioni dettagliate, vedere la [documentazione di DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
+* Metodo **online** con il [servizio migrazione del database](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Questo metodo consente una migrazione ridotta del tempo di inattività e mantiene il database di destinazione sincronizzato con con l'origine ed è possibile scegliere quando eseguire il troncamento. Tuttavia, esistono alcuni prerequisiti e restrizioni da affrontare per l'uso di DMS. Per informazioni dettagliate, vedere la [documentazione di DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  Nella tabella seguente vengono forniti alcuni consigli basati su scenari e dimensioni del database.
 
 | **Database/scenario** | **Dump/ripristino (offline)** | **DMS (online)** |
 | ------ | :------: | :-----: |
-| Si dispone di un database di piccole dimensioni che può permettersi tempi di inattività per l'aggiornamento  | x | |
+| Si dispone di un database di piccole dimensioni che può permettersi tempi di inattività per l'aggiornamento  | X | |
 | Database di piccole dimensioni (< 10 GB)  | X | X | 
 | Database di piccole e medie dimensioni (10 GB-100 GB) | X | X |
-| Database di grandi dimensioni (> 100 GB) |  | x |
-| Può permettersi tempi di inattività per l'aggiornamento (indipendentemente dalle dimensioni del database) | x |  |
-| È possibile risolvere i [prerequisiti](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)DMS, incluso un riavvio? |  | x |
-| È possibile evitare DDL e tabelle non registrate durante il processo di aggiornamento? | |  x |
+| Database di grandi dimensioni (> 100 GB) |  | X |
+| Può permettersi tempi di inattività per l'aggiornamento (indipendentemente dalle dimensioni del database) | X |  |
+| È possibile risolvere i [prerequisiti](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites)DMS, incluso un riavvio? |  | X |
+| È possibile evitare DDL e tabelle non registrate durante il processo di aggiornamento? | |  X |
 
 Questa guida fornisce alcune metodologie ed esempi di migrazione offline per illustrare come è possibile eseguire la migrazione dal server di origine al server di destinazione che esegue una versione di PostgreSQL superiore.
 

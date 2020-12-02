@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187439"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491418"
 ---
 # <a name="what-is-routing-preference-preview"></a>Che cos'è la preferenza di routing (anteprima)?
 
@@ -70,19 +70,7 @@ Per l'archiviazione, gli endpoint primari usano sempre la **rete globale Microso
 * Azure DataLake
 
 ## <a name="pricing"></a>Prezzi
-La differenza di prezzo tra le due opzioni si riflette nei prezzi del trasferimento dei dati in uscita su Internet. Il prezzo del trasferimento dei dati per il routing tramite **rete globale Microsoft** è uguale all'attuale prezzo in uscita su Internet. Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi della larghezza di banda di Azure](https://azure.microsoft.com/pricing/details/bandwidth/). Il prezzo del routing tramite **Internet pubblico** è inferiore, come mostrato nella tabella seguente:
-
-| Area di origine in uscita | 0 - 5 GB/mese | 5 GB - 10 TB/mese | 10 - 50 TB/mese | 50 - 150 TB/mese | 150 - 500 TB/mese |
-| --- | --- | --- | --- | --- | --- |
-| Zona 1 | $ 0/GB | $ 0,085/GB | $ 0,065/GB | $ 0,06/GB | $ 0,04/GB |
-| Zona 2 | $ 0/GB | $ 0,11/GB | $ 0,075/GB | $ 0,07/GB | $ 0,06/GB  |
-
-Per informazioni su volumi mensili superiori a 500 TB, [contattare Microsoft](https://azure.microsoft.com/overview/sales-number/).
-* Zona 1: Australia centrale, Australia centrale 2, Canada centrale, Canada orientale, Europa settentrionale, Europa occidentale, Francia centrale, Francia meridionale, Germania settentrionale (pubblico), Germania centro-occidentale (pubblico), Norvegia orientale, Norvegia occidentale, Svizzera settentrionale, Svizzera occidentale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-occidentali.
-
-* Zona 2: Asia orientale, Asia sud-orientale, Australia orientale, Australia sud-orientale, India centrale, India meridionale, India occidentale, Giappone orientale, Giappone occidentale, Corea centrale e Corea meridionale.
-
-* Zona 3: Brasile meridionale, Sudafrica settentrionale, Sudafrica occidentale, Emirati Arabi Uniti centrali ef Emirati Arabi Uniti settentrionali.
+La differenza di prezzo tra le due opzioni si riflette nei prezzi del trasferimento dei dati in uscita su Internet. Il prezzo del trasferimento dei dati per il routing tramite **rete globale Microsoft** è uguale all'attuale prezzo in uscita su Internet. Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi della larghezza di banda di Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="availability"></a>Disponibilità
 

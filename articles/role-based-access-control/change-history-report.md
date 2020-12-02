@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 4ccd668fb6afa6787fadeda6ed92ebd954e2b892
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e4d75c59d0e3c97b0900dd72a27d4afbf4015c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657806"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492319"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Visualizzare i log attività per le modifiche RBAC di Azure
 
@@ -43,12 +43,12 @@ Il modo più semplice per iniziare è visualizzare i log attività con il portal
 
 Il log attività nel portale include diversi filtri. Ecco i filtri correlati a RBAC di Azure:
 
-| Filtro | Valore |
+| Filtra | Valore |
 | --------- | --------- |
 | Categoria evento | <ul><li>Amministrativo</li></ul> |
 | Operazione | <ul><li>Crea assegnazione ruolo</li><li>Elimina assegnazione ruolo</li><li>Crea o aggiorna la definizione del ruolo personalizzata</li><li>Elimina la definizione del ruolo personalizzata</li></ul> |
 
-Per altre informazioni sui log attività, vedere [visualizzare i log attività per monitorare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json).
+Per altre informazioni sui log attività, vedere [visualizzare i log attività per monitorare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -162,5 +162,5 @@ AzureActivity
 ![Log attività tramite il portale Advanced Analytics - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Visualizzare eventi nel log attività](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
+* [Visualizzare eventi nel log attività](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Monitorare l'attività di sottoscrizione con il log attività di Azure](../azure-monitor/platform/platform-logs-overview.md)

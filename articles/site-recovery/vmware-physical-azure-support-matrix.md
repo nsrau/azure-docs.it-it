@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: dead1d29392f203f5617c9caf430ff952f02f9bc
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6cc67a6af9e11e5667479eadfe277d400c2d4947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317504"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492217"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -29,7 +29,7 @@ Ripristino di emergenza di server fisici | Replica di server fisici Windows/Linu
 
 ## <a name="on-premises-virtualization-servers"></a>Server di virtualizzazione locali
 
-**Server** | **Requirements** | **Dettagli**
+**Server** | **Requirements** | **Informazioni dettagliate**
 --- | --- | ---
 Server vCenter | Versione 7,0 & aggiornamenti successivi in questa versione, 6,7, 6,5, 6,0 o 5,5 | Si consiglia di usare un server vCenter nella distribuzione di ripristino di emergenza.
 Host vSphere | Versione 7,0 & aggiornamenti successivi in questa versione, 6,7, 6,5, 6,0 o 5,5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Il server di elaborazione viene eseguito per impostazione predefinita nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md)
@@ -62,7 +62,7 @@ Porte | 443 usato per l'orchestrazione del canale di controllo<br/>9443 per il t
 
 Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato.
 
-**Componente** | **Dettagli**
+**Componente** | **Informazioni dettagliate**
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
 Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](./site-recovery-workload.md)
@@ -258,7 +258,7 @@ Archiviazione ad accesso frequente| No
 BLOB in blocchi | No
 Crittografia inattiva (SSE)| Sì
 Crittografia inattiva (CMK)| Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
-Crittografia a doppio inattivo | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive). Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
+Crittografia a doppio inattivo | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive). Altre informazioni sulle aree supportate per [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md).
 Archiviazione Premium | Sì
 Opzione di trasferimento sicuro | Sì
 Servizio di importazione/esportazione | No
@@ -278,7 +278,7 @@ Dischi gestiti | Sì
 
 Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti della macchina virtuale di Azure riepilogati in questa tabella. Quando Site Recovery esegue un controllo dei prerequisiti per la replica, il controllo ha esito negativo se alcuni dei requisiti non vengono soddisfatti.
 
-**Componente** | **Requirements** | **Dettagli**
+**Componente** | **Requirements** | **Informazioni dettagliate**
 --- | --- | ---
 Sistema operativo guest | Verificare i [sistemi operativi supportati](#replicated-machines) per le macchine replicate. | Il controllo ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negativo se non supportato.
@@ -334,7 +334,7 @@ Spostare le macchine virtuali di archiviazione, di rete e di Azure tra le sottos
 
 ## <a name="obtain-latest-components"></a>Ottenere i componenti più recenti
 
-**Nome** | **Descrizione** | **Dettagli**
+**Nome** | **Descrizione** | **Informazioni dettagliate**
 --- | --- | ---
 Server di configurazione | Installata in locale.<br/> Coordina le comunicazioni tra i server VMware locali o i computer fisici e Azure. | - Informazioni [sul server di](vmware-physical-azure-config-process-server-overview.md) configurazione.<br/> - Informazioni [sull'](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) aggiornamento alla versione più recente.<br/> - Informazioni sulla configurazione del server [di](vmware-azure-deploy-configuration-server.md) configurazione.
 Server di elaborazione | Installato per impostazione predefinita nel server di configurazione.<br/> Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia ad Azure.<br/> Man mano che la distribuzione cresce, è possibile aggiungere altri server di elaborazione per gestire volumi più elevati di traffico di replica. | - Informazioni [sul server di](vmware-physical-azure-config-process-server-overview.md) elaborazione.<br/> - Informazioni [sull'](vmware-azure-manage-process-server.md#upgrade-a-process-server) aggiornamento alla versione più recente.<br/> - Informazioni [sulla configurazione dei server di](vmware-physical-large-deployment.md#set-up-a-process-server) elaborazione con scalabilità orizzontale.

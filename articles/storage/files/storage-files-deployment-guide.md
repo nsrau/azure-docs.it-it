@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0415133bf3168c846e1105efe992c2c48c57ff2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629241"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492183"
 ---
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.
@@ -22,7 +22,7 @@ ms.locfileid: "94629241"
 ## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che l'utente abbia già completato i passaggi seguenti:
 
-- Creazione di un account di Archiviazione di Azure con le opzioni di resilienza e crittografia desiderate, nell'area desiderata. Vedere [Creare un account di archiviazione](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) per istruzioni dettagliate su come creare un account di archiviazione.
+- Creazione di un account di Archiviazione di Azure con le opzioni di resilienza e crittografia desiderate, nell'area desiderata. Vedere [Creare un account di archiviazione](../common/storage-account-create.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per istruzioni dettagliate su come creare un account di archiviazione.
 - Creazione di una condivisione file di Azure con la quota desiderata nell'account di archiviazione. Vedere [Creare una condivisione file](storage-how-to-create-file-share.md) per istruzioni dettagliate su come creare una condivisione file.
 
 ## <a name="transfer-data-into-azure-files"></a>Trasferire i dati in File di Azure
@@ -63,7 +63,7 @@ La procedura seguente importerà dati da un percorso locale nella condivisione f
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    È possibile specificare più condivisioni con un account di archiviazione. Per altre informazioni vedere [Preparare il file CSV dataset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+    È possibile specificare più condivisioni con un account di archiviazione. Per altre informazioni vedere [Preparare il file CSV dataset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 5. Creare il file CSV driveset. Il file CSV driveset elenca i dischi disponibili per l'agente di esportazione locale. Ad esempio, il seguente file CSV driveset elenca le unità `X:`, `Y:` e `Z:` da usare nel processo di esportazione locale:
 
@@ -74,7 +74,7 @@ La procedura seguente importerà dati da un percorso locale nella condivisione f
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Per altre informazioni vedere [Preparare il file CSV driveset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+    Per altre informazioni vedere [Preparare il file CSV driveset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 6. Usare lo [strumento WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) per copiare i dati in uno o più dischi rigidi.
 
@@ -120,7 +120,7 @@ AzCopy è un'utilità della riga di comando progettata per copiare i dati da e v
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy dispone di un numero significativo di opzioni per modificare il comportamento di copia in base alle esigenze. Per altre informazioni, vedere [Introduzione a AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+    AzCopy dispone di un numero significativo di opzioni per modificare il comportamento di copia in base alle esigenze. Per altre informazioni, vedere [Introduzione a AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Montare automaticamente nei PC o nei server necessari
 Per sostituire una condivisione file locale, è utile per pre-montare le condivisioni nei computer su cui verrà usata. Questa operazione può essere eseguita automaticamente in un elenco di computer.

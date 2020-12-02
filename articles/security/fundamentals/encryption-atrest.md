@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556625"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492285"
 ---
-# <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi in Azure
+# <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
 Microsoft Azure include gli strumenti per salvaguardare i dati in base alle esigenze di sicurezza e conformità dell'azienda. Questo documento è incentrato su:
 
@@ -60,7 +60,7 @@ Come descritto in precedenza, l'obiettivo della crittografia dei dati inattivi �
 
 ![Componenti](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="azure-key-vault"></a>Insieme di credenziali chiave di Azure
 
 La posizione di archiviazione delle chiavi di crittografia e il controllo dell'accesso a queste chiavi è essenziale per un modello di crittografia dei dati inattivi. Le chiavi devono essere estremamente protette ma gestibili dagli utenti specificati e disponibili per servizi specifici. Per i servizi di Azure, la soluzione di archiviazione delle chiavi consigliata è Azure Key Vault, che fornisce un'esperienza di gestione comune per tutti i servizi. Le chiavi sono archiviate e gestite in insiemi di credenziali delle chiavi e l'accesso a un insieme di credenziali delle chiavi può essere assegnato a utenti o servizi. Azure Key Vault supporta la creazione di chiavi da parte dei clienti o l'importazione di chiavi dei clienti per l'uso in scenari con chiavi di crittografia gestite dal cliente.
 
@@ -72,7 +72,7 @@ Le autorizzazioni per l'uso delle chiavi archiviate in Azure Key Vault (per la g
 
 Viene usata più di una chiave di crittografia in un'implementazione della crittografia per i dati inattivi. L'archiviazione di una chiave di crittografia in Azure Key Vault garantisce l'accesso alla chiave sicura e la gestione centralizzata delle chiavi. Tuttavia, l'accesso locale al servizio alle chiavi di crittografia è più efficiente per la crittografia e la decrittografia bulk rispetto all'interazione con Key Vault per ogni operazione sui dati, consentendo una crittografia più avanzata e prestazioni migliori. Limitare l'uso di una sola chiave di crittografia riduce il rischio di compromissione della chiave e il costo della ripetizione della crittografia quando è necessario sostituire una chiave. Le crittografie di Azure nei modelli REST usano una gerarchia delle chiavi costituita dai tipi di chiavi seguenti per soddisfare tutte le esigenze:
 
-- **Chiave DEK (Data Encryption Key)** : una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati.  Una singola risorsa può avere diverse partizioni e più chiavi DEK. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, devono essere nuovamente crittografati con la nuova chiave solo i dati nel blocco associato.
+- **Chiave DEK (Data Encryption Key)**: una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati.  Una singola risorsa può avere diverse partizioni e più chiavi DEK. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, devono essere nuovamente crittografati con la nuova chiave solo i dati nel blocco associato.
 - Chiave di **crittografia della chiave (KEK)** : chiave di crittografia usata per crittografare le chiavi di crittografia dei dati. L'uso di una chiave di crittografia della chiave che non lascia mai Key Vault consente di crittografare e controllare le chiavi di crittografia dei dati. L'entità che ha accesso alla chiave KEK può essere diversa dall'entità che richiede la chiave DEK. Un'entità può gestire l'accesso alla chiave DEK per limitare l'accesso di ogni chiave DEK a una partizione specifica. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
 
 Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia della chiave vengono archiviate separatamente e solo un'entità con accesso alla chiave di crittografia della chiave può decrittografare queste chiavi di crittografia dei dati. Sono supportati diversi modelli di archiviazione delle chiavi. Per ulteriori informazioni, vedere [modelli di crittografia dei dati](encryption-models.md) .
@@ -124,7 +124,7 @@ Tutti i servizi di archiviazione di Azure (archiviazione BLOB, archiviazione cod
 - Lato server: tutti i servizi di archiviazione di Azure abilitano la crittografia lato server per impostazione predefinita con chiavi gestite dal servizio, in modo trasparente all'applicazione. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../../storage/common/storage-service-encryption.md). Archiviazione BLOB di Azure e File di Azure supportano anche chiavi RSA a 2048 bit gestite dal cliente in Azure Key Vault. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Lato client: BLOB di Azure, tabelle e code di Azure supportano la crittografia lato client. Quando usano la crittografia lato client, i clienti crittografano i dati e li caricano come un BLOB crittografato. La gestione delle chiavi viene eseguita dal cliente. Per altre informazioni, vedere [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](../../storage/common/storage-client-side-encryption.md).
 
-#### <a name="azure-sql-database"></a>database SQL di Azure
+#### <a name="azure-sql-database"></a>Database SQL di Azure
 
 Database SQL di Azure attualmente supporta la crittografia dei dati inattivi per gli scenari di crittografia sul lato client e sul lato del servizio gestito da Microsoft.
 

@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 756604b71efd1715ae3b4ca3d5eebf0fdfa41e34
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129797"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491571"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense negli strumenti di analisi di flusso di Azure per Visual Studio Code
 
-IntelliSense è disponibile per il [linguaggio di query di analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fstream-analytics%252ftoc.json) negli [strumenti di analisi di flusso di Azure per vs code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense è lo strumenti di completamento del codice che include numerose funzionalità: Elenca membri, Informazioni sul parametro, Informazioni rapide e Completa parola. Le funzionalità di IntelliSense vengono talvolta chiamate da altri nomi, ad esempio "completamento del codice", "supporto contenuto" e "hint di codice".
+IntelliSense è disponibile per il [linguaggio di query di analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) negli [strumenti di analisi di flusso di Azure per vs code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense è lo strumenti di completamento del codice che include numerose funzionalità: Elenca membri, Informazioni sul parametro, Informazioni rapide e Completa parola. Le funzionalità di IntelliSense vengono talvolta chiamate da altri nomi, ad esempio "completamento del codice", "supporto contenuto" e "hint di codice".
 
 ![Demo di IntelliSense](./media/vs-code-intellisense/intellisense.gif)
 
@@ -34,7 +34,7 @@ Le funzionalità di IntelliSense negli strumenti di analisi di flusso per VS Cod
 
 Strumenti di analisi di flusso per VS Code IntelliSense offre diversi tipi di completamenti, tra cui suggerimenti per i server di linguaggio, frammenti di codice e semplici completamenti testuali basati su parole.
 
-|Completion     |  Type       |
+|Completion     |  Tipo       |
 | ----- | ------- |
 | Parole chiave | `keyword`
 | Funzioni | `build-in function`, `user defined function`  |

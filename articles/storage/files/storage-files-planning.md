@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e60ba773c5ef750f027c2e0b1528409c71eeb4b8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492115"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
@@ -99,13 +99,13 @@ L'eliminazione temporanea per le condivisioni file (anteprima) è un'impostazion
 Per altre informazioni sull'eliminazione temporanea, vedere [impedire l'eliminazione accidentale di dati](./storage-files-prevent-file-share-deletion.md).
 
 ### <a name="backup"></a>Backup
-È possibile eseguire il backup della condivisione file di Azure tramite [snapshot di condivisione](./storage-snapshots-files.md), che sono copie temporizzate di sola lettura della condivisione. Gli snapshot sono incrementali, ovvero contengono solo la quantità di dati modificata rispetto allo snapshot precedente. È possibile avere fino a 200 snapshot per ogni condivisione file e conservarli per un massimo di 10 anni. È possibile eseguire manualmente questi snapshot nel portale di Azure, tramite PowerShell o l'interfaccia della riga di comando oppure è possibile usare [backup di Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json). Gli snapshot vengono archiviati all'interno della condivisione file, vale a dire che se si elimina la condivisione file, verranno eliminati anche gli snapshot. Per proteggere i backup di snapshot da eliminazioni accidentali, verificare che l'eliminazione temporanea sia abilitata per la condivisione.
+È possibile eseguire il backup della condivisione file di Azure tramite [snapshot di condivisione](./storage-snapshots-files.md), che sono copie temporizzate di sola lettura della condivisione. Gli snapshot sono incrementali, ovvero contengono solo la quantità di dati modificata rispetto allo snapshot precedente. È possibile avere fino a 200 snapshot per ogni condivisione file e conservarli per un massimo di 10 anni. È possibile eseguire manualmente questi snapshot nel portale di Azure, tramite PowerShell o l'interfaccia della riga di comando oppure è possibile usare [backup di Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Gli snapshot vengono archiviati all'interno della condivisione file, vale a dire che se si elimina la condivisione file, verranno eliminati anche gli snapshot. Per proteggere i backup di snapshot da eliminazioni accidentali, verificare che l'eliminazione temporanea sia abilitata per la condivisione.
 
-[Backup di Azure per le condivisioni file di Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) gestisce la pianificazione e la conservazione degli snapshot. Le funzionalità di nonno-padre-figlio (GFS) indicano che è possibile adottare snapshot giornalieri, settimanali, mensili e annuali, ognuno con un proprio periodo di conservazione distinto. Backup di Azure orchestra anche l'abilitazione dell'eliminazione temporanea e accetta un blocco di eliminazione su un account di archiviazione non appena viene configurata una condivisione file al suo interno per il backup. Infine, backup di Azure fornisce alcune funzionalità di monitoraggio e avviso chiave che consentono ai clienti di ottenere una visualizzazione consolidata del loro patrimonio di backup.
+[Backup di Azure per le condivisioni file di Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) gestisce la pianificazione e la conservazione degli snapshot. Le funzionalità di nonno-padre-figlio (GFS) indicano che è possibile adottare snapshot giornalieri, settimanali, mensili e annuali, ognuno con un proprio periodo di conservazione distinto. Backup di Azure orchestra anche l'abilitazione dell'eliminazione temporanea e accetta un blocco di eliminazione su un account di archiviazione non appena viene configurata una condivisione file al suo interno per il backup. Infine, backup di Azure fornisce alcune funzionalità di monitoraggio e avviso chiave che consentono ai clienti di ottenere una visualizzazione consolidata del loro patrimonio di backup.
 
 È possibile eseguire ripristini a livello di elemento e di condivisione nel portale di Azure usando backup di Azure. È sufficiente scegliere il punto di ripristino (uno snapshot particolare), il file o la directory specifica, se pertinente, quindi il percorso (originale o alternativo) in cui si vuole eseguire il ripristino. Il servizio di backup gestisce la copia dei dati dello snapshot e Mostra lo stato di avanzamento del ripristino nel portale.
 
-Per ulteriori informazioni sul backup, vedere [informazioni sul backup di condivisioni file di Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Per ulteriori informazioni sul backup, vedere [informazioni sul backup di condivisioni file di Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection per File di Azure (anteprima)
 Advanced Threat Protection (ATP) per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che fornisce avvisi quando rileva attività anomale nell'account di archiviazione, ad esempio tentativi insoliti di accedere all'account di archiviazione. ATP esegue anche l'analisi della reputazione di hash malware e avvisa su malware noto. È possibile configurare ATP a livello di sottoscrizione o di account di archiviazione tramite il Centro sicurezza di Azure. 

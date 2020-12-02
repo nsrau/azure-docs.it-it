@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c57ad181f35d3c0498804f65390792d0e600f1ff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843418"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492251"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Baseline della sicurezza di Azure per protezione DDoS di Azure standard
 
@@ -38,7 +38,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro Log Analytics, a hub eventi di Azure o all'account di archiviazione di Azure per l'archiviazione. I log attività forniscono informazioni approfondite sulle operazioni eseguite nella cache di Azure per le istanze di redis a livello di piano di controllo. Usando i dati del log attività di Azure, è possibile determinare il "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita a livello di piano di controllo per le istanze di protezione DDoS di Azure.
 
-- [Come configurare gli avvisi per le metriche di protezione DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Come configurare gli avvisi per le metriche di protezione DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i 
 
 **Linee guida**: abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro log Analytics. Eseguire query in Log Analytics per cercare termini, identificare tendenze, analizzare modelli e fornire molte altre informazioni basate sui dati del log attività che potrebbero essere stati raccolti per gli insiemi di credenziali dei servizi di ripristino.
 
-- [Informazioni su come accedere ai dati di telemetria, ai log e all'analisi degli attacchi per il servizio DDoS Protection standard](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Informazioni su come accedere ai dati di telemetria, ai log e all'analisi degli attacchi per il servizio DDoS Protection standard](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -96,7 +96,7 @@ Eseguire l'onboarding di un'area di lavoro Log Analytics in Azure Sentinel perch
 
 Inoltre, Azure Active Directory (AD) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Informazioni sulle autorizzazioni per la protezione DDoS di Azure](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
+- [Informazioni sulle autorizzazioni per la protezione DDoS di Azure](../../ddos-protection/manage-permissions.md)
 
 - [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -266,7 +266,7 @@ Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che co
 
 **Linee guida**: per lavorare con i piani di protezione DDoS di Azure, l'account deve essere assegnato al ruolo Collaboratore rete o a un ruolo personalizzato a cui sono assegnate azioni specifiche.
 
-- [Gestire il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in protezione DDoS di Azure](../../virtual-network/manage-ddos-protection.md)
+- [Gestire il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in protezione DDoS di Azure](../../ddos-protection/manage-ddos-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -524,7 +524,7 @@ Testare le ipotesi sul modo in cui i servizi risponderanno a un attacco generand
 
 Selezionare una delle metriche di protezione DDoS disponibili per ricevere un avviso quando si verifica una mitigazione attiva durante un attacco, usando la configurazione degli avvisi di monitoraggio di Azure. Quando vengono soddisfatte le condizioni, l'indirizzo specificato riceve un messaggio di posta elettronica di avviso
 
-- [Configurare gli avvisi per le metriche di protezione DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Configurare gli avvisi per le metriche di protezione DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [Come configurare l'esportazione continua](../../security-center/continuous-export.md)
 
@@ -552,9 +552,9 @@ Selezionare una delle metriche di protezione DDoS disponibili per ricevere un av
 
 **Linee guida**: seguire le regole di engagement per i test di penetrazione Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
 
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

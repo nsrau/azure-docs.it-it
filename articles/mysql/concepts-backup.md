@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433275"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492812"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -38,11 +38,11 @@ I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
 L'archiviazione per utilizzo generico è l'archiviazione back-end che supporta [per utilizzo generico](concepts-pricing-tiers.md) e il server di [livello con ottimizzazione](concepts-pricing-tiers.md) per la memoria Per i server con archiviazione per utilizzo generico fino a 4 TB, i backup completi si verificano una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. I backup nello spazio di archiviazione per utilizzo generico fino a un massimo di 4 TB non sono basati su snapshot e utilizzano la larghezza di banda IO al momento del backup. Per i database di grandi dimensioni (> 1 TB) nell'archiviazione da 4 TB, è consigliabile prendere in considerazione
 
 - Provisioning di più IOPs per tenere conto del backup di IOs o
-- In alternativa, eseguire la migrazione a una risorsa di archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione se l'infrastruttura di archiviazione sottostante è disponibile nelle [aree di Azure](/azure/mysql/concepts-pricing-tiers#storage)preferite. Non sono previsti costi aggiuntivi per l'archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione. Per assistenza sulla migrazione a una risorsa di archiviazione da 16 TB, aprire un ticket di supporto da portale di Azure.
+- In alternativa, eseguire la migrazione a una risorsa di archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione se l'infrastruttura di archiviazione sottostante è disponibile nelle [aree di Azure](./concepts-pricing-tiers.md#storage)preferite. Non sono previsti costi aggiuntivi per l'archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione. Per assistenza sulla migrazione a una risorsa di archiviazione da 16 TB, aprire un ticket di supporto da portale di Azure.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Server di archiviazione per utilizzo generico con archiviazione fino a 16 TB
 
-In un sottoinsieme di [aree di Azure](/azure/mysql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning sono in grado di supportare l'archiviazione per utilizzo generico fino a 16 TB. In altre parole, l'archiviazione per utilizzo generico predefinito per tutte le [aree](concepts-pricing-tiers.md#storage) in cui è supportata è l'archiviazione fino a 16 TB. I backup in questi server di archiviazione da 16 TB sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali.
+In un sottoinsieme di [aree di Azure](./concepts-pricing-tiers.md#storage), tutti i server di cui è stato effettuato il provisioning sono in grado di supportare l'archiviazione per utilizzo generico fino a 16 TB. In altre parole, l'archiviazione per utilizzo generico predefinito per tutte le [aree](concepts-pricing-tiers.md#storage) in cui è supportata è l'archiviazione fino a 16 TB. I backup in questi server di archiviazione da 16 TB sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali.
 
 I backup differenziali degli snapshot vengono eseguiti almeno una volta al giorno. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. I backup differenziali degli snapshot si verificano ogni 24 ore, a meno che il log delle transazioni (binlog in MySQL) superi 50 GB dall'ultimo backup differenziale. In un giorno sono consentiti al massimo sei snapshot differenziali.
 

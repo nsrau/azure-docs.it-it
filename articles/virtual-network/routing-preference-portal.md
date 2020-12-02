@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d9f318ef18b7ffb49a95ce495c09f1fa46ec1a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231812"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491316"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configurare la preferenza di routing per un indirizzo IP pubblico con il portale di Azure
 
-Questo articolo illustra come configurare le [Preferenze di routing](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) tramite la rete ISP (opzione**Internet** ) per un indirizzo IP pubblico. Dopo aver creato l'indirizzo IP pubblico, è possibile associarlo alle risorse di Azure seguenti per il traffico Internet in ingresso e in uscita:
+Questo articolo illustra come configurare le [Preferenze di routing](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) tramite la rete ISP (opzione **Internet** ) per un indirizzo IP pubblico. Dopo aver creato l'indirizzo IP pubblico, è possibile associarlo alle risorse di Azure seguenti per il traffico Internet in ingresso e in uscita:
 
 * Macchina virtuale
 * Set di scalabilità di macchine virtuali
@@ -37,12 +37,6 @@ Per impostazione predefinita, la preferenza di routing per l'indirizzo IP pubbli
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## <a name="register-the-feature-for-your-subscription"></a>Registrare la funzionalità per la propria sottoscrizione
-La funzionalità Preferenza di routing è attualmente disponibile in anteprima. Registrare la funzionalità per la propria sottoscrizione usando Azure PowerShell come indicato di seguito:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Creare un IP pubblico con una preferenza di routing
 1. Accedere al [portale di Azure](https://preview.portal.azure.com/).

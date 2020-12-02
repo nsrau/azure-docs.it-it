@@ -4,20 +4,20 @@ description: Questo articolo descrive come codificare gli aggiornamenti dei mode
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019138"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491248"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
 Usando automazione di Azure e manuali operativi di PowerShell, è possibile eseguire operazioni automatiche di aggiornamento dei dati nei modelli tabulari di Azure Analysis.  
 
-L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](/powershell/module/sqlserver/?view=sqlserver-ps). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
+L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
 
 ## <a name="authentication"></a>Authentication
 
@@ -56,7 +56,7 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
     ![Screenshot che mostra la pagina "credenziali" con l'azione "Aggiungi credenziale" selezionata.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Immettere i dettagli per la credenziale. In **nome utente**immettere l'ID applicazione dell'entità servizio (AppID) e quindi in **password**immettere il segreto dell'entità servizio.
+2. Immettere i dettagli per la credenziale. In **nome utente** immettere l'ID applicazione dell'entità servizio (AppID) e quindi in **password** immettere il segreto dell'entità servizio.
 
     ![Creare credenziali](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -82,7 +82,7 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
     ![Screenshot che mostra la pagina "Overview" con l'azione "Start" selezionata.](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Compilare i parametri **DatabaseName**, **ANALYSISSERVER**e **REFRESHTYPE** e quindi fare clic su **OK**. Il parametro **WEBHOOKDATA** non è obbligatorio quando il Runbook viene eseguito manualmente.
+7. Compilare i parametri **DatabaseName**, **ANALYSISSERVER** e **REFRESHTYPE** e quindi fare clic su **OK**. Il parametro **WEBHOOKDATA** non è obbligatorio quando il Runbook viene eseguito manualmente.
 
     ![Avviare il Runbook](./media/analysis-services-refresh-azure-automation/12.png)
 
@@ -100,7 +100,7 @@ Questa configurazione può essere configurata nel modo seguente:
  
     ![Crea pianificazione](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Fare clic su **pianificazione**  >  per**creare una nuova pianificazione**e quindi specificare i dettagli.
+2. Fare clic su **pianificazione**  >  per **creare una nuova pianificazione** e quindi specificare i dettagli.
 
     ![Configura pianificazione](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -117,7 +117,7 @@ Questa configurazione può essere configurata nel modo seguente:
 Per utilizzare il Runbook usando Azure Data Factory, creare prima un **webhook** per il Runbook. Il **webhook** fornirà un URL che può essere chiamato tramite un Azure Data Factory attività Web.
 
 > [!IMPORTANT]
-> Per creare un **webhook**, è necessario **pubblicare**lo stato del Runbook.
+> Per creare un **webhook**, è necessario **pubblicare** lo stato del Runbook.
 
 1. Nel runbook di automazione fare clic su **webhook**, quindi fare clic su **Aggiungi webhook**.
 
@@ -143,7 +143,7 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |
@@ -174,7 +174,7 @@ Una macchina virtuale di Azure con un indirizzo IP pubblico statico può essere 
 >
 >Per altre informazioni sulla configurazione dei ruoli di lavoro ibridi di automazione di Azure, vedere [Hybrid Runbook Worker Installation](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
-Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui in**un ruolo di  >  **lavoro ibrido** durante la configurazione del webhook.
+Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui in** un ruolo di  >  **lavoro ibrido** durante la configurazione del webhook.
 
 Webhook di esempio con ruolo di lavoro ibrido:
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"

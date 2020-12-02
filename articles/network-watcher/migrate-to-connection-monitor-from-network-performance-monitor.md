@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: cd0d4c2dc550beef1b5fceb373a4cb96ed75a172
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 688786fd60d7945340e0a027cf6ee28e6dc2bb32
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492472"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Esegui la migrazione a monitoraggio connessione da Monitoraggio prestazioni rete
 
@@ -74,5 +74,5 @@ Dopo la migrazione, assicurarsi di:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni su monitoraggio connessione, vedere:
-* [Eseguire la migrazione da monitoraggio connessione a monitoraggio connessione](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic)
+* [Eseguire la migrazione da monitoraggio connessione a monitoraggio connessione](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Creazione di un monitoraggio della connessione tramite il portale di Azure](./connection-monitor-create-using-portal.md)

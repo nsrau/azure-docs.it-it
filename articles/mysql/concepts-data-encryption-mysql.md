@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 554b3ad1dbe1e736300387aefde195b9054ab326
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437100"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492693"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
@@ -97,8 +97,8 @@ Quando si configura la crittografia dei dati con una chiave gestita dal cliente 
 
 * Se si crea un server di ripristino temporizzato per Database di Azure per MySQL con la crittografia dei dati abilitata, il nuovo server creato avrà lo stato *Inaccessibile*. È possibile correggere questo problema tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Se si crea una replica in lettura per Database di Azure per MySQL con la crittografia dei dati abilitata, il server di replica avrà lo stato *Inaccessibile*. È possibile correggere questo problema tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Se si elimina l'istanza di KeyVault, Database di Azure per MySQL non può accedere alla chiave e passa allo stato *Inaccessibile*. Recuperare [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
-* Se si elimina la chiave da KeyVault, Database di Azure per MySQL non può accedere alla chiave e passa allo stato *Inaccessibile*. Recuperare la [chiave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se si elimina l'istanza di KeyVault, Database di Azure per MySQL non può accedere alla chiave e passa allo stato *Inaccessibile*. Recuperare [Key Vault](../key-vault/general/key-vault-recovery.md) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se si elimina la chiave da KeyVault, Database di Azure per MySQL non può accedere alla chiave e passa allo stato *Inaccessibile*. Recuperare la [chiave](../key-vault/general/key-vault-recovery.md) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
 * Se la chiave archiviata in Azure KeyVault scade, diventa non valida e Database di Azure per MySQL passa allo stato *Inaccessibile*. Estendere la data di scadenza della chiave usando l'[interfaccia della riga di comando](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revoca accidentale dell'accesso alla chiave da Key Vault

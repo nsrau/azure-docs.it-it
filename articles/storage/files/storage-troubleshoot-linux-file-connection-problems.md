@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492064"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Risolvere i problemi di File di Azure in Linux (SMB)
 
@@ -107,7 +107,7 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
 
 - In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MiB per assicurare prestazioni ottimali.
 - Usare il metodo di copia corretto:
-    - Usare [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) per i trasferimenti tra due condivisioni file.
+    - Usare [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
     - L'uso di CP o DD con Parallel può migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Gli esempi seguenti usano sei: 
     - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -182,7 +182,7 @@ Per controllare se la memorizzazione nella cache è disattivata, cercare la voce
 
 **cache=none** indica che la memorizzazione nella cache è disattivata. Eseguire nuovamente il montaggio della condivisione usando il comando di montaggio predefinito o aggiungendo esplicitamente l'opzione **cache=strict** al comando di montaggio per assicurarsi che la modalità di memorizzazione nella cache predefinita o "strict" sia attivata.
 
-In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento comporta un peggioramento delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab** :
+In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento comporta un peggioramento delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 

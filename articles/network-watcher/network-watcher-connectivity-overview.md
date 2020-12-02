@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
-ms.openlocfilehash: 6411e019d77b219e40bd91da973e00afda0ff18b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 047da0224cdbdb534ad9080faee4fd48da3840c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965486"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492455"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduzione alla funzionalità di risoluzione dei problemi di connessione in Azure Network Watcher
 
 La funzionalità di risoluzione dei problemi di connessione di Network Watcher consente di controllare una connessione TCP diretta da una macchina virtuale (VM) a un'altra, il nome di dominio completo (FQDN), l'URI o l'indirizzo IPv4. Gli scenari di rete sono complessi e vengono implementati mediante l'uso di gruppi di sicurezza di rete, firewall, route definite dall'utente e risorse fornite da Azure. La risoluzione dei problemi di connettività nella configurazioni complesse è un compito impegnativo. Network Watcher consente di ridurre il tempo necessario per individuare e rilevare i problemi di connettività. I risultati restituiti possono offrire informazioni dettagliate sulla causa del problema di connettività, ovvero se esso sia riconducibile a un problema della piattaforma o della configurazione utente. È possibile controllare la connettività con [PowerShell](network-watcher-connectivity-powershell.md), l'[interfaccia della riga di comando di Azure](network-watcher-connectivity-cli.md) e l'[API REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Per la risoluzione dei problemi di connessione, è necessario che nella macchina virtuale da cui si risolvono i problemi sia installata l'estensione `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json). Non è richiesta l'estensione nell'endpoint di destinazione.
+> Per la risoluzione dei problemi di connessione, è necessario che nella macchina virtuale da cui si risolvono i problemi sia installata l'estensione `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Non è richiesta l'estensione nell'endpoint di destinazione.
 
 ## <a name="response"></a>Risposta
 
@@ -72,10 +72,10 @@ Di seguito è riportato un esempio di un problema rilevato in un hop.
 
 La funzionalità di risoluzione dei problemi di connessione restituisce i tipi di errore relativi alla connessione. La tabella seguente contiene un elenco dei tipi di errore attualmente restituiti.
 
-|Type  |Descrizione  |
+|Tipo  |Descrizione  |
 |---------|---------|
 |CPU     | Utilizzo elevato della CPU.       |
-|Memory     | Uso intensivo della memoria.       |
+|Memoria     | Uso intensivo della memoria.       |
 |GuestFirewall     | Traffico bloccato a causa della configurazione del firewall di una macchina virtuale.        |
 |DNSResolution     | Risoluzione DNS non riuscita per l'indirizzo di destinazione.        |
 |NetworkSecurityRule    | Traffico bloccato da una regola NSG. La regola viene restituita.        |

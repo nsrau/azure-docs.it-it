@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362815"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492268"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -46,7 +46,7 @@ A partire dalla versione dell'API `2019-05-06` , gli errori e gli avvisi dell'in
 
 L'indicizzatore non è stato in grado di leggere il documento dall'origine dati. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Tipi di campi incoerenti tra documenti diversi | "Il tipo di valore non corrisponde al tipo di colonna. Impossibile archiviare `'{47.6,-122.1}'` nella colonna autori.  Il tipo previsto è JArray ".  "Errore durante la conversione del tipo di dati nvarchar in float".  "Conversione non riuscita durante la conversione del valore nvarchar '12 months ' nel tipo di dati int".  "Errore di runtime: si è verificato un errore di overflow aritmetico durante la conversione del tipo di dati da espressione a int". | Verificare che il tipo di ogni campo sia lo stesso in documenti diversi. Se, ad esempio, il primo `'startTime'` campo documento è un valore DateTime e nel secondo documento si tratta di una stringa, l'errore verrà raggiunto. |
 | errori dal servizio sottostante dell'origine dati | (da Cosmos DB) `{"Errors":["Request rate is large"]}` | Controllare l'istanza di archiviazione per assicurarsi che sia integro. Potrebbe essere necessario modificare la scalabilità e il partizionamento. |
@@ -57,7 +57,7 @@ L'indicizzatore non è stato in grado di leggere il documento dall'origine dati.
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Errore: non è stato possibile estrarre il contenuto o i metadati dal documento
 L'indicizzatore con un'origine dati BLOB non è riuscito a estrarre il contenuto o i metadati dal documento, ad esempio un file PDF. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | il BLOB supera il limite di dimensioni | Il documento è `'150441598'` byte, che supera i byte delle dimensioni massime `'134217728'` per l'estrazione dei documenti per il livello di servizio corrente. | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
 | il tipo di contenuto del BLOB non è supportato | Il documento contiene un tipo di contenuto non supportato `'image/png'` | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
@@ -69,7 +69,7 @@ L'indicizzatore con un'origine dati BLOB non è riuscito a estrarre il contenuto
 ## <a name="error-could-not-parse-document"></a>Errore: non è stato possibile analizzare il documento
 L'indicizzatore ha letto il documento dall'origine dati, ma si è verificato un problema durante la conversione del contenuto del documento nello schema di mapping dei campi specificato. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide. La chiave del documento viene determinata impostando la proprietà' Key ' come parte della [definizione dell'indice](/rest/api/searchservice/create-index#request-body). Gli indicizzatori genereranno questo errore quando non è possibile trovare la proprietà contrassegnata come ' Key ' in un documento specifico. |
 | La chiave del documento non è valida | La chiave del documento non può contenere più di 1024 caratteri | Modificare la chiave del documento per soddisfare i requisiti di convalida. |
@@ -86,7 +86,7 @@ Il mapping di output potrebbe non essere riuscito perché i dati di output non s
 ## <a name="error-could-not-execute-skill"></a>Errore: non è stato possibile eseguire la competenza
 L'indicizzatore non è stato in grado di eseguire una competenza nel grado di competenze.
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Problemi di connettività temporanei | Si è verificato un errore temporaneo. Riprova più tardi. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 | Potenziale bug del prodotto | Si è verificato un errore imprevisto. | Indica una classe di errore sconosciuta e può indicare la presenza di un bug del prodotto. Inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) per ottenere assistenza. |
@@ -147,7 +147,7 @@ Il valore massimo che è possibile impostare per il `timeout` parametro è 230 s
 
 Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in grado di aggiungerlo all'indice di ricerca. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Un campo contiene un termine troppo grande | Un termine nel documento è superiore al limite di [32 KB](search-limits-quotas-capacity.md#api-request-limits) | È possibile evitare questa restrizione assicurandosi che il campo non sia configurato come filtrabile, facet o ordinabile.
 | Il documento è troppo grande per essere indicizzato | Un documento è più grande delle [dimensioni massime delle richieste API](search-limits-quotas-capacity.md#api-request-limits) | [Come indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)
@@ -189,7 +189,7 @@ Questo errore si verifica quando l'indicizzatore non è in grado di completare l
 
 Questo errore si verifica quando l'indicizzatore tenta di [proiettare i dati in un archivio informazioni](knowledge-store-projection-overview.md) e si è verificato un errore nel tentativo di eseguire questa operazione.  Questo errore potrebbe essere coerente e risolvibile oppure potrebbe trattarsi di un errore temporaneo con il sink di output della proiezione che potrebbe essere necessario attendere e riprovare per risolverlo.  Ecco un set di Stati di errore noti e le possibili soluzioni.
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore `'containerName'` |Il contenitore specificato non esiste. | L'indicizzatore verificherà se il contenitore specificato è stato creato in precedenza e lo creerà se necessario, ma eseguirà solo questa verifica una volta per ogni esecuzione dell'indicizzatore. Questo errore indica che un elemento ha eliminato il contenitore dopo questo passaggio.  Per correggere l'errore, provare a eseguire questa operazione: lasciare invariate le informazioni dell'account di archiviazione, attendere il completamento dell'indicizzatore e quindi eseguire di nuovo l'indicizzatore. |
 | Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore `'containerName'` |Impossibile scrivere dati nella connessione di trasporto: una connessione esistente è stata chiusa forzatamente dall'host remoto. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
@@ -226,7 +226,7 @@ Se si vuole fornire un valore predefinito in caso di input mancante, è possibil
 }
 ```
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Il tipo di input Skill è errato | "L'input di competenze obbligatorio non era del tipo previsto `String` . Nome: `text` , origine: `/document/merged_content` . "  "L'input di competenze obbligatorio non è del formato previsto. Nome: `text` , origine: `/document/merged_content` . "  "Impossibile eseguire l'iterazione su un oggetto non di matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ".  "Impossibile selezionare `0` in non matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Determinate competenze prevedono input di determinati tipi, ad esempio la capacità di valutazione del [sentimento](cognitive-search-skill-sentiment.md) si aspetta `text` una stringa. Se l'input specifica un valore non stringa, l'abilità non viene eseguita e non genera alcun output. Verificare che il set di dati includa valori di input uniformi nel tipo o usare una [competenza personalizzata per l'API Web](cognitive-search-custom-skill-web-api.md) per la pre-elaborazione dell'input. Se si sta scorrendo la competenza su una matrice, verificare che il contesto di competenza e l'input abbiano `*` le posizioni corrette. In genere, il contesto e l'origine di input devono terminare con `*` per le matrici. |
 | Input skill mancante | "Manca l'input di competenze necessario. Nome: `text` , origine: `/document/merged_content` "" valore mancante " `/document/normalized_images/0/imageTags` .  "Impossibile selezionare `0` in una matrice `/document/pages` di lunghezza `0` ". | Se tutti i documenti ricevono questo avviso, è probabile che si verifichi un errore di digitazione nei percorsi di input ed è necessario controllare la combinazione di maiuscole e minuscole del nome della proprietà, supplementare o mancante `*` nel percorso e verificare che i documenti dell'origine dati forniscano gli input necessari. |
@@ -318,7 +318,7 @@ Per altre informazioni, vedere [limiti dell'indicizzatore](search-limits-quotas-
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Avviso: Impossibile eseguire il mapping del campo di output ' X ' all'indice di ricerca
 I mapping dei campi di output che fanno riferimento a dati inesistenti/null produrranno avvisi per ogni documento e restituiscono un campo di indice vuoto. Per aggirare questo problema, controllare i percorsi di origine del mapping dei campi di output per individuare possibili errori di digitazione o impostare un valore predefinito usando la [competenza condizionale](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Per informazioni dettagliate, vedere [mapping dei campi di output](cognitive-search-output-field-mapping.md) .
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Non è possibile eseguire l'iterazione su una matrice non array | "Impossibile eseguire l'iterazione su un oggetto non di matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Questo errore si verifica quando l'output non è una matrice. Se si ritiene che l'output sia una matrice, verificare la presenza di errori nel percorso del campo di origine di output indicato. Ad esempio, è possibile che `*` nel nome del campo di origine sia presente un valore mancante o aggiuntivo. È anche possibile che l'input per questa skill sia null, ottenendo una matrice vuota. Nella sezione [input skill non è stato](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) trovato un tipo di dati simile.    |
 | Non è possibile selezionare `0` in una matrice non di matrici | "Impossibile eseguire la selezione `0` in un non array `/document/pages` ". | Questo problema può verificarsi se l'output delle competenze non produce una matrice e il nome del campo di origine di output contiene un indice di matrice o `*` nel percorso. Controllare i percorsi specificati nei nomi dei campi di origine di output e il valore del campo per il nome del campo indicato. Nella sezione [input skill non è stato](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) trovato un tipo di dati simile.  |
@@ -348,8 +348,8 @@ Per ovviare a questo avviso, determinare la codifica del testo per questo BLOB e
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avviso: Cosmos DB raccolta ' X ' ha un criterio di indicizzazione Lazy. Alcuni dati potrebbero andare perduti
 
-Non è possibile eseguire query in modo coerente sulle raccolte con criteri di indicizzazione [Lazy](/azure/cosmos-db/index-policy#indexing-mode) , causando la mancata corrispondenza dei dati dell'indicizzatore. Per risolvere il problema, modificare i criteri di indicizzazione in coerenza.
+Non è possibile eseguire query in modo coerente sulle raccolte con criteri di indicizzazione [Lazy](../cosmos-db/index-policy.md#indexing-mode) , causando la mancata corrispondenza dei dati dell'indicizzatore. Per risolvere il problema, modificare i criteri di indicizzazione in coerenza.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Avviso: il documento contiene parole molto lunghe (più di 64 caratteri). Queste parole possono causare stime del modello troncate e/o inaffidabili.
 
-Questo avviso viene passato dal servizio Analisi del testo.  In alcuni casi, è possibile ignorare questo avviso, ad esempio quando il documento contiene un URL lungo (che probabilmente non è una frase chiave o un sentimento di guida, ecc.).  Tenere presente che quando una parola è più lunga di 64 caratteri, viene troncata a 64 caratteri che possono influire sulle stime del modello.  
+Questo avviso viene passato dal servizio Analisi del testo.  In alcuni casi, è possibile ignorare questo avviso, ad esempio quando il documento contiene un URL lungo (che probabilmente non è una frase chiave o un sentimento di guida, ecc.).  Tenere presente che quando una parola è più lunga di 64 caratteri, viene troncata a 64 caratteri che possono influire sulle stime del modello.

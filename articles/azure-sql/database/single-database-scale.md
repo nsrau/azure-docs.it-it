@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: d24143a440c0d30c3abcd6eb5efd454033b8f71c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791478"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493407"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -84,7 +84,7 @@ Nel pannello Panoramica database passare a **notifiche** e fare clic sul riquadr
 
 ![Operazione in corso](./media/single-database-scale/ongoing-operations.png)
 
-Quindi, fare clic sul pulsante con l'etichetta **Annulla questa operazione** .
+Quindi, fare clic sul pulsante con l'etichetta **Annulla questa operazione**.
 
 ![Annulla l'operazione in corso](./media/single-database-scale/cancel-ongoing-operation.png)
 
@@ -107,7 +107,7 @@ else {
 
 - Se si esegue l'aggiornamento a un livello di servizio o a una dimensione di calcolo superiore, le dimensioni massime del database non aumentano a meno che non si specifichi esplicitamente una dimensione maggiore (MaxSize).
 - Per effettuare il downgrade di un database, la relativa quantità di spazio usato deve essere inferiore alle dimensioni massime consentite per il livello di servizio e le dimensioni di calcolo di destinazione.
-- Quando si effettua il downgrade dal livello **Premium** al livello **Standard** , viene applicato un costo per le risorse di archiviazione extra se (1) le dimensioni massime del database sono supportate nelle dimensioni di calcolo di destinazione e (2) le dimensioni massime superano lo spazio di archiviazione incluso delle dimensioni di calcolo di destinazione. Ad esempio, se un database P1 con una dimensione massima di 500 GB viene ridimensionato a S3, viene applicato un costo di archiviazione aggiuntivo poiché S3 supporta una dimensione massima di 1 TB e la quantità di spazio di archiviazione inclusa è solo 250 GB. Lo spazio di archiviazione extra è quindi 500 GB - 250 GB = 250 GB. Per i prezzi di archiviazione aggiuntiva, vedere [prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore allo spazio di archiviazione incluso, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino allo spazio incluso.
+- Quando si effettua il downgrade dal livello **Premium** al livello **Standard**, viene applicato un costo per le risorse di archiviazione extra se (1) le dimensioni massime del database sono supportate nelle dimensioni di calcolo di destinazione e (2) le dimensioni massime superano lo spazio di archiviazione incluso delle dimensioni di calcolo di destinazione. Ad esempio, se un database P1 con una dimensione massima di 500 GB viene ridimensionato a S3, viene applicato un costo di archiviazione aggiuntivo poiché S3 supporta una dimensione massima di 1 TB e la quantità di spazio di archiviazione inclusa è solo 250 GB. Lo spazio di archiviazione extra è quindi 500 GB - 250 GB = 250 GB. Per i prezzi di archiviazione aggiuntiva, vedere [prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore allo spazio di archiviazione incluso, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino allo spazio incluso.
 - Quando si aggiorna un database con la [replica geografica](active-geo-replication-configure-portal.md) abilitata, aggiornare i database secondari al livello di servizio e alle dimensioni di calcolo desiderati prima di aggiornare il database primario (indicazione generale per ottenere prestazioni ottimali). Quando si esegue l'aggiornamento a un'edizione diversa, è necessario che il database secondario venga aggiornato per primo.
 - Quando si effettua il downgrade di un database con la [replica geografica](active-geo-replication-configure-portal.md) abilitata, eseguire il downgrade dei database primari al livello di servizio e alle dimensioni di calcolo desiderati prima del downgrade del database secondario (indicazione generale per ottenere prestazioni ottimali). Quando si effettua il downgrade a un'edizione diversa, è necessario eseguire prima il downgrade del database primario.
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si esegue il downgrade al livello **Basic** , si verifica un periodo di conservazione dei backup inferiore. Vedere l'articolo relativo ai [backup del database SQL di Azure](automated-backups-overview.md).
