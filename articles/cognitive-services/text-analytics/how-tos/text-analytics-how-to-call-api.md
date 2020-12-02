@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95993335"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512325"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -54,9 +54,9 @@ Vedere la tabella seguente per vedere quali funzionalità possono essere usate i
 > [!NOTE]
 > Se si desidera utilizzare gli endpoint o, sarà necessario disporre di una risorsa Analisi del testo utilizzando un piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standard `/analyze` `/health` .
 
-1.  Per prima cosa, passare alla [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e creare una nuova risorsa di analisi del testo, se non ne è già presente uno. Scegliere il piano tariffario standard (S) se si desidera utilizzare gli `/analyze` `/health` endpoint o.
+1.  Per prima cosa, passare alla [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e creare una nuova risorsa di analisi del testo, se non ne è già presente uno. Scegliere il piano **tariffario standard (S)** se si desidera utilizzare gli `/analyze` `/health` endpoint o.
 
-2.  Selezionare l'area in cui si vuole usare l'endpoint.
+2.  Selezionare l'area che si vuole usare per l'endpoint.  Si noti `/analyze` che gli `/health` endpoint e sono disponibili solo nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale ed Europa occidentale.
 
 3.  Creare la risorsa Analisi del testo e passare al pannello "chiavi ed endpoint" nella parte sinistra della pagina. Copiare la chiave da usare in un secondo momento quando si chiamano le API. Questa operazione verrà aggiunta in un secondo momento come valore per l' `Ocp-Apim-Subscription-Key` intestazione.
 
@@ -104,16 +104,16 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 
 | Elemento | Valori validi | Necessaria? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`displayName` | string | Facoltativo | Utilizzato come nome visualizzato per l'identificatore univoco del processo.|
+|`displayName` | Stringa | Facoltativo | Utilizzato come nome visualizzato per l'identificatore univoco del processo.|
 |`analysisInput` | Include il `documents` campo seguente | Necessario | Contiene le informazioni per i documenti che si desidera inviare. |
 |`documents` | Include i `id` `text` campi e seguenti | Necessario | Contiene informazioni per ogni documento inviato e il testo non elaborato del documento. |
-|`id` | string | Necessario | Gli ID forniti vengono usati per strutturare l'output. |
+|`id` | Stringa | Necessario | Gli ID forniti vengono usati per strutturare l'output. |
 |`text` | Testo non elaborato non strutturato, composto da un massimo di 125.000 caratteri. | Necessario | Deve essere nella lingua inglese, che è l'unica lingua attualmente supportata. |
 |`tasks` | Include le funzionalità di Analisi del testo seguenti `entityRecognitionTasks` : `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Necessario | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone `domain` di un parametro facoltativo che può essere impostato su `pii` o `phi` . Se non è specificato, l'impostazione predefinita del sistema è `pii` . |
 |`parameters` | Include i `model-version` `stringIndexType` campi e seguenti | Necessario | Questo campo è incluso nelle attività della funzionalità indicate in precedenza. Contengono informazioni sulla versione del modello che si desidera utilizzare e il tipo di indice. |
-|`model-version` | string | Necessario | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
-|`stringIndexType` | string | Necessario | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
-|`domain` | string | Facoltativo | Si applica solo come parametro all' `entityRecognitionPiiTasks` attività e può essere impostato su `pii` o `phi` . Il valore predefinito è `pii` se non è specificato.  |
+|`model-version` | Stringa | Necessario | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
+|`stringIndexType` | Stringa | Necessario | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
+|`domain` | Stringa | Facoltativo | Si applica solo come parametro all' `entityRecognitionPiiTasks` attività e può essere impostato su `pii` o `phi` . Il valore predefinito è `pii` se non è specificato.  |
 
 ```json
 {
@@ -198,7 +198,7 @@ In postazione (o un altro strumento di test dell'API Web) aggiungere l'endpoint 
 |--|--|--|
 | Rilevamento della lingua | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Analisi del sentiment | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
+| Opinion mining | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
 | Estrazione di frasi chiave | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | Riconoscimento entità denominata-generale | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | Riconoscimento entità denominata-informazioni personali | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |

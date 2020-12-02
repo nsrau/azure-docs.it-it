@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: d03416f390abb8656ac1aed81419864443122ce6
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 7d59c0e751054522f4c54fe059f19aa0a941464e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122421"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490003"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
 Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
@@ -89,7 +89,7 @@ Gli attacchi Distributed Denial of Service (DDoS) sono notoriamente facili da es
 
 Un attacco DDoS tenta di esaurire le risorse di un'applicazione, che quindi non risulta più disponibile per gli utenti legittimi. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint raggiungibile tramite Internet.
 
-Per difendersi dagli attacchi DDoS, acquistare una licenza per Protezione DDoS di Azure e attenersi alle procedure consigliate per la progettazione delle applicazioni. Protezione DDoS offre diversi livelli di servizio. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](../virtual-network/ddos-protection-overview.md).
+Per difendersi dagli attacchi DDoS, acquistare una licenza per Protezione DDoS di Azure e attenersi alle procedure consigliate per la progettazione delle applicazioni. Protezione DDoS offre diversi livelli di servizio. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](../ddos-protection/ddos-protection-overview.md).
 
 Per un elenco degli avvisi di Protezione DDoS di Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureddos).
 

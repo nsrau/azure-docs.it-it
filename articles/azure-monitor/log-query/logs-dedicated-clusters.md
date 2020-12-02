@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488035"
+ms.locfileid: "96512223"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -52,7 +52,7 @@ Sono disponibili due modalità di fatturazione per l'utilizzo in un cluster. Que
 
 2. **Aree di lavoro**: i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](../../security-center/index.yml) per ogni area di lavoro.
 
-Si noti che se l'area di lavoro usa il piano tariffario per nodo Legacy, quando è collegato a un cluster, verrà fatturato in base ai dati inseriti per la prenotazione di capacità del cluster e non più per nodo. Le allocazioni di dati per nodo dal centro sicurezza di Azure continueranno a essere applicate.
+Se l'area di lavoro usa il piano tariffario per nodo Legacy, quando è collegato a un cluster, verrà fatturato in base ai dati inseriti rispetto alla prenotazione della capacità del cluster e non più per nodo. Le allocazioni di dati per nodo dal centro sicurezza di Azure continueranno a essere applicate.
 
 Per altri dettagli, vedere la pagina relativa alla fatturazione per i cluster dedicati Log Analytics sono disponibili [qui]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 

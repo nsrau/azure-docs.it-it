@@ -1,21 +1,21 @@
 ---
-title: Elenco di URL safe per desktop virtuali Windows-Azure
-description: Elenco di URL che è necessario sbloccare per assicurarsi che la distribuzione del desktop virtuale di Windows funzioni come previsto.
+title: Elenco di URL necessari per desktop virtuali Windows-Azure
+description: Un elenco di URL che è necessario sbloccare per assicurarsi che la distribuzione del desktop virtuale di Windows funzioni come previsto.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023174"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512342"
 ---
-# <a name="safe-url-list"></a>Elenco degli URL sicuri
+# <a name="required-url-list"></a>Elenco di URL obbligatorio
 
-È necessario sbloccare determinati URL in modo che la distribuzione del desktop virtuale di Windows funzioni correttamente. In questo articolo vengono elencati questi URL, in modo che sia possibile stabilire quali sono quelli sicuri.
+Per distribuire e usare desktop virtuale di Windows, è necessario sbloccare determinati URL in modo che le macchine virtuali (VM) possano accedervi in qualsiasi momento. Questo articolo elenca gli URL richiesti che è necessario sbloccare.
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 
@@ -53,7 +53,7 @@ Le macchine virtuali di Azure create per desktop virtuale Windows devono avere a
 |*.servicebus.usgovcloudapi.net|443|Traffico dell'agente|AzureCloud|
 |* xt.table.core.usgovcloudapi.net|443|Traffico dell'agente|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Attivazione di Windows|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Supporto del portale di Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Endpoint del servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 | 168.63.129.16 | 80 | [Monitoraggio dello stato dell'host sessione](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
@@ -69,9 +69,13 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 |login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Verifica della revoca del certificato|nessuno|
+|*. azure-dns.com|443|Risoluzione DNS di Azure|Nessuno|
+|*. azure-dns.net|443|Risoluzione DNS di Azure|Nessuno|
 
 >[!NOTE]
 >Desktop virtuale di Windows attualmente non dispone di un elenco di intervalli di indirizzi IP che è possibile sbloccare per consentire il traffico di rete. Al momento è supportato solo l'sblocco di URL specifici.
+>
+>Se si usa un firewall di nuova generazione (nuova generazione), sarà necessario usare un elenco dinamico appositamente creato per gli indirizzi IP di Azure per assicurarsi che sia possibile connettersi.
 >
 >Per un elenco di URL correlati a Office sicuri, inclusi gli URL richiesti per Azure Active Directory, vedere [URL e intervalli di indirizzi IP per office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
@@ -93,7 +97,7 @@ Tutti i client Desktop remoto utilizzati devono avere accesso agli URL seguenti:
 |aka.ms|443|Abbreviazione URL Microsoft|Tutti|nessuno|
 |docs.microsoft.com|443|Documentazione|Tutti|nessuno|
 |privacy.microsoft.com|443|Informativa sulla privacy|Tutti|nessuno|
-|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|nessuno|
+|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|Nessuno|
 
 >[!IMPORTANT]
 >L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio.
