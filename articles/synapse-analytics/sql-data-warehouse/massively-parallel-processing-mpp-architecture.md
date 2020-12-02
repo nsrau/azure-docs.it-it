@@ -1,6 +1,6 @@
 ---
-title: Architettura di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
-description: Informazioni su come Azure sinapsi Analytics (in precedenza SQL DW) combina le funzionalità di elaborazione delle query distribuite con archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
+title: Architettura del pool SQL dedicato (precedentemente SQL DW)
+description: Informazioni su come il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics combina le funzionalità di elaborazione delle query distribuite con archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,49 +10,44 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319651"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448263"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+# <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architettura del pool SQL dedicato (precedentemente SQL DW) in Azure sinapsi Analytics
 
-Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala. Azure Synapse offre questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la distribuzione dei dati per esigenze immediate di business intelligence e Machine Learning.
+Azure Synapse Analytics è un servizio di analisi che riunisce funzionalità aziendali di data warehouse e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze.
 
- Azure Synapse è costituito da quattro componenti:
+> [!NOTE]
+>Esplorare la [documentazione di Azure sinapsi Analytics](../overview-what-is.md).
+>
 
-- SQL Synapse: analisi completa basata su T-SQL
-
-  - Pool SQL dedicato (pagamento con provisioning per DWU): disponibile a livello generale
-  - Pool SQL senza server (pagamento per TB elaborato)-(anteprima)
-- Spark: Apache Spark completamente integrato (anteprima)
-- Integrazione dei dati: Integrazione di dati ibridi (anteprima)
-- Studio: esperienza utente unificata.  (Anteprima)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="synapse-sql-architecture-components"></a>Componenti dell'architettura di Synapse SQL
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) usa un'architettura scale-out per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le risorse di calcolo sono separate dall'archiviazione, è possibile ridimensionarle indipendentemente dai dati presenti nel sistema.
+Il [pool SQL dedicato (in precedenza SQL DW)](sql-data-warehouse-overview-what-is.md) si avvale di un'architettura con scalabilità orizzontale per distribuire l'elaborazione computazionale dei dati tra più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le risorse di calcolo sono separate dall'archiviazione, è possibile ridimensionarle indipendentemente dai dati presenti nel sistema.
 
-![Architettura di SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Architettura del pool SQL dedicato (precedentemente SQL DW)](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL usa un'architettura basata su nodi. L'applicazione si connette ed esegue comandi T-SQL in un nodo di controllo che rappresenta l'unico punto di ingresso per Synapse SQL. Il nodo di controllo ospita il motore delle query distribuite, che ottimizza le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per eseguire il lavoro in parallelo.
+Il pool SQL dedicato (in precedenza SQL DW) usa un'architettura basata su nodi. Le applicazioni si connettono e inviano comandi T-SQL a un nodo di controllo. Il nodo di controllo ospita il motore delle query distribuite, che ottimizza le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per eseguire il lavoro in parallelo.
 
-I nodi di calcolo archiviano tutti i dati utente nell'archiviazione di Azure ed eseguono le query parallele. Data Movement Service (DMS) è un servizio interno a livello di sistema che sposta i dati tra i nodi per eseguire query in parallelo e restituire risultati accurati.
+I nodi di calcolo archiviano tutti i dati utente in Archiviazione di Azure ed eseguono le query parallele. Data Movement Service (DMS) è un servizio interno a livello di sistema che sposta i dati tra i nodi per eseguire query in parallelo e restituire risultati accurati.
 
-Con le risorse di archiviazione e di calcolo separate, quando si usa il pool Synapse SQL è possibile:
+Con le risorse di archiviazione e di calcolo separate, quando si usa un pool SQL dedicato (in precedenza SQL DW), è possibile:
 
 - Ridimensionare la potenza di calcolo indipendentemente dalle esigenze di archiviazione.
-- Aumentare o ridurre la potenza di calcolo all'interno di un pool SQL (data warehouse) senza spostare i dati.
-- Sospendere la capacità di calcolo mantenendo intatti i dati e pagando solo per l'archiviazione.
+- Aumentare o ridurre la potenza di calcolo, all'interno di un pool SQL dedicato (in precedenza SQL DW), senza lo stato di trasferimento dei dati.
+- Sospendere la capacità di calcolo mantenendo intatti i dati e consentendo di pagare solo per l'archiviazione.
 - Riprendere le capacità di calcolo durante l'orario operativo.
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-Synapse SQL usa Archiviazione di Azure per proteggere i dati dell'utente.  Poiché i dati vengono archiviati e gestiti da Archiviazione di Azure, è previsto un addebito separato per l'uso dello spazio di archiviazione. I dati sono partizionati in **distribuzioni** per ottimizzare le prestazioni del sistema. È possibile scegliere il modello di partizionamento orizzontale da usare per distribuire i dati quando si definisce la tabella. Sono supportati i modelli di partizionamento seguenti:
+SQL pool SQL dedicato (in precedenza SQL DW) si avvale di archiviazione di Azure per proteggere i dati utente.  Poiché i dati vengono archiviati e gestiti da Archiviazione di Azure, è previsto un addebito separato per l'uso dello spazio di archiviazione. I dati sono partizionati in **distribuzioni** per ottimizzare le prestazioni del sistema. È possibile scegliere il modello di partizionamento orizzontale da usare per distribuire i dati quando si definisce la tabella. Sono supportati i modelli di partizionamento seguenti:
 
 - Hash
 - Round robin
@@ -76,7 +71,7 @@ Data Movement Service (DMS) è la tecnologia di trasporto dei dati che coordina 
 
 La distribuzione è l'unità di base dell'archiviazione e dell'elaborazione di query parallele eseguite su dati distribuiti. Quando Synapse SQL esegue una query, il processo viene suddiviso in 60 query di dimensioni più piccole che vengono eseguite in parallelo.
 
-Ognuna delle 60 query viene eseguita in una distribuzione dei dati. Ogni nodo di calcolo gestisce una o più delle 60 distribuzioni. Un pool SQL con il numero massimo di risorse presenta un'unica distribuzione per ogni nodo di calcolo. Un pool SQL con il numero minimo di risorse presenta tutte le distribuzioni in ogni nodo di calcolo.  
+Ognuna delle 60 query viene eseguita in una distribuzione dei dati. Ogni nodo di calcolo gestisce una o più delle 60 distribuzioni. Un pool SQL dedicato (in precedenza SQL DW) con risorse di calcolo massime dispone di una distribuzione per ogni nodo di calcolo. Un pool SQL dedicato (in precedenza SQL DW) con risorse di calcolo minime dispone di tutte le distribuzioni in un nodo di calcolo.  
 
 ## <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
 
@@ -112,7 +107,7 @@ Il diagramma seguente mostra una tabella replicata memorizzata nella cache duran
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso alcune informazioni su Azure Synapse, vedere come [creare un pool SQL](create-data-warehouse-portal.md) rapidamente e [caricare dati di esempio](load-data-from-azure-blob-storage-using-polybase.md). Se non si ha familiarità con Azure, il [glossario di Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle altre risorse disponibili per Azure Synapse.  
+Ora che si conoscono le sinapsi di Azure, si apprenderà come [creare rapidamente un pool SQL dedicato (in precedenza SQL DW)](create-data-warehouse-portal.md) e [caricare i dati di esempio](load-data-from-azure-blob-storage-using-polybase.md). Se non si ha familiarità con Azure, il [glossario di Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle altre risorse disponibili per Azure Synapse.  
 
 - [Casi di successo dei clienti](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blog](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

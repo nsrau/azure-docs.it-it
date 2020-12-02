@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012949"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447322"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
@@ -30,7 +30,7 @@ Poiché le esigenze cambiano o i requisiti per l'aumento dell'automazione, è an
 
 ## <a name="limitations"></a>Limitazioni
 
-* Quando si crea una nuova area di lavoro, è possibile consentire all'area di lavoro di creare i servizi di Azure richiesti automaticamente o fornire servizi esistenti. Quando si forniscono servizi esistenti, questi servizi devono trovarsi nella stessa sottoscrizione di Azure dell'area di lavoro.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
@@ -132,7 +132,7 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
    Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
-   Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
+   Subscription |Selezionare la sottoscrizione di Azure da usare.
    Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
    Region | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
    | Account di archiviazione | Account di archiviazione predefinito per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
@@ -384,7 +384,7 @@ L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR)
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Esempi di creazione di un'area di lavoro:
 * Usare portale di Azure per [creare un'istanza di calcolo e un'area di lavoro](tutorial-1st-experiment-sdk-setup.md)

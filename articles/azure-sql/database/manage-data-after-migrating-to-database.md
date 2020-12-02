@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841224"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446116"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nuovo DBA nel cloud: gestione del database SQL di Azure dopo la migrazione
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,12 +101,12 @@ Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-cen
 
 Nel database SQL sono disponibili due metodi di autenticazione:
 
-- [Autenticazione Azure Active Directory](authentication-aad-overview.md)
+- [Autenticazione di Azure Active Directory](authentication-aad-overview.md)
 - [Autenticazione SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (Azure AD) è un servizio centralizzato di gestione delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. 
 
-Azure AD supporta [Azure AD multi-factor authentication](authentication-mfa-ssms-overview.md) e con [pochi clic](../../active-directory/hybrid/how-to-connect-install-express.md) Azure ad può essere integrato con Active Directory di Windows Server. L'autenticazione SQL Server funziona esattamente come in passato. Si fornisce un nome utente e una password ed è possibile autenticare gli utenti in qualsiasi database in un determinato server. Questo consente anche a database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) di offrire account utente Multi-Factor Authentication e Guest in un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
+Azure AD supporta [Azure AD multi-factor authentication](authentication-mfa-ssms-overview.md) e con [pochi clic](../../active-directory/hybrid/how-to-connect-install-express.md) Azure ad può essere integrato con Active Directory di Windows Server. L'autenticazione SQL Server funziona esattamente come in passato. Si fornisce un nome utente e una password ed è possibile autenticare gli utenti in qualsiasi database in un determinato server. Questo consente anche a database SQL e ad Azure sinapsi Analytics di offrire Multi-Factor Authentication e account utente guest in un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
 
 |**Se…**|**Database SQL/analisi delle sinapsi di Azure**|
 |---|---|
@@ -303,7 +303,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 
 |**Livello di servizio**|**Scenari di casi di utilizzo comuni**|
 |---|---|
-|**Base**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
+|**Basic**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
 |**Standard**|Applicazioni con requisiti elevati di concorrenza, scalabilità e prestazioni abbinati a richieste I/O medie o ridotte. |
 |**Premium**|Applicazioni con numerosi utenti simultanei ed elevate richieste di CPU/memoria e I/O. Le app sensibili alla latenza con concorrenza e velocità effettiva elevate possono sfruttare il livello Premium. |
 |||

@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 11/16/2020
-ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697579"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447047"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code (anteprima)
 
@@ -41,7 +41,7 @@ Per connettersi a un'istanza di calcolo:
 1. Quando viene caricata l'esperienza del notebook integrato, selezionare **Jupyter server**.
 
     > [!div class="mx-imgBorder"]
-    > ![Avviare Azure Machine Learning elenco a discesa Server Jupyter notebook remoto](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![Avvia Azure Machine Learning elenco a discesa Server Jupyter Notebook remoto](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     In alternativa, è possibile usare anche il riquadro comandi:
 
@@ -58,7 +58,7 @@ Per connettersi a un'istanza di calcolo:
 > [!IMPORTANT]
 > Per stabilire la connessione, è **necessario** eseguire una cella.
 
-A questo punto, è possibile continuare a eseguire le celle nel notebook di Jupyter.
+A questo punto, è possibile continuare a eseguire le celle nella Jupyter Notebook.
 
 > [!TIP]
 > È anche possibile usare i file di script Python (con estensione py) contenenti celle di codice simili a Jupyter. Per ulteriori informazioni, vedere il [Visual Studio Code documentazione interattiva di Python](https://code.visualstudio.com/docs/python/jupyter-support-py).

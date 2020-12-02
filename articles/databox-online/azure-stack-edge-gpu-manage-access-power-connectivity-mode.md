@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532444"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448597"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per la GPU Pro Azure Stack Edge
 
 Questo articolo descrive come gestire l'accesso, la potenza e la modalità di connettività per la Azure Stack Edge Pro con dispositivo GPU. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
+
+Questo articolo si applica a Azure Stack GPU Pro Edge, Azure Stack Edge Pro R e a dispositivi Mini R Azure Stack Edge.
+
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -31,6 +34,8 @@ In questo articolo vengono illustrate le operazioni seguenti:
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 
 L'accesso al dispositivo Azure Stack Edge Pro è controllato dall'uso di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
+
+L'accesso ai dati nei dischi del dispositivo è controllato anche dalle chiavi di crittografia inattiva.
 
 ### <a name="change-device-password"></a>Modificare la password del dispositivo
 
@@ -54,6 +59,40 @@ Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecch
 
 2. Immettere la nuova password e quindi confermarla. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Selezionare **Reimposta**.
 
+    ![Reimposta password 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>Gestire l'accesso ai dati del dispositivo
+
+Per il Azure Stack Edge Pro R e i dispositivi Mini R Azure Stack Edge, l'accesso ai dati del dispositivo viene controllato usando chiavi di crittografia inattiva per le unità del dispositivo. Dopo aver configurato correttamente il dispositivo per la crittografia dei dispositivi inattivi, l'opzione ruota crittografia-chiavi inattive diventa disponibile nell'interfaccia utente locale del dispositivo. 
+
+Questa operazione consente di modificare le chiavi per i volumi BitLocker `HcsData` e `HcsInternal` tutte le unità con crittografia automatica sul dispositivo.
+
+Attenersi alla procedura seguente per ruotare le chiavi di crittografia dei componenti inattivi.
+
+1. Nell'interfaccia utente locale del dispositivo andare alla pagina **Get Started** (attività iniziali). Nel riquadro **sicurezza** selezionare **Encryption-at-rest: opzione ruota chiavi** . Questa opzione è disponibile solo dopo aver configurato correttamente le chiavi Encryption-at-rest.
+
+    ![Selezionare ruota tasti per crittografia-inattivo nella pagina attività iniziali](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. È possibile usare le proprie chiavi BitLocker o usare le chiavi generate dal sistema.  
+
+    Per specificare una chiave personalizzata, immettere una stringa con codifica base 64 lunga 32 caratteri. L'input è simile a quello fornito quando si configura la crittografia dei dati inattivi per la prima volta.
+
+    ![Usa la tua chiave di crittografia a riposo](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    È anche possibile scegliere di usare una chiave generata dal sistema.
+
+    ![Usa chiave di crittografia inattiva generata dal sistema](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Selezionare **Applica**. Le protezioni con chiave vengono ruotate.
+
+    ![Applicare la nuova chiave Encryption-at-rest](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. Quando viene richiesto di scaricare e salvare il file di chiave, selezionare **Scarica e continua**. 
+
+    ![Scaricare e continuare il file di chiave](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Salvare il `.json` file di chiave in un percorso sicuro. Questo file viene usato per facilitare un possibile ripristino futuro del dispositivo.
+
     ![Screenshot mostra la finestra di dialogo Reimposta password del dispositivo.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gestire l'accesso alle risorse
@@ -69,7 +108,7 @@ Quando si genera la chiave di attivazione per il dispositivo Azure Stack Edge Pr
 
 È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects` . Non è possibile essere un utente guest perché non dispongono delle autorizzazioni per `Read all directory objects` . Se si è un Guest, le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione sul dispositivo Azure Stack Edge Pro, la creazione di un utente, la configurazione del ruolo di calcolo Edge e la reimpostazione della password del dispositivo avranno esito negativo.
 
-Per altre informazioni su come fornire l'accesso agli utenti per Microsoft Graph API, vedere [Microsoft Graph le autorizzazioni di riferimento](https://docs.microsoft.com/graph/permissions-reference).
+Per altre informazioni su come fornire l'accesso agli utenti per Microsoft Graph API, vedere [Microsoft Graph le autorizzazioni di riferimento](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registrare i provider di risorse
 
@@ -108,14 +147,14 @@ Oltre alla modalità predefinita con connessione completa, il dispositivo può e
 
     Questa modalità viene in genere usata in caso di rete satellitare a consumo e l'obiettivo consiste nel ridurre al minimo il consumo di larghezza di banda di rete. Può comunque avvenire un uso di rete minimo per le operazioni di monitoraggio del dispositivo.
 
-- **Disconnesso** : in questa modalità il dispositivo è completamente disconnesso dal cloud e le operazioni di caricamento e download nel cloud sono entrambe disabilitate. Il dispositivo può essere gestito solo tramite l'interfaccia utente Web locale.
+- **Disconnesso**: in questa modalità il dispositivo è completamente disconnesso dal cloud e le operazioni di caricamento e download nel cloud sono entrambe disabilitate. Il dispositivo può essere gestito solo tramite l'interfaccia utente Web locale.
 
     Questa modalità viene usata in genere quando si vuole portare offline il dispositivo.
 
 Per modificare la modalità del dispositivo, completare questi passaggi:
 
 1. Nell'interfaccia utente Web locale del dispositivo passare a **Configuration > cloud**.
-2. Nell'elenco a discesa selezionare la modalità in cui si vuole usare il dispositivo. È possibile scegliere tra **completamente connesso** , **parzialmente connesso** e **completamente disconnesso**. Per eseguire il dispositivo in modalità parzialmente disconnessa, attivare **Azure portal management** (Gestione portale di Azure).
+2. Nell'elenco a discesa selezionare la modalità in cui si vuole usare il dispositivo. È possibile scegliere tra **completamente connesso**, **parzialmente connesso** e **completamente disconnesso**. Per eseguire il dispositivo in modalità parzialmente disconnessa, attivare **Azure portal management** (Gestione portale di Azure).
 
  
 ## <a name="manage-power"></a>Gestire l'avvio/arresto

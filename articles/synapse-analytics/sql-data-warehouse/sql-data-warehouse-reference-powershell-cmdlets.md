@@ -1,6 +1,6 @@
 ---
-title: API REST di & PowerShell
-description: Trovare i principali cmdlet di PowerShell per Azure sinapsi Analytics pool SQL, inclusa la modalità di sospensione e ripresa di un database.
+title: API REST di & PowerShell per pool SQL dedicato (in precedenza SQL DW)
+description: Principali cmdlet di PowerShell per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics, inclusa la modalità di sospensione e ripresa di un database.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb26ac0071a50095f8e93ce0cc25da0055bdbac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072894"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448221"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>API REST di & PowerShell per il pool SQL di Azure sinapsi Analytics
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & le API REST per per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
 
-Molte attività amministrative del pool SQL di Azure sinapsi Analytics possono essere gestite usando cmdlet di Azure PowerShell o API REST.  Di seguito sono riportati alcuni esempi di come usare i comandi di PowerShell per automatizzare le attività comuni nel pool SQL.  Per altri esempi di REST, vedere [Gestire la scalabilità con REST](sql-data-warehouse-manage-compute-rest-api.md).
+Molte attività amministrative del pool SQL dedicate possono essere gestite tramite Azure PowerShell cmdlet o API REST.  Di seguito sono riportati alcuni esempi di come usare i comandi di PowerShell per automatizzare le attività comuni nel pool SQL dedicato (in precedenza SQL DW).  Per altri esempi di REST, vedere [Gestire la scalabilità con REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

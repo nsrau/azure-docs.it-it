@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320796"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448541"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestione del carico di lavoro Kubernetes sul dispositivo Azure Stack Edge Pro
 
@@ -49,11 +49,11 @@ Esistono tre modi principali per distribuire i carichi di lavoro. Ognuna di ques
 
 - **Distribuzione locale**: questa distribuzione è tramite lo strumento di accesso da riga di comando, ad esempio, `kubectl` che consente di distribuire Kubernetes `yamls` . È possibile accedere al cluster Kubernetes in Azure Stack Edge Pro tramite un `kubeconfig` file. Per altre informazioni, vedere [accedere a un cluster Kubernetes tramite kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **Distribuzione di IOT Edge**: questa operazione viene eseguita tramite IOT Edge, che si connette all'hub Azure. Ci si connette al cluster Kubernetes nel dispositivo Azure Stack Edge Pro tramite lo `iotedge` spazio dei nomi. Gli agenti IoT Edge distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. Si applica la `IoT Edge deployment.json` configurazione usando ci/CD di Azure DevOps. La gestione dello spazio dei nomi e IoT Edge viene eseguita tramite l'operatore cloud.
+- **Distribuzione di IOT Edge**: questa operazione viene eseguita tramite IOT Edge, che si connette all'hub Azure. Ci si connette al cluster Kubernetes nel dispositivo Azure Stack Edge Pro tramite lo `iotedge` spazio dei nomi. Gli agenti di IoT Edge distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. Si applica la `IoT Edge deployment.json` configurazione usando ci/CD di Azure DevOps. La gestione dello spazio dei nomi e IoT Edge viene eseguita tramite l'operatore cloud.
 
 - **Distribuzione Kubernetes abilitata per Azure Arc**: Azure Arc Enabled Kubernetes è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster Kubernetes. Connettersi al cluster Kubernetes nel dispositivo Azure Stack Edge Pro tramite il `azure-arc namespace` . Gli agenti distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. La configurazione della distribuzione viene applicata tramite la gestione della configurazione basata su GitOps. 
     
-    Azure Arc Enabled Kubernetes consente anche di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare il cluster. Per altre informazioni, vedere [che cos'è Azure Arc Enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+    Azure Arc Enabled Kubernetes consente anche di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare il cluster. Per altre informazioni, vedere [che cos'è Azure Arc Enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
 
 ## <a name="choose-the-deployment-type"></a>Scegliere il tipo di distribuzione
 

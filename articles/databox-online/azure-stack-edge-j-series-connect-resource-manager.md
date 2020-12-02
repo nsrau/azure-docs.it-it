@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891252"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447602"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Connettersi a Azure Resource Manager nel dispositivo Azure Stack Edge Pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager offre un livello di gestione coerente per chiamare l'API 
 
 La tabella seguente riepiloga i diversi endpoint esposti nel dispositivo, i protocolli supportati e le porte per accedere a tali endpoint. Nell'articolo sono disponibili riferimenti a questi endpoint.
 
-| # | Endpoint | Protocolli supportati | Porta utilizzata | Utilizzato per |
+| # | Endpoint | Protocolli supportati | Porta utilizzata | Utilizzo |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | https | 443 | Per connettersi a Azure Resource Manager per l'automazione |
 | 2. | Servizio token di sicurezza | https | 443 | Per eseguire l'autenticazione tramite token di accesso e di aggiornamento |
@@ -99,7 +99,7 @@ Solo per l'uso di test e sviluppo, è possibile usare Windows PowerShell per cre
 
 3. Per tutti questi certificati, verificare che il nome del soggetto e il nome alternativo del soggetto siano conformi alle linee guida seguenti:
 
-    |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+    |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -138,9 +138,9 @@ Il client Windows deve soddisfare i prerequisiti seguenti:
 
     Confrontare la versione **principale** e verificare che sia 5,0 o successiva.
 
-    Se è presente una versione obsoleta, vedere [Aggiornamento di Windows PowerShell esistente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Se è presente una versione obsoleta, vedere [Aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-    Se non si \' dispone di PowerShell 5,0, seguire [l'installazione di Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Se non si \' dispone di PowerShell 5,0, seguire [l'installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
 
     Di seguito è riportato un output di esempio.
 
@@ -175,11 +175,11 @@ Il client Windows deve soddisfare i prerequisiti seguenti:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Se il repository non è attendibile o sono necessarie altre informazioni, vedere [convalidare l'accessibilità PowerShell Gallery](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Se il repository non è attendibile o sono necessarie altre informazioni, vedere [convalidare l'accessibilità PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Passaggio 4: configurare Azure PowerShell nel client 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Si installeranno i moduli Azure PowerShell nel client che funzioneranno con il dispositivo.
 
@@ -297,9 +297,9 @@ Controllare se il nome dell'endpoint è stato risolto nel client usato per conne
 Impostare l'ambiente di Azure Resource Manager e verificare che il dispositivo alla comunicazione client tramite Azure Resource Manager funzioni correttamente. Per questa verifica, seguire questa procedura:
 
 
-1. Usare il `Add-AzureRmEnvironment` cmdlet per assicurarsi che la comunicazione tramite Azure Resource Manager funzioni correttamente e che le chiamate API attraversino la porta dedicata per Azure Resource Manager-443.
+1. Usare il cmdlet `Add-AzureRmEnvironment` per assicurarsi che la comunicazione tramite Azure Resource Manager funzioni correttamente e che le chiamate API attraversino la porta dedicata per Azure Resource Manager - 443.
 
-    Il `Add-AzureRmEnvironment` cmdlet aggiunge endpoint e metadati per consentire a Azure Resource Manager cmdlet di connettersi a una nuova istanza di Azure Resource Manager. 
+    Il cmdlet `Add-AzureRmEnvironment` aggiunge endpoint e metadati per consentire ai cmdlet di Azure Resource Manager di connettersi a una nuova istanza di Azure Resource Manager. 
 
 
     > [!IMPORTANT]
@@ -319,7 +319,7 @@ Impostare l'ambiente di Azure Resource Manager e verificare che il dispositivo a
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Impostare l'ambiente come Azure Stack Edge Pro e la porta da usare per Azure Resource Manager chiamate come 443. L'ambiente viene definito in due modi:
+2. Impostare l'ambiente come Azure Stack Edge Pro e la porta da usare per le chiamate di Azure Resource Manager deve essere la porta 443. L'ambiente viene definito in due modi:
 
     - Impostare l'ambiente. Digitare il comando seguente:
 
@@ -327,13 +327,13 @@ Impostare l'ambiente di Azure Resource Manager e verificare che il dispositivo a
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Per ulteriori informazioni, vedere [set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Per ulteriori informazioni, vedere [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
     - Definire l'ambiente inline per ogni cmdlet eseguito. Ciò garantisce che tutte le chiamate API stiano attraversando l'ambiente corretto. Per impostazione predefinita, le chiamate passano attraverso il pubblico di Azure, ma si vuole che questi passino attraverso l'ambiente impostato per il dispositivo Azure Stack Edge Pro.
 
     - Per altre informazioni su [come cambiare gli ambienti AzureRM](#switch-environments), vedere.
 
-2. Chiamare le API del dispositivo locale per autenticare le connessioni a Azure Resource Manager. 
+2. Chiamare le API del dispositivo locale per autenticare le connessioni ad Azure Resource Manager. 
 
     1. Queste credenziali sono per un account del computer locale e vengono usate esclusivamente per l'accesso all'API.
 

@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321059"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447943"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Statistiche della tabella per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -72,7 +72,7 @@ Per evitare una riduzione delle prestazioni, verificare che le statistiche siano
 > [!NOTE]
 > La creazione di statistiche verrà registrata [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) in un contesto utente diverso.
 
-Le statistiche automatiche create sono nel formato: _WA_Sys_ <id colonna a 8 cifre in hex>_<id tabella a 8 cifre in hex>. È possibile visualizzare le statistiche che sono già state create eseguendo il comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) :
+Le statistiche automatiche create sono nel formato: _WA_Sys_<id colonna a 8 cifre in hex>_<id tabella a 8 cifre in hex>. È possibile visualizzare le statistiche che sono già state create eseguendo il comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -101,7 +101,7 @@ Questa verifica non può essere basata sulla data di creazione dei dati. Un ogge
 
 Non esiste alcuna vista a gestione dinamica per determinare se i dati all'interno della tabella sono cambiati dall'ultimo aggiornamento delle statistiche.  Le due query seguenti consentono di determinare se le statistiche non sono aggiornate.
 
-**Query 1:**  Individuare la differenza tra il conteggio delle righe dalle statistiche ( **stats_row_count** ) e il conteggio delle righe effettivo ( **actual_row_count** ). 
+**Query 1:**  Individuare la differenza tra il conteggio delle righe dalle statistiche (**stats_row_count**) e il conteggio delle righe effettivo (**actual_row_count**). 
 
 ```sql
 select 
@@ -282,13 +282,13 @@ Per creare un oggetto statistiche a più colonne, usare gli esempi precedenti, s
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category* :
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category* , un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
+Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category*, un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Creare statistiche su tutte le colonne in una tabella
 
@@ -312,11 +312,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Usare una stored procedure per creare statistiche su tutte le colonne in un database
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>Usare un stored procedure per creare statistiche su tutte le colonne in un pool SQL
 
-Il pool SQL dedicato non dispone di un stored procedure di sistema equivalente a sp_create_stats in SQL Server. Questa stored procedure crea un oggetto statistiche a colonna singola su ogni colonna del database che non include già statistiche.
+Il pool SQL dedicato non dispone di un stored procedure di sistema equivalente a sp_create_stats in SQL Server. Questo stored procedure crea un oggetto statistiche a colonna singola su ogni colonna di un pool SQL che non dispone già di statistiche.
 
-L'esempio seguente consente di iniziare a progettare il database. È possibile adattare l'operazione alle proprie esigenze.
+L'esempio seguente consente di iniziare a usare la progettazione del pool SQL. È possibile adattare l'operazione alle proprie esigenze.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]

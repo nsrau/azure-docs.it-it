@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289207"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445647"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggere le porte di gestione con l'accesso JIT
 
@@ -89,9 +89,9 @@ Dal centro sicurezza è possibile abilitare e configurare l'accesso JIT alla mac
 
     Per ogni porta (personalizzata e predefinita) il riquadro **configurazione aggiunta porta** offre le opzioni seguenti:
 
-    - **Protocollo** : protocollo consentito su questa porta quando viene approvata una richiesta
-    - **Indirizzi IP di origine consentiti** : intervalli IP consentiti su questa porta quando viene approvata una richiesta
-    - **Tempo di richiesta massimo** : intervallo di tempo massimo durante il quale è possibile aprire una porta specifica
+    - **Protocollo**: protocollo consentito su questa porta quando viene approvata una richiesta
+    - **Indirizzi IP di origine consentiti**: intervalli IP consentiti su questa porta quando viene approvata una richiesta
+    - **Tempo di richiesta massimo**: intervallo di tempo massimo durante il quale è possibile aprire una porta specifica
 
      1. Impostare la sicurezza delle porte in base alle esigenze.
 
@@ -300,7 +300,7 @@ Eseguire questo comando in PowerShell:
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";
@@ -344,7 +344,7 @@ Per altre informazioni, vedere [criteri di accesso alla rete JIT](/rest/api/secu
 
 È possibile ottenere informazioni approfondite sulle attività delle macchine virtuali tramite la funzionalità Ricerca log. Per visualizzare i log:
 
-1. Dall' **accesso just-in-time alle macchine virtuali** , selezionare la scheda **configurata** .
+1. Dall' **accesso just-in-time alle macchine virtuali**, selezionare la scheda **configurata** .
 
 1. Per la macchina virtuale che si desidera controllare, aprire il menu con i puntini di sospensione alla fine della riga.
  

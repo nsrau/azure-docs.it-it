@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890716"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447367"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
 
@@ -117,7 +117,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Verificare il profilo e installare l'interfaccia della riga di comando di Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Installare l'interfaccia della riga di comando di Azure nel client. In questo esempio è stata installata l'interfaccia della riga di comando di Azure 2.0.80. Per verificare la versione dell'interfaccia della riga di comando di Azure, eseguire il comando `az --version`.
 
@@ -147,7 +147,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     PS C:\windows\system32>
     ```
 
-    Se non è disponibile, scaricare e [installare l'interfaccia della riga di comando di Azure in Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest). È possibile eseguire l'interfaccia della riga di comando di Azure usando il prompt dei comandi di Windows o Windows PowerShell.
+    Se non è disponibile, scaricare e [installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). È possibile eseguire l'interfaccia della riga di comando di Azure usando il prompt dei comandi di Windows o Windows PowerShell.
 
 2. Prendere nota del percorso Python dell'interfaccia della riga di comando. È necessario per determinare la posizione dell'archivio certificati attendibile per l'interfaccia della riga di comando di Azure.
 
@@ -308,7 +308,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Accedere all'ambiente Azure Stack Edge Pro eseguendo il comando `az login`. È possibile accedere all'ambiente Azure Stack Edge Pro sia come utente che come [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Accedere all'ambiente Azure Stack Edge Pro eseguendo il comando `az login`. È possibile accedere all'ambiente Azure Stack Edge Pro sia come utente che come [entità servizio](../active-directory/develop/app-objects-and-service-principals.md).
 
    Per accedere come *utente*, seguire questa procedura:
 

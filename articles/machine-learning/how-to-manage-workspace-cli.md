@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 66a9c9d605911a9d3b30a55d47e16026e26e502a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012934"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447251"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -32,7 +32,7 @@ Questo articolo contiene informazioni su come creare un’area di lavoro di Azur
 
 ## <a name="limitations"></a>Limitazioni
 
-* Quando si crea una nuova area di lavoro, è possibile consentire all'area di lavoro di creare i servizi di Azure richiesti automaticamente o fornire servizi esistenti. Quando si forniscono servizi esistenti, questi servizi devono trovarsi nella stessa sottoscrizione di Azure dell'area di lavoro.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Connettere l'interfaccia della riga di comando alla sottoscrizione di Azure
 

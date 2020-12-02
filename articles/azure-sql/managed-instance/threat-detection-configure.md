@@ -11,18 +11,18 @@ ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: 31a47b9032ac014fa4eedde343d03d4fd343ff02
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/01/2020
+ms.openlocfilehash: 69bebcf872f55055117acf5cef410d1f89eafe34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790662"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446921"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configurare Advanced Threat Protection in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Advanced Threat Protection](../database/threat-detection-overview.md) per un [istanza gestita SQL di Azure](sql-managed-instance-paas-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Advanced Threat Protection è in grado di identificare **potenziali attacchi SQL injection** , **accesso da posizioni insolite o Data Center** , **accesso da un'applicazione principale o potenzialmente dannosa** e **forza bruta per le credenziali SQL** . per ulteriori informazioni, vedere gli [avvisi di Advanced Threat Protection](../database/threat-detection-overview.md#alerts).
+[Advanced Threat Protection](../database/threat-detection-overview.md) per un [istanza gestita SQL di Azure](sql-managed-instance-paas-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Advanced Threat Protection è in grado di identificare **potenziali attacchi SQL injection**, **accesso da posizioni insolite o Data Center**, **accesso da un'applicazione principale o potenzialmente dannosa** e **forza bruta per le credenziali SQL** . per ulteriori informazioni, vedere gli [avvisi di Advanced Threat Protection](../database/threat-detection-overview.md#alerts).
 
 È possibile ricevere notifiche sulle minacce rilevate tramite [notifiche di posta elettronica](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) o [portale di Azure](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
@@ -31,13 +31,15 @@ ms.locfileid: "92790662"
 ##  <a name="azure-portal"></a>Portale di Azure
 
 1. Accedere al  [portale di Azure](https://portal.azure.com). 
-2. Passare alla pagina di configurazione dell'istanza di SQL Istanza gestita che si desidera proteggere. In **sicurezza** selezionare **Centro sicurezza** .
+2. Passare alla pagina di configurazione dell'istanza di SQL Istanza gestita che si desidera proteggere. In **sicurezza** selezionare **Centro sicurezza**.
 3. Nella pagina di configurazione di Azure Defender per SQL
    - Attivare **Azure Defender** per SQL.
-   - Configurare l' **elenco di indirizzi di posta elettronica** che riceveranno avvisi di sicurezza in caso di rilevamento di attività di database anomale.
-   - Selezionare l' **account di archiviazione di Azure** in cui vengono salvati i record di controllo delle minacce anomali.
+   - Configurare l'indirizzo di posta elettronica di **invio degli avvisi** per ricevere avvisi di sicurezza al rilevamento di attività di database anomale.
+   - Selezionare l'**account di archiviazione di Azure** in cui vengono salvati i record di controllo delle minacce anomali.
    - Selezionare i **tipi di Advanced Threat Protection** che si desidera configurare. Altre informazioni sugli [avvisi di Advanced Threat Protection](../database/threat-detection-overview.md).
 4. Fare clic su **Salva** per salvare i criteri nuovi o aggiornati di Azure Defender per SQL.
+
+   :::image type="content" source="../database/media/azure-defender-for-sql/set-up-advanced-threat-protection-mi.png" alt-text="configurare Advanced Threat Protection":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

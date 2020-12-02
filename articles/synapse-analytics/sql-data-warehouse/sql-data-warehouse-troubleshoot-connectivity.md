@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi di connettività
-description: Risoluzione dei problemi di connettività nel pool SQL dedicato.
+description: Risoluzione dei problemi di connettività nel pool SQL dedicato (in precedenza SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ea99c2ce1963ec58649fd4c2fbb4d98768da8c6f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308365"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447978"
 ---
-# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>Risoluzione dei problemi di connettività nel pool SQL dedicato
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Risoluzione dei problemi di connettività nel pool SQL dedicato (in precedenza SQL DW)
 
-In questo articolo vengono elencate le tecniche di risoluzione dei problemi comuni per la connessione al database del pool SQL dedicato.
+Questo articolo elenca le tecniche di risoluzione dei problemi comuni per la connessione al database del pool SQL dedicato (in precedenza SQL DW).
 
 ## <a name="check-service-availability"></a>Verificare la disponibilità del servizio
 
-Verificare se il servizio è disponibile. Nel portale di Azure passare al pool SQL dedicato che si sta tentando di connettere. Nel pannello del sommario fare clic su **Diagnostica e risoluzione dei problemi**.
+Verificare se il servizio è disponibile. Nel portale di Azure passare al pool SQL dedicato (in precedenza SQL DW) che si sta tentando di connettere. Nel pannello del sommario fare clic su **Diagnostica e risoluzione dei problemi**.
 
 ![Selezionare Integrità risorsa](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Lo stato del pool SQL dedicato verrà visualizzato qui. Se il servizio non viene indicato come **Disponibile** , procedere ad altre verifiche.
+Lo stato del pool SQL dedicato (in precedenza SQL DW) verrà visualizzato qui. Se il servizio non viene indicato come **Disponibile**, procedere ad altre verifiche.
 
 ![Servizio disponibile](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se l'integrità delle risorse indica che l'istanza del pool SQL dedicata è sospesa o ridimensionata, seguire le indicazioni per riprendere l'istanza.
+Se l'integrità delle risorse indica che l'istanza del pool SQL dedicato (in precedenza SQL DW) è sospesa o ridimensionata, seguire le indicazioni per riprendere l'istanza.
 
-![Screenshot mostra un'istanza di SQL data warehouse sospesa o in scala.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![Screenshot mostra un'istanza del pool SQL dedicato sospesa o in scala.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Altre informazioni su Integrità risorse sono disponibili qui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificare la presenza di operazioni in pausa o in fase di ridimensionamento
 
-Controllare il portale per verificare se l'istanza del pool SQL dedicata è sospesa o ridimensionata.
+Controllare il portale per verificare se l'istanza del pool SQL dedicato (precedentemente SQL DW) è in pausa o in scala.
 
 ![Screenshot che illustra come verificare se un data warehouse è sospeso.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se il servizio risulta in pausa o in fase di ridimensionamento, verificare se è in corso un intervento di manutenzione pianificata. Nel portale per la *Panoramica* del pool SQL dedicato verrà visualizzata la pianificazione di manutenzione eletta.
+Se il servizio risulta in pausa o in fase di ridimensionamento, verificare se è in corso un intervento di manutenzione pianificata. Nel portale per la *Panoramica* del pool SQL dedicato (in precedenza SQL DW) verrà visualizzata la pianificazione di manutenzione eletta.
 
 ![Pianificazione della manutenzione nella panoramica](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-In caso contrario, rivolgersi all'amministratore IT per verificare se questo evento di manutenzione non è pianificato. Per riprendere l'istanza del pool SQL dedicata, attenersi alla [seguente procedura](pause-and-resume-compute-portal.md).
+In caso contrario, rivolgersi all'amministratore IT per verificare se questo evento di manutenzione non è pianificato. Per riprendere l'istanza del pool SQL dedicato (in precedenza SQL DW), attenersi alla [seguente procedura](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Verificare le impostazioni del firewall
 
-Il database del pool SQL dedicato comunica sulla porta 1433.Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, non è possibile connettersi al [server logico](../../azure-sql/database/logical-servers.md) , a meno che il reparto IT non apra la porta 1433. Per altre informazioni sulle configurazioni del firewall, vedere [qui](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+Il database del pool SQL dedicato (in precedenza SQL DW) comunica sulla porta 1433.  Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, non è possibile connettersi al [server logico](../../azure-sql/database/logical-servers.md) , a meno che il reparto IT non apra la porta 1433. Per altre informazioni sulle configurazioni del firewall, vedere [qui](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificare le impostazioni dell'endpoint di servizio/rete virtuale
 
@@ -61,7 +61,7 @@ Se si ricevono gli errori 40914 e 40615, vedere le [descrizioni e risoluzioni de
 
 ### <a name="software"></a>Software
 
-Assicurarsi di usare gli strumenti più recenti per connettersi al pool SQL dedicato:
+Assicurarsi di usare gli strumenti più recenti per connettersi al pool SQL dedicato (in precedenza SQL DW):
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemi di connessione intermittenti
 
-Verificare se il server abbia un carico eccessivo e se sia elevato il numero delle richieste in coda. Potrebbe essere necessario aumentare le prestazioni del pool SQL dedicato per ulteriori risorse.
+Verificare se il server abbia un carico eccessivo e se sia elevato il numero delle richieste in coda. Potrebbe essere necessario aumentare le prestazioni del pool SQL dedicato (in precedenza SQL DW) per ulteriori risorse.
 
 ## <a name="common-error-messages"></a>Messaggi di errore comuni
 

@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314505"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448026"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partizionamento di tabelle in un pool SQL dedicato
 
@@ -30,7 +30,7 @@ Il partizionamento può recare vantaggio alle prestazioni di query e di conserva
 
 ### <a name="benefits-to-loads"></a>Vantaggi in termini di caricamento
 
-Il vantaggio principale del partizionamento nel pool SQL dedicato consiste nel migliorare l'efficienza e le prestazioni del caricamento dei dati mediante l'eliminazione, il cambio e l'Unione delle partizioni. Nella maggior parte dei casi viene eseguito il partizionamento dei dati in una colonna di date strettamente legata all'ordine in cui i dati vengono caricati nel database. Uno dei principali vantaggi derivanti dall'utilizzo delle partizioni per la manutenzione dei dati è l'evitare la registrazione delle transazioni. Mentre le semplici operazioni di inserimento, aggiornamento o eliminazione dei dati possono rappresentare l'approccio più semplice, con un po' di impegno e di ragionamento, l'uso del partizionamento durante il processo di caricamento può migliorare notevolmente le prestazioni.
+Il vantaggio principale del partizionamento nel pool SQL dedicato consiste nel migliorare l'efficienza e le prestazioni del caricamento dei dati mediante l'eliminazione, il cambio e l'Unione delle partizioni. Nella maggior parte dei casi i dati vengono partizionati in una colonna di data strettamente legata all'ordine in cui i dati vengono caricati nel pool SQL. Uno dei principali vantaggi derivanti dall'utilizzo delle partizioni per la manutenzione dei dati è l'evitare la registrazione delle transazioni. Mentre le semplici operazioni di inserimento, aggiornamento o eliminazione dei dati possono rappresentare l'approccio più semplice, con un po' di impegno e di ragionamento, l'uso del partizionamento durante il processo di caricamento può migliorare notevolmente le prestazioni.
 
 Il cambio di partizioni consente di rimuovere o sostituire rapidamente una sezione di tabella.  Ad esempio, una tabella dei fatti delle vendite potrebbe contenere solo i dati relativi agli ultimi 36 mesi. Alla fine di ogni mese, il mese dei dati di vendita meno recenti viene eliminato dalla tabella.  Questi dati potrebbero essere eliminati tramite un'istruzione delete per eliminare i dati relativi al mese meno recente. 
 
@@ -48,7 +48,7 @@ Mentre il partizionamento può essere usato per aumentare le prestazioni di alcu
 
 Affinché il partizionamento sia utile, per un amministratore di database è importante capire quando usare il partizionamento e il numero di partizioni da creare. Non esiste una regola assoluta che chiarisca cosa si intende per troppe partizioni, perché dipende dai dati e dal numero di partizioni caricate contemporaneamente. In genere, uno schema di partizione corretto ha decine di centinaia di partizioni, non migliaia.
 
-Quando si creano partizioni in tabelle **columnstore cluster** , è importante tenere in considerazione il numero di righe appartenenti a ogni partizione. Per ottenere risultati ottimali in termini di compressione e prestazioni delle tabelle columnstore cluster, è necessario almeno 1 milione di righe per distribuzione e partizione. Prima della creazione delle partizioni, il pool SQL dedicato divide già ogni tabella in database distribuiti 60. 
+Quando si creano partizioni in tabelle **columnstore cluster**, è importante tenere in considerazione il numero di righe appartenenti a ogni partizione. Per ottenere risultati ottimali in termini di compressione e prestazioni delle tabelle columnstore cluster, è necessario almeno 1 milione di righe per distribuzione e partizione. Prima della creazione delle partizioni, il pool SQL dedicato divide già ogni tabella in database distribuiti 60. 
 
 Eventuali partizionamenti aggiunti a una tabella sono in più rispetto alle distribuzioni create in background. Usando questo esempio, se la tabella dei fatti delle vendite conteneva 36 partizioni mensili e dato che un pool SQL dedicato ha 60 distribuzioni, la tabella dei fatti delle vendite dovrebbe contenere 60 milioni righe al mese o 2,1 miliardi righe quando tutti i mesi sono popolati. Se una tabella contiene un numero di righe inferiore a quello minimo consigliato per partizione, è necessario prendere in considerazione l'uso di un minor numero di partizioni per aumentare il numero di righe per partizione. 
 
@@ -355,7 +355,7 @@ Per evitare che la definizione della tabella venga **arrugginita** nel sistema d
     DROP TABLE #partitions;
     ```
 
-Con questo approccio, il codice nel controllo del codice sorgente rimane statico e i valori limite del partizionamento possono essere dinamici; evoluzione con il database nel tempo.
+Con questo approccio, il codice nel controllo del codice sorgente rimane statico e i valori limite del partizionamento possono essere dinamici; evoluzione con il pool SQL nel tempo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,16 +1,16 @@
 ---
 title: Aree supportate per l'area di lavoro Log Analytics collegata
 description: Questo articolo descrive i mapping dell'area supportati tra un account di automazione e un'area di lavoro di Log Analytics in relazione a determinate funzionalità di automazione di Azure.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183567"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446976"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
@@ -31,6 +31,7 @@ La tabella seguente mostra i mapping supportati:
 |---|---|
 |**Stati Uniti**||
 |EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
 |Stati Uniti occidentali 2|Stati Uniti occidentali 2|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
@@ -40,7 +41,7 @@ La tabella seguente mostra i mapping supportati:
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -48,11 +49,13 @@ La tabella seguente mostra i mapping supportati:
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> Il mapping di EastUS per le aree di lavoro Log Analytics agli account di Automazione non è un mapping esatto da area a area, ma è il mapping corretto.
 
-<sup>2</sup> in quest'area è supportata solo gestione aggiornamenti e altre funzionalità come rilevamento modifiche e inventario non sono disponibili in questo momento.
+<sup>2</sup> il mapping di EastUS2 per aree di lavoro log Analytics agli account di automazione non è un mapping esatto da area a area, ma è il mapping corretto.
+
+<sup>3</sup> in quest'area è supportata solo gestione aggiornamenti e altre funzionalità come rilevamento modifiche e inventario non sono disponibili in questo momento.
 
 ## <a name="unlink-a-workspace"></a>Scollegare un'area di lavoro
 

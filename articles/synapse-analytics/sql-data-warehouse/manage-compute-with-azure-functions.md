@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: gestire le risorse di calcolo con funzioni di Azure'
-description: Come usare funzioni di Azure per gestire il calcolo del pool SQL in Azure sinapsi Analytics.
+description: Come usare funzioni di Azure per gestire il calcolo del pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448388"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Usare funzioni di Azure per gestire le risorse di calcolo per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
-Questa esercitazione usa funzioni di Azure per gestire le risorse di calcolo per un pool SQL in Azure sinapsi Analytics.
+Questa esercitazione usa funzioni di Azure per gestire le risorse di calcolo per un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 
-Per usare app per le funzioni di Azure con il pool SQL, è necessario creare un [account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con accesso come collaboratore nella stessa sottoscrizione dell'istanza del pool SQL.
+Per usare un app per le funzioni di Azure con un pool SQL dedicato (in precedenza SQL DW), è necessario creare un [account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L'account dell'entità servizio necessita dell'accesso come collaboratore nella stessa sottoscrizione dell'istanza del pool SQL dedicato (in precedenza SQL DW).
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuire il ridimensionamento basato su timer con un modello di Azure Resource Manager
 
 Per distribuire il modello sono necessarie le informazioni seguenti:
 
-- Nome del gruppo di risorse in cui si trova l'istanza del pool SQL
-- Nome del server in cui si trova l'istanza del pool SQL
-- Nome dell'istanza del pool SQL
+- Nome del gruppo di risorse in cui si trova l'istanza del pool SQL dedicato (in precedenza SQL DW)
+- Nome del server in cui si trova l'istanza del pool SQL dedicato (in precedenza SQL DW)
+- Nome dell'istanza del pool SQL dedicato (in precedenza SQL DW)
 - ID tenant (ID directory) di Azure Active Directory
 - ID sottoscrizione
 - ID applicazione dell'entità servizio
@@ -48,13 +48,13 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
    ![Funzioni distribuite con il modello](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger*, a seconda che si vogliano modificare la data e l'ora dell'aumento o della riduzione delle prestazioni. Nel menu a discesa selezionare Integrazione.
+2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger* per aumentare o ridurre la dimensione. Nel menu a discesa selezionare Integrazione.
 
    ![Selezionare Integrazione per la funzione](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. Il valore attualmente visualizzato dovrebbe essere *%ScaleDownTime%* o *%ScaleUpTime%*. Questi valori indicano che la pianificazione è basata sui valori definiti nelle [impostazioni dell'applicazione](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per il momento è possibile ignorare questo valore e modificare la pianificazione impostando la data e l'ora preferite in base ai passaggi successivi.
 
-4. Nell'area pianificazione aggiungere la data e l'ora dell'espressione CRON che si vuole rispecchiare con quale frequenza si vuole aumentare la scalabilità delle analisi di sinapsi di Azure.
+4. Nell'area pianificazione aggiungere l'espressione CRON da considerare con quale frequenza si vuole aumentare la scalabilità di Azure sinapsi Analytics.
 
    ![Modificare la pianificazione della funzione](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -70,11 +70,11 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
 1. Passare al servizio app per le funzioni. Se il modello è stato distribuito con i valori predefiniti, il servizio sarà denominato *DWOperations*. Dopo aver aperto l'app per le funzioni, si noterà che nel servizio app per le funzioni sono distribuite cinque funzioni.
 
-2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger*, a seconda che si voglia modificare il valore di calcolo per l'aumento o per la riduzione delle prestazioni. Quando si selezionano le funzioni, nel riquadro dovrebbe essere visualizzato il file *index.js*.
+2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger* per aumentare o ridurre il valore di calcolo. Quando si selezionano le funzioni, nel riquadro dovrebbe essere visualizzato il file *index.js*.
 
    ![Modificare il livello di calcolo del trigger della funzione](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Modificare il valore di *ServiceLevelObjective* impostando il livello desiderato e scegliere Salva. Questo valore corrisponde al livello di calcolo a cui passerà l'istanza di Data Warehouse in base alla pianificazione definita nella sezione Integrazione.
+3. Modificare il valore di *obiettivo* con il livello desiderato e selezionare Save (Salva). *Obiettivo* è il livello di calcolo a cui verrà ridimensionata l'istanza di data warehouse in base alla pianificazione definita nella sezione integrazione.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Usare la sospensione o la ripresa invece del ridimensionamento
 
@@ -84,7 +84,7 @@ Attualmente, le funzioni attivate per impostazione predefinita sono *DWScaleDown
 
    ![Riquadro Funzioni](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. Fare clic sull'interruttore scorrevole corrispondente ai trigger da abilitare.
+2. Selezionare l'interruttore scorrevole per i trigger corrispondenti che si vuole abilitare.
 
 3. Passare alle schede *Integrazione* per i rispettivi trigger per modificarne la pianificazione.
 
@@ -114,17 +114,17 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
 5. Impostare la variabile operation sul comportamento desiderato come illustrato di seguito:
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -169,4 +169,4 @@ Scalabilità verticale a compreso dw1000c, con scalabilità verticale una volta 
 
 Altre informazioni sulle funzioni di Azure per il [trigger timer](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-Checkout the SQL pool [Samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
+Vedere il [repository di esempi](https://github.com/Microsoft/sql-data-warehouse-samples)di pool SQL dedicato (in precedenza SQL DW).

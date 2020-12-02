@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 55e5a587a0ad02fa1f8993027b46162a14a58832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318100"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448244"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurare il monitoraggio in Monitoraggio di Azure per le macchine virtuali integrità Guest usando le regole di raccolta dati (anteprima)
 [Monitoraggio di Azure per le macchine virtuali integrità Guest](vminsights-health-overview.md) consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito tra più macchine virtuali usando le regole di raccolta dati.
@@ -20,7 +20,7 @@ ms.locfileid: "95318100"
 ## <a name="monitors"></a>Monitoraggi
 Lo stato di integrità di una macchina virtuale è determinato dal [rollup dello](vminsights-health-overview.md#health-rollup-policy) stato da ciascuno dei monitoraggi. Esistono due tipi di monitoraggi in Monitoraggio di Azure per le macchine virtuali integrità Guest, come illustrato nella tabella seguente.
 
-| Monitoraggio | Descrizione |
+| Monitorare | Descrizione |
 |:---|:---|
 | Monitoraggio unità | Misura alcuni aspetti di una risorsa o di un'applicazione. Questo potrebbe controllare un contatore delle prestazioni per determinare le prestazioni della risorsa o la relativa disponibilità. |
 | Monitoraggio aggregato | Raggruppa più monitoraggi per fornire un singolo stato di integrità aggregato. Un monitoraggio aggregato può contenere uno o più monitoraggi unità e altri monitoraggi aggregati. |
@@ -47,11 +47,11 @@ Nella tabella seguente vengono descritte le proprietà che possono essere config
 Nella tabella seguente viene elencata la configurazione predefinita per ogni monitoraggio. Questa configurazione predefinita non può essere modificata direttamente, ma è possibile definire [sostituzioni](#overrides) che modificheranno la configurazione del monitoraggio per determinate macchine virtuali.
 
 
-| Monitoraggio | Attivato | Creazione di avvisi | Avviso | Critico | Frequenza di valutazione | Lookback | Tipo di valutazione | Esempio minimo | Numero massimo di campioni |
+| Monitorare | Enabled | Creazione di avvisi | Avviso | Critico | Frequenza di valutazione | Lookback | Tipo di valutazione | Esempio minimo | Numero massimo di campioni |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Uso della CPU  | True | False | nessuno | \> 90%    | 60 secondi | 240 sec | Min | 2 | 3 |
-| Memoria disponibile | True | False | nessuno | \< 100 MB | 60 secondi | 240 sec | Max | 2 | 3 |
-| File system      | True | False | nessuno | \< 100 MB | 60 secondi | 120 sec | Max | 1 | 1 |
+| Uso della CPU  | Vero | Falso | Nessuno | \> 90%    | 60 secondi | 240 sec | Min | 2 | 3 |
+| Memoria disponibile | Vero | Falso | Nessuno | \< 100 MB | 60 secondi | 240 sec | Max | 2 | 3 |
+| File system      | Vero | Falso | Nessuno | \< 100 MB | 60 secondi | 120 sec | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>Override
@@ -74,7 +74,7 @@ La configurazione risultante è un monitoraggio che entra in uno stato di avviso
 Se due override definiscono la stessa proprietà nello stesso monitoraggio, un valore avrà la precedenza. Gli override verranno applicati in base al relativo [ambito](#scopes-element), dal più generale al più specifico. Ciò significa che le sostituzioni più specifiche avranno la maggiore probabilità di essere applicate. L'ordine specifico è il seguente:
 
 1. Globale 
-2. Sottoscrizione
+2. Subscription
 3. Resource group
 4. Una macchina virtuale. 
 
@@ -271,106 +271,8 @@ Definisce la soglia e la logica di confronto per la condizione critica. Se quest
 | `operator`  | No | Definisce l'operatore di confronto da utilizzare nell'espressione di soglia. Valori possibili: >, <, >=, <=, = =. |
 
 ## <a name="sample-data-collection-rule"></a>Regola di raccolta dati di esempio
-La regola di raccolta dati di esempio seguente mostra un esempio di override per configurare il monitoraggio.
+Per una regola di raccolta dati di esempio che Abilita il monitoraggio Guest, vedere [abilitare una macchina virtuale con gestione risorse modello](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template).
 
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "defaultHealthDataCollectionRuleName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the data collection rule to create."
-      },
-      "defaultValue": "Microsoft-VMInsights-Health"
-    },
-    "destinationWorkspaceResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to store virtual machine health data."
-      }
-    },
-    "dataCollectionRuleLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "name": "[parameters('defaultHealthDataCollectionRuleName')]",
-      "location": "[parameters('dataCollectionRuleLocation')]",
-      "apiVersion": "2019-11-01-preview",
-      "properties": {
-        "description": "Data collection rule for VM Insights health.",
-        "dataSources": {
-          "performanceCounters": [
-              {
-                  "name": "VMHealthPerfCounters",
-                  "streams": [ "Microsoft-Perf" ],
-                  "scheduledTransferPeriod": "PT1M",
-                  "samplingFrequencyInSeconds": 60,
-                  "counterSpecifiers": [
-                      "\\LogicalDisk(*)\\% Free Space",
-                      "\\Memory\\Available Bytes",
-                      "\\Processor(_Total)\\% Processor Time"
-                  ]
-              }
-          ],
-          "extensions": [
-            {
-              "name": "Microsoft-VMInsights-Health",
-              "streams": [
-                "Microsoft-HealthStateChange"
-              ],
-              "extensionName": "HealthExtension",
-              "extensionSettings": {
-                "schemaVersion": "1.0",
-                "contentVersion": "",
-                "healthRuleOverrides": [
-                  {
-                    "scopes": [ "*" ],
-                    "monitors": ["root"],
-                    "alertConfiguration": {
-                      "isEnabled": true
-                    }
-                  }
-                ]
-              },
-              "inputDataSources": [
-                  "VMHealthPerfCounters"
-              ]
-
-            }
-          ]
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[parameters('destinationWorkspaceResourceId')]",
-              "name": "Microsoft-HealthStateChange-Dest"
-            }
-          ]
-        },                  
-        "dataFlows": [
-          {
-            "streams": [
-              "Microsoft-HealthStateChange"
-            ],
-            "destinations": [
-              "Microsoft-HealthStateChange-Dest"
-            ]
-          }
-        ]
-      }
-    }
-  ]
-}
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

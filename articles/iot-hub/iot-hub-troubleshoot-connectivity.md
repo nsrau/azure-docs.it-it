@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506397"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446405"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorare, diagnosticare e risolvere i problemi di disconnessione con l'hub IoT di Azure
 
@@ -34,7 +34,7 @@ In entrambi i casi, queste funzionalità sono limitate a quanto può essere osse
 
 ## <a name="event-grid-vs-azure-monitor"></a>Griglia di eventi e monitoraggio di Azure
 
-Griglia di eventi offre una soluzione di monitoraggio per dispositivo a bassa latenza che è possibile usare per tenere traccia delle connessioni dei dispositivi e dell'infrastruttura critiche. Monitoraggio di Azure fornisce una metrica, *dispositivi connessi* , che è possibile usare per monitorare il numero di dispositivi connessi all'hub Internet e attivare un avviso quando tale numero scende al di sotto di una soglia statica.
+Griglia di eventi offre una soluzione di monitoraggio per dispositivo a bassa latenza che è possibile usare per tenere traccia delle connessioni dei dispositivi e dell'infrastruttura critiche. Monitoraggio di Azure fornisce una metrica, *dispositivi connessi*, che è possibile usare per monitorare il numero di dispositivi connessi all'hub Internet e attivare un avviso quando tale numero scende al di sotto di una soglia statica.
 
 Quando si decide se usare griglia di eventi o monitoraggio di Azure per uno scenario specifico, tenere presente quanto segue:
 
@@ -58,7 +58,7 @@ Esaminare gli argomenti seguenti per ulteriori informazioni sul monitoraggio deg
 
 * Per un'esercitazione sull'ordinamento degli eventi di connessione del dispositivo, vedere [ordinare gli eventi di connessione del dispositivo dall'hub degli eventi di Azure usando Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* Per un'esercitazione sull'invio di notifiche tramite posta elettronica, vedere [inviare notifiche tramite posta elettronica sugli eventi dell'hub Azure Internet tramite griglia di eventi e app](/azure/event-grid/publish-iot-hub-events-to-logic-apps) per la logica nella documentazione di griglia di eventi.
+* Per un'esercitazione sull'invio di notifiche tramite posta elettronica, vedere [inviare notifiche tramite posta elettronica sugli eventi dell'hub Azure Internet tramite griglia di eventi e app](../event-grid/publish-iot-hub-events-to-logic-apps.md) per la logica nella documentazione di griglia di eventi.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Monitoraggio di Azure: indirizzare gli eventi di connessione ai log
 
@@ -94,7 +94,7 @@ Dopo aver creato un'impostazione di diagnostica per indirizzare i log delle riso
 
 1. In **monitoraggio** nel riquadro sinistro dell'hub Internet, selezionare **log**.
 
-1. Per isolare i log degli errori di connettività per l'hub tutto, immettere la query seguente nell'editor di query e quindi selezionare **Esegui** :
+1. Per isolare i log degli errori di connettività per l'hub tutto, immettere la query seguente nell'editor di query e quindi selezionare **Esegui**:
 
     ```kusto
     AzureDiagnostics

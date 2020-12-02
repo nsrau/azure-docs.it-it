@@ -11,16 +11,16 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eaf41e903f1a55dd85c6b6282617564a32087707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321002"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447823"
 ---
-# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Azure sinapsi Analytics-video dedicati al pool SQL
+# <a name="azure-synapse-analytics---dedicated-sql-pool--formerly-sql-dw-videos"></a>Azure sinapsi Analytics-video dedicato del pool SQL (in precedenza SQL DW)
 
-Per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni, guardare i video dedicati più recenti sul pool di SQL. 
+Per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni, guardare i video dedicati più recenti sul pool SQL (in precedenza SQL DW). 
 
 Per iniziare, selezionare il video di panoramica seguente per informazioni sui nuovi aggiornamenti per il pool SQL dedicato. Inoltre, informazioni su come usare i modelli di data warehouse moderni per affrontare scenari reali, ad esempio il crimine informatico.
 </br>

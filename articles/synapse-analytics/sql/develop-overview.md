@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322114"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446597"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per le funzionalità di SQL sinapsi in Azure sinapsi Analytics
-In questo articolo è presente un elenco di risorse per il pool SQL dedicato e le funzioni del pool SQL senza server (anteprima) di sinapsi SQL. Gli articoli consigliati sono suddivisi in due sezioni: decisioni di progettazione chiave e tecniche di sviluppo e codifica.
+In questo articolo è presente un elenco di risorse per il pool SQL dedicato e le funzioni del pool SQL senza server di sinapsi SQL. Gli articoli consigliati sono suddivisi in due sezioni: decisioni di progettazione chiave e tecniche di sviluppo e codifica.
 
-L'obiettivo di questi articoli è aiutare a sviluppare l'approccio tecnico ottimale per i componenti SQL sinapsi all'interno di sinapsi Analytics.
+L'obiettivo di questi articoli è aiutare a sviluppare l'approccio tecnico ottimale per i componenti di SQL sinapsi in Azure sinapsi Analytics.
 
 ## <a name="key-design-decisions"></a>Decisioni chiave nella progettazione
 Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per lo sviluppo di sinapsi SQL:
 
-| Articolo | pool SQL dedicato | pool SQL senza server |
+| Articolo | pool SQL dedicato | Pool SQL serverless |
 | ------- | -------- | ------------- |
 | [Connessioni](connect-overview.md)                    | Sì | Sì |
 | [Classi di risorse e concorrenza](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sì    | No |
@@ -44,7 +44,7 @@ Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per
 
 Di seguito sono riportati gli articoli essenziali che evidenziano tecniche di codifica, suggerimenti e consigli per lo sviluppo specifici:
 
-| Articolo | pool SQL dedicato | pool SQL senza server |
+| Articolo | pool SQL dedicato | Pool SQL serverless |
 | ------- | -------- | ------------- |
 | [Stored procedure](develop-stored-procedures.md)  | Sì                | No                      |
 | [Etichette](develop-label.md)                           | Sì                | No                      |

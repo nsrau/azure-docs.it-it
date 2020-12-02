@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636919"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448656"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sul dispositivo GPU Pro Azure Stack Edge
 
@@ -106,7 +106,7 @@ Per altre informazioni sulla distribuzione di applicazioni nel cluster Kubernete
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes e Azure Arc
 
-Azure Arc è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster Kubernetes. Azure ARC consente anche di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare i cluster. Per altre informazioni, vedere [che cos'è Azure-Arc abilitato Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Per informazioni sui prezzi di Azure Arc, vedere [prezzi di Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster Kubernetes. Azure ARC consente anche di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare i cluster. Per altre informazioni, vedere [che cos'è Azure-Arc abilitato Kubernetes?](../azure-arc/kubernetes/overview.md). Per informazioni sui prezzi di Azure Arc, vedere [prezzi di Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

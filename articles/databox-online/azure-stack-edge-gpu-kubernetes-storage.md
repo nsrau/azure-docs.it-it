@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899273"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448709"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gestione archiviazione Kubernetes sul dispositivo GPU Pro Azure Stack Edge
 
@@ -41,9 +41,9 @@ Per comprendere come viene gestita l'archiviazione per Kubernetes, è necessario
 
 Il provisioning dell'archiviazione può essere statico o dinamico. Ogni tipo di provisioning viene descritto nelle sezioni seguenti.
 
-## <a name="staticprovisioning"></a>Provisioning statico
+## <a name="static-provisioning"></a>Provisioning statico
 
-Gli amministratori del cluster Kubernetes possono eseguire il provisioning statico dello spazio di archiviazione. A tale scopo, è possibile utilizzare il back-end di archiviazione basato sui filesystem SMB/NFS oppure utilizzare dischi iSCSI collegati localmente sulla rete in un ambiente locale o persino utilizzare File di Azure o dischi di Azure nel cloud. Questo tipo di archiviazione non viene sottoposta a provisioning per impostazione predefinita e gli amministratori del cluster devono pianificare e gestire il provisioning. 
+Gli amministratori del cluster Kubernetes possono eseguire il provisioning statico dell'archiviazione. A tale scopo, è possibile utilizzare il back-end di archiviazione basato sui filesystem SMB/NFS oppure utilizzare dischi iSCSI collegati localmente sulla rete in un ambiente locale o persino utilizzare File di Azure o dischi di Azure nel cloud. Questo tipo di archiviazione non viene sottoposta a provisioning per impostazione predefinita e gli amministratori del cluster devono pianificare e gestire il provisioning. 
  
 Di seguito è riportato un diagramma che illustra il modo in cui viene usata l'archiviazione con provisioning statico in Kubernetes: 
 
@@ -58,7 +58,7 @@ Si verificano i passaggi seguenti:
 1. **Montare il PVC nel contenitore**: quando il PVC è associato al PV, è possibile montare questo PVC in un percorso nel contenitore. Quando la logica dell'applicazione nel contenitore legge/scrive da/in questo percorso, i dati vengono scritti nell'archiviazione SMB.
  
 
-## <a name="dynamicprovisioning"></a>Provisioning dinamico
+## <a name="dynamic-provisioning"></a>Provisioning dinamico
 
 Di seguito è riportato un diagramma che illustra il modo in cui viene usata l'archiviazione con provisioning statico in Kubernetes: 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Per altre informazioni, vedere [distribuire un'applicazione con stato tramite il provisioning statico sul Azure stack Edge Pro tramite kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+Per accedere alla stessa risorsa di archiviazione con provisioning statico, le opzioni di montaggio del volume corrispondenti per le associazioni di archiviazione sono le seguenti. `/home/input`È il percorso in cui il volume è accessibile all'interno del contenitore.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro dispone anche di un builtin `StorageClass` denominato `ase-node-local` che usa un archivio di dischi dati collegato al nodo Kubernetes. Questo `StorageClass` supporta il provisioning dinamico. È possibile creare un `StorageClass` riferimento nelle applicazioni pod e un PV viene creato automaticamente. Per ulteriori informazioni, vedere il [dashboard di Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) per eseguire una query per `ase-node-local StorageClass` .
 
