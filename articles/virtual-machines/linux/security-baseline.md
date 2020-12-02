@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842414"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498473"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -78,7 +78,7 @@ Materiale sussidiario **: abilitare** la protezione standard DDoS (Distributed D
 
 È possibile usare l'accesso just-in-time alla rete del Centro sicurezza di Azure per limitare l'esposizione delle macchine virtuali Linux agli indirizzi IP approvati per un periodo di tempo limitato. Usare inoltre la protezione avanzata della rete adattiva del Centro sicurezza di Azure per consigliare configurazioni NSG che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'Intelligence per le minacce.
 
-* [Come configurare la protezione DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Come configurare la protezione DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Come distribuire il firewall di Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -278,7 +278,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -308,7 +308,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../../security-center/quickstart-onboard-machines.md)
 
-* [Il collegamento seguente fornisce le linee guida di sicurezza consigliate da Microsoft, che possono fungere da elenco di criteri per il software di vulnerabilità selezionato](./security-recommendations.md)
+* [Il collegamento seguente fornisce le linee guida di sicurezza consigliate da Microsoft, che possono fungere da elenco di criteri per il software di vulnerabilità selezionato](../security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -458,7 +458,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: configurare le impostazioni di diagnostica per Azure Active Directory per inviare i log di controllo e i log di accesso a un'area di lavoro di log Analytics. Usare inoltre monitoraggio di Azure per esaminare i log ed eseguire query sui dati syslog di autenticazione dalle macchine virtuali di Azure.
 
-* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Come integrare i log attività di Azure in Monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -586,7 +586,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: i dischi virtuali in macchine virtuali Linux (VM) vengono crittografati a riposo usando la crittografia lato server o la crittografia dischi di Azure (ADE). Crittografia dischi di Azure sfrutta la funzionalità DM-Crypt di Linux per crittografare i dischi gestiti con chiavi gestite dal cliente all'interno della VM guest. La crittografia lato server con chiavi gestite dal cliente migliora la funzionalità Crittografia dischi di Azure poiché consente di usare qualsiasi tipo e immagine di sistema operativo per le macchine virtuali crittografando i dati nel servizio di archiviazione.
 
-* [Crittografia lato server di Azure Managed Disks](../windows/disk-encryption.md)
+* [Crittografia lato server di Azure Managed Disks](../disk-encryption.md)
 
 * [Crittografia dischi di Azure per macchine virtuali Linux](./disk-encryption-overview.md)
 
@@ -618,7 +618,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../../security-center/quickstart-onboard-machines.md)
 
-* [Linee guida sulla sicurezza consigliate da Microsoft](./security-recommendations.md)
+* [Linee guida sulla sicurezza consigliate da Microsoft](../security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -628,9 +628,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: usare la soluzione Azure Gestione aggiornamenti per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository degli aggiornamenti configurato localmente per applicare patch ai sistemi supportati.
 
-* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -640,9 +640,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: è possibile usare una soluzione di gestione delle patch di terze parti. È possibile usare la soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository degli aggiornamenti configurato localmente per applicare patch ai sistemi supportati.
 
-* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -1016,7 +1016,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Indicazioni**: è necessario uno strumento di terze parti per la protezione antimalware nella macchina virtuale Linux di Azure.
 
-* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](./security-recommendations.md)
+* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](../security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1034,7 +1034,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Indicazioni**: è necessario uno strumento di terze parti per la protezione antimalware nella macchina virtuale Linux di Azure.
 
-* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](./security-recommendations.md)
+* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](../security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1184,9 +1184,9 @@ Se si usa crittografia dischi di Azure, è possibile ripristinare la macchina vi
 
 **Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
 
-* [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06a84621c4d6abbf361eba232c776c167dc46265
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d62195759de2d43e863c1cb2c4c3ef911bb52c6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970610"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498524"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Domande frequenti su Crittografia dischi di Azure per le macchine virtuali Linux
 
@@ -57,14 +57,14 @@ No, Crittografia dischi di Azure crittografa solo i volumi montati.
 
 ## <a name="what-is-storage-server-side-encryption"></a>Che cos'è la crittografia di archiviazione lato server?
 
-La crittografia di archiviazione lato server crittografa i dischi gestiti di Azure in Archiviazione di Azure. I dischi gestiti vengono crittografati per impostazione predefinita con la crittografia lato server con una chiave gestita dalla piattaforma (dal 10 giugno 2017). È possibile gestire la crittografia dei dischi gestiti con le proprie chiavi specificando una chiave gestita dal cliente. Per altre informazioni, vedere: [Crittografia lato server dei dischi gestiti di Azure](disk-encryption.md).
+La crittografia di archiviazione lato server crittografa i dischi gestiti di Azure in Archiviazione di Azure. I dischi gestiti vengono crittografati per impostazione predefinita con la crittografia lato server con una chiave gestita dalla piattaforma (dal 10 giugno 2017). È possibile gestire la crittografia dei dischi gestiti con le proprie chiavi specificando una chiave gestita dal cliente. Per altre informazioni, vedere: [Crittografia lato server dei dischi gestiti di Azure](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>In che modo Crittografia dischi di Azure si differenzia dalla crittografia lato server di archiviazione con una chiave gestita dal cliente e quando è consigliabile usare una soluzione o l'altra?
 
 Crittografia dischi di Azure fornisce la crittografia end-to-end per il disco del sistema operativo, i dischi dati e il disco temporaneo, usando una chiave gestita dal cliente.
 - Se i requisiti includono la crittografia di tutti gli elementi sopra citati e la crittografia end-to-end, usare Crittografia dischi di Azure. 
-- Se i requisiti includono la crittografia dei soli dati inattivi con una chiave gestita dal cliente, usare la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md). Non è possibile crittografare un disco con Crittografia dischi di Azure e la crittografia lato server di archiviazione con chiavi gestite dal cliente. 
-- Se la distribuzione di Linux non è elencata tra i [sistemi operativi supportati per Crittografia dischi di Azure](disk-encryption-overview.md#supported-operating-systems) oppure si usa uno scenario elencato tra quelli [non supportati per Windows](disk-encryption-linux.md#unsupported-scenarios), prendere in considerazione la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md).
+- Se i requisiti includono la crittografia dei soli dati inattivi con una chiave gestita dal cliente, usare la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md). Non è possibile crittografare un disco con Crittografia dischi di Azure e la crittografia lato server di archiviazione con chiavi gestite dal cliente. 
+- Se la distribuzione di Linux non è elencata tra i [sistemi operativi supportati per Crittografia dischi di Azure](disk-encryption-overview.md#supported-operating-systems) oppure si usa uno scenario elencato tra quelli [non supportati per Windows](disk-encryption-linux.md#unsupported-scenarios), prendere in considerazione la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md).
 - Se i criteri dell'organizzazione consentono di crittografare il contenuto inattivo con una chiave gestita da Azure, non è necessaria alcuna azione: il contenuto è crittografato per impostazione predefinita. Per i dischi gestiti, il contenuto all'interno dell'archiviazione viene crittografato per impostazione predefinita con la crittografia lato server con chiave gestita dalla piattaforma. La chiave è gestita dal servizio Archiviazione di Azure. 
 
 

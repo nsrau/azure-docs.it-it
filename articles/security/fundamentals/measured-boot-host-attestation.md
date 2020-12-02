@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557821"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498864"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Attestazione di avvio e host misurata
 Questo articolo descrive il modo in cui Microsoft garantisce l'integrità e la sicurezza degli host con l'avvio e l'attestazione dell'host misurati.
 
 ## <a name="measured-boot"></a>Avvio misurato
 
-Il [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) è un componente di controllo crittograficamente sicuro e a prova di manomissione con firmware fornito da terze parti attendibili. Il log di configurazione di avvio contiene misure concatenate all'hash registrate nei registri di configurazione della piattaforma (PCR) quando l'host ha eseguito l'ultima sequenza di bootstrap. Nella figura seguente viene illustrato questo processo di registrazione. L'aggiunta incrementale di una misurazione precedentemente completata all'hash della misura successiva e l'esecuzione dell'algoritmo hash nell'Unione consente di eseguire il concatenamento hash.
+Il [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) è un componente di controllo crittograficamente sicuro e a prova di manomissione con firmware fornito da terze parti attendibili. Il log di configurazione di avvio contiene misure concatenate all'hash registrate nei registri di configurazione della piattaforma (PCR) quando l'host ha eseguito l'ultima sequenza di bootstrap. Nella figura seguente viene illustrato questo processo di registrazione. L'aggiunta incrementale di una misurazione precedentemente completata all'hash della misura successiva e l'esecuzione dell'algoritmo hash nell'Unione consente di eseguire il concatenamento hash.
 
 ![Diagramma che mostra il concatenamento hash del servizio di attestazione host.](./media/measured-boot-host-attestation/hash-chaining.png)
 
@@ -58,4 +58,4 @@ Per ulteriori informazioni sulle operazioni da eseguire per garantire l'integrit
 - [Avvio protetto](secure-boot.md)
 - [Progetto Cerberus](project-cerberus.md)
 - [Crittografia di dati inattivi](encryption-atrest.md)
-- [Sicurezza hypervisor](hypervisor.md)
+- [Sicurezza dell'hypervisor](hypervisor.md)

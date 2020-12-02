@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 234c70fffb6f353c670d23624cc446fdaf6bd886
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701824"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498966"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Esempi di codice JavaScript per ricerca cognitiva di Azure
 
@@ -55,7 +55,7 @@ L'SDK fornisce anche esempi di TypeScript, elencati di seguito per praticità.
 
 ## <a name="documentation-samples"></a>Esempi di documentazione
 
-Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva documentazione](https://docs.microsoft.com/azure/search/).
+Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva documentazione](./index.yml).
 
 | Esempi | Descrizione | 
 |---------|-------------|

@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 45bcfdb544d3951feb40a821b601ce60ecc0feaf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356774"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500292"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -64,7 +64,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 ## <a name="nvv2-series"></a>Serie NVv2
 
-**Raccomandazione sulle dimensioni più recenti** : [serie NVv3](nvv3-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie NVv3](nvv3-series.md)
 
 Le macchine virtuali serie NVv2 sono basate su GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e sulla tecnologia NVIDIA GRID con CPU Intel Broadwell. Queste macchine virtuali sono specifiche per applicazioni con grafica accelerata per GPU e desktop virtuali in cui i clienti vogliono visualizzare i propri dati, simulare risultati da visualizzare, lavorare in CAD o eseguire il rendering e lo streaming di contenuti. Queste macchine virtuali possono anche eseguire carichi di lavoro con precisione singola, ad esempio per la codifica e il rendering. Le macchine virtuali NVv2 supportano Archiviazione Premium e offrono una memoria di sistema (RAM) doppia rispetto alla serie NV precedente.  
 
@@ -86,7 +86,7 @@ Per altre informazioni sul ridimensionamento di una VM Linux, vedere [ridimensio
 
 ### <a name="basic-a"></a>Basic A  
 
-**Raccomandazione sulle dimensioni più recenti** : [serie AV2](av2-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie AV2](av2-series.md)
 
 Archiviazione Premium:  Non supportato
 
@@ -94,7 +94,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 
-| Dimensioni – Dimensioni\Nome | vCPU | Memory|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
+| Dimensioni – Dimensioni\Nome | vCPU | Memoria|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
 |---|---|---|---|---|---|---|
 | A0\Basic_A0 | 1 | 768 MB  | 2 | 20 GB  | 1  | 1x300  |
 | A1\Basic_A1 | 1 | 1,75 GB | 2 | 40 GB  | 2  | 2x300  |
@@ -116,7 +116,7 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 ### <a name="a-series"></a>Serie A  
 
-**Raccomandazione sulle dimensioni più recenti** : [serie AV2](av2-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie AV2](av2-series.md)
 
 ACU: 50-100
 
@@ -141,7 +141,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 ### <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo  
 
-**Raccomandazione sulle dimensioni più recenti** : [serie AV2](av2-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie AV2](av2-series.md)
 
 ACU: 225
 
@@ -161,13 +161,13 @@ Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso
 <sup>1</sup>Per le applicazioni MPI, la rete back-end RDMA dedicata viene abilitata dalla rete InfiniBand FDR, che offre latenza estremamente bassa e larghezza di banda elevata.  
 
 > [!NOTE]
-> Il ritiro delle macchine virtuali A8 -A11 è previsto per marzo 2021. Si consiglia vivamente di non creare nuove macchine virtuali a8-a11. Eseguire la migrazione di tutte le macchine virtuali a8-a11 esistenti a dimensioni di VM di calcolo ad alte prestazioni più recenti e potenti, ad esempio H, HB, HC, HBv2, nonché le dimensioni delle macchine virtuali di calcolo per utilizzo generico, ad esempio D, e e F, per migliorare le prestazioni dei prezzi. Per altre informazioni, vedere [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Le [macchine virtuali a8-A11 sono pianificate per il ritiro in 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). Si consiglia vivamente di non creare nuove macchine virtuali a8-a11. Eseguire la migrazione di tutte le macchine virtuali a8-a11 esistenti a dimensioni di VM di calcolo ad alte prestazioni più recenti e potenti, ad esempio H, HB, HC, HBv2, nonché le dimensioni delle macchine virtuali di calcolo per utilizzo generico, ad esempio D, e e F, per migliorare le prestazioni dei prezzi. Per altre informazioni, vedere [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
 ### <a name="d-series"></a>Serie D  
 
-**Raccomandazione di dimensioni più recenti** : serie [Dav4](dav4-dasv4-series.md), serie [dv4](dv4-dsv4-series.md) e [Ddv4](ddv4-ddsv4-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [Dav4](dav4-dasv4-series.md), serie [dv4](dv4-dsv4-series.md) e [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -188,7 +188,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 ### <a name="d-series---memory-optimized"></a>Serie D - Con ottimizzazione per la memoria  
 
-**Raccomandazione di dimensioni più recenti** : serie [Dav4](dav4-dasv4-series.md), serie [dv4](dv4-dsv4-series.md) e [Ddv4](ddv4-ddsv4-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [Dav4](dav4-dasv4-series.md), serie [dv4](dv4-dsv4-series.md) e [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -209,7 +209,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 ### <a name="preview-dc-series"></a>Anteprima: serie DC
 
-**Raccomandazione sulle dimensioni più recenti** : [serie DCsv2](dcv2-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie DCsv2](dcv2-series.md)
 
 Archiviazione Premium: supportata
 
@@ -224,12 +224,12 @@ La serie DC USA la generazione più recente di processore Intel XEON E-2176G a 3
 
 > [!IMPORTANT]
 >
-> Le macchine virtuali serie DC sono [macchine virtuali di seconda generazione](./linux/generation-2.md#creating-a-generation-2-vm) e supportano solo le `Gen2` Immagini.
+> Le macchine virtuali serie DC sono [macchine virtuali di seconda generazione](./generation-2.md#creating-a-generation-2-vm) e supportano solo le `Gen2` Immagini.
 
 
 ### <a name="ds-series"></a>Serie DS  
 
-**Raccomandazione di dimensioni più recenti** : serie [Dasv4](dav4-dasv4-series.md), serie [Dsv4](dv4-dsv4-series.md) e [Ddsv4](ddv4-ddsv4-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [Dasv4](dav4-dasv4-series.md), serie [Dsv4](dv4-dsv4-series.md) e [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -250,7 +250,7 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 
 ### <a name="ds-series---memory-optimized"></a>Serie DS - Con ottimizzazione per la memoria  
 
-**Raccomandazione di dimensioni più recenti** : serie [Dasv4](dav4-dasv4-series.md), serie [Dsv4](dv4-dsv4-series.md) e [Ddsv4](ddv4-ddsv4-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [Dasv4](dav4-dasv4-series.md), serie [Dsv4](dv4-dsv4-series.md) e [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -272,7 +272,7 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 
 ### <a name="ls-series"></a>Serie Ls
 
-**Raccomandazione sulle dimensioni più recenti** : [serie Lsv2](lsv2-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie Lsv2](lsv2-series.md)
 
 La serie Ls offre fino a 32 vCPU e usa il [processore Intel® Xeon® della famiglia E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie Ls offre le stesse prestazioni CPU della serie G/GS ed è dotato di 8 GiB di memoria per ogni vCPU.
 
@@ -297,7 +297,7 @@ La massima velocità effettiva del disco possibile con le macchine virtuali seri
 
 ### <a name="gs-series"></a>Serie GS
 
-**Raccomandazione di dimensioni più recenti** : serie [Easv4](eav4-easv4-series.md), serie [Esv4](ev4-esv4-series.md), serie [Edsv4](edv4-edsv4-series.md) e [serie M](m-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [Easv4](eav4-easv4-series.md), serie [Esv4](ev4-esv4-series.md), serie [Edsv4](edv4-edsv4-series.md) e [serie M](m-series.md)
 
 ACU: 180 - 240 <sup>1</sup>
 
@@ -323,7 +323,7 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 
 ### <a name="g-series"></a>Serie G
 
-**Raccomandazione di dimensioni più recenti** : serie [Eav4](eav4-easv4-series.md), serie [Ev4](ev4-esv4-series.md) e [Edv4](edv4-edsv4-series.md) e serie [M](m-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [Eav4](eav4-easv4-series.md), serie [Ev4](ev4-esv4-series.md) e [Edv4](edv4-edsv4-series.md) e serie [M](m-series.md)
 
 ACU: 180 - 240
 
@@ -343,7 +343,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 <br>
 
 ### <a name="nv-series"></a>Serie NV
-**Raccomandazione sulle dimensioni più recenti** : serie [NVv3](nvv3-series.md) e [serie NVv4](nvv4-series.md)
+**Raccomandazione sulle dimensioni più recenti**: serie [NVv3](nvv3-series.md) e [serie NVv4](nvv4-series.md)
 
 Le macchine virtuali delle serie NV sono basate su GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e sulla tecnologia NVIDIA GRID per applicazioni con accelerazione grafica per desktop e desktop virtuali con cui i clienti possono visualizzare i propri dati o le proprie simulazioni. Gli utenti possono visualizzare i flussi di lavoro con utilizzo intensivo di grafica nelle istanze NV per ottenere una funzionalità grafica di livello superiore ed eseguire anche singoli carichi di lavoro di precisione, come la codifica e il rendering. Le macchine virtuali serie NV sono basate anche su CPU Intel Xeon E5-2690 V3 (Haswell).
 
@@ -367,7 +367,7 @@ Manutenzione con mantenimento della memoria: Non supportato
 <br>
 
 ### <a name="nc-series"></a>Serie NC
-**Raccomandazione sulle dimensioni più recenti** : [serie NC T4 V3](nct4-v3-series.md)
+**Raccomandazione sulle dimensioni più recenti**: [serie NC T4 V3](nct4-v3-series.md)
 
 Le macchine virtuali della serie NC sono basate sulla scheda [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e sul processore Intel Xeon E5-2690 V3 (Haswell). Gli utenti possono elaborare i dati più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, Deep Learning e altro ancora. La configurazione NC24r offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati.
 
@@ -394,7 +394,7 @@ Le macchine virtuali della serie NC sono basate sulla scheda [NVIDIA Tesla K80](
 
 
 ### <a name="ncv2-series"></a>Serie NCv2
-**Raccomandazione sulle dimensioni più recenti** : serie [NC T4 V3](nct4-v3-series.md) e [NC V100 V3](ncv3-series.md)
+**Raccomandazione sulle dimensioni più recenti**: serie [NC T4 V3](nct4-v3-series.md) e [NC V100 V3](ncv3-series.md)
 
 Le macchine virtuali serie NCv2 sono basate sulle GPU NVIDIA Tesla P100. Queste GPU possono offrire prestazioni di calcolo più che raddoppiate rispetto a quelle della serie NC. I clienti possono sfruttare i vantaggi di queste GPU aggiornate per carichi di lavoro HPC tradizionali, come la modellazione delle riserve, il sequenziamento del DNA, l'analisi di proteine, le simulazioni Monte Carlo e altro ancora. Oltre alle GPU, le macchine virtuali della serie NCv2 sono basate anche su CPU Intel Xeon E5-2690 V4 (Broadwell).
 
@@ -422,7 +422,7 @@ La configurazione NC24rs v2 offre un'interfaccia di rete ad alta velocità effet
 <br>
 
 ### <a name="nd-series"></a>Serie ND
-**Raccomandazione di dimensioni più recenti** : serie [NDv2](ndv2-series.md) e [NC V100 V3](ncv3-series.md)
+**Raccomandazione di dimensioni più recenti**: serie [NDv2](ndv2-series.md) e [NC V100 V3](ncv3-series.md)
 
 Le macchine virtuali della serie ND sono una novità della famiglia di GPU progettata per carichi di lavoro di intelligenza artificiale e Deep Learning. Offrono prestazioni ottimali per il training e l'inferenza. Le istanze ND sono basate su GPU [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) e CPU Intel Xeon E5-2690 V4 (Broadwell). Queste istanze offrono prestazioni eccellenti per le operazioni con precisione singola e virgola mobile e per carichi di lavoro di intelligenza artificiale che usano Microsoft Cognitive Toolkit, TensorFlow, Caffe e altri framework. La serie ND offre anche dimensioni di memoria di GPU significativamente superiori (24 GB), ottimali per modelli di rete neurale molto più grandi. Analogamente alla serie NC, la serie ND offre una configurazione con latenza bassa secondaria, rete con velocità effettiva elevata tramite RDMA e connettività InfiniBand, in modo che sia possibile eseguire processi di training su vasta scala per molte GPU.
 

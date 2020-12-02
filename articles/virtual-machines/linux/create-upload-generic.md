@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef4175d24cfd02bb5cb6470b6334fea190b5bec2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016336"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500598"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 
@@ -38,7 +38,7 @@ Questo articolo è incentrato sulle linee guida generali per l'esecuzione della 
 * Il formato di disco rigido virtuale di Hyper-V (VHDX) non è supportato in Azure, ma sono supportati solo *dischi rigidi virtuali fissi*.  È possibile convertire il disco in formato VHD usando la console di gestione di Hyper-V o il cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) . Se si usa VirtualBox, selezionare **dimensioni fisse** anziché il valore predefinito allocato in modo dinamico durante la creazione del disco.
 * Azure supporta le macchine virtuali Gen1 (BIOS boot) & Gen2 (UEFI Boot).
 * La dimensione massima consentita per il disco rigido virtuale è 1023 GB.
-* Quando si installa il sistema operativo Linux, è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), che è spesso l'impostazione predefinita per numerose installazioni. In questo modo, sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se sarà mai necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. È possibile usare [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) su dischi di dati.
+* Quando si installa il sistema operativo Linux, è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), che è spesso l'impostazione predefinita per numerose installazioni. In questo modo, sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se sarà mai necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. È possibile usare [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) su dischi di dati.
 * Per il montaggio di file system UDF, è necessario il supporto del kernel. Al primo avvio in Azure la configurazione del provisioning viene passata alla macchina virtuale Linux tramite supporti di memorizzazione formattati con UDF, collegati al guest. È necessario che l'agente Linux di Azure possa montare il file system UDF per leggerne la configurazione ed effettuare il provisioning della macchina virtuale.
 * I kernel Linux con versione precedente a 2.6.37 non supportano NUMA in Hyper-V con macchine virtuali di dimensioni maggiori. Questo problema incide principalmente sulle distribuzioni precedenti che usano il kernel upstream Red Hat 2.6.32. Il problema è stato risolto in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). I sistemi che eseguono kernel personalizzati con versione precedente a 2.6.37 o kernel basati su RHEL con versione precedente a 2.6.32-504 devono impostare il parametro di avvio `numa=off` nella riga di comando del kernel in rub.conf. Per altre informazioni, vedere l'articolo [KB 436883](https://access.redhat.com/solutions/436883) di Red Hat.
 * Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap nel disco temporaneo delle risorse, come descritto nei passaggi seguenti.

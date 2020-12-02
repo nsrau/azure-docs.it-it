@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843554"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500343"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Applicare la sicurezza e usare criteri in macchine virtuali in Azure
 
@@ -41,9 +41,9 @@ La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono pre
 
 È possibile basarsi sulle chiavi gestite dalla piattaforma per la crittografia del disco gestito oppure è possibile gestire la crittografia usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare tutti i dati presenti nei dischi gestiti. 
 
-Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](windows/disk-encryption.md) o [Linux](linux/disk-encryption.md).
+Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](./disk-encryption.md) o [Linux](./disk-encryption.md).
 
-### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Per migliorare la sicurezza e la conformità delle [macchine virtuali Windows](windows/disk-encryption-overview.md) e delle [macchine virtuali Linux](linux/disk-encryption-overview.md), i dischi virtuali in Azure possono essere crittografati. I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante BitLocker. I dischi virtuali delle VM Linux vengono crittografati quando sono inattivi usando dm-crypt. 
 
@@ -73,4 +73,4 @@ Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](..
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Eseguire la procedura per il monitoraggio della sicurezza delle macchine virtuali tramite il Centro sicurezza di Azure per [Linux](../security/fundamentals/overview.md) o [Windows](windows/tutorial-azure-security.md).
+- Eseguire la procedura per il monitoraggio della sicurezza delle macchine virtuali tramite il Centro sicurezza di Azure per [Linux](../security/fundamentals/overview.md) o [Windows](./tutorial-azure-security.md).

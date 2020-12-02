@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d068365cc8197a579c0b043d3fff2da3d54eb803
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687093"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499000"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Esempi di codice .NET (C#) per Azure ricerca cognitiva
 
@@ -44,7 +44,7 @@ Azure SDK per .NET include numerosi esempi e un [file Leggimi di esempio](https:
 
 ## <a name="documentation-samples"></a>Esempi di documentazione
 
-Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva documentazione](https://docs.microsoft.com/azure/search/).
+Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva documentazione](./index.yml).
 
 | Esempi | Descrizione |
 |---------|-------------|
@@ -63,6 +63,6 @@ Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva 
 | Esempi | Descrizione |
 |---------|-------------|
 | [Azure-Search-Power-Skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Codice sorgente per competenze personalizzate utilizzabili che è possibile incorporare nelle soluzioni vinte.  |
-| [Acceleratore di soluzione Knowledge Mining](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Include modelli, file di supporto e report analitici che consentono di eseguire il prototipo di una soluzione di Knowledge mining end-to-end.  |
+| [Acceleratore di soluzione Knowledge Mining](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Include modelli, file di supporto e report analitici che consentono di eseguire il prototipo di una soluzione di Knowledge mining end-to-end.  |
 | [Covid-19 Cerca repository app](https://github.com/liamca/covid19search) | Repository del codice sorgente per l' [app Covid-19 Search](https://covid19search.azurewebsites.net/) basata su ricerca cognitiva |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Scopri di più sulla [soluzione JFK](https://www.microsoft.com/ai/ai-lab-jfk-files). |

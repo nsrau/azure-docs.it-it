@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006942"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499816"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -36,17 +36,17 @@ Ecco gli elementi necessari:
 
 - Almeno un computer protetto in un insieme di credenziali di servizi di ripristino.
 - Area di lavoro Log Analytics per archiviare i log di Site Recovery. Informazioni sulla configurazione di un'area [di](../azure-monitor/learn/quick-create-workspace.md) lavoro.
-- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/get-started-portal.md)
+- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più comuni](monitoring-common-questions.md) .
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Configurare Site Recovery per inviare i log
 
-1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica**Aggiungi impostazioni di  >  **diagnostica**.
+1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica** Aggiungi impostazioni di  >  **diagnostica**.
 
     ![Screenshot che mostra l'opzione Aggiungi impostazione di diagnostica.](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. In **impostazioni di diagnostica**specificare un nome e selezionare la casella **Invia a log Analytics**.
+2. In **impostazioni di diagnostica** specificare un nome e selezionare la casella **Invia a log Analytics**.
 3. Selezionare la sottoscrizione dei log di monitoraggio di Azure e l'area di lavoro Log Analytics.
 4. Selezionare **diagnostica di Azure** nell'interruttore.
 5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Fare quindi clic su **OK**.
@@ -79,7 +79,7 @@ I dati relativi alla varianza e alla velocità di caricamento inizieranno ad acc
 È possibile recuperare i dati dai log usando le query di log scritte con il [linguaggio di query kusto](../azure-monitor/log-query/get-started-queries.md). In questa sezione vengono forniti alcuni esempi di query comuni che è possibile utilizzare per il monitoraggio Site Recovery.
 
 > [!NOTE]
-> Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. In questo modo vengono recuperate le macchine virtuali di Azure replicate in un'area di Azure secondaria usando Site Recovery. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2**se si vuole recuperare macchine virtuali VMware locali o server fisici replicati in Azure usando Site Recovery.
+> Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. In questo modo vengono recuperate le macchine virtuali di Azure replicate in un'area di Azure secondaria usando Site Recovery. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2** se si vuole recuperare macchine virtuali VMware locali o server fisici replicati in Azure usando Site Recovery.
 
 
 ### <a name="query-replication-health"></a>Stato replica query

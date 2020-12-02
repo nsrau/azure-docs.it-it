@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500003"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Sviluppare per dispositivi vincolati tramite Azure IoT C SDK
 
@@ -29,6 +29,9 @@ L'SDK C è disponibile in forma di pacchetto da apt-get, NuGet e MBED. Per fare 
 ## <a name="building-the-c-sdk-for-constrained-devices"></a>Compilazione dell'SDK C per i dispositivi vincolati
 
 Compilare l'SDK C per i dispositivi vincolati.
+
+> [!NOTE]
+> Embedded C SDK è un'alternativa per i dispositivi vincolati che supporta l'approccio Bring Your Own Network (BYON). Gli sviluppatori di Internet delle cose hanno la libertà di portare il client MQTT, TLS e socket di propria scelta per creare una soluzione per dispositivi. [Altre informazioni su Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 ### <a name="prerequisites"></a>Prerequisiti
 

@@ -4,12 +4,12 @@ description: Informazioni sui partner del monitoraggio di Azure e sulle modalit�
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636742"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500241"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -263,7 +263,7 @@ Riduci gli eventi imprevisti e MTTR con la piattaforma AIOps adesso per eliminar
 
 ![Logo di SignalFX](./media/partners/signalfx.png)
 
-SignalFx è leader in soluzioni di intelligence operativa in tempo reale per DevOps basate sui dati. Il servizio rileva e raccoglie le metriche da tutti i componenti nel cloud. Sostituisce gli strumenti per punti tradizionali e offre visibilità in tempo reale negli ambienti dinamici odierni. Sfruttando la piattaforma SignalFx ad alta scalabilità, la piattaforma SaaS è ottimizzata per architetture basate su contenitori e microservizi e offre ad aziende di ogni dimensione potenti strumenti di visualizzazione, avvisi proattivi e funzionalità di valutazione collaborative. SignalFx si integra direttamente con monitoraggio di Azure, nonché tramite connettori open source come *Telegraf* , *Statistics* e *collectd* per offrire dashboard, analisi e avvisi più adatti per Azure.
+SignalFx è leader in soluzioni di intelligence operativa in tempo reale per DevOps basate sui dati. Il servizio rileva e raccoglie le metriche da tutti i componenti nel cloud. Sostituisce gli strumenti per punti tradizionali e offre visibilità in tempo reale negli ambienti dinamici odierni. Sfruttando la piattaforma SignalFx ad alta scalabilità, la piattaforma SaaS è ottimizzata per architetture basate su contenitori e microservizi e offre ad aziende di ogni dimensione potenti strumenti di visualizzazione, avvisi proattivi e funzionalità di valutazione collaborative. SignalFx si integra direttamente con monitoraggio di Azure, nonché tramite connettori open source come *Telegraf*, *Statistics* e *collectd* per offrire dashboard, analisi e avvisi più adatti per Azure.
 
 [Documentazione di signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -310,6 +310,20 @@ Sumo Logic è un servizio protetto di analisi dei dati del computer nativo del c
 Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizzando al tempo stesso le prestazioni, i costi e la conformità in tempo reale. Turbonomic consente alle organizzazioni di mantenere elasticità nello spazio di Azure ottimizzandolo in modo da permettere alle applicazioni di disporre sempre delle risorse necessarie per soddisfare esattamente i requisiti del contratto di servizio a livello di servizi di elaborazione, archiviazione e rete per piattaforme IaaS e PaaS. Le organizzazioni possono simulare le migrazioni, ridimensionare in modo appropriato i carichi di lavoro e ritirare le risorse dei data center di cui eseguire la migrazione in Azure tempestivamente e nel rispetto del budget, garantendo al contempo le prestazioni e la conformità. Turbonomic è basato su API e viene eseguito come macchina virtuale senza agenti in Azure e in locale.
 
 [Introduzione a Turbonomic](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>Strumenti per i partner con integrazione dell'hub eventi
+
+L'uso di monitoraggio di Azure per instradare i dati di monitoraggio a un hub eventi di Azure consente di eseguire facilmente l'integrazione con alcuni strumenti esterni SIEM e di monitoraggio. I partner seguenti sono noti per l'integrazione tramite hub eventi. 
+
+| Strumento | Ospitato in Azure | Descrizione |
+|:---|:---| :---|
+|  IBM QRadar | No | Microsoft Azure DSM e Microsoft Azure Event Hub Protocol sono scaricabili dal [sito Web del supporto IBM](https://www.ibm.com/support). Altre informazioni sull'integrazione con Azure sono disponibili nella pagina relativa alla [configurazione di QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | [Microsoft Azure Add-On per Splunk](https://splunkbase.splunk.com/app/3757/) è un progetto open source disponibile in splunkbase. <br><br> Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk, se ad esempio si usa un proxy o in esecuzione in Splunk cloud, è possibile inviare questi eventi all'agente di raccolta eventi HTTP Splunk usando la [funzione di Azure per Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), che viene attivata da nuovi messaggi nell'hub eventi. |
+| sumologic | No | Le istruzioni per la configurazione di SumoLogic per l'utilizzo di dati da un hub eventi sono disponibili in [raccogliere i log per l'app Azure audit dall'hub eventi](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | Il connettore intelligente Hub eventi di Azure ArcSight è disponibile come parte della [raccolta di Smart Connector ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Server Syslog | No | Se si vuole trasmettere i dati di monitoraggio di Azure direttamente a un server syslog, è possibile usare una [soluzione basata su una funzione di Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Le istruzioni per configurare LogRhythm per la raccolta di log da un hub eventi sono disponibili [qui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Sì | Per altre informazioni, vedere [Introduzione al monitoraggio e alla registrazione con LOGZ.io per app Java in esecuzione in Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

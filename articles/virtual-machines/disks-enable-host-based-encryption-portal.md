@@ -8,20 +8,20 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817657"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499374"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare la portale di Azure per abilitare la crittografia end-to-end usando la crittografia nell'host
 
 Quando si Abilita la crittografia in host, i dati archiviati nell'host della macchina virtuale vengono crittografati a riposo e i flussi vengono crittografati nel servizio di archiviazione. Per informazioni concettuali sulla crittografia nell'host, nonché altri tipi di crittografia del disco gestito, vedere:
 
-* Linux: [crittografia in host: crittografia end-to-end per i dati della VM](./linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Linux: [crittografia in host: crittografia end-to-end per i dati della VM](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-* Windows: [crittografia in host: crittografia end-to-end per i dati della VM](./windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Windows: [crittografia in host: crittografia end-to-end per i dati della VM](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -63,7 +63,7 @@ Quando la funzionalità è abilitata, è necessario configurare un Azure Key Vau
 1. Nel pannello **dischi** selezionare **Sì** per **crittografia nell'host**.
 1. Eseguire le selezioni rimanenti desiderate.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot del pannello nozioni di base per la creazione di macchine virtuali, le dimensioni area e V M sono evidenziate.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot del pannello dischi di creazione della macchina virtuale. la crittografia nell'host è evidenziata.":::
 
 1. Completare il processo di distribuzione della macchina virtuale, effettuare le selezioni adatte all'ambiente.
 

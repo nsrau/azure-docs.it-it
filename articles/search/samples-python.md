@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 3de630552f7ad2cc941fe23369398c10ffce5870
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686848"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499561"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Esempi di codice Python per Azure ricerca cognitiva
 
@@ -45,7 +45,7 @@ Azure SDK per Python include numerosi esempi e una [pagina](https://github.com/A
 
 ## <a name="documentation-samples"></a>Esempi di documentazione
 
-Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva documentazione](https://docs.microsoft.com/azure/search/).
+Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva documentazione](./index.yml).
 
 | Esempi | Descrizione | 
 |---------|-------------|

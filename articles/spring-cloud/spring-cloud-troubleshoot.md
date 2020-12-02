@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 91ef218abc51cbdf079fd9e1baa8eb2b907087df
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954206"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498609"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Risolvere i problemi comuni di Azure Spring cloud
 
@@ -66,7 +66,7 @@ Quando si esegue il debug degli arresti anomali dell'applicazione, iniziare cont
 
 
 
-Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).
+Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Nell'applicazione si verifica un uso elevato della CPU o un uso elevato della memoria
 
@@ -88,7 +88,7 @@ Per altre informazioni, vedere [metriche per il cloud Spring di Azure](spring-cl
 
 Se tutte le istanze sono in esecuzione, passare ad Azure Log Analytics per eseguire una query sui log dell'applicazione ed esaminare la logica del codice. Ciò consentirà di verificare se uno di essi potrebbe influire sul partizionamento di ridimensionamento. Per altre informazioni, vedere [analizzare i log e le metriche con le impostazioni di diagnostica](diagnostic-services.md).
 
-Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md). Eseguire una query sui log usando il [linguaggio di query kusto](/azure/kusto/query/).
+Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md). Eseguire una query sui log usando il [linguaggio di query kusto](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Elenco di controllo per la distribuzione dell'applicazione Spring nel cloud Spring di Azure
 
@@ -163,7 +163,7 @@ Se si esegue la migrazione di una soluzione basata su cloud Spring esistente ad 
 
 È anche possibile controllare i log del client _del registro di sistema del servizio_ in Azure log Analytics. Per altre informazioni, vedere [analizzare i log e le metriche con le impostazioni di diagnostica](diagnostic-services.md)
 
-Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md). Eseguire una query sui log usando il [linguaggio di query kusto](/azure/kusto/query/).
+Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md). Eseguire una query sui log usando il [linguaggio di query kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Si vuole esaminare le variabili di ambiente dell'applicazione
 

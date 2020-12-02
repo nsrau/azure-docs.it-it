@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6e3e1769b6043599d606b84b531ec908519d4c7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9377a21415c22e7b68d850ca1a95f931e62fe573
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955566"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499731"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -35,9 +35,9 @@ L'estensione macchina virtuale di Key Vault supporta queste distribuzioni Linux:
 - PEM
 
 ## <a name="prerequisities"></a>Prerequisiti
-  - Key Vault istanza con certificato. Vedere [creare un Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
-  - VM/VMSS deve avere l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) assegnata
-  - I criteri di accesso Key Vault devono essere impostati con i segreti `get` e l' `list` autorizzazione per l'identità gestita VM/vmss per recuperare la parte del certificato di un segreto. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-cli).
+  - Key Vault istanza con certificato. Vedere [creare un Key Vault](../../key-vault/general/quick-create-portal.md)
+  - VM/VMSS deve avere l' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) assegnata
+  - I criteri di accesso Key Vault devono essere impostati con i segreti `get` e l' `list` autorizzazione per l'identità gestita VM/vmss per recuperare la parte del certificato di un segreto. Vedere [come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md) e [assegnare un criterio di accesso key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -109,7 +109,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 La configurazione JSON per un'estensione macchina virtuale deve essere annidata all'interno del frammento delle risorse della macchina virtuale del modello, in particolare nell'oggetto `"resources": []` per il modello di macchina virtuale e nell'oggetto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` nel caso di un set di scalabilità di macchine virtuali.
 
  > [!NOTE]
-> Per l'autenticazione nell'insieme di credenziali delle chiavi, l'estensione della macchina virtuale richiede l'assegnazione dell'identità gestita dal sistema o dall'utente.  Vedere [come eseguire l'autenticazione a Key Vault e assegnare un criterio di accesso key Vault.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> Per l'autenticazione nell'insieme di credenziali delle chiavi, l'estensione della macchina virtuale richiede l'assegnazione dell'identità gestita dal sistema o dall'utente.  Vedere [come eseguire l'autenticazione a Key Vault e assegnare un criterio di accesso key Vault.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 > 
 
 ```json

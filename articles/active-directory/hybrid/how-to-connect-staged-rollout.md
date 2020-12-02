@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836394"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500224"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
@@ -66,6 +66,8 @@ Per l'implementazione a fasi sono supportati gli scenari riportati di seguito. L
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
 Per l'implementazione a fasi non sono supportati gli scenari riportati di seguito:
+
+- Le applicazioni o i servizi cloud usano l'autenticazione legacy, ad esempio POP3 e SMTP.
 
 - Alcune applicazioni inviano il parametro di query "domain_hint" ad Azure AD durante l'autenticazione. Questi flussi saranno ancora possibili e gli utenti abilitati per l'implementazione a fasi continueranno a usare la federazione per l'autenticazione.
 

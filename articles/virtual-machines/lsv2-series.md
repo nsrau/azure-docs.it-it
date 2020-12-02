@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652925"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498422"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -51,7 +51,7 @@ In sequenza: supportato<br>
 
 <sup>4</sup> Le macchine virtuali serie Lsv2 non prevedono la cache dell'host per il disco dati perché non genera alcun vantaggio per i carichi di lavoro Lsv2.
 
-<sup>5</sup> [le macchine](linux/disk-bursting.md) virtuali serie Lsv2 possono incrementare le prestazioni del disco per un massimo di 30 minuti alla volta. 
+<sup>5</sup> [le macchine](./disk-bursting.md) virtuali serie Lsv2 possono incrementare le prestazioni del disco per un massimo di 30 minuti alla volta. 
 
 <sup>6</sup> le macchine virtuali con più di 64 vCPU richiedono uno di questi sistemi operativi guest supportati:
 

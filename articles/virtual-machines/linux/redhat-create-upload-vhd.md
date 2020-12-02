@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cc8d4458de5f3bbf1eaf111aa10f1377f3c9d46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c352b9e6b067724fbfc00bf5b0338baf8514421
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292299"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500496"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su RedHat per Azure
 In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono la 6.7+ e la 7.1+. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware. Per altre informazioni sui requisiti di idoneità per partecipare al programma di accesso al cloud di Red Hat, vedere gli articoli relativi al [sito web di accesso al cloud di Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e all'[esecuzione di RHEL in Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Per informazioni su come automatizzare la creazione di immagini RHEL, vedere il [Generatore di immagini di Azure](./image-builder-overview.md).
@@ -28,7 +28,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 * Azure non supporta il formato VHDX. Azure supporta solo dischi rigidi virtuali a dimensione fissa. È possibile usare la console di gestione di Hyper-V o il cmdlet convert-vhd per convertire il disco in formato VHD. Se si usa VirtualBox, durante la creazione del disco selezionare **Fixed size** (A dimensione fissa) anziché l'opzione predefinita di allocazione dinamica.
 * Azure supporta le macchine virtuali Gen1 (BIOS boot) & Gen2 (UEFI Boot).
 * La dimensione massima consentita per il disco rigido virtuale è 1.023 GB.
-* LVM (Logical Volume Manager) è supportato e può essere usato nel disco del sistema operativo o nei dischi dati in macchine virtuali di Azure. Tuttavia, in genere è consigliabile usare partizioni standard sul disco del sistema operativo anziché LVM. Questa procedura consentirà di evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se fosse eventualmente necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. Vedere anche la documentazione di [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* LVM (Logical Volume Manager) è supportato e può essere usato nel disco del sistema operativo o nei dischi dati in macchine virtuali di Azure. Tuttavia, in genere è consigliabile usare partizioni standard sul disco del sistema operativo anziché LVM. Questa procedura consentirà di evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se fosse eventualmente necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. Vedere anche la documentazione di [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Per montare file system UDF (Universal Disk Format) è necessario il supporto del kernel. Al primo avvio in Azure, i supporti con formattazione UDF collegati al guest passano la configurazione di provisioning alla macchina virtuale Linux. L'agente Linux di Azure deve poter montare il file system UDF per leggerne la configurazione ed effettuare il provisioning della macchina virtuale.
 * Non configurare una partizione di swapping sul disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file di scambio sul disco risorse temporaneo.  Altre informazioni su questo argomento sono disponibili nei passaggi riportati di seguito.
 * Le dimensioni virtuali di tutti i dischi rigidi virtuali su Azure devono essere allineate a 1 MB. Quando si converte un disco non formattato in un disco rigido virtuale, prima della conversione è necessario assicurarsi che le dimensioni del disco non formattato siano un multiplo di 1 MB. Altri dettagli sono disponibili nelle procedure seguenti. Per altre informazioni, vedere anche [Note sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes).

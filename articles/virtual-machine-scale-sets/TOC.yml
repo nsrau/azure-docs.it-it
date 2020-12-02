@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i set di scalabilità delle macchine virtuali?
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare nel portale di Azure
       href: quick-create-portal.md
@@ -176,7 +176,7 @@
           href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Crittografia
-          href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+          href: ../virtual-machines/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Prestazioni di Archiviazione Premium
           href: ../virtual-machines/premium-storage-performance.md
@@ -195,7 +195,7 @@
     - name: Automatizzazione dell'infrastruttura
       href: ../virtual-machines/infrastructure-automation.md
       maintainContext: true
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../virtual-machines/security-policy.md

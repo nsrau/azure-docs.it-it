@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504323"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499289"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -220,6 +220,6 @@ Quando si crea la versione dell'immagine nel portale, è possibile usare la sche
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere altre informazioni sulla [crittografia dei dischi sul lato server](./windows/disk-encryption.md).
+Vedere altre informazioni sulla [crittografia dei dischi sul lato server](./disk-encryption.md).
 
 Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).

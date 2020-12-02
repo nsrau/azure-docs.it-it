@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024314"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499136"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale
 
@@ -37,7 +37,7 @@ Una singola chiave di sottoscrizione del servizio vocale concede l'accesso alle 
 
 Il servizio riconoscimento vocale è in gran parte simile a Bing Speech, con le differenze seguenti.
 
-| Funzionalità | Riconoscimento vocale Bing | Servizio Voce | Dettagli |
+| Feature | Riconoscimento vocale Bing | Servizio Voce | Dettagli |
 |--|--|--|--|
 | SDK per C# | :heavy_check_mark: | :heavy_check_mark: | Il servizio riconoscimento vocale supporta Windows 10, piattaforma UWP (Universal Windows Platform) (UWP) e .NET Standard 2,0. |
 | C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Il servizio riconoscimento vocale supporta Windows e Linux. |
@@ -79,7 +79,7 @@ Per iniziare a usare Speech SDK:
 
 I clienti di Riconoscimento vocale Bing devono contattare il supporto tecnico aprendo un [ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). È anche possibile contattare Microsoft se il caso richiede un [piano di supporto tecnico](https://azure.microsoft.com/support/plans/).
 
-Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del supporto](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)del servizio di riconoscimento vocale.
+Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del supporto](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)del servizio di riconoscimento vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

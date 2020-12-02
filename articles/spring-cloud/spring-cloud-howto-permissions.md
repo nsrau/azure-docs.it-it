@@ -7,15 +7,15 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516189"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498643"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Come usare le autorizzazioni nel cloud Spring di Azure
-Questo articolo illustra come creare ruoli personalizzati che delegano le autorizzazioni per le risorse cloud di Azure Spring. I ruoli personalizzati estendono i [ruoli predefiniti di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) con varie autorizzazioni per le scorte.
+Questo articolo illustra come creare ruoli personalizzati che delegano le autorizzazioni per le risorse cloud di Azure Spring. I ruoli personalizzati estendono i [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md) con varie autorizzazioni per le scorte.
 
 Si implementeranno i seguenti ruoli personalizzati:
 
@@ -61,19 +61,19 @@ Selezionare *Microsoft Azure Spring cloud*.
 
 8. Selezionare le autorizzazioni per il ruolo Sviluppatore:
 
-Da **Microsoft. AppPlatform/Spring**selezionare:
+Da **Microsoft. AppPlatform/Spring** selezionare:
 * Scrittura: creare o aggiornare l'istanza del servizio cloud di Azure Spring
 * Leggere: ottenere l'istanza del servizio cloud Spring di Azure
 * Altro: elencare le chiavi di test dell'istanza del servizio cloud di Azure Spring
 
-Da **Microsoft. AppPlatform/Spring/Apps**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps** selezionare:
 * Leggere: leggere Microsoft Azure applicazione Spring cloud
 * Altro: ottenere Microsoft Azure URL di caricamento delle risorse dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/bindings**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/bindings** selezionare:
 * Leggere: leggere Microsoft Azure associazione dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/Deployments**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/Deployments** selezionare:
 * Scrittura: scrivere Microsoft Azure distribuzione di applicazioni cloud Spring
 * Leggere: leggere Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: avviare Microsoft Azure distribuzione di applicazioni cloud Spring
@@ -81,21 +81,21 @@ Da **Microsoft. AppPlatform/Spring/Apps/Deployments**selezionare:
 * Altro: riavviare Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: ottenere Microsoft Azure URL del file di log della distribuzione dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/Domains**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/Domains** selezionare:
 * Leggere: leggere Microsoft Azure dominio personalizzato dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Certificates**selezionare:
+Da **Microsoft. AppPlatform/Spring/Certificates** selezionare:
 * Leggere: leggere Microsoft Azure il certificato di Spring cloud
 
-Da **Microsoft. AppPlatform/locations/operationresults/Spring**selezionare:
+Da **Microsoft. AppPlatform/locations/operationresults/Spring** selezionare:
 * Read: risultato dell'operazione di lettura
 
-Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId**selezionare:
+Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId** selezionare:
 * Lettura: stato dell'operazione di lettura
 
     [![Creare autorizzazioni ](media/spring-cloud-permissions/developer-permissions-box.png) Developler](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-9. Fare clic su **Aggiungi**.
+9. Scegliere **Aggiungi**.
 
 10. Esaminare le autorizzazioni.
 
@@ -107,7 +107,7 @@ Questa procedura definisce un ruolo con le autorizzazioni per la distribuzione, 
 1. Ripetere la procedura per esplorare la sottoscrizione, il gruppo di risorse e il controllo di accesso (IAM).
 2. Selezionare le autorizzazioni per il ruolo di ingegnere DevOps:
 
-Da **Microsoft. AppPlatform/Spring**selezionare:
+Da **Microsoft. AppPlatform/Spring** selezionare:
 * Scrittura: creare o aggiornare l'istanza del servizio cloud di Azure Spring
 * Elimina: Elimina l'istanza del servizio cloud di Azure Spring
 * Leggere: ottenere l'istanza del servizio cloud Spring di Azure
@@ -116,19 +116,19 @@ Da **Microsoft. AppPlatform/Spring**selezionare:
 * Altro: elencare le chiavi di test dell'istanza del servizio cloud di Azure Spring
 * Altro: rigenera la chiave di test dell'istanza del servizio cloud Spring di Azure
 
-Da **Microsoft. AppPlatform/Spring/Apps**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps** selezionare:
 * Scrittura: scrivere Microsoft Azure applicazione Spring cloud
 * Elimina: Elimina Microsoft Azure applicazione Spring cloud
 * Leggere: leggere Microsoft Azure applicazione Spring cloud
 * Altro: ottenere Microsoft Azure URL di caricamento delle risorse dell'applicazione Spring cloud
 * Altro: convalida Microsoft Azure dominio personalizzato dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/bindings**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/bindings** selezionare:
 * Scrittura: scrivere Microsoft Azure associazione di applicazioni cloud Spring
 * Elimina: Elimina Microsoft Azure associazione di applicazioni cloud Spring
 * Leggere: leggere Microsoft Azure associazione dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/Deployments**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/Deployments** selezionare:
 * Scrittura: scrivere Microsoft Azure distribuzione di applicazioni cloud Spring
 * Elimina: Elimina la distribuzione di applicazioni cloud Spring Azure
 * Leggere: leggere Microsoft Azure distribuzione di applicazioni cloud Spring
@@ -137,23 +137,23 @@ Da **Microsoft. AppPlatform/Spring/Apps/Deployments**selezionare:
 * Altro: riavviare Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: ottenere Microsoft Azure URL del file di log della distribuzione dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/Deployments/SKUS**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/Deployments/SKUS** selezionare:
 * Leggere: elencare gli SKU disponibili per la distribuzione di applicazioni
 
-Da **Microsoft. AppPlatform/locations**selezionare:
+Da **Microsoft. AppPlatform/locations** selezionare:
 * Altro: controllare la disponibilità del nome
 
 Da Microsoft. AppPlatform/locations/operationResults/Spring Select: Read: Read Operation Result
 
-Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId**selezionare:
+Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId** selezionare:
 * Lettura: stato dell'operazione di lettura
 
-Da **Microsoft. AppPlatform/SKU**selezionare:
+Da **Microsoft. AppPlatform/SKU** selezionare:
 * Lettura: elenca gli SKU disponibili
 
    [![Autorizzazioni ](media/spring-cloud-permissions/dev-ops-permissions.png) di sviluppo/op](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 
 4. Esaminare le autorizzazioni.
 
@@ -166,28 +166,28 @@ Questa procedura definisce un ruolo con le autorizzazioni per la distribuzione, 
 
 2. Selezionare le autorizzazioni per il ruolo di progettazione dell'affidabilità del sito Ops:
 
-Da **Microsoft. AppPlatform/Spring**selezionare:
+Da **Microsoft. AppPlatform/Spring** selezionare:
 * Leggere: ottenere l'istanza del servizio cloud Spring di Azure
 * Altro: elencare le chiavi di test dell'istanza del servizio cloud di Azure Spring
 
-Da **Microsoft. AppPlatform/Spring/Apps**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps** selezionare:
 * Leggere: leggere Microsoft Azure applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Apps/Deployments**selezionare:
+Da **Microsoft. AppPlatform/Apps/Deployments** selezionare:
 * Leggere: leggere Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: avviare Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: arrestare Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: riavviare Microsoft Azure distribuzione di applicazioni cloud Spring
 
-Da **Microsoft. AppPlatform/locations/operationresults/Spring**selezionare:
+Da **Microsoft. AppPlatform/locations/operationresults/Spring** selezionare:
 * Read: risultato dell'operazione di lettura
 
-Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId**selezionare:
+Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId** selezionare:
 * Lettura: stato dell'operazione di lettura
 
    [![Autorizzazioni ](media/spring-cloud-permissions/ops-sre-permissions.png) Ops/SRE](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 
 4. Esaminare le autorizzazioni.
 
@@ -202,7 +202,7 @@ Questo ruolo Jenkins/GitHub actions può creare e configurare tutti gli elementi
 
 3. Selezionare le autorizzazioni per il ruolo di Azure Pipelines/provisioning:
   
-Da **Microsoft. AppPlatform/Spring**selezionare:
+Da **Microsoft. AppPlatform/Spring** selezionare:
 * Scrittura: creare o aggiornare l'istanza del servizio cloud di Azure Spring
 * Elimina: Elimina l'istanza del servizio cloud di Azure Spring
 * Leggere: ottenere l'istanza del servizio cloud Spring di Azure
@@ -211,19 +211,19 @@ Da **Microsoft. AppPlatform/Spring**selezionare:
 * Altro: elencare le chiavi di test dell'istanza del servizio cloud di Azure Spring
 * Altro: rigenera la chiave di test dell'istanza del servizio cloud Spring di Azure
 
-Da **Microsoft. AppPlatform/Spring/Apps**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps** selezionare:
 * Scrittura: scrivere Microsoft Azure applicazione Spring cloud
 * Elimina: Elimina Microsoft Azure applicazione Spring cloud
 * Leggere: leggere Microsoft Azure applicazione Spring cloud
 * Altro: ottenere Microsoft Azure URL di caricamento delle risorse dell'applicazione Spring cloud
 * Altro: convalida Microsoft Azure dominio personalizzato dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/bindings**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/bindings** selezionare:
 * Scrittura: scrivere Microsoft Azure associazione di applicazioni cloud Spring
 * Elimina: Elimina Microsoft Azure associazione di applicazioni cloud Spring
 * Leggere: leggere Microsoft Azure associazione dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/Spring/Apps/Deployments**selezionare:
+Da **Microsoft. AppPlatform/Spring/Apps/Deployments** selezionare:
 * Scrittura: scrivere Microsoft Azure distribuzione di applicazioni cloud Spring
 * Elimina: Elimina la distribuzione di applicazioni cloud Spring Azure
 * Leggere: leggere Microsoft Azure distribuzione di applicazioni cloud Spring
@@ -232,24 +232,24 @@ Da **Microsoft. AppPlatform/Spring/Apps/Deployments**selezionare:
 * Altro: riavviare Microsoft Azure distribuzione di applicazioni cloud Spring
 * Altro: ottenere Microsoft Azure URL del file di log della distribuzione dell'applicazione Spring cloud
 
-Da **Microsoft. AppPlatform/SKU**selezionare:
+Da **Microsoft. AppPlatform/SKU** selezionare:
 * Lettura: elenca gli SKU disponibili
 
-Da **Microsoft. AppPlatform/locations**selezionare:
+Da **Microsoft. AppPlatform/locations** selezionare:
 * Altro: controllare la disponibilità del nome
 
-Da **Microsoft. AppPlatform/locations/operationresults/Spring**selezionare:
+Da **Microsoft. AppPlatform/locations/operationresults/Spring** selezionare:
 * Read: risultato dell'operazione di lettura
 
-Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId**selezionare:
+Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId** selezionare:
 * Lettura: stato dell'operazione di lettura
 
-Da **Microsoft. AppPlatform/SKU**selezionare:
+Da **Microsoft. AppPlatform/SKU** selezionare:
 * Lettura: elenca gli SKU disponibili
 
    [![Autorizzazioni ](media/spring-cloud-permissions/pipelines-permissions-box.png) per pipeline](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
-4. Fare clic su **Aggiungi**.
+4. Scegliere **Aggiungi**.
 
 5. Esaminare le autorizzazioni.
 
@@ -257,9 +257,9 @@ Da **Microsoft. AppPlatform/SKU**selezionare:
 
 
 ## <a name="see-also"></a>Vedi anche
-* [Creare o aggiornare ruoli personalizzati di Azure usando il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Creare o aggiornare ruoli personalizzati di Azure usando il portale di Azure](../role-based-access-control/custom-roles-portal.md)
 
 Per ulteriori informazioni su tre metodi che definiscono le autorizzazioni personalizzate, vedere:
-* [Clonare un ruolo](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Iniziare da zero](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Inizia da JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Clonare un ruolo](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Iniziare da zero](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Inizia da JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)

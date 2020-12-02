@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3c40e4c7b00a5c78872a60af25e3b19fe08f324
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467693"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499782"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Abilitazione delle funzionalità dell'area di lavoro sinapsi in un pool SQL dedicato esistente (in precedenza SQL DW)
 
@@ -44,7 +44,7 @@ Le informazioni seguenti si applicano quando si usa un'operazione SQL DW dedicat
 
 - **Sicurezza di rete** Se l'area di lavoro sinapsi abilitata nel pool SQL dedicato esistente (in precedenza SQL DW) è abilitata per la protezione dell'infiltrazione dei dati. Creare una connessione all'endpoint privato gestito dall'area di lavoro al server SQL logico. Approva la richiesta di connessione all'endpoint privato per consentire le comunicazioni tra il server e l'area di lavoro.
 - **Studio** Pool SQL nell' **hub dati** un'area di lavoro è stato abilitato un pool SQL dedicato (in precedenza SQL DW) che può essere identificato tramite la descrizione comando nell'hub dati. 
-- **creazione di un nuovo pool SQL dedicato (in precedenza SQL DW)** È possibile creare nuovi pool SQL dedicati tramite l'area di lavoro sinapsi e studio dopo che la funzionalità dell'area di lavoro è stata abilitata e il provisioning di un nuovo pool verrà eseguito sul server SQL logico. Le nuove risorse verranno visualizzate nel portale e in studio al termine del provisioning.      
+- **Creazione di un nuovo pool SQL dedicato (in precedenza SQL DW)** È possibile creare nuovi pool SQL dedicati tramite l'area di lavoro sinapsi e studio dopo che la funzionalità dell'area di lavoro è stata abilitata e il provisioning di un nuovo pool verrà eseguito sul server SQL logico. Le nuove risorse verranno visualizzate nel portale e in studio al termine del provisioning.      
 
 ## <a name="next-steps"></a>Passaggi successivi
 Abilitare le [funzionalità dell'area di lavoro sinapsi](workspace-connected-create.md) nel pool SQL dedicato esistente (in precedenza SQL DW)

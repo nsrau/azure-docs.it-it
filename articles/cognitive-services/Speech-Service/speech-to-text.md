@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento vocale, software di riconoscimento vocale
-ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015223"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499646"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -48,7 +48,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 ## <a name="customization"></a>Personalizzazione
 
-Oltre al modello di servizio vocale standard, è possibile creare modelli personalizzati. La personalizzazione consente di superare gli ostacoli al riconoscimento vocale, ad esempio lo stile di pronuncia, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md). Opzioni di personalizzazione variano in base a lingua/impostazioni locali, vedere le [lingue supportate](./language-support.md) per verificare il supporto.
+Oltre al modello di servizio vocale standard, è possibile creare modelli personalizzati. La personalizzazione consente di superare gli ostacoli al riconoscimento vocale, ad esempio lo stile di pronuncia, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](./custom-speech-overview.md). Opzioni di personalizzazione variano in base a lingua/impostazioni locali, vedere le [lingue supportate](./language-support.md) per verificare il supporto.
 
 ## <a name="batch-transcription"></a>Trascrizione Batch
 

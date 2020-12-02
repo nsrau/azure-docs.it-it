@@ -3,20 +3,20 @@ title: Attività webhook in Azure Data Factory
 description: L'attività webhook non continua l'esecuzione della pipeline fino a quando non convalida il set di dati collegato con determinati criteri specificati dall'utente.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634981"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499408"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 
@@ -53,7 +53,7 @@ Un'attività webhook può controllare l'esecuzione delle pipeline tramite il cod
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatoria
+Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
 **name** | Nome dell'attività del webhook. | string | Sì |
 **type** | Deve essere impostato su "webhook". | string | Sì |
@@ -62,14 +62,14 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 **intestazioni** | Intestazioni che vengono inviate alla richiesta. Di seguito è riportato un esempio che imposta il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Stringa o espressione con il valore **ResultType** di una stringa. | Sì. `Content-Type`È necessaria un'intestazione come `"headers":{ "Content-Type":"application/json"}` . |
 **body** | Rappresenta il payload inviato all'endpoint. | JSON valido o espressione con valore **RESULTTYPE** JSON. Vedere [schema del payload della richiesta](./control-flow-web-activity.md#request-payload-schema) per lo schema del payload della richiesta. | Sì |
 **autenticazione** | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" e "ClientCertificate". Per altre informazioni, vedere [Autenticazione](./control-flow-web-activity.md#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa o espressione con il valore **ResultType** di una stringa. | No |
-**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d* . *HH* : *mm* : *SS* . | string | No |
+**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d*. *HH*:*mm*:*SS*. | string | No |
 **Segnala stato del callback** | Consente a un utente di segnalare lo stato di errore di un'attività webhook. | Boolean | No |
 
 ## <a name="authentication"></a>Authentication
 
 Un'attività webhook supporta i tipi di autenticazione seguenti.
 
-### <a name="none"></a>nessuno
+### <a name="none"></a>Nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà di **autenticazione** .
 
@@ -119,7 +119,7 @@ L'attività del webhook ha esito negativo quando la chiamata all'endpoint person
 
 Per ogni chiamata all'API REST, si verifica il timeout del client se l'endpoint non risponde entro un minuto. Questo comportamento è la procedura consigliata standard HTTP. Per risolvere il problema, implementare uno schema 202. Nel caso corrente, l'endpoint restituisce 202 (accettato) e il client esegue il polling.
 
-Il timeout di un minuto per la richiesta non ha nulla a che fare con il timeout dell'attività. Quest'ultimo viene usato per attendere il callback specificato da **callbackUri** .
+Il timeout di un minuto per la richiesta non ha nulla a che fare con il timeout dell'attività. Quest'ultimo viene usato per attendere il callback specificato da **callbackUri**.
 
 Il corpo passato all'URI di callback deve essere JSON valido. Impostare l'intestazione `Content-Type` su `application/json`.
 

@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3b0acd683309ceb105c49dc5b0bd493ce2e461b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289349"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500428"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 
@@ -71,7 +71,7 @@ Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo 
 
 La crittografia lato server esegue la crittografia dei dati inattivi e protegge i dati consentendo di soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia lato server è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui sono disponibili dischi gestiti. I dischi temporanei, invece, non vengono crittografati dalla crittografia lato server a meno che non si abiliti la crittografia a livello di host. Vedere [Ruoli del disco: dischi temporanei](#temporary-disk).
 
-È possibile far gestire le chiavi ad Azure (chiavi gestite dalla piattaforma) oppure scegliere di gestirle personalmente (chiavi gestite dal cliente). Per altre informazioni, vedere [Crittografia lato server dell'archiviazione su disco di Azure](windows/disk-encryption.md).
+È possibile far gestire le chiavi ad Azure (chiavi gestite dalla piattaforma) oppure scegliere di gestirle personalmente (chiavi gestite dal cliente). Per altre informazioni, vedere [Crittografia lato server dell'archiviazione su disco di Azure](./disk-encryption.md).
 
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
@@ -96,7 +96,7 @@ Questo disco ha una capacità massima di 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporaneo
 
-La maggior parte delle macchine virtuali contiene un disco temporaneo, che non è un disco gestito. Il disco temporaneo fornisce l'archiviazione a breve termine per le applicazioni e i processi ed è destinato solo a archiviare i dati, ad esempio file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un riavvio standard della VM, i dati sul disco temporaneo rimarranno in modo permanente. Per altre informazioni sulle macchine virtuali senza dischi temporanei, vedere dimensioni delle macchine virtuali [di Azure senza dischi temporanei locali](azure-vms-no-temp-disk.md).
+La maggior parte delle macchine virtuali contiene un disco temporaneo, che non è un disco gestito. Il disco temporaneo fornisce l'archiviazione a breve termine per le applicazioni e i processi ed è destinato solo a archiviare i dati, ad esempio file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un riavvio standard della VM, i dati sul disco temporaneo rimarranno in modo permanente. Per altre informazioni sulle macchine virtuali senza dischi temporanei, vedere dimensioni delle macchine virtuali [di Azure senza dischi temporanei locali](azure-vms-no-temp-disk.md).
 
 Nelle VM Linux di Azure il disco temporaneo è in genere /dev/sdb e nelle VM Windows è D: per impostazione predefinita. Il disco temporaneo non viene crittografato dalla crittografia lato server a meno che non si abiliti la crittografia a livello di host.
 

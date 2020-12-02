@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e594dab3e4bf36fedee7a068068934501ca02f24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499867"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Baseline della sicurezza di Azure per Azure ricerca cognitiva
 
@@ -64,7 +64,7 @@ Ricerca cognitiva supporta inoltre funzionalità di sicurezza di rete aggiuntive
 
 **Linee guida**: ricerca cognitiva non fornisce una funzionalità specifica per combattere un attacco Denial of Service distribuito, ma è possibile abilitare la protezione DDoS standard nelle reti virtuali associate al servizio ricerca cognitiva per la protezione generale.
 
-- [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
+- [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -223,7 +223,7 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Informazioni su Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Informazioni su Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -275,7 +275,7 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
+**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Per alcune risorse sono disponibili ruoli predefiniti, che possono essere inventariati o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure.
 
 Ricerca cognitiva ruoli sono associati alle autorizzazioni che supportano le attività di gestione del livello di servizio.  Questi ruoli non concedono l'accesso all'endpoint del servizio. Per l'accesso alle operazioni eseguite sull'endpoint, ad esempio la gestione degli indici, il popolamento dell'indice e le query sui dati di ricerca, usare le chiavi API per autenticare la richiesta.
 
@@ -390,7 +390,7 @@ Esaminare i log di diagnostica da ricerca cognitiva per attività nell'endpoint 
 
 - [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
+- [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Monitorare le operazioni e le attività di Azure ricerca cognitiva](./search-monitor-usage.md)
 
@@ -432,7 +432,7 @@ Semplificare questo processo creando impostazioni di diagnostica per Azure AD ac
 
 **Responsabilità**: Non applicabile
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
@@ -495,7 +495,7 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
 
 **Linee guida**: per l'amministrazione del servizio, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alle chiavi e alla configurazione. Per le operazioni sul contenuto, ad esempio indicizzazione e query, ricerca cognitiva usa le chiavi anziché un modello di controllo degli accessi in base all'identità. Usare il controllo degli accessi in base al ruolo di Azure.
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Come usare i ruoli per l'accesso amministrativo ai ricerca cognitiva](./search-security-rbac.md)
@@ -522,7 +522,7 @@ Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha imple
 
 - [Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva](./search-security-manage-encryption-keys.md)
 
-- [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -956,7 +956,7 @@ Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per pr
 
 - [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Eliminazione temporanea per archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
@@ -1044,9 +1044,9 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia di Microsoft e le attività di red team e i test di penetrazione di siti live nell'infrastruttura cloud, nei servizi e nelle applicazioni gestiti da Microsoft.
+- [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

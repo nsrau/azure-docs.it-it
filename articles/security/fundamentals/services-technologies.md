@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842737"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498796"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 
@@ -34,7 +34,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 |Servizio|Descrizione|
 |--------|--------|
 |[Centro&nbsp;sicurezza&nbsp;di Azure](../../security-center/security-center-introduction.md)| Soluzione di protezione dei carichi di lavoro nel cloud che supporta la gestione della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.|
-|[Azure Key Vault](../../key-vault/general/overview.md)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
+|[Insieme di credenziali chiave Azure](../../key-vault/general/overview.md)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
 |[Log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md)|Servizio di monitoraggio che raccoglie dati di telemetria e altri dati e fornisce un linguaggio di query e un motore di analisi per offrire informazioni dettagliate operative per le app e le risorse. Può essere usato da solo o con altri servizi, come il Centro sicurezza. |
 |[Lab di sviluppo/test di Azure](../../devtest-labs/devtest-lab-overview.md)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
 
@@ -91,5 +91,5 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md)| Servizio di bilanciamento del carico DNS globale.|
 | [Proxy di applicazione Azure](../../active-directory/manage-apps/application-proxy.md)| Front-end di autenticazione usato per proteggere l'accesso remoto per le applicazioni Web ospitate in locale. |
 |[Firewall di Azure](../../firewall/overview.md)|Servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure.|
-|[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)|Insieme alle procedure consigliate di progettazione delle applicazioni, offre un meccanismo di difesa dagli attacchi DDoS (Distributed Denial of Service).|
+|[Protezione DDoS di Azure](../../ddos-protection/ddos-protection-overview.md)|Insieme alle procedure consigliate di progettazione delle applicazioni, offre un meccanismo di difesa dagli attacchi DDoS (Distributed Denial of Service).|
 |[Endpoint del servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale ai servizi di Azure tramite una connessione diretta.|

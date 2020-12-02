@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076617"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499748"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
 
@@ -70,7 +70,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Qui, `sdc` è il disco desiderato, perché è 50g. Se non si è certi di quale disco sia basato solo sulle dimensioni, è possibile passare alla pagina VM nel portale, selezionare **dischi**e verificare il numero di lun del disco in **dischi dati**. 
+Qui, `sdc` è il disco desiderato, perché è 50g. Se non si è certi di quale disco sia basato solo sulle dimensioni, è possibile passare alla pagina VM nel portale, selezionare **dischi** e verificare il numero di lun del disco in **dischi dati**. 
 
 
 ### <a name="format-the-disk"></a>Formattare il disco
@@ -182,4 +182,4 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per assicurarsi che la VM di Linux sia configurata correttamente, vedere le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale di Linux](optimization.md) .
-* Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](configure-raid.md) per migliorare le prestazioni.
+* Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) per migliorare le prestazioni.

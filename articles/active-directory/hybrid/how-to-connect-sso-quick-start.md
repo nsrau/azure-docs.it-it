@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295023"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500207"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
@@ -37,7 +37,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 * **Configurare il server Azure ad Connect**: se si usa [l'autenticazione pass-through](how-to-connect-pta.md) come metodo di accesso, non è necessario alcun controllo dei prerequisiti aggiuntivo. Se si usa la [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) come metodo di accesso e se è presente un firewall tra Azure AD Connect e Azure ad, assicurarsi che:
    - Usare Azure AD Connect 1.1.644.0 o versioni successive. 
-   - Se il firewall o il proxy consente, aggiungere le connessioni all'elenco di indirizzi consentiti per gli URL ** \* . msappproxy.NET** sulla porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
+   - Se il firewall o il proxy consente, aggiungere le connessioni all'elenco di indirizzi consentiti per gli URL **\* . msappproxy.NET** sulla porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
 
     >[!NOTE]
     >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione Azure ad Connect](./reference-connect-version-history.md) per altre informazioni.
@@ -107,7 +107,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 Inoltre, attraverso Criteri di gruppo è necessario abilitare l'impostazione **Consenti aggiornamenti alla barra di stato tramite script** relativa ai criteri dell'area Intranet. 
 
 >[!NOTE]
-> Le istruzioni seguenti sono valide solo per Internet Explorer e Google Chrome in Windows, se condivide l'insieme di URL di siti attendibili con Internet Explorer. Per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su macOS, leggere la sezione successiva.
+> Le istruzioni seguenti funzionano solo per Internet Explorer, Microsoft Edge e Google Chrome in Windows, se condivide un set di URL di siti attendibili con Internet Explorer. Per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su macOS, leggere la sezione successiva.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Motivo per cui è necessario modificare le impostazioni della zona Intranet degli utenti
 
@@ -124,7 +124,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a criteri di **Configurazione utente**  >  **Policy**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza del**Pannello di controllo Internet**  >  **Security Page**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3. Passare a criteri di **Configurazione utente**  >  **Policies**  >  **modelli amministrativi**  >  pagina **componenti di Windows**  >  **Internet Explorer**  >  sicurezza del pannello di **controllo Internet**  >  **Security Page**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Screenshot che mostra la "pagina sicurezza" con "elenco di assegnazione da sito a zona" selezionato.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
@@ -144,7 +144,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
     ![Screenshot che mostra la finestra "Mostra contenuto" con un'assegnazione di zona selezionata.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Passare a criteri di **Configurazione utente**  >  **Policy**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza**Pannello di controllo Internet**  >  **Security Page**  >  **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+6. Passare a criteri di **Configurazione utente**  >  **Policies**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza **Pannello di controllo Internet**  >  **Security Page**  >  **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
     ![Screenshot che mostra la pagina "area Intranet" con "Consenti aggiornamenti alla barra di stato tramite script" selezionato.](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,15 +156,15 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **Preferenze configurazione utente**  >  **Preferences**  >  **impostazioni di Windows**  >  **Registro**di sistema  >  **nuovo**  >  **elemento del registro di sistema**.
+3. Passare a **Preferenze configurazione utente**  >  **Preferences**  >  **impostazioni di Windows**  >  **Registro** di sistema  >  **nuovo**  >  **elemento del registro di sistema**.
 
     ![Screenshot che mostra "Registro di sistema" selezionato e "elemento del registro di sistema" selezionato.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
-   - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Nome valore**: ***https***
-   - **Tipo di valore**: ***REG_DWORD***
-   - **Dati valore**: ***00000001***
+   - **Percorso chiave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
+   - _* Nome valore * *: **_https_*_
+   - _* Tipo di valore * *: **_REG_DWORD_*_
+   - _* Dati valore * *: **_00000001_*_
  
      ![Screenshot che mostra la finestra "nuova proprietà del registro di sistema".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente deve aggiungere manualmente l'URL di Azure AD alle impostazioni di Firefox eseguendo questi passaggi:
 1. Eseguire Firefox e immettere `about:config` nella barra degli indirizzi. Eliminare tutte le notifiche visualizzate.
-2. Cercare la preferenza **network.negotiate-auth.trusted-uris**. Questa preferenza elenca i siti attendibili di Firefox per l'autenticazione Kerberos.
+2. Cercare la preferenza _ *Network. Negotiate-auth. trusted-URI**. Questa preferenza elenca i siti attendibili di Firefox per l'autenticazione Kerberos.
 3. Fare clic con il pulsante destro del mouse e scegliere **modifica**.
 4. Immettere `https://autologon.microsoftazuread-sso.com` nel campo.
 5. Fare clic su **OK** e quindi riaprire il browser.

@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 0bc56159d0e9a616d8da8dfe1ec3c128f60ef44a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 95ba93c4a5d71e6813c1bee144c983e1dfd8c89d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343099"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500326"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Raccomandazioni sulla sicurezza per le macchine virtuali in Azure
 
@@ -24,33 +24,33 @@ Questo articolo contiene raccomandazioni sulla sicurezza per le macchine virtual
 
 Alcune raccomandazioni di questo articolo possono essere automaticamente risolte dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per le risorse in Azure. analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare potenziali vulnerabilità di sicurezza Viene quindi consigliata la modalità di risoluzione delle vulnerabilità. Per altre informazioni, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../security-center/security-center-recommendations.md).
 
-Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul [Centro sicurezza di Azure](../security-center/security-center-intro.md).
+Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul [Centro sicurezza di Azure](../security-center/security-center-introduction.md).
 
 ## <a name="general"></a>Generale
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
 | Quando si compilano immagini di VM personalizzate, applicare gli aggiornamenti più recenti. | Prima di creare immagini, installare gli aggiornamenti più recenti per il sistema operativo e per tutte le applicazioni che faranno parte dell'immagine.  | - |
-| mantenere aggiornate le VM. | È possibile usare la soluzione [Gestione aggiornamenti](../automation/update-management/update-mgmt-overview.md) in automazione di Azure per gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux in Azure. | [Sì](../security-center/security-center-apply-system-updates.md) |
+| mantenere aggiornate le VM. | È possibile usare la soluzione [Gestione aggiornamenti](../automation/update-management/overview.md) in automazione di Azure per gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux in Azure. | [Sì](../security-center/asset-inventory.md) |
 | Eseguire il backup delle macchine virtuali. | [Backup di Azure](../backup/backup-overview.md) consente di proteggere i dati dell'applicazione e prevede costi operativi minimi. Gli errori delle applicazioni possono danneggiare i dati e gli errori umani possono comportare l'introduzione di bug nelle applicazioni. Backup di Azure protegge le macchine virtuali che eseguono Windows e Linux. | - |
-| Usare più macchine virtuali per una maggiore resilienza e disponibilità. | Se la macchina virtuale esegue applicazioni che devono essere a disponibilità elevata, usare più macchine virtuali o [set di disponibilità](../virtual-machines/windows/manage-availability.md). | - |
+| Usare più macchine virtuali per una maggiore resilienza e disponibilità. | Se la macchina virtuale esegue applicazioni che devono essere a disponibilità elevata, usare più macchine virtuali o [set di disponibilità](./manage-availability.md). | - |
 | Adottare una strategia di continuità aziendale e ripristino di emergenza (BCDR). | Azure Site Recovery consente di scegliere tra diverse opzioni progettate per supportare la continuità aziendale. Supporta diversi scenari di replica e failover. Per ulteriori informazioni, vedere  [informazioni su Site Recovery](../site-recovery/site-recovery-overview.md). | - |
 
 ## <a name="data-security"></a>Sicurezza dei dati
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-| Crittografare i dischi del sistema operativo. | [Crittografia dischi di Azure](../security/azure-security-disk-encryption-overview.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Senza le chiavi necessarie, il contenuto dei dischi crittografati non è leggibile. La crittografia del disco protegge i dati archiviati da accessi non autorizzati che altrimenti sarebbero possibili se il disco è stato copiato.| [Sì](../security-center/security-center-apply-disk-encryption.md) |
-| Crittografare i dischi dati. | [Crittografia dischi di Azure](../security/azure-security-disk-encryption-overview.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Senza le chiavi necessarie, il contenuto dei dischi crittografati non è leggibile. La crittografia del disco protegge i dati archiviati da accessi non autorizzati che altrimenti sarebbero possibili se il disco è stato copiato.| -  |
+| Crittografare i dischi del sistema operativo. | [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Senza le chiavi necessarie, il contenuto dei dischi crittografati non è leggibile. La crittografia del disco protegge i dati archiviati da accessi non autorizzati che altrimenti sarebbero possibili se il disco è stato copiato.| [Sì](../security-center/asset-inventory.md) |
+| Crittografare i dischi dati. | [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Senza le chiavi necessarie, il contenuto dei dischi crittografati non è leggibile. La crittografia del disco protegge i dati archiviati da accessi non autorizzati che altrimenti sarebbero possibili se il disco è stato copiato.| -  |
 | Limitare il software installato. | Limitare il software installato ai requisiti necessari per applicare correttamente la soluzione. Questa guida consente di ridurre la superficie di attacco della soluzione. | - |
-| Usare antivirus o antimalware. | In Azure è possibile usare software antimalware di fornitori di servizi di sicurezza come Microsoft, Symantec, Trend Micro e Kaspersky. Questo software consente di proteggere le macchine virtuali da file dannosi, adware e altre minacce. È possibile distribuire Microsoft antimalware in base ai carichi di lavoro dell'applicazione. Microsoft antimalware è disponibile solo per computer Windows. Utilizzare la configurazione di base protetta per impostazione predefinita o avanzata. Per ulteriori informazioni, vedere [Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../security/azure-security-antimalware.md). | - |
+| Usare antivirus o antimalware. | In Azure è possibile usare software antimalware di fornitori di servizi di sicurezza come Microsoft, Symantec, Trend Micro e Kaspersky. Questo software consente di proteggere le macchine virtuali da file dannosi, adware e altre minacce. È possibile distribuire Microsoft antimalware in base ai carichi di lavoro dell'applicazione. Microsoft antimalware è disponibile solo per computer Windows. Utilizzare la configurazione di base protetta per impostazione predefinita o avanzata. Per ulteriori informazioni, vedere [Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../security/fundamentals/antimalware.md). | - |
 | Archiviare in modo sicuro le chiavi e i segreti. | Semplifica la gestione dei segreti e delle chiavi offrendo ai proprietari dell'applicazione un'opzione sicura e gestita centralmente. Questa gestione riduce il rischio di compromissione accidentale o perdita. Azure Key Vault possibile archiviare in modo sicuro le chiavi in moduli di protezione hardware (HSM) certificati per FIPS 140-2 livello 2. Se è necessario usare FIPs 140,2 livello 3 per archiviare le chiavi e i segreti, è possibile usare il modulo di protezione [hardware dedicato di Azure](../dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso 
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-| Centralizzare l'autenticazione della macchina virtuale. | È possibile centralizzare l'autenticazione delle VM Windows e Linux usando [l'autenticazione Azure Active Directory](../active-directory/develop/authentication-scenarios.md). | - |
+| Centralizzare l'autenticazione della macchina virtuale. | È possibile centralizzare l'autenticazione delle VM Windows e Linux usando [l'autenticazione Azure Active Directory](../active-directory/develop/authentication-vs-authorization.md). | - |
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -67,4 +67,4 @@ Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Rivolgersi al provider di applicazioni per informazioni sui requisiti di sicurezza aggiuntivi. Per ulteriori informazioni sullo sviluppo di applicazioni sicure, vedere la [documentazione sullo sviluppo protetto](../security/fundamentals/abstract-develop-secure-apps.md).
+Rivolgersi al provider di applicazioni per informazioni sui requisiti di sicurezza aggiuntivi. Per ulteriori informazioni sullo sviluppo di applicazioni sicure, vedere la [documentazione sullo sviluppo protetto](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).

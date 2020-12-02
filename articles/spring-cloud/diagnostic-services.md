@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093039"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499527"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -40,7 +40,7 @@ Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
 Per un elenco completo delle metriche, vedere la pagina relativa alle [metriche di Spring cloud](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Per iniziare, abilitare uno di questi servizi per la ricezione dei dati. Per informazioni sulla configurazione di Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).
+Per iniziare, abilitare uno di questi servizi per la ricezione dei dati. Per informazioni sulla configurazione di Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Configurare le impostazioni di diagnostica
 
@@ -135,7 +135,7 @@ Per altre informazioni sull'invio di informazioni di diagnostica a un hub eventi
 
 ## <a name="analyze-the-logs"></a>Analizzare i log
 
-Azure Log Analytics è in esecuzione con un motore kusto ed è quindi possibile eseguire query sui log per l'analisi. Per una rapida introduzione all'esecuzione di query sui log tramite kusto, vedere l' [esercitazione log Analytics](../azure-monitor/log-query/get-started-portal.md).
+Azure Log Analytics è in esecuzione con un motore kusto ed è quindi possibile eseguire query sui log per l'analisi. Per una rapida introduzione all'esecuzione di query sui log tramite kusto, vedere l' [esercitazione log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 I log applicazioni forniscono informazioni critiche e log dettagliati sull'integrità, sulle prestazioni e molto altro dell'applicazione. Nelle sezioni successive sono disponibili alcune semplici query che consentono di comprendere gli stati correnti e precedenti dell'applicazione.
 

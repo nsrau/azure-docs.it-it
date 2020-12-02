@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e3551834e7664d5036fa8a5e0497e5a37f61c2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370237"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498507"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -150,9 +150,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 Ubuntu 18.04 con il kernel ottimizzato per Azure usa le utilità di pianificazione di I/O multi-coda. In questo scenario `none` è la selezione appropriata invece di `noop`. Per altre informazioni, vedere [Utilità di pianificazione di I/O di Ubuntu](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Uso di Software RAID per ottenere valori I/Ops più elevati
-Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentito da un singolo disco, sarà necessario usare una configurazione Software RAID con più dischi. Poiché Azure esegue già la resilienza del disco a livello di infrastruttura locale, è possibile ottenere il livello massimo di prestazioni mediante una configurazione con striping RAID-0.  È necessario effettuare il provisioning e creare dischi nell'ambiente Azure, poi collegarli alla macchina virtuale Linux prima del partizionamento, della formattazione e del montaggio delle unità.  Altri dettagli sulla configurazione di un'installazione RAID software nella VM Linux in Azure sono disponibili nel documento **[Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentito da un singolo disco, sarà necessario usare una configurazione Software RAID con più dischi. Poiché Azure esegue già la resilienza del disco a livello di infrastruttura locale, è possibile ottenere il livello massimo di prestazioni mediante una configurazione con striping RAID-0.  È necessario effettuare il provisioning e creare dischi nell'ambiente Azure, poi collegarli alla macchina virtuale Linux prima del partizionamento, della formattazione e del montaggio delle unità.  Altri dettagli sulla configurazione di un'installazione RAID software nella VM Linux in Azure sono disponibili nel documento **[Configurare RAID software in Linux](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-In alternativa a una configurazione RAID tradizionale, è anche possibile scegliere di installare LVM (Logical Volume Manager) per configurare un numero di dischi fisici in un singolo volume di archiviazione logica con striping. In questa configurazione le operazioni di lettura e scrittura sono distribuite in più dischi contenuti nel gruppo di volumi (in modo simile a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.  Per altri dettagli sulla configurazione di un volume logico in striping nella VM Linux in Azure, vedere il documento **[Configurare LVM in una VM Linux in Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+In alternativa a una configurazione RAID tradizionale, è anche possibile scegliere di installare LVM (Logical Volume Manager) per configurare un numero di dischi fisici in un singolo volume di archiviazione logica con striping. In questa configurazione le operazioni di lettura e scrittura sono distribuite in più dischi contenuti nel gruppo di volumi (in modo simile a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.  Per altri dettagli sulla configurazione di un volume logico in striping nella VM Linux in Azure, vedere il documento **[Configurare LVM in una VM Linux in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire test prima e dopo ogni modifica per misurare l'impatto della modifica stessa.  L'ottimizzazione è un processo graduale che potrà avere risultati diversi in diversi computer nell'ambiente.  Le impostazioni ottimali per una configurazione potrebbero non essere appropriate per altre.
@@ -160,4 +160,4 @@ Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire 
 Ecco alcuni collegamenti utili a risorse aggiuntive:
 
 * [Guida dell'utente dell'agente Linux di Azure](../extensions/agent-linux.md)
-* [Configurare RAID software in Linux](configure-raid.md)
+* [Configurare RAID software in Linux](/previous-versions/azure/virtual-machines/linux/configure-raid)

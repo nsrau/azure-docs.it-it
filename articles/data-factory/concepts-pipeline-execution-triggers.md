@@ -3,20 +3,20 @@ title: Esecuzione e trigger di pipeline in Azure Data Factory
 description: Questo articolo contiene informazioni sulla modalità di esecuzione di una pipeline in Azure Data Factory su richiesta o mediante la creazione di un trigger.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: e090b4c3b4ecc3870f060aba4b03be3abe2942ec
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498626"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 
@@ -281,12 +281,12 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Tipo | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 | --- | --- | --- | --- | --- | --- |
-| **startTime** | string | Sì | nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **ricorrenza** | object | Sì | nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sì | Nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **ricorrenza** | object | Sì | Nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervallo** | Numero | No | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **pianificazione** | object | No | nessuno | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
@@ -375,7 +375,7 @@ Il trigger di finestra a cascata e il trigger di pianificazione funzionano entra
 
 La tabella seguente contiene un confronto del trigger di finestra a cascata e del trigger di pianificazione:
 
-| Elemento | Trigger di finestra a cascata | Trigger di pianificazione |
+| Item | Trigger di finestra a cascata | Trigger di pianificazione |
 | --- | --- | --- |
 | **Scenari di recupero delle informazioni** | Supportata. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportata. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
 | **Affidabilità** | 100% di affidabilità. Le esecuzioni della pipeline possono essere pianificate per tutte le finestre da una data di inizio specificata senza intervalli. | Meno affidabile. |

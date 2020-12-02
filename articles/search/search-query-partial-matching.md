@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935773"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499544"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca dei termini parziali e modelli con caratteri speciali (carattere jolly, Regex, Patterns)
 
@@ -160,7 +160,7 @@ Se si stanno valutando gli analizzatori o procedendo con una configurazione spec
 
 Gli analizzatori predefiniti o predefiniti possono essere specificati in base al nome in una `analyzer` proprietà di una definizione di campo, senza che sia necessaria alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato come impostare l' `whitespace` analizzatore in un campo. 
 
-Per altri scenari e per altre informazioni su altri analizzatori incorporati, vedere l' [elenco degli analizzatori](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference)predefiniti. 
+Per altri scenari e per altre informazioni su altri analizzatori incorporati, vedere l' [elenco degli analizzatori](./index-add-custom-analyzers.md#predefined-analyzers-reference)predefiniti. 
 
 ```json
     {

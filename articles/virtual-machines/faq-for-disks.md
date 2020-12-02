@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843996"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499323"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -151,7 +151,7 @@ Prenotazione dischi di Azure offre la possibilità di acquistare unità SSD Prem
 Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si prenota un disco P80 (32 TiB), si ottiene un singolo disco P80, non è quindi possibile dividere la prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile prenotare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
 
 **Come viene applicata la prenotazione dischi di Azure?**     
-La prenotazione dischi segue un modello simile alle istanze di macchina virtuale (VM) riservate. La differenza consiste nel fatto che non è possibile applicare una prenotazione dischi a SKU diversi, mentre con un'istanza di macchina virtuale è possibile. Per altre informazioni sulle istanze di macchina virtuale, vedere [Risparmiare sui costi con le istanze di macchina virtuale riservate di Azure](./linux/prepay-reserved-vm-instances.md).     
+La prenotazione dischi segue un modello simile alle istanze di macchina virtuale (VM) riservate. La differenza consiste nel fatto che non è possibile applicare una prenotazione dischi a SKU diversi, mentre con un'istanza di macchina virtuale è possibile. Per altre informazioni sulle istanze di macchina virtuale, vedere [Risparmiare sui costi con le istanze di macchina virtuale riservate di Azure](./prepay-reserved-vm-instances.md).     
 
 **È possibile usare la propria risorsa di archiviazione dati acquistata tramite la prenotazione dischi di Azure in più aree?**     
 La prenotazione dischi di Azure viene acquistata per un'area e uno SKU specifici, ad esempio P30 nell'area Stati Uniti orientali 2, e pertanto non può essere usata all'esterno di questi costrutti. È sempre possibile acquistare una prenotazione dischi di Azure aggiuntiva per le esigenze di archiviazione su disco in altre aree o SKU.    

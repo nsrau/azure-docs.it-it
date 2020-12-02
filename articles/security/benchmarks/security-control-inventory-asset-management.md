@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412647"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498881"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Controllo di sicurezza: inventario e gestione delle risorse
 
@@ -70,7 +70,7 @@ Creare un inventario delle risorse di Azure approvate e del software approvato p
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 6,5 | 2.3, 2.4 | Customer |
+| 6.5 | 2.3, 2.4 | Customer |
 
 Usare i criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni.
 
@@ -100,7 +100,7 @@ Usare il monitoraggio dell'integrità dei file (Rilevamento modifiche) e l'inven
 
 - [Come usare il monitoraggio dell'integrità dei file](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Informazioni su Rilevamento modifiche di Azure](../../automation/change-tracking.md)
+- [Informazioni su Rilevamento modifiche di Azure](../../automation/change-tracking/overview.md)
 
 - [Come abilitare l'inventario delle macchine virtuali di Azure](../../automation/automation-tutorial-installed-software.md)
 

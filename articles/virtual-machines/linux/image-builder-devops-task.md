@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968668"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499255"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Attività DevOps del servizio Generatore di immagini di Azure
 
@@ -65,11 +65,11 @@ Impostare le proprietà dell'attività seguenti:
 
 Selezionare dal menu a discesa la sottoscrizione che si desidera venga eseguita dal generatore di immagini. Usare la stessa sottoscrizione in cui si trovano le immagini di origine e la posizione in cui devono essere distribuite le immagini. È necessario autorizzare l'accesso del collaboratore al generatore di immagini alla sottoscrizione o al gruppo di risorse.
 
-### <a name="resource-group"></a>Resource Group
+### <a name="resource-group"></a>Gruppo di risorse
 
 Usare il gruppo di risorse in cui verrà archiviato l'artefatto del modello di immagine temporanea. Quando si crea un elemento del modello, viene creato un altro gruppo di risorse generatore di immagini temporanee `IT_<DestinationResourceGroup>_<TemplateName>_guid` . Il gruppo di risorse temporaneo archivia i metadati dell'immagine, ad esempio gli script. Al termine dell'attività, l'artefatto del modello di immagine e il gruppo di risorse generatore di immagini temporanee vengono eliminati.
  
-### <a name="location"></a>Posizione
+### <a name="location"></a>Location
 
 Il percorso è l'area in cui verrà eseguito il generatore di immagini. Sono supportati solo un numero impostato di [aree](../windows/image-builder-overview.md#regions) . Le immagini di origine devono essere presenti in questa posizione. Se ad esempio si usa raccolta immagini condivise, è necessario che sia presente una replica in tale area.
 
@@ -139,7 +139,7 @@ Selezionare il pulsante **percorso compilazione** per scegliere la cartella di c
 
 L'esempio seguente illustra come funziona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selezionare Aggiungi un artefatto nella pipeline di rilascio.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Struttura di directory che mostra la gerarchia.":::
 
 
 * Windows: i file sono disponibili in `C:\` . Viene creata una directory denominata `buildArtifacts` che include la `webapp` Directory.
@@ -194,7 +194,7 @@ L'esempio seguente illustra come funziona:
     
 #### <a name="total-length-of-image-build"></a>Lunghezza totale della compilazione dell'immagine
 
-Non è ancora possibile modificare la lunghezza totale nell'attività della pipeline DevOps. Usa il valore predefinito di 240 minuti. Se si vuole aumentare il valore di [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), è possibile usare un'attività AZ CLI nella pipeline di rilascio. Configurare l'attività per copiare un modello e inviarlo. Per un esempio, vedere questa [soluzione](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)o usare AZ PowerShell.
+Non è ancora possibile modificare la lunghezza totale nell'attività della pipeline DevOps. Usa il valore predefinito di 240 minuti. Se si vuole aumentare il valore di [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), è possibile usare un'attività AZ CLI nella pipeline di rilascio. Configurare l'attività per copiare un modello e inviarlo. Per un esempio, vedere questa [soluzione](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)o usare AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Account di archiviazione
@@ -314,7 +314,7 @@ Se si verifica un errore di compilazione, l'attività DevOps non elimina il grup
 
 Verrà visualizzato un errore nel registro DevOps per l'attività generatore di immagini VM e verrà visualizzato il percorso Customization. log. Ad esempio:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selezionare Aggiungi un artefatto nella pipeline di rilascio.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Errore dell'attività DevOps di esempio che mostra un errore.":::
 
 Per altre informazioni sulla risoluzione dei problemi, vedere [risolvere i problemi del servizio Generatore di immagini di Azure](image-builder-troubleshoot.md). 
 
@@ -330,7 +330,7 @@ template name:  t_1556938436xxx
 
 ```
 
-L'elemento di risorsa modello di immagine si trova nel gruppo di risorse specificato inizialmente nell'attività. Al termine della risoluzione dei problemi, eliminare l'artefatto. Se si elimina usando il portale di Azure, nel gruppo di risorse selezionare **Mostra tipi nascosti**per visualizzare l'artefatto.
+L'elemento di risorsa modello di immagine si trova nel gruppo di risorse specificato inizialmente nell'attività. Al termine della risoluzione dei problemi, eliminare l'artefatto. Se si elimina usando il portale di Azure, nel gruppo di risorse selezionare **Mostra tipi nascosti** per visualizzare l'artefatto.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

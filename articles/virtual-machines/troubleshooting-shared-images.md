@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920611"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500275"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Risolvere i problemi delle raccolte di immagini condivise in Azure
 
@@ -137,7 +137,7 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 
 *Il tipo di account di archiviazione ZRS non è supportato in questa area.*  
 **Motivo**: è stata scelta l'archiviazione con ridondanza della zona standard (ZRS) in un'area che non è ancora supportata.  
-**Soluzione alternativa**: modificare il tipo di account di archiviazione in **Premium \_ con ridondanza locale** o **\_ con ridondanza locale standard**. Per un [elenco aggiornato delle aree](/azure/storage/common/storage-redundancy#zone-redundant-storage) con ZRS Preview abilitata, vedere la documentazione.
+**Soluzione alternativa**: modificare il tipo di account di archiviazione in **Premium \_ con ridondanza locale** o **\_ con ridondanza locale standard**. Per un [elenco aggiornato delle aree](../storage/common/storage-redundancy.md#zone-redundant-storage) con ZRS Preview abilitata, vedere la documentazione.
 
 ## <a name="creating-or-updating-image-versions"></a>Creazione o aggiornamento delle versioni delle immagini ##
 

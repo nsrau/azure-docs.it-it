@@ -3,18 +3,18 @@ title: Pipeline e attività in Azure Data Factory
 description: Informazioni sulle pipeline e le attività in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003064"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500080"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
@@ -57,7 +57,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Attività di Azure Machine Learning Studio (versione classica): Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
-[Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o SQL Server
+[Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Notebook di Databricks](transform-data-databricks-notebook.md) | Azure Databricks

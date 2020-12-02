@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521003"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499663"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -168,7 +168,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
   * Aggiornamento automatico #1526
   * Abilita AzCopy
   * AzCopy SAS Duration se sono presenti altre impostazioni che si desidera aggiungere, [aprire un problema in GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) che descrive l'impostazione che si desidera visualizzare.
-* Storage Explorer supporta ora Managed Disks. È possibile:
+* Storage Explorer supporta ora Managed Disks. È possibile scegliere:
   * Caricare un disco rigido virtuale locale in un nuovo disco
   * Scaricare un disco
   * Copiare e incollare dischi tra gruppi di risorse e aree
@@ -242,7 +242,7 @@ Il caricamento, il download e la copia tra aree di dischi sono basati su AzCopy 
     * Durata SAS AzCopy
 
     Se sono presenti altre impostazioni che si desidera aggiungere, [aprire un problema in GitHub che descrive l'impostazione che si desidera visualizzare](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Storage Explorer supporta ora Managed Disks. È possibile:
+* Storage Explorer supporta ora Managed Disks. È possibile scegliere:
     * Caricare un disco rigido virtuale locale in un nuovo disco
     * Scaricare un disco
     * Copiare e incollare dischi tra gruppi di risorse e aree
@@ -559,7 +559,7 @@ Il caricamento, il download e la copia tra aree di dischi sono basati su AzCopy 
         
 ### <a name="new"></a>Nuova
 
-* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
+* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
   * Creare ed eliminare contenitori
   * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
@@ -628,7 +628,7 @@ Il caricamento, il download e la copia tra aree di dischi sono basati su AzCopy 
         
 ### <a name="new"></a>Nuova
 
-* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
+* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
   * Creare ed eliminare contenitori
   * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
@@ -683,7 +683,7 @@ Il caricamento, il download e la copia tra aree di dischi sono basati su AzCopy 
 
 ### <a name="new"></a>Nuova
 
-* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
+* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
   * Creare ed eliminare contenitori
   * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
@@ -810,7 +810,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -866,7 +866,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -921,7 +921,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -981,7 +981,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.

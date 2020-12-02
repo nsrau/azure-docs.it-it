@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025634"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499187"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di Riconoscimento vocale personalizzato
 
@@ -99,8 +99,8 @@ I file esportati nei dati verranno usati come set di dati completamente nuovo e 
 
 - [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
 - [Eseguire il training del modello](how-to-custom-speech-train-model.md)
-- [Migliorare il modello](how-to-custom-speech-improve-accuracy.md)
-- [Distribuire il modello](how-to-custom-speech-deploy-model.md)
+- [Migliorare il modello](./how-to-custom-speech-evaluate-data.md)
+- [Distribuire il modello](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

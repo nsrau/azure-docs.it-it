@@ -3,20 +3,20 @@ title: Attività della funzione di Azure in Azure Data Factory
 description: Informazioni su come usare l'attività della funzione di Azure per eseguire una funzione di Azure in una pipeline di Data Factory
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c8f1e5ae0da9e7c404a942fcb4f554281486a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415320"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500044"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Attività della funzione di Azure in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -42,15 +42,15 @@ Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Ten
 | **Proprietà**  | **Descrizione** | **Valori consentiti** | **Richiesto** |
 | --- | --- | --- | --- |
 | name  | Nome dell'attività nella pipeline  | string | sì |
-| type  | Il tipo di attività è 'AzureFunctionActivity' | string | sì |
+| tipo  | Il tipo di attività è 'AzureFunctionActivity' | string | sì |
 | linked service | Servizio collegato della funzione di Azure collegata per l'app per le funzioni di Azure corrispondente  | Riferimento del servizio collegato | sì |
 | nome di funzione  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | string | sì |
 | method  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati da stringa: "GET", "POST", "PUT"   | sì |
 | header  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No |
-| Corpo  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa) o oggetto.   | Obbligatorio per i metodi POST e PUT |
+| Corpo  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa) o oggetto.   | Obbligatorio per i metodi POST e PUT |
 |   |   |   | |
 
-Vedere lo schema del payload della richiesta nella sezione [schema del payload della richiesta](control-flow-web-activity.md#request-payload-schema)   .
+Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](control-flow-web-activity.md#request-payload-schema).
 
 ## <a name="routing-and-queries"></a>Routing e query
 
