@@ -1,14 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione di definizioni di criteri, al vario SDK e al componente aggiuntivo per Kubernetes.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146280"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510999"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Risolvere gli errori usando criteri di Azure
 
@@ -56,7 +56,7 @@ Attendere prima di tutto la quantità di tempo appropriata per il completamento 
 
 #### <a name="issue"></a>Problema
 
-Una risorsa non è nello stato di valutazione, _conforme_ o _non conforme_ , prevista per tale risorsa.
+Una risorsa non è nello stato di valutazione, _conforme_ o _non conforme_, prevista per tale risorsa.
 
 #### <a name="cause"></a>Causa
 
@@ -88,14 +88,14 @@ Una risorsa che si prevede venga applicata da criteri di Azure non è e non è p
 
 #### <a name="cause"></a>Causa
 
-L'assegnazione dei criteri è stata configurata per [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) di _disabilitato_ . Mentre la modalità di imposizione è disabilitata, l'effetto del criterio non viene applicato e non è presente alcuna voce nel log attività.
+L'assegnazione dei criteri è stata configurata per [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) di _disabilitato_. Mentre la modalità di imposizione è disabilitata, l'effetto del criterio non viene applicato e non è presente alcuna voce nel log attività.
 
 #### <a name="resolution"></a>Risoluzione
 
 Attenersi alla seguente procedura per risolvere i problemi relativi all'imposizione dell'assegnazione di criteri:
 
 1. Attendere prima di tutto la quantità di tempo appropriata per il completamento di una valutazione e la disponibilità dei risultati di conformità in portale di Azure o SDK. Per avviare una nuova analisi di valutazione con Azure PowerShell o l'API REST, vedere [analisi di valutazione su richiesta](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Verificare che i parametri di assegnazione e l'ambito di assegnazione siano impostati correttamente e che **enforcementMode** sia _abilitato_ . 
+1. Verificare che i parametri di assegnazione e l'ambito di assegnazione siano impostati correttamente e che **enforcementMode** sia _abilitato_.
 1. Controllare la [modalità di definizione dei criteri](../concepts/definition-structure.md#mode):
    - Modalità' all'per tutti i tipi di risorsa.
    - Modalità' indexed ' se la definizione dei criteri controlla i tag o il percorso.
@@ -190,24 +190,6 @@ Per una descrizione dettagliata, vedere il post di Blog seguente:
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Errori generali del componente aggiuntivo per Kubernetes
 
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Scenario: il componente aggiuntivo non funziona con i cluster AKS nella versione 1,19 (anteprima)
-
-#### <a name="issue"></a>Problema
-
-I cluster della versione 1,19 restituiscono questo errore tramite il controller gatekeeper e i pod dei webhook dei criteri:
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>Causa
-
-I CLUSER di AKS nella versione 1,19 (anteprima) non sono ancora compatibili con il componente aggiuntivo criteri di Azure.
-
-#### <a name="resolution"></a>Risoluzione
-
-Evitare di usare Kubernetes 1,19 (anteprima) con il componente aggiuntivo criteri di Azure. Il componente aggiuntivo può essere utilizzato con qualsiasi versione disponibile a livello generale, ad esempio 1,16, 1,17 o 1,18.
-
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Scenario: il componente aggiuntivo non riesce a raggiungere l'endpoint del servizio criteri di Azure a causa di restrizioni in uscita
 
 #### <a name="issue"></a>Problema
@@ -239,9 +221,9 @@ Il componente aggiuntivo non è in grado di raggiungere l'endpoint del servizio 
 
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando si installa _Add-Pod-Identity_ nel cluster e i pod di _sistema Kube_ non sono esclusi in _AAD-Pod-Identity_ .
+Questo errore si verifica quando si installa _Add-Pod-Identity_ nel cluster e i pod di _sistema Kube_ non sono esclusi in _AAD-Pod-Identity_.
 
-I pod dell'identità gestita del nodo del componente _AAD-Pod-Identity_ modificano i nodi iptables per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione indica che qualsiasi richiesta effettuata all'endpoint dei metadati viene intercettata da NMI anche se il Pod non usa _AAD-Pod-Identity_ .
+I pod dell'identità gestita del nodo del componente _AAD-Pod-Identity_ modificano i nodi iptables per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione indica che qualsiasi richiesta effettuata all'endpoint dei metadati viene intercettata da NMI anche se il Pod non usa _AAD-Pod-Identity_.
 **AzurePodIdentityException** È possibile configurare la gestione dei certificati per informare _AAD-Pod-Identity_ che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata tramite proxy senza alcuna elaborazione in NMI.
 
 #### <a name="resolution"></a>Risoluzione
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>Problema
 
-Il componente aggiuntivo può raggiungere l'endpoint del servizio criteri di Azure, ma viene visualizzato l'errore seguente:
+Il componente aggiuntivo può raggiungere l'endpoint del servizio criteri di Azure, ma viene visualizzato uno degli errori seguenti nei log dei componenti aggiuntivi:
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+oppure
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>Causa
@@ -289,9 +280,9 @@ Il `Microsoft.PolicyInsights` provider di risorse non è registrato e deve esser
 
 #### <a name="resolution"></a>Risoluzione
 
-Registrare il provider di risorse `Microsoft.PolicyInsights`. Per istruzioni, vedere [registrare un provider di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Registrare il `Microsoft.PolicyInsights` provider di risorse nella sottoscrizione del cluster. Per istruzioni, vedere [registrare un provider di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### <a name="scenario-the-subscript-is-disabled"></a>Scenario: il pedice è disabilitato
+### <a name="scenario-the-subscription-is-disabled"></a>Scenario: la sottoscrizione è disabilitata
 
 #### <a name="issue"></a>Problema
 
@@ -307,7 +298,7 @@ Questo errore indica che la sottoscrizione è stata determinata come problematic
 
 #### <a name="resolution"></a>Risoluzione
 
-Contattare il team delle funzionalità `azuredg@microsoft.com` per esaminare e risolvere il problema. 
+Contattare il team delle funzionalità `azuredg@microsoft.com` per esaminare e risolvere il problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -315,4 +306,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 - Ottieni risposte dagli esperti tramite [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto** .
+- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

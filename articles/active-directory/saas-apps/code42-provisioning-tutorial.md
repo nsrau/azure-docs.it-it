@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare Code42 per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Code42.
+title: 'Esercitazione: Configurare Code42 per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Code42.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: Zhchia
-ms.openlocfilehash: e7f3817a6db288e93b5e0dc99c7b6c9b7bd2e44b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ffae286437a476d5ebe08c3ee442d0d52af84eb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355737"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179341"
 ---
-# <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Esercitazione: configurare Code42 per il provisioning utenti automatico
+# <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Esercitazione: Configurare Code42 per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia in Code42 che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in [Code42](https://www.crashplan.com/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
+Questa esercitazione descrive le procedure da eseguire sia in Code42 che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD effettua automaticamente il provisioning e il deprovisioning di utenti e gruppi per [Code42](https://www.crashplan.com/) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creare utenti in Code42
-> * Rimuovere gli utenti in Code42 quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e Code42
-> * Effettuare il provisioning di gruppi e appartenenze a gruppi in Code42
-> * [Single Sign-on](./code42-tutorial.md) per Code42 (scelta consigliata)
+> * Creazione di utenti in Code42
+> * Rimozione di utenti in Code42 quando l'accesso non è più necessario
+> * Mantenimento della sincronizzazione degli attributi utente tra Azure AD e Code42
+> * Provisioning di gruppi e appartenenza a gruppi in Code42
+> * [Accesso Single Sign-On](./code42-tutorial.md) a Code42 (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md)
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
-* Tenant di Code42 con gestione delle identità abilitata.
-* Un account utente Code42 con autorizzazioni di [amministratore del cloud del cliente](https://support.code42.com/Administrator/Cloud/Monitoring_and_managing/Roles_reference#Customer_Cloud_Admin) .
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
+* Un tenant di Code42 con la gestione delle identità abilitata.
+* Un account utente Code42 con l'autorizzazione [Customer Cloud Admin](https://support.code42.com/Administrator/Cloud/Monitoring_and_managing/Roles_reference#Customer_Cloud_Admin) (Amministratore cloud del cliente).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e Code42](../app-provisioning/customize-application-attributes.md).
+3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Code42](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-code42-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Code42 per supportare il provisioning con Azure AD
 
-Questa sezione illustra i passaggi per configurare Azure AD come provider di provisioning nella sezione Identity Management della console di Code42's. Questa operazione consentirà a Code42 di ricevere in modo sicuro richieste di provisioning da Azure AD. È consigliabile esaminare la [documentazione del supporto di Code42's](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD) prima di eseguire il provisioning con Azure ad.
+Questa sezione illustra la procedura da eseguire per configurare Azure AD come provider di provisioning nella sezione Identity Management della console di Code42. Questo consentirà a Code42 di ricevere le richieste di provisioning da Azure AD in sicurezza. Prima di effettuare il provisioning con Azure AD è consigliabile esaminare la [documentazione di supporto di Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD).
 
-### <a name="to-create-a-provisioning-provider-in-code42s-console"></a>Per creare un provider di provisioning nella console di Code42's:
+### <a name="to-create-a-provisioning-provider-in-code42s-console"></a>Per creare un provider di provisioning nella console di Code42:
 
-1. Accedere alla console di Code42. Selezionare **Amministrazione** per espandere il menu di navigazione. Selezionare **Impostazioni** , quindi **Gestione identità**.
-2. Selezionare la scheda **provisioning** . Espandere quindi il menu **Aggiungi provider di provisioning** e selezionare **Aggiungi provider scim**.
-3. Nel campo **nome visualizzato** immettere un nome univoco per il provider di provisioning. Impostare il **tipo di credenziale di autenticazione** su **token OAuth**. Selezionare **Avanti** per generare le credenziali.
+1. Accedere alla console di Code42. Selezionare **Administration** (Amministrazione) per espandere il menu di spostamento. Selezionare **Settings** (Impostazioni) e quindi **Identity Management** (Gestione identità).
+2. Selezionare la scheda **Provisioning**. Espandere quindi il menu **Add provisioning provider** (Aggiungi provider di provisioning) e selezionare **Add SCIM provider** (Aggiungi provider SCIM).
+3. Nel campo **Display name** (Nome visualizzato) immettere un nome univoco per il provider di provisioning. Impostare **Authentication credential type** (Tipo di credenziali di autenticazione) su **OAuth token** (Token OAuth). Selezionare **Next** (Avanti) per generare le credenziali.
 
 > [!NOTE]
->* Lasciare aperta questa finestra fino a quando non viene richiesto l' **URL di base** e il **token** necessari nei passaggi successivi.
->* In alternativa, copiare le informazioni in un percorso temporaneo per riferimento futuro.
+>* Tenere aperta questa finestra finché non viene chiesto di immettere i valori di **Base URL** (URL di base) e **Token** necessari nei passaggi successivi.
+>* In alternativa, copiare le informazioni in una posizione temporanea per riferimento futuro.
 
-## <a name="step-3-add-code42-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Code42 dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-code42-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Code42 dalla raccolta di applicazioni di Azure AD
 
-Aggiungere Code42 dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Code42. Se in precedenza è stato configurato Code42 per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md).
+Aggiungere Code42 dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Code42. Se Code42 è stato configurato in precedenza per l'accesso Single Sign-On, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Quando si assegnano utenti e gruppi a Code42, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli.
+* Quando si assegnano utenti e gruppi a Code42, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli.
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-code42"></a>Passaggio 5. Configurare il provisioning utenti automatico in Code42
+## <a name="step-5-configure-automatic-user-provisioning-to-code42"></a>Passaggio 5. Configurare il provisioning utenti automatico per Code42
 
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
@@ -96,9 +96,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning automatica](common/provisioning-automatic.png)
+    ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e** i valori dei token di accesso recuperati in precedenza da Code42 rispettivamente in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Code42. Se la connessione non riesce, verificare che l'account Code42 disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere i valori di **URL di base di SCIM 2.0 e token di accesso** recuperati in precedenza da Code42 rispettivamente in **URL tenant** e **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Code42. Se la connessione non riesce, verificare che l'account Code42 abbia autorizzazioni di amministratore e riprovare.
 
     ![token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -108,9 +108,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Code42**.
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Code42** (Sincronizza utenti di Azure Active Directory in Code42).
 
-9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Code42 nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Code42 per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Code42 supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Code42 nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in Code42 per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Code42 supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|
    |---|---|
@@ -129,9 +129,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Code42**.
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Code42** (Sincronizza gruppi di Azure Active Directory in Code42).
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Code42 nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Code42 per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Code42 nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con i gruppi in Code42 per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -141,11 +141,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per Code42, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning di Azure AD per Code42, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Code42 selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Code42 selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -166,8 +166,8 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 * [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configurare le assegnazioni di organizzazioni basate sui gruppi di SCIM in Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD#Step_6:_Choose_an_organization_mapping_method)
-* [Configurare le assegnazioni di ruolo in base ai gruppi di SCIM in Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD#Step_7:_Configure_role_mapping)
+* [Configurare le assegnazioni di organizzazioni in base ai gruppi SCIM in Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD#Step_6:_Choose_an_organization_mapping_method)
+* [Configurare le assegnazioni di ruoli in base ai gruppi SCIM in Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD#Step_7:_Configure_role_mapping)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

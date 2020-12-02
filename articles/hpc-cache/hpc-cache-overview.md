@@ -4,15 +4,15 @@ description: Illustra Cache HPC di Azure, una soluzione che accelera l'accesso a
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: b51cd938747c1cfa82b397160f077474e176b2f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0568d9b7fea2e4e048c0c1d1b2d6f81d64a9b114
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612966"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519337"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Che cos'è Cache HPC di Azure?
 
@@ -64,6 +64,8 @@ La [funzionalità delle chiavi gestite dal cliente](customer-keys.md) è support
 * Europa occidentale
 * US Gov Arizona
 * US Gov Virginia
+
+Cache HPC di Azure risiede in una singola area. Può accedere ai dati archiviati in altre aree se ci si connette a contenitori BLOB situati al loro interno. La cache non archivia permanentemente i dati dei clienti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

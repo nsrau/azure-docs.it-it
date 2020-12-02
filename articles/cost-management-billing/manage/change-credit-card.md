@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92131140"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026557"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Aggiungere o aggiornare una carta di credito per Azure
 
 Questo documento si applica ai clienti che hanno usato una carta di credito per iscriversi ad Azure Online.
 
-Nel portale di Azure è possibile cambiare il metodo di pagamento predefinito impostando una nuova carta di credito e aggiornare i dati della carta di credito. Per apportare queste modifiche, è necessario essere un [amministratore account](../understand/subscription-transfer.md#whoisaa).
+Nel portale di Azure è possibile cambiare il metodo di pagamento predefinito impostando una nuova carta di credito e aggiornare i dati della carta di credito. Per effettuare queste modifiche, è necessario essere un [amministratore account](../understand/subscription-transfer.md#whoisaa) o avere le corrette [autorizzazioni del Contratto del cliente Microsoft](understand-mca-roles.md).
 
 Se si vuole eliminare una carta di credito, vedere [Eliminare un metodo di pagamento delle fatture di Azure](delete-azure-payment-method.md).
 
@@ -82,11 +82,11 @@ Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare 
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Gestire le carte di credito per un contratto del cliente Microsoft
 
-Le sezioni seguenti sono valide per i clienti che hanno un contratto del cliente Microsoft e hanno effettuato l'iscrizione ad Azure online con una carta di credito. [Come verificare se si ha un contratto del cliente Microsoft](#check-the-type-of-your-account).
+Le sezioni seguenti si applicano ai clienti che hanno un Contratto del cliente Microsoft e che si sono iscritti ad Azure online con una carta di credito, nonché a quelli che hanno le corrette [autorizzazioni del Contratto del cliente Microsoft](understand-mca-roles.md). [Come verificare se si ha un contratto del cliente Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Cambiare la carta di credito predefinita
 
-Se si ha un contratto del cliente Microsoft, la carta di credito è associata a un profilo di fatturazione. Il metodo di pagamento per un profilo di fatturazione può essere cambiato solo dalla persona che ha effettuato l'iscrizione ad Azure e ha creato l'account di fatturazione.
+Se si ha un contratto del cliente Microsoft, la carta di credito è associata a un profilo di fatturazione. Il metodo di pagamento per un profilo di fatturazione può essere cambiato solo dalla persona che ha effettuato l'iscrizione ad Azure e ha creato l'account di fatturazione oppure che ha le corrette [autorizzazioni del Contratto del cliente Microsoft](understand-mca-roles.md).
 
 Se si vuole cambiare il metodo di pagamento predefinito del profilo di fatturazione in modo da pagare tramite assegno o bonifico, vedere [Pagare la sottoscrizione di Azure tramite fattura](pay-by-invoice.md).
 

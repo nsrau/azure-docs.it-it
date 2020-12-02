@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ed999e282aa9bcd80b000f3db2ecf9a8386a489
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741397"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537952"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault a un'app Web di Azure con .NET
 
-Azure Key Vault consente di archiviare in modo sicuro le credenziali e altri segreti, ma il codice deve effettuare l'autenticazione in Key Vault per recuperarle. Nella [panoramica delle identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md) viene spiegato come risolvere il problema, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza visualizzare le credenziali nel codice.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) consente di archiviare in modo sicuro le credenziali e altri segreti, ma il codice deve eseguire l'autenticazione in Key Vault per recuperarli. Nella [panoramica delle identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md) viene spiegato come risolvere il problema, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza visualizzare le credenziali nel codice.
 
-Questa esercitazione usa un'identità gestita per l'autenticazione di un'app Web di Azure con Azure Key Vault. Nonostante in questi passaggi vengano usate la [libreria client di Azure Key Vault v4 per .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) e l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli), gli stessi principi di base si applicano quando si usano il linguaggio di sviluppo preferito, Azure PowerShell e/o il portale di Azure.
+Questa esercitazione usa un'identità gestita per l'autenticazione di un'app Web di Azure con Azure Key Vault. Nonostante in questi passaggi vengano usate la [libreria client di Azure Key Vault v4 per .NET](/dotnet/api/overview/azure/key-vault) e l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli), gli stessi principi di base si applicano quando si usano il linguaggio di sviluppo preferito, Azure PowerShell e/o il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,36 +29,13 @@ Per completare questa guida introduttiva:
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 3.1 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
+* [Installare Git](https://www.git-scm.com/downloads).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/)
+* [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). È possibile creare un insieme di credenziali delle chiavi tramite il [portale di Azure](quick-create-portal.md), l'[interfaccia della riga di comando di Azure](quick-create-cli.md) o [Azure PowerShell](quick-create-powershell.md).
+* [Segreto](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets) di Key Vault. È possibile creare un segreto tramite il [portale di Azure](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli)
 
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse per ospitare sia l'insieme di credenziali delle chiavi che l'app Web con il comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create):
-
-```azurecli-interactive
-az group create --name "myResourceGroup" -l "EastUS"
-```
-
-## <a name="set-up-your-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
-
-A questo punto si creerà un insieme di credenziali delle chiavi in cui si inserirà un segreto, per usarli più avanti in questa esercitazione.
-
-Per creare un insieme di credenziali delle chiavi, usare il comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
-
-> [!Important]
-> Ogni insieme di credenziali delle chiavi deve avere un nome univoco. Negli esempi seguenti sostituire <your-keyvault-name> con il nome dell'insieme di credenziali delle chiavi in uso.
-
-```azurecli-interactive
-az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
-```
-
-Prendere nota del valore di `vaultUri` restituito, che avrà il formato "https://&lt;your-keyvault-name&gt;.vault.azure.net/". Verrà usato nel passaggio [Aggiornare il codice](#update-the-code).
-
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
-
-## <a name="create-a-net-web-app"></a>Creare un'app Web .NET
-
-### <a name="create-a-local-app"></a>Creare un'app locale
+## <a name="create-a-net-core-app-and-deploy-it-to-azure"></a>Creare un'app .NET Core e distribuirla in Azure
+In questo passaggio si configura il progetto .NET Core locale.
 
 In una finestra del terminale nel computer creare una directory denominata `akvwebapp` e passare dalla directory corrente a questa.
 
@@ -83,7 +60,11 @@ Aprire un Web browser e passare all'app all'indirizzo `http://localhost:5000`.
 
 Nella pagina verrà visualizzato il messaggio **Hello World** dell'app di esempio.
 
-### <a name="initialize-the-git-repository"></a>Inizializzare il repository Git
+## <a name="deploy-app-to-azure"></a>Distribuire l'app in Azure
+
+In questo passaggio l'applicazione .NET Core viene distribuita nel servizio app tramite Git locale. Per altre informazioni su come creare e distribuire applicazioni, vedere [Creare un'app Web ASP.NET Core in Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+
+### <a name="configure-local-git-deployment"></a>Configurare la distribuzione con l'istanza Git locale
 
 Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.  Inizializzare un repository Git per il progetto .NET Core.
 
@@ -93,11 +74,9 @@ git add .
 git commit -m "first commit"
 ```
 
-### <a name="configure-a-deployment-user"></a>Configurare un utente della distribuzione
+FTP e l'istanza Git locale possono essere usati per la distribuzione in un'app Web tramite un *utente della distribuzione*. Dopo aver configurato l'utente della distribuzione, è possibile usarlo per tutte le distribuzioni di Azure. Il nome utente e la password della distribuzione a livello di account sono diversi dalle credenziali della sottoscrizione di Azure. 
 
-FTP e l'istanza Git locale possono essere usati per la distribuzione in un'app Web tramite un *utente della distribuzione* . Dopo aver configurato l'utente della distribuzione, è possibile usarlo per tutte le distribuzioni di Azure. Il nome utente e la password della distribuzione a livello di account sono diversi dalle credenziali della sottoscrizione di Azure. 
-
-Per configurare l'utente della distribuzione, eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Scegliere un nome utente e una password che rispettino le linee guida seguenti: 
+Per configurare l'utente della distribuzione, eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set). Scegliere un nome utente e una password che rispettino le linee guida seguenti: 
 
 - Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "\@". 
 - La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
@@ -110,9 +89,17 @@ L'output JSON mostra la password come `null`. Se viene visualizzato un errore `'
 
 Registrare il nome utente e la password da usare per distribuire le app Web.
 
+### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse per ospitare sia l'insieme di credenziali delle chiavi che l'app Web con il comando [az group create](/cli/azure/group?#az-group-create):
+
+```azurecli-interactive
+az group create --name "myResourceGroup" -l "EastUS"
+```
+
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) dell'interfaccia della riga di comando di Azure. L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Gratuito** :
+Creare un [piano di servizio app](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) con il comando [az appservice plan create](/cli/azure/appservice/plan) dell'interfaccia della riga di comando di Azure. L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Gratuito**:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -138,10 +125,11 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 } 
 </pre>
 
+Per altre informazioni sulla gestione di un piano di servizio app, vedere [Gestire un piano di servizio app in Azure](https://docs.microsoft.com/azure/app-service/app-service-plan-manage)
 
-### <a name="create-a-remote-web-app"></a>Creare un'app Web remota
+### <a name="create-a-web-app"></a>Creare un'app Web
 
-Creare un'[app Web di Azure](../../app-service/overview.md#app-service-on-linux) nel piano di servizio app `myAppServicePlan`. 
+Creare un'[app Web di Azure](../../app-service/overview.md) nel piano di servizio app `myAppServicePlan`. 
 
 > [!Important]
 > Così come un insieme di credenziali delle chiavi, un'app Web di Azure deve avere un nome univoco. Negli esempi seguenti sostituire \<your-webapp-name\> con il nome dell'app Web.
@@ -183,13 +171,13 @@ Verrà visualizzata la pagina Web predefinita dell'app Web di Azure appena creat
 
 ### <a name="deploy-your-local-app"></a>Distribuire l'app locale
 
-Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale, sostituendo *\<deploymentLocalGitUrl-from-create-step>* con l'URL dell'elemento Git remoto salvato nel passaggio [Creare un'app Web remota](#create-a-remote-web-app).
+Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale, sostituendo *\<deploymentLocalGitUrl-from-create-step>* con l'URL dell'elemento Git remoto salvato nel passaggio [Creare un'app Web](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando Git Credential Manager richiede le credenziali, usare le credenziali create nel passaggio [Configurare un utente della distribuzione](#configure-a-deployment-user).
+Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando Git Credential Manager richiede le credenziali, usare quelle create nel passaggio [Configurare una distribuzione di Git locale](#configure-local-git-deployment).
 
 ```bash
 git push azure master
@@ -230,10 +218,16 @@ http://<your-webapp-name>.azurewebsites.net
 ```
 
 Verrà visualizzato il messaggio "Hello World!" visualizzato in precedenza visitando `http://localhost:5000`.
+ 
+## <a name="configure-web-app-to-connect-to-key-vault"></a>Configurare l'app Web per la connessione a Key Vault
 
-## <a name="create-and-assign-a-managed-identity"></a>Creare e assegnare un'identità gestita
+In questa sezione si configura l'accesso Web all'insieme di credenziali delle chiavi e si aggiorna il codice dell'applicazione per recuperare il segreto dall'insieme di credenziali delle chiavi.
 
-Nell'interfaccia della riga di comando di Azure eseguire il comando [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) per creare l'identità per l'applicazione:
+### <a name="create-and-assign-a-managed-identity"></a>Creare e assegnare un'identità gestita
+
+In questa esercitazione si userà l'[identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) dell'applicazione per eseguire l'autenticazione nell'insieme di credenziali delle chiavi, che gestirà automaticamente le credenziali dell'applicazione.
+
+Nell'interfaccia della riga di comando di Azure eseguire il comando [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) per creare l'identità per l'applicazione:
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -249,16 +243,17 @@ L'operazione restituirà il frammento JSON seguente:
 }
 ```
 
-Per concedere all'app Web l'autorizzazione per eseguire operazioni **get** e **list** sull'insieme di credenziali delle chiavi, passare principalID al comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure:
+Per concedere all'app Web l'autorizzazione per eseguire operazioni **get** e **list** sull'insieme di credenziali delle chiavi, passare principalID al comando [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
+È anche possibile assegnare criteri di accesso tramite il [portale di Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) o [PowerShell](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-powershell).
 
-## <a name="modify-the-app-to-access-your-key-vault"></a>Modificare l'app per l'accesso all'insieme di credenziali delle chiavi
+### <a name="modify-the-app-to-access-your-key-vault"></a>Modificare l'app per l'accesso all'insieme di credenziali delle chiavi
 
-### <a name="install-the-packages"></a>Installare i pacchetti
+#### <a name="install-the-packages"></a>Installare i pacchetti
 
 Nella finestra del terminale installare i pacchetti della libreria client di Azure Key Vault per .NET:
 
@@ -267,7 +262,7 @@ dotnet add package Azure.Identity
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
-### <a name="update-the-code"></a>Aggiornare il codice
+#### <a name="update-the-code"></a>Aggiornare il codice
 
 Trovare e aprire il file Startup.cs nel progetto akvwebapp. 
 
@@ -279,7 +274,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Aggiungere le righe prima della chiamata di `app.UseEndpoints`, aggiornando l'URI in modo da riflettere il valore di `vaultUri` dell'insieme di credenziali delle chiavi. Il codice seguente usa ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) per l'autenticazione all'insieme di credenziali delle chiavi, che usa il token dell'identità gestita dell'applicazione per l'autenticazione. Viene anche usato il backoff esponenziale per la ripetizione dei tentativi in caso di limitazione dell'insieme di credenziali delle chiavi.
+Aggiungere le righe prima della chiamata di `app.UseEndpoints`, aggiornando l'URI in modo da riflettere il valore di `vaultUri` dell'insieme di credenziali delle chiavi. Il codice seguente usa ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) per l'autenticazione all'insieme di credenziali delle chiavi, che usa il token dell'identità gestita dell'applicazione per l'autenticazione. Per altre informazioni sull'autenticazione nell'insieme di credenziali delle chiavi, vedere la [Guida per sviluppatori](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). Viene anche usato il backoff esponenziale per la ripetizione dei tentativi in caso di limitazione dell'insieme di credenziali delle chiavi. Per altre informazioni sui limiti di transazioni nell'insieme di credenziali delle chiavi, vedere [Informazioni sui limiti di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-throttling)
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -294,7 +289,7 @@ SecretClientOptions options = new SecretClientOptions()
     };
 var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
-KeyVaultSecret secret = client.GetSecret("mySecret");
+KeyVaultSecret secret = client.GetSecret("<mySecret>");
 
 string secretValue = secret.Value;
 ```
@@ -307,7 +302,7 @@ await context.Response.WriteAsync(secretValue);
 
 Assicurarsi di salvare le modifiche prima di procedere al passaggio successivo.
 
-### <a name="redeploy-your-web-app"></a>Ridistribuire l'app Web
+#### <a name="redeploy-your-web-app"></a>Ridistribuire l'app Web
 
 Dopo aver aggiornato il codice, è possibile ridistribuirlo in Azure con i comandi Git seguenti:
 
@@ -317,20 +312,20 @@ git commit -m "Updated web app to access my key vault"
 git push azure master
 ```
 
-## <a name="visit-your-completed-web-app"></a>Visitare l'app Web completata
+### <a name="visit-your-completed-web-app"></a>Visitare l'app Web completata
 
 ```bash
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Dove prima veniva visualizzato **Hello World** , verrà ora visualizzato il valore del segreto: **Operazione riuscita**
+Dove prima veniva visualizzato **Hello World**, verrà ora visualizzato il valore del segreto: **Operazione riuscita**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Usare Azure Key Vault con le applicazioni distribuite in una macchina virtuale in .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - Vedere altre informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Vedere altre informazioni sulle [identità gestite per il servizio app](../../app-service/overview-managed-identity.md?tabs=dotnet)
-- Vedere la [documentazione di riferimento API sulla libreria client di Azure Key Vault per .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)
-- Vedere il [codice sorgente della libreria client di Azure Key Vault per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)
-- Vedere il [pacchetto NuGet della libreria client di Azure Key Vault v4 per .NET](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+- [Guida per sviluppatori](https://docs.microsoft.com/azure/key-vault/general/developers-guide)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)
 
 

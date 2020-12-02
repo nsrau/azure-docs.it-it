@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635144"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527820"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Che cos'è l'API di Azure per FHIR&reg;?
 
@@ -53,7 +53,7 @@ L'API di Azure per FHIR consente di connettersi a qualsiasi sistema che sfrutta 
 
 ### <a name="control-data-access-at-scale"></a>Controllare l'accesso ai dati su larga scala
 
-Pieno controllo sui dati. Il controllo degli accessi in base al ruolo consente di gestire la modalità di archiviazione e accesso ai dati.  Garantendo una maggiore sicurezza e riducendo il carico di lavoro amministrativo, è possibile determinare chi ha accesso ai set di dati creati, in base alle definizioni dei ruoli create per l'ambiente.  
+Pieno controllo sui dati. Il controllo degli accessi in base al ruolo consente di gestire le modalità di archiviazione e accesso ai dati.  Garantendo una maggiore sicurezza e riducendo il carico di lavoro amministrativo, è possibile determinare chi ha accesso ai set di dati creati, in base alle definizioni dei ruoli create per l'ambiente.  
 
 ### <a name="audit-logs-and-tracking"></a>Log di controllo e monitoraggio 
 

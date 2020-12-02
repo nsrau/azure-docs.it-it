@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1b603dc4c31cb608a0840da78a2e987b3edd3c1e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 4d3ee6df90424788c6f9b6bb4e2055023a5d56a6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353595"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182066"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Esercitazione: Configurare MediusFlow per il provisioning utenti automatico
 
@@ -36,7 +36,7 @@ Questa esercitazione descrive le procedure da eseguire sia in MediusFlow che in 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * Una sottoscrizione MediusFlow attiva con un controllo di qualità o un tenant di produzione.
 * Un account utente in MediusFlow con diritti di accesso di amministratore per poter eseguire la configurazione in MediusFlow.
 * Aziende aggiunte al tenant di MediusFlow in cui è necessario effettuare il provisioning degli utenti.
@@ -52,17 +52,17 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 Per iniziare, abilitare l'accesso all'account di accesso di Azure AD e la funzionalità di configurazione Azure AD in MediusFlow attenendosi alla procedura seguente:
 
 #### <a name="user-login"></a>Accesso utente
-Per abilitare il flusso di accesso Microsoft 365/Azure AD fare riferimento a [this] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) articolo.
+Per abilitare il flusso di accesso a Microsoft 365/Azure AD, fare riferimento a questo articolo (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup).
 
 #### <a name="user-transfer-configuration"></a>Configurazione di trasferimento utente
-Per abilitare il portale di configurazione degli utenti per il provisioning da Azure AD fare riferimento a [questo](
+Per abilitare il portale di configurazione degli utenti per il provisioning da Azure AD, vedere [questo](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) articolo.
 
 #### <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 1.  Accedere alla [console di amministrazione di MediusFlow](https://office365.cloudapp.mediusflow.com/) fornendo l'ID tenant.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella Tenant Name e il pulsante Authenticate sono evidenziati nel primo passaggio del processo di integrazione di MediusFlow." border="false":::
 
 2. Verificare la connessione con MediusFlow.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Salvare la configurazione.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot della console di amministrazione di MediusFlow che illustra il quarto passaggio di integrazione. Il pulsante Salva configurazione è evidenziato." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot della console di amministrazione di MediusFlow che illustra il quarto passaggio del processo di integrazione. Il pulsante Save configuration è evidenziato." border="false":::
 
 5. Selezionare il provisioning utenti e fare clic su **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot della console di amministrazione di MediusFlow che illustra il quinto passaggio di integrazione. I pulsanti USA provisioning utenti e OK sono evidenziati." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot della console di amministrazione di MediusFlow che illustra il quinto passaggio del processo di integrazione. Il pulsante di opzione Use user provisioning e il pulsante Ok sono evidenziati." border="false":::
 
 6. Fare clic su **Generate Secret Key** (Genera chiave privata). Copiare e salvare il valore che verrà immesso nel campo **Token segreto** nella scheda **Provisioning** dell'applicazione MediusFLow nel portale di Azure.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Vengono evidenziati i pulsanti Genera chiave privata e copia." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot della scheda User provisioning configuration nella console di amministrazione di MediusFlow. I pulsanti Generate secret key e Copy sono evidenziati." border="false":::
 
 7. Fare clic su **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot della console di amministrazione di MediusFlow con una notifica che informa gli utenti di fare clic su OK per generare una nuova chiave privata. Il pulsante OK è evidenziato." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot della console di amministrazione di MediusFlow con una notifica in cui viene chiesto agli utenti di fare clic su OK per generare una nuova chiave privata. Il pulsante OK è evidenziato." border="false":::
 
-8. Per fare in modo che gli utenti importati con un set predefinito di ruoli, aziende e altre configurazioni generali in MediusFlow, è necessario configurarlo per primo. Per iniziare, aggiungere la configurazione facendo clic su **Add new configuration** (Aggiungi nuova configurazione).
+8. Per fare in modo che gli utenti vengano importati con un set predefinito di ruoli, aziende e altre configurazioni generali in MediusFlow, sarà necessario eseguire questa configurazione per prima. Per iniziare, aggiungere la configurazione facendo clic su **Add new configuration** (Aggiungi nuova configurazione).
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Il pulsante Aggiungi nuova configurazione è evidenziato." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot della scheda User provisioning configuration nella console di amministrazione di MediusFlow. Il pulsante Add new configuration è evidenziato." border="false":::
 
 9. Usare le impostazioni seguenti per gli utenti. In questa visualizzazione è possibile impostare l'attributo predefinito. Se le impostazioni standard sono corrette, è sufficiente immettere un nome aziendale valido. Poiché queste impostazioni di configurazione vengono recuperate da Mediusflow, devono essere configurate per prime. Per altre informazioni, vedere la sezione **Prerequisiti** di questo articolo.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot della finestra Aggiungi nuova configurazione di MediusFlow. Sono visibili molte impostazioni, incluse le impostazioni locali, un filtro e i ruoli utente." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot della finestra Add new configuration di MediusFlow. Sono visibili molte impostazioni, tra cui le impostazioni locali, un filtro e i ruoli utente." border="false":::
 
 10. Fare clic sul pulsante **Salva** per salvare la configurazione utente.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Il pulsante Salva è evidenziato." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot della scheda User provisioning configuration nella console di amministrazione di MediusFlow. Il pulsante Save è evidenziato." border="false":::
 
 11. Per ottenere il collegamento del provisioning utenti, fare clic su **Copy SCIM Link** (Copia collegamento SCIM). Copiare e salvare questo valore che verrà immesso nel campo **URL tenant** nella scheda **Provisioning** dell'applicazione MediusFLow nel portale di Azure.
  
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Il pulsante di collegamento copia S C I M è evidenziato." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot della scheda User provisioning configuration nella console di amministrazione di MediusFlow. Il pulsante Copy SCIM link è evidenziato." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere MediusFlow dalla raccolta di applicazioni di Azure AD
 
@@ -135,15 +135,15 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione **Credenziali amministratore** immettere il valore di URL tenant recuperato in precedenza in **URL tenant**. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a MediusFlow. Se la connessione non riesce, verificare che l'account MediusFlow disponga delle autorizzazioni di amministratore e riprovare.
 
-      ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/mediusflow-provisioning-tutorial/provisioning.png)
+      ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

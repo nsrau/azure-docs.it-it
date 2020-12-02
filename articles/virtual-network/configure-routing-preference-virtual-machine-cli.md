@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49b0df3e750d4d23cb6a64f3f7266613fd2f2981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccd04a43e6781e8d58234cc382b2739d800e5fe7
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501832"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510676"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configurare la preferenza di routing per una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -30,11 +30,6 @@ Questo articolo illustra come creare una macchina virtuale con un indirizzo IP p
 > La preferenza di routing è attualmente disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-feature-for-your-subscription"></a>Registrare la funzionalità per la propria sottoscrizione
-La funzionalità Preferenza di routing è attualmente disponibile in anteprima. Registrare la funzionalità per la propria sottoscrizione come indicato di seguito:
-```azurecli
-az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-```
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 1. Se si usa Cloud Shell, andare al passaggio 2. Aprire una sessione di comando e accedere ad Azure con `az login`.
 2. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse nell'area di Azure Stati Uniti orientali:
@@ -59,7 +54,7 @@ az network public-ip create \
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-Prima di distribuire una macchina virtuale, è necessario creare le risorse di rete di supporto, ovvero il gruppo di sicurezza di rete, la rete virtuale e la scheda di interfaccia di rete virtuale.
+Prima di distribuire una macchina virtuale è necessario creare le risorse di rete virtuale di supporto, ovvero il gruppo di sicurezza di rete, la rete virtuale e il NIC virtuale.
 
 ### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
@@ -132,6 +127,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla [preferenza di routing per gli indirizzi IP pubblici](routing-preference-overview.md).
+- Altre informazioni su [preferenze di routing negli indirizzi IP pubblici](routing-preference-overview.md).
 - Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
-- Altre informazioni sulle [impostazioni dell'indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Altre informazioni sull'[impostazione dell'indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address).

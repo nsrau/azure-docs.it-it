@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972434"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014476"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Esercitazione: Creare un'applicazione di gestione rifiuti connessa in IoT Central
 
@@ -92,18 +92,18 @@ Tra le attività di compilazione, è possibile creare e personalizzare le visual
 
 Il dashboard è costituito da diversi tipi di riquadri:
 
-* ***Riquadro dell'immagine dell'ente di gestione rifiuti Wide World***: il primo riquadro nel dashboard è quello dell'immagine dell'ente di gestione rifiuti fittizio Wide World. È possibile personalizzare il riquadro con la propria immagine o rimuoverlo del tutto. 
+* ***Riquadro dell'immagine dell'ente di gestione rifiuti Wide World** _: il primo riquadro nel dashboard è quello dell'immagine dell'ente di gestione rifiuti fittizio Wide World. È possibile personalizzare il riquadro con la propria immagine o rimuoverlo del tutto. 
 
-* ***Riquadro dell'immagine del cassonetto***: è possibile usare riquadri di immagini e contenuti per creare una rappresentazione visiva del dispositivo monitorato insieme a del testo descrittivo. 
+_ ***Riquadro dell'immagine del cassonetto** _: è possibile usare riquadri di immagini e contenuti per creare una rappresentazione visiva del dispositivo monitorato insieme a un testo descrittivo. 
 
-* ***Riquadro dei KPI del livello di colmo***: il riquadro visualizza un valore segnalato da un sensore del *livello di colmo* di un cassonetto. Il sensore *Fill level* (Livello di colmo) e altri sensori come *Odor meter* (Misuratore odori) o *Weight* (Peso) in un cassonetto possono essere monitorati in remoto. Un operatore può eseguire un'azione, ad esempio inviare un camion della raccolta di rifiuti. 
+_ ***Riquadro dei KPI del livello di colmo**: il riquadro visualizza un valore segnalato da un sensore del _livello di colmo* di un cassonetto. Il sensore *Fill level* (Livello di colmo) e altri sensori come *Odor meter* (Misuratore odori) o *Weight* (Peso) in un cassonetto possono essere monitorati in remoto. Un operatore può eseguire un'azione, ad esempio inviare un camion della raccolta di rifiuti. 
 
-*  ***Mappa dell'area di monitoraggio rifiuti***: la mappa usa Mappe di Azure, che è possibile configurare direttamente in Azure IoT Central. Il riquadro della mappa visualizza la posizione del dispositivo. Passare il puntatore del mouse sulla mappa e provare i controlli sulla mappa, ad esempio zoom avanti, zoom indietro o espansione.
+*  ***Mappa dell'area di monitoraggio rifiuti** _: la mappa usa Mappe di Azure, che è possibile configurare direttamente in Azure IoT Central. Il riquadro della mappa visualizza la posizione del dispositivo. Passare il puntatore del mouse sulla mappa e provare i controlli sulla mappa, ad esempio zoom avanti, zoom indietro o espansione.
 
      ![Mappa del dashboard di Gestione rifiuti connessa](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Grafico a barre dei livelli di colmo, odori e peso**: è possibile visualizzare i dati di telemetria di uno o più dispositivi in un grafico a barre. È anche possibile espandere il grafico a barre.  
+_ ***Grafico a barre dei livelli di colmo, odori e peso**: è possibile visualizzare i dati di telemetria di uno o più dispositivi in un grafico a barre. È anche possibile espandere il grafico a barre.  
 
   ![Grafico a barre del dashboard di Gestione rifiuti connessa](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -197,7 +197,7 @@ L'applicazione **Gestione rifiuti connessa** è dotata di due dispositivi simula
 
 ## <a name="explore-and-configure-rules"></a>Esplorare e configurare le regole
 
-In Azure IoT Central è possibile creare regole per monitorare automaticamente i dati di telemetria del dispositivo e attivare azioni quando vengono soddisfatte una o più condizioni. Le azioni possono includere l'invio di notifiche tramite posta elettronica, l'attivazione di un'azione di Microsoft Flow o un'azione webhook per l'invio dei dati ad altri servizi.
+In Azure IoT Central è possibile creare regole per monitorare automaticamente i dati di telemetria del dispositivo e attivare azioni quando vengono soddisfatte una o più condizioni. Le azioni possono includere l'invio di notifiche tramite posta elettronica, l'attivazione di un'azione di Power Automate o un'azione di webhook per l'invio dei dati ad altri servizi.
 
 L'applicazione **Gestione rifiuti connessa** ha quattro regole di esempio.
 

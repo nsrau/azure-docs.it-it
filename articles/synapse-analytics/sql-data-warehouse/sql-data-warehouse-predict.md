@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460531"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510829"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Assegnare punteggi ai modelli di apprendimento automatico con PREDICT
 
-Il pool SQL dedicato offre la possibilità di assegnare punteggi ai modelli di apprendimento automatico usando il linguaggio T-SQL familiare. Con la [stima](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)di T-SQL è possibile usare i modelli di machine learning esistenti con training con i dati cronologici e assegnare loro un punteggio entro i limiti di sicurezza del data warehouse. La funzione PREDICT accetta un modello [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e i dati come input. Questa funzionalità Elimina la fase di trasferimento di dati importanti al di fuori dell'data warehouse per l'assegnazione dei punteggi. Mira a consentire ai professionisti dei dati di distribuire facilmente modelli di apprendimento automatico con l'interfaccia T-SQL familiare, nonché collaborare senza problemi con i data scientist che lavorano con il Framework appropriato per la propria attività.
+Il pool SQL dedicato offre la possibilità di assegnare punteggi ai modelli di apprendimento automatico usando il linguaggio T-SQL familiare. Con la [stima](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)di T-SQL è possibile usare i modelli di machine learning esistenti con training con i dati cronologici e assegnare loro un punteggio entro i limiti di sicurezza del data warehouse. La funzione PREDICT accetta un modello [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e i dati come input. Questa funzionalità Elimina la fase di trasferimento di dati importanti al di fuori dell'data warehouse per l'assegnazione dei punteggi. Mira a consentire ai professionisti dei dati di distribuire facilmente modelli di apprendimento automatico con l'interfaccia T-SQL familiare, nonché collaborare senza problemi con i data scientist che lavorano con il Framework appropriato per la propria attività.
 
 > [!NOTE]
 > Questa funzionalità non è attualmente supportata nel pool SQL senza server.
@@ -66,7 +66,7 @@ GO
 
 ```
 
-Una volta che il modello viene convertito in una stringa esadecimale e la definizione della tabella specificata, utilizzare il [comando copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) o la polibase per caricare il modello nella tabella del pool SQL dedicata. Nell'esempio di codice seguente viene utilizzato il comando Copy per caricare il modello.
+Una volta che il modello viene convertito in una stringa esadecimale e la definizione della tabella specificata, utilizzare il [comando copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) o la polibase per caricare il modello nella tabella del pool SQL dedicata. Nell'esempio di codice seguente viene utilizzato il comando Copy per caricare il modello.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -80,17 +80,17 @@ WITH (
 
 ## <a name="scoring-the-model"></a>Assegnazione di punteggi al modello
 
-Una volta caricati i dati e il modello nel data warehouse, utilizzare la funzione di **stima T-SQL** per assegnare un punteggio al modello. Assicurarsi che i nuovi dati di input abbiano lo stesso formato dei dati di training utilizzati per la compilazione del modello. L'istruzione T-SQL PREDICT accetta due input: modello e nuovi dati di input di assegnazione dei punteggi e genera nuove colonne per l'output. Il modello può essere specificato come variabile, valore letterale o scalare sub_query. Utilizzare [con common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15) per specificare un set di risultati denominato per il parametro data.
+Una volta caricati i dati e il modello nel data warehouse, utilizzare la funzione di **stima T-SQL** per assegnare un punteggio al modello. Assicurarsi che i nuovi dati di input abbiano lo stesso formato dei dati di training utilizzati per la compilazione del modello. L'istruzione T-SQL PREDICT accetta due input: modello e nuovi dati di input di assegnazione dei punteggi e genera nuove colonne per l'output. Il modello può essere specificato come variabile, valore letterale o scalare sub_query. Utilizzare [con common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true) per specificare un set di risultati denominato per il parametro data.
 
-Nell'esempio seguente viene illustrata una query di esempio che utilizza la funzione di stima. Viene creata una colonna aggiuntiva con il *Punteggio* del nome e il tipo di dati *float* contenente i risultati della stima. Tutte le colonne di dati di input e le colonne di stima di output sono disponibili per la visualizzazione con l'istruzione SELECT. Per ulteriori informazioni, vedere [Predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Nell'esempio seguente viene illustrata una query di esempio che utilizza la funzione di stima. Viene creata una colonna aggiuntiva con il *Punteggio* del nome e il tipo di dati *float* contenente i risultati della stima. Tutte le colonne di dati di input e le colonne di stima di output sono disponibili per la visualizzazione con l'istruzione SELECT. Per ulteriori informazioni, vedere [Predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Query for ML predictions
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
-DATA = dbo.mytable AS d) WITH (Score float) AS p;
+DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla funzione PREDICT, vedere [Predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Per ulteriori informazioni sulla funzione PREDICT, vedere [Predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

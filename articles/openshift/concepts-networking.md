@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419972"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527990"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Funzionalità di rete di Azure Red Hat su OpenShift 4
 
@@ -98,7 +98,7 @@ Le impostazioni di rete seguenti sono disponibili in Azure Red Hat OpenShift 4:
     * "Public" (Pubblica): il server API è accessibile da reti esterne.
     * "Private" (Privata): al server API è assegnato un IP privato dalla subnet master, accessibile solo tramite reti connesse (reti virtuali con peering, altre subnet nel cluster). Verrà creata una zona DNS privata per conto del cliente.
 * **Ingress Visibility** (Visibilità in ingresso): imposta la visibilità dell'API quando si esegue il [comando az aro create](tutorial-create-cluster.md#create-the-cluster).
-    * Per impostazione predefinita, le route pubbliche vengono indirizzate al servizio Load Balancer Standard di Azure (questa impostazione può essere modificata).
+    * Per impostazione predefinita, le route "pubbliche" vengono indirizzate al servizio Load Balancer Standard di Azure (questa impostazione può essere cambiata).
     * Per impostazione predefinita, le route private vengono indirizzate al servizio di bilanciamento del carico interno (questa impostazione può essere modificata).
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete

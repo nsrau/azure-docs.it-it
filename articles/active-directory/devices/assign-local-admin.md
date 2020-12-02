@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365834"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511118"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -72,14 +72,19 @@ Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti 
 >[!NOTE]
 > Questa funzionalità è attualmente in anteprima.
 
+
 A partire dall'aggiornamento di Windows 10 2004, è possibile usare i gruppi di Azure AD per gestire i privilegi di amministratore nei dispositivi Azure AD aggiunti con i criteri MDM dei [gruppi limitati](/windows/client-management/mdm/policy-csp-restrictedgroups) . Questo criterio consente di assegnare singoli utenti o gruppi di Azure AD al gruppo Administrators locale in un dispositivo Azure AD aggiunto, offrendo la granularità per configurare amministratori distinti per gruppi diversi di dispositivi. 
 
-Attualmente non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri e deve essere configurata usando [impostazioni URI OMA personalizzate](/mem/intune/configuration/custom-settings-windows-10). Alcune considerazioni relative a questo criterio: 
+>[!NOTE]
+> A partire dall'aggiornamento di Windows 10 20H2, è consigliabile usare i criteri [per utenti e gruppi locali anziché per](/windows/client-management/mdm/policy-csp-localusersandgroups) i criteri dei gruppi limitati
+
+
+Attualmente non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri ed è necessario configurarli con [impostazioni URI OMA personalizzate](/mem/intune/configuration/custom-settings-windows-10). Di seguito sono riportate alcune considerazioni relative all'utilizzo di uno di questi criteri: 
 
 - L'aggiunta di Azure AD gruppi tramite il criterio richiede il SID del gruppo che può essere ottenuto eseguendo l'API dei gruppi. Il SID è definito dalla proprietà `securityIdentifier` nell'API dei gruppi.
-- Quando viene applicato un criterio di gruppi limitati, viene rimosso qualsiasi membro corrente del gruppo che non si trova nell'elenco dei membri. L'applicazione di questi criteri con nuovi membri o gruppi eliminerà quindi gli amministratori esistenti, ovvero l'utente che ha aggiunto il dispositivo, il ruolo di amministratore del dispositivo e il ruolo di amministratore globale dal dispositivo. Per evitare di rimuovere membri esistenti, è necessario configurarli come parte dell'elenco dei membri nel criterio gruppi limitati. 
-- Questo criterio è applicabile solo ai gruppi noti seguenti in un dispositivo Windows 10: amministratori, utenti, Guest, Power Users, Desktop remoto utenti e utenti di gestione remota. 
-- La gestione degli amministratori locali con i criteri di gruppi limitati non è applicabile ai dispositivi Azure AD ibrido aggiunti o Azure AD registrati.
+- Quando viene applicato un criterio di gruppi limitati, viene rimosso qualsiasi membro corrente del gruppo che non si trova nell'elenco dei membri. L'applicazione di questi criteri con nuovi membri o gruppi eliminerà quindi gli amministratori esistenti, ovvero l'utente che ha aggiunto il dispositivo, il ruolo di amministratore del dispositivo e il ruolo di amministratore globale dal dispositivo. Per evitare di rimuovere membri esistenti, è necessario configurarli come parte dell'elenco dei membri nel criterio gruppi limitati. Questa limitazione viene risolta se si usano i criteri utenti e gruppi locali che consentono aggiornamenti incrementali dell'appartenenza al gruppo
+- I privilegi di amministratore che usano entrambi i criteri vengono valutati solo per i gruppi noti seguenti in un dispositivo Windows 10: amministratori, utenti, Guest, Power Users, Desktop remoto utenti e utenti di gestione remota. 
+- La gestione degli amministratori locali con gruppi di Azure AD non è applicabile ai dispositivi Azure AD ibrido aggiunti o Azure AD registrati.
 - Mentre i criteri dei gruppi limitati erano precedenti a Windows 10 2004 Update, non supportava i gruppi di Azure AD come membri del gruppo Administrators locale del dispositivo. 
 
 ## <a name="manage-regular-users"></a>Gestire utenti normali

@@ -3,50 +3,49 @@ title: 'Avvio rapido: Configurare regole e azioni in Azure IoT Central'
 description: Questo avvio rapido illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: 66c3bd8650d1194d5d753c1dc967ec8e870c8748
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99846a5f2435398d13c436460a2756b1b021a1be
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80998973"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990204"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Guida introduttiva: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
-In questo argomento di avvio rapido si crea una regola che invia un messaggio di posta elettronica quando la temperatura segnalata da un dispositivo sensore supera 90&deg;F (circa 32 °C).
+In questa guida di avvio rapido si crea una regola che invia un messaggio di posta elettronica quando l'umidità segnalata da un dispositivo sensore supera il 55%.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è consigliabile completare i due argomenti di avvio rapido precedenti, [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md), per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
+Prima di iniziare, è necessario completare le due guide di avvio rapido precedenti, [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md), per creare il modello di dispositivo **Sensor Controller** da usare.
 
 ## <a name="create-a-telemetry-based-rule"></a>Creare una regola basata su dati di telemetria
 
 1. Per aggiungere una nuova regola basata sui dati di telemetria all'applicazione, selezionare **Regole**.
 
-1. Per creare una nuova regola, selezionare **+** .
+1. Per creare una nuova regola, selezionare **+ Nuovo**.
 
-1. Immettere **Temperatura ambiente** come nome della regola.
+1. Immettere **Environmental humidity** (Umidità ambientale) come nome della regola.
 
-1. Nella sezione **Dispositivi di destinazione** selezionare **MXChip IoT DevKit** come modello di dispositivo. Questa opzione filtra i dispositivi a cui si applica la regola per tipo di modello di dispositivo. È possibile aggiungere altri criteri di filtro selezionando **+ Filtro**.
+1. Nella sezione **Dispositivi di destinazione** selezionare **Sensor Controller** come modello di dispositivo. Questa opzione filtra i dispositivi a cui si applica la regola per tipo di modello di dispositivo. È possibile aggiungere altri criteri di filtro selezionando **+ Filtro**.
 
 1. Nella sezione **Condizioni** definire ciò che attiva la regola. Usare le informazioni seguenti per definire una condizione basata su dati di telemetria relativi alla temperatura:
 
     | Campo        | valore            |
     | ------------ | ---------------- |
-    | Misura  | Temperatura      |
+    | Misura  | SensorHumid      |
     | Operatore     | è maggiore di  |
-    | valore        | 90               |
+    | valore        | 55               |
 
     Per aggiungere altre condizioni, selezionare **+ Condizione**.
 
-    ![Creare una condizione per la regola](./media/quick-configure-rules/condition.png)
+    :::image type="content" source="media/quick-configure-rules/condition.png" alt-text="Screenshot che mostra la condizione della regola":::
 
 1. Per aggiungere un'azione di posta elettronica da eseguire quando la regola viene attivata, selezionare **+ Posta elettronica**.
 
@@ -56,12 +55,12 @@ Prima di iniziare, è consigliabile completare i due argomenti di avvio rapido p
     | --------- | ------------------------------------------------- |
     | Nome visualizzato | Azione di posta elettronica dell'operatore                          |
     | A        | Indirizzo di posta elettronica                                |
-    | Note     | La temperatura ambiente ha superato la soglia. |
+    | Note     | L'umidità ambientale ha superato la soglia. |
 
     > [!NOTE]
     > Per ricevere una notifica, l'indirizzo di posta elettronica deve essere un [ID utente nell'applicazione](howto-administer.md) e tale utente deve aver eseguito almeno una volta l'accesso all'applicazione.
 
-    ![Creare l'azione per la regola](./media/quick-configure-rules/action.png)
+    :::image type="content" source="media/quick-configure-rules/action.png" alt-text="Screenshot che mostra l'azione per l'invio di un messaggio di posta elettronica aggiunta alla regola":::
 
 1. Selezionare **Salva**. La regola è elencata nella pagina **Regole**.
 

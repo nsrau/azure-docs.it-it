@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789064"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122230"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduzione ad Azure Defender per il servizio app
 
@@ -37,7 +37,7 @@ Grazie alla visibilità di cui Azure dispone come provider di servizi cloud, il 
 
 Con il piano di servizio app abilitato, il Centro sicurezza valuta le risorse coperte da tale piano e genera raccomandazioni sulla sicurezza in base ai risultati ottenuti. Il Centro sicurezza protegge l'istanza di macchina virtuale in cui è in esecuzione il servizio app e l'interfaccia di gestione. Monitora anche le richieste e le risposte inviate da e verso le applicazioni in esecuzione nel servizio app.
 
-Se si sta eseguendo un piano di servizio app basato su Windows, il Centro sicurezza ha anche accesso alle sandbox e alle macchine virtuali sottostanti. Insieme ai dati di log indicati in precedenza, l'infrastruttura può fornire indicazioni su ciò che accade, da un nuovo attacco in circolazione alle compromissioni nei computer dei clienti. Pertanto, anche se il Centro sicurezza viene distribuito dopo che le vulnerabilità di un'app Web sono state già sfruttate, può essere in grado di rilevare gli attacchi in atto.
+Se si sta eseguendo un piano di servizio app basato su Windows, il Centro sicurezza ha anche accesso alle sandbox e alle macchine virtuali sottostanti. Insieme ai dati di log indicati in precedenza, l'infrastruttura può fornire indicazioni su ciò che accade, da un nuovo attacco in circolazione alle compromissioni nei computer dei clienti. Pertanto, anche se il Centro sicurezza viene distribuito dopo che le vulnerabilità di un'app Web sono già state sfruttate, potrebbe essere in grado di rilevare gli attacchi in atto.
 
 
 ## <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggere le app Web e le API del servizio app di Azure
@@ -45,7 +45,7 @@ Per proteggere il piano di servizio app di Azure con Azure Defender per il servi
 
 - Verificare di avere un piano di servizio app supportato associato a computer dedicati. I piani supportati sono elencati sopra nella sezione [Disponibilità](#availability).
 
-- Abilitare **Azure Defender** nella sottoscrizione (se si vuole è possibile abilitare solo il piano **Azure Defender per il servizio app** ) come descritto in [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+- Abilitare **Azure Defender** nella sottoscrizione (se si vuole è possibile abilitare solo il piano **Azure Defender per il servizio app**) come descritto in [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 
 Il Centro sicurezza è integrato in modo nativo con il servizio app, eliminando la necessità di eseguire la distribuzione e l'onboarding; l'integrazione è trasparente.
 

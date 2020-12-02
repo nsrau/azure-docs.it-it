@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627944"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996186"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Esercitazione: Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
-Questa guida illustra come implementare le informazioni di accesso a Microsoft usando una soluzione MVC ASP.NET con un'applicazione tradizionale basata su Web browser e OpenID Connect.
+In questa esercitazione si creerà un'app Web MVC ASP.NET che esegue l'accesso degli utenti usando il middleware Open Web Interface for .NET (OWIN) e Microsoft Identity Platform.
 
 Al termine di questa guida, l'applicazione potrà accettare accessi di account personali, come quelli di outlook.com e live.com. L'accesso all'app sarà consentito anche ad account aziendali o dell'istituto di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
 
@@ -463,7 +463,7 @@ Per limitare l'accesso degli utenti all'applicazione, sono disponibili diverse o
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opzione 1: Limitare l'accesso all'applicazione solo agli utenti di una specifica istanza di Active Directory dell'organizzazione (tenant singolo)
 
-Questa opzione viene usata di frequente per le *applicazioni line-of-business*: Se si vuole che l'applicazione accetti gli accessi solo da account appartenenti a una specifica istanza di Azure AD (inclusi gli *account Guest*dell'istanza), procedere come segue:
+Questa opzione viene usata di frequente per le *applicazioni line-of-business*: Se si vuole che l'applicazione accetti gli accessi solo da account appartenenti a una specifica istanza di Azure AD (inclusi gli *account Guest* dell'istanza), procedere come segue:
 
 1. Nel file web.config modificare il valore del parametro `Tenant` sostituendo `Common` con il nome del tenant dell'organizzazione, ad esempio `contoso.onmicrosoft.com`.
 2. Nella [classe OWIN Startup](#configure-the-authentication-pipeline) impostare l'argomento `ValidateIssuer` su `true`.

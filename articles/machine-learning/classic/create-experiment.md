@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81842fb3a9a68e818a3e8c94aa6db690cb1d94f5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307976"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486280"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Avvio rapido: Creare il primo esperimento data science in Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -78,7 +78,7 @@ In questo set di dati ogni riga rappresenta un'automobile e le variabili associa
 
 ![Visualizzare i dati delle automobili nella finestra di visualizzazione dei dati](./media/create-experiment/visualize-auto-data.png)
 
-Chiudere la finestra di visualizzazione facendo clic sulla " **x** " nell'angolo superiore destro.
+Chiudere la finestra di visualizzazione facendo clic sulla "**x**" nell'angolo superiore destro.
 
 ## <a name="prepare-the-data"></a>Preparare i dati
 
@@ -99,7 +99,7 @@ In primo luogo si aggiunge un modulo che rimuove completamente la colonna **norm
 
    - A sinistra, fare clic su **With rules** (Con regole)
    - In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). Queste regole indicano a [Select Columns in Dataset][select-columns] di analizzare tutte le colonne, ad eccezione di quelle che verranno escluse.
-   - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna** , quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
+   - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
    - Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne nella parte inferiore destra.
 
      ![Avviare il selettore di colonne ed escludere la colonna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
@@ -148,7 +148,7 @@ Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del s
 
 1. Fare clic su **Launch column selector** nel riquadro **Proprietà**.
 
-1. Fare clic su **With rules** (Con regole).
+1. Fare clic su **With rules**(Con regole).
 
 1. In **Begin With** (Inizia con), fare clic su **No columns** (Nessuna colonna). Nella riga del filtro, scegliere **Include** (Includi) e **i nomi delle colonne** e selezionare l'elenco dei nomi delle colonne nella casella di testo. Questo filtro indica al modulo di non analizzare le colonne (caratteristiche), a eccezione di quelle specificate.
 
@@ -179,7 +179,7 @@ Il training e il test del modello verranno eseguiti con dati separati in un set 
     ![Impostare la frazione di divisione del modulo "Split Data" su 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
-    > Modificando il parametro **Random seed** , è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
+    > Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
 1. Eseguire l'esperimento. Durante l'esecuzione dell'esperimento, i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Split Data][split] (Dividi dati) passano le definizioni di colonna ai moduli che verranno aggiunti successivamente.  
 
@@ -227,9 +227,9 @@ Per il modello vengono visualizzate le seguenti statistiche:
 
 - **Errore assoluto medio** (MAE): Media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
 - **Radice dell'errore quadratico medio** (RMSE): Radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-- **Errore assoluto relativo** : Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-- **Errore quadratico relativo** : Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-- **Coefficiente di determinazione** : Noto anche come **valore quadratico R** , è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+- **Errore assoluto relativo**: Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+- **Errore quadratico relativo**: Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+- **Coefficiente di determinazione**: Noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination** più il valore si avvicina a uno (1,0) più le stime sono migliori.
 

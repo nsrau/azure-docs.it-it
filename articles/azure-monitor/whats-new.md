@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555618"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534501"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
@@ -296,7 +296,7 @@ Articoli nuovi e aggiornati dalla ristrutturazione del contenuto di Monitoraggio
 
 ### <a name="logs"></a>Log
 - [Eliminare e ripristinare l'area di lavoro Azure Log Analytics](platform/delete-workspace.md) - Aggiunto un comando di PowerShell. Aggiornate le procedure di risoluzione dei problemi.
-- [Gestire le aree di lavoro Log Analytics in Monitoraggio di Azure](platform/manage-access.md) - Aggiunto un esempio per le tabelle non consentite nella sezione sul Controllo degli accessi in base al ruolo.
+- [Gestire le aree di lavoro Log Analytics in Monitoraggio di Azure](platform/manage-access.md) - Aggiunto un esempio per le tabelle non consentite nella sezione sul Controllo degli accessi in base al ruolo di Azure.
 - [Gestire l'utilizzo e i costi per i log di Monitoraggio di Azure](platform/manage-cost-storage.md) - Dettagli aggiuntivi sul calcolo delle dimensioni dei dati. Aggiornata la procedura di configurazione degli avvisi sui volumi di dati. Dettagli sulla sicurezza dei dati raccolti da Azure Sentinel. Chiarimenti sul limite dei dati.
 - [Usare i log di Monitoraggio di Azure con App per la logica di Azure e Power Automate](platform/logicapp-flow-connector.md) - Aggiunta una sezione sui limiti dei connettori.
 
@@ -571,7 +571,7 @@ Diversi aggiornamenti con la riscrittura del contenuto sull'estensione di diagno
 
 #### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 
-- [Integrare Azure Active Directory con il servizio Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Aggiunta di una nota per la creazione di un'applicazione client per supportare un cluster abilitato per Controllo degli accessi in base al ruolo e Monitoraggio di Azure per i contenitori.
+- [Integrare Azure Active Directory con il servizio Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Aggiunta di una nota per la creazione di un'applicazione client per supportare un cluster abilitato per il controllo degli accessi in base al ruolo di Kubernetes e Monitoraggio di Azure per i contenitori.
 
 #### <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
 

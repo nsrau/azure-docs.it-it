@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449172"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030867"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza dei contenitori nel Centro sicurezza
 
@@ -78,11 +78,11 @@ Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurez
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes
 
-Installare il **componente aggiuntivo Criteri di Azure per Kubernetes** per ottenere una serie di raccomandazioni per proteggere i carichi di lavoro dei contenitori di Kubernetes.
+Per ottenere una serie di raccomandazioni su come proteggere i carichi di lavoro dei contenitori Kubernetes, installare il **componente aggiuntivo Criteri di Azure per** . È anche possibile distribuire questo componente aggiuntivo come descritto in [Abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
 
 Come spiegato in questa [pagina su Criteri di Azure per Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), il componente aggiuntivo estende il webhook del controller di ammissione open source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) per [Open Policy Agent](https://www.openpolicyagent.org/). I controller di ammissione Kubernetes sono plug-in che stabiliscono la modalità di utilizzo dei cluster. Il componente aggiuntivo viene registrato come webhook nel controllo di ammissione Kubernetes e consente di applicare tutele e misure di sicurezza su larga scala per i cluster in modo centralizzato e coerente. 
 
-Dopo l'installazione del componente aggiuntivo nel cluster del servizio Azure Kubernetes, ogni richiesta al server API Kubernetes sarà monitorata rispetto al set predefinito di procedure consigliate prima del salvataggio permanente nel cluster. È quindi possibile configurare l'**applicazione** delle procedure consigliate e renderle obbligatorie per i carichi di lavoro futuri. 
+Con il componente aggiuntivo nel cluster del servizio Azure Kubernetes, ogni richiesta inviata al server API Kubernetes verrà monitorata rispetto a un set predefinito di procedure consigliate prima del salvataggio permanente nel cluster. È quindi possibile configurare l'**applicazione** delle procedure consigliate e renderle obbligatorie per i carichi di lavoro futuri. 
 
 È ad esempio possibile imporre il divieto di creazione di contenitori con privilegi, pertanto eventuali richieste future di creazione di tali contenitori verranno bloccate.
 

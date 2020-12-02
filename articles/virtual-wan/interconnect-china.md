@@ -5,24 +5,24 @@ services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566640"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510736"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconnettersi con la Cina tramite l'hub sicuro e la rete WAN virtuale di Azure
 
-Quando si esamina la connettività delle comuni aziende del settore automobilistico, manifatturiero o logistico oppure di istituzioni come le ambasciate, spesso si pone la domanda su come migliorare l'interconnessione con la Cina. Questi miglioramenti sono per lo più rilevanti per l'uso di servizi cloud come Microsoft 365, servizi globali di Azure o rami di interconnessione all'interno della Cina con una dorsale del cliente.
+Quando si esaminano le aziende comuni di settore automobilistico, manifatturiero, logistico o di altro tipo, ad esempio le ambasciate, spesso si pone la domanda su come migliorare l'interconnessione con la Cina. Questi miglioramenti sono per lo più rilevanti per l'uso di servizi cloud come Microsoft 365, servizi globali di Azure o rami di interconnessione all'interno della Cina con una dorsale del cliente.
 
 Nella maggior parte dei casi, i clienti riscontrano difficoltà relative a latenze elevate, larghezza di banda ridotta, connessione instabile e costi elevati per la connessione dalla Cina verso l'esterno, ad esempio l'Europa o gli Stati Uniti.
 
 Uno dei motivi di queste difficoltà è dato dal "Grande Firewall cinese", che protegge la parte cinese di Internet e filtra il traffico verso la Cina. Quasi tutto il traffico dalla Cina continentale verso l'esterno, ad eccezione delle zone di amministrazione speciali come Hong Kong e Macao, passa attraverso il Grande Firewall. Il traffico che passa attraverso Hong Kong e Macao non tocca direttamente il Grande Firewall, ma viene gestito da un subset di tale firewall.
 
-![Interconnessione con i provider](./media/interconnect-china/provider.png)
+:::image type="content" source="./media/interconnect-china/provider.png" alt-text="Il diagramma mostra l'interconnessione del provider.":::
 
 Usando la rete WAN virtuale, un cliente può stabilire una connessione più efficiente e stabile ai servizi Microsoft Cloud e a una connessione alla rete aziendale senza infrangere la legge cinese sulla cybersecurity.
 
@@ -71,11 +71,17 @@ L'elenco seguente include gli Internet Exchange possibili a Hong Kong:
 
 Quando si usa questa connessione, l'hop BGP successivo per i servizi Microsoft deve essere Microsoft Autonomous System Number (AS#) 8075. Se si usa una soluzione con singolo sito o SDWAN, questa sarebbe la connessione da preferire.
 
-In entrambi i casi, è comunque consigliabile avere un secondo normale breakout a Internet nella Cina continentale. Questo consente di tenere separati il traffico aziendale verso i servizi cloud, come Microsoft 365 e Azure, e il traffico Internet regolamentato per legge.
+Con le modifiche attuali riguardanti le interconnessioni tra la Cina continentale e Hong Kong, la maggior parte di questi provider di rete crea un Bridge MPLS tra la Cina continentale e Hong Kong.
+
+È possibile osservare che le connessioni VPN da sito a sito in Cina sono consentite e sono per lo più stabili. Lo stesso vale per le connessioni da sito a sito tra i rami nel resto del mondo. I provider ora creano un'aggregazione VPN/SDWAN su entrambi i lati e Bridge tramite MPLS tra di essi.
+
+:::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="Il diagramma mostra il Bridge MPLS Cina.":::
+
+In entrambi i casi, è comunque consigliabile avere un secondo e un normale Internet breakout in Cina continentale. Questo consente di suddividere il traffico tra il traffico aziendale e i servizi cloud come Microsoft 365 e Azure e il traffico Internet regolamentato per legge.
 
 Un'architettura di rete conforme ai requisiti delle autorità cinesi potrebbe avere un aspetto simile al seguente:
 
-![Più rami](./media/interconnect-china/multi-branch.png)
+:::image type="content" source="./media/interconnect-china/multi-branch.png" alt-text="Il diagramma mostra più rami.":::
 
 In questo esempio, avendo un'interconnessione con la rete globale Microsoft a Hong Kong, è ora possibile iniziare a sfruttare l'[architettura di transito globale della rete WAN virtuale di Azure ](virtual-wan-global-transit-network-architecture.md) e servizi aggiuntivi, come l'hub sicuro della rete WAN virtuale di Azure, per utilizzare i servizi e interconnettersi con i rami e il data center al di fuori della Cina.
 
@@ -85,7 +91,7 @@ In questa sezione si userà la comunicazione da hub a hub della rete WAN virtual
 
 Un'architettura di esempio potrebbe avere un aspetto simile al seguente:
 
-![Rete WAN di esempio](./media/interconnect-china/sample.png)
+:::image type="content" source="./media/interconnect-china/sample.png" alt-text="Il diagramma mostra la rete WAN di esempio.":::
 
 In questo esempio, i rami della Cina si connettono ad Azure Cloud China e tra di loro tramite connessioni VPN o MPLS. I rami che devono essere connessi ai servizi globali usano servizi basati su Internet o MPLS oppure collegati direttamente a Hong Kong. Se si vuole usare ExpressRoute sia a Hong Kong che nell'altra area, è necessario configurare [Copertura globale di ExpressRoute](../expressroute/expressroute-global-reach.md) per interconnettere entrambi i circuiti ExpressRoute.
 
@@ -93,7 +99,7 @@ Copertura globale di ExpressRoute non è disponibile in alcune aree. Se è neces
 
 Nella figura seguente sono illustrati entrambi gli esempi per questo scenario.
 
-![Copertura globale](./media/interconnect-china/global.png)
+:::image type="content" source="./media/interconnect-china/global.png" alt-text="Il diagramma mostra Copertura globale.":::
 
 ## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Secure Internet breakout per Microsoft 365
 
@@ -103,7 +109,7 @@ Per entrambi gli scenari con la rete WAN virtuale, è possibile usare l'[hub pro
 
 La figura seguente illustra un esempio di questo scenario:
 
-![Breakout a Internet per il traffico dei servizi Web e Microsoft](./media/interconnect-china/internet.png)
+:::image type="content" source="./media/interconnect-china/internet.png" alt-text="Il diagramma mostra Internet breakout per il traffico dei servizi Web e Microsoft.":::
 
 ## <a name="architecture-and-traffic-flows"></a><a name="traffic"></a>Architettura e flussi di traffico
 
@@ -117,7 +123,7 @@ Quando si usa una rete WAN virtuale di Azure con connessioni Internet, ogni conn
 
 Questa sezione illustra un'architettura in cui vengono usate connessioni SDWAN o VPN verso Hong Kong e altri rami. L'opzione mostra il flusso del traffico quando si usa una connessione Internet pura in entrambi i siti del backbone WAN virtuale. In questo caso, la connessione viene portata a Hong Kong usando un accesso a Internet dedicato o una soluzione SDWAN del provider ICP. Altri rami usano anche soluzioni Internet pure o SDWAN.
 
-![Traffico dalla Cina a Hong Kong](./media/interconnect-china/china-traffic.png)
+:::image type="content" source="./media/interconnect-china/china-traffic.png" alt-text="Il diagramma mostra la Cina al traffico di Hong Kong.":::
 
 In questa architettura, ogni sito è connesso alla rete globale Microsoft tramite una VPN e la rete WAN virtuale di Azure. Il traffico tra i siti e Hong Kong viene trasmesso attraverso la rete Microsoft e usa soltanto una normale connessione Internet nell'ultimo miglio.
 
@@ -125,7 +131,7 @@ In questa architettura, ogni sito è connesso alla rete globale Microsoft tramit
 
 Questa sezione illustra un'architettura in cui vengono usati il servizio ExpressRoute a Hong Kong e connessioni VPN/SDWAN per altri rami. L'opzione mostra l'uso della connessione ExpressRoute terminata a Hong Kong e altri rami connessi tramite SDWAN o VPN. A Hong Kong il servizio ExpressRoute è attualmente limitato a pochi provider, che è possibile trovare nell'elenco dei [partner ExpressRoute](../expressroute/expressroute-locations-providers.md#global-commercial-azure).
 
-![Traffico dalla Cina a Hong Kong tramite ExpressRoute](./media/interconnect-china/expressroute.png)
+:::image type="content" source="./media/interconnect-china/expressroute.png" alt-text="Il diagramma mostra la Cina al traffico di Hong Kong-ExpressRoute.":::
 
 Sono disponibili anche opzioni per terminare ExpressRoute dalla Cina, ad esempio, in Corea del Sud o in Giappone. Tuttavia, in considerazione dei requisiti di conformità, delle norme vigenti e della latenza, Hong Kong rappresenta attualmente la scelta migliore.
 
@@ -135,7 +141,7 @@ Questa sezione illustra un'architettura in cui viene usato il servizio ExpressRo
 
 Il traffico diretto verso i rami interconnessi o da questi verso le varie sedi in Cina seguirà un approccio diverso all'interno dell'architettura. Attualmente la rete WAN virtuale non supporta il transito da ExpressRoute a ExpressRoute. Il traffico sfrutterà Copertura globale di ExpressRoute o l'interconnessione di terze parti senza passare attraverso l'hub di rete WAN virtuale. Il flusso passerà direttamente da un Microsoft Enterprise Edge (MSEE) a un altro.
 
-![Copertura globale di ExpressRoute](./media/interconnect-china/expressroute-virtual.png)
+:::image type="content" source="./media/interconnect-china/expressroute-virtual.png" alt-text="Il diagramma mostra ExpressRoute Copertura globale.":::
 
 Attualmente Copertura globale di ExpressRoute non è disponibile in tutti i paesi o aree geografiche, ma è possibile configurare una soluzione usando la rete WAN virtuale di Azure.
 

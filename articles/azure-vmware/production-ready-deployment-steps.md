@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888981"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95529732"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -48,7 +48,7 @@ Identificare gli host dimensioni da usare durante la distribuzione della soluzio
 
 ## <a name="number-of-hosts"></a>Numero di host
 
-Definire il numero di host da distribuire nel cloud privato della soluzione Azure VMware.  Il numero minimo di nodi è tre e il numero massimo è 16 nodi per cluster.  Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
+Definire il numero di host da distribuire nel cloud privato della soluzione Azure VMware.  Il numero minimo di host è tre e il numero massimo è 16 per cluster.  Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
 
 È sempre possibile estendere il cluster in un secondo momento se è necessario incrementare il numero di distribuzione iniziale.
 

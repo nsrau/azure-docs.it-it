@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 14c71d5888aefc11485c03935c5d8c7ff7d17045
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995880"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Avvio rapido: Connettersi a Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -41,16 +41,16 @@ La connessione di un database Azure Cosmos DB si esegue come servizio collegato.
 
 Da Data Object Explorer (Esplora oggetti dati) è possibile connettere direttamente un database Azure Cosmos DB seguendo questa procedura:
 
-1. Selezionare l'icona ***+*** accanto a Dati
-2. Selezionare **Connect to external data** (Connetti a dati esterni)
+1. Selezionare l'icona **_+_* _ accanto a Dati
+2. Selezionare _ *Connect to external data** (Connetti a dati esterni)
 3. Selezionare l'API a cui connettersi, ovvero SQL o MongoDB
-4. Selezionare ***Continua***
+4. Selezionare **_Continue_* _ (Continua)
 5. Assegnare un nome al servizio collegato. Il nome verrà visualizzato in Esplora oggetti e verrà usato dai runtime di Synapse per connettersi al database e ai contenitori. È consigliabile usare un nome descrittivo.
-6. Selezionare il **nome dell'account Cosmos DB** e il **nome del database**
-7. (Facoltativo) Se non viene specificata un'area, le operazioni dei runtime di Synapse verranno instradate all'area più vicina in cui è abilitato l'archivio analitico. È tuttavia possibile impostare manualmente l'area in cui gli utenti dovranno accedere all'archivio analitico di Cosmos DB. Selezionare **Additional connection properties** (Proprietà di connessione aggiuntive) e quindi **Nuovo**. In **Nome proprietà** scrivere ***PreferredRegions*** e impostare **Valore** sull'area desiderata, ad esempio WestUS2, senza spazi tra parole e numeri
-8. Selezionare ***Crea***
+6. Selezionare il _ *nome dell'account Cosmos DB** e il **nome del database**
+7. (Facoltativo) Se non viene specificata un'area, le operazioni dei runtime di Synapse verranno instradate all'area più vicina in cui è abilitato l'archivio analitico. È tuttavia possibile impostare manualmente l'area in cui gli utenti dovranno accedere all'archivio analitico di Cosmos DB. Selezionare **Additional connection properties** (Proprietà di connessione aggiuntive) e quindi **Nuovo**. In **Nome proprietà** scrivere **_PreferredRegions_ *_ e impostare _* Valore** sull'area desiderata, ad esempio WestUS2, senza spazi tra parole e numeri
+8. Selezionare **_Crea_* _
 
-I database Azure Cosmos DB sono visibili nella scheda **Collegato** nella sezione Azure Cosmos DB. È possibile distinguere un contenitore Azure Cosmos DB abilitato per HTAP da un contenitore solo OLTP con le icone seguenti:
+I database Azure Cosmos DB sono visibili nella scheda _ *Collegato** nella sezione Azure Cosmos DB. È possibile distinguere un contenitore Azure Cosmos DB abilitato per HTAP da un contenitore solo OLTP con le icone seguenti:
 
 **Contenitore Synapse**:
 

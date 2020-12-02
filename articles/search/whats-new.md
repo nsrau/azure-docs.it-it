@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579471"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026662"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -23,7 +23,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |------------------------------|----------|-------------|---------------|
-|[Crittografia delle chiavi gestita dal cliente su indicizzatori, origini dati e set di competenze](search-security-manage-encryption-keys.md) | Sicurezza | Questa aggiunta estende la crittografia gestita dal cliente all'intera gamma di risorse create e gestite da un servizio di ricerca. Tenere presente che il supporto delle chiavi gestite dal cliente aggiunge un ulteriore livello di crittografia alla crittografia di base eseguita e gestita da Microsoft. | Disponibile a livello generale con l'API REST versione 2020-06-30 |  
+|[Crittografia delle chiavi gestite dal cliente su indicizzatori, origini dati e set di competenze](search-security-manage-encryption-keys.md) | Sicurezza | Questa aggiunta estende la crittografia gestita dal cliente all'intera gamma di risorse create e gestite da un servizio di ricerca. Tenere presente che il supporto delle chiavi gestite dal cliente aggiunge un ulteriore livello alla crittografia di base eseguita e gestita da Microsoft. | Disponibile a livello generale con l'API REST versione 2020-06-30 |  
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -41,7 +41,7 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
-| [Crittografia doppia](search-security-overview.md#encryption) | Security | Abilitare la crittografia doppia a livello di archiviazione configurando la crittografia della chiave gestita dal cliente nei nuovi servizi di ricerca. Creare un nuovo servizio, [configurare e applicare chiavi gestite dal cliente](search-security-manage-encryption-keys.md) a indici o mappe di sinonimi e sfruttare i vantaggi della crittografia doppia su tale contenuto. | Disponibile a livello generale in tutti i servizi di ricerca creati dopo il 1° agosto 2020 in queste aree: Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, US Gov Virginia, US Gov Arizona. Per creare il servizio, usare il portale, le API REST di gestione o gli SDK. |
+| [Crittografia doppia](search-security-overview.md#encryption) | Security | Abilitare la crittografia doppia a livello di archiviazione configurando la crittografia delle chiavi gestite dal cliente nei nuovi servizi di ricerca. Creare un nuovo servizio, [configurare e applicare chiavi gestite dal cliente](search-security-manage-encryption-keys.md) a indici o mappe di sinonimi e sfruttare i vantaggi della crittografia doppia su tale contenuto. | Disponibile a livello generale in tutti i servizi di ricerca creati dopo il 1° agosto 2020 in queste aree: Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, US Gov Virginia, US Gov Arizona. Per creare il servizio, usare il portale, le API REST di gestione o gli SDK. |
 
 ## <a name="july-2020"></a>Luglio 2020
 

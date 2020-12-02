@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488338"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95986546"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -100,7 +100,7 @@ Per aggiungere un dominio personalizzato all'app, è necessario verificare la pr
 ![Screenshot che mostra l'ID nella casella ID di verifica dominio personalizzato.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> L'aggiunta dell'ID di verifica al dominio personalizzato può impedire voci DNS inesatte e consente di evitare l'acquisizione della proprietà dei sottodomini. Per altre informazioni su questa minaccia comune con gravità elevata, vedere [Acquisizione della proprietà dei sottodomini](../security/fundamentals/subdomain-takeover.md).
+> L'aggiunta dell'ID di verifica al dominio personalizzato può impedire voci DNS inesatte e consente di evitare l'acquisizione della proprietà dei sottodomini. È consigliabile proteggere dallo stesso rischio i domini personalizzati configurati in precedenza senza questo ID aggiungendo l'ID verifica al record DNS. Per altre informazioni su questa minaccia comune con gravità elevata, vedere [Acquisizione della proprietà dei sottodomini](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Eseguire il mapping del dominio
 

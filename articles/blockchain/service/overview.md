@@ -4,16 +4,16 @@ description: Panoramica del servizio Azure Blockchain
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: e82916d7366ad82746d2d3ddfc979264e113619b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc716b475fe85170d595463e0785743591e398c1
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334821"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874560"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
-Il servizio Azure Blockchain è un servizio di contabilità generale completamente gestito che consente agli utenti di aumentare e gestire le reti blockchain su larga scala in Azure. Grazie al controllo unificato per la gestione dell'infrastruttura e per la governance della rete blockchain, il servizio Azure Blockchain fornisce:
+Azure Blockchain è un servizio di contabilità generale completamente gestito che consente agli utenti di accrescere e gestire le reti blockchain su larga scala in Azure. Grazie al controllo unificato per la gestione dell'infrastruttura e per la governance della rete blockchain, il servizio Azure Blockchain fornisce:
 
 * Semplicità di distribuzione e gestione delle reti
 * Gestione predefinita del consorzio

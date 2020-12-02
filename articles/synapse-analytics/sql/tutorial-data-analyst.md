@@ -1,34 +1,26 @@
 ---
-title: 'Esercitazione: Usare un pool SQL serverless (anteprima) per analizzare i set di dati aperti di Azure in Azure Synapse Studio (anteprima)'
-description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con un pool SQL serverless (anteprima) e visualizzare i risultati in Azure Synapse Studio.
+title: 'Esercitazione: Esplorare e analizzare data lake con Synapse SQL serverless'
+description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure usando un pool SQL serverless (anteprima) e visualizzare i risultati in Synapse Studio per Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 84fc49df2838a66969b449dee5b416c2a0f86f86
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685920"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237964"
 ---
-# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Esercitazione: Usare un pool SQL serverless per analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure Synapse Studio
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Esercitazione: Esplorare e analizzare data lake con un pool SQL serverless (anteprima)
 
-Questa esercitazione illustra come eseguire l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con un pool SQL serverless e visualizzare i risultati in Azure Synapse Studio.
+Questa esercitazione illustra come eseguire un'analisi esplorativa dei dati. Si combineranno diversi set di dati aperti di Azure usando un pool SQL serverless. Quindi si visualizzeranno i risultati in Synapse Studio per Azure Synapse Analytics.
 
-In particolare, si analizza il [set di dati del taxi di New York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) che include:
-
-- Date e ore di inizio e fine corsa.
-- Luoghi di inizio e fine corsa. 
-- Distanze delle corse.
-- Tariffe dettagliate.
-- Tipi di tariffa.
-- Tipi di pagamento. 
-- Numero di passeggeri segnalato dall'autista.
+La funzione OPENROWSET (BULK) consente di accedere ai file di Archiviazione di Azure. La funzione [OPENROWSET](develop-openrowset.md) legge il contenuto di un'origine dati remota, ad esempio un file, e lo restituisce come set di righe.
 
 ## <a name="automatic-schema-inference"></a>Inferenza automatica dello schema
 
@@ -44,9 +36,15 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-Il frammento seguente mostra il risultato per i dati dei taxi di New York:
+Il [set di dati dei taxi di New York City (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) include:
 
-![Frammento di risultati dei dati dei taxi di New York](./media/tutorial-data-analyst/1.png)
+- Date e ore di inizio e fine corsa.
+- Luoghi di inizio e fine corsa. 
+- Distanze delle corse.
+- Tariffe dettagliate.
+- Tipi di tariffa.
+- Tipi di pagamento. 
+- Numero di passeggeri segnalato dall'autista.
 
 Allo stesso modo, è possibile eseguire una query sul set di dati di festività pubbliche con la query seguente:
 
@@ -57,10 +55,6 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
-
-Il frammento seguente mostra il risultato per il set di dati di festività pubbliche:
-
-![Frammento di risultati del set di dati di festività pubbliche](./media/tutorial-data-analyst/2.png)
 
 Infine, è anche possibile eseguire una query sul set di dati meteo con la query seguente:
 
@@ -74,11 +68,10 @@ FROM
     ) AS [weather]
 ```
 
-Il frammento seguente mostra il risultato per il set di dati meteo:
-
-![Frammento di risultati del set di dati meteo](./media/tutorial-data-analyst/3.png)
-
-Per altre informazioni sul significato delle singole colonne, vedere le descrizioni dei set di dati [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [Festività pubbliche](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) e [Dati meteorologici](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/).
+Altre informazioni sul significato delle singole colonne sono disponibili nelle descrizioni dei set di dati: 
+- [Taxi di NYC](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
+- [Festività pubbliche](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
+- [Dati meteo](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 
 ## <a name="time-series-seasonality-and-outlier-analysis"></a>Analisi di outlier, stagionalità e serie temporali
 
@@ -100,13 +93,13 @@ ORDER BY 1 ASC
 
 Il frammento seguente mostra il risultato per il numero annuale di corse di taxi:
 
-![Frammento del risultato del numero annuale di corse di taxi](./media/tutorial-data-analyst/4.png)
+![Frammento del risultato del numero annuale di corse di taxi](./media/tutorial-data-analyst/yearly-taxi-rides.png)
 
 I dati possono essere visualizzati in Synapse Studio passando da una visualizzazione **Tabella** a una visualizzazione **Grafico**. È possibile scegliere tra diversi tipi di grafico, ad esempio **ad area**, **a barre**, **istogramma**, **a linee**, **a torta** e **a dispersione**. In questo caso, verrà tracciato un **istogramma** con la colonna **Categoria** impostata su **current_year**:
 
-![Istogramma che mostra il numero annuale di corse](./media/tutorial-data-analyst/5.png)
+![Istogramma che mostra il numero annuale di corse](./media/tutorial-data-analyst/column-chart-rides-year.png)
 
-In questa visualizzazione è chiaramente visibile una tendenza decrescente del numero di corse nel corso degli anni. Presumibilmente, questo decremento è dovuto al recente aumento di popolarità delle aziende di ride-sharing.
+In questa visualizzazione è riportata una tendenza di numeri di corse in diminuzione nel corso degli anni. Presumibilmente, questo decremento è dovuto al recente aumento di popolarità delle aziende di ride-sharing.
 
 > [!NOTE]
 > Al momento della stesura di questa esercitazione, i dati per 2019 sono incompleti. Di conseguenza, è presente un enorme calo nel numero di corse per quell'anno.
@@ -129,15 +122,15 @@ ORDER BY 1 ASC
 
 Il frammento seguente mostra il risultato di questa query:
 
-![Frammento del risultato del numero giornaliero di corse per il 2016](./media/tutorial-data-analyst/6.png)
+![Frammento del risultato del numero giornaliero di corse per il 2016](./media/tutorial-data-analyst/daily-rides.png)
 
 Anche in questo caso, è possibile visualizzare facilmente i dati tracciando l'**istogramma** con la colonna **Categoria** impostata su **current_day** e la colonna **Legenda (serie)** su **rides_per_day**.
 
-![Istogramma che mostra il numero giornaliero di corse per il 2016](./media/tutorial-data-analyst/7.png)
+![Istogramma che mostra il numero giornaliero di corse per il 2016](./media/tutorial-data-analyst/column-chart-daily-rides.png)
 
 Dal grafico del tracciato si evince un modello settimanale, con il sabato come giorno di punta. Durante i mesi estivi, il numero di corse di taxi è inferiore a causa delle vacanze. Sono anche visibili anche alcuni cali significativi nel numero di corse di taxi senza un modello chiaro che evidenzi quando e perché si verificano.
 
-A questo punto, è necessario verificare se tali cali sono correlati alle festività pubbliche incrociando il set di dati delle corse dei taxi di New York con quello delle festività pubbliche:
+Verrà ora illustrata la correlazione tra il calo di corse e le festività pubbliche. È possibile verificare che esiste una correzione unendo il set di dati sulle corse dei taxi di New York con quello delle festività pubbliche:
 
 ```sql
 WITH taxi_rides AS
@@ -172,11 +165,11 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![Visualizzazione del risultato dei set di dati delle corse di taxi di New York e delle festività pubbliche](./media/tutorial-data-analyst/8.png)
+![Visualizzazione del risultato dei set di dati delle corse di taxi di New York e delle festività pubbliche](./media/tutorial-data-analyst/rides-public-holidays.png)
 
 Questa volta verrà evidenziato il numero di corse di taxi durante le festività pubbliche. A tale scopo, si sceglierà **none** per la colonna **Categoria** e **rides_per_day** e **holiday** come colonne **Legenda (serie)** .
 
-![Tracciato del grafico del numero di corse di taxi durante le festività](./media/tutorial-data-analyst/9.png)
+![Tracciato del grafico del numero di corse di taxi durante le festività](./media/tutorial-data-analyst/plot-chart-public-holidays.png)
 
 Dal tracciato, si osserva che durante le festività pubbliche il numero di corse di taxi è inferiore. Il 23 gennaio si registra un importante calo inspiegabile. A questo punto, verrà controllato il meteo di New York per il giorno in questione tramite una query sul set di dati meteo:
 
@@ -205,7 +198,7 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![Visualizzazione del risultato del set di dati meteo](./media/tutorial-data-analyst/10.png)
+![Visualizzazione del risultato del set di dati meteo](./media/tutorial-data-analyst/weather-data-set-visualization.png)
 
 I risultati della query indicano che il calo del numero di corse di taxi è stato dovuto a:
 
@@ -218,4 +211,6 @@ Questa esercitazione ha illustrato come gli analisti dei dati possono eseguire r
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come connettere il pool SQL serverless a Power BI Desktop e creare report, vedere l'articolo [Connettere un pool SQL serverless a Power BI Desktop e creare report](tutorial-connect-power-bi-desktop.md).
+
+Per informazioni su come usare tabelle esterne nel pool SQL serverless, vedere [Usare tabelle esterne con Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool)
  

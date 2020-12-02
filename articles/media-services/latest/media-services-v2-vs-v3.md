@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14544f58bcda56a55cef33de8fe0a70d5859b589
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019835"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510948"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 e V3
 
@@ -80,7 +80,6 @@ L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in cors
     * Unione degli asset
     * Sovrimpressioni
     * Ritaglio
-    * Sprite di anteprima
     * Inserimento di una traccia audio invisibile all'utente quando l'input non ha audio
     * Inserimento di una traccia video quando l'input non ha video
 * Attualmente gli eventi live con transcodifica non supportano l'inserimento di slate nel corso del flusso e l'inserimento di marcatori di annunci tramite chiamata API. 

@@ -9,14 +9,14 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: c754efef02cdad6edbf047c5de9f1af6d758f137
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4c55c25621df1925b6ed6c374d8af88551eb1e46
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043205"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231430"
 ---
-Il servizio di monitoraggio metriche si occupa del rilevamento, della diagnostica e dell'analisi delle anomalie nelle serie temporali. Supportato dall'intelligenza artificiale, usa i dati per eseguire il training del modello usato. Il servizio accetta tabelle di dati aggregati con le colonne seguenti:
+Advisor metriche è un servizio che gestisce il rilevamento, la diagnostica e l'analisi delle anomalie nelle serie temporali. Supportato dall'intelligenza artificiale, usa i dati per eseguire il training del modello usato. Il servizio accetta tabelle di dati aggregati con le colonne seguenti:
 
 * **Misura** (obbligatoria): una o più colonne contenenti valori numerici.
 * **Timestamp** (facoltativa): zero o una colonna di tipo `DateTime` o `String`. Quando questa colonna non è impostata, il timestamp viene impostato come ora di inizio di ogni periodo di inserimento. Formattare il timestamp nel modo seguente: `yyyy-MM-ddTHH:mm:ssZ`. 

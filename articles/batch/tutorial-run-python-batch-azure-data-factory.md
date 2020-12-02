@@ -1,18 +1,18 @@
 ---
-title: Eseguire script Python tramite Data Factory
-description: 'Esercitazione: Informazioni su come eseguire gli script Python come parte di una pipeline tramite Azure Data Factory usando Azure Batch.'
-author: mammask
+title: 'Esercitazione: Eseguire script Python tramite Data Factory'
+description: Informazioni su come eseguire script Python come parte di una pipeline tramite Azure Data Factory usando Azure Batch.
+author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.author: komammas
+ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886907"
+ms.locfileid: "94917631"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Esercitazione: Eseguire script Python tramite Azure Data Factory usando Azure Batch
 
@@ -155,6 +155,5 @@ In questa esercitazione è stato analizzato un esempio che illustra come eseguir
 Per altre informazioni su Azure Data Factory, vedere:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md)
-> [Pipeline e attività ](../data-factory/concepts-pipelines-activities.md)
-> [Attività personalizzate](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Panoramica di Azure Data Factory](../data-factory/introduction.md)
+

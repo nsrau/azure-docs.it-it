@@ -8,17 +8,14 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857079"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959680"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Esercitazione: Generare dati di dispositivi simulati
-
-> [!NOTE]
-> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
 In questo articolo vengono usati dati di training di Machine Learning per simulare un dispositivo che invia dati di telemetria all'hub IoT di Azure. Come indicato nell'introduzione, in questa esercitazione viene usato il [set di dati di simulazione della riduzione delle prestazioni del motore Turbofan](https://c3.nasa.gov/dashlink/resources/139/) per simulare i dati di un set di motori di aero per il training e i test.
 
@@ -45,6 +42,10 @@ Il progetto DeviceHarness è un progetto .NET Core scritto in C# e costituito da
 Per completare le attività descritte in questo articolo, dovrebbero essere necessari circa 20 minuti.
 
 Nella realtà, le operazioni equivalenti di questo passaggio verranno probabilmente eseguite da sviluppatori di dispositivi e sviluppatori cloud.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Ogni articolo della serie si basa sulle attività di quello precedente. Se questo articolo è stato aperto direttamente, vedere il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie.
 
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Configurare Visual Studio Code e creare il progetto DeviceHarness
 

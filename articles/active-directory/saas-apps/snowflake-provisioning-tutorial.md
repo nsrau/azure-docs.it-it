@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare fiocco di neve per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in fiocco di neve.
+title: 'Esercitazione: Configurare Snowflake per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Snowflake.
 services: active-directory
 author: zchia
 writer: zchia
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fcbfd3eb805e046647a2c28cef8c378b44026bd0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355442"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181425"
 ---
-# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: configurare fiocco di neve per il provisioning utenti automatico
+# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: Configurare Snowflake per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in fiocco di neve e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in [fiocco di neve](https://www.Snowflake.com/pricing/). Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Questa esercitazione descrive la procedura da eseguire in Snowflake e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in [Snowflake](https://www.Snowflake.com/pricing/). Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 > [!NOTE]
@@ -28,60 +28,60 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in fioc
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creazione di utenti in fiocco di neve
-> * Rimuovere gli utenti in fiocco di neve quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e fiocco di neve
-> * Provisioning di gruppi e appartenenze a gruppi in fiocco
-> * [Single Sign-on](./snowflake-tutorial.md) a fiocco di neve (scelta consigliata)
+> * Creazione di utenti in Snowflake
+> * Rimozione di utenti in Snowflake quando l'accesso non è più necessario
+> * Mantenimento della sincronizzazione degli attributi utente tra Azure AD e Snowflake
+> * Provisioning di gruppi e appartenenza a gruppi in Snowflake
+> * [Accesso Single Sign-On](./snowflake-tutorial.md) a Snowflake (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
-* [Un tenant A fiocco di neve](https://www.Snowflake.com/pricing/).
-* Un account utente in fiocco di pagina con autorizzazioni di amministratore.
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
+* [Un tenant di Snowflake](https://www.Snowflake.com/pricing/).
+* Un account utente in Snowflake con autorizzazioni di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e fiocco di neve](../app-provisioning/customize-application-attributes.md). 
+3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Snowflake](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare fiocco di neve per supportare il provisioning con Azure AD
+## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Snowflake per supportare il provisioning con Azure AD
 
-Prima di configurare il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in fiocco di neve.
+Prima di configurare Snowflake per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning SCIM in Snowflake.
 
-1. Accedere alla console di amministrazione di fiocco di neve. Immettere la query riportata di seguito nel foglio di foglio evidenziato e fare clic su **Esegui**.
+1. Accedere alla console di amministrazione di Snowflake. Immettere la query mostrata di seguito nel foglio di lavoro evidenziato e fare clic su **Run** (Esegui).
 
-    ![Console di amministrazione di fiocco di neve](media/Snowflake-provisioning-tutorial/image00.png)
+    ![Console di amministrazione di Snowflake](media/Snowflake-provisioning-tutorial/image00.png)
 
-2.  Verrà generato un token di accesso SCIM per il tenant di fiocco di neve. Per recuperarlo, fare clic sul collegamento evidenziato di seguito.
+2.  Verrà generato un token di accesso SCIM per il tenant di Snowflake. Per recuperarlo, fare clic sul collegamento evidenziato di seguito.
 
-    ![Screenshot di un foglio di un foglio di neve in U i con il token di accesso S C I M denominato.](media/Snowflake-provisioning-tutorial/image01.png)
+    ![Screenshot di un foglio di lavoro nell'interfaccia utente di Snowflake con il token di accesso SCIM evidenziato.](media/Snowflake-provisioning-tutorial/image01.png)
 
-3. Copiare il valore del token generato e fare clic su **fine**. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione fiocco di neve nell'portale di Azure.
+3. Copiare il valore del token generato e fare clic su **Done** (Fine). Questo valore dovrà essere immesso nel campo **Token segreto** nella scheda Provisioning dell'applicazione Snowflake nel portale di Azure.
 
-    ![Screenshot della sezione dei dettagli che mostra il token copiato nel campo di testo e l'opzione Done è stata richiamata.](media/Snowflake-provisioning-tutorial/image02.png)
+    ![Screenshot della sezione Details che mostra il token copiato nel campo di testo e l'opzione Done evidenziata.](media/Snowflake-provisioning-tutorial/image02.png)
 
-## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere fiocco di neve dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Snowflake dalla raccolta di applicazioni di Azure AD
 
-Aggiungere fiocco di neve dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in fiocco di neve. Se in precedenza è stato impostato fiocco di neve per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Snowflake dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Snowflake. Se Snowflake è stato configurato in precedenza per l'accesso Single Sign-On, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti e gruppi a fiocco di neve, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a Snowflake, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-snowflake"></a>Passaggio 5. Configurare il provisioning utenti automatico in fiocco di neve 
+## <a name="step-5-configure-automatic-user-provisioning-to-snowflake"></a>Passaggio 5. Configurare il provisioning automatico degli utenti per Snowflake 
 
-Questa sezione illustra i passaggi necessari per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in fiocco di neve in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Snowflake in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Per configurare il provisioning utenti automatico per fiocco di neve in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Snowflake in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
@@ -93,13 +93,13 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatica evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione credenziali amministratore immettere l'URL di **base SCIM 2,0 e** i valori dei token di autenticazione recuperati in precedenza rispettivamente nei campi **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a fiocco di neve. Se la connessione non riesce, verificare che l'account fiocco di neve disponga di autorizzazioni di amministratore e riprovare.
+5. Nella sezione Credenziali amministratore immettere i valori dell'**URL di base SCIM 2.0 e del token di autenticazione** recuperati in precedenza rispettivamente nei campi **URL tenant** e **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Snowflake. Se la connessione non riesce, verificare che l'account Snowflake abbia autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -109,9 +109,9 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
 8. Fare clic su **Salva**.
 
-9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a fiocco di neve**.
+9. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Snowflake** (Sincronizza utenti di Azure Active Directory in Snowflake).
 
-10. Esaminare gli attributi utente sincronizzati da Azure AD a fiocco di neve nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in fiocco di neve per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+10. Esaminare gli attributi utente sincronizzati da Azure AD a Snowflake nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in Snowflake per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|
    |---|---|
@@ -121,12 +121,12 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
    |userName|string|
    |name.givenName|string|
    |name.familyName|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultRole|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultWarehouse|string|
 
-11. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi a fiocco di neve**.
+11. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Snowflake** (Sincronizza gruppi di Azure Active Directory in Snowflake).
 
-12. Esaminare gli attributi di gruppo sincronizzati da Azure AD a fiocco di neve nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in fiocco di neve per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+12. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Snowflake nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con i gruppi in Snowflake per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -135,11 +135,11 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
 13. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Per abilitare il servizio di provisioning Azure AD per fiocco di neve, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+14. Per abilitare il servizio di provisioning di Azure AD per Snowflake, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-15. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in fiocco di neve scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** . Se questa opzione non è disponibile, configurare i campi obbligatori in credenziali di amministratore, fare clic su **Salva** e aggiornare la pagina. 
+15. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Snowflake selezionando i valori appropriati in **Ambito** nella sezione **Impostazioni**. Se questa opzione non è disponibile, configurare i campi obbligatori in Credenziali amministratore, fare clic su **Salva** e aggiornare la pagina. 
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -158,11 +158,11 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* I token SCIM generati a fiocco di neve scadono entro 6 mesi. Tenere presente che questi elementi devono essere aggiornati prima che scadano per consentire il provisioning delle sincronizzazioni per continuare a funzionare. 
+* I token SCIM generati da Snowflake scadono dopo 6 mesi. Devono essere aggiornati prima che scadano per consentire alle sincronizzazioni del provisioning di continuare a funzionare. 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
-* 07/21/2020: l'eliminazione temporanea è abilitata per tutti gli utenti (tramite l'attributo attivo).
+* 21/07/2020: è stata abilitata l'eliminazione temporanea per tutti gli utenti (tramite l'attributo active).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

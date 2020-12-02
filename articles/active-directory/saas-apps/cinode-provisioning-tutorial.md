@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare Cinode per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Cinode.
+title: 'Esercitazione: Configurare Cinode per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Cinode.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: 43b20f2b286bdadbee33555abc1a19845092c64b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dbed4eaabda34c1f35c21b8fe69db72c07f6d03f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357505"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180114"
 ---
-# <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Esercitazione: configurare Cinode per il provisioning utenti automatico
+# <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cinode per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia in Cinode che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in [Cinode](https://cinode.com/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Questa esercitazione descrive le procedure da eseguire sia in Cinode che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD effettua automaticamente il provisioning e il deprovisioning di utenti e gruppi per [Cinode](https://cinode.com/) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creare utenti in Cinode
-> * Rimuovere gli utenti in Cinode quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e Cinode
-> * Effettuare il provisioning di gruppi e appartenenze a gruppi in Cinode
+> * Creazione di utenti in Cinode
+> * Rimozione di utenti in Cinode quando l'accesso non è più necessario
+> * Mantenimento della sincronizzazione degli attributi utente tra Azure AD e Cinode
+> * Provisioning di gruppi e appartenenza a gruppi in Cinode
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
+* Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * Un account utente in Cinode con diritti di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e Cinode](../app-provisioning/customize-application-attributes.md).
+3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Cinode](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-cinode-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Cinode per supportare il provisioning con Azure AD
 
-1. Accedere a Cinode con un account utente con diritti di amministratore. Passare ad **Amministrazione**.
+1. Accedere a Cinode con un account utente con diritti di amministratore. Passare a **Administration** (Amministrazione).
 
-2. Passare a **Integrations (integrazioni** ).
+2. Passare a **Integrations** (Integrazioni).
 
-3. Passare a **token** e creare un nuovo token.
+3. Passare a **Tokens** e creare un nuovo token.
 
-4. Immettere un nome univoco, selezionare **' https://api.cinode.app/scim/v2 '** come audience e impostare una data di scadenza in modo appropriato.
+4. Immettere un nome univoco, selezionare **'https://api.cinode.app/scim/v2 '** in Audience (Destinatari) e impostare una data di scadenza appropriata.
 
-5. Fare clic su **crea token**.
+5. Fare clic su **Create token** (Crea token).
 
-![Crea token](media/cinode-provisioning-tutorial/token.png)
+![Pulsante Create token](media/cinode-provisioning-tutorial/token.png)
 
-6. Copiare l' **URL del tenant** e il **token**. Questi valori verranno immessi nella scheda provisioning dell'applicazione Cinode nel portale di Azure.
+6. Copiare i valori di **Tenant URL** (URL tenant) e **Token**. Questi valori dovranno essere immessi nella scheda Provisioning dell'applicazione Cinode nel portale di Azure.
 
-## <a name="step-3-add-cinode-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Cinode dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-cinode-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Cinode dalla raccolta di applicazioni di Azure AD
 
-Aggiungere Cinode dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Cinode. Se in precedenza è stato configurato Cinode per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Cinode dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Cinode. Se Cinode è stato configurato in precedenza per l'accesso Single Sign-On, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti e gruppi a Cinode, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a Cinode, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-cinode"></a>Passaggio 5. Configurare il provisioning utenti automatico in Cinode 
+## <a name="step-5-configure-automatic-user-provisioning-to-cinode"></a>Passaggio 5. Configurare il provisioning utenti automatico per Cinode 
 
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
@@ -96,9 +96,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning automatica](common/provisioning-automatic.png)
+    ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione credenziali amministratore immettere l'URL di **base SCIM 2,0 e** i valori dei token di autenticazione recuperati in precedenza rispettivamente nei campi **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Cinode. Se la connessione non riesce, verificare che l'account Cinode disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione Credenziali amministratore immettere i valori dell'**URL di base SCIM 2.0 e del token di autenticazione** recuperati in precedenza rispettivamente nei campi **URL tenant** e **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Cinode. Se la connessione non riesce, verificare che l'account Cinode abbia autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -108,9 +108,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Cinode**.
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Cinode** (Sincronizza utenti di Azure Active Directory in Cinode).
 
-9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Cinode nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Cinode per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Cinode supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Cinode nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in Cinode per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Cinode supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|
    |---|---|
@@ -122,9 +122,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |title|string|
    |addresses[type eq "work"].locality|string|
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Cinode**.
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Cinode** (Sincronizza gruppi di Azure Active Directory in Cinode).
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Cinode nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Cinode per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Cinode nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con i gruppi in Cinode per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -134,11 +134,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per Cinode, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning di Azure AD per Cinode, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Cinode selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Cinode selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 

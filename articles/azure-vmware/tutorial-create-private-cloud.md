@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
-description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare
+description: Informazioni su come distribuire un cluster vSphere con la soluzione Azure VMware
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/19/2020
+ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952285"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966310"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
@@ -16,7 +16,7 @@ La soluzione Azure VMware consente di distribuire un cluster vSphere in Azure. L
 
 Poiché la soluzione Azure VMware non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario definire una configurazione aggiuntiva. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
 
-In questa esercitazione verranno illustrate le procedure per:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un cloud privato della soluzione Azure VMware
@@ -43,7 +43,7 @@ Per creare un cloud privato della soluzione Azure VMware, è possibile usare il 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell.  Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](/cli/azure/ext/vmware/vmware).
+Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell.  Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere [Comandi di Azure VMware](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Aprire Azure Cloud Shell
 
@@ -51,7 +51,7 @@ Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È an
 
 #### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il comando `[az group create](/cli/azure/group)`. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 
@@ -77,7 +77,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Eliminare un cloud privato della soluzione Azure VMware
 
-Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Un cloud privato della soluzione Azure VMware include un dominio di rete isolato, uno o più cluster vSphere di cui è stato effettuato il provisioning nei nodi server dedicati e in genere molte macchine virtuali. Quando viene eliminato un cloud privato, vengono eliminate tutte le macchine virtuali, i relativi dati e i cluster. I nodi bare metal dedicati vengono cancellati e restituiti in modo sicuro al pool gratuito. Il dominio di rete di cui è stato effettuato il provisioning per il cliente viene eliminato.  
+Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Un cloud privato della soluzione Azure VMware include un dominio di rete isolato, uno o più cluster vSphere di cui è stato effettuato il provisioning negli host server dedicati e diverse macchine virtuali. Quando viene eliminato un cloud privato, vengono eliminate tutte le macchine virtuali, i relativi dati e i cluster. Gli host bare metal dedicati vengono cancellati e restituiti in modo sicuro al pool gratuito. Il dominio di rete di cui è stato effettuato il provisioning per il cliente viene eliminato.  
 
 > [!CAUTION]
 > L'eliminazione del cloud privato è un'operazione irreversibile. Una volta eliminato il cloud privato, non è possibile recuperare i dati perché questa operazione termina tutti i carichi di lavoro in esecuzione e i componenti ed elimina definitivamente tutti i dati e le impostazioni di configurazione del cloud privato, inclusi gli indirizzi IP pubblici.
@@ -96,11 +96,11 @@ Una volta eliminato un cloud privato, non è possibile recuperare le macchine vi
 
 ## <a name="azure-vmware-commands"></a>Comandi di Azure VMware
 
-Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](/cli/azure/ext/vmware/vmware).
+Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere [Comandi di Azure VMware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un cloud privato della soluzione Azure VMware

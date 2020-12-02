@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654855"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510276"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Scritture accelerate di Azure HDInsight per Apache HBase
 
@@ -20,13 +20,13 @@ Questo articolo illustra in background la funzionalità di **scrittura accelerat
 
 ## <a name="overview-of-hbase-architecture"></a>Panoramica dell'architettura di HBase
 
-In HBase una **riga** è costituita da una o più **colonne** ed è identificata da una **chiave di riga**. Più righe costituiscono una **tabella**. Le colonne contengono **celle**, ovvero versioni con timestamp del valore in tale colonna. Le colonne vengono raggruppate in **famiglie di colonne**e tutte le colonne in una famiglia di colonne vengono archiviate insieme nei file di archiviazione denominati **HFiles**.
+In HBase una **riga** è costituita da una o più **colonne** ed è identificata da una **chiave di riga**. Più righe costituiscono una **tabella**. Le colonne contengono **celle**, ovvero versioni con timestamp del valore in tale colonna. Le colonne vengono raggruppate in **famiglie di colonne** e tutte le colonne in una famiglia di colonne vengono archiviate insieme nei file di archiviazione denominati **HFiles**.
 
 Le **aree** in HBase vengono usate per bilanciare il carico di elaborazione dei dati. HBase archivia innanzitutto le righe di una tabella in una singola area. Le righe vengono distribuite in più aree con l'aumentare della quantità di dati nella tabella. I **server di area** possono gestire le richieste per più aree.
 
 ## <a name="write-ahead-log-for-apache-hbase"></a>Log write-ahead per Apache HBase
 
-HBase scrive prima di tutto gli aggiornamenti dei dati in un tipo di log di commit denominato log write-ahead (WAL). Dopo che l'aggiornamento è stato archiviato in WAL, viene scritto nella **MemStore**in memoria. Quando i dati in memoria raggiungono la capacità massima, vengono scritti su disco come **HFile**.
+HBase scrive prima di tutto gli aggiornamenti dei dati in un tipo di log di commit denominato log write-ahead (WAL). Dopo che l'aggiornamento è stato archiviato in WAL, viene scritto nella **MemStore** in memoria. Quando i dati in memoria raggiungono la capacità massima, vengono scritti su disco come **HFile**.
 
 Se un **RegionServer** si arresta in modo anomalo o non è più disponibile prima dello scaricamento del MemStore, è possibile usare il log write-ahead per riprodurre gli aggiornamenti. Senza WAL, se si verifica un arresto anomalo di **RegionServer** prima di scaricare gli aggiornamenti in un **HFile**, tutti gli aggiornamenti andranno perduti.
 
@@ -36,9 +36,9 @@ La funzionalità Scritture accelerate risolve il problema delle latenze di scrit
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Come abilitare le Scritture accelerate per HBase in HDInsight
 
-Per creare un nuovo cluster HBase con la funzionalità di scrittura accelerata, seguire la procedura descritta in [configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) fino a raggiungere il **passaggio 3, archiviazione**. In **Impostazioni Metastore**selezionare la casella di controllo accanto a **Abilita scritture HBase accelerate**. Quindi, continuare con i passaggi rimanenti per la creazione del cluster.
+Per creare un nuovo cluster HBase con la funzionalità di scrittura accelerata, seguire la procedura descritta in [configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) fino a raggiungere il **passaggio 3, archiviazione**. In **Impostazioni Metastore** selezionare la casella di controllo accanto a **Abilita scritture HBase accelerate**. Quindi, continuare con i passaggi rimanenti per la creazione del cluster.
 
-![Abilitare l'opzione di scrittura accelerata per HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Abilitare l'opzione di scrittura accelerata per HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Altre considerazioni
 

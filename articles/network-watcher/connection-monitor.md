@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/23/2020
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da675f0836dbb10ce5227e7e93e98d706cc5c64
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834655"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544803"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
+
+> [!NOTE]
+> Questa esercitazione riguarda Monitoraggio connessione (versione classica). Provare la versione nuova e migliorata di [Monitoraggio connessione](connection-monitor-overview.md) per eseguire un monitoraggio avanzato della connettività
 
 La corretta comunicazione tra una macchina virtuale (VM) e un endpoint, ad esempio, un'altra VM, può essere fondamentale per l'organizzazione. In alcuni casi, vengono introdotte modifiche di configurazione che possono interrompere la comunicazione. In questa esercitazione verranno illustrate le procedure per:
 
@@ -33,6 +36,8 @@ La corretta comunicazione tra una macchina virtuale (VM) e un endpoint, ad esemp
 > * Diagnosticare un problema di comunicazione tra due VM e informazioni su come risolverlo
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -93,7 +98,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
     | Impostazione                  | valore               |
     | ---------                | ---------           |
     | Nome                     | myVm1-myVm2(22)     |
-    | Source (Sorgente)                   |                     |
+    | Source                   |                     |
     | Macchina virtuale          | myVm1               |
     | Destination              |                     |
     | Selezionare una macchina virtuale |                     |
@@ -108,7 +113,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 
     ![Monitoraggi della connessione](./media/connection-monitor/connection-monitors.png)
 
-2. Selezionare il monitoraggio con il nome **myVm1-myVm2(22)** , come illustrato nell'immagine precedente, per visualizzare i dettagli per il monitoraggio, come illustrato nell'immagine seguente:
+2. Selezionare il monitoraggio con il nome **myVm1-myVm2(22)**, come illustrato nell'immagine precedente, per visualizzare i dettagli per il monitoraggio, come illustrato nell'immagine seguente:
 
     ![Dettagli del monitoraggio](./media/connection-monitor/vm-monitor.png)
 
@@ -129,7 +134,7 @@ Gli avvisi vengono creati tramite le regole di avviso in Monitoraggio di Azure e
 2. Fare clic su **Seleziona la destinazione** e quindi selezionare le risorse di destinazione. Selezionare la **sottoscrizione** e impostare **Tipo di risorsa** per filtrare fino al monitoraggio della connessione da usare.
 
     ![schermata di avviso con destinazione selezionata](./media/connection-monitor/set-alert-rule.png)
-1. Dopo aver selezionato una risorsa di destinazione, selezionare **Aggiungi criteri**. In Network Watcher sono disponibili [metriche in base alle quali è possibile creare avvisi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Impostare **Segnali disponibili** sulle metriche ProbesFailedPercent e AverageRoundtripMs:
+1. Dopo aver selezionato una risorsa di destinazione, selezionare **Aggiungi criteri**. In Network Watcher sono disponibili [metriche in base alle quali è possibile creare avvisi](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Impostare **Segnali disponibili** sulle metriche ProbesFailedPercent e AverageRoundtripMs:
 
     ![pagina degli avvisi con segnali selezionati](./media/connection-monitor/set-alert-signals.png)
 1. Immettere i dettagli dell'avviso, ad esempio il nome della regola di avviso, la descrizione e la gravità. È anche possibile aggiungere all'avviso un gruppo di azioni per automatizzare e personalizzare la risposta dell'avviso.
@@ -153,7 +158,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
     | Priorità                | 100            |
     | Nome                    | DenySshInbound |
 
-5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)** . I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
+5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio **myVm1-myVm2(22)**. I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
 
     ![Dettagli del monitoraggio con errore](./media/connection-monitor/vm-monitor-fault.png)
 

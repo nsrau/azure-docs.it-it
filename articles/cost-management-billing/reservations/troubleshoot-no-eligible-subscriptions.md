@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/16/2020
+ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115202"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887196"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Risolvere i problemi quando non risultano sottoscrizioni idonee
 
@@ -21,13 +21,13 @@ Questo articolo consente di risolvere i problemi relativi al messaggio di errore
 
 ## <a name="symptoms"></a>Sintomi
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Prenotazioni** .
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Prenotazioni**.
 1. Selezionare **Aggiungi** e quindi selezionare un servizio.
 1. Viene visualizzato il messaggio di errore seguente:
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
 1. Nell'area **Selezionare il prodotto da acquistare** espandere l'elenco **Sottoscrizione di fatturazione** per vedere il motivo per cui una sottoscrizione specifica non è idonea per l'acquisto di un'istanza riservata. L'immagine seguente mostra gli esempi dei motivi per cui non è possibile acquistare una prenotazione.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Esempio che mostra perché non è possibile acquistare una prenotazione" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
@@ -37,7 +37,7 @@ Questo articolo consente di risolvere i problemi relativi al messaggio di errore
 Per acquistare un'istanza riservata di Azure, è necessario avere almeno una sottoscrizione che soddisfi i requisiti seguenti:
 
 - La sottoscrizione deve essere un tipo di offerta supportato. I tipi di offerta supportati sono: Con pagamento in base al consumo, Cloud Solution Provider (CSP), Microsoft Azure Enterprise o Contratto del cliente Microsoft.
-- È necessario essere un proprietario della sottoscrizione.
+- È necessario essere un proprietario o un acquirente di prenotazioni nella sottoscrizione.
 
 Se non si ha una sottoscrizione che soddisfa i requisiti, si riceverà l'errore `No eligible subscriptions`.
 
@@ -51,19 +51,17 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Esempio che mostra perché non è possibile acquistare una prenotazione" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Esempio che mostra il messaggio di errore relativo a sottoscrizione non idonea per l'acquisto" :::
 
 ### <a name="cause-2"></a>Causa 2
 
-È necessario essere un proprietario della sottoscrizione. Non si è proprietari della sottoscrizione. Se si seleziona una sottoscrizione di cui non si è proprietari, viene visualizzato l'errore seguente.
+È necessario essere un proprietario o un acquirente di prenotazioni nella sottoscrizione. Se non si hanno autorizzazioni sufficienti, viene visualizzato l'errore seguente.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Esempio che mostra perché non è possibile acquistare una prenotazione" :::
 
 ## <a name="solution"></a>Soluzione
 
@@ -92,9 +90,9 @@ Il proprietario dell'ordine di prenotazione o il proprietario della prenotazione
 1. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
 1. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
 1. Selezionare **Controllo di accesso (IAM)** .
-1. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario** . Oppure selezionare un ruolo diverso se si intende concedere un ruolo limitato.
+1. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario**. Oppure selezionare un ruolo diverso se si intende concedere un ruolo limitato.
 1. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
-1. Selezionare l'utente e quindi selezionare **Salva** .
+1. Selezionare l'utente e quindi selezionare **Salva**.
 
 Per altre informazioni vedere [Aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

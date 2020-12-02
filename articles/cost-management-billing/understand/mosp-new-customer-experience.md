@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149398"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965851"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introduzione all'account di fatturazione di Azure aggiornato
 
@@ -42,7 +42,7 @@ Quando l'account viene aggiornato, viene creato automaticamente un profilo di fa
 
 Ai ruoli nei profili di fatturazione sono assegnate le autorizzazioni per visualizzare e gestire fatture e metodi di pagamento. Questi ruoli dovranno essere assegnati agli utenti che pagano le fatture, ad esempio ai membri del team di contabilità di un'organizzazione. Per altre informazioni, vedere [Ruoli e attività del profilo di fatturazione](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
 
-Quando l'account viene aggiornato, per ogni sottoscrizione per cui si è concessa ad altri l'autorizzazione per la [visualizzazione delle fatture](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) viene assegnato il ruolo di lettore per il rispettivo profilo di fatturazione agli utenti con ruolo Proprietario, Collaboratore, Lettore o Fatturazione per lettore del controllo degli accessi in base al ruolo di Azure.
+Quando l'account viene aggiornato, per ogni sottoscrizione per cui si è concessa ad altri l'autorizzazione per la [visualizzazione delle fatture](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), agli utenti con ruolo Proprietario, Collaboratore, Lettore o Fatturazione per lettore di Azure viene assegnato il ruolo di lettore per il rispettivo profilo di fatturazione.
 
 ## <a name="invoice-sections"></a>Sezioni della fattura
 

@@ -4,12 +4,12 @@ description: Informazioni sul servizio Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314757"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746881"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -18,7 +18,7 @@ Questo articolo offre una rapida panoramica del servizio Azure Migrate.
 Azure Migrate offre un hub centralizzato per la valutazione e la migrazione ad Azure dei server, dell'infrastruttura, delle applicazioni e dei dati locali. Fornisce le risorse seguenti:
 
 - **Piattaforma di migrazione unificata**: un singolo portale per avviare, eseguire e tenere traccia della migrazione ad Azure.
-- **Gamma di strumenti**: Vari strumenti per la valutazione e la migrazione. Gli strumenti di Azure Migrate includono Valutazione server e Azure Migrate: Server Migration. Azure Migrate si integra con altri servizi e strumenti di Azure, oltre che con offerte di fornitori di software indipendenti (ISV).
+- **Gamma di strumenti**: Vari strumenti per la valutazione e la migrazione. Gli strumenti Azure Migrate includono Azure Migrate: Valutazione server o Azure Migrate: Server Migration. Azure Migrate si integra con altri servizi e strumenti di Azure, oltre che con offerte di fornitori di software indipendenti (ISV).
 - **Valutazione e migrazione**: nell'hub di Azure Migrate è possibile valutare ed eseguire la migrazione degli elementi seguenti:
     - **Server**: per valutare i server locali ed eseguirne la migrazione a macchine virtuali di Azure o alla soluzione Azure VMware (anteprima).
     - **Database**: per valutare i database locali ed eseguirne la migrazione al database SQL di Azure o a Istanza gestita di SQL.
@@ -82,9 +82,9 @@ Lo strumento Azure Migrate: Migrazione server consente di eseguire la migrazione
 
 **Migrazione** | **Dettagli**
 --- | ---
-Macchine virtuali VMware locali | Eseguire la migrazione di VM ad Azure con la migrazione senza agente o basata su agente.<br/><br/> Per la migrazione senza agente, Migrazione server usa l'appliance Azure Migrate distribuita in locale. Si tratta dello stesso tipo di appliance usato per Valutazione server.<br/><br/> Per la migrazione basata su agente, Valutazione server usa un'appliance di replica.
-VM Hyper-V locali | Eseguire la migrazione di VM ad Azure.<br/><br/> Per la migrazione, Valutazione server usa gli agenti del provider installati nell'host.
-Server fisici in locale | È possibile eseguire la migrazione di computer fisici ad Azure. È anche possibile eseguire la migrazione di altri computer virtualizzati, oltre che di VM da altri cloud pubblici, considerandoli come macchine virtuali ai fini della migrazione. | Per la migrazione, Valutazione server usa un'appliance di replica.
+Macchine virtuali VMware locali | Eseguire la migrazione di VM ad Azure con la migrazione senza agente o basata su agente.<br/><br/> Per la migrazione senza agente, lo strumento Migrazione del server usa la stessa appliance di Azure Migrate che può essere usata anche da Valutazione server per l'individuazione e la valutazione delle VM VMware.<br/><br/> Per la migrazione basata su agente, Migrazione del server usa un'appliance di replica.
+VM Hyper-V locali | Eseguire la migrazione di VM ad Azure.<br/><br/> Per la migrazione, Migrazione del server usa gli agenti del provider installati nell'host Hyper-V.
+Server fisici in locale | È possibile eseguire la migrazione di computer fisici ad Azure. È anche possibile eseguire la migrazione di altri computer virtualizzati, oltre che di VM di altri cloud pubblici, considerandoli come server fisici ai fini della migrazione. | Per la migrazione, Migrazione del server usa un'appliance di replica.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Selezione degli strumenti di valutazione e migrazione

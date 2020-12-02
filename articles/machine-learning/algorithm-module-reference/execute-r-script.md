@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/02/2020
+ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592669"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510591"
 ---
 # <a name="execute-r-script-module"></a>Modulo Execute R script
 
@@ -78,25 +78,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Prima di installare un pacchetto, controllare se esiste già, in modo che non si ripeta un'installazione. Le installazioni ripetute potrebbero causare il timeout delle richieste del servizio Web.     
 
+## <a name="access-to-registered-dataset"></a>Accesso al set di dati registrato
+
+Per accedere ai [set di impostazioni registrati](../how-to-create-register-datasets.md) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>Caricamento di file
 Il modulo Execute R script supporta il caricamento di file tramite il Azure Machine Learning R SDK.
 
 L'esempio seguente illustra come caricare un file di immagine in Execute R script:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,22 +121,6 @@ Al termine dell'esecuzione della pipeline, è possibile visualizzare l'anteprima
 > [!div class="mx-imgBorder"]
 > ![Anteprima dell'immagine caricata](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>Accesso al set di dati registrato
-
-Per accedere ai [set di impostazioni registrati](../how-to-create-register-datasets.md) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>Come configurare Execute R script
 
 Il modulo Execute R script contiene il codice di esempio come punto di partenza.
@@ -147,11 +133,11 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 
 1. Connettere gli input necessari per lo script. Gli input sono facoltativi e possono includere dati e codice R aggiuntivo.
 
-    * **DataSet1** : fa riferimento al primo input come `dataframe1` . Il set di dati di input deve essere formattato come file CSV, TSV o ARFF. In alternativa, è possibile connettere un set di dati Azure Machine Learning.
+    * **DataSet1**: fa riferimento al primo input come `dataframe1` . Il set di dati di input deve essere formattato come file CSV, TSV o ARFF. In alternativa, è possibile connettere un set di dati Azure Machine Learning.
 
-    * **Dataset2** : fa riferimento al secondo input come `dataframe2` . Questo set di dati deve anche essere formattato come file CSV, TSV o ARFF o come set di dati Azure Machine Learning.
+    * **Dataset2**: fa riferimento al secondo input come `dataframe2` . Questo set di dati deve anche essere formattato come file CSV, TSV o ARFF o come set di dati Azure Machine Learning.
 
-    * **Bundle di script** : il terzo input accetta i file con estensione zip. Un file compresso può contenere più file e più tipi di file.
+    * **Bundle di script**: il terzo input accetta i file con estensione zip. Un file compresso può contenere più file e più tipi di file.
 
 1. Nella casella di testo **script r** Digitare o incollare uno script r valido.
 
@@ -216,7 +202,7 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
     }
     ```
 
-1.  Per il valore di **inizializzazione casuale** , immettere un valore da usare all'interno dell'ambiente R come valore di inizializzazione casuale. Questo parametro è equivalente alla chiamata di `set.seed(value)` nel codice R.  
+1.  Per il valore di **inizializzazione casuale**, immettere un valore da usare all'interno dell'ambiente R come valore di inizializzazione casuale. Questo parametro è equivalente alla chiamata di `set.seed(value)` nel codice R.  
 
 1. Inviare la pipeline.  
 
@@ -237,7 +223,7 @@ Esistono diversi modi per estendere la pipeline usando script R personalizzati. 
 
 Il modulo Execute R script supporta i file di script R arbitrari come input. Per usarli, è necessario caricarli nell'area di lavoro come parte del file zip.
 
-1. Per caricare un file con estensione zip che contiene codice R nell'area di lavoro, passare alla pagina **set** di risorse. Selezionare **Crea set di dati** , quindi selezionare **da file locale** e l'opzione tipo di set di dati **file** .  
+1. Per caricare un file con estensione zip che contiene codice R nell'area di lavoro, passare alla pagina **set** di risorse. Selezionare **Crea set di dati**, quindi selezionare **da file locale** e l'opzione tipo di set di dati **file** .  
 
 1. Verificare che il file compresso venga visualizzato nei **set di impostazioni** della categoria **set** di elementi nell'albero del modulo sinistro.
 
