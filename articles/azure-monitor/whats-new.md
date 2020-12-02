@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534501"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185896"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
@@ -230,7 +230,7 @@ Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati 
 - [Chiave gestita dal cliente di Monitoraggio di Azure](platform/customer-managed-keys.md) - Aggiunta del messaggio di errore e della sezione configurazione della chiave gestita dal cliente per le query.
 - [API di raccolta dati HTTP di Monitoraggio di Azure](platform/data-collector-api.md) - Aggiunto l'esempio per Python 3.
 - [Ottimizzare le query su log in Monitoraggio di Azure](log-query/query-optimization.md) - Aggiunta la sezione che illustra come evitare più analisi dei dati durante l'uso di sottoquery.
-- [Esercitazione: Introduzione alle query di Log Analytics](log-query/get-started-portal.md) - Aggiunto un video.
+- [Esercitazione: Introduzione alle query di Log Analytics](./log-query/log-analytics-tutorial.md) - Aggiunto un video.
 
 ### <a name="platform-logs"></a>Log della piattaforma
 - [Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](platform/diagnostic-settings.md) - Aggiunto un video.

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337440"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187783"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Avvio rapido: Usare Java e JDBC con Database di Azure per MySQL
 
@@ -180,7 +180,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Aggiungere quindi il codice Java che userà JDBC per archiviare e recuperare i dati dal server MySQL.
 
-Creare un file *src/main/java/DemoApplication.java* , che contiene:
+Creare un file *src/main/java/DemoApplication.java*, che contiene:
 
 ```java
 package com.example.demo;

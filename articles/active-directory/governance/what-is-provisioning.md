@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135094"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172453"
 ---
 # <a name="what-is-provisioning"></a>Cos'è il provisioning?
 
@@ -42,10 +42,10 @@ Il provisioning dal sistema RU ad Azure AD implica la creazione di oggetti, soli
 
 Lo scenario più comune è quando un nuovo dipendente entra a far parte dell'azienda e viene immesso nel sistema di gestione delle risorse umane.  Quando si verifica, ne viene effettuato automaticamente il provisioning come nuovo utente in Azure AD, senza la necessità di coinvolgere l'amministrazione per ogni nuova assunzione.  In generale, il provisioning basato su risorse umane copre gli scenari seguenti.
 
-- **Assunzione di nuovi dipendenti** : quando viene aggiunto un nuovo dipendente a un sistema RU, viene automaticamente creato un account utente in Active Directory, in Azure AD e, facoltativamente, nelle directory di altre applicazioni supportate da Azure AD, con writeback dell'indirizzo di posta elettronica nel sistema RU.
-- **Aggiornamenti di attributi e profili dei dipendenti** : se il record di un dipendente viene aggiornato nel sistema RU (ad esempio, il nome, la qualifica o il manager), il relativo account utente verrà aggiornato automaticamente in Active Directory, in Azure AD e, facoltativamente, in altre applicazioni supportate da Azure AD.
-- **Interruzioni del rapporto con i dipendenti** : quando il rapporto con un dipendente viene terminato, il relativo account utente viene automaticamente bloccato per l'accesso o rimosso da Active Directory, Azure AD e altre applicazioni.
-- **Riassunzioni dei dipendenti** : quando un dipendente viene riassunto e immesso nuovamente nel sistema RU nel cloud, è possibile riattivare automaticamente il vecchio account utente o effettuarne nuovamente il provisioning (a seconda delle preferenze).
+- **Assunzione di nuovi dipendenti**: quando viene aggiunto un nuovo dipendente a un sistema RU, viene automaticamente creato un account utente in Active Directory, in Azure AD e, facoltativamente, nelle directory di altre applicazioni supportate da Azure AD, con writeback dell'indirizzo di posta elettronica nel sistema RU.
+- **Aggiornamenti di attributi e profili dei dipendenti**: se il record di un dipendente viene aggiornato nel sistema RU (ad esempio, il nome, la qualifica o il manager), il relativo account utente verrà aggiornato automaticamente in Active Directory, in Azure AD e, facoltativamente, in altre applicazioni supportate da Azure AD.
+- **Interruzioni del rapporto con i dipendenti**: quando il rapporto con un dipendente viene terminato, il relativo account utente viene automaticamente bloccato per l'accesso o rimosso da Active Directory, Azure AD e altre applicazioni.
+- **Riassunzioni dei dipendenti**: quando un dipendente viene riassunto e immesso nuovamente nel sistema RU nel cloud, è possibile riattivare automaticamente il vecchio account utente o effettuarne nuovamente il provisioning (a seconda delle preferenze).
 
 Per il provisioning basato su risorse umane con Azure AD sono disponibili tre opzioni di distribuzione:
 
@@ -59,7 +59,7 @@ Per altre informazioni, vedere [Che cos'è il provisioning basato su risorse uma
 
 ![Provisioning di app](media/what-is-provisioning/cloud-3b.png)
 
-In Azure AD, il termine **[provisioning di app](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** si riferisce alla creazione automatica di copie delle identità utente nelle applicazioni a cui gli utenti devono accedere, per le applicazioni che hanno un proprio archivio dati distinto da Azure AD o Active Directory. Oltre a creare le identità utente, il provisioning di app include la manutenzione e la rimozione delle identità utente da tali app quando lo stato o i ruoli dell'utente cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), in quanto ognuna di queste applicazioni ha un proprio repository utente distinto da Azure AD.
+In Azure AD, il termine **[provisioning di app](../app-provisioning/user-provisioning.md)** si riferisce alla creazione automatica di copie delle identità utente nelle applicazioni a cui gli utenti devono accedere, per le applicazioni che hanno un proprio archivio dati distinto da Azure AD o Active Directory. Oltre a creare le identità utente, il provisioning di app include la manutenzione e la rimozione delle identità utente da tali app quando lo stato o i ruoli dell'utente cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), in quanto ognuna di queste applicazioni ha un proprio repository utente distinto da Azure AD.
 
 Per altre informazioni, vedere [Che cos'è il provisioning di app?](what-is-app-provisioning.md)
 

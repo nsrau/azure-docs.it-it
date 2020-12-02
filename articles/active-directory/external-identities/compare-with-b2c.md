@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420cc2bc38d079fa95f6b90ed20cb31e994f4ea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027075"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173074"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Che cosa sono le identità esterne in Azure Active Directory?
 
@@ -51,7 +51,7 @@ Proteggere e gestire clienti e partner oltre i confini dell'organizzazione con A
 
 ## <a name="about-multitenant-applications"></a>Informazioni sulle applicazioni multi-tenant
 
-Se si fornisce un'app come servizio e non si vogliono gestire gli account utente dei clienti, un'app multi-tenant rappresenta probabilmente la scelta migliore. Quando si sviluppano applicazioni per altri tenant di Azure AD, è possibile destinarle a utenti di una singola organizzazione (tenant singolo) o di qualsiasi organizzazione già dotata di un tenant di Azure AD (applicazioni multi-tenant). Le registrazioni app in Azure AD sono a tenant singolo per impostazione predefinita, ma è possibile renderle multi-tenant. Le applicazioni multi-tenant vengono registrate una sola volta nell'istanza di Azure AD dell'organizzazione. Tuttavia, qualsiasi utente di Azure AD di qualsiasi organizzazione può usare l'applicazione senza ulteriori interventi da parte dello sviluppatore. Per altre informazioni, vedere [Gestire le identità in applicazioni multi-tenant](https://docs.microsoft.com/azure/architecture/multitenant-identity/), [Guida pratica](../develop/howto-convert-app-to-be-multi-tenant.md).
+Se si fornisce un'app come servizio e non si vogliono gestire gli account utente dei clienti, un'app multi-tenant rappresenta probabilmente la scelta migliore. Quando si sviluppano applicazioni per altri tenant di Azure AD, è possibile destinarle a utenti di una singola organizzazione (tenant singolo) o di qualsiasi organizzazione già dotata di un tenant di Azure AD (applicazioni multi-tenant). Le registrazioni app in Azure AD sono a tenant singolo per impostazione predefinita, ma è possibile renderle multi-tenant. Le applicazioni multi-tenant vengono registrate una sola volta nell'istanza di Azure AD dell'organizzazione. Tuttavia, qualsiasi utente di Azure AD di qualsiasi organizzazione può usare l'applicazione senza ulteriori interventi da parte dello sviluppatore. Per altre informazioni, vedere [Gestire le identità in applicazioni multi-tenant](/azure/architecture/multitenant-identity/), [Guida pratica](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

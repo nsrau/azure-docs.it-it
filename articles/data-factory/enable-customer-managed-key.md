@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650579"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348943"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Crittografare Azure Data Factory con le chiavi gestite dal cliente
 
@@ -47,8 +47,8 @@ Nell'elenco seguente vengono illustrati i passaggi numerati nel diagramma:
 
 L'uso delle chiavi gestite dal cliente con Data Factory richiede l'impostazione di due proprietà in Key Vault, ovvero __Eliminazione temporanea__ e __Do Not Purge__ (Non eliminare). Queste proprietà possono essere abilitate tramite PowerShell o l'interfaccia della riga di comando di Azure in un insieme di credenziali delle chiavi nuovo o esistente. Per informazioni su come abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, vedere le sezioni _Abilitazione dell'eliminazione temporanea_ e _Abilitazione della protezione dall'eliminazione_ in uno degli articoli seguenti:
 
-- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../key-vault/general/soft-delete-cli.md)
+- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../key-vault/general/key-vault-recovery.md)
 
 Se si crea un nuovo Azure Key Vault tramite il portale di Azure, le proprietà __Eliminazione temporanea__ e __Do Not Purge__ (Non eliminare) possono essere abilitate come indicato di seguito:
 

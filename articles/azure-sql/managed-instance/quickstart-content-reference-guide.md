@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788163"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325117"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introduzione all'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Le guide di avvio rapido indicate in precedenza consentono di configurare rapida
 Tuttavia, per eseguire la migrazione del database di produzione o anche dei database di sviluppo/test che si vuole usare per alcuni test delle prestazioni, è necessario prendere in considerazione l'uso di alcune tecniche aggiuntive, ad esempio:
 
 - Test delle prestazioni: è consigliabile misurare le metriche delle prestazioni baseline nell'istanza di SQL Server di origine e confrontarle con le metriche delle prestazioni nell'istanza gestita di SQL di destinazione in cui è stata eseguita la migrazione del database. Vedere altre informazioni sulle [procedure consigliate per il confronto delle prestazioni](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migrazione online: con la funzionalità `RESTORE` nativa descritta in questo articolo è necessario attendere che i database vengano ripristinati e copiati nell'archivio BLOB di Azure, se non sono già presenti in tale archivio. Ciò comporta tempi di inattività dell'applicazione, in particolare per i database di grandi dimensioni. Per spostare il database di produzione, usare il [Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) per eseguire la migrazione del database con il tempo di inattività minimo. Servizio Migrazione del database ottiene questo risultato effettuando il push incrementale delle modifiche apportate al database di origine nel database dell'istanza gestita di SQL da ripristinare. In questo modo, è possibile spostare rapidamente l'applicazione dal database di origine a quello di destinazione con un tempo di inattività minimo.
+- Migrazione online: con la funzionalità `RESTORE` nativa descritta in questo articolo è necessario attendere che i database vengano ripristinati e copiati nell'archivio BLOB di Azure, se non sono già presenti in tale archivio. Ciò comporta tempi di inattività dell'applicazione, in particolare per i database di grandi dimensioni. Per spostare il database di produzione, usare il [Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) per eseguire la migrazione del database con il tempo di inattività minimo. Servizio Migrazione del database ottiene questo risultato effettuando il push incrementale delle modifiche apportate al database di origine nel database dell'istanza gestita di SQL da ripristinare. In questo modo, è possibile spostare rapidamente l'applicazione dal database di origine a quello di destinazione con un tempo di inattività minimo.
 
 Vedere altre informazioni sul [processo di migrazione consigliato](migrate-to-instance-from-sql-server.md).
 

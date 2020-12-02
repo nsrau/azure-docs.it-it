@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88235401"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174731"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Informazioni sul provisioning utenti automatizzato per app SaaS in Azure AD
 
@@ -59,7 +59,7 @@ Azure AD offre il supporto preintegrato per numerosi sistemi di risorse umane e 
 
    ![Logo Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile inviare una [richiesta di integrazione dell'applicazione nella raccolta di app](../azuread-dev/howto-app-gallery-listing.md). Affinché la richiesta di provisioning venga accettata, l'applicazione deve avere un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per consentire un rapido onboarding dell'app sulla piattaforma.
+   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile inviare una [richiesta di integrazione dell'applicazione nella raccolta di app](../develop/v2-howto-app-gallery-listing.md). Affinché la richiesta di provisioning venga accettata, l'applicazione deve avere un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per consentire un rapido onboarding dell'app sulla piattaforma.
 
 * **Applicazioni che supportano SCIM 2.0**. Per informazioni su come connettere in modo generico le applicazioni che implementano le API di gestione utenti basate su SCIM 2.0, vedere [Creare un endpoint SCIM e configurare il provisioning utenti](use-scim-to-provision-users-and-groups.md).
 

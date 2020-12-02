@@ -4,12 +4,12 @@ description: Informazioni su come usare i server con abilitazione di Azure Arc p
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578723"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183397"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -29,7 +29,7 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Semplificare la distribuzione con altri servizi di Azure, ad esempio [State Configuration](../../automation/automation-dsc-overview.md) di Automazione di Azure e l'area di lavoro Log Analytics di Monitoraggio di Azure, usando le [estensioni macchina virtuale di Azure](manage-vm-extensions.md) supportate per le macchine virtuali Windows o Linux non di Azure. È inclusa l'esecuzione della configurazione post-distribuzione o l'installazione del software tramite l'estensione Script personalizzato.
 
-- È possibile usare [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) di Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i server Windows e Linux
+- È possibile usare [Gestione aggiornamenti](../../automation/update-management/overview.md) di Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i server Windows e Linux
 
     > [!NOTE]
     > Al momento, l'abilitazione di Gestione aggiornamenti direttamente da un server con abilitazione di Arc non è supportata. Per informazioni sui requisiti e su come eseguire l'abilitazione per il server, vedere [Abilitare Gestione aggiornamenti dal proprio account di Automazione](../../automation/update-management/enable-from-automation-account.md).

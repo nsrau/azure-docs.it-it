@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7641c1e3bc3620b294c2953b993e9179a4875536
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 65b8c21251f092311150a50480f5abecb1ad7c17
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951809"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434567"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -49,7 +49,7 @@ Per informazioni sulla pubblicazione di un'applicazione gestita del catalogo di 
 
 Per la fatturazione dei servizi, i fornitori possono rendere disponibile un'applicazione gestita tramite Azure Marketplace. L'applicazione pubblicata dal fornitore è disponibile per gli utenti esterni all'organizzazione. Con questo approccio, i fornitori di servizi gestiti (MSP), i fornitori di software indipendenti (ISV) e gli integratori di sistemi (SI) possono offrire soluzioni a tutti i clienti Azure.
 
-Per informazioni sulla pubblicazione di applicazioni gestite in Azure Marketplace, vedere [Create marketplace application](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md) (Creare un'applicazione del Marketplace).
+Per informazioni sulla pubblicazione di applicazioni gestite in Azure Marketplace, vedere [Create marketplace application](../../marketplace/create-new-azure-apps-offer.md) (Creare un'applicazione del Marketplace).
 
 ## <a name="resource-groups-for-managed-applications"></a>Gruppi di risorse per le applicazioni gestite
 
@@ -71,7 +71,7 @@ Il consumer ha accesso completo al gruppo di risorse e lo usa per gestire il cic
 
 Questo gruppo di risorse contiene tutte le risorse richieste dall'applicazione gestita. Ad esempio, le macchine virtuali, gli account di archiviazione e le reti virtuali per la soluzione. Il consumer ha accesso limitato al gruppo di risorse perché non gestisce le singole risorse per l'applicazione gestita. L'accesso al gruppo di risorse dell'entità di pubblicazione corrisponde al ruolo specificato nella definizione dell'applicazione gestita. Ad esempio, l'entità di pubblicazione potrebbe richiedere il ruolo di proprietario o di collaboratore per il gruppo di risorse. L'accesso è permanente o limitato a un periodo di tempo.
 
-Quando pubblica l'[applicazione gestita nel Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), l'autore può concedere agli utenti la possibilità di eseguire azioni specifiche sulle risorse nel gruppo di risorse gestite. L'autore può ad esempio specificare che gli utenti possono riavviare le macchine virtuali. Tutte le altre azioni oltre alle azioni di lettura sono comunque negate. Le modifiche apportate alle risorse in un gruppo di risorse gestito da un consumer a cui sono state concesse azioni sono soggette alle assegnazioni di [Criteri di Azure](../../governance/policy/overview.md) all'interno del tenant di consumer allo scopo di includere il gruppo di risorse gestite.
+Quando pubblica l'[applicazione gestita nel Marketplace](../../marketplace/create-new-azure-apps-offer.md), l'autore può concedere agli utenti la possibilità di eseguire azioni specifiche sulle risorse nel gruppo di risorse gestite. L'autore può ad esempio specificare che gli utenti possono riavviare le macchine virtuali. Tutte le altre azioni oltre alle azioni di lettura sono comunque negate. Le modifiche apportate alle risorse in un gruppo di risorse gestito da un consumer a cui sono state concesse azioni sono soggette alle assegnazioni di [Criteri di Azure](../../governance/policy/overview.md) all'interno del tenant di consumer allo scopo di includere il gruppo di risorse gestite.
 
 Quando il consumer elimina l'applicazione gestita, viene eliminato anche il gruppo di risorse gestite.
 

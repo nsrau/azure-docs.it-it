@@ -3,12 +3,12 @@ title: Novità Note sulla versione - Griglia di eventi di Azure
 description: Informazioni sulle novità di Griglia di eventi di Azure, tra cui le note sulla versione più aggiornate, i problemi noti, le correzioni di bug, le funzionalità deprecate e le modifiche imminenti.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 1edfa3e2bc4c8adae113b2215b7fb0483fba4c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87172700"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350008"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Novità di Griglia di eventi di Azure
 
@@ -40,7 +40,7 @@ Griglia di eventi di Azure viene regolarmente migliorato. Per stare al passo con
 - Questa release include correzioni aggiuntive di bug per migliorare la qualità.
 - Questa release, con versione 5.3.1-preview, corrisponde alla versione 2020-04-01-Preview dell'API che include le nuove funzionalità seguenti: 
     - [Supporto per i filtri IP durante la pubblicazione di eventi in domini e argomenti](configure-firewall.md)
-    - [Argomenti partner](partner-topics-overview.md)
+    - [Argomenti partner](./partner-events-overview.md)
     - [Argomenti di sistema come risorse rilevate nel portale di Azure](system-topics.md)
     - [Distribuzione di eventi con l'identità del servizio gestita](managed-service-identity.md) 
     - [Supporto del servizio Collegamento privato](configure-private-endpoints.md)
@@ -49,7 +49,7 @@ Griglia di eventi di Azure viene regolarmente migliorato. Per stare al passo con
 - Questa release include diverse correzioni di bug per migliorare la qualità.
 - Questa release, con versione 5.3.0-preview, corrisponde alla versione 2020-04-01-Preview dell'API che include le nuove funzionalità seguenti: 
     - [Supporto per i filtri IP durante la pubblicazione di eventi in domini e argomenti](configure-firewall.md)
-    - [Argomenti partner](partner-topics-overview.md)
+    - [Argomenti partner](./partner-events-overview.md)
     - [Argomenti di sistema come risorse rilevate nel portale di Azure](system-topics.md)
     - [Distribuzione di eventi con l'identità del servizio gestita](managed-service-identity.md) 
     - [Supporto del servizio Collegamento privato](configure-private-endpoints.md)
@@ -59,7 +59,7 @@ Griglia di eventi di Azure viene regolarmente migliorato. Per stare al passo con
 - Questa release, con versione 5.2.0-preview, corrisponde alla versione 2020-04-01-Preview dell'API.
 - Aggiunge supporto per le nuove funzionalità seguenti: 
     - [Supporto per i filtri IP durante la pubblicazione di eventi in domini e argomenti](configure-firewall.md)
-    - [Argomenti partner](partner-topics-overview.md)
+    - [Argomenti partner](./partner-events-overview.md)
     - [Argomenti di sistema come risorse rilevate nel portale di Azure](system-topics.md)
     - [Distribuzione di eventi con l'identità del servizio gestita](managed-service-identity.md) 
     - [Supporto del servizio Collegamento privato](configure-private-endpoints.md)

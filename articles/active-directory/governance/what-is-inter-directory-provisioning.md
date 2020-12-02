@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbca2d00d10b6595b8a1d13251dd88c65667541
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135007"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168509"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>Che cos'è il provisioning tra directory?
 
@@ -35,7 +35,7 @@ Azure AD attualmente supporta tre metodi per effettuare il provisioning tra dire
 
 - [Provisioning cloud di Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md): un nuovo agente Microsoft progettato per soddisfare e realizzare gli obiettivi di identità ibride.  Offre un'esperienza di provisioning tra directory leggera tra Active Directory e Azure AD.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016): la soluzione Microsoft di gestione delle identità e degli accessi in locale che consente di gestire utenti, credenziali, criteri e accessi all'interno dell'organizzazione. Inoltre, Microsoft Identity Manager offre un provisioning tra directory avanzato per realizzare ambienti di identità ibride per Active Directory, Azure AD e altre directory.
+- [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016): la soluzione Microsoft di gestione delle identità e degli accessi in locale che consente di gestire utenti, credenziali, criteri e accessi all'interno dell'organizzazione. Inoltre, Microsoft Identity Manager offre un provisioning tra directory avanzato per realizzare ambienti di identità ibride per Active Directory, Azure AD e altre directory.
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
@@ -45,7 +45,7 @@ Le funzionalità del provisioning tra directory offrono alle aziende i seguenti 
 - [Autenticazione pass-through](../hybrid/how-to-connect-pta.md): metodo di accesso che consente agli utenti di usare la stessa password in locale e nel cloud, ma non richiede l'infrastruttura aggiuntiva di un ambiente federato.
 - [Integrazione della federazione](../hybrid/how-to-connect-fed-whatis.md): può essere usata per configurare un ambiente ibrido usando un'infrastruttura AD FS locale. Fornisce anche funzionalità di gestione di AD FS, ad esempio rinnovo dei certificati e distribuzioni aggiuntive di server AD FS.
 - [Sincronizzazione](../hybrid/how-to-connect-sync-whatis.md): è responsabile della creazione di utenti, gruppi e altri oggetti.  Deve anche garantire che le informazioni sulle identità per utenti e gruppi locali corrispondano a quelle nel cloud.  Questa sincronizzazione include anche gli hash delle password.
-- [Monitoraggio dell'integrità](../hybrid/whatis-hybrid-identity-health.md): può offrire un monitoraggio affidabile e una posizione centralizzata nel portale di Azure per visualizzare questa attività. 
+- [Monitoraggio dell'integrità](../hybrid/whatis-azure-ad-connect.md): può offrire un monitoraggio affidabile e una posizione centralizzata nel portale di Azure per visualizzare questa attività. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi 

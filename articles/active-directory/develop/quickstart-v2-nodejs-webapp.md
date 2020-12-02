@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594250"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169410"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
@@ -51,7 +51,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice che 
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
     - Nella sezione **URI di reindirizzamento** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: `http://localhost:3000/auth/openid/return`
     - Nella sezione **Impostazioni avanzate** impostare **URL disconnessione** su `https://localhost:3000`.
-    - Nella sezione **Impostazioni avanzate > Concessione implicita** selezionare **Token ID** perché con questo esempio è richiesta l'abilitazione del [flusso di concessione implicito](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) per consentire all'utente di accedere.
+    - Nella sezione **Impostazioni avanzate > Concessione implicita** selezionare **Token ID** perché con questo esempio è richiesta l'abilitazione del [flusso di concessione implicito](./v2-oauth2-implicit-grant-flow.md) per consentire all'utente di accedere.
 
 1. Selezionare **Salva**.
 
