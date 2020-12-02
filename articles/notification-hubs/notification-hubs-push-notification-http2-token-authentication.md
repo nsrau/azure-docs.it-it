@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010631"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460475"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticazione basata su token (HTTP/2) per APNS
 
@@ -52,7 +52,7 @@ Per abilitare l'autenticazione basata su token, sono necessarie le proprietà se
 
 ### <a name="key-identifier"></a>Identificatore di chiave
 
-L'identificatore di chiave può essere ottenuto dalla pagina **chiavi** in **certificati, identificatori & profili**nell'account per sviluppatore Apple:
+L'identificatore di chiave può essere ottenuto dalla pagina **chiavi** in **certificati, identificatori & profili** nell'account per sviluppatore Apple:
 
 ![Certificati](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
@@ -78,7 +78,7 @@ Le credenziali basate su token sono costituite dai campi seguenti:
 
 * **ID chiave**: identificatore della chiave privata generata nel portale Apple Developer; ad esempio, `2USFGKSKLT` .
 * **Team ID**: chiamato anche "prefix" o "prefisso app". Questo è l'identificatore dell'organizzazione nel portale per sviluppatori Apple. ad esempio, `S4V3D7CHJR` .
-* **ID bundle**: denominato anche "ID app". Identificatore del bundle per l'applicazione. ad esempio, `com.example.myapp` . Si noti che è possibile usare una chiave per molte app. Questo valore esegue il mapping all' `apns-topic` intestazione HTTP durante l'invio di una notifica e viene utilizzata per la destinazione dell'applicazione specifica. Si noti che non è possibile impostare il valore di in `apns-topic` modo esplicito.
+* **ID bundle**: denominato anche "ID app". Identificatore del bundle per l'applicazione. ad esempio, `com.example.myapp` . Si noti che è possibile usare una sola chiave per un'app. Questo valore esegue il mapping all' `apns-topic` intestazione HTTP durante l'invio di una notifica e viene utilizzata per la destinazione dell'applicazione specifica. Non è possibile impostare il valore di in `apns-topic` modo esplicito.
 * **Token**: detto anche "chiave" o "chiave privata". Questa operazione è ottenuta dal file con estensione P8 generato nel portale Apple Developer. Per la chiave deve essere abilitato APNS, che è selezionato nel portale Apple Developer durante la generazione della chiave. Il valore deve avere l'intestazione o il piè di pagina PEM rimosso quando lo si fornisce al portale/API di NH.
 * **Endpoint**: si tratta di un interruttore nel pannello del portale di hub di notifica e di un campo stringa nell'API. I valori validi sono `https://api.development.push.apple.com:443/3/device` o `https://api.sandbox.push.apple.com:443/3/device`. Hub di notifica usa questo valore per l'ambiente di produzione o sandbox, per l'invio di notifiche. Deve corrispondere al `aps-environment` diritto nell'app, in caso contrario i token del dispositivo APNs generati non corrispondono all'ambiente e le notifiche non vengono inviate.
 

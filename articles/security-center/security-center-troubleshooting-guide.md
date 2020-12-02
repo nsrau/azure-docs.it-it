@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6646b8a563cfe156a23b47011a769c6df015a286
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340343"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460413"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -29,7 +29,7 @@ Tipi di avviso:
 
 * Analisi del comportamento delle macchine virtuali (VMBA)
 * Analisi di rete
-* Analysis database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse)
+* Analysis database SQL e Azure sinapsi Analytics
 * Informazioni contestuali
 
 A seconda dei tipi di avvisi, i clienti possono raccogliere le informazioni necessarie per esaminare l'avviso usando le risorse seguenti:

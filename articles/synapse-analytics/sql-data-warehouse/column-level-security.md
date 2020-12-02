@@ -1,5 +1,5 @@
 ---
-title: Che cos'è la sicurezza a livello di colonna per Azure Synapse?
+title: Sicurezza a livello di colonna per il pool SQL dedicato
 description: La sicurezza a livello di colonna consente ai clienti di controllare l'accesso alle colonne della tabella di database in base al contesto di esecuzione o all'appartenenza ai gruppi dell'utente, semplificando la progettazione e la codifica della sicurezza nell'applicazione e consentendo di implementare restrizioni per l'accesso alle colonne.
 services: synapse-analytics
 author: julieMSFT
@@ -12,23 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259884"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462500"
 ---
 # <a name="column-level-security"></a>Sicurezza a livello di colonna
 
-La sicurezza a livello di colonna consente ai clienti di controllare l'accesso alle colonne della tabella in base al contesto di esecuzione o dell'appartenenza ai gruppi dell'utente.
+Column-Level sicurezza consente ai clienti di controllare l'accesso alle colonne della tabella in base al contesto di esecuzione dell'utente o all'appartenenza al gruppo.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Da quando questo video è stato pubblicato [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) è diventata disponibile per Azure Synapse.
+Poiché questo video è stato pubblicato, la [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) è diventata disponibile per il pool SQL dedicato nella sinapsi di Azure.
 
 La sicurezza a livello di colonna semplifica la progettazione e la codifica della sicurezza nell'applicazione, consentendo di limitare l'accesso alle colonne per proteggere i dati sensibili. Assicurando, ad esempio, che utenti specifici possano accedere solo determinate colonne di una tabella relative al loro reparto. La logica di restrizione dell'accesso si trova sul livello del database e non su un altro livello applicazione lontano dai dati. Il database applica le restrizioni di accesso a ogni tentativo di accesso ai dati da qualsiasi livello. Questa restrizione rende la sicurezza più affidabile e solida, grazie alla riduzione della superficie di attacco del sistema di sicurezza generale. La sicurezza a livello di colonna elimina anche l'esigenza di introduzione di visualizzazioni per filtrare le colonne per imporre limitazioni di accesso agli utenti.
 
-È possibile implementare Sicurezza a livello di colonna con l'istruzione T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con questo meccanismo, sono supportate sia l'autenticazione SQL che la Azure Active Directory (Azure AD).
+È possibile implementare la sicurezza a livello di colonna con l'istruzione T-SQL [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) . Con questo meccanismo, sono supportate sia l'autenticazione SQL che la Azure Active Directory (Azure AD).
 
 ![Il diagramma mostra una tabella schematica con la prima colonna a capo di un lucchetto chiuso e le relative celle un colore arancione mentre le altre colonne sono celle bianche.](./media/column-level-security/cls.png)
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Di seguito sono riportati alcuni esempi di come viene utilizzata la sicurezza a livello di colonna:
 
-- Una società di servizi finanziari consente solo agli account manager di accedere ai numeri di previdenza sociale (SSN), ai numeri di telefono e ad altre informazioni personali (PII).
+- Una società di servizi finanziari consente solo ai responsabili degli account di accedere ai numeri di previdenza sociale (SSN) dei clienti, ai numeri di telefono e ad altri dati personali.
 - Un fornitore di assistenza sanitaria consente solo a medici e infermieri di avere accesso a cartelle cliniche sensibili mentre impedisce ai membri del reparto contabilità di visualizzare questi dati.

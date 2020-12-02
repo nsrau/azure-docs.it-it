@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145600"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461173"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
 
@@ -47,7 +47,7 @@ Per eseguire autorest nel file con estensione per i gemelli digitali di Azure, s
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Verrà quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi* . Lo spazio dei nomi continuerà a essere usato nei restanti esempi di utilizzo di questo articolo.
+Verrà quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi*. Lo spazio dei nomi continuerà a essere usato nei restanti esempi di utilizzo di questo articolo.
 
 Autorest supporta un'ampia gamma di generatori di codice della lingua.
 
@@ -64,7 +64,7 @@ Ecco i passaggi necessari:
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto *ADTApi* della soluzione generata e scegliere *Aggiungi > elemento esistente...*
 4. Individuare la cartella in cui è stato generato l'SDK e selezionare i file a livello di radice
 5. Premere "OK"
-6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto Esplora soluzioni e scegliere *aggiungi > nuova cartella* ).
+6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto Esplora soluzioni e scegliere *aggiungi > nuova cartella*).
 7. Assegnare un nome ai *modelli* di cartella
 8. Fare clic con il pulsante destro del mouse sulla cartella *Models* in Esplora soluzioni e scegliere *Aggiungi > elemento esistente...*
 9. Selezionare i file nella cartella *modelli* dell'SDK generato e fare clic su "OK".
@@ -73,7 +73,7 @@ Per compilare l'SDK correttamente, il progetto richiederà i riferimenti seguent
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Per aggiungerli, aprire *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione...* .
+Per aggiungerli, aprire *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione...*.
 
 1. Nel pannello verificare che sia selezionata la scheda *Sfoglia* .
 2. Cerca *Microsoft. Rest*
@@ -102,7 +102,7 @@ Ecco un frammento di codice che tenta di aggiungere un dispositivo gemello e ril
 ```csharp
 try
 {
-    await client.DigitalTwins.AddAsync(id, initData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
     Console.WriteLine($"Created a twin successfully: {id}");
 }
 catch (ErrorResponseException e)

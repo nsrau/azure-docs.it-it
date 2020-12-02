@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 5d02085fe4850dacf6e876b42cf301df2ea76713
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: df4fc29721648691c2d671d96278c0fabc3a1441
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043333"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460333"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 e Edsv4
 
@@ -68,9 +68,11 @@ Le dimensioni serie Edsv4, dotate di processori Intel&reg; Xeon&reg; Platinum 82
 | Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
+| Standard_E80ids_v4 <sup>1, 2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
 <sup>1</sup> [Disponibili dimensioni core vincolate)](./constrained-vcpu.md).
 
+<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sui file CSV usando un pool SQL senza server (anteprima)
-description: In questo articolo si apprenderà come eseguire una query su singoli file CSV con formati di file diversi usando un pool SQL senza server (anteprima).
+title: Eseguire query sui file CSV usando un pool SQL senza server
+description: In questo articolo si apprenderà come eseguire una query su singoli file CSV con formati di file diversi usando un pool SQL senza server.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685648"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462585"
 ---
 # <a name="query-csv-files"></a>Eseguire query su file CSV
 
-In questo articolo si apprenderà come eseguire una query su un singolo file CSV usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics. I file CSV possono avere formati diversi: 
+In questo articolo si apprenderà come eseguire una query su un singolo file CSV usando un pool SQL senza server in Azure sinapsi Analytics. I file CSV possono avere formati diversi: 
 
 - Con e senza riga di intestazione
 - Valori delimitati da virgole e tabulazioni
@@ -48,7 +48,7 @@ Consente `firstrow` di ignorare la prima riga del file CSV che rappresenta l'int
 
 > [!IMPORTANT]
 > Se il file CSV contiene caratteri UTF-8, assicurarsi di utilizzare le regole di confronto del database UTF-8, ad esempio `Latin1_General_100_CI_AS_SC_UTF8` .
-> Mancata corrispondenza tra la codifica del testo nel file e le regole di confronto potrebbero causare errori di conversione imprevisti.
+> Una mancata corrispondenza tra la codifica del testo nel file e le regole di confronto può provocare errori di conversione imprevisti.
 > È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilizzo dell'origine dati

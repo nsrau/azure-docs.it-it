@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afebb6a67b4c8a33e812c0e51ff225f16cd35356
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974426"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461463"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Inserire i dati in un pool SQL dedicato
 
@@ -24,7 +24,7 @@ Questo articolo illustra come inserire dati da un account di archiviazione Azure
 
 * **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**: si usa Azure Data Lake storage generazione 2 come archivio dati di *origine* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
-* **Analisi delle sinapsi di Azure**: si usa un pool SQL dedicato come archivio dati *sink* . Se non si ha un'istanza di Azure sinapsi Analytics, vedere [creare un pool SQL dedicato](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per i passaggi da eseguire per crearne uno.
+* **Analisi delle sinapsi di Azure**: si usa un pool SQL dedicato come archivio dati *sink* . Se non è disponibile un'istanza di Azure Synapse Analytics, vedere [Creare un pool SQL dedicato](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per crearne una.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -73,4 +73,4 @@ In questo passaggio si attiverà manualmente la pipeline pubblicata nel passaggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'integrazione dei dati per l'analisi delle sinapsi, vedere l'articolo inserimento di [dati in Azure Data Lake storage Gen2 ](data-integration-data-lake.md) .
+Per altre informazioni sull'integrazione dei dati per Azure sinapsi Analytics, vedere l'articolo sull'inserimento di [dati in Azure Data Lake storage Gen2 ](data-integration-data-lake.md) .

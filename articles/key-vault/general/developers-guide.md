@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013973"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460815"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -120,7 +120,7 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 - Come distribuire certificati alle macchine virtuali da Key Vault [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) : un'applicazione cloud in esecuzione in una macchina virtuale in Azure necessita di un certificato. Come ottenere oggi il certificato per questa VM?
 - [Distribuzione di un certificato dell'app Web di Azure tramite Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Assegnare un criterio di accesso[CLI](assign-access-policy-cli.md)(  |  [portale PowerShell](assign-access-policy-powershell.md)dell'interfaccia della riga di comando  |  [Portal](assign-access-policy-portal.md)). 
-- [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](soft-delete-cli.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
+- [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](./key-vault-recovery.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
 - [Passare valori protetti come password durante la distribuzione](../../azure-resource-manager/templates/key-vault-parameter.md) : se è necessario passare come parametro durante la distribuzione un valore protetto, ad esempio una password, è possibile archiviare tale valore come chiave privata in un insieme di credenziali delle chiavi di Azure e fare riferimento al valore in altri modelli di Resource Manager.
 
 ## <a name="integrated-with-key-vault"></a>Integrazione con l'insieme di credenziali delle chiavi

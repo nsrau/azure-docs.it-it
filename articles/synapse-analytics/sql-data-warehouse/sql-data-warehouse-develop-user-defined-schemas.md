@@ -1,25 +1,25 @@
 ---
 title: Utilizzo di schemi definiti dall'utente
-description: Suggerimenti per l'uso di schemi T-SQL definiti dall'utente per lo sviluppo di soluzioni nel pool SQL sinapsi.
+description: Suggerimenti per l'uso di schemi T-SQL definiti dall'utente per sviluppare soluzioni per pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213364"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460442"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schemi definiti dall'utente nel pool di SQL sinapsi
-Questo articolo è incentrato sulla fornitura di diversi suggerimenti per l'uso di schemi definiti dall'utente T-SQL per lo sviluppo di soluzioni nel pool SQL sinapsi.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Schemi definiti dall'utente per pool SQL dedicati in Azure sinapsi Analytics
+Questo articolo è incentrato sulla fornitura di diversi suggerimenti per l'uso di schemi definiti dall'utente T-SQL per lo sviluppo di soluzioni in un pool SQL dedicato.
 
 ## <a name="schemas-for-application-boundaries"></a>Schemi per i limiti dell'applicazione
 
@@ -27,7 +27,7 @@ I data warehouse tradizionali spesso usano database separati per creare i limiti
 
 Ad esempio, un SQL Server tradizionale data warehouse può includere un database di gestione temporanea, un database data warehouse e alcuni database data mart. In questa topologia ogni database funziona come un carico di lavoro e un limite di sicurezza nell'architettura.
 
-Al contrario, il pool SQL esegue l'intero carico di lavoro data warehouse all'interno di un database. I join tra database non sono consentiti. Il pool SQL prevede l'archiviazione di tutte le tabelle utilizzate dal warehouse all'interno di un unico database.
+Al contrario, un pool SQL dedicato esegue l'intero carico di lavoro data warehouse all'interno di un database. I join tra database non sono consentiti. Il pool SQL dedicato prevede l'archiviazione di tutte le tabelle utilizzate dal warehouse all'interno di un unico database.
 
 > [!NOTE]
 > Il pool SQL non supporta le query tra database di qualsiasi tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
@@ -37,11 +37,11 @@ Al contrario, il pool SQL esegue l'intero carico di lavoro data warehouse all'in
 ## <a name="recommendations"></a>Consigli
 Di seguito sono riportati i consigli per consolidare i carichi di lavoro, la sicurezza, il dominio e i limiti funzionali usando schemi definiti dall'utente:
 
-- Usare un database del pool SQL per eseguire l'intero carico di lavoro data warehouse.
-- Consolidare l'ambiente di data warehouse esistente per l'utilizzo di un database del pool SQL.
+- Usare un database in un pool SQL dedicato per eseguire l'intero carico di lavoro data warehouse.
+- Consolidare l'ambiente di data warehouse esistente per l'utilizzo di un database del pool SQL dedicato.
 - Sfruttare gli **schemi definiti dall'utente** per fornire il limite implementato in precedenza tramite database.
 
-Se gli schemi definiti dall'utente non sono stati usati in precedenza, si avrà uno Slate pulito. Utilizzare il nome del database precedente come base per gli schemi definiti dall'utente nel database del pool SQL.
+Se gli schemi definiti dall'utente non sono stati usati in precedenza, si avrà uno Slate pulito. Utilizzare il nome del database precedente come base per gli schemi definiti dall'utente nel database del pool SQL dedicato.
 
 Se gli schemi sono già stati usati, sono disponibili alcune opzioni:
 
@@ -50,7 +50,7 @@ Se gli schemi sono già stati usati, sono disponibili alcune opzioni:
 - Mantenere i nomi degli schemi legacy implementando viste sulla tabella in uno schema aggiuntivo per ricreare la struttura dello schema precedente.
 
 > [!NOTE]
-> A prima vista, l'opzione 3 può sembrare quella più interessante. È tuttavia importante osservare i dettagli. Le visualizzazioni sono di sola lettura nel pool SQL. Qualsiasi modifica di dati o tabelle dovrà essere eseguita sulla tabella di base. L'opzione 3 introduce anche un livello di viste nel sistema. È consigliabile valutare attentamente questo aspetto se si usano già viste nell'architettura.
+> A prima vista, l'opzione 3 può sembrare quella più interessante. È tuttavia importante osservare i dettagli. Le visualizzazioni sono di sola lettura nel pool SQL dedicato. Qualsiasi modifica di dati o tabelle dovrà essere eseguita sulla tabella di base. L'opzione 3 introduce anche un livello di viste nel sistema. È consigliabile valutare attentamente questo aspetto se si usano già viste nell'architettura.
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.openlocfilehash: 8573ba99b7aef13025b4f175640ac9583ad5a679
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8296018a9534d5e2ce5dd7b84ebcad49cac00b3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545957"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460028"
 ---
 # <a name="security-options-for-hive-in-azure-hdinsight"></a>Opzioni di sicurezza per hive in Azure HDInsight
 
@@ -41,6 +41,6 @@ L'abilitazione di Hiveserver2 SSL non è consigliata per i cluster standard o ES
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica dell'autenticazione HiveServer2](https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2#SettingUpHiveServer2-Authentication/SecurityConfiguration)
-* [Panoramica dell'autorizzazione di HiveServer2](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
+* [Panoramica dell'autorizzazione di HiveServer2](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization)
 * [Abilitazione dell'autorizzazione hive basata su standard SQL](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
 * [Apache Ranger con hive](../domain-joined/apache-domain-joined-run-hive.md)

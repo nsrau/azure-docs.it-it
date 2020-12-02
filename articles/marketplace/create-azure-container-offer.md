@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 76211e2aaf27fd28500bb539c94fa409b239e785
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759009"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459566"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta del contenitore di Azure in Azure Marketplace
 
@@ -291,7 +291,7 @@ Questa scheda consente di scegliere i cloud in cui è disponibile il piano. Le r
 
 Tutti i piani per le offerte di contenitori di Azure vengono resi disponibili automaticamente in **Azure Global**.  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](marketplace-geo-availability-currencies.md).
 
-Selezionare l'opzione [Azure Government](/azure/azure-government/documentation-government-welcome.md) per fare in modo che la soluzione venga visualizzata qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](/azure/azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per creare e testare la soluzione, richiedere un account di prova dalla [valutazione di prova di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selezionare l'opzione [Azure Government](../azure-government/documentation-government-welcome.md) per fare in modo che la soluzione venga visualizzata qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per creare e testare la soluzione, richiedere un account di prova dalla [valutazione di prova di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Dopo che il piano è stato pubblicato e disponibile in un'area specifica, non è possibile rimuovere tale area.
@@ -357,11 +357,11 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **ID della sottoscrizione di Azure**: specificare l'ID della sottoscrizione in cui viene segnalato l'utilizzo e i servizi vengono fatturati per Registro Azure Container che include l'immagine del contenitore. È possibile trovare questo ID nella [pagina Sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure.
 
-**Nome del gruppo di risorse di Azure**: specificare il [nome del gruppo di risorse](/azure/azure-resource-manager/management/manage-resource-groups-portal.md) che contiene Registro Azure Container con l'immagine del contenitore. Il gruppo di risorse deve essere accessibile nell'ID della sottoscrizione (sopra). È possibile trovare il nome nella pagina [Gruppi di risorse ](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) del portale di Azure.
+**Nome del gruppo di risorse di Azure**: specificare il [nome del gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md) che contiene Registro Azure Container con l'immagine del contenitore. Il gruppo di risorse deve essere accessibile nell'ID della sottoscrizione (sopra). È possibile trovare il nome nella pagina [Gruppi di risorse ](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) del portale di Azure.
 
-**Nome del Registro Azure Container**: specificare il nome del [Registro Azure Container](/azure/container-registry/container-registry-intro.md) con l'immagine del contenitore. Il registro contenitori deve trovarsi nel gruppo di risorse di Azure specificato in precedenza. Includere solo il nome del registro, non il nome completo del server di accesso. Assicurarsi di non inserire **azurecr.io** nel nome. È possibile trovare il nome del registro nella pagina [Registri contenitori](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) del portale di Azure.
+**Nome del Registro Azure Container**: specificare il nome del [Registro Azure Container](../container-registry/container-registry-intro.md) con l'immagine del contenitore. Il registro contenitori deve trovarsi nel gruppo di risorse di Azure specificato in precedenza. Includere solo il nome del registro, non il nome completo del server di accesso. Assicurarsi di non inserire **azurecr.io** nel nome. È possibile trovare il nome del registro nella pagina [Registri contenitori](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) del portale di Azure.
 
-**Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](/azure/container-registry/container-registry-authentication.md#admin-account)) collegato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure. Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
+**Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](../container-registry/container-registry-authentication.md#admin-account)) collegato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure. Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
  :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
 
@@ -369,7 +369,7 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Menu Chiave di accesso.":::
 
-**Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Includere il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare repository di registri contenitori di Azure nel portale di Azure](/azure/container-registry/container-registry-repositories.md).
+**Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Includere il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare repository di registri contenitori di Azure nel portale di Azure](../container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.

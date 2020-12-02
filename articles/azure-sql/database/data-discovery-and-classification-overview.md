@@ -11,19 +11,19 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672075"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462081"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L'individuazione dei dati & classificazione è incorporata nel database SQL di Azure, in Azure SQL Istanza gestita e in Azure sinapsi Analytics. Fornisce funzionalità avanzate per l'individuazione, la classificazione, l'assegnazione di etichette e la segnalazione dei dati sensibili nei database.
+L'individuazione dei dati & classificazione è incorporata nel database SQL di Azure, in Azure SQL Istanza gestita e in Azure sinapsi Analytics. Fornisce funzionalità avanzate per l'individuazione, la classificazione, l'etichettatura e la segnalazione dei dati sensibili nei database.
 
 I dati più sensibili possono includere informazioni aziendali, finanziarie, sanitarie o personali. L'individuazione e la classificazione di questi dati possono svolgere un ruolo fondamentale nell'approccio di protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
@@ -55,8 +55,8 @@ In questa sezione vengono descritti i passaggi per:
 
 La classificazione include due attributi di metadati:
 
-- **Labels** : attributi di classificazione principali, usati per definire il livello di sensibilità dei dati archiviati nella colonna.  
-- **Tipi di informazioni** : attributi che forniscono informazioni più granulari sul tipo di dati archiviati nella colonna.
+- **Labels**: attributi di classificazione principali, usati per definire il livello di sensibilità dei dati archiviati nella colonna.  
+- **Tipi di informazioni**: attributi che forniscono informazioni più granulari sul tipo di dati archiviati nella colonna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definire e personalizzare la tassonomia di classificazione
 
@@ -77,7 +77,9 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Passare a **individuazione dati & classificazione** sotto l'intestazione sicurezza nel riquadro del database SQL di Azure. La scheda Panoramica include un riepilogo dello stato di classificazione corrente del database. Il riepilogo include un elenco dettagliato di tutte le colonne classificate, che è anche possibile filtrare per visualizzare solo parti dello schema, tipi di informazioni ed etichette specifici. Se non sono ancora state classificate colonne, [andare al passaggio 4](#step-4).
+1. Passare a **individuazione dati & classificazione** sotto l'intestazione **sicurezza** nel riquadro del database SQL di Azure. La scheda Panoramica include un riepilogo dello stato di classificazione corrente del database. Il riepilogo include un elenco dettagliato di tutte le colonne classificate, che è anche possibile filtrare per visualizzare solo parti dello schema, tipi di informazioni ed etichette specifici. Se non sono ancora state classificate colonne, [andare al passaggio 4](#step-4).
+
+    ![Panoramica](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Per scaricare un report in formato Excel, scegliere **Esporta** dal menu superiore del riquadro.
 
@@ -91,7 +93,9 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
    - Per accettare un suggerimento per una colonna specifica, selezionare la casella di controllo nella colonna sinistra della riga pertinente. Per contrassegnare tutte le raccomandazioni come accettate, selezionare la casella di controllo più a sinistra nell'intestazione della tabella consigli.
 
-   - Per applicare le raccomandazioni selezionate, selezionare **accetta raccomandazioni selezionate** .
+   - Per applicare le raccomandazioni selezionate, selezionare **accetta raccomandazioni selezionate**.
+
+   ![Consigli per la classificazione](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. È anche possibile classificare manualmente le colonne, in alternativa o in aggiunta alla classificazione basata su consigli:
 
@@ -101,7 +105,10 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
    1. Selezionare **Aggiungi classificazione** nella parte inferiore della finestra di contesto.
 
-1. Per completare la classificazione e contrassegnare in modo permanente le colonne del database con i nuovi metadati di classificazione, selezionare **Salva** nel menu in alto della finestra.
+   ![Aggiungere manualmente la classificazione](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Per completare la classificazione e contrassegnare in modo permanente le colonne del database con i nuovi metadati di classificazione, selezionare **Salva** nella pagina **classificazione** .
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Controllare l'accesso ai dati sensibili
 
@@ -115,7 +122,7 @@ Questi ruoli predefiniti possono leggere la classificazione dei dati di un datab
 
 - Proprietario
 - Reader
-- Collaboratore
+- Autore di contributi
 - Gestione della sicurezza SQL
 - Amministratore accessi utente
 

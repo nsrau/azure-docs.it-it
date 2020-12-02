@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780190"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459639"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ L'iperscalabilità supporta tutti i carichi di lavoro SQL Server, ma è ottimizz
 
 Se si eseguono query di analisi interattive usando SQL Server come data warehouse, l'iperscalabilità è un'ottima opzione perché è possibile ospitare data warehouse di piccole e medie dimensioni, ad esempio pochi TB fino a 100 TB, a un costo inferiore ed è possibile eseguire la migrazione dei carichi di lavoro di data warehouse di SQL Server a iperscalabilità con modifiche minime al codice T-SQL.
 
-Se si esegue l'analisi dei dati su larga scala con query complesse e frequenze di inserimento prolungate superiori a 100 MB/s, oppure usando Parallel data warehouse (PDW), Teradata o altri data warehouse di elaborazione parallela massiva (MPP), Azure sinapsi Analytics (in precedenza SQL Data Warehouse) potrebbe essere la scelta migliore.
+Se si esegue l'analisi dei dati su larga scala con query complesse e frequenze di inserimento prolungate superiori a 100 MB/s, oppure usando Parallel data warehouse (PDW), Teradata o altri data warehouse di elaborazione parallela massiva (MPP), Azure sinapsi Analytics può essere la scelta migliore.
   
 ## <a name="hyperscale-compute-questions"></a>Domande di calcolo con iperscalabilità
 

@@ -1,32 +1,30 @@
 ---
 title: Uso delle etichette per instrumentare le query
-description: Suggerimenti per l'uso delle etichette per instrumentare le query nel pool SQL sinapsi per lo sviluppo di soluzioni.
+description: Suggerimenti per l'uso delle etichette per instrumentare query per i pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7958caf71658dcdcbf31bac84697931e9049452f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459148"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462737"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Uso delle etichette per instrumentare le query nel pool SQL sinapsi
+# <a name="using-labels-to-instrument-queries-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Uso delle etichette per instrumentare query per pool SQL dedicati in Azure sinapsi Analytics
 
-Sono incluse in questo articolo Suggerimenti per lo sviluppo di soluzioni usando etichette per instrumentare query nel pool SQL.
-
-Suggerimenti per l'uso delle etichette per instrumentare query in Azure sinapsi Analytics per lo sviluppo di soluzioni.
+Sono incluse in questo articolo Suggerimenti per lo sviluppo di soluzioni con etichette per instrumentare query in pool SQL dedicati.
 
 ## <a name="what-are-labels"></a>Definizione di etichette
 
-Il pool SQL supporta un concetto denominato etichette di query. Prima di approfondire il concetto, eccone un esempio:
+Il pool SQL dedicato supporta un concetto denominato etichette di query. Prima di approfondire il concetto, eccone un esempio:
 
 ```sql
 SELECT *

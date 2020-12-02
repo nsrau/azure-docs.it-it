@@ -1,6 +1,6 @@
 ---
 title: Assegnare punteggi ai modelli di apprendimento automatico con PREDICT
-description: Informazioni su come assegnare un punteggio ai modelli di apprendimento automatico usando la funzione T-SQL PREDICT in sinapsi SQL.
+description: Informazioni su come assegnare un punteggio ai modelli di apprendimento automatico usando la funzione T-SQL PREDICT nel pool SQL dedicato.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325375"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460531"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Assegnare punteggi ai modelli di apprendimento automatico con PREDICT
 
-Sinapsi SQL offre la possibilità di assegnare punteggi ai modelli di apprendimento automatico usando il linguaggio T-SQL familiare. Con la [stima](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)di T-SQL è possibile usare i modelli di machine learning esistenti con training con i dati cronologici e assegnare loro un punteggio entro i limiti di sicurezza del data warehouse. La funzione PREDICT accetta un modello [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e i dati come input. Questa funzionalità Elimina la fase di trasferimento di dati importanti al di fuori dell'data warehouse per l'assegnazione dei punteggi. Mira a consentire ai professionisti dei dati di distribuire facilmente modelli di apprendimento automatico con l'interfaccia T-SQL familiare, nonché collaborare senza problemi con i data scientist che lavorano con il Framework appropriato per la propria attività.
+Il pool SQL dedicato offre la possibilità di assegnare punteggi ai modelli di apprendimento automatico usando il linguaggio T-SQL familiare. Con la [stima](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)di T-SQL è possibile usare i modelli di machine learning esistenti con training con i dati cronologici e assegnare loro un punteggio entro i limiti di sicurezza del data warehouse. La funzione PREDICT accetta un modello [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e i dati come input. Questa funzionalità Elimina la fase di trasferimento di dati importanti al di fuori dell'data warehouse per l'assegnazione dei punteggi. Mira a consentire ai professionisti dei dati di distribuire facilmente modelli di apprendimento automatico con l'interfaccia T-SQL familiare, nonché collaborare senza problemi con i data scientist che lavorano con il Framework appropriato per la propria attività.
 
 > [!NOTE]
 > Questa funzionalità non è attualmente supportata nel pool SQL senza server.
@@ -31,9 +31,9 @@ La funzionalità richiede che il modello venga sottoposto a training all'esterno
 
 ## <a name="training-the-model"></a>Training del modello
 
-Per sinapsi SQL si prevede un modello con training preliminare. Quando si esegue il training di un modello di apprendimento automatico usato per eseguire stime in sinapsi SQL, tenere presenti i fattori seguenti.
+Il pool SQL dedicato prevede un modello con training preliminare. Quando si esegue il training di un modello di apprendimento automatico utilizzato per eseguire stime in un pool SQL dedicato, tenere presenti i fattori seguenti.
 
-- Sinapsi SQL supporta solo modelli di formato ONNX. ONNX è un formato di modello open source che consente di scambiare modelli tra diversi framework per consentire l'interoperabilità. È possibile convertire i modelli esistenti in formato ONNX usando Framework che lo supportano a livello nativo o che convertono i pacchetti disponibili. Ad esempio, il pacchetto [sklearn-Onnx](https://github.com/onnx/sklearn-onnx) converte i modelli Scikit-learn in Onnx. Il [repository GitHub ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format) fornisce un elenco di Framework e esempi supportati.
+- Il pool SQL dedicato supporta solo modelli di formato ONNX. ONNX è un formato di modello open source che consente di scambiare modelli tra diversi framework per consentire l'interoperabilità. È possibile convertire i modelli esistenti in formato ONNX usando Framework che lo supportano a livello nativo o che convertono i pacchetti disponibili. Ad esempio, il pacchetto [sklearn-Onnx](https://github.com/onnx/sklearn-onnx) converte i modelli Scikit-learn in Onnx. Il [repository GitHub ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format) fornisce un elenco di Framework e esempi supportati.
 
    Se si usa Machine Learning [automatiche](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) per il training, assicurarsi di impostare il parametro *enable_onnx_compatible_models* su true per produrre un modello di formato Onnx. [Automatic machine learning notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) Mostra un esempio di come usare AutoML per creare un modello di apprendimento automatico del formato ONNX.
 
@@ -47,7 +47,7 @@ Per sinapsi SQL si prevede un modello con training preliminare. Quando si esegue
 
 ## <a name="loading-the-model"></a>Caricamento del modello
 
-Il modello viene archiviato in una tabella utente SQL sinapsi come stringa esadecimale. Per identificare il modello, è possibile aggiungere altre colonne, ad esempio ID e descrizione, nella tabella del modello. Utilizzare varbinary (max) come tipo di dati della colonna del modello. Di seguito è riportato un esempio di codice per una tabella che può essere utilizzata per l'archiviazione dei modelli:
+Il modello viene archiviato in una tabella utente del pool SQL dedicata come stringa esadecimale. Per identificare il modello, è possibile aggiungere altre colonne, ad esempio ID e descrizione, nella tabella del modello. Utilizzare varbinary (max) come tipo di dati della colonna del modello. Di seguito è riportato un esempio di codice per una tabella che può essere utilizzata per l'archiviazione dei modelli:
 
 ```sql
 -- Sample table schema for storing a model and related data
@@ -66,7 +66,7 @@ GO
 
 ```
 
-Una volta che il modello viene convertito in una stringa esadecimale e la definizione della tabella specificata, usare il [comando copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) o la polibase per caricare il modello nella tabella SQL sinapsi. Nell'esempio di codice seguente viene utilizzato il comando Copy per caricare il modello.
+Una volta che il modello viene convertito in una stringa esadecimale e la definizione della tabella specificata, utilizzare il [comando copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) o la polibase per caricare il modello nella tabella del pool SQL dedicata. Nell'esempio di codice seguente viene utilizzato il comando Copy per caricare il modello.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location

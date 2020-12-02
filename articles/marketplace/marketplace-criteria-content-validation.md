@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006507"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462128"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -93,5 +93,5 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 * Vedere le informazioni sui vari tipi di offerta in Azure Marketplace:
   * [App SaaS](./plan-saas-offer.md)
   * [Contenitori](./marketplace-containers.md)
-  * [Servizi di consulenza](./consulting-services.md)
+  * [Servizi di consulenza](./plan-consulting-service-offer.md)
 * [Determinare l'opzione di pubblicazione](./determine-your-listing-type.md)

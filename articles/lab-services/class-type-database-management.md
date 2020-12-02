@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659829"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462415"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurare un Lab per insegnare la gestione dei database per i database relazionali
 
@@ -20,7 +20,7 @@ Questo articolo illustra come configurare un modello di macchina virtuale in un 
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere [esercitazione per la configurazione di un account Lab](tutorial-setup-lab-account.md).  È anche possibile usare un account lab esistente.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere [esercitazione per la configurazione di un account Lab](tutorial-setup-lab-account.md).  È anche possibile usare un account lab esistente.
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
@@ -41,7 +41,7 @@ Usare le impostazioni nella tabella seguente quando si configura un Lab della cl
 
 ## <a name="template-machine-configuration"></a>Configurazione computer modello
 
-Per installare MySQL in Windows Server 2019, è possibile seguire la procedura descritta in [installare ed eseguire MySQL Community Server in una macchina virtuale](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Per installare MySQL in Windows Server 2019, è possibile seguire la procedura descritta in [installare ed eseguire MySQL Community Server in una macchina virtuale](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 è preinstallato nell'immagine di macchina virtuale selezionata durante la creazione del nuovo Lab.
 

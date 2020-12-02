@@ -1,6 +1,6 @@
 ---
-title: Eseguire query su cartelle e più file usando un pool SQL senza server (anteprima)
-description: Il pool SQL senza server (anteprima) supporta la lettura di più file/cartelle utilizzando caratteri jolly, che sono simili ai caratteri jolly utilizzati nel sistema operativo Windows.
+title: Eseguire query su cartelle e più file usando un pool SQL senza server
+description: Il pool SQL senza server supporta la lettura di più file/cartelle utilizzando caratteri jolly, che sono simili ai caratteri jolly utilizzati nel sistema operativo Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684560"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462628"
 ---
 # <a name="query-folders-and-multiple-files"></a>Eseguire query su cartelle e più file  
 
-Questo articolo illustra come scrivere una query usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics.
+Questo articolo illustra come scrivere una query usando un pool SQL senza server in Azure sinapsi Analytics.
 
 Il pool SQL senza server supporta la lettura di più file/cartelle utilizzando caratteri jolly, che sono simili ai caratteri jolly utilizzati nel sistema operativo Windows. Tuttavia, è presente una maggiore flessibilità perché sono consentiti più caratteri jolly.
 

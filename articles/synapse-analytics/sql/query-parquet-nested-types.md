@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sui tipi annidati parquet usando un pool SQL senza server (anteprima)
-description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet usando un pool SQL senza server (anteprima).
+title: Eseguire query sui tipi annidati parquet usando un pool SQL senza server
+description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet usando un pool SQL senza server.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685716"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462555"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati nei file parquet e JSON usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati nei file parquet e JSON usando un pool SQL senza server in Azure sinapsi Analytics
 
-Questo articolo illustra come scrivere una query usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics. La query eseguirà la lettura dei tipi annidati parquet.
+Questo articolo illustra come scrivere una query usando un pool SQL senza server in Azure sinapsi Analytics. La query eseguirà la lettura dei tipi annidati parquet.
 I tipi annidati sono strutture complesse che rappresentano oggetti o matrici. I tipi annidati possono essere archiviati in: 
 - [Parquet](query-parquet-files.md), in cui è possibile disporre di più colonne complesse che contengono matrici e oggetti.
 - [File JSON](query-json-files.md)gerarchici, in cui è possibile leggere un documento JSON complesso come colonna singola.

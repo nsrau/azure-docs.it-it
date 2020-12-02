@@ -3,12 +3,12 @@ title: Azure Key Vault come origine griglia di eventi
 description: Descrive le proprietà e lo schema forniti per gli eventi di Azure Key Vault con griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324077"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460396"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault come origine griglia di eventi
 
@@ -71,8 +71,8 @@ Un evento presenta i seguenti dati di primo livello:
 | objectType | string | Tipo dell'oggetto che ha attivato questo evento. |
 | objectName | string | Nome dell'oggetto che ha attivato questo evento. |
 | version | string | Versione dell'oggetto che ha attivato questo evento. |
-| nbf | d'acquisto | La data precedente in secondi a partire dal 1970-01-01T00:00:00Z dell'oggetto che ha attivato questo evento |
-| exp | d'acquisto | Data di scadenza in secondi da 1970-01-01T00:00:00Z dell'oggetto che ha attivato questo evento |
+| nbf | Numero | La data precedente in secondi a partire dal 1970-01-01T00:00:00Z dell'oggetto che ha attivato questo evento |
+| exp | Numero | Data di scadenza in secondi da 1970-01-01T00:00:00Z dell'oggetto che ha attivato questo evento |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 |Titolo  |Descrizione  |
@@ -85,5 +85,5 @@ Un evento presenta i seguenti dati di primo livello:
 
 * Per un'introduzione a griglia di eventi di Azure, vedere informazioni su [griglia di eventi](overview.md).
 * Per altre informazioni su come creare una sottoscrizione di griglia di eventi di Azure, vedere [schema di sottoscrizione di griglia di eventi](subscription-creation-schema.md).
-* Per altre informazioni su Key VAult, vedere [che cos'è Azure Key Vault?](../key-vault/general/overview.md)
+* Per ulteriori informazioni su Key Vault, vedere [che cos'è Azure Key Vault?](../key-vault/general/overview.md)
 

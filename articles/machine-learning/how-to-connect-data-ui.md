@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359868"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461440"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -60,7 +60,7 @@ Creare un nuovo archivio dati in pochi passaggi con il Azure Machine Learning St
 1. Selezionare **+ Nuovo archivio dati**.
 1. Completare il modulo per creare e registrare un nuovo archivio dati. Il modulo si aggiorna in modo intelligente in base alle selezioni effettuate per il tipo di archiviazione di Azure e il tipo di autenticazione. Vedere la [sezione accesso e autorizzazioni di archiviazione](#access-validation) per informazioni su dove trovare le credenziali di autenticazione necessarie per popolare il modulo.
 
-Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **archivio dati BLOB di Azure** :
+Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **archivio dati BLOB di Azure**:
 
 ![Modulo per un nuovo archivio dati](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -134,13 +134,13 @@ Per garantire la connessione sicura al servizio di archiviazione di Azure, Azure
 
 ### <a name="virtual-network"></a>Rete virtuale
 
-Se l'account di archiviazione dati si trova in una **rete virtuale** , sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
+Se l'account di archiviazione dati si trova in una **rete virtuale**, sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
 
 ### <a name="access-validation"></a>Convalida dell'accesso
 
-**Come parte del processo di creazione e registrazione dell'archivio dati iniziale** , Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
+**Come parte del processo di creazione e registrazione dell'archivio dati iniziale**, Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
 
-**Dopo la creazione dell'archivio dati** , questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
+**Dopo la creazione dell'archivio dati**, questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
 
 Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile fornire la chiave dell'account, le firme di accesso condiviso (SAS) o l'entità servizio in base al tipo di archivio dati che si vuole creare. Nella [matrice del tipo di archiviazione](how-to-access-data.md#matrix) sono elencati i tipi di autenticazione supportati che corrispondono a ogni tipo di archivio dati.
 
@@ -160,7 +160,7 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. 
+Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. 
 * Per **l'accesso in lettura** ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. 
 
 * Per **l'accesso in scrittura ai** dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.

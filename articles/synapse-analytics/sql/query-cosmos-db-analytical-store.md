@@ -9,14 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: eda05cbdf2f5b077fd6cf217a00cc58b1c6eda27
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 439337233e24dfcae2c8c911a9224fd3394d6846
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986641"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462700"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
+
+> [!IMPORTANT]
+> Il supporto del pool SQL senza server per il collegamento a sinapsi di Azure per Azure Cosmos DB è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Un pool SQL senza server consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in tempo quasi reale senza influire sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e la connettività integrata a un'ampia gamma di strumenti di query di Business Intelligence (BI) ed ad hoc tramite l'interfaccia t-SQL.
 
@@ -260,7 +264,7 @@ Gli account Azure Cosmos DB dell'API SQL (Core) supportano i tipi di proprietà 
 | --- | --- |
 | Boolean | bit |
 | Integer | bigint |
-| Decimale | float |
+| Decimal | float |
 | string | varchar (regole di confronto del database UTF-8) |
 | Data/ora (stringa in formato ISO) | varchar (30) |
 | Data/ora (timestamp UNIX) | bigint |

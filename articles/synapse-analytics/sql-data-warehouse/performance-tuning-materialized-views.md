@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478321"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460760"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate
 
-Le viste materializzate nel pool SQL Synapse offrono un metodo a bassa manutenzione per le query analitiche complesse, che consente di ottenere prestazioni veloci senza bisogno di modificare le query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
+Le viste materializzate nel pool SQL sinapsi di Azure forniscono un metodo di manutenzione basso per le query analitiche complesse per ottenere prestazioni rapide senza alcuna modifica alle query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
 
 ## <a name="materialized-views-vs-standard-views"></a>Confronto tra viste materializzate e viste standard
 
-Il pool SQL supporta sia le viste standard che le viste materializzate.  Entrambe sono tabelle virtuali create con espressioni SELECT e presentate alle query come tabelle logiche.  Le viste incapsulano la complessità del calcolo dei dati comuni e aggiungono un livello di astrazione alle modifiche dei calcoli, in modo che non sia necessario riscrivere le query.  
+Il pool SQL in sinapsi di Azure supporta le visualizzazioni standard e materializzate.  Entrambe sono tabelle virtuali create con espressioni SELECT e presentate alle query come tabelle logiche.  Le viste incapsulano la complessità del calcolo dei dati comuni e aggiungono un livello di astrazione alle modifiche dei calcoli, in modo che non sia necessario riscrivere le query.  
 
-Una vista standard calcola i dati ogni volta che viene usata.  Non sono presenti dati archiviati su disco. Le viste standard vengono in genere usate come strumento per organizzare gli oggetti logici e le query in un database.  Per usare una vista standard, una query deve farvi riferimento diretto.
+Una vista standard calcola i dati ogni volta che viene usata.  Non sono presenti dati archiviati su disco. Le persone usano in genere viste standard come uno strumento che consente di organizzare gli oggetti logici e le query in un pool SQL.  Per usare una vista standard, una query deve farvi riferimento diretto.
 
 Una vista materializzata pre-calcola, archivia e gestisce i dati nel pool SQL esattamente come una tabella.  Non è necessario ricalcolare una vista materializzata a ogni utilizzo.  Per questo motivo, le query che usano dati o subset di dati contenuti in viste materializzate possono ottenere prestazioni più veloci.  Ancor meglio, le query possono usare una vista materializzata senza farvi riferimento diretto, pertanto non è necessario modificare il codice dell'applicazione.  
 
@@ -79,7 +79,7 @@ Rispetto ad altre opzioni di ottimizzazione, ad esempio il ridimensionamento e l
 
 **Necessità di una strategia di distribuzione dei dati diversa per velocizzare le prestazioni delle query**
 
-Sinapsi SQL è un sistema di elaborazione delle query distribuito.  I dati in una tabella SQL vengono distribuiti tra 60 nodi usando una delle tre [strategie di distribuzione](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicati).   
+Azure sinapsi Analytics è un sistema di elaborazione delle query distribuito.  I dati in una tabella SQL vengono distribuiti tra 60 nodi usando una delle tre [strategie di distribuzione](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicati).   
 
 La distribuzione dei dati si specifica al momento della creazione della tabella e resta invariata finché la tabella non viene eliminata. Poiché la vista materializzata è una tabella virtuale su disco, supporta le distribuzioni dei dati hash e round robin.  Gli utenti possono scegliere una distribuzione dei dati diversa rispetto alle tabelle di base, ma ottimale per le prestazioni delle query che usano maggiormente le viste.  
 
@@ -97,11 +97,11 @@ Valutare queste raccomandazioni tenendo a mente le esigenze del carico di lavoro
 
 **Valutare il compromesso tra query più veloci e costi**
 
-Ogni vista materializzata implica un costo di archiviazione dei dati e un costo di gestione.  Man mano che i dati nelle tabelle di base cambiano, cambia anche la struttura fisica della vista materializzata e ne aumentano le dimensioni.  Per evitare la riduzione del livello delle prestazioni delle query, ogni vista materializzata viene gestita separatamente dal motore del pool SQL.  
+Ogni vista materializzata implica un costo di archiviazione dei dati e un costo di gestione.  Man mano che i dati nelle tabelle di base cambiano, cambia anche la struttura fisica della vista materializzata e ne aumentano le dimensioni.  Per evitare il calo delle prestazioni delle query, ogni vista materializzata viene gestita separatamente dal motore di analisi SQL.  
 
 Il carico di lavoro di manutenzione aumenta di pari passo con il numero di viste materializzate e di modifiche alla tabella di base.   Gli utenti devono verificare se il costo derivante da tutte le viste materializzate può essere compensato dal miglioramento delle prestazioni delle query.  
 
-È possibile eseguire questa query per l'elenco di viste materializzate in un database:
+È possibile eseguire questa query per l'elenco di viste materializzate in un pool SQL:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **Non tutte le ottimizzazioni delle prestazioni richiedono una modifica delle query**
 
-L'utilità di ottimizzazione del pool SQL può usare automaticamente le viste materializzate distribuite per migliorare l'esecuzione delle query.  Questo supporto viene applicato in modo trasparente alle query che non fanno riferimento alle viste e alle query che usano aggregazioni non supportate nella creazione di viste materializzate.  Non è necessario apportare alcuna modifica alle query. È possibile controllare il piano di esecuzione stimato di una query per verificare se viene usata una vista materializzata.  
+SQL Analytics Optimizer può utilizzare automaticamente viste materializzate distribuite per migliorare le prestazioni di esecuzione delle query.  Questo supporto viene applicato in modo trasparente alle query che non fanno riferimento alle viste e alle query che usano aggregazioni non supportate nella creazione di viste materializzate.  Non è necessario apportare alcuna modifica alle query. È possibile controllare il piano di esecuzione stimato di una query per verificare se viene usata una vista materializzata.  
 
 **Monitorare le viste materializzate**
 
@@ -151,7 +151,7 @@ Per evitare la riduzione del livello delle prestazioni delle query, è consiglia
 
 **Vista materializzata e memorizzazione nella cache del set di risultati**
 
-Queste due funzionalità si introducono nel pool SQL pressappoco nello stesso momento per ottimizzare le prestazioni delle query.  La memorizzazione nella cache del set di risultati si usa per ottenere una concorrenza elevata e una risposta rapida dalle query ripetitive sui dati statici.  
+Queste due funzionalità sono state introdotte in SQL Analytics nello stesso tempo per l'ottimizzazione delle prestazioni delle query.  La memorizzazione nella cache del set di risultati si usa per ottenere una concorrenza elevata e una risposta rapida dalle query ripetitive sui dati statici.  
 
 Per usare il risultato memorizzato nella cache, la forma della query di richiesta della cache deve corrispondere alla query che ha generato la cache.  Inoltre, il risultato memorizzato nella cache deve essere applicabile all'intera query.  
 

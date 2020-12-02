@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899658"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462167"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -86,7 +86,7 @@ Per il caricamento dei set di dati a livello di terabyte, la latenza di rete pu�
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure sinapsi Analytics (in precedenza SQL DW) è la scelta più appropriata per archiviare i risultati preparati. È possibile usare Azure HDInsight per eseguire tali servizi per l'analisi delle sinapsi di Azure.
+Azure sinapsi Analytics è una scelta appropriata per archiviare i risultati preparati. È possibile usare Azure HDInsight per eseguire tali servizi per l'analisi delle sinapsi di Azure.
 
 Azure sinapsi Analytics è un archivio di database relazionali ottimizzato per carichi di lavoro analitici. Viene ridimensionato in base a tabelle che possono essere partizionate tra più nodi. I nodi vengono selezionati al momento della creazione. Successivamente possono essere ridimensionati, ma si tratta di un processo attivo che può richiedere lo spostamento dei dati. Per altre informazioni, vedere [Manage COMPUTE in Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

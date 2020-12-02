@@ -3,12 +3,12 @@ title: Azure Lab Services - Guida dell'amministratore | Microsoft Docs
 description: Questa guida consente agli amministratori che creano e gestiscono gli account Lab usando Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999281"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462468"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
 Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account Lab per la propria scuola. Dopo aver configurato un account Lab, gli amministratori o gli educatori creano i Lab contenuti nell'account. Questo articolo fornisce una panoramica generale delle risorse di Azure che sono interessati e le linee guida per crearle.
@@ -167,14 +167,14 @@ Quando gli amministratori o i creatori di Lab creano un Lab, possono scegliere t
 
 | Dimensione | Specifiche | Serie | Uso suggerito |
 | ---- | ----- | ------ | ------------- |
-| Piccolo| <ul><li>2 &nbsp; Core</li><li>3,5 gigabyte (GB) di RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ideale per la riga di comando, apertura del Web browser, server Web con traffico ridotto, database di piccole e medie dimensioni. |
-| Media | <ul><li>4 &nbsp; Core</li><li>7 &nbsp; GB di &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ideale per database relazionali, Caching in memoria e analisi. |
-| Media (virtualizzazione annidata) | <ul><li>4 &nbsp; Core</li><li>16 &nbsp; GB di &nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Ideale per database relazionali, Caching in memoria e analisi.
-| large | <ul><li>8 &nbsp; Core</li><li>16 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni.  Queste dimensioni supportano anche la virtualizzazione annidata. |
-| Grande (virtualizzazione annidata) | <ul><li>8 &nbsp; Core</li><li>32 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. |
+| Piccolo| <ul><li>2 &nbsp; Core</li><li>3,5 gigabyte (GB) di RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ideale per la riga di comando, apertura del Web browser, server Web con traffico ridotto, database di piccole e medie dimensioni. |
+| Media | <ul><li>4 &nbsp; Core</li><li>7 &nbsp; GB di &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ideale per database relazionali, Caching in memoria e analisi. |
+| Media (virtualizzazione annidata) | <ul><li>4 &nbsp; Core</li><li>16 &nbsp; GB di &nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Ideale per database relazionali, Caching in memoria e analisi.
+| Grande | <ul><li>8 &nbsp; Core</li><li>16 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni.  Queste dimensioni supportano anche la virtualizzazione annidata. |
+| Grande (virtualizzazione annidata) | <ul><li>8 &nbsp; Core</li><li>32 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. |
 | GPU piccola (visualizzazione) | <ul><li>6 &nbsp; Core</li><li>56 &nbsp; GB di &nbsp; RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Ideale per visualizzazione remota, streaming, giochi e codifica usando Framework come OpenGL e DirectX. |
 | GPU small (calcolo) | <ul><li>6 &nbsp; Core</li><li>56 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Ideale per applicazioni a elevato utilizzo di computer, ad esempio intelligenza artificiale e apprendimento avanzato. |
-| GPU media (visualizzazione) | <ul><li>12 &nbsp; Core</li><li>112 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ideale per visualizzazione remota, streaming, giochi e codifica usando Framework come OpenGL e DirectX. |
+| GPU media (visualizzazione) | <ul><li>12 &nbsp; Core</li><li>112 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ideale per visualizzazione remota, streaming, giochi e codifica usando Framework come OpenGL e DirectX. |
 
 ## <a name="manage-identity"></a>Gestire le identità
 

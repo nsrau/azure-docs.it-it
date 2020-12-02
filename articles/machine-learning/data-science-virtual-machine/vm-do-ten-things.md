@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002766"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462394"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data Science con Windows Data Science Virtual Machine
 
@@ -252,8 +252,8 @@ I dati vengono letti come frame di dati:
 ![Screenshot delle prime 10 righe di dati](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure sinapsi Analytics (in precedenza SQL DW) e database
-Azure sinapsi Analytics (noto in precedenza come SQL DW) è un data warehouse elastico come servizio con un'esperienza di SQL Server di livello aziendale.
+### <a name="azure-synapse-analytics-and-databases"></a>Analytics e database di Azure sinapsi
+Azure sinapsi Analytics è un data warehouse elastico come servizio con un'esperienza di SQL Server di livello aziendale.
 
 È possibile eseguire il provisioning di Azure sinapsi Analytics seguendo le istruzioni riportate in [questo articolo](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Dopo aver eseguito il provisioning di Azure sinapsi Analytics, è possibile usare [questa procedura dettagliata](../team-data-science-process/sqldw-walkthrough.md) per eseguire il caricamento, l'esplorazione e la modellazione dei dati usando i dati all'interno di Azure sinapsi Analytics.
 

@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
-description: Questo articolo elenca le domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW) da clienti e sviluppatori.
+title: Domande frequenti sul pool SQL dedicato (in precedenza SQL DW)
+description: Questo articolo elenca le domande frequenti sul pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics da clienti e sviluppatori.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8f8ae81f6f030245899ec82dbe16b29846dab23
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323601"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460526"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
+# <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-frequently-asked-questions"></a>Pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics Domande frequenti
 
 ## <a name="general"></a>Generale
 
@@ -27,11 +27,11 @@ R. Azure sinapsi è un servizio di analisi che riunisce data warehouse e analisi
 
 Q. Che cosa è successo a Azure SQL Data Warehouse?
 
-R. La sinapsi di Azure è Azure SQL Data Warehouse evoluzione. Abbiamo adottato lo stesso data warehouse leader di settore per un nuovo livello di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti in produzione con la sinapsi di Azure. Per altre informazioni, vedere [Informazioni su Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. La sinapsi di Azure è Azure SQL Data Warehouse evoluzione. Abbiamo adottato lo stesso data warehouse leader di settore per un nuovo livello di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti in produzione con un pool SQL dedicato (in precedenza SQL DW) in sinapsi di Azure. Per altre informazioni, vedere [Informazioni su Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. Che cos'è un pool SQL dedicato?
+Q. Che cos'è un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics?
 
-R. Il pool SQL dedicato si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con la sinapsi di Azure. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
+R. Il pool SQL dedicato (in precedenza SQL DW) si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con le sinapsi di Azure. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Ricerca per categorie iniziare a usare la sinapsi di Azure?
 
@@ -49,7 +49,7 @@ Q. È possibile connettersi Power BI?
 
 R. Sì. Tuttavia Power BI supporta le query dirette con la sinapsi di Azure, non è destinata a un numero elevato di utenti o a dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI su Azure Analysis Services o IaaS di Analysis Services.
 
-Q. Quali sono i limiti di capacità dei pool SQL dedicati?
+Q. Che cosa sono i limiti di capacità di un pool SQL dedicato (in precedenza SQL DW)?
 
 R. Vedere la pagina relativa ai [limiti di capacità](sql-data-warehouse-service-capacity-limits.md) correnti.
 
@@ -83,15 +83,15 @@ R. Sono supportate molte funzionalità. Le funzionalità non supportate sono dis
 
 ## <a name="tooling-and-administration"></a>Strumenti e amministrazione
 
-Q. Il pool SQL dedicato supporta le API REST?
+Q. Il pool SQL dedicato (in precedenza SQL DW) supporta le API REST?
 
-R. Sì. La maggior parte delle funzionalità REST che è possibile usare con il database SQL è disponibile anche con il pool SQL dedicato. È possibile trovare informazioni sulle API nelle pagine o nei [database](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)di documentazione Rest.
+R. Sì. La maggior parte delle funzionalità REST che è possibile usare con il database SQL è disponibile anche con il pool SQL dedicato (in precedenza SQL DW). È possibile trovare informazioni sulle API nelle pagine o nei [database](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)di documentazione Rest.
 
 ## <a name="loading"></a>Caricamento
 
 Q. Quali driver client sono supportati?
 
-R. Il supporto driver per il pool SQL dedicato è reperibile nella pagina [stringhe di connessione](../sql/connection-strings.md)
+R. Il supporto driver per il pool SQL dedicato (denominato in precedenza SQL DW) si trova nella pagina [stringhe di connessione](sql-data-warehouse-connection-strings.md)
 
 D: quali formati di file sono supportati da polibase?
 
@@ -107,8 +107,8 @@ R: No, polibase interagisce solo con i componenti di archiviazione.
 
 D: È possibile connettersi ad HDI?
 
-R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello di HDFS, è possibile caricare i dati in un pool SQL dedicato. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI.
+R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello di HDFS, è possibile caricare i dati in un pool SQL dedicato (in precedenza SQL DW). Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'intera sinapsi di Azure, vedere la pagina [Panoramica](sql-data-warehouse-overview-faq.md) .
+Per altre informazioni sul pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi, vedere la pagina [Panoramica](sql-data-warehouse-overview-what-is.md) .

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001739"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462637"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -31,7 +31,7 @@ ms.locfileid: "96001739"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare i dati da e in Archiviazione BLOB di Azure. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
 ## <a name="overview"></a>Panoramica
-È possibile copiare i dati da qualsiasi archivio dati di origine supportato all'archivio BLOB di Azure o dall'archivio BLOB di Azure a qualsiasi archivio dati sink supportato. La tabella seguente contiene un elenco degli archivi dati supportati come origini o sink dall'attività di copia. Ad esempio, è possibile spostare i dati da un database SQL Server o **da** un database nel database SQL di Azure a un archivio BLOB **di** Azure. È possibile copiare i dati **da** un archivio BLOB **di Azure ad** Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o una raccolta di Azure Cosmos DB.
+È possibile copiare i dati da qualsiasi archivio dati di origine supportato all'archivio BLOB di Azure o dall'archivio BLOB di Azure a qualsiasi archivio dati sink supportato. La tabella seguente contiene un elenco degli archivi dati supportati come origini o sink dall'attività di copia. Ad esempio, è possibile spostare i dati da un database SQL Server o **da** un database nel database SQL di Azure a un archivio BLOB **di** Azure. È possibile copiare i dati **da** un archivio BLOB **di Azure ad** Azure sinapsi Analytics o una raccolta di Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -81,7 +81,7 @@ Data Factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso, il formato e così via dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureBlob** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Sì |
 | fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |

@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
-description: Panoramica della funzionalità di memorizzazione nella cache dei set di risultati per il pool Synapse SQL in Azure Synapse Analytics
+description: Panoramica della funzionalità di memorizzazione nella cache dei set di risultati per il pool SQL dedicato in Azure sinapsi Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541282"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460765"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
 
-Quando è abilitata la memorizzazione nella cache dei set di risultati, Synapse SQL memorizza automaticamente i risultati delle query nel database dell'utente per l'uso ricorrente.  In questo modo, le esecuzioni di query successive ottengono risultati direttamente dalla cache permanente, rendendo superfluo il ricalcolo.   La memorizzazione nella cache dei set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che usano set di risultati memorizzati nella cache non usano slot di concorrenza e pertanto non vengono prese in considerazione per i limiti di concorrenza esistenti. Per motivi di sicurezza, gli utenti possono accedere solo ai risultati memorizzati nella cache se hanno le stesse autorizzazioni di accesso ai dati degli utenti che hanno creato i risultati memorizzati nella cache.  
+Quando è abilitata la memorizzazione nella cache del set di risultati, il pool SQL dedicato memorizza automaticamente nella cache i risultati delle query nel database utente per l'utilizzo ripetitivo.  In questo modo, le esecuzioni di query successive ottengono risultati direttamente dalla cache permanente, rendendo superfluo il ricalcolo.   La memorizzazione nella cache dei set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che usano set di risultati memorizzati nella cache non usano slot di concorrenza e pertanto non vengono prese in considerazione per i limiti di concorrenza esistenti. Per motivi di sicurezza, gli utenti possono accedere solo ai risultati memorizzati nella cache se hanno le stesse autorizzazioni di accesso ai dati degli utenti che hanno creato i risultati memorizzati nella cache.  
 
 ## <a name="key-commands"></a>Comandi principali
 
@@ -47,7 +47,7 @@ Dopo l'attivazione della memorizzazione nella cache dei set di risultati per un 
 > - Se i dati nelle colonne ORDER BY non sono univoci, non esiste alcun ordine di riga garantito per le righe con gli stessi valori nelle colonne ORDER BY, indipendentemente dal fatto che la memorizzazione nella cache del set di risultati sia abilitata o disabilitata.
 
 > [!IMPORTANT]
-> Le operazioni per creare la cache dei set di risultati e recuperare i dati dalla cache vengono eseguite nel nodo di controllo di un'istanza del pool Synapse SQL.
+> Le operazioni per creare la cache dei set di risultati e recuperare i dati dalla cache avvengono nel nodo di controllo di un'istanza del pool SQL dedicata.
 > Quando la memorizzazione nella cache dei set di risultati è attivata, l'esecuzione di query che restituiscono set di risultati di grandi dimensioni, ad esempio maggiori di 1 GB, può causare una limitazione elevata della larghezza di banda nel nodo di controllo e rallentare nel complesso la risposta alle query nell'istanza.  Queste query vengono in genere usate durante l'esplorazione dei dati o le operazioni ETL (estrazione, trasformazione e caricamento). Per evitare il sovraccarico del nodo di controllo e la comparsa di problemi di prestazioni, gli utenti devono DISATTIVARE la memorizzazione nella cache del set di risultati nel database prima di eseguire query di questo tipo.  
 
 Eseguire questa query per trovare il tempo impiegato dalle operazioni di memorizzazione nella cache dei set di risultati per una query:
@@ -85,7 +85,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 Le dimensioni massime della cache dei set di risultati sono pari a 1 TB per ogni database.  I risultati memorizzati nella cache vengono automaticamente invalidati quando i dati della query sottostante cambiano.  
 
-L'eliminazione della cache viene gestita automaticamente da Synapse SQL seguendo questa pianificazione:
+La rimozione della cache viene gestita dal pool SQL dedicato automaticamente dopo questa pianificazione:
 
 - Ogni 48 ore, se il set di risultati non è stato usato o è stato invalidato.
 - Quando la cache dei set di risultati sta per raggiungere le dimensioni massime.

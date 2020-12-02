@@ -1,34 +1,34 @@
 ---
 title: Uso di cicli T-SQL
-description: Suggerimenti per lo sviluppo di soluzioni che usano cicli T-SQL e la sostituzione di cursori nel pool SQL sinapsi.
+description: Suggerimenti per lo sviluppo di soluzioni con i cicli T-SQL e la sostituzione dei cursori per i pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462732"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Uso di cicli T-SQL nel pool di SQL sinapsi
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Uso di cicli T-SQL per pool SQL dedicati in Azure sinapsi Analytics
 
-In questo articolo sono disponibili suggerimenti per lo sviluppo di soluzioni di pool SQL con cicli T-SQL e la sostituzione di cursori.
+In questo articolo sono disponibili suggerimenti per lo sviluppo di soluzioni di pool SQL dedicato mediante cicli T-SQL e la sostituzione di cursori.
 
 ## <a name="purpose-of-while-loops"></a>Scopo dei cicli WHILE
 
-Il pool SQL sinapsi supporta il ciclo [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per eseguire ripetutamente blocchi di istruzioni. Il ciclo WHILE continua fino a quando le condizioni specificate sono vere o fino a quando il codice termina il ciclo in modo specifico usando la parola chiave BREAK.
+I pool SQL dedicati in sinapsi di Azure supportano il ciclo [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per eseguire ripetutamente blocchi di istruzioni. Il ciclo WHILE continua fino a quando le condizioni specificate sono vere o fino a quando il codice termina il ciclo in modo specifico usando la parola chiave BREAK.
 
 I cicli sono utili per la sostituzione di cursori definiti nel codice SQL. Per fortuna, quasi tutti i cursori scritti in codice SQL sono del tipo avanzamento rapido, di sola lettura. Pertanto, i cicli WHILE rappresentano un'ottima alternativa per la sostituzione dei cursori.
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>Sostituzione di cursori nel pool SQL sinapsi
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>Sostituzione di cursori nel pool SQL dedicato
 
 Tuttavia, prima di iniziare a esaminare prima di tutto, è necessario porsi la domanda seguente: "è possibile riscrivere il cursore per usare le operazioni basate su set?"
 

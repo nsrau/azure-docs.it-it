@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078204"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460863"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitoraggio del riferimento ai dati dell'hub Azure
 
@@ -19,13 +19,13 @@ Per informazioni dettagliate sulla raccolta e l'analisi dei dati di monitoraggio
 
 ## <a name="metrics"></a>Metriche
 
-Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamente per l'hub Azure. Lo spazio dei nomi del provider di risorse per le metriche dell'hub Internet è **Microsoft. Devices** e lo spazio dei nomi del tipo è **IoTHubs** .
+Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamente per l'hub Azure. Lo spazio dei nomi del provider di risorse per le metriche dell'hub Internet è **Microsoft. Devices** e lo spazio dei nomi del tipo è **IoTHubs**.
 
 Le sottosezioni seguenti suddividono le metriche della piattaforma dell'hub Internet in base alla categoria generale ed elencate in base al nome visualizzato che vengono visualizzate nel portale di Azure con. Vengono inoltre fornite informazioni rilevanti per le metriche visualizzate in ogni sottosezione.
 
-È anche possibile trovare una singola tabella in cui sono elencate tutte le metriche della piattaforma dell'hub Internet per nome della metrica in [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs) nella documentazione di monitoraggio di Azure. Tenere presente che questa tabella non fornisce alcune informazioni, ad esempio le [aggregazioni supportate](#supported-aggregations) per alcune metriche, disponibili in questo articolo.
+È anche possibile trovare una singola tabella in cui sono elencate tutte le metriche della piattaforma dell'hub Internet per nome della metrica in [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) nella documentazione di monitoraggio di Azure. Tenere presente che questa tabella non fornisce alcune informazioni, ad esempio le [aggregazioni supportate](#supported-aggregations) per alcune metriche, disponibili in questo articolo.
 
-Per informazioni sulle metriche supportate da altri servizi di Azure, vedere [metriche supportate con monitoraggio di Azure](/azure/azure-monitor/platform/metrics-supported).
+Per informazioni sulle metriche supportate da altri servizi di Azure, vedere [metriche supportate con monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
 
 **Argomenti in questa sezione**
 
@@ -49,11 +49,11 @@ La colonna **tipo di aggregazione** in ogni tabella corrisponde all'aggregazione
 
    ![Screenshot che mostra l'aggregazione per le metriche](./media/monitor-iot-hub-reference/aggregation-type.png)
 
-Per la maggior parte delle metriche, tutti i tipi di aggregazione sono validi. Tuttavia, per le metriche di conteggio, quelle con un valore di colonna di **unità** **conteggio** , sono valide solo alcune aggregazioni. Il conteggio delle metriche può essere uno dei due tipi seguenti:
+Per la maggior parte delle metriche, tutti i tipi di aggregazione sono validi. Tuttavia, per le metriche di conteggio, quelle con un valore di colonna di **unità** **conteggio**, sono valide solo alcune aggregazioni. Il conteggio delle metriche può essere uno dei due tipi seguenti:
 
-* Per le metriche di conteggio a **punto singolo** , l'hub Internet registra un singolo punto dati, essenzialmente un 1, ogni volta che si verifica l'operazione misurata. Monitoraggio di Azure somma quindi questi punti dati in base alla granularità specificata. Esempi di metriche a **singolo punto** sono *i messaggi di telemetria inviati* e il *recapito dei messaggi C2D completati* . Per queste metriche, l'unico tipo di aggregazione pertinente è Total (Sum). Il portale consente di scegliere minimo, massimo e medio. Tuttavia, questi valori saranno sempre 1.
+* Per le metriche di conteggio a **punto singolo** , l'hub Internet registra un singolo punto dati, essenzialmente un 1, ogni volta che si verifica l'operazione misurata. Monitoraggio di Azure somma quindi questi punti dati in base alla granularità specificata. Esempi di metriche a **singolo punto** sono *i messaggi di telemetria inviati* e il *recapito dei messaggi C2D completati*. Per queste metriche, l'unico tipo di aggregazione pertinente è Total (Sum). Il portale consente di scegliere minimo, massimo e medio. Tuttavia, questi valori saranno sempre 1.
 
-* Per la metrica del conteggio degli **snapshot** , l'hub Internet registra un conteggio totale quando si verifica l'operazione misurata. Attualmente sono disponibili tre metriche **snapshot** emesse dall'hub Internet: *numero totale di messaggi usati* , *totale dispositivi (anteprima)* e *dispositivi connessi (anteprima)* . Poiché queste metriche presentano una quantità "totale" ogni volta che vengono emesse, la somma della granularità specificata non è sensata. Monitoraggio di Azure limita la selezione di media, minimo e massimo per il tipo di aggregazione per queste metriche.
+* Per la metrica del conteggio degli **snapshot** , l'hub Internet registra un conteggio totale quando si verifica l'operazione misurata. Attualmente sono disponibili tre metriche **snapshot** emesse dall'hub Internet: *numero totale di messaggi usati*, *totale dispositivi (anteprima)* e *dispositivi connessi (anteprima)*. Poiché queste metriche presentano una quantità "totale" ogni volta che vengono emesse, la somma della granularità specificata non è sensata. Monitoraggio di Azure limita la selezione di media, minimo e massimo per il tipo di aggregazione per queste metriche.
 
 ### <a name="cloud-to-device-command-metrics"></a>Metriche dei comandi da cloud a dispositivo
 
@@ -64,7 +64,7 @@ Per la maggior parte delle metriche, tutti i tipi di aggregazione sono validi. T
 |C2D messages abandoned (Messaggi C2D abbandonati)|c2d.commands.egress.abandon.success|Conteggio|Totale|Numero di messaggi da cloud a dispositivo abbandonati dal dispositivo|Nessuno|
 |C2D messages rejected (Messaggi C2D rifiutati)|c2d.commands.egress.reject.success|Conteggio|Totale|Numero di messaggi da cloud a dispositivo rifiutati dal dispositivo|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>Metriche dei metodi diretti da cloud a dispositivo
 
@@ -88,7 +88,7 @@ Per le metriche con un valore **unità** di aggregazione **conteggio** solo tota
 |Letture dei dispositivi gemelli completate dal back-end|c2d.twin.read.success|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end completate.|Nessuno|
 |Aggiornamenti dei dispositivi gemelli completati dal back-end|c2d.twin.update.success|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="configurations-metrics"></a>Metriche di configurazione
 
@@ -96,7 +96,7 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |---|---|---|---|---|---|
 |Metriche di configurazione|configurazioni|Conteggio|Totale|Numero di operazioni CRUD totali eseguite per la configurazione del dispositivo e la distribuzione di IoT Edge, in un set di dispositivi di destinazione. Questo include anche il numero di operazioni che modificano il dispositivo gemello o il modulo gemello a causa di queste configurazioni.|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="daily-quota-metrics"></a>Metriche della quota giornaliera
 
@@ -106,7 +106,7 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |Uso totale dei dati del dispositivo (anteprima)|deviceDataUsageV2|Byte|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuno|
 |Total number of messages used (Numero totale di messaggi usati)|dailyMessageQuotaUsed|Conteggio|Media|Numero totale di messaggi usati nella data odierna. Si tratta di un valore cumulativo che viene reimpostato su zero alle 00:00 UTC ogni giorno.|Nessuno|
 
-Per il *numero totale di messaggi utilizzati* , sono supportate solo le aggregazioni minime, massime e medie. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per il *numero totale di messaggi utilizzati*, sono supportate solo le aggregazioni minime, massime e medie. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="device-metrics"></a>Metriche del dispositivo
 
@@ -117,9 +117,9 @@ Per il *numero totale di messaggi utilizzati* , sono supportate solo le aggregaz
 |Dispositivi totali (anteprima)|totalDeviceCount|Conteggio|Media|Il numero di dispositivi registrati nell'hub IoT|Nessuno|
 |Dispositivi connessi (anteprima)|connectedDeviceCount|Conteggio|Media|Il numero di dispositivi connessi all'hub IoT|Nessuno|
 
-Per i *dispositivi totali (deprecati)* e i *dispositivi connessi (deprecati)* , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per i *dispositivi totali (deprecati)* e i *dispositivi connessi (deprecati)*, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
-Per i *dispositivi totali (anteprima)* e i *dispositivi connessi (anteprima)* , sono valide solo le aggregazioni minime, massime e medie. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per i *dispositivi totali (anteprima)* e i *dispositivi connessi (anteprima)*, sono valide solo le aggregazioni minime, massime e medie. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 I *dispositivi connessi (anteprima)* e i *dispositivi totali (anteprima)* non sono esportabili tramite le impostazioni di diagnostica.
 
@@ -131,7 +131,7 @@ I *dispositivi connessi (anteprima)* e i *dispositivi totali (anteprima)* non so
 |Tentativi di invio di messaggi di telemetria|d2c.telemetry.ingress.allProtocol|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT|Nessuno|
 |Messaggi di telemetria inviati|d2c.telemetry.ingress.success|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>Metriche delle operazioni da dispositivo a cloud gemello
 
@@ -144,16 +144,16 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |Letture dei dispositivi gemelli completate dai dispositivi|d2c.twin.read.success|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo completate.|Nessuno|
 |Aggiornamenti dei dispositivi gemelli completati dai dispositivi|d2c.twin.update.success|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal dispositivo completati.|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="event-grid-metrics"></a>Metriche di griglia di eventi
 
 |Nome visualizzato per la metrica|Metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
-|Recapiti di griglia di eventi (anteprima)|EventGridDeliveries|Conteggio|Totale|Il numero di eventi dell'hub Internet pubblico pubblicati in griglia di eventi. Utilizzare la dimensione risultato per il numero di richieste riuscite e non riuscite. EventType Dimension indica il tipo di evento ( https://aka.ms/ioteventgrid) .|Risultato:<br/>EventType<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* .|
-|Event Grid latency (preview) (Latenza Griglia di eventi (anteprima))|EventGridLatency|Millisecondi|Media|Latenza media (in millisecondi) dal momento in cui è stato generato l'evento dell'hub Internet quando l'evento è stato pubblicato in griglia di eventi. Questo numero è una media tra tutti i tipi di evento. Utilizzare la dimensione EventType per visualizzare la latenza di un tipo specifico di evento.|EventType<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* .|
+|Recapiti di griglia di eventi (anteprima)|EventGridDeliveries|Conteggio|Totale|Il numero di eventi dell'hub Internet pubblico pubblicati in griglia di eventi. Utilizzare la dimensione risultato per il numero di richieste riuscite e non riuscite. EventType Dimension indica il tipo di evento ( https://aka.ms/ioteventgrid) .|Risultato:<br/>EventType<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)*.|
+|Event Grid latency (preview) (Latenza Griglia di eventi (anteprima))|EventGridLatency|Millisecondi|Media|Latenza media (in millisecondi) dal momento in cui è stato generato l'evento dell'hub Internet quando l'evento è stato pubblicato in griglia di eventi. Questo numero è una media tra tutti i tipi di evento. Utilizzare la dimensione EventType per visualizzare la latenza di un tipo specifico di evento.|EventType<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)*.|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="jobs-metrics"></a>Metriche dei processi
 
@@ -172,15 +172,15 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |Annullamenti di processi riusciti|jobs.cancelJob.success|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi riuscite.|Nessuno|
 |Query sui processi riuscite|jobs.queryJobs.success|Conteggio|Totale|Numero di tutte le chiamate per eseguire query sui processi riuscite.|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="routing-metrics"></a>Metriche di routing
 
 |Nome visualizzato per la metrica|Metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
-| Tentativi di recapito routing (anteprima) |RoutingDeliveries | Conteggio | Totale |Si tratta della metrica per il recapito del routing. Utilizzare le dimensioni per identificare lo stato di recapito di un endpoint specifico o per un'origine di routing specifica.| Risultato:<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* . |
-| Dimensioni dei dati di recapito del routing in byte (anteprima)|RoutingDataSizeInBytesDelivered| Byte | Totale |Il numero totale di byte indirizzati dall'hub degli indirizzi Internet all'endpoint personalizzato e all'endpoint predefinito. Utilizzare le dimensioni per identificare le dimensioni dei dati indirizzate a un endpoint specifico o per un'origine di routing specifica.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* .|
-| Latenza routing (anteprima) |RoutingDeliveryLatency| Millisecondi | Media |Si tratta della metrica della latenza di recapito del routing. Utilizzare le dimensioni per identificare la latenza per un endpoint specifico o per un'origine di routing specifica.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* .|
+| Tentativi di recapito routing (anteprima) |RoutingDeliveries | Conteggio | Totale |Si tratta della metrica per il recapito del routing. Utilizzare le dimensioni per identificare lo stato di recapito di un endpoint specifico o per un'origine di routing specifica.| Risultato:<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)*. |
+| Dimensioni dei dati di recapito del routing in byte (anteprima)|RoutingDataSizeInBytesDelivered| Byte | Totale |Il numero totale di byte indirizzati dall'hub degli indirizzi Internet all'endpoint personalizzato e all'endpoint predefinito. Utilizzare le dimensioni per identificare le dimensioni dei dati indirizzate a un endpoint specifico o per un'origine di routing specifica.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)*.|
+| Latenza routing (anteprima) |RoutingDeliveryLatency| Millisecondi | Media |Si tratta della metrica della latenza di recapito del routing. Utilizzare le dimensioni per identificare la latenza per un endpoint specifico o per un'origine di routing specifica.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)*.|
 |Routing: BLOB recapitati all'archiviazione|d2c.endpoints.egress.storage.blobs|Conteggio|Totale|Numero di volte in cui routing dell'hub IoT ha recapitato BLOB agli endpoint di archiviazione.|Nessuno|
 |Routing: dati recapitati all'archiviazione|d2c.endpoints.egress.storage.bytes|Byte|Totale|Quantità di dati (byte) che il routing dell'hub IoT ha recapitato agli endpoint di archiviazione.|Nessuno|
 |Routing: latenza dei messaggi per l'hub eventi|d2c.endpoints.latency.eventHubs|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in endpoint personalizzati di tipo hub eventi. Non sono incluse le route dei messaggi all'endpoint predefinito (eventi).|Nessuno|
@@ -199,7 +199,7 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |Routing: messaggi di telemetria incompatibili|d2c.telemetry.egress.invalid|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT non è riuscito a recapitare i messaggi a causa di un'incompatibilità con l'endpoint. Un messaggio non è compatibile con un endpoint quando l'hub degli errori tenta di recapitare il messaggio a un endpoint e non riesce con un errore non temporaneo. I messaggi non validi non vengono ripetuti. Questo valore non include i nuovi tentativi.|Nessuno|
 |Routing: messaggi di telemetria orfani |d2c.telemetry.egress.orphaned|Conteggio|Totale|Il numero di volte in cui i messaggi sono stati orfani dal routing dell'hub Internet in quanto non corrispondono ad alcuna query di routing, quando la route di fallback è disabilitata.|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ### <a name="twin-query-metrics"></a>Metriche di query gemelle
 
@@ -209,7 +209,7 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |Query dei dispositivi gemelli completate|twinQueries.success|Conteggio|Totale|Numero di tutte le query dei dispositivi gemelli completate.|Nessuno|
 |Dimensioni dei risultati delle query dei dispositivi gemelli|twinQueries.resultSize|Byte|Media|Totale delle dimensioni dei risultati di tutte le query gemelle riuscite.|Nessuno|
 
-Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
+Per le metriche con un **Unit** valore di unità **conteggio**, è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
 ## <a name="metric-dimensions"></a>Dimensioni metrica
 
@@ -219,17 +219,17 @@ L'hub Internet Azure è caratterizzato dalle dimensioni seguenti associate ad al
 |---|---|
 ||
 |**EndpointName**| Nome dell'endpoint.|
-|**EndpointType**|Uno dei seguenti: **eventHubs** , **serviceBusQueues** , **cosmosDB** , **serviceBusTopics** . **Builtin** , o **blobStorage** .|
-|**EventType**| Uno dei tipi di evento di griglia di eventi seguenti: **Microsoft. Devices. DeviceCreated** . **Microsoft. Devices. DeviceDeleted** , **Microsoft. Devices. DeviceConnected** , **Microsoft. Devices. DeviceDisconnected** o **Microsoft. Devices. DeviceTelemetry** . Per ulteriori informazioni, vedere [tipi di evento](iot-hub-event-grid.md#event-types).|
-|**FailureReasonCategory**| Uno dei seguenti: **non valido** , **eliminato** , **orfano** o **null** .|
-|**Risultato**| **Esito positivo** o **negativo** .|
+|**EndpointType**|Uno dei seguenti: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **Builtin**, o **blobStorage**.|
+|**EventType**| Uno dei tipi di evento di griglia di eventi seguenti: **Microsoft. Devices. DeviceCreated**. **Microsoft. Devices. DeviceDeleted**, **Microsoft. Devices. DeviceConnected**, **Microsoft. Devices. DeviceDisconnected** o **Microsoft. Devices. DeviceTelemetry**. Per ulteriori informazioni, vedere [tipi di evento](iot-hub-event-grid.md#event-types).|
+|**FailureReasonCategory**| Uno dei seguenti: **non valido**, **eliminato**, **orfano** o **null**.|
+|**Risultato**| **Esito positivo** o **negativo**.|
 |**RoutingSource**| Messaggi del dispositivo<br>Eventi di modifica del dispositivo gemello<br>Eventi del ciclo di vita del dispositivo|
 
-Per altre informazioni sulle dimensioni delle metriche, vedere [metriche multidimensionali](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Per altre informazioni sulle dimensioni delle metriche, vedere [metriche multidimensionali](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Log risorse
 
-Questa sezione elenca tutti i tipi di categoria di log delle risorse e gli schemi raccolti per l'hub Azure. Il provider di risorse e il tipo per tutti i log dell'hub Internet è [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs).
+Questa sezione elenca tutti i tipi di categoria di log delle risorse e gli schemi raccolti per l'hub Azure. Il provider di risorse e il tipo per tutti i log dell'hub Internet è [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Argomenti in questa sezione**
 
@@ -384,7 +384,7 @@ Questa categoria non può intercettare errori che si verificano direttamente men
 
 ### <a name="routes"></a>Route
 
-La categoria [routing messaggi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) tiene traccia degli errori che si verificano durante la valutazione della route dei messaggi e l'integrità degli endpoint come percepiti dall'hub. Questa categoria include eventi di questo tipo:
+La categoria [routing messaggi](./iot-hub-devguide-messages-d2c.md) tiene traccia degli errori che si verificano durante la valutazione della route dei messaggi e l'integrità degli endpoint come percepiti dall'hub. Questa categoria include eventi di questo tipo:
 
 * Una regola viene valutata come "non definita"
 * Hub IoT contrassegna un endpoint come inattivo
@@ -689,4 +689,4 @@ Per informazioni di riferimento su tutti i log di monitoraggio di Azure/tabelle 
 ## <a name="see-also"></a>Vedere anche
 
 * Per una descrizione del monitoraggio dell' [Hub Azure.](monitor-iot-hub.md)
-* Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](/azure/azure-monitor/insights/monitor-azure-resource).
+* Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md).

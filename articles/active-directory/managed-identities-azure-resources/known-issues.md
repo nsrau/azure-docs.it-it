@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835408"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460950"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -74,7 +74,7 @@ Il limite di sicurezza dell'identità è la risorsa a cui è collegata. Ad esemp
 
 No. Se si sposta una sottoscrizione in un'altra directory, sarà necessario ricrearla manualmente e concedere nuovamente le assegnazioni di ruolo di Azure.
 - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo. 
-- Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
+- Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegarle nuovamente alle risorse necessarie, ad esempio macchine virtuali.
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>È possibile usare un'identità gestita per accedere a risorse in tenant/directory diversi?
 
@@ -85,6 +85,46 @@ No. Le identità gestite attualmente non supportano gli scenari tra directory.
 - Identità gestita assegnata dal sistema: Sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Questa azione è inclusa in ruoli predefiniti specifici della risorsa come [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identità gestita assegnata dall'utente: Sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Oltre all'assegnazione di ruolo [Operatore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-operator) per l'identità gestita.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Ricerca per categorie impedire la creazione di identità gestite assegnate dall'utente?
+
+È possibile impedire agli utenti di creare identità gestite assegnate dall'utente usando [criteri di Azure](../../governance/policy/overview.md)
+
+- Passare alla [portale di Azure](https://portal.azure.com) e passare a **criterio**.
+- Scegli **definizioni**
+- Selezionare **+ definizione criteri** e immettere le informazioni necessarie.
+- Nella sezione della regola dei criteri incollare
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Dopo aver creato il criterio, assegnarlo al gruppo di risorse che si vuole usare.
+
+- Passare a gruppi di risorse.
+- Trovare il gruppo di risorse usato per il test.
+- Scegliere **criteri** dal menu a sinistra.
+- Selezionare **assegna criterio**
+- Nella sezione **nozioni di base** fornire:
+    - **Ambito** Il gruppo di risorse usato per il test
+    - **Definizione dei criteri**: il criterio creato in precedenza.
+- Lasciare le impostazioni predefinite per tutte le altre impostazioni e scegliere **Verifica + crea**
+
+A questo punto, qualsiasi tentativo di creare un'identità gestita assegnata dall'utente nel gruppo di risorse avrà esito negativo.
+
+  ![Violazione dei criteri](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -127,7 +167,7 @@ Le identità gestite non vengono aggiornate quando una sottoscrizione viene spos
 Soluzione alternativa per le identità gestite in una sottoscrizione che è stata spostata in un'altra directory:
 
  - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo. 
- - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
+ - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegarle nuovamente alle risorse necessarie, ad esempio macchine virtuali.
 
 Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure in una directory di Azure AD diversa](../../role-based-access-control/transfer-subscription.md).
 

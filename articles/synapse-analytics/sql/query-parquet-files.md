@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sui file parquet usando un pool SQL senza server (anteprima)
-description: Questo articolo illustra come eseguire query su file parquet usando un pool SQL senza server (anteprima).
+title: Eseguire query su file parquet usando un pool SQL senza server
+description: Questo articolo illustra come eseguire query su file parquet usando un pool SQL senza server.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97b34d85e4628c0ef01dd02d3a9be85da7f8291e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462574"
 ---
-# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file parquet usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query su file parquet usando un pool SQL senza server in Azure sinapsi Analytics
 
-In questo articolo verrà illustrato come scrivere una query usando un pool SQL senza server (anteprima) che leggerà i file parquet.
+In questo articolo verrà illustrato come scrivere una query utilizzando un pool SQL senza server che leggerà i file parquet.
 
 ## <a name="quickstart-example"></a>Esempio di Guida introduttiva
 
@@ -39,7 +39,7 @@ Verificare che sia possibile accedere a questo file. Se il file è protetto con 
 
 > [!IMPORTANT]
 > Assicurarsi di usare le regole di confronto del database UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) perché i valori stringa nei file parquet sono codificati usando la codifica UTF-8.
-> Mancata corrispondenza tra la codifica del testo nel file PARQUET e le regole di confronto potrebbero causare errori di conversione imprevisti.
+> Una mancata corrispondenza tra la codifica del testo nel file PARQUET e le regole di confronto può provocare errori di conversione imprevisti.
 > È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilizzo dell'origine dati

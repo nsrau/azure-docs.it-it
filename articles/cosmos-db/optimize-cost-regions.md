@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097510"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459610"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Ottimizzare i costi per più aree in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ In un sistema di scrittura in più aree, le unità richiesta NET disponibili per
 
 ### <a name="example"></a>Esempio
 
-Si supponga di avere un contenitore negli Stati Uniti occidentali configurato per le Scritture in una singola area, con provisioning con velocità effettiva di 10.000 UR/s e archivia 1 TB di dati in questo mese. Si supponga di aggiungere un'area, Stati Uniti orientali, con lo stesso spazio di archiviazione e velocità effettiva e di voler scrivere nei contenitori di entrambe le aree dall'app. La fattura mensile totale sarà la seguente (presupponendo un mese di 31 giorni):
+Si supponga di avere un contenitore negli Stati Uniti occidentali configurato per le Scritture in una singola area, sottoposto a provisioning con velocità effettiva di 10.000 UR/sec, archiviando 0,5 TB di dati questo mese. Si supponga di aggiungere un'area, Stati Uniti orientali, con lo stesso spazio di archiviazione e la stessa velocità effettiva e di voler scrivere nei contenitori di entrambe le aree dall'app. La nuova fattura mensile totale (presupponendo 730 ore al mese) sarà la seguente:
 
 |**Item**|**Uso (mensile)**|**Tariffa**|**Costo mensile**|
 |----|----|----|----|
-|Fatturazione della velocità effettiva per il contenitore negli Stati Uniti occidentali (singole aree di scrittura) |10.000 UR/sec * 24 ore * 31 giorni |$0,008 per 100 ur/sec all'ora |$584,06 |
-|Fatturazione della velocità effettiva per il contenitore in due aree: Stati Uniti occidentali & Stati Uniti orientali (più aree di scrittura) |2 * 10.000 UR/sec * 24 ore * 31 giorni|$0,016 per 100 RU/s all'ora |$2.336,26 |
-|Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali |1 TB (o 1.024 GB) |$0,25/GB |$256 |
-|Fattura di archiviazione per 2 aree: Stati Uniti occidentali & Stati Uniti orientali |2 * 1 TB (o 3.072 GB) |$0,25/GB |$768 |
+|Fatturazione della velocità effettiva per il contenitore negli Stati Uniti occidentali (singola area di scrittura) |10.000 UR/s * 730 ore |$0,008 per 100 ur/sec all'ora |$584 |
+|Fatturazione della velocità effettiva per il contenitore in due aree: Stati Uniti occidentali & Stati Uniti orientali (più aree di scrittura) |2 * 10.000 UR/sec * 730 ore |$0,016 per 100 RU/s all'ora |$2.336 |
+|Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali |0,5 TB (o 512 GB) |$0,25/GB |$128 |
+|Fattura di archiviazione per il contenitore in due aree: Stati Uniti occidentali & Stati Uniti orientali |2 * 0,5 TB (o 1.024 GB) |$0,25/GB |$256 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Migliorare l'uso della velocità effettiva per singola area
 

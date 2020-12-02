@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438450"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461243"
 ---
 # <a name="transformation-with-azure-databricks"></a>Trasformazione con Azure Databricks
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si creerà una pipeline end-to-end che contiene le attività di **convalida**, **copia dei dati**e **notebook** in Azure Data Factory.
+In questa esercitazione si creerà una pipeline end-to-end che contiene le attività di **convalida**, **copia dei dati** e **notebook** in Azure Data Factory.
 
 - La **convalida** garantisce che il set di dati di origine sia pronto per l'utilizzo downstream prima di attivare il processo di copia e analisi.
 
 - **Copy Data** Duplica il set di dati di origine nell'archivio sink, montato come DBFS nel notebook di Azure Databricks. In questo modo, il set di dati può essere utilizzato direttamente da Spark.
 
-- **Notebook** avvia il notebook di databricks che trasforma il set di dati. Aggiunge anche il set di dati a una cartella elaborata o ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+- **Notebook** avvia il notebook di databricks che trasforma il set di dati. Aggiunge anche il set di dati a una cartella elaborata o ad Azure sinapsi di Azure.
 
 Per semplicità, nel modello di questa esercitazione non viene creato un trigger pianificato. È possibile aggiungerne uno, se necessario.
 
@@ -56,29 +56,29 @@ Per importare un notebook di **trasformazione** nell'area di lavoro di databrick
 
    Nel notebook importato passare al **comando 5** , come illustrato nel frammento di codice seguente.
 
-   - Sostituire `<storage name>` e `<access key>` con le informazioni di connessione di archiviazione.
+   - Sostituire `<storage name>` e `<access key>` con le informazioni di connessione di archiviazione.
    - Usare l'account di archiviazione con il `sinkdata` contenitore.
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
 1. Generare un **token di accesso di Databricks** per consentire a Data Factory di accedere a Databricks.
@@ -126,7 +126,7 @@ Per importare un notebook di **trasformazione** nell'area di lavoro di databrick
 
 Nella nuova pipeline la maggior parte delle impostazioni viene configurata automaticamente con i valori predefiniti. Esaminare le configurazioni della pipeline e apportare le modifiche necessarie.
 
-1. Nel **flag di disponibilità**dell'attività di **convalida** , verificare che il valore del **set di dati** di origine sia impostato su `SourceAvailabilityDataset` creato in precedenza.
+1. Nel **flag di disponibilità** dell'attività di **convalida** , verificare che il valore del **set di dati** di origine sia impostato su `SourceAvailabilityDataset` creato in precedenza.
 
    ![Valore del set di dati di origine](media/solution-template-Databricks-notebook/validation-settings.png)
 
@@ -136,7 +136,7 @@ Nella nuova pipeline la maggior parte delle impostazioni viene configurata autom
 
    - **Scheda sink scheda sink** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. Nella **trasformazione**attività **notebook** esaminare e aggiornare i percorsi e le impostazioni in base alle esigenze.
+1. Nella **trasformazione** attività **notebook** esaminare e aggiornare i percorsi e le impostazioni in base alle esigenze.
 
    Il **servizio collegato databricks** deve essere pre-popolato con il valore di un passaggio precedente, come illustrato: ![ valore popolato per il servizio collegato databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 

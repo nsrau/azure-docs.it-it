@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0b2c03c5c7ea8c65cb1cde3cbdb73b6bb838dc06
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 59fa68d12f1d8be598810399fc5623c2af983979
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324458"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462245"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Usare le etichette delle query in sinapsi SQL
 
 Le informazioni contenute in questo articolo sono suggerimenti essenziali per l'uso delle etichette di query in sinapsi SQL.
 
 > [!NOTE]
-> Il pool SQL senza server (anteprima) non supporta l'assegnazione di etichette alle query.
+> Il pool SQL senza server non supporta l'assegnazione di etichette alle query.
 
 ## <a name="what-are-query-labels"></a>Cosa sono le etichette delle query
 

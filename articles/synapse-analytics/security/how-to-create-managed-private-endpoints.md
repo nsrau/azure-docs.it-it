@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323197"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461310"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Creare un endpoint privato gestito per l'origine dati (anteprima)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Creare un endpoint privato gestito per l'origine dati
 
 In questo articolo viene illustrato come creare un endpoint privato gestito per l'origine dati in Azure. Per altre informazioni, vedere [endpoint privati gestiti](./synapse-workspace-managed-private-endpoints.md) .
 
@@ -35,7 +35,7 @@ Consente di selezionare il tipo di origine dati. In questo caso, l'origine dati 
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Passaggio 4: immettere le informazioni sull'origine dati
 
-Nella finestra successiva immettere le informazioni sull'origine dati. In questo esempio viene creato un endpoint privato gestito per un account ADLS Gen2. Immettere un **nome** per l'endpoint privato gestito. Specificare una **sottoscrizione di Azure** e un **nome dell'account di archiviazione**. Selezionare **Crea**.
+Nella finestra successiva immettere le informazioni sull'origine dati. In questo esempio viene creato un endpoint privato gestito per un account ADLS Gen2. Immettere un **nome** per l'endpoint privato gestito. Specificare una **sottoscrizione di Azure** e un **nome dell'account di archiviazione**. Selezionare **Create** (Crea).
 ![Immettere i dettagli dell'origine dati di destinazione](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Passaggio 5: verificare che l'endpoint privato gestito sia stato creato correttamente

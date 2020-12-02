@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 2705e3d724530e879dd02346392f17fda274913a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb28c517e353af6b8c1ee0cad788ff41b971918c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675332"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460868"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Ottenere dati meteorologici da partner meteorologici
 
@@ -94,18 +94,18 @@ Per iniziare a ottenere i dati meteo nel datahub di FarmBeats:
 
    Il provisioning delle risorse richiede circa 10-15 minuti.
 
-3. Verificare lo stato dell'oggetto/partner creato nel passaggio precedente. Per controllare lo stato, effettuare una richiesta GET sull'API/partner e verificare lo stato dell'oggetto partner. Dopo che FarmBeats ha effettuato il provisioning del partner, lo stato viene impostato su **attivo** .
+3. Verificare lo stato dell'oggetto/partner creato nel passaggio precedente. Per controllare lo stato, effettuare una richiesta GET sull'API/partner e verificare lo stato dell'oggetto partner. Dopo che FarmBeats ha effettuato il provisioning del partner, lo stato viene impostato su **attivo**.
 
-4. Nell'API/JobType creare una richiesta GET. Verificare la presenza di processi Meteo creati in precedenza nel processo di aggiunta partner. Nei processi meteorologici, il campo **PipelineName** ha il formato seguente: **partner-name_partner-type_job-Name** .
+4. Nell'API/JobType creare una richiesta GET. Verificare la presenza di processi Meteo creati in precedenza nel processo di aggiunta partner. Nei processi meteorologici, il campo **PipelineName** ha il formato seguente: **partner-name_partner-type_job-Name**.
 
       A questo punto l'istanza di FarmBeats dispone di un partner dati meteo attivo. È possibile eseguire processi per richiedere dati meteorologici per una posizione specifica (Latitudine e longitudine) e un intervallo di date. I tipi di processo includeranno informazioni dettagliate sui parametri necessari per eseguire i processi Meteo.
 
       Per DTN, ad esempio, verranno creati i tipi di processo seguenti:
    
-      - **get_dtn_daily_observations** : ottenere le osservazioni giornaliere per una località e un periodo di tempo.
-      - **get_dtn_daily_forecasts** : ottenere previsioni giornaliere per una località e un periodo di tempo.
-      - **get_dtn_hourly_observations** : ottenere le osservazioni orarie per una località e un periodo di tempo.
-      - **get_dtn_hourly_forecasts** : ottenere previsioni orarie per una località e un periodo di tempo.
+      - **get_dtn_daily_observations**: ottenere le osservazioni giornaliere per una località e un periodo di tempo.
+      - **get_dtn_daily_forecasts**: ottenere previsioni giornaliere per una località e un periodo di tempo.
+      - **get_dtn_hourly_observations**: ottenere le osservazioni orarie per una località e un periodo di tempo.
+      - **get_dtn_hourly_forecasts**: ottenere previsioni orarie per una località e un periodo di tempo.
 
 6. Prendere nota dell'ID e dei parametri dei tipi di processo.
 
@@ -125,7 +125,7 @@ Per iniziare a ottenere i dati meteo nel datahub di FarmBeats:
        }
    ```
 
-   Ad esempio, per eseguire **get_dtn_daily_observations** , usare il payload seguente:
+   Ad esempio, per eseguire **get_dtn_daily_observations**, usare il payload seguente:
 
    ```json
    { 
@@ -141,7 +141,7 @@ Per iniziare a ottenere i dati meteo nel datahub di FarmBeats:
    }
    ```
 
-8. Il passaggio precedente esegue i processi Meteo in base a quanto definito nel docker del partner e inserisce i dati meteorologici in FarmBeats. È possibile controllare lo stato del processo effettuando una richiesta GET su/Jobs. Nella risposta cercare **CurrentState** . Al termine, **CurrentState** è impostato su **succeeded** .
+8. Il passaggio precedente esegue i processi Meteo in base a quanto definito nel docker del partner e inserisce i dati meteorologici in FarmBeats. È possibile controllare lo stato del processo effettuando una richiesta GET su/Jobs. Nella risposta cercare **CurrentState**. Al termine, **CurrentState** è impostato su **succeeded**.
 
 ## <a name="query-ingested-weather-data"></a>Eseguire query sui dati meteo inseriti
 
@@ -221,7 +221,7 @@ Per risolvere gli errori di processo, [controllare i registri dei processi](trou
 |     DockerDetails-ImageName         |          Nome dell'immagine docker. Ad esempio, docker.io/mydockerimage (Image in hub.docker.com) o myazureacr.azurecr.io/mydockerimage (Image in Azure Container Registry) e così via. Se non viene fornito alcun registro, il valore predefinito è hub.docker.com.      |
 |          DockerDetails-imageTag             |         Nome del tag dell'immagine docker. Il valore predefinito è "Latest".     |
 |  DockerDetails-credenziali      |  Credenziali per accedere al Docker privato. Il partner fornisce le credenziali.   |
-|  DockerDetails - azureBatchVMDetails - batchVMSKU     |    Azure Batch SKU della macchina virtuale. Per altre informazioni, vedere [tutte le macchine virtuali Linux disponibili](../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json). <BR> <BR> I valori validi sono ' Small ',' overlarge ',' large ',' a8',' a9',' medium ',' a5',' a6',' a7',' STANDARD_D1',' STANDARD_D2',' STANDARD_D3',' STANDARD_D4',' STANDARD_D11',' STANDARD_D12',' STANDARD_D13',' STANDARD_D14',' a10',' a11',' STANDARD_D1_V2',' STANDARD_D2_V2',' STANDARD_D3_V2',' STANDARD_D4_V2',' STANDARD_D11_V2',' STANDARD_D12_V2',' STANDARD_D13_V2',' STANDARD_D14_V2',' STANDARD_G1',' STANDARD_G2',' STANDARD_G3',' STANDARD_G4' ,' STANDARD_G5',' STANDARD_D5_V2',' BASIC_A1',' BASIC_A2',' BASIC_A3',' BASIC_A4',' STANDARD_A1',' STANDARD_A2',' STANDARD_A3',' STANDARD_A4',' STANDARD_A5',' STANDARD_A6',' STANDARD_A7',' STANDARD_A8',' STANDARD_A9',' STANDARD_A10',' STANDARD_A11',' STANDARD_D15_V2',' STANDARD_F1',' STANDARD_F2',' STANDARD_F4',' STANDARD_F8',' STANDARD_F16',' STANDARD_NV6',' STANDARD_NV12',' STANDARD_NV24',' STANDARD_NC6',' STANDARD_NC12',' STANDARD_NC24',' STANDARD_NC24r ' ,' STANDARD_H8',' STANDARD_H8m ',' STANDARD_H16',' STANDARD_H16m ',' STANDARD_H16mr ',' STANDARD_H16r ',' STANDARD_A1_V2',' STANDARD_A2_V2',' STANDARD_A4_V2',' STANDARD_A8_V2',' STANDARD_A2m_V2',' STANDARD_A4m_V2',' STANDARD_A8m_V2',' STANDARD_M64ms ',' STANDARD_M128s ' è STANDARD_D2_V3'. *Il valore predefinito è "STANDARD_D2_V2".*  |
+|  DockerDetails - azureBatchVMDetails - batchVMSKU     |    Azure Batch SKU della macchina virtuale. Per altre informazioni, vedere [tutte le macchine virtuali Linux disponibili](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <BR> <BR> I valori validi sono ' Small ',' overlarge ',' large ',' a8',' a9',' medium ',' a5',' a6',' a7',' STANDARD_D1',' STANDARD_D2',' STANDARD_D3',' STANDARD_D4',' STANDARD_D11',' STANDARD_D12',' STANDARD_D13',' STANDARD_D14',' a10',' a11',' STANDARD_D1_V2',' STANDARD_D2_V2',' STANDARD_D3_V2',' STANDARD_D4_V2',' STANDARD_D11_V2',' STANDARD_D12_V2',' STANDARD_D13_V2',' STANDARD_D14_V2',' STANDARD_G1',' STANDARD_G2',' STANDARD_G3',' STANDARD_G4' ,' STANDARD_G5',' STANDARD_D5_V2',' BASIC_A1',' BASIC_A2',' BASIC_A3',' BASIC_A4',' STANDARD_A1',' STANDARD_A2',' STANDARD_A3',' STANDARD_A4',' STANDARD_A5',' STANDARD_A6',' STANDARD_A7',' STANDARD_A8',' STANDARD_A9',' STANDARD_A10',' STANDARD_A11',' STANDARD_D15_V2',' STANDARD_F1',' STANDARD_F2',' STANDARD_F4',' STANDARD_F8',' STANDARD_F16',' STANDARD_NV6',' STANDARD_NV12',' STANDARD_NV24',' STANDARD_NC6',' STANDARD_NC12',' STANDARD_NC24',' STANDARD_NC24r ' ,' STANDARD_H8',' STANDARD_H8m ',' STANDARD_H16',' STANDARD_H16m ',' STANDARD_H16mr ',' STANDARD_H16r ',' STANDARD_A1_V2',' STANDARD_A2_V2',' STANDARD_A4_V2',' STANDARD_A8_V2',' STANDARD_A2m_V2',' STANDARD_A4m_V2',' STANDARD_A8m_V2',' STANDARD_M64ms ',' STANDARD_M128s ' è STANDARD_D2_V3'. *Il valore predefinito è "STANDARD_D2_V2".*  |
 |    DockerDetails - azureBatchVMDetails - dedicatedComputerNodes   |  Numero di nodi computer dedicati per pool di batch. Il valore predefinito è 1. |
 |    DockerDetails - azureBatchVMDetails - nodeAgentSKUID          |    ID SKU dell'agente del nodo Azure Batch. Attualmente, è supportato solo l'agente del nodo batch "batch. Node. Ubuntu 18,04".    |
 | DockerDetails - partnerCredentials | Credenziali per chiamare l'API partner in docker. Il partner fornisce queste informazioni in base al meccanismo di autorizzazione supportato; ad esempio nome utente e password o chiavi API. |

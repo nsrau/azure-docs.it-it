@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312252"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461341"
 ---
-# <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati (anteprima)
+# <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati
 
 In questo articolo viene illustrato come creare un endpoint privato per l'area di lavoro di Azure sinapsi. Per altre informazioni fare riferimento ai [collegamenti e agli endpoint privati](https://docs.microsoft.com/azure/private-link/).
 
@@ -34,7 +34,7 @@ Nella schermata successiva selezionare **+ endpoint privato**.
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Passaggio 3: Selezionare i dettagli per la sottoscrizione e l'area
 
-Nella scheda **Nozioni di base** della finestra **Crea un endpoint privato** scegliere la **Sottoscrizione** e il **Gruppo di risorse**. Assegnare un **Nome** all'endpoint privato che si vuole creare. Selezionare l' **Area** in cui si desidera collocare l'endpoint privato creato.
+Nella scheda **Nozioni di base** della finestra **Crea un endpoint privato** scegliere la **Sottoscrizione** e il **Gruppo di risorse**. Assegnare un **Nome** all'endpoint privato che si vuole creare. Selezionare l'**Area** in cui si desidera collocare l'endpoint privato creato.
 
 Gli endpoint privati vengono creati in una subnet. La sottoscrizione, il gruppo di risorse e l'area selezionati filtrano le subnet dell'endpoint privato. Selezionare **Avanti: Risorsa >** al termine.
 ![Selezionare la sottoscrizione e l'area Dettagli 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2d6ee8357698e4af59f44579ce7f2c3aa82991c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340323"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462214"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Copia guidata di Azure Data Factory
 
@@ -48,7 +48,7 @@ La procedura guidata è stata concepita fin da subito per l'uso con i Big Data, 
 In alcuni casi è possibile che lo schema di dati di input non corrisponda allo schema dei dati di output. Se succede, è necessario eseguire il mapping delle colonne che appartengono allo schema di origine con le colonne dello schema di destinazione.
 
 > [!TIP]
-> Quando si copiano dati da SQL Server o da un database SQL di Azure in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), se la tabella non esiste nell'archivio di destinazione, Data Factory supportare la creazione automatica della tabella usando lo schema dell'origine. Per altre informazioni [, vedere spostare dati da e verso Azure sinapsi Analytics usando Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Quando si copiano dati da SQL Server o da un database SQL di Azure in Azure sinapsi Analytics, se la tabella non esiste nell'archivio di destinazione, Data Factory supporta la creazione automatica della tabella usando lo schema dell'origine. Per altre informazioni [, vedere spostare dati da e verso Azure sinapsi Analytics usando Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Usare un elenco a discesa per selezionare una colonna dallo schema di origine per eseguire il mapping a una colonna nello schema di destinazione. La copia guidata tenta di comprendere il modello dell'utente per il mapping di colonna, applicandone uno uguale alle colonne rimanenti, senza la necessità di selezionarle singolarmente per completare il mapping dello schema. Se si preferisce, è possibile eseguire l'override di questi mapping usando gli elenchi a discesa per eseguire il mapping singolo di ciascuna colonna. Il modello diventa più preciso quando si esegue il mapping di più colonne. La copia guidata aggiorna costantemente il modello e, alla fine, delinea il modello corretto per il mapping della colonna che si vuole ottenere.     
 

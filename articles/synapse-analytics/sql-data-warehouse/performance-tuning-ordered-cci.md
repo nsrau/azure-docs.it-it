@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione delle prestazioni con indice columnstore cluster ordinato
-description: Raccomandazioni e considerazioni che è necessario tenere presente quando si usa l'indice columnstore cluster ordinato per migliorare le prestazioni delle query.
+description: Raccomandazioni e considerazioni che è necessario tenere presente quando si usa l'indice columnstore cluster ordinato per migliorare le prestazioni delle query in pool SQL dedicati.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841595"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460796"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
-Quando gli utenti eseguono una query su una tabella columnstore nel pool SQL sinapsi, l'utilità di ottimizzazione controlla i valori minimo e massimo archiviati in ogni segmento.  I segmenti che non rientrano nei limiti del predicato della query non vengono letti dal disco alla memoria.  Una query può ottenere prestazioni più veloci se il numero di segmenti da leggere e le dimensioni totali sono ridotte.   
+Quando gli utenti eseguono una query su una tabella columnstore in un pool SQL dedicato, l'utilità di ottimizzazione controlla i valori minimo e massimo archiviati in ogni segmento.  I segmenti che non rientrano nei limiti del predicato della query non vengono letti dal disco alla memoria.  Una query può ottenere prestazioni più veloci se il numero di segmenti da leggere e le dimensioni totali sono ridotte.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Confronto tra indice columnstore cluster ordinato e non ordinato
 
 Per impostazione predefinita, per ogni tabella creata senza un'opzione di indice, un componente interno (Generatore di indici) crea un indice columnstore cluster non ordinato (CCI).  I dati in ogni colonna vengono compressi in un segmento CCI rowgroup separato.  Sono presenti metadati nell'intervallo di valori di ogni segmento, quindi i segmenti che non rientrano nei limiti del predicato della query non vengono letti dal disco durante l'esecuzione della query.  CCI offre il massimo livello di compressione dei dati e riduce le dimensioni dei segmenti da leggere, in modo che le query possano essere eseguite più velocemente. Tuttavia, poiché il generatore di indici non Ordina i dati prima di comprimerli in segmenti, è possibile che si verifichino segmenti con intervalli di valori sovrapposti, facendo in modo che le query leggano più segmenti dal disco e imprendano più tempo.  
 
-Quando si crea una CCI ordinata, il motore SQL sinapsi Ordina i dati esistenti in memoria in base alle chiavi degli ordini prima che il generatore di indici li comprime in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta, consentendo alle query di avere un'eliminazione più efficiente del segmento e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione del segmento.  A causa di tabelle di grandi dimensioni nei data warehouse, questo scenario non si verifica spesso.  
+Quando si crea una CCI ordinata, il motore del pool SQL dedicato Ordina i dati esistenti in memoria in base alle chiavi degli ordini prima che il generatore di indici li comprime in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta, consentendo alle query di avere un'eliminazione più efficiente del segmento e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione del segmento.  A causa di tabelle di grandi dimensioni nei data warehouse, questo scenario non si verifica spesso.  
 
 Per verificare gli intervalli di segmenti per una colonna, eseguire il comando seguente con il nome della tabella e il nome della colonna:
 
@@ -50,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno del batch, non esiste alcun ordinamento globale in tutti i dati della tabella.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  In sinapsi SQL la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
+> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno del batch, non esiste alcun ordinamento globale in tutti i dati della tabella.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  Nel pool SQL dedicato, la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
 
 ## <a name="query-performance"></a>Prestazioni delle query
 

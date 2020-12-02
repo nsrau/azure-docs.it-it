@@ -1,5 +1,5 @@
 ---
-title: Configurare la priorità del carico di lavoro
+title: Configurare l'importanza del carico di lavoro per il pool SQL dedicato
 description: Informazioni su come impostare la priorità del livello di richiesta in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
@@ -11,20 +11,20 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212123"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461914"
 ---
-# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configurare la priorità del carico di lavoro in Azure Synapse Analytics
+# <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Configurare l'importanza del carico di lavoro nel pool SQL dedicato per analisi sinapsi di Azure
 
-Tramite l'impostazione della priorità in Synapse SQL per Azure Synapse, è possibile influenzare la pianificazione delle query. Le query con priorità più elevata verranno pianificate per essere eseguite prima di quelle con priorità più bassa. Per assegnare priorità alle query, è necessario creare un classificatore del carico di lavoro.
+L'impostazione dell'importanza nel pool SQL dedicato per la sinapsi di Azure consente di influenzare la pianificazione delle query. Le query con priorità più elevata verranno pianificate per essere eseguite prima di quelle con priorità più bassa. Per assegnare priorità alle query, è necessario creare un classificatore del carico di lavoro.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Creare un classificatore del carico di lavoro con priorità
 
-Accade spesso che in uno scenario di data warehouse siano presenti utenti, in un sistema sovraccarico, che devono eseguire rapidamente le query.  È possibile che gli utenti siano dirigenti della società che deve eseguire i report, o analisti che eseguono query ad hoc. Per assegnare la priorità alle query viene creato un classificatore del carico di lavoro.  Negli esempi seguenti viene usata la sintassi [create workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per creare due classificatori. `Membername` può essere un utente singolo o un gruppo.  Per trovare gli utenti di data warehouse esistenti, eseguire:
+Accade spesso che in uno scenario di data warehouse siano presenti utenti, in un sistema sovraccarico, che devono eseguire rapidamente le query.  È possibile che gli utenti siano dirigenti della società che deve eseguire i report, o analisti che eseguono query ad hoc. Per assegnare la priorità alle query viene creato un classificatore del carico di lavoro.  Negli esempi seguenti viene usata la sintassi [create workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per creare due classificatori. `Membername` può essere un utente singolo o un gruppo.  Per trovare gli utenti del pool SQL dedicato esistenti, eseguire:
 
 ```sql
 Select name from sys.sysusers

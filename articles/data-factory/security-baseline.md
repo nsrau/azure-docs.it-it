@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cda99bfcb883dd42aa813d6edb922f2701ed1fe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352202"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461279"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
 
@@ -578,7 +578,7 @@ Se è disponibile un collegamento privato, usare endpoint privati per proteggere
 
 **Linee guida**: se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra i servizi di spostamento dei dati in data factory e un archivio dati cloud sono tramite il canale sicuro HTTPS o TLS. La versione TLS usata è 1.2.
 
-Tutte le connessioni al database SQL di Azure e ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse) richiedono la crittografia (SSL/TLS) mentre i dati sono in transito da e verso il database. Quando si crea una pipeline usando JSON, aggiungere la proprietà encryption e impostarla su true nella stringa di connessione. Per Archiviazione di Azure è possibile usare HTTPS nella stringa di connessione.
+Tutte le connessioni al database SQL di Azure e a Azure sinapsi Analytics richiedono la crittografia (SSL/TLS) mentre i dati sono in transito da e verso il database. Quando si crea una pipeline usando JSON, aggiungere la proprietà encryption e impostarla su true nella stringa di connessione. Per Archiviazione di Azure è possibile usare HTTPS nella stringa di connessione.
 
 * [Informazioni sulla crittografia in transito in Azure Data Factory](./data-movement-security-considerations.md)
 

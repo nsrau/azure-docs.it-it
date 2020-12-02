@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564872"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460490"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei clienti in analisi del Marketplace commerciale
 
@@ -21,7 +21,7 @@ Questo articolo fornisce informazioni sul dashboard Customers nel centro per i p
 Per accedere al dashboard Customers in Partner Center, in **Marketplace commerciale** selezionare **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **i clienti**.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).
 
 ## <a name="customers-dashboard"></a>Dashboard Clienti
 
@@ -58,7 +58,7 @@ In questa sezione si troverà la tendenza di crescita dei clienti per il periodo
 
 [![Viene illustrato il widget Customers nella pagina Customers.](./media/customer-dashboard/customers-widget.png)](./media/customer-dashboard/customers-widget.png#lightbox)
 
-Sono disponibili tre _tipi di clienti_ : nuovo, esistente e inattivo.
+Sono disponibili tre _tipi di clienti_: nuovo, esistente e inattivo.
 
 - Un nuovo cliente ha acquistato una o più offerte per la prima volta durante il mese selezionato.
 - Un cliente esistente ha acquistato una o più offerte prima del mese selezionato.
@@ -151,7 +151,7 @@ _**Tabella 1: dizionario dei termini dati**_
 | Posta elettronica del provider | Posta elettronica del provider | Indirizzo di posta elettronica del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. |
 | FirstName | Customer First Name | Il primo nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. |
 | LastName | Customer Last Name | Cognome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. |
-| Posta elettronica | Customer Email | Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente. |
+| E-mail | Customer Email | Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente. |
 | Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. |
 | CustomerCity | Città del cliente | Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente. |
 | Customer Postal Code | Customer Postal Code | Codice postale fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente. |
@@ -180,4 +180,4 @@ I filtri della pagina Clienti vengono applicati a livello di pagina Clienti. È 
 - Per la macchina virtuale (VM) offre metriche di fatturazione di utilizzo e a consumo, vedere [dashboard di utilizzo in analisi del Marketplace commerciale](./usage-dashboard.md).
 - Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./partner-center-portal/downloads-dashboard.md).
 - Per una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e Microsoft AppSource, vedere la pagina relativa al [dashboard di analisi & revisioni in Partner Center](./partner-center-portal/ratings-reviews.md).
-- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).

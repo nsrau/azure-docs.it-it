@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c85989dc02bddd136c56a81993df7a507a84d3b4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961329"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460280"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Connettersi ai servizi di archiviazione in Azure
 
@@ -80,7 +80,7 @@ Gli archivi dati attualmente supportano l'archiviazione delle informazioni di co
 
 È consigliabile creare un archivio dati per un [contenitore BLOB di Azure](../storage/blobs/storage-blobs-introduction.md). Per i BLOB sono disponibili i livelli di archiviazione Standard e Premium. Sebbene l'archiviazione Premium sia più costosa, la velocità effettiva maggiore può migliorare la velocità delle esecuzioni dei training, in particolare se si esegue il training su un set di dati di grandi dimensioni. Per informazioni sul costo degli account di archiviazione, vedere [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) si basa su Archiviazione BLOB di Azure ed è una soluzione progettata per le analisi di Big Data aziendali. Una parte fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../storage/blobs/data-lake-storage-namespace.md) all'archivio BLOB. Lo spazio dei nomi gerarchico organizza gli oggetti e i file in una gerarchia di directory per un accesso ai dati efficiente.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) si basa su Archiviazione BLOB di Azure ed è una soluzione progettata per le analisi di Big Data aziendali. Una parte fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../storage/blobs/data-lake-storage-namespace.md) all'archivio BLOB. Lo spazio dei nomi gerarchico organizza gli oggetti e i file in una gerarchia di directory per un accesso ai dati efficiente.
 
 ## <a name="storage-access-and-permissions"></a>Accesso e autorizzazioni di archiviazione
 
@@ -112,7 +112,7 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
 > * Se è necessario modificare le chiavi di accesso per un account di archiviazione di Azure (chiave dell'account o token SAS), assicurarsi di sincronizzare le nuove credenziali con l'area di lavoro e gli archivi dati connessi. Informazioni su come [sincronizzare le credenziali aggiornate](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. 
+Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. 
 * Per **l'accesso in lettura** ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. 
 
 * Per **l'accesso in scrittura ai** dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.

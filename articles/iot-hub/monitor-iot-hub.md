@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 11/06/2020
-ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2fabf75f74ccf57f57e7b47720ceda8885420842
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357607"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460917"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitoraggio dell'hub Azure
 
@@ -29,9 +29,9 @@ Le informazioni visualizzate nel riquadro Panoramica sono utili, ma rappresentan
 
 ## <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 
-Hub Azure per la creazione di dati di monitoraggio tramite [monitoraggio di Azure](/azure/azure-monitor/overview), un servizio di monitoraggio completo dello stack in Azure, che offre un set completo di funzionalità per il monitoraggio delle risorse di Azure, oltre alle risorse in altri cloud e in locale.
+Hub Azure per la creazione di dati di monitoraggio tramite [monitoraggio di Azure](../azure-monitor/overview.md), un servizio di monitoraggio completo dello stack in Azure, che offre un set completo di funzionalità per il monitoraggio delle risorse di Azure, oltre alle risorse in altri cloud e in locale.
 
-Iniziare con l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](/azure/azure-monitor/insights/monitor-azure-resource), che descrive i concetti seguenti:
+Iniziare con l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md), che descrive i concetti seguenti:
 
 - Informazioni su Monitoraggio di Azure
 - Costi associati al monitoraggio
@@ -43,7 +43,7 @@ Le sezioni seguenti si basano su questo articolo descrivendo i dati specifici ra
 
 ## <a name="monitoring-data"></a>Dati di monitoraggio
 
-Hub di Azure è in grado di raccogliere gli stessi tipi di dati di monitoraggio delle altre risorse di Azure descritte in [monitoraggio dei dati dalle risorse di Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Hub di Azure è in grado di raccogliere gli stessi tipi di dati di monitoraggio delle altre risorse di Azure descritte in [monitoraggio dei dati dalle risorse di Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
 
 Per informazioni dettagliate sulle metriche e i log creati dall'hub Internet di Azure, vedere [monitoraggio dei dati di riferimento dell'hub Azure](monitor-iot-hub-reference.md) .
 
@@ -67,31 +67,31 @@ Lo screenshot seguente mostra un'impostazione di diagnostica per il routing dell
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Riquadro impostazioni di diagnostica per un hub Internet.":::
 
-Vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](/azure/azure-monitor/platform/diagnostic-settings) per il processo dettagliato per la creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell. Quando si crea un'impostazione di diagnostica, è necessario specificare le categorie di log da raccogliere. Le categorie per l'hub Azure Internet sono elencate in [log delle risorse nel riferimento ai dati dell'hub Azure Internet Monitoring](monitor-iot-hub-reference.md#resource-logs).
+Vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../azure-monitor/platform/diagnostic-settings.md) per il processo dettagliato per la creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell. Quando si crea un'impostazione di diagnostica, è necessario specificare le categorie di log da raccogliere. Le categorie per l'hub Azure Internet sono elencate in [log delle risorse nel riferimento ai dati dell'hub Azure Internet Monitoring](monitor-iot-hub-reference.md#resource-logs).
 
 Quando si indirizzano le metriche della piattaforma dell'hub Internet ad altre località, tenere presente quanto segue:
 
 - Le metriche della piattaforma seguenti non possono essere esportate tramite le impostazioni di diagnostica: *dispositivi connessi (anteprima)* e *totale dispositivi (anteprima)*.
 
-- Le metriche multidimensionali, ad esempio alcune metriche di [routing](monitor-iot-hub-reference.md#routing-metrics), vengono attualmente esportate come metriche unidimensionali bidimensionali aggregate tra i valori delle dimensioni. Per informazioni dettagliate, vedere [esportazione di metriche della piattaforma in altre posizioni](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
+- Le metriche multidimensionali, ad esempio alcune metriche di [routing](monitor-iot-hub-reference.md#routing-metrics), vengono attualmente esportate come metriche unidimensionali bidimensionali aggregate tra i valori delle dimensioni. Per informazioni dettagliate, vedere [esportazione di metriche della piattaforma in altre posizioni](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
-È possibile analizzare le metriche per l'hub Internet Azure con le metriche di altri servizi di Azure usando Esplora metriche aprendo le **metriche** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](/azure/azure-monitor/platform/metrics-getting-started).
+È possibile analizzare le metriche per l'hub Internet Azure con le metriche di altri servizi di Azure usando Esplora metriche aprendo le **metriche** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../azure-monitor/platform/metrics-getting-started.md).
 
 In portale di Azure è possibile selezionare le **metriche** in **monitoraggio** nel riquadro a sinistra dell'hub Internet per aprire Esplora metriche con ambito, per impostazione predefinita, sulle metriche della piattaforma emesse dall'hub Internet delle cose:
 
 :::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Pagina di Esplora metriche per un hub Internet.":::
 
-Per un elenco delle metriche della piattaforma raccolte per l'hub Azure, vedere [metriche nel monitoraggio informazioni di riferimento sui dati dell'hub Azure](monitor-iot-hub-reference.md#metrics). Per un elenco delle metriche della piattaforma raccolte per tutti i servizi di Azure, vedere [metriche supportate con monitoraggio di Azure](/azure/azure-monitor/platform/metrics-supported).
+Per un elenco delle metriche della piattaforma raccolte per l'hub Azure, vedere [metriche nel monitoraggio informazioni di riferimento sui dati dell'hub Azure](monitor-iot-hub-reference.md#metrics). Per un elenco delle metriche della piattaforma raccolte per tutti i servizi di Azure, vedere [metriche supportate con monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
 
 Per le metriche della piattaforma dell'hub Internet che vengono raccolte in unità di conteggio, alcune aggregazioni potrebbero non essere disponibili o utilizzabili. Per altre informazioni, vedere [le aggregazioni supportate nel monitoraggio riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md#supported-aggregations).
 
-Alcune metriche dell'hub, come le [metriche di routing](monitor-iot-hub-reference.md#routing-metrics), sono multidimensionali. Per queste metriche, è possibile applicare [filtri](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) e [dividere](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) i grafici in base a una dimensione.
+Alcune metriche dell'hub, come le [metriche di routing](monitor-iot-hub-reference.md#routing-metrics), sono multidimensionali. Per queste metriche, è possibile applicare [filtri](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) e [dividere](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) i grafici in base a una dimensione.
 
 ## <a name="analyzing-logs"></a>Analisi dei log
 
-I dati nei log di monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche. I dati di queste tabelle sono associati a un'area di lavoro di Log Analytics e possono essere sottoposti a query in Log Analytics. Per altre informazioni sui log di monitoraggio di Azure, vedere [Panoramica dei log di monitoraggio](/azure/azure-monitor/platform/data-platform-logs) di Azure nella documentazione di monitoraggio di Azure. 
+I dati nei log di monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche. I dati di queste tabelle sono associati a un'area di lavoro di Log Analytics e possono essere sottoposti a query in Log Analytics. Per altre informazioni sui log di monitoraggio di Azure, vedere [Panoramica dei log di monitoraggio](../azure-monitor/platform/data-platform-logs.md) di Azure nella documentazione di monitoraggio di Azure. 
 
 Per indirizzare i dati ai log di monitoraggio di Azure, è necessario creare un'impostazione di diagnostica per inviare i log delle risorse o le metriche della piattaforma a un'area di lavoro Log Analytics. Per altre informazioni, vedere [raccolta e routing](#collection-and-routing).
 
@@ -101,17 +101,17 @@ In portale di Azure è possibile selezionare i **log** sotto il **monitoraggio**
 
 Per un elenco delle tabelle usate dai log di monitoraggio di Azure e di cui è necessario eseguire query per Log Analytics, vedere log di monitoraggio di Azure [tabelle nel monitoraggio informazioni di riferimento sui dati dell'hub Azure](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
-Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#top-level-resource-logs-schema). È possibile trovare lo schema e le categorie dei log delle risorse raccolti per l'hub Azure Internet nei [log delle risorse nel monitoraggio riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md#resource-logs).
+Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). È possibile trovare lo schema e le categorie dei log delle risorse raccolti per l'hub Azure Internet nei [log delle risorse nel monitoraggio riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md#resource-logs).
 
-Il [log attività](/azure/azure-monitor/platform/activity-log) è un log di piattaforma in Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. È possibile visualizzarlo in modo indipendente o instradarlo ai log di monitoraggio di Azure, in cui è possibile eseguire query molto più complesse usando Log Analytics.  
+Il [log attività](../azure-monitor/platform/activity-log.md) è un log di piattaforma in Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. È possibile visualizzarlo in modo indipendente o instradarlo ai log di monitoraggio di Azure, in cui è possibile eseguire query molto più complesse usando Log Analytics.  
 
 Quando si indirizzano le metriche della piattaforma dell'hub Internet ai log di monitoraggio di Azure, tenere presente quanto segue:
 
 - Le metriche della piattaforma seguenti non possono essere esportate tramite le impostazioni di diagnostica: *dispositivi connessi (anteprima)* e *totale dispositivi (anteprima)*.
 
-- Le metriche multidimensionali, ad esempio alcune metriche di [routing](monitor-iot-hub-reference.md#routing-metrics), vengono attualmente esportate come metriche unidimensionali bidimensionali aggregate tra i valori delle dimensioni. Per informazioni dettagliate, vedere [esportazione di metriche della piattaforma in altre posizioni](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
+- Le metriche multidimensionali, ad esempio alcune metriche di [routing](monitor-iot-hub-reference.md#routing-metrics), vengono attualmente esportate come metriche unidimensionali bidimensionali aggregate tra i valori delle dimensioni. Per informazioni dettagliate, vedere [esportazione di metriche della piattaforma in altre posizioni](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-Per alcune query comuni con l'hub Internet, vedere [esempi di query kusto](#sample-kusto-queries). Per informazioni dettagliate sull'uso delle query di Log Analytics, vedere [Panoramica delle query di log in monitoraggio di Azure](/azure/azure-monitor/log-query/log-query-overview).
+Per alcune query comuni con l'hub Internet, vedere [esempi di query kusto](#sample-kusto-queries). Per informazioni dettagliate sull'uso delle query di Log Analytics, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="sdk-version-in-iot-hub-logs"></a>Versione dell'SDK nei log dell'hub Internet
 
@@ -152,7 +152,7 @@ AzureDiagnostics
 ### <a name="sample-kusto-queries"></a>Query Kusto di esempio
 
 > [!IMPORTANT]
-> Quando si selezionano i **log** dal menu dell'hub Internet delle cose, log Analytics viene aperto con l'ambito della query impostato sull'hub degli eventi Internet corrente. Ciò significa che le query di log includeranno solo i dati di tale risorsa. Se si vuole eseguire una query che includa dati da altri hub o dati di altri servizi di Azure, selezionare **log** dal menu **monitoraggio di Azure** . Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](/azure/azure-monitor/log-query/scope/).
+> Quando si selezionano i **log** dal menu dell'hub Internet delle cose, log Analytics viene aperto con l'ambito della query impostato sull'hub degli eventi Internet corrente. Ciò significa che le query di log includeranno solo i dati di tale risorsa. Se si vuole eseguire una query che includa dati da altri hub o dati di altri servizi di Azure, selezionare **log** dal menu **monitoraggio di Azure** . Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](../azure-monitor/log-query/scope.md).
 
 Di seguito sono riportate le query che è possibile usare per monitorare l'hub Internet.
 
@@ -288,13 +288,13 @@ class Program
 
 ## <a name="alerts"></a>Avvisi
 
-Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](/azure/azure-monitor/platform/alerts-metric-overview), [log](/azure/azure-monitor/platform/alerts-unified-log)e [log attività](/azure/azure-monitor/platform/activity-log-alerts). Tipi diversi di avvisi presentano vantaggi e svantaggi.
+Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](../azure-monitor/platform/alerts-metric-overview.md), [log](../azure-monitor/platform/alerts-unified-log.md)e [log attività](../azure-monitor/platform/activity-log-alerts.md). Tipi diversi di avvisi presentano vantaggi e svantaggi.
 
 Quando si crea una regola di avviso in base alle metriche della piattaforma, tenere presente che per le metriche della piattaforma dell'hub tutto raccolte in unità di conteggio, alcune aggregazioni potrebbero non essere disponibili o utilizzabili. Per altre informazioni, vedere [le aggregazioni supportate nel monitoraggio riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md#supported-aggregations).
 
 ## <a name="monitor-per-device-disconnects-with-event-grid"></a>Eseguire il monitoraggio della disconnessione per ogni dispositivo con griglia di eventi
 
-Monitoraggio di Azure fornisce una metrica, *dispositivi connessi* , che è possibile usare per monitorare il numero di dispositivi connessi all'hub Internet e attivare un avviso quando il numero di dispositivi connessi scende al di sotto di un valore soglia. Sebbene questo possa essere sufficiente per alcuni scenari, [griglia di eventi di Azure](/azure/event-grid/) offre una soluzione di monitoraggio per dispositivo a bassa latenza che è possibile usare per tenere traccia delle connessioni dei dispositivi e dell'infrastruttura critiche.
+Monitoraggio di Azure fornisce una metrica, *dispositivi connessi*, che è possibile usare per monitorare il numero di dispositivi connessi all'hub Internet e attivare un avviso quando il numero di dispositivi connessi scende al di sotto di un valore soglia. Sebbene questo possa essere sufficiente per alcuni scenari, [griglia di eventi di Azure](../event-grid/index.yml) offre una soluzione di monitoraggio per dispositivo a bassa latenza che è possibile usare per tenere traccia delle connessioni dei dispositivi e dell'infrastruttura critiche.
 
 Con griglia di eventi è possibile sottoscrivere gli [eventi **DeviceConnected** e **DeviceDisconnected**](iot-hub-event-grid.md#event-types) dell'hub Internet per attivare gli avvisi e monitorare lo stato di connessione del dispositivo. Griglia di eventi offre una latenza di eventi molto inferiore rispetto a monitoraggio di Azure ed è possibile monitorarli in base ai singoli dispositivi, anziché per il numero totale di dispositivi connessi. Questi fattori rendono griglia di eventi il metodo preferito per il monitoraggio delle connessioni per i dispositivi e l'infrastruttura critici. Si consiglia vivamente di usare griglia di eventi per monitorare le connessioni dei dispositivi negli ambienti di produzione.
 
@@ -304,4 +304,4 @@ Per informazioni più dettagliate sul monitoraggio delle connessioni dei disposi
 
 - Vedere [monitoraggio del riferimento ai dati dell'hub Internet Azure per informazioni](monitor-iot-hub-reference.md) di riferimento su metriche, log e altri importanti valori creati da [nome servizio].
 
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](/azure/azure-monitor/insights/monitor-azure-resource).
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md).

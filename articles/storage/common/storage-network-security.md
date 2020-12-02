@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9638d4f8a44b044bb02d3f77d259860128d2e9db
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783641"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462239"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -64,9 +64,9 @@ Le regole predefinite di accesso alla rete per gli account di archiviazione poss
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
 
-1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate** . Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti** .
+1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate**. Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti**.
 
 1. Fare clic su **Salva** per applicare le modifiche.
 
@@ -133,7 +133,7 @@ Quando si pianifica il ripristino di emergenza durante un'interruzione a livello
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per applicare una regola di rete virtuale a un account di archiviazione, l'utente deve avere le autorizzazioni appropriate per le subnet aggiunte. L'autorizzazione necessaria è *Join Service to a Subnet* (Aggiungi servizio a una subnet), inclusa nel ruolo predefinito *Collaboratore Account di archiviazione* . Può anche essere aggiunta a definizioni del ruolo personalizzate.
+Per applicare una regola di rete virtuale a un account di archiviazione, l'utente deve avere le autorizzazioni appropriate per le subnet aggiunte. L'autorizzazione necessaria è *Join Service to a Subnet* (Aggiungi servizio a una subnet), inclusa nel ruolo predefinito *Collaboratore Account di archiviazione*. Può anche essere aggiunta a definizioni del ruolo personalizzate.
 
 Gli account di archiviazione e le reti virtuali alle quali è stato concesso l'accesso possono trovarsi in sottoscrizioni diverse, incluse quelle che appartengono a un tenant di Azure AD diverso.
 
@@ -148,18 +148,18 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate** .
+1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. Per concedere l'accesso a una rete virtuale con una nuova regola di rete, in **Reti virtuali** fare clic su **Aggiungi rete virtuale esistente** , selezionare **Reti virtuali** e **Subnet** , quindi fare clic su **Aggiungi** . Per creare una nuova rete virtuale e concedere l'accesso, fare clic su **Aggiungi nuova rete virtuale** . Specificare le informazioni necessarie per creare la nuova rete virtuale e quindi fare clic su **Crea** .
+1. Per concedere l'accesso a una rete virtuale con una nuova regola di rete, in **Reti virtuali** fare clic su **Aggiungi rete virtuale esistente**, selezionare **Reti virtuali** e **Subnet**, quindi fare clic su **Aggiungi**. Per creare una nuova rete virtuale e concedere l'accesso, fare clic su **Aggiungi nuova rete virtuale**. Specificare le informazioni necessarie per creare la nuova rete virtuale e quindi fare clic su **Crea**.
 
     > [!NOTE]
     > Se un endpoint di servizio per Archiviazione di Azure non è stato configurato in precedenza per la rete virtuale e le subnet selezionate, è possibile configurarlo in questa operazione.
     >
     > Attualmente solo le reti virtuali che appartengono allo stesso tenant di Azure Active Directory sono disponibili per la selezione durante la creazione delle regole. Per concedere l'accesso a una subnet in una rete virtuale che appartiene a un altro tenant, usare PowerShell, l'interfaccia della riga di comando o le API REST.
 
-1. Per rimuovere una regola di rete virtuale o subnet, fare clic su **…** per aprire il menu di scelta rapida per la rete virtuale o la subnet, quindi fare clic su **Rimuovi** .
+1. Per rimuovere una regola di rete virtuale o subnet, fare clic su **…** per aprire il menu di scelta rapida per la rete virtuale o la subnet, quindi fare clic su **Rimuovi**.
 
 1. Fare clic su **Salva** per applicare le modifiche.
 
@@ -197,7 +197,7 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
 
@@ -235,18 +235,18 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concedere l'accesso da un intervallo IP di Internet
 
 È possibile configurare gli account di archiviazione in modo che consentano l'accesso da intervalli specifici di indirizzi IP Internet pubblici. Questa configurazione concede l'accesso ai servizi specifici basati su Internet e alle reti locali e blocca il traffico Internet generale.
 
-Specificare gli intervalli di indirizzi Internet consentiti con la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel formato *16.17.18.0/24* o come indirizzi IP singoli, ad esempio *16.17.18.19* .
+Specificare gli intervalli di indirizzi Internet consentiti con la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel formato *16.17.18.0/24* o come indirizzi IP singoli, ad esempio *16.17.18.19*.
 
    > [!NOTE]
    > Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati. Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli.
 
-Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica** . Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_ , _172.16.*_  - _172.31.*_ e _192.168.*_ .
+Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**. Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_ , _172.16.*_  - _172.31.*_ e _192.168.*_ .
 
    > [!NOTE]
    > Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
@@ -272,11 +272,11 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate** .
+1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in **Firewall** > **Intervallo di indirizzi** .
+1. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in **Firewall** > **Intervallo di indirizzi**.
 
 1. Per rimuovere una regola di rete IP, fare clic sull'icona del cestino accanto all'intervallo di indirizzi.
 
@@ -317,7 +317,7 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
 
@@ -354,11 +354,11 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
 ## <a name="exceptions"></a>Eccezioni
 
-Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In tali situazioni, è possibile utilizzare il * *_Consenti servizi Microsoft attendibili..._* _ impostazione per consentire a tali servizi di accedere a dati, log o analisi.
+Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In tali situazioni, è possibile utilizzare il **_Consenti servizi Microsoft attendibili..._* _ impostazione per consentire a tali servizi di accedere a dati, log o analisi.
 
 ### <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
 
@@ -368,7 +368,7 @@ Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle re
 - Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione **assegnando un ruolo di Azure** all'identità gestita assegnata dal sistema.
 
 
-Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili** , alle risorse dei servizi seguenti registrati nella stessa sottoscrizione dell'account di archiviazione viene concesso l'accesso per un set limitato di operazioni, come descritto di seguito:
+Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, alle risorse dei servizi seguenti registrati nella stessa sottoscrizione dell'account di archiviazione viene concesso l'accesso per un set limitato di operazioni, come descritto di seguito:
 
 | Service                  | Nome provider di risorse     | Operazioni consentite                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -396,10 +396,10 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | Hub IoT Azure                  | Microsoft.Devices/IotHubs              | Consente la scrittura dei dati di un hub IoT nell'archivio BLOB. [Altre informazioni](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
-| Azure Synapse Analytics (in precedenza SQL Data Warehouse)       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
-| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
+| Azure Synapse Analytics       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
+| Database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati di Archiviazione di Azure da Synapse Analytics. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati in archiviazione di Azure da Azure sinapsi Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
@@ -414,9 +414,9 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate** .
+1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
 1. In **Eccezioni** selezionare le eccezioni da autorizzare.
 
@@ -445,7 +445,7 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario la rimozione delle eccezioni non ha alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario la rimozione delle eccezioni non ha alcun effetto.
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
 
@@ -470,7 +470,7 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario la rimozione delle eccezioni non ha alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario la rimozione delle eccezioni non ha alcun effetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

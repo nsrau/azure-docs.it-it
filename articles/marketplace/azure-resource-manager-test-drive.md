@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491240"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461763"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -28,16 +28,16 @@ Un modello di distribuzione contiene tutte le risorse di Azure che costituiscono
 
 - **Aree** (obbligatorio): attualmente esistono 26 aree supportate da Azure in cui è possibile rendere disponibile il test drive. In genere, è consigliabile rendere disponibile il test drive nelle aree in cui si prevede il numero maggiore di clienti, in modo che questi possano selezionare l'area più vicina per ottenere prestazioni ottimali. È necessario assicurarsi che alla sottoscrizione sia consentito distribuire tutte le risorse necessarie in ognuna delle aree selezionate.
 
-- **Istanze** : selezionare il tipo (frequente o poco utilizzata) e il numero di istanze disponibili, che verrà moltiplicato per il numero di aree in cui è disponibile l'offerta.
+- **Istanze**: selezionare il tipo (frequente o poco utilizzata) e il numero di istanze disponibili, che verrà moltiplicato per il numero di aree in cui è disponibile l'offerta.
 
-  - **Frequente** : questo tipo di istanza viene distribuito ed è in attesa dell'accesso per ogni area selezionata. I clienti possono accedere immediatamente alle istanze impostate su *Frequente* di un test drive, anziché dover attendere la distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile prevedere almeno un'istanza *Frequente* , in quanto la maggior parte dei clienti non vuole attendere il completamento delle distribuzioni e di conseguenza si verifica un calo di utilizzo da parte dei clienti se non è presente alcuna istanza impostata su *Frequente*.
+  - **Frequente**: questo tipo di istanza viene distribuito ed è in attesa dell'accesso per ogni area selezionata. I clienti possono accedere immediatamente alle istanze impostate su *Frequente* di un test drive, anziché dover attendere la distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile prevedere almeno un'istanza *Frequente*, in quanto la maggior parte dei clienti non vuole attendere il completamento delle distribuzioni e di conseguenza si verifica un calo di utilizzo da parte dei clienti se non è presente alcuna istanza impostata su *Frequente*.
 
-  - **Poco utilizzata** : questo tipo di istanza rappresenta il numero totale di istanze che è possibile distribuire per ogni area. Per le istanze di questo tipo è necessario distribuire l'intero modello di Resource Manager del test drive quando un cliente richiede il test drive e di conseguenza le istanze impostate su *Poco utilizzata* vengono caricate più lentamente rispetto a quelle impostate su *Frequente*. Il compromesso consiste nel fatto che è necessario pagare solo per la durata del test drive, che *non* è sempre in esecuzione nella sottoscrizione di Azure come un'istanza *Frequente*.
+  - **Poco utilizzata**: questo tipo di istanza rappresenta il numero totale di istanze che è possibile distribuire per ogni area. Per le istanze di questo tipo è necessario distribuire l'intero modello di Resource Manager del test drive quando un cliente richiede il test drive e di conseguenza le istanze impostate su *Poco utilizzata* vengono caricate più lentamente rispetto a quelle impostate su *Frequente*. Il compromesso consiste nel fatto che è necessario pagare solo per la durata del test drive, che *non* è sempre in esecuzione nella sottoscrizione di Azure come un'istanza *Frequente*.
 
-- **Modello di Azure Resource Manager del test drive** : caricare il file con estensione zip contenente il modello di Azure Resource Manager. Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+- **Modello di Azure Resource Manager del test drive**: caricare il file con estensione zip contenente il modello di Azure Resource Manager. Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
-    > Per la pubblicazione corretta, è importante convalidare la formattazione del modello ARM. Due modi per eseguire questa operazione sono (1) usando uno [strumento API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) o (2) con una [distribuzione di prova](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
+    > Per la pubblicazione corretta, è importante convalidare la formattazione del modello ARM. Due modi per eseguire questa operazione sono (1) usando uno [strumento API online](/rest/api/resources/deployments/validate) o (2) con una [distribuzione di prova](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Durata test drive** (obbligatorio): immettere il numero di ore durante il quale il test drive resterà attivo. Il test drive termina automaticamente alla fine di questo periodo di tempo. Usare solo numeri interi. Ad esempio, "2" ore è un valore valido, mentre "1,5" non lo è.
 
@@ -313,7 +313,7 @@ La sezione finale da completare è la possibilità di distribuire automaticament
    3. Immettere un nome applicazione.
    4. Selezionare il **tipo** di **app Web/API**.
    5. Specificare qualsiasi valore nell'URL di accesso. questo campo non viene utilizzato.
-   6. Selezionare **Crea**.
+   6. Selezionare **Create** (Crea).
    7. Dopo aver creato l'applicazione, selezionare **Proprietà**  >  **impostare l'applicazione come multi-tenant** e quindi **salvare**.
 
 4. Selezionare **Salva**.
@@ -336,7 +336,7 @@ La sezione finale da completare è la possibilità di distribuire automaticament
 
    1. Selezionare **Salva**.
 
-7. Generare una chiave di autenticazione **app Azure ad** . In **chiavi** aggiungere una **Descrizione della chiave** , impostare la durata su **never expires** (una chiave scaduta interrompe il test drive in produzione), quindi selezionare **Save (Salva** ). Copiare e incollare questo valore nel campo test drive obbligatorio.
+7. Generare una chiave di autenticazione **app Azure ad** . In **chiavi** aggiungere una **Descrizione della chiave**, impostare la durata su **never expires** (una chiave scaduta interrompe il test drive in produzione), quindi selezionare **Save (Salva**). Copiare e incollare questo valore nel campo test drive obbligatorio.
 
 ![Mostra le chiavi per l'applicazione Azure AD](media/test-drive/azure-ad-app-keys.png)
 

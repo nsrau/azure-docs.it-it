@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461857"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,13 +35,13 @@ Tenere presente che quando la protezione Transparent Data Encryption viene elimi
 Questa guida dettagliata passa a due approcci a seconda del risultato desiderato dopo una risposta a un evento imprevisto compromesso:
 
 - Per rendere **inaccessibili** i database nel database SQL di Azure o in Azure sinapsi Analytics.
-- Per rendere **inaccessibili** i database nel database SQL di Azure/Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+- Per rendere **inaccessibili** i database nel database SQL di Azure o in Azure sinapsi Analytics.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
 - È necessario che Azure PowerShell sia installato e in esecuzione.
-- Questa guida dettagliata presuppone che si stia già usando una chiave di Azure Key Vault come protezione Transparent Data Encryption per un database SQL di Azure o una sinapsi di Azure (in precedenza SQL Data Warehouse). Per altre informazioni, vedere [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) (Transparent Data Encryption con supporto BYOK).
+- In questa guida si presuppone che si stia già usando una chiave di Azure Key Vault come protezione Transparent Data Encryption per un database SQL di Azure o una sinapsi di Azure. Per altre informazioni, vedere [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) (Transparent Data Encryption con supporto BYOK).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

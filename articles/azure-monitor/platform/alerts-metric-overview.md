@@ -4,12 +4,12 @@ description: È disponibile una panoramica delle operazioni eseguibili con gli a
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 066ffff5979e658a7c06fe10bd668a9fac839a14
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342179"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460834"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -176,6 +176,7 @@ L'elenco completo dei tipi di risorse supportati è disponibile in questo [artic
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su come creare, visualizzare e gestire gli avvisi delle metriche in Azure](alerts-metric.md)
+- [Informazioni su come creare avvisi in Azure Montir Esplora metriche](./metrics-charts.md#create-alert-rules)
 - [Informazioni su come distribuire gli avvisi delle metriche mediante modelli di Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Altre informazioni sui gruppi di azioni](action-groups.md)
 - [Altre informazioni sul tipo di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md)

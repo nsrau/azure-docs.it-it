@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974460"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461482"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Inserire i dati in Azure Data Lake Storage Gen2 
 
@@ -72,4 +72,4 @@ In questo passaggio si attiverà manualmente la pipeline pubblicata nel passaggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'integrazione dei dati per l'analisi delle sinapsi, vedere l'articolo inserimento di [dati in un pool SQL dedicato](data-integration-sql-pool.md) .
+Per altre informazioni sull'integrazione dei dati per Azure sinapsi Analytics, vedere l'articolo inserimento di [dati in un pool SQL dedicato](data-integration-sql-pool.md) .

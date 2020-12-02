@@ -5,20 +5,20 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1e78a7ff806cbd6a7f30c68786e62f8508c850ac
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340686"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461813"
 ---
-# <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
+# <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 > [!IMPORTANT]
-> Collegamento ad Azure Synapse per Azure Cosmos DB è attualmente disponibile in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Il supporto del pool SQL senza server di sinapsi per il collegamento a sinapsi di Azure per Azure Cosmos DB è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Collegamento ad Azure Synapse per Azure Cosmos DB è una funzionalità HTAP (Hybrid Transactional and Analytical Processing) nativa del cloud che consente di eseguire analisi quasi in tempo reale su dati operativi in Azure Cosmos DB. Collegamento ad Azure Synapse crea una stretta integrazione tra Azure Cosmos DB e Azure Synapse Analytics.
 
@@ -36,7 +36,7 @@ Rispetto alle soluzioni tradizionali basate su ETL, Collegamento ad Azure Synaps
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Riduzione della complessità senza processi ETL da gestire
 
-Collegamento ad Azure Synapse consente di accedere direttamente all'archivio analitico di Azure Cosmos DB tramite Azure Synapse Analytics senza complessi spostamenti di dati. Tutti gli aggiornamenti apportati ai dati operativi sono visibili nell'archivio analitico quasi in tempo reale senza ETL o processi di feed di modifiche. È possibile eseguire analisi su larga scala nell'archivio analitico, da Synapse Analytics, senza trasformazioni aggiuntive dei dati.
+Collegamento ad Azure Synapse consente di accedere direttamente all'archivio analitico di Azure Cosmos DB tramite Azure Synapse Analytics senza complessi spostamenti di dati. Tutti gli aggiornamenti apportati ai dati operativi sono visibili nell'archivio analitico quasi in tempo reale senza ETL o processi di feed di modifiche. È possibile eseguire analisi su larga scala nell'archivio analitico, da Azure sinapsi Analytics, senza trasformazione dei dati aggiuntiva.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Informazioni dettagliate quasi in tempo reale sui dati operativi
 
@@ -75,13 +75,13 @@ Se si ha un account Azure Cosmos DB distribuito a livello globale, un archivio a
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integrazione con Azure Synapse Analytics
 
-Con Collegamento a Synapse è ora possibile connettersi direttamente ai contenitori Azure Cosmos DB da Azure Synapse Analytics e accedere all'archivio analitico senza connettori separati. Azure sinapsi Analytics supporta attualmente il collegamento sinapsi con [sinapsi Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e [sinapsi SQL senza server](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Con Collegamento a Synapse è ora possibile connettersi direttamente ai contenitori Azure Cosmos DB da Azure Synapse Analytics e accedere all'archivio analitico senza connettori separati. Azure sinapsi Analytics supporta attualmente il collegamento sinapsi con [Apache Spark sinapsi](../synapse-analytics/spark/apache-spark-concepts.md) e il [pool SQL senza server](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 È possibile eseguire query sui dati dell'archivio analitico di Azure Cosmos DB simultaneamente, con interoperabilità tra diversi runtime di analisi supportati da Azure Synapse Analytics. Per analizzare i dati operativi, non è necessario eseguire trasformazioni aggiuntive. È possibile eseguire query e analizzare i dati dell'archivio analitico tramite:
 
 * Synapse Apache Spark con supporto completo per Scala, Python, SparkSQL e C#. Synapse Spark è fondamentale per gli scenari di ingegneria dei dati e data science
 
-* SQL serverless con linguaggio T-SQL e supporto per strumenti di BI familiari, ad esempio Power BI Premium e così via.
+* Pool SQL senza server con linguaggio T-SQL e supporto per gli strumenti di business intelligence noti, ad esempio Power BI Premium e così via.
 
 > [!NOTE]
 > Da Azure Synapse Analytics è possibile accedere agli archivi analitici e transazionali nel contenitore Azure Cosmos DB. Se tuttavia si vuole eseguire un'analisi su larga scala dei dati operativi, è consigliabile usare l'archivio analitico per evitare l'impatto sulle prestazioni dei carichi di lavoro transazionali.

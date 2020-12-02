@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324891"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461837"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e l'interfaccia della riga di comando di Azure: abilitare Transparent Data Encryption con chiave gestita dal cliente da Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Questo articolo illustra come usare una chiave da Azure Key Vault per Transparent Data Encryption (Transparent Data Encryption) nel database SQL di Azure o in Azure sinapsi Analytics (in precedenza SQL Data Warehouse). Per altre informazioni sull'integrazione di TDE con Azure Key Vault e sulla possibilità di usare chiavi personalizzate o BYOK (Bring Your Own Key), vedere [TDE con chiavi gestite dal cliente in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+Questo articolo illustra come usare una chiave da Azure Key Vault per Transparent Data Encryption (Transparent Data Encryption) nel database SQL di Azure o in Azure sinapsi Analytics. Per altre informazioni sull'integrazione di TDE con Azure Key Vault e sulla possibilità di usare chiavi personalizzate o BYOK (Bring Your Own Key), vedere [TDE con chiavi gestite dal cliente in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 > [!NOTE] 
 > Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica**. Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](../../key-vault/managed-hsm/index.yml).

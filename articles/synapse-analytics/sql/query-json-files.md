@@ -1,5 +1,5 @@
 ---
-title: Eseguire query sui file JSON usando un pool SQL senza server (anteprima)
+title: Eseguire query sui file JSON usando un pool SQL senza server
 description: Questa sezione illustra come leggere i file JSON usando un pool SQL senza server in Azure sinapsi Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685631"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462602"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file JSON usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui file JSON usando un pool SQL senza server in Azure sinapsi Analytics
 
-Questo articolo illustra come scrivere una query usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics. L'obiettivo della query è leggere i file JSON tramite [OPENROWSET](develop-openrowset.md). 
+Questo articolo illustra come scrivere una query usando un pool SQL senza server in Azure sinapsi Analytics. L'obiettivo della query è leggere i file JSON tramite [OPENROWSET](develop-openrowset.md). 
 - File JSON standard in cui più documenti JSON vengono archiviati come matrice JSON.
 - File JSON delimitati da righe, in cui i documenti JSON sono separati da caratteri di nuova riga. Le estensioni comuni per questi tipi di file sono `jsonl` , `ldjson` e `ndjson` .
 

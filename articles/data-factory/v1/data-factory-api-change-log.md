@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: 24e468007e0e5ea849ac4d7f945b0aaf6377e580
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b7f0a352afeb4a2e58d97bd5278115673f6b6df6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633808"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461697"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory: log delle modifiche dell'API .NET
 > [!NOTE]
@@ -75,7 +75,7 @@ Aggiunte di funzionalità
 ### <a name="feature-additions"></a>Aggiunte di funzionalità
 * Aggiunta del nuovo tipo StorageFormat [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) per la copia dei file in formato ORC (Optimized Row Columnar).
 * Aggiunta delle proprietà [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) e PolyBaseSettings a SqlDWSink.
-  * Consente l'uso di polibase per copiare dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+  * Consente l'uso di polibase per copiare i dati in Azure sinapsi Analytics.
 
 ## <a name="version-461"></a>Versione 4.6.1
 ### <a name="bug-fixes"></a>Correzioni di bug
@@ -181,5 +181,5 @@ Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali del
 * **List** restituisce solo il riepilogo di una pipeline anziché i dettagli completi. Ad esempio, le attività in un riepilogo delle pipeline può contenere solo il nome e il tipo.
 
 ### <a name="feature-additions"></a>Aggiunte di funzionalità
-* La classe [SqlDWSink](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) supporta due nuove proprietà, **SliceIdentifierColumnName** e **SqlWriterCleanupScript** , per supportare la copia idempotente in Azure sinapsi Analytics di Azure. Per informazioni dettagliate su queste proprietà, vedere l'articolo [analisi delle sinapsi di Azure](data-factory-azure-sql-data-warehouse-connector.md) .
-* È ora supportata l'esecuzione di stored procedure per il database SQL di Azure e le origini di Azure sinapsi Analytics come parte dell'attività di copia. Le classi [SqlSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqlsource) e [SqlDWSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsource) hanno le proprietà **SqlReaderStoredProcedureName** e **StoredProcedureParameters** . Per informazioni dettagliate su queste proprietà, vedere gli articoli [database SQL di Azure](data-factory-azure-sql-connector.md#sqlsource) e [analisi di sinapsi di Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) in Azure.com.
+* La classe [SqlDWSink](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) supporta due nuove proprietà, **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, per supportare la copia idempotente in Azure sinapsi Analytics di Azure. Per informazioni dettagliate su queste proprietà, vedere l'articolo [analisi delle sinapsi di Azure](data-factory-azure-sql-data-warehouse-connector.md) .
+* È ora supportata l'esecuzione di stored procedure per il database SQL di Azure e le origini di Azure sinapsi Analytics come parte dell'attività di copia. Le classi [SqlSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqlsource) e [SqlDWSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsource) hanno le proprietà **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Per informazioni dettagliate su queste proprietà, vedere gli articoli [database SQL di Azure](data-factory-azure-sql-connector.md#sqlsource) e [analisi di sinapsi di Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) in Azure.com.

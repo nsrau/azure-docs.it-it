@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412109"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461595"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Eseguire la migrazione dell'hub Internet delle cose dal monitoraggio delle operazioni ai log delle risorse di monitoraggio
 
@@ -29,7 +29,7 @@ Per aggiornare l'hub Internet delle cose nel portale di Azure, creare prima di t
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 
-1. Nel riquadro sinistro, in **monitoraggio** , selezionare **impostazioni di diagnostica**. Quindi selezionare **Aggiungi impostazioni di diagnostica**.
+1. Nel riquadro sinistro, in **monitoraggio**, selezionare **impostazioni di diagnostica**. Quindi selezionare **Aggiungi impostazione di diagnostica**.
 
    :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="Screenshot che evidenzia l'opzione Impostazioni di diagnostica nella sezione Monitoraggio.":::
 
@@ -49,9 +49,9 @@ Per aggiornare l'hub Internet delle cose nel portale di Azure, creare prima di t
 
 1. Selezionare **Salva** per salvare le impostazioni.
 
-Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata. Per altre informazioni sulla configurazione della diagnostica, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](/azure/azure-monitor/platform/platform-logs-overview).
+Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata. Per altre informazioni sulla configurazione della diagnostica, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-Per informazioni più dettagliate su come creare le impostazioni di diagnostica, tra cui con PowerShell e l'interfaccia della riga di comando di Azure, vedere [impostazioni di diagnostica](/azure/azure-monitor/platform/diagnostic-settings) nella documentazione di monitoraggio di Azure.
+Per informazioni più dettagliate su come creare le impostazioni di diagnostica, tra cui con PowerShell e l'interfaccia della riga di comando di Azure, vedere [impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) nella documentazione di monitoraggio di Azure.
 
 ### <a name="turn-off-operations-monitoring"></a>Disattivare la funzionalità Monitoraggio operazioni
 
