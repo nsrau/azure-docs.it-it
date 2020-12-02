@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048237"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348637"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Avvio rapido: Monitorare la prima metrica con il portale Web
 
@@ -155,5 +155,5 @@ Dopo la creazione di un hook, un'impostazione degli avvisi determina quali notif
 - [Eseguire l'onboarding dei feed di dati](../how-tos/onboard-your-data.md)
     - [Gestire feed di dati](../how-tos/manage-data-feeds.md)
     - [Configurazioni per origini dati diverse](../data-feeds-from-different-sources.md)
-- [Usare l'API REST o le librerie client](rest-api.md)
+- [Usare l'API REST o le librerie client](./rest-api-and-client-library.md)
 - [Configurare le metriche e ottimizzare la configurazione del rilevamento](../how-tos/configure-metrics.md)

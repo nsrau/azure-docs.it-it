@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427480"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346139"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -212,5 +212,4 @@ Se non si continua con l'argomento di avvio rapido successivo, eliminare le riso
 Per altre informazioni:
 
 * [Formato Markdown nelle risposte](../reference-markdown-format.md)
-* [Origini dati](../concepts/knowledge-base.md) di QnA Maker.
-
+* [Origini dati](../index.yml) di QnA Maker.

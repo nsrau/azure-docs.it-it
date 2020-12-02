@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, chatbot con poco codice, conversazioni a più turni
-ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874425"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353137"
 ---
 # <a name="what-is-qna-maker"></a>Informazioni su QnA Maker
 
@@ -22,14 +22,14 @@ QnA Maker viene solitamente usato per sviluppare applicazioni client conversazio
 
 ## <a name="when-to-use-qna-maker"></a>Quando usare QnA Maker
 
-* **Quando si hanno informazioni statiche**: usare QnA Maker quando la knowledge base di risposte contiene informazioni statiche. Questa knowledge base è personalizzata in base alle proprie esigenze ed è stata creata con documenti come [PDF e URL](../concepts/content-types.md).
+* **Quando si hanno informazioni statiche**: usare QnA Maker quando la knowledge base di risposte contiene informazioni statiche. Questa knowledge base è personalizzata in base alle proprie esigenze ed è stata creata con documenti come [PDF e URL](../index.yml).
 * **Quando si vuole fornire la stessa risposta a una richiesta, a una domanda o a un comando**: se diversi utenti inviano la stessa domanda, viene restituita la stessa risposta.
 * **Quando si vogliono filtrare informazioni statiche in base a meta informazioni**: aggiungere tag di [metadati](../how-to/metadata-generateanswer-usage.md) per fornire ulteriori opzioni di filtro pertinenti per gli utenti dell'applicazione client e per le informazioni. Le informazioni comuni dei metadati includono [chiacchiere](../how-to/chit-chat-knowledge-base.md), tipo o formato, scopo e aggiornamenti del contenuto.
 * **Quando si vuole gestire una conversazione con bot che include informazioni statiche**: la knowledge base fornisce una risposta al comando o al testo della conversazione dell'utente. Se la risposta fa parte di un flusso di conversazione predeterminato, rappresentato nella knowledge base con un [contesto a più turni](../how-to/multiturn-conversation.md), il bot può fornire facilmente questo flusso.
 
 ## <a name="what-is-a-knowledge-base"></a>Cos'è una knowledge base?
 
-QnA Maker [importa il contenuto](../concepts/knowledge-base.md) in una knowledge base costituita da una coppia di domande e risposte. Il processo di importazione estrae informazioni sulla relazione tra le parti del contenuto strutturato e semistrutturato in modo da implicare le relazioni tra le coppie di domande e risposte. È possibile modificare queste coppie di domande e risposte o aggiungerne di nuove.
+QnA Maker [importa il contenuto](../index.yml) in una knowledge base costituita da una coppia di domande e risposte. Il processo di importazione estrae informazioni sulla relazione tra le parti del contenuto strutturato e semistrutturato in modo da implicare le relazioni tra le coppie di domande e risposte. È possibile modificare queste coppie di domande e risposte o aggiungerne di nuove.
 
 Il contenuto della coppia di domande e risposte include:
 * Tutte le forme alternative della domanda

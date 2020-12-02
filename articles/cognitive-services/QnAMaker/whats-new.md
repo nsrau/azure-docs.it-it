@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505241"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345526"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novità di QnA Maker
 
@@ -56,17 +56,17 @@ Novità di QnA Maker.
 
 ### <a name="november-2019"></a>Novembre 2019
 
-* [Supporto cloud per US Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) per QnA Maker
-* Funzionalità [a più turni](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) in versione di disponibilità generale
-* [Supporto chit chat](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) disponibile nelle lingue di livello 1
+* [Supporto cloud per US Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) per QnA Maker
+* Funzionalità [a più turni](./how-to/multiturn-conversation.md) in versione di disponibilità generale
+* [Supporto chit chat](./how-to/chit-chat-knowledge-base.md#language-support) disponibile nelle lingue di livello 1
 
 ### <a name="october-2019"></a>Ottobre 2019
 
-* [Impostazione esplicita della lingua](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) per tutte le knowledge base nel servizio QnA Maker.
+* [Impostazione esplicita della lingua](./index.yml) per tutte le knowledge base nel servizio QnA Maker.
 
 ### <a name="september-2019"></a>Settembre 2019
 
-* Importazione ed esportazione con il [formato di file XLS](concepts/content-types.md)
+* Importazione ed esportazione con il [formato di file XLS](./index.yml)
 
 ### <a name="june-2019"></a>Giugno 2019
 
