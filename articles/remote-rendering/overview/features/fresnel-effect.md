@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0596d118d1f3c09bc295891f023fe9990f3f1e05
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557922"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498235"
 ---
 # <a name="fresnel-effect"></a>Effetto Fresnel
 
@@ -21,7 +21,7 @@ L'effetto Fresnel fornisce agli oggetti interessati un luccichio colorato attorn
 
 ## <a name="enabling-the-fresnel-effect"></a>Abilitazione dell'effetto Fresnel
 
-Per usare la funzionalità effetto Fresnel, è necessario abilitarla sui materiali in questione. È possibile abilitarla impostando il bit FresnelEffect di [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) sul [materiale PBR](../../overview/features/pbr-materials.md). Lo stesso modello si applica a [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) e al [materiale del colore](../../overview/features/color-materials.md). Per una dimostrazione sull'utilizzo, vedere la sezione Esempi di codice.
+Per usare la funzionalità effetto Fresnel, è necessario abilitarla sui materiali in questione. È possibile abilitarla impostando il bit FresnelEffect di [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) sul [materiale PBR](../../overview/features/pbr-materials.md). Lo stesso modello si applica a [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) e al [materiale del colore](../../overview/features/color-materials.md). Per una dimostrazione sull'utilizzo, vedere la sezione Esempi di codice.
 
 Dopo l'abilitazione, l'effetto Fresnel sarà immediatamente visibile. Per impostazione predefinita, lo splendore sarà bianco (1, 1, 1, 1) e un esponente di 1. È possibile personalizzare queste impostazioni usando i set di parametri riportati di seguito.
 
@@ -29,7 +29,7 @@ Dopo l'abilitazione, l'effetto Fresnel sarà immediatamente visibile. Per impost
 
 Attualmente, l'effetto Fresnel può essere personalizzato in base al materiale usando le proprietà seguenti:
 
-| Material (proprietà) | Type | Spiegazione |
+| Material (proprietà) | Tipo | Spiegazione |
 |-------------------|------|-------------|
 | FresnelEffectColor | Color4 | Il colore che viene aggiunto al massimo come il luccichio di Fresnel. Il canale alfa è attualmente ignorato. |
 | FresnelEffectExponent | float | La diffusione del luccichio di Fresnel. Intervalli compresi tra 0,01 (distribuiti su tutti gli oggetti) e 10 (solo gli angoli più abbelliti). |
@@ -93,10 +93,10 @@ void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> mater
 
 ## <a name="api-documentation"></a>Documentazione dell'API
 
-* [PbrMaterialFeatures C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
-* [PbrMaterialFeatures C++](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterialfeatures)
-* [ColorMaterialFeatures C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
-* [ColorMaterialFeatures C++](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterialfeatures)
+* [PbrMaterialFeatures C#](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
+* [PbrMaterialFeatures C++](/cpp/api/remote-rendering/pbrmaterialfeatures)
+* [ColorMaterialFeatures C#](/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
+* [ColorMaterialFeatures C++](/cpp/api/remote-rendering/colormaterialfeatures)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

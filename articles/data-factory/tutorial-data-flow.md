@@ -1,19 +1,19 @@
 ---
 title: Trasformare i dati usando un flusso di dati di mapping
 description: In questa esercitazione vengono fornite istruzioni dettagliate per l'utilizzo di Azure Data Factory per trasformare i dati con il flusso di dati di mapping
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2019
-ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555911"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497062"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati con i flussi di dati per mapping
 
@@ -43,7 +43,7 @@ Il file che si sta trasformando in questa esercitazione è MoviesDB.csv, disponi
 In questo passaggio si crea una data factory e si apre l'Data Factory UX per creare una pipeline nell'data factory.
 
 1. Aprire **Microsoft Edge** o **Google Chrome**. Attualmente, Data Factory interfaccia utente è supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa**  >  **integrazione**  >  **Data Factory** :
+2. Nel menu sinistro selezionare **Crea una risorsa** > **Integrazione** > **Data factory**:
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -62,7 +62,7 @@ In questo passaggio si crea una data factory e si apre l'Data Factory UX per cre
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 6. In **Versione** selezionare **V2**.
 7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
-8. Selezionare **Crea**.
+8. Selezionare **Create** (Crea).
 9. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
 10. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
@@ -131,7 +131,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
     Se si dispone di un cluster di debug attivo, è possibile verificare la logica facendo clic su **Aggiorna** per visualizzare l'output delle espressioni rispetto agli input utilizzati. Esiste più di una risposta giusta su come eseguire questa logica usando il linguaggio delle espressioni del flusso di dati.
 
-    ![Filtro](media/tutorial-data-flow/filter2.png)
+    ![Filtra](media/tutorial-data-flow/filter2.png)
 
     Al termine dell'espressione, fare clic su **Salva e fine** .
 

@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498218"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -44,7 +44,7 @@ Esistono alcune differenze nelle funzionalità tra l'emulatore di archiviazione 
 
 Per avviare l'emulatore di archiviazione di Azure:
 
-1. Fare clic sul pulsante **Start** oppure premere il tasto **WINDOWS** .
+1. Fare clic sul pulsante **Start** oppure premere il tasto **WINDOWS**.
 2. Iniziare a digitare `Azure Storage Emulator`.
 3. Selezionare l'emulatore nell'elenco delle applicazioni visualizzate.
 
@@ -170,7 +170,7 @@ A partire dalla versione 3,1, l'emulatore di archiviazione supporta la replica g
 A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene visualizzata una finestra della console. Usare la riga di comando nella finestra della console per avviare e arrestare l'emulatore. È anche possibile eseguire una query per ottenere lo stato ed eseguire altre operazioni dalla riga di comando.
 
 > [!NOTE]
-> Se è installato l'emulatore di calcolo di Microsoft Azure, viene visualizzata un'icona nella barra delle applicazioni quando si avvia l'emulatore di archiviazione. Fare clic con il pulsante destro del mouse sull'icona per visualizzare un menu che include una modalità grafica per avviare e arrestare l'emulatore di archiviazione.
+> Se è installato l'emulatore di calcolo Microsoft Azure, viene visualizzata un'icona della barra delle applicazioni quando si avvia l'emulatore di archiviazione. Fare clic con il pulsante destro del mouse sull'icona per visualizzare un menu che include una modalità grafica per avviare e arrestare l'emulatore di archiviazione.
 >
 >
 
@@ -184,11 +184,11 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
 | Opzione | Descrizione | Comando | Argomenti |
 | --- | --- | --- | --- |
-| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare* : avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
+| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare*: avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Arresta l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
-| **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
-| **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : cancella i dati BLOB. <br/>*queue* : cancella i dati della coda. <br/>*table* : cancella i dati delle tabelle. <br/>*all* : cancella tutti i dati in tutti i servizi. |
-| **Init** |Esegue l'inizializzazione una sola volta per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName* : specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate* : forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate* : ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports* : tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports* : tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess* : esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
+| **Stato** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
+| **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
+| **Init** |Esegue l'inizializzazione una sola volta per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate*: ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports*: tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports*: tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Differenze tra l'emulatore di archiviazione e l'archiviazione di Azure
 
@@ -310,7 +310,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ### <a name="version-40"></a>Versione 4.0
 
-* Il file eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorageEmulator.exe* .
+* Il file eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Versione 3.2
 

@@ -3,8 +3,8 @@ title: Richiamare il programma MapReduce da Data factory di Azure
 description: Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdcaf20330a3700681fd96f858370dd7dcdf4c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636851"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495430"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -49,11 +49,11 @@ Vedere [Pig](data-factory-pig-activity.md) e [Hive](data-factory-hive-activity.m
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON per attività MapReduce di HDInsight
 Nella definizione JSON per l'attività HDInsight: 
 
-1. Impostare l'oggetto **type** di **activity** su **HDInsight** .
-2. Specificare il nome della classe per la proprietà **className** .
-3. Specificare il percorso del file JAR, includendo il nome file della proprietà **jarFilePath** .
-4. Specificare il servizio collegato che fa riferimento all'archivio BLOB di Azure contenente il file JAR per la proprietà **jarLinkedService** .   
-5. Specificare gli eventuali argomenti per il programma MapReduce nella sezione **arguments** . In fase di esecuzione, vengono visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile usare sia l'opzione che il valore come argomenti, come illustrato nell'esempio seguente (- s, --input - output e così via sono opzioni immediatamente seguite dai valori).
+1. Impostare l'oggetto **type** di **activity** su **HDInsight**.
+2. Specificare il nome della classe per la proprietà **className**.
+3. Specificare il percorso del file JAR, includendo il nome file della proprietà **jarFilePath**.
+4. Specificare il servizio collegato che fa riferimento all'archivio BLOB di Azure contenente il file JAR per la proprietà **jarLinkedService**.   
+5. Specificare gli eventuali argomenti per il programma MapReduce nella sezione **arguments**. In fase di esecuzione, vengono visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile usare sia l'opzione che il valore come argomenti, come illustrato nell'esempio seguente (- s, --input - output e così via sono opzioni immediatamente seguite dai valori).
 
     ```JSON   
     {
@@ -183,7 +183,7 @@ La pipeline in questo esempio contiene una sola attività che è di tipo: HDInsi
 
 | Proprietà | Note |
 |:--- |:--- |
-| tipo |Il tipo deve essere impostato su **HDInsightMapReduce** . |
+| tipo |Il tipo deve essere impostato su **HDInsightMapReduce**. |
 | className |Il nome della classe è: **wordcount** |
 | jarFilePath |Percorso del file jar contenente la classe. Se si copia e incolla il codice seguente, non dimenticare di modificare il nome del cluster. |
 | jarLinkedService |Servizio collegato di Archiviazione di Azure che contiene il file jar. Questo servizio collegato fa riferimento allo spazio di archiviazione associato al cluster HDInsight. |

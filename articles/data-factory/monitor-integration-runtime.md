@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637157"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497946"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory
 
@@ -48,7 +48,7 @@ Nella tabella seguente vengono fornite descrizioni per le proprietà restituite 
 | Proprietà | Descrizione |
 -------- | ------------- | 
 | Nome | Nome del runtime di integrazione di Azure. |  
-| Stato | Stato del runtime di integrazione di Azure. | 
+| State | Stato del runtime di integrazione di Azure. | 
 | Location | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
@@ -72,17 +72,17 @@ In questa sezione vengono fornite le descrizioni per le proprietà restituite da
 
 ### <a name="properties"></a>Proprietà
 
-La tabella seguente fornisce le descrizioni delle proprietà di monitoraggio per **ogni nodo** :
+La tabella seguente fornisce le descrizioni delle proprietà di monitoraggio per **ogni nodo**:
 
 | Proprietà | Descrizione | 
 | -------- | ----------- | 
 | Nome | Nome del runtime di integrazione self-hosted e dei nodi associati. Il nodo è un computer Windows locale su cui è installato il runtime di integrazione self-hosted. |  
 | Stato | Lo stato del runtime di integrazione self-hosted generale e di ogni nodo. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione successiva. | 
-| Versione | La versione del runtime di integrazione self-hosted e di ogni nodo. La versione del runtime di integrazione self-hosted viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del runtime di integrazione self-hosted sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del runtime di integrazione self-hosted funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). | 
+| Version | La versione del runtime di integrazione self-hosted e di ogni nodo. La versione del runtime di integrazione self-hosted viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del runtime di integrazione self-hosted sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del runtime di integrazione self-hosted funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). | 
 | Memoria disponibile | Memoria disponibile in un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. | 
 | Uso della CPU | Utilizzo della CPU da parte di un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. |
 | Rete (in/out) | Utilizzo del network da parte di un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. | 
-| Processi simultanei (in esecuzione/limite) | **In esecuzione** . Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. <br/><br/>**Limite** . Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per incrementare il numero di processi simultanei in esecuzione negli scenari avanzati, in cui si verifica il timeout delle attività anche in caso di sottoutilizzo di CPU, memoria o rete. Questa capacità è disponibile anche in un runtime di integrazione self-hosted a nodo singolo. |
+| Processi simultanei (in esecuzione/limite) | **In esecuzione**. Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. <br/><br/>**Limite**. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per incrementare il numero di processi simultanei in esecuzione negli scenari avanzati, in cui si verifica il timeout delle attività anche in caso di sottoutilizzo di CPU, memoria o rete. Questa capacità è disponibile anche in un runtime di integrazione self-hosted a nodo singolo. |
 | Ruolo | Esistono due tipi di ruoli in un runtime di integrazione self-hosted a più nodi: dispatcher e ruolo di lavoro. Tutti i nodi sono ruoli di lavoro e quindi possono essere tutti usati per eseguire i processi. Esiste un solo nodo dispatcher, che viene usato per eseguire il pull di attività/processi dai servizi cloud e inviarli a nodi ruolo di lavoro diversi. Il nodo dispatcher è anche un nodo di lavoro. |
 
 Alcune impostazioni delle proprietà sono più appropriate quando sono presenti due o più nodi nel runtime di integrazione self-hosted, ovvero in uno scenario in cui viene incrementato il numero di istanze.
@@ -181,7 +181,7 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | Nodi                        | I nodi allocati/disponibili della Azure-SSIS IR con stati specifici del nodo (avvio/disponibile/riciclo/non disponibile) ed errori eseguibili. |
 | OtherErrors                  | Errori interoperabili non specifici del nodo nel Azure-SSIS IR. |
 | LastOperation                | Il risultato dell'ultima operazione di avvio/arresto sul Azure-SSIS IR con errori di utilità pratica se non è riuscito. |
-| Stato                        | Stato complessivo (iniziale/iniziale/avviata/arrestata/arrestata) del Azure-SSIS IR. |
+| State                        | Stato complessivo (iniziale/iniziale/avviata/arrestata/arrestata) del Azure-SSIS IR. |
 | Location                     | Percorso della Azure-SSIS IR. |
 | NodeSize                     | Dimensioni di ogni nodo nella Azure-SSIS IR. |
 | NodeCount                    | Il numero di nodi nell'Azure-SSIS IR. |
@@ -193,7 +193,7 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | VNetId                       | ID della risorsa di rete virtuale per la Azure-SSIS IR da unire. |
 | Subnet                       | Nome della subnet per il Azure-SSIS IR da unire. |
 | ID                           | ID risorsa della Azure-SSIS IR. |
-| Type                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
+| Tipo                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
 | ResourceGroupName            | Nome del gruppo di risorse di Azure in cui sono stati creati i file ADF e Azure-SSIS IR. |
 | DataFactoryName              | Nome del file ADF. |
 | Nome                         | Nome del Azure-SSIS IR. |
@@ -234,7 +234,7 @@ Selezionare quindi il nome della Azure-SSIS IR per aprire la relativa pagina di 
 
 #### <a name="status-tile"></a>Riquadro stato
 
-Nel riquadro **stato** della pagina Monitoraggio Azure-SSIS IR è possibile visualizzare lo stato generale, ad esempio **in esecuzione** o **arrestato** . Se si seleziona lo stato **in esecuzione** , viene visualizzata una finestra con pulsante **Arresta** live per arrestare la Azure-SSIS IR. Se si seleziona lo stato **arrestato** , viene visualizzata una finestra con il pulsante Live **Start** per avviare il Azure-SSIS IR. Nella finestra popup è inoltre disponibile un pulsante **Esegui pacchetto SSIS** per generare automaticamente una pipeline ADF con l'attività Esegui pacchetto SSIS eseguita nel Azure-SSIS IR (vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS in pipeline ADF](./how-to-invoke-ssis-package-ssis-activity.md)) e una casella di testo **ID risorsa** , da cui è possibile copiare l'ID risorsa Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Il suffisso dell'ID di risorsa del Azure-SSIS IR che contiene i nomi di ADF e Azure-SSIS IR costituisce un ID cluster che può essere usato per acquistare componenti SSIS Premium/con licenza aggiuntivi da fornitori di software indipendenti (ISV) e associarli ai Azure-SSIS IR (vedere [installazione di componenti Premium/con licenza nel Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+Nel riquadro **stato** della pagina Monitoraggio Azure-SSIS IR è possibile visualizzare lo stato generale, ad esempio **in esecuzione** o **arrestato**. Se si seleziona lo stato **in esecuzione** , viene visualizzata una finestra con pulsante **Arresta** live per arrestare la Azure-SSIS IR. Se si seleziona lo stato **arrestato** , viene visualizzata una finestra con il pulsante Live **Start** per avviare il Azure-SSIS IR. Nella finestra popup è inoltre disponibile un pulsante **Esegui pacchetto SSIS** per generare automaticamente una pipeline ADF con l'attività Esegui pacchetto SSIS eseguita nel Azure-SSIS IR (vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS in pipeline ADF](./how-to-invoke-ssis-package-ssis-activity.md)) e una casella di testo **ID risorsa** , da cui è possibile copiare l'ID risorsa Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Il suffisso dell'ID di risorsa del Azure-SSIS IR che contiene i nomi di ADF e Azure-SSIS IR costituisce un ID cluster che può essere usato per acquistare componenti SSIS Premium/con licenza aggiuntivi da fornitori di software indipendenti (ISV) e associarli ai Azure-SSIS IR (vedere [installazione di componenti Premium/con licenza nel Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Monitorare il riquadro Stato Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

@@ -3,20 +3,20 @@ title: Creare pipeline di dati predittivi usando Azure Data Factory
 description: Viene descritto come creare pipeline predittive usando Azure Data Factory e Azure Machine Learning Studio (classico)
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: ce3175a015b7a5813f62c639fdadbeea367bbc22
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 481b801d481f32ef84279be2d8bd6089670a01b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631768"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496520"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creare pipeline predittive usando Azure Machine Learning Studio (classico) e Azure Data Factory
 
@@ -40,9 +40,9 @@ ms.locfileid: "92631768"
 ### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (versione classica)
 [Azure Machine Learning Studio (classico)](https://azure.microsoft.com/documentation/services/machine-learning/) consente di compilare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
 
-1. **Creare un esperimento di training** . Per eseguire questa operazione, è possibile usare Azure Machine Learning Studio (classico). Studio (classico) è un ambiente di sviluppo visivo collaborativo che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training.
-2. **Convertirlo in un esperimento predittivo** . Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
-3. **Distribuirlo come servizio Web** . È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
+1. **Creare un esperimento di training**. Per eseguire questa operazione, è possibile usare Azure Machine Learning Studio (classico). Studio (classico) è un ambiente di sviluppo visivo collaborativo che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training.
+2. **Convertirlo in un esperimento predittivo**. Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
+3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Data Factory è un servizio di integrazione dei dati basato sul cloud che orchestra e automatizza lo **spostamento** e la **trasformazione** dei dati. È possibile creare soluzioni di integrazione dei dati usando Azure Data Factory che può inserire dati da diversi archivi dati, trasformare/elaborare i dati e pubblicare i dati risultanti negli archivi dati.
@@ -59,7 +59,7 @@ Nel corso del tempo, è necessario ripetere il training dei modelli predittivi n
 1. Pubblicare l'esperimento di training, non l'esperimento predittivo, come servizio Web. Questa operazione viene eseguita in studio (classico), come è stato fatto per esporre l'esperimento predittivo come servizio Web nello scenario precedente.
 2. Usare l'attività di esecuzione batch di studio (classica) per richiamare il servizio Web per l'esperimento di training. In pratica, è possibile usare l'attività di esecuzione batch di studio (classica) per richiamare il servizio Web di training e il servizio Web di assegnazione dei punteggi.
 
-Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)** . Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
+Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Richiamo di un servizio Web tramite Attività di esecuzione batch
 Usare Azure Data Factory per orchestrare lo spostamento e l'elaborazione dei dati e quindi eseguire l'esecuzione del batch con studio (versione classica). Ecco i passaggi principali:
@@ -75,12 +75,12 @@ Usare Azure Data Factory per orchestrare lo spostamento e l'elaborazione dei dat
       ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 ### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti nell'archiviazione BLOB di Azure
-In questo scenario, il servizio Web Studio (classico) esegue stime usando i dati di un file in un archivio BLOB di Azure e archivia i risultati della stima nell'archivio BLOB. Il frammento di codice JSON seguente definisce una pipeline di Data factory con un'attività AzureMLBatchExecution. L'attività include il set di dati **DecisionTreeInputBlob** come input e il set di dati **DecisionTreeResultBlob** come output. Il set di dati **DecisionTreeInputBlob** viene passato come input al servizio Web usando la proprietà JSON **webServiceInput** . Il set di dati **DecisionTreeResultBlob** viene passato come output al servizio Web usando la proprietà JSON **webServiceOutputs** .
+In questo scenario, il servizio Web Studio (classico) esegue stime usando i dati di un file in un archivio BLOB di Azure e archivia i risultati della stima nell'archivio BLOB. Il frammento di codice JSON seguente definisce una pipeline di Data factory con un'attività AzureMLBatchExecution. L'attività include il set di dati **DecisionTreeInputBlob** come input e il set di dati **DecisionTreeResultBlob** come output. Il set di dati **DecisionTreeInputBlob** viene passato come input al servizio Web usando la proprietà JSON **webServiceInput**. Il set di dati **DecisionTreeResultBlob** viene passato come output al servizio Web usando la proprietà JSON **webServiceOutputs**.
 
 > [!IMPORTANT]
-> Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput** . Vedere la sezione [Il servizio Web richiede più input](#web-service-requires-multiple-inputs) per un esempio di uso della proprietà webServiceInputs.
+> Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput**. Vedere la sezione [Il servizio Web richiede più input](#web-service-requires-multiple-inputs) per un esempio di uso della proprietà webServiceInputs.
 >
-> I set di elementi a cui fanno riferimento le **webServiceInput** / **Proprietà webServiceInputs** e **webServiceOutputs** di webServiceInput (in **typeProperties** ) devono essere inclusi anche negli **input** e negli **output** dell'attività.
+> I set di elementi a cui fanno riferimento le **webServiceInput** / **Proprietà webServiceInputs** e **webServiceOutputs** di webServiceInput (in **typeProperties**) devono essere inclusi anche negli **input** e negli **output** dell'attività.
 >
 > Nell'esperimento di studio (classico), le porte e i parametri globali di input e output del servizio Web hanno nomi predefiniti ("INPUT1", "INPUT2") che è possibile personalizzare. I nomi scelti per le impostazioni webServiceInputs, webServiceOutputs e globalParameters devono corrispondere esattamente ai nomi negli esperimenti. È possibile visualizzare il payload della richiesta di esempio nella pagina della Guida esecuzione batch per l'endpoint di studio (classico) per verificare il mapping previsto.
 >
@@ -137,7 +137,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 
 Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione relativa alla [creazione della prima pipeline con Data Factory][adf-build-1st-pipeline]. Usare l'editor di Data Factory per creare elementi di Data Factory, come servizi collegati, set di dati e pipeline, in questo esempio.
 
-1. Creare un **servizio collegato** per **Archiviazione di Azure** . Se i file di input e output si trovano in account di archiviazione diversi, sono necessari due servizi collegati. Di seguito è fornito un esempio JSON:
+1. Creare un **servizio collegato** per **Archiviazione di Azure**. Se i file di input e output si trovano in account di archiviazione diversi, sono necessari due servizi collegati. Di seguito è fornito un esempio JSON:
 
     ```JSON
     {
@@ -150,7 +150,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
       }
     }
     ```
-2. Creare il **set di dati** di **input** di Azure Data Factory. A differenza di altri set di dati di Data Factory, questi devono includere entrambi i valori **folderPath** e **fileName** . È possibile usare il partizionamento per fare in modo che ogni esecuzione di batch (ogni sezione di dati) elabori o produca file di input e di output univoci. Può essere necessario includere alcune attività upstream per trasformare il file di input in formato CSV e inserirlo nell'account di archiviazione per ogni sezione. In tal caso, non è necessario includere le impostazioni **external** ed **externalData** illustrate nell'esempio seguente e DecisionTreeInputBlob sarà il set di dati di output di un'attività diversa.
+2. Creare il **set di dati** di **input** di Azure Data Factory. A differenza di altri set di dati di Data Factory, questi devono includere entrambi i valori **folderPath** e **fileName**. È possibile usare il partizionamento per fare in modo che ogni esecuzione di batch (ogni sezione di dati) elabori o produca file di input e di output univoci. Può essere necessario includere alcune attività upstream per trasformare il file di input in formato CSV e inserirlo nell'account di archiviazione per ogni sezione. In tal caso, non è necessario includere le impostazioni **external** ed **externalData** illustrate nell'esempio seguente e DecisionTreeInputBlob sarà il set di dati di output di un'attività diversa.
 
     ```JSON
     {
@@ -182,7 +182,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
     }
     ```
 
-    Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l' **attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true** . Ad esempio:
+    Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio:
 
     ```JSON
     sink:
@@ -192,7 +192,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
     }
     ```
 
-    Se il file CSV non ha la riga di intestazione, potrebbe essere visualizzato un messaggio di errore analogo al seguente: **Errore nell'attività: Errore di lettura della stringa. Token imprevisto: StartObject. Percorso '', riga 1, posizione 1** .
+    Se il file CSV non ha la riga di intestazione, potrebbe essere visualizzato un messaggio di errore analogo al seguente: **Errore nell'attività: Errore di lettura della stringa. Token imprevisto: StartObject. Percorso '', riga 1, posizione 1**.
 3. Creare il **set di dati** di **output** di Azure Data Factory. In questo esempio il file di output usa il partizionamento per creare un percorso di output univoco per l'esecuzione di ciascuna sezione. Senza il partizionamento l'attività sovrascriverà il file.
 
     ```JSON
@@ -301,7 +301,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
       }
       ```
 
-      I valori DateTime di **inizio** e di **fine** devono essere in [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica un valore per la proprietà **end** , questo viene calcolato come " **Start + 48 hours".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end** . Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](/previous-versions/azure/dn835050(v=azure.100)) .
+      I valori DateTime di **inizio** e di **fine** devono essere in [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica un valore per la proprietà **end** , questo viene calcolato come "**Start + 48 hours".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](/previous-versions/azure/dn835050(v=azure.100)) .
 
       > [!NOTE]
       > La specifica dell'input per l'attività AzureMLBatchExecution è opzionale.
@@ -347,7 +347,7 @@ Viene preso in esame uno scenario relativo all'uso dei parametri del servizio We
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Uso di un modulo Reader per leggere dati da più file del BLOB di Azure
 Le pipeline di Big Data, con attività come Pig e Hive, possono generare uno o più file di output senza estensioni. Ad esempio, quando si specifica una tabella Hive esterna, i dati per tale tabella possono essere archiviati nell'archiviazione BLOB di Azure con il nome 000000_0. È possibile usare il modulo Reader in un esperimento per la lettura di più file e usare questi ultimi per creare delle stime.
 
-Quando si usa il modulo Reader in un esperimento di studio (classico), è possibile specificare il BLOB di Azure come input. I file nell'archivio BLOB di Azure possono essere file di output, ad esempio 000000_0, generati da uno script Pig e Hive in esecuzione in HDInsight. Il modulo Reader consente di leggere i file, senza estensioni, configurando la voce **Path to container, directory or blob** (Percorso del contenitore, della directory o del BLOB). La parte relativa al **percorso del contenitore** punta al contenitore, mentre **directory o BLOB** punta alla cartella che contiene i file, come illustrato nell'immagine seguente. L'asterisco (\*) **specifica che tutti i file nel contenitore o nella cartella, ovvero data/aggregateddata/year=2014/month-6/\*** , vengono letti come parte dell'esperimento.
+Quando si usa il modulo Reader in un esperimento di studio (classico), è possibile specificare il BLOB di Azure come input. I file nell'archivio BLOB di Azure possono essere file di output, ad esempio 000000_0, generati da uno script Pig e Hive in esecuzione in HDInsight. Il modulo Reader consente di leggere i file, senza estensioni, configurando la voce **Path to container, directory or blob**(Percorso del contenitore, della directory o del BLOB). La parte relativa al **percorso del contenitore** punta al contenitore, mentre **directory o BLOB** punta alla cartella che contiene i file, come illustrato nell'immagine seguente. L'asterisco (\*) **specifica che tutti i file nel contenitore o nella cartella, ovvero data/aggregateddata/year=2014/month-6/\***, vengono letti come parte dell'esperimento.
 
 ![Proprietà del Blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -405,11 +405,11 @@ Quando si usa il modulo Reader in un esperimento di studio (classico), è possib
 Nell'esempio JSON precedente:
 
 * Il servizio Web distribuito in studio (classico) usa un modulo Reader e writer per leggere/scrivere dati da/in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.
-* I valori DateTime di **inizio** e di **fine** devono essere in [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica un valore per la proprietà **end** , questo viene calcolato come " **Start + 48 hours".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end** . Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](/previous-versions/azure/dn835050(v=azure.100)) .
+* I valori DateTime di **inizio** e di **fine** devono essere in [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica un valore per la proprietà **end** , questo viene calcolato come "**Start + 48 hours".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](/previous-versions/azure/dn835050(v=azure.100)) .
 
 ### <a name="other-scenarios"></a>Altri scenari
 #### <a name="web-service-requires-multiple-inputs"></a>Il servizio Web richiede più input
-Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput** . Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività.
+Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput**. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività.
 
 Nell'esperimento di Azure Machine Learning Studio (classico), le porte e i parametri globali di input e output del servizio Web hanno nomi predefiniti ("INPUT1", "INPUT2") che è possibile personalizzare. I nomi scelti per le impostazioni webServiceInputs, webServiceOutputs e globalParameters devono corrispondere esattamente ai nomi negli esperimenti. È possibile visualizzare il payload della richiesta di esempio nella pagina della Guida esecuzione batch per l'endpoint di studio (classico) per verificare il mapping previsto.
 
@@ -545,7 +545,7 @@ Ecco i **punti chiave** :
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Aggiornamento dei modelli con Attività della risorsa di aggiornamento
-Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)** . Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
+Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
 ### <a name="reader-and-writer-modules"></a>Moduli Reader e Writer 
 Uno scenario comune per l'uso dei parametri del servizio Web è costituito dai reader e dai writer SQL di Azure. Il modulo Reader viene usato per caricare i dati in un esperimento da servizi di gestione dati all'esterno di studio (classico). Il modulo Writer consente di salvare i dati degli esperimenti in servizi di gestione dati all'esterno di studio (classico).

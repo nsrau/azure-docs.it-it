@@ -3,20 +3,20 @@ title: 'Esercitazione Data Factory: prima pipeline di dati '
 description: Questa esercitazione di Azure Data Factory illustra come creare e pianificare una data factory che elabora i dati usando uno script Hive in un cluster Hadoop.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a79872c11d76a74932fe232fa3f7818edc58ffcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966084"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496212"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "75966084"
 
 
 > [!NOTE]
-> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md) (Creare una data factory con Azure Data Factory).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In questa esercitazione si compila la prima data factory di Azure con una pipeline di dati. La pipeline trasforma i dati di input tramite l'esecuzione di script Hive su un cluster Azure HDInsight (Hadoop) per generare i dati di output.  
 
@@ -46,7 +46,7 @@ In questa esercitazione si segue questa procedura:
 3. Creare **servizi collegati**. Creare un servizio collegato per collegare un archivio dati o un servizio di calcolo alla data factory. Un archivio dati come Archiviazione di Azure contiene i dati di input/output delle attività nella pipeline. Un servizio di calcolo come un cluster Hadoop di HDInsight elabora/trasforma i dati.
 
     In questa esercitazione guidata si creano due servizi collegati : **Archiviazione di Azure** e **Azure HDInsight**. Il servizio collegato Archiviazione di Azure collega un account di archiviazione di Azure contenente i dati di input/output alla data factory. Il servizio collegato Azure HDInsight collega un cluster HDInsight di Azure usato per trasformare i dati alla data factory.
-3. Creare **set**di dati di input e di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività.
+3. Creare **set** di dati di input e di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività.
 
     In questa esercitazione i set di dati di input e output specificano i percorsi dei dati di input e output nell'Archiviazione BLOB di Azure. Il servizio collegato Archiviazione di Azure specifica l'account di archiviazione di Azure che viene usato. Un set di dati di input specifica la posizione in cui si trovano i file di input e un set di dati di output specifica la posizione in cui verranno inseriti i file di output.
 
@@ -85,7 +85,7 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 4. Scaricare ed esaminare il file di input di esempio (**input.log**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure.
 6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](https://storageexplorer.com/).
-7. Caricare il file**input.log** nella cartella **inputdata** nel contenitore **adfgetstarted**.
+7. Caricare il file **input.log** nella cartella **inputdata** nel contenitore **adfgetstarted**.
 
 Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione:
 

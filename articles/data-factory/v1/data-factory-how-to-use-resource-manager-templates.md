@@ -3,20 +3,20 @@ title: Usare modelli di Gestione risorse in Data Factory
 description: Informazioni su come creare e usare modelli di Azure Resource Manager per la creazione di entità di Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b5df2f9cd0a47e5a89d7ff2eb12aefe593cae7a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4c840d50fb80a57e9c68645ade8baa22b455fa84
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631479"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495498"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -233,7 +233,7 @@ Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consiglia
 * Le impostazioni variano a seconda dell'ambiente, ad esempio di sviluppo, test e produzione
 * Segreti (password)
 
-Se è necessario eseguire il pull di segreti dall' [Insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l' **insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
+Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l'**insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
 
 ```JSON
 "parameters": {

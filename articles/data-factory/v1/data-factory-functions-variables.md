@@ -2,20 +2,20 @@
 title: Funzioni Data Factory e variabili di sistema
 description: Fornisce un elenco delle funzioni e delle variabili di sistema di Azure Data Factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9b5f91655367e866858a04b941cec4ee61dfe180
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631513"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495651"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
 > [!NOTE]
@@ -37,7 +37,7 @@ In questo articolo vengono fornite informazioni sulle funzioni e le variabili su
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Esempio di uso di una variabile di sistema
-Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengono estratti in variabili separate usate dalle proprietà **folderPath** e **fileName** .
+Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengono estratti in variabili separate usate dalle proprietà **folderPath** e **fileName**.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengo
    
     La sintassi $$ non è necessaria per definire le espressioni delle dipendenze di input.     
 
-Nell'esempio seguente la proprietà **sqlReaderQuery** di un file JSON è assegnata a un valore restituito dalla funzione `Text.Format`. Questo esempio usa anche una variabile di sistema denominata **WindowStart** , che rappresenta l'ora di inizio della finestra di esecuzione dell'attività.
+Nell'esempio seguente la proprietà **sqlReaderQuery** di un file JSON è assegnata a un valore restituito dalla funzione `Text.Format`. Questo esempio usa anche una variabile di sistema denominata **WindowStart**, che rappresenta l'ora di inizio della finestra di esecuzione dell'attività.
 
 ```json
 {
@@ -78,8 +78,8 @@ Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 | Category | Funzione | Parametri | Descrizione |
 | --- | --- | --- | --- |
 | Tempo |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Ora |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Ora |StartOfHour(X) |X: DateTime  |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Tempo |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Tempo |StartOfHour(X) |X: DateTime  |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Data |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y giorni a X. <br/><br/>Esempio: 9/15/2013 12:00:00 PM + 2 giorni = 9/17/2013 12:00:00 PM.<br/><br/>È possibile anche sottrarre giorni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Data |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y mesi a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>È possibile anche sottrarre mesi specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Data |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y * 3 mesi a X.<br/><br/>Esempio: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
@@ -175,7 +175,7 @@ Nell'esempio seguente, il parametro DateTime per l'attività Stored Procedure vi
 }
 ```
 
-### <a name="example-3"></a>Esempio 3:
+### <a name="example-3"></a>Esempio 3
 Per leggere i dati del giorno precedente anziché del giorno rappresentato da SliceStart, usare la funzione AddDays, come illustrato nell'esempio seguente: 
 
 ```json

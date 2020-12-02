@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019580"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498320"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -23,8 +23,8 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 * Un dispositivo x86-64 o ARM64 che esegue uno dei [sistemi operativi Linux supportati](../../iot-edge/support.md#operating-systems)
 * Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner)
 * [Creare e configurare l'hub Internet](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
-* [Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Registrare IoT Edge dispositivo](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
 
     * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
@@ -99,7 +99,7 @@ Il portale di Azure illustra la creazione di un manifesto di distribuzione e il 
 
 #### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Il portale di Azure dispone di una procedura guidata che illustra la creazione di un manifesto di distribuzione. Include tre passaggi organizzati in schede: **moduli**, **Route**e **Revisione + creazione**.
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Il portale di Azure dispone di una procedura guidata che illustra la creazione di un manifesto di distribuzione. Include tre passaggi organizzati in schede: **moduli**, **Route** e **Revisione + creazione**.
 
 #### <a name="add-modules"></a>Aggiungere moduli
 
@@ -113,7 +113,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     ![Screenshot mostra la scheda impostazioni del modulo.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Non selezionare **Aggiungi** fino a quando non sono stati specificati i valori nelle schede **Impostazioni modulo**, **Opzioni di creazione contenitori**e **modulo gemello** , come descritto in questa procedura.
+    > Non selezionare **Aggiungi** fino a quando non sono stati specificati i valori nelle schede **Impostazioni modulo**, **Opzioni di creazione contenitori** e **modulo gemello** , come descritto in questa procedura.
     
     > [!WARNING]
     > Azure IoT Edge distingue tra maiuscole e minuscole quando si effettuano chiamate ai moduli. Prendere nota della stringa esatta usata come nome del modulo.

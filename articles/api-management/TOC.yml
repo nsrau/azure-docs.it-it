@@ -8,7 +8,7 @@
       href: api-management-features.md
     - name: Gestire i microservizi distribuiti nel servizio Azure Kubernetes
       href: api-management-kubernetes.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un'istanza- Interfaccia della riga di comando
@@ -80,6 +80,8 @@
       href: observability.md
     - name: CI/CD con modelli di Resource Manager
       href: devops-api-development-templates.md
+    - name: Eliminazione temporanea
+      href: soft-delete.md
 - name: Guide pratiche
   items:
     - name: Definire API

@@ -4,16 +4,16 @@ description: Viene descritto come spostare una risorsa Azure Analysis Services i
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497929"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Spostare Analysis Services in un'area diversa
 
@@ -54,7 +54,7 @@ Prima di trasferire un server in un'area diversa, è consigliabile creare un pia
 - **SQL Server Management Studio (SSMS)**: obbligatorio per il backup e il ripristino dei database modello.
 - **Azure PowerShell**. Obbligatorio solo se si sceglie di completare questa attività usando PowerShell.
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 ### <a name="backup-model-databases"></a>Database modello di backup
 
@@ -73,7 +73,7 @@ Per esportare un modello con il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **tutte le risorse**e quindi selezionare il server Analysis Services.
+2. Selezionare **tutte le risorse** e quindi selezionare il server Analysis Services.
 
 3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 
@@ -88,7 +88,7 @@ Per esportare un modello con il portale di Azure:
 
 Per esportare un modello usando PowerShell:
 
-1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
+1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e seguire le istruzioni visualizzate:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -129,7 +129,7 @@ Per ottenere una firma di accesso condiviso tramite il portale:
 
     :::image type="content" source="media/move-between-regions/get-sas.png" alt-text="Ottenere una firma di accesso condiviso":::
 
-4. In **firma di accesso condiviso**selezionare **Crea**. Per impostazione predefinita, la firma di accesso condiviso scadrà tra 24 ore.
+4. In **firma di accesso condiviso** selezionare **Crea**. Per impostazione predefinita, la firma di accesso condiviso scadrà tra 24 ore.
 
 5. Copiare e salvare l' **URI**. 
 
@@ -177,7 +177,7 @@ Per modificare il modello:
 
 #### <a name="regions"></a>Regioni
 
-Per ottenere le aree di Azure, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Per ottenere le aree usando PowerShell, eseguire il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+Per ottenere le aree di Azure, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Per ottenere le aree usando PowerShell, eseguire il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Per distribuire una nuova risorsa server in un'area diversa, si userà il **temp
 
 1. Nel portale selezionare **Crea una risorsa**.
 
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
 
 3. Selezionare **distribuzione modelli**.
 
@@ -199,7 +199,7 @@ Per distribuire una nuova risorsa server in un'area diversa, si userà il **temp
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.jsnel** file esportato e modificato.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.jsnel** file esportato e modificato.
 
 7. Verificare che nell'editor dei modelli siano visualizzate le proprietà corrette per il nuovo server di destinazione.
 
@@ -209,7 +209,7 @@ Per distribuire una nuova risorsa server in un'area diversa, si userà il **temp
 
     - **Sottoscrizione**: selezionare la sottoscrizione di Azure.
     
-    - **Gruppo di risorse**: selezionare **Crea nuovo**e quindi immettere un nome per il gruppo di risorse. È possibile selezionare un gruppo di risorse esistente a condizione che non contenga già un server di Analysis Services con lo stesso nome.
+    - **Gruppo di risorse**: selezionare **Crea nuovo** e quindi immettere un nome per il gruppo di risorse. È possibile selezionare un gruppo di risorse esistente a condizione che non contenga già un server di Analysis Services con lo stesso nome.
     
     - **Località**: selezionare la stessa area specificata nel modello.
 
@@ -278,7 +278,7 @@ Facoltativo: dopo il ripristino del database modello, elaborare il modello e le 
 
 Facoltativo: [Alm Toolkit](http://alm-toolkit.com/) è uno strumento *Open Source* per il confronto e la gestione di set di dati Power bi *e* Analysis Services database modello tabulare. Usare il Toolkit per connettersi ai database del server di origine e di destinazione e confrontare. Se la migrazione del database ha esito positivo, gli oggetti modello utilizzeranno la stessa definizione. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Ottenere una firma di accesso condiviso":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

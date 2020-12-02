@@ -3,8 +3,8 @@ title: Monitorare e gestire le pipeline di dati-Azure
 description: Informazioni sull'uso dell'app di monitoraggio e gestione per monitorare e gestire le data factory e le pipeline di Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570081"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495702"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -159,10 +159,10 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Description</th>
+    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
 </tr>
 <tr>
-    <td rowspan="8">Attesa</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
+    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Le dipendenze upstream non sono pronte.</td>
@@ -193,7 +193,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>È in corso l'elaborazione della finestra attività.</td>
 </tr>
 <tr>
-<td rowspan="4">Operazione non riuscita</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
+<td rowspan="4">Non riuscito</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
 </tr>
 <tr>
 <td>Cancellati</td><td>La finestra attività è stata annullata dall'utente.</td>
@@ -266,7 +266,7 @@ Modificare le impostazioni relative all'**ora di inizio** e all'**ora di fine** 
 >
 >
 
-Nell' **elenco Finestre attività**fare clic sul nome di una colonna, ad esempio Stato.
+Nell' **elenco Finestre attività** fare clic sul nome di una colonna, ad esempio Stato.
 
 ![Menu della colonna nell'elenco Activity Windows (Finestre attività)](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 

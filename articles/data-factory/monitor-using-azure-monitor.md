@@ -3,20 +3,20 @@ title: Monitorare le data factory con Monitoraggio di Azure
 description: Informazioni su come usare monitoraggio di Azure per monitorare le pipeline di/Azure Data Factory abilitando i log di diagnostica con le informazioni provenienti da Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: af274c9c50b514befb4a3ce5930877edf964d976
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638092"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497895"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorare e inviare avvisi Data Factory tramite monitoraggio di Azure
 
@@ -34,9 +34,9 @@ Per altre informazioni, vedere [Panoramica di Monitoraggio di Azure](../azure-mo
 
 Data Factory archivia i dati di esecuzione della pipeline solo per 45 giorni. Usare monitoraggio di Azure se si vuole che i dati vengano mantenuti per un periodo di tempo più lungo. Con monitoraggio è possibile indirizzare i log di diagnostica per l'analisi a più destinazioni diverse.
 
-* **Account di archiviazione** : salvare i log di diagnostica in un account di archiviazione per il controllo o l'ispezione manuale. È possibile usare le impostazioni di diagnostica per specificare il periodo di conservazione in giorni.
-* **Hub eventi** : trasmettere i log a hub eventi di Azure. I log vengono inseriti in una soluzione di analisi personalizzata o del servizio partner come Power BI.
-* **Log Analytics** : analizzare i log con log Analytics. L'integrazione di Data Factory con monitoraggio di Azure è utile negli scenari seguenti:
+* **Account di archiviazione**: salvare i log di diagnostica in un account di archiviazione per il controllo o l'ispezione manuale. È possibile usare le impostazioni di diagnostica per specificare il periodo di conservazione in giorni.
+* **Hub eventi**: trasmettere i log a hub eventi di Azure. I log vengono inseriti in una soluzione di analisi personalizzata o del servizio partner come Power BI.
+* **Log Analytics**: analizzare i log con log Analytics. L'integrazione di Data Factory con monitoraggio di Azure è utile negli scenari seguenti:
   * Si desidera scrivere query complesse su un set completo di metriche pubblicate da Data Factory per il monitoraggio. È possibile creare avvisi personalizzati per queste query tramite monitoraggio.
   * Per eseguire il monitoraggio nelle data factory È possibile indirizzare i dati da più data factory a una singola area di lavoro di monitoraggio.
 
@@ -46,19 +46,19 @@ Data Factory archivia i dati di esecuzione della pipeline solo per 45 giorni. Us
 
 Creare o aggiungere impostazioni di diagnostica per il data factory.
 
-1. Nel portale passare a monitoraggio. Selezionare **Impostazioni**  >  **impostazioni di diagnostica** .
+1. Nel portale passare a monitoraggio. Selezionare **Impostazioni**  >  **impostazioni di diagnostica**.
 
 1. Selezionare il data factory per cui si desidera impostare un'impostazione di diagnostica.
 
-1. Se nella data factory selezionata non sono presenti impostazioni, viene richiesto di creare un'impostazione. Selezionare **Attiva diagnostica** .
+1. Se nella data factory selezionata non sono presenti impostazioni, viene richiesto di creare un'impostazione. Selezionare **Attiva diagnostica**.
 
    ![Crea un'impostazione di diagnostica se non esistono impostazioni](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   Se nel data factory sono presenti impostazioni esistenti, viene visualizzato un elenco di impostazioni già configurate nel data factory. Selezionare **Aggiungi impostazioni di diagnostica** .
+   Se nel data factory sono presenti impostazioni esistenti, viene visualizzato un elenco di impostazioni già configurate nel data factory. Selezionare **Aggiungi impostazione di diagnostica**.
 
    ![Aggiungere un'impostazione di diagnostica se esistono impostazioni](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. Assegnare un nome all'impostazione, selezionare **Invia a log Analytics** e quindi selezionare un'area di lavoro da **log Analytics area di lavoro** .
+1. Assegnare un nome all'impostazione, selezionare **Invia a log Analytics** e quindi selezionare un'area di lavoro da **log Analytics area di lavoro**.
 
     * In modalità _diagnostica di Azure_ , i log di diagnostica fluiscono nella tabella _AzureDiagnostics_ .
 
@@ -75,14 +75,14 @@ Creare o aggiungere impostazioni di diagnostica per il data factory.
 
       È possibile selezionare diversi log rilevanti per i carichi di lavoro da inviare a Log Analytics tabelle. Se, ad esempio, non si usa SQL Server Integration Services (SSIS), non è necessario selezionare alcun log SSIS. Se si desidera registrare le operazioni di avvio/arresto/manutenzione di SSIS Integration Runtime (IR), è possibile selezionare log IR SSIS. Se si richiamano le esecuzioni di pacchetti SSIS tramite T-SQL in SQL Server Management Studio (SSMS), SQL Server Agent o altri strumenti designati, è possibile selezionare i log dei pacchetti SSIS. Se si richiamano le esecuzioni di pacchetti SSIS tramite Esegui attività del pacchetto SSIS nelle pipeline di ADF, è possibile selezionare tutti i log.
 
-    * Se si seleziona _AllMetrics_ , verranno rese disponibili diverse metriche di ADF per il monitoraggio o la generazione di avvisi, incluse le metriche per l'attività, la pipeline e le esecuzioni di trigger di ADF, nonché per le operazioni IR SSIS e le esecuzioni di pacchetti SSIS.
+    * Se si seleziona _AllMetrics_, verranno rese disponibili diverse metriche di ADF per il monitoraggio o la generazione di avvisi, incluse le metriche per l'attività, la pipeline e le esecuzioni di trigger di ADF, nonché per le operazioni IR SSIS e le esecuzioni di pacchetti SSIS.
 
    ![Denominare le impostazioni e selezionare un'area di lavoro log-Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è **consigliabile** selezionare la _modalità specifica della risorsa_ . Per ulteriori informazioni, vedere [log Analytics limitazioni note](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è **consigliabile** selezionare la _modalità specifica della risorsa_. Per ulteriori informazioni, vedere [log Analytics limitazioni note](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Selezionare **Salva** .
+1. Selezionare **Salva**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa data factory. I log di diagnostica vengono trasmessi a tale area di lavoro non appena vengono generati nuovi dati degli eventi. Un massimo di 15 minuti può trascorrere tra il momento in cui viene generato un evento e il momento in cui viene visualizzato in Log Analytics.
 
@@ -94,7 +94,7 @@ Questa soluzione fornisce un riepilogo dello stato generale del Data Factory, co
 * Possibilità di analizzare data factory esecuzioni di attività in base al tipo
 * Riepilogo della pipeline data factory top, errori di attività
 
-1. Passare ad **Azure Marketplace** , scegliere filtro di **analisi** e cercare **Azure Data Factory Analytics (anteprima)**
+1. Passare ad **Azure Marketplace**, scegliere filtro di **analisi** e cercare **Azure Data Factory Analytics (anteprima)**
 
    ![Passare a "Azure Marketplace", immettere "filtro Analytics" e selezionare "Azure Data Factory Analytics (anteprima")](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
@@ -102,7 +102,7 @@ Questa soluzione fornisce un riepilogo dello stato generale del Data Factory, co
 
    ![Dettagli su "Azure Data Factory Analytics (anteprima)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-1. Selezionare **Crea** e quindi creare o selezionare l' **area di lavoro log Analytics** .
+1. Selezionare **Crea** e quindi creare o selezionare l' **area di lavoro log Analytics**.
 
    ![Creazione di una nuova soluzione](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
@@ -127,7 +127,7 @@ Con l'installazione di questa soluzione viene creato un set predefinito di viste
 ![Rappresentazione grafica delle esecuzioni di pipeline per data factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> Azure Data Factory Analytics (anteprima) Invia i log di diagnostica alle tabelle di destinazione _specifiche delle risorse_ . È possibile scrivere query sulle tabelle seguenti: _ADFPipelineRun_ , _ADFTriggerRun_ e _ADFActivityRun_ .
+> Azure Data Factory Analytics (anteprima) Invia i log di diagnostica alle tabelle di destinazione _specifiche delle risorse_ . È possibile scrivere query sulle tabelle seguenti: _ADFPipelineRun_, _ADFTriggerRun_ e _ADFActivityRun_.
 
 ## <a name="data-factory-metrics"></a>Metriche di Data Factory
 
@@ -274,7 +274,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | **storageAccountId** |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica. |
 | **serviceBusRuleId** |string | ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui si vuole creare hub eventi per la trasmissione dei log di diagnostica. Il formato dell'ID regola è `{service bus resource ID}/authorizationrules/{key name}` .|
 | **workspaceId** | Tipo complesso | Matrice di granularità temporale metrica e relativi criteri di conservazione. Il valore di questa proprietà è vuoto. |
-|**Metriche**| Valori di parametri della pipeline eseguita da passare alla pipeline richiamata| Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti. |
+|**metriche**| Valori di parametri della pipeline eseguita da passare alla pipeline richiamata| Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti. |
 | **log**| Tipo complesso| Nome di una categoria di log di diagnostica per un tipo di risorsa. Per ottenere l'elenco delle categorie di log di diagnostica per una risorsa, eseguire un'operazione GET Diagnostic-Settings. |
 | **category**| string| Una matrice di categorie di log e i relativi criteri di conservazione. |
 | **timeGrain** | string | Granularità delle metriche, acquisite nel formato di durata ISO 8601. Il valore della proprietà deve essere `PT1M` , che specifica un minuto. |
@@ -829,7 +829,7 @@ Log Analytics eredita lo schema da monitoraggio con le eccezioni seguenti:
 * Non esiste alcuna colonna "Level".
 * La colonna dinamica "Properties" viene mantenuta come il seguente tipo di BLOB JSON dinamici.
 
-    | Colonna monitoraggio di Azure | Log Analytics colonna | Type |
+    | Colonna monitoraggio di Azure | Log Analytics colonna | Tipo |
     | --- | --- | --- |
     | $. Properties. UserProperties | UserProperties | Dynamic |
     | $. Properties. Annotazioni | annotazioni | Dynamic |

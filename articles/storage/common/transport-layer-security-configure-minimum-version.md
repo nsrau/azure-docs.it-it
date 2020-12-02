@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312016"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498133"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -35,7 +35,7 @@ Quando si applica una versione minima di TLS per l'account di archiviazione, si 
 
 Per registrare le richieste nell'account di archiviazione di Azure e determinare la versione di TLS usata dal client, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../blobs/monitor-blob-storage.md).
 
-Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e analizzarli con Log Analytics di Azure, è prima necessario creare un'impostazione di diagnostica che indichi quali tipi di richieste e per quali servizi di archiviazione si desidera registrare i dati. Per creare un'impostazione di diagnostica nella portale di Azure, attenersi alla procedura seguente:
 
@@ -44,9 +44,9 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
 1. Selezionare il servizio di archiviazione di Azure per cui si vogliono registrare le richieste. Ad esempio, scegliere **BLOB** per registrare le richieste nell'archivio BLOB.
-1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Selezionare **Aggiungi impostazione di diagnostica**.
 1. Consente di specificare un nome per l'impostazione di diagnostica.
-1. In **Dettagli categoria** , nella sezione **log** , scegliere i tipi di richieste da registrare. È possibile registrare le richieste di lettura, scrittura ed eliminazione. La scelta di **StorageRead** e **StorageWrite** , ad esempio, registrerà le richieste di lettura e scrittura al servizio selezionato.
+1. In **Dettagli categoria**, nella sezione **log** , scegliere i tipi di richieste da registrare. È possibile registrare le richieste di lettura, scrittura ed eliminazione. La scelta di **StorageRead** e **StorageWrite** , ad esempio, registrerà le richieste di lettura e scrittura al servizio selezionato.
 1. In **Dettagli destinazione** selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
@@ -91,7 +91,7 @@ Quando si è certi che il traffico proveniente dai client che usano versioni pre
 
 Per configurare la versione minima di TLS per un account di archiviazione, impostare la versione di **MinimumTlsVersion** per l'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni sul modello di distribuzione Azure Resource Manager, vedere [Panoramica dell'account di archiviazione](storage-account-overview.md).
 
-Per impostazione predefinita, la proprietà **MinimumTlsVersion** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito.  Se il valore della proprietà è **null** , l'account di archiviazione consentirà le richieste inviate con TLS versione 1,0 o successiva.
+Per impostazione predefinita, la proprietà **MinimumTlsVersion** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito.  Se il valore della proprietà è **null**, l'account di archiviazione consentirà le richieste inviate con TLS versione 1,0 o successiva.
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
@@ -172,8 +172,8 @@ az storage account show \
 Per configurare la versione minima di TLS per un account di archiviazione con un modello, creare un modello con la proprietà **MinimumTLSVersion** impostata su `TLS1_0` , `TLS1_1` o `TLS1_2` . Nei passaggi seguenti viene descritto come creare un modello nel portale di Azure.
 
 1. Nella portale di Azure scegliere **Crea una risorsa**.
-1. In **Cerca nel Marketplace** Digitare **distribuzione modello** , quindi premere **invio**.
-1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)** , scegliere Crea, quindi **creare** **un modello personalizzato nell'editor**.
+1. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
+1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)**, scegliere Crea, quindi **creare** **un modello personalizzato nell'editor**.
 1. Nell'editor dei modelli incollare il codice JSON seguente per creare un nuovo account e impostare la versione minima di TLS su TLS 1,2. Ricordarsi di sostituire i segnaposto tra parentesi angolari con valori personalizzati.
 
     ```json

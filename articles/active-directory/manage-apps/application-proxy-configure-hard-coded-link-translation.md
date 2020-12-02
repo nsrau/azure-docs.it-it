@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997563"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498065"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure AD proxy di applicazione
 
@@ -86,28 +86,28 @@ Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 - I **collegamenti interni relativi** che puntano a una risorsa condivisa in una struttura di file locale come `/claims/claims.html`. Questi collegamenti sono attivati automaticamente nelle app che vengono pubblicate tramite il proxy di applicazione e continuano a funzionare con o senza la conversione dei collegamenti. 
 - **Collegamenti interni** hardcoded ad altre app locali come `http://expenses` o file pubblicati come `http://expenses/logo.jpg` . La funzionalità di conversione dei collegamenti funziona sui collegamenti interni hardcoded e li modifica in modo che puntino agli URL esterni che gli utenti remoti devono usare.
 
-L'elenco completo dei tag di codice HTML che il proxy di applicazione supporta la conversione dei collegamenti per includono:
-* a
-* Audio
-* base
-* .
-* div
-* embed
-* Modulo
-* frame
-* head
-* html
-* iframe
-* immagine
-* input
-* link
-* MenuItem
-* meta
-* object
-* script
-* source
-* track
-* Video
+L'elenco completo degli attributi nei tag di codice HTML che il proxy di applicazione supporta la conversione dei collegamenti per includono:
+* a (href)
+* audio (src)
+* base (href)
+* pulsante (formaction)
+* div (dati-sfondo, stile, dati-SRC)
+* incorpora (src)
+* Form (azione)
+* frame (src)
+* Head (profilo)
+* HTML (manifesto)
+* iframe (longdesc, src)
+* IMG (longdesc, src)
+* input (formaction, src, valore)
+* collegamento (href)
+* MenuItem (icona)
+* meta (contenuto)
+* Object (archivio, dati, codebase)
+* script (src)
+* origine (src)
+* rileva (src)
+* video (src, poster)
 
 Inoltre, all'interno di CSS viene convertito anche l'attributo URL.
 
