@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186661"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450103"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -35,7 +35,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | | Agente di monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|
 | **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Azure Arc)  | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
-| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
+| **Requisiti dell'agente**  | Nessuno | Nessuno | Nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | Log eventi<br>Prestazioni | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
 | **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
@@ -45,7 +45,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | | Agente di monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|:---|
 | **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Arc Arc) | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
-| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
+| **Requisiti dell'agente**  | Nessuno | Nessuno | Nessuno | Nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | syslog<br>Prestazioni | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
 | **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
@@ -176,6 +176,7 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                     |   | X | X | X |
+| SUSE Linux Enterprise Server 15,1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |

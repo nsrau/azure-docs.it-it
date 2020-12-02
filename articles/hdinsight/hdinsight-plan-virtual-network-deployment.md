@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 05/04/2020
-ms.openlocfilehash: 60bb16b0a4fd2e710d0d5fddc6cf82916f2f66af
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 750e8cc59f196fda6bf3a816885c3c0b29a69a56
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741420"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451921"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
 
@@ -148,7 +148,7 @@ Per abilitare la risoluzione dei nomi tra la rete virtuale e le risorse in reti 
 
          * Inoltrare tutte le altre richieste al server DNS locale. Il server DNS locale gestisce tutte le altre richieste di risoluzione dei nomi, persino le richieste per le risorse Internet quali Microsoft.com.
 
-     * __DNS locale__ : inoltrare le richieste per il suffisso DNS di rete virtuale al server DNS personalizzato. Il server DNS personalizzato le inoltra quindi al sistema di risoluzione ricorsiva di Azure.
+     * __DNS locale__: inoltrare le richieste per il suffisso DNS di rete virtuale al server DNS personalizzato. Il server DNS personalizzato le inoltra quindi al sistema di risoluzione ricorsiva di Azure.
 
        Questa configurazione indirizza le richieste di nomi di dominio completi che contengono il suffisso DNS della rete virtuale al server DNS personalizzato. Tutte le altre richieste (anche per gli indirizzi Internet pubblici) vengono gestite dal server DNS locale.
 
@@ -212,4 +212,4 @@ Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciam
 * Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
 * Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
-* Per altre informazioni sul controllo del traffico, vedere [controllare il traffico di rete](./control-network-traffic.md).
+* Per altre informazioni sul controllo del traffico con l'integrazione del firewall, vedere [controllare il traffico di rete](./control-network-traffic.md).

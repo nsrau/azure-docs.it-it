@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323840"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451716"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Usare le transazioni con un pool SQL dedicato in Azure sinapsi Analytics
 
@@ -27,7 +27,7 @@ Come ci si aspetterebbe, il pool SQL dedicato supporta le transazioni come parte
 
 ## <a name="transaction-isolation-levels"></a>Livelli di isolamento delle transazioni
 
-Il pool SQL implementa le transazioni ACID. Per impostazione predefinita, il livello di isolamento del supporto transazionale è READ UNCOMMITTED.  È possibile modificarlo in READ COMMITTED SNAPSHOT ISOLATION impostando su ON l'opzione di database READ_COMMITTED_SNAPSHOT per un database utente quando si è connessi al database master.  
+Il pool SQL dedicato implementa transazioni ACID. Per impostazione predefinita, il livello di isolamento del supporto transazionale è READ UNCOMMITTED.  È possibile modificarlo in READ COMMITTED SNAPSHOT ISOLATION impostando su ON l'opzione di database READ_COMMITTED_SNAPSHOT per un database utente quando si è connessi al database master.  
 
 Dopo l'abilitazione, tutte le transazioni in questo database vengono eseguite con READ COMMITTED SNAPSHOT ISOLATION e l'impostazione READ UNCOMMITTED a livello della sessione non verrà rispettata. Per informazioni dettagliate, vedere [Opzioni di ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true).
 
@@ -89,7 +89,7 @@ Per ottimizzare e ridurre al minimo la quantità di dati scritti nel log, vedere
 
 ## <a name="transaction-state"></a>Stato della transazione
 
-Il pool SQL usa la funzione XACT_STATE() per segnalare una transazione non riuscita con il valore -2. Questo valore indica che la transazione non è riuscita ed è contrassegnata solo per il rollback.
+Il pool SQL dedicato utilizza la funzione XACT_STATE () per segnalare una transazione non riuscita utilizzando il valore-2. Questo valore indica che la transazione non è riuscita ed è contrassegnata solo per il rollback.
 
 > [!NOTE]
 > L'uso di -2 da parte della funzione XACT_STATE per indicare una transazione non riuscita rappresenta un comportamento diverso da SQL Server. SQL Server usa il valore -1 per rappresentare una transazione di cui non è possibile eseguire il commit. SQL Server è in grado di tollerare alcuni errori all'interno di una transazione senza doverne indicare l'impossibilità di eseguire il commit. Ad esempio, `SELECT 1/0` causa un errore, ma non applica alla transazione lo stato per cui non è possibile eseguire il commit. SQL Server consente anche letture nella transazione di cui non è possibile eseguire il commit. Tuttavia, il pool SQL dedicato non consente di eseguire questa operazione. Se si verifica un errore all'interno di una transazione del pool SQL dedicata, entrerà automaticamente nello stato-2 e non sarà possibile effettuare altre istruzioni SELECT fino a quando non viene eseguito il rollback dell'istruzione. È quindi importante verificare il codice dell'applicazione per vedere se usa XACT_STATE(), perché può essere necessario modificarlo.
@@ -193,7 +193,7 @@ THROW è l'implementazione più moderna per la generazione di eccezioni nel pool
 
 ## <a name="limitations"></a>Limitazioni
 
-Il pool SQL presenta qualche altra limitazione relativa alle transazioni. Ecco quali sono:
+Il pool SQL dedicato presenta alcune altre restrizioni correlate alle transazioni. Ecco quali sono:
 
 * Nessuna transazione distribuita
 * Non sono consentite transazioni annidate
@@ -204,4 +204,4 @@ Il pool SQL presenta qualche altra limitazione relativa alle transazioni. Ecco q
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Sono inoltre disponibili ulteriori guide sulle procedure consigliate per il pool [SQL](best-practices-sql-pool.md) e il [pool SQL senza server (anteprima)](best-practices-sql-on-demand.md).
+Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Sono inoltre disponibili guide alle procedure consigliate aggiuntive per pool SQL [dedicato](best-practices-sql-pool.md) e [pool SQL senza server](best-practices-sql-on-demand.md).

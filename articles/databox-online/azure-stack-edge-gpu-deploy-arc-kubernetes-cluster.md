@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 11/12/2020
 ms.author: alkohli
-ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 342f6a2c4761104823694f2181b3ffa8726a441e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952217"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449410"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Abilitare Azure Arc in un cluster Kubernetes nel dispositivo GPU Pro Azure Stack Edge
 
 Questo articolo illustra come abilitare Azure Arc in un cluster Kubernetes esistente nel dispositivo Azure Stack Edge Pro. 
 
-Questa procedura è destinata agli utenti che hanno esaminato i [carichi di lavoro Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e hanno familiarità con i concetti di [Azure Arc Enabled Kubernetes (anteprima)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Questa procedura è destinata agli utenti che hanno esaminato i [carichi di lavoro Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e hanno familiarità con i concetti di [Azure Arc Enabled Kubernetes (anteprima)](../azure-arc/kubernetes/overview.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -39,14 +39,13 @@ Prima di abilitare Azure Arc in un cluster Kubernetes, verificare di aver comple
 
 1. Si dispone di un sistema client Windows che verrà usato per accedere al dispositivo Azure Stack Edge Pro.
   
-    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - È possibile avere anche un altro client con un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Questo articolo descrive la procedura quando si usa un client Windows. 
     
 1. È stata completata la procedura descritta in [accedere al cluster Kubernetes nel dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Precisamente:
     
-    - Installato `kubectl` nel client  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
-    
+    - Installato `kubectl` nel client.    
     - Verificare che la versione del `kubectl` client non sia più di una versione della versione master di Kubernetes in esecuzione nel dispositivo Azure stack Edge Pro. 
       - Usare `kubectl version` per verificare la versione di kubectl in esecuzione sul client. Prendere nota della versione completa.
       - Nell'interfaccia utente locale del dispositivo Azure Stack Edge Pro passare a **aggiornamento software** e prendere nota del numero di versione del server Kubernetes. 
@@ -55,7 +54,6 @@ Prima di abilitare Azure Arc in un cluster Kubernetes, verificare di aver comple
       
       - Verificare che le due versioni siano compatibili. 
 
-<!-- az cli version requirements-->
 
 ## <a name="register-kubernetes-resource-providers"></a>Registrare i provider di risorse Kubernetes
 
@@ -90,7 +88,7 @@ Prima di abilitare Azure Arc sul cluster Kubernetes, è necessario abilitare e r
 
     `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
-    Per informazioni su come accedere a `az cli` , [avviare Cloud Shell in portale di Azure](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
+    Per informazioni su come accedere a `az cli` , [avviare Cloud Shell in portale di Azure](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
     Ecco un esempio. 
     
@@ -129,7 +127,7 @@ Prima di abilitare Azure Arc sul cluster Kubernetes, è necessario abilitare e r
     }
     PS /home/user>
     ```
-    Per altre informazioni su come creare un'entità servizio ed eseguire l'assegnazione di ruolo, vedere la procedura descritta in [creare un'entità servizio di onboarding abilitata per Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
+    Per altre informazioni su come creare un'entità servizio ed eseguire l'assegnazione di ruolo, vedere la procedura descritta in [creare un'entità servizio di onboarding abilitata per Azure Arc](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 
 ## <a name="enable-arc-on-kubernetes-cluster"></a>Abilitare Arc nel cluster Kubernetes
@@ -142,7 +140,10 @@ Per configurare il cluster Kubernetes per la gestione di Azure Arc, seguire ques
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Per distribuire Azure Arc sul dispositivo Azure Stack Edge Pro, assicurarsi di usare un' [area supportata per Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc è attualmente in fase di anteprima. È anche possibile determinare il nome esatto dell'area da passare nel cmdlet usando il `az account list-locations` comando.
+
+    > [!NOTE]
+    > - Per distribuire Azure Arc sul dispositivo, assicurarsi di usare un' [area supportata per Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
+    > - Usare il `az account list-locations` comando per determinare il nome esatto del percorso da passare nel `Set-HcsKubernetesAzureArcAgent` cmdlet. I nomi dei percorsi vengono in genere formattati senza spazi.
     
     Esempio:
    
@@ -221,6 +222,9 @@ Per rimuovere la gestione di Azure Arc, attenersi alla procedura seguente:
 
     `Remove-HcsKubernetesAzureArcAgent` 
 
+
+> [!NOTE]
+> Per impostazione predefinita, quando la risorsa `yamls` viene eliminata dal repository git, le risorse corrispondenti non vengono eliminate dal cluster Kubernetes. È necessario impostare `--sync-garbage-collection`  in Arc OperatorParams per consentire l'eliminazione delle risorse quando viene eliminato dal repository git. Per ulteriori informazioni, vedere [Delete a Configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

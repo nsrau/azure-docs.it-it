@@ -1,6 +1,6 @@
 ---
 title: Notebook di sinapsi Studio
-description: Questo articolo illustra come creare e sviluppare notebook di Azure Synapse Studio (anteprima) per la preparazione e la visualizzazione dei dati.
+description: Questo articolo illustra come creare e sviluppare notebook di Azure sinapsi Studio per la preparazione e la visualizzazione dei dati.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900892"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450870"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire i notebook di sinapsi Studio (anteprima) in Azure sinapsi Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire notebook di sinapsi studio in Azure sinapsi Analytics
 
-Un notebook di sinapsi Studio (anteprima) è un'interfaccia Web che consente di creare file che contengono codice in tempo reale, visualizzazioni e testo descrittivo. I notebook possono essere usati per convalidare idee ed eseguire esperimenti rapidi per ottenere informazioni cognitive dettagliate dai dati. I notebook sono anche ampiamente usati per la preparazione e la visualizzazione dei dati, l'apprendimento automatico e altri scenari di Big Data.
+Un notebook di sinapsi studio è un'interfaccia Web che consente di creare file che contengono codice in tempo reale, visualizzazioni e testo descrittivo. I notebook possono essere usati per convalidare idee ed eseguire esperimenti rapidi per ottenere informazioni cognitive dettagliate dai dati. I notebook sono anche ampiamente usati per la preparazione e la visualizzazione dei dati, l'apprendimento automatico e altri scenari di Big Data.
 
 Con un notebook di Azure Synapse Studio è possibile:
 
@@ -33,13 +33,13 @@ Questo articolo descrive come usare i notebook in Azure Synapse Studio.
 ## <a name="preview-of-the-new-notebook-experience"></a>Anteprima della nuova esperienza notebook
 Il team sinapsi ha portato il nuovo componente notebooks in sinapsi Studio per offrire un'esperienza coerente con i notebook per i clienti Microsoft e massimizzare l'individuabilità, la produttività, la condivisione e la collaborazione. La nuova esperienza notebook è pronta per l'anteprima. Selezionare il pulsante **funzionalità di anteprima** nella barra degli strumenti del notebook per attivarlo. La tabella seguente acquisisce il confronto delle funzionalità tra un notebook esistente (denominato "notebook classico") con la nuova versione di anteprima.  
 
-|Funzionalità|Notebook classico|Anteprima notebook|
+|Feature|Notebook classico|Anteprima notebook|
 |--|--|--|
-|% esecuzione| Non supportate | &#9745;|
-|% cronologia| Non supportate |&#9745;
-|% carico| Non supportate |&#9745;|
-|%% HTML| Non supportate |&#9745;|
-|Trascinare e rilasciare per spostare una cella| Non supportate |&#9745;|
+|% esecuzione| Non supportato | &#9745;|
+|% cronologia| Non supportato |&#9745;
+|% carico| Non supportato |&#9745;|
+|%% HTML| Non supportato |&#9745;|
+|Trascinare e rilasciare per spostare una cella| Non supportato |&#9745;|
 |Output di visualizzazione permanente ()|&#9745;| Non disponibile |
 |Annulla tutto| &#9745;| Non disponibile|
 |Esegui tutte le celle sopra|&#9745;| Non disponibile |
@@ -549,7 +549,7 @@ Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire pi�
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Estrai notebook di esempio sinapsi](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Avvio rapido: Creare un pool di Apache Spark (anteprima) in Azure Synapse Analytics con gli strumenti Web](../quickstart-apache-spark-notebook.md)
+- [Avvio rapido: Creare un pool di Apache Spark in Azure Synapse Analytics con gli strumenti Web](../quickstart-apache-spark-notebook.md)
 - [Che cos'è Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Usare .NET per Apache Spark con Azure Synapse Analytics](spark-dotnet.md)
 - [Documentazione di .NET per Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

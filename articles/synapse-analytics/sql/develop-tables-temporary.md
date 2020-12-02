@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305028"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451785"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelle temporanee in sinapsi SQL
 
 Questo articolo contiene indicazioni essenziali per l'uso di tabelle temporanee ed evidenzia i principi delle tabelle temporanee a livello di sessione all'interno di sinapsi SQL. 
 
-Le risorse del pool SQL dedicato e del pool SQL senza server (anteprima) possono utilizzare tabelle temporanee. Il pool SQL senza server presenta limitazioni che vengono discusse alla fine di questo articolo. 
+Sia il pool SQL dedicato che le risorse del pool SQL senza server possono utilizzare tabelle temporanee. Il pool SQL senza server presenta limitazioni che vengono discusse alla fine di questo articolo. 
 
 ## <a name="temporary-tables"></a>Tabelle temporanee
 
@@ -226,7 +226,7 @@ Il pool SQL dedicato presenta alcune limitazioni di implementazione per le tabel
 - Non è possibile creare viste nelle tabelle temporanee.
 - Le tabelle temporanee possono essere create solo con la distribuzione hash o round robin.  La distribuzione di tabelle temporanee replicate non è supportata. 
 
-## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Tabelle temporanee nel pool SQL senza server (anteprima)
+## <a name="temporary-tables-in-serverless-sql-pool"></a>Tabelle temporanee nel pool SQL senza server
 
 Le tabelle temporanee nel pool SQL senza server sono supportate, ma il loro utilizzo è limitato. Non possono essere usati nelle query che hanno come destinazione i file. 
 

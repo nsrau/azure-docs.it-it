@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563784"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450765"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi per il marketplace commerciale
 
@@ -21,7 +21,7 @@ Questo articolo fornisce informazioni sul Dashboard ordini nel Centro per i part
 Per accedere al dashboard Orders nel centro per i partner, in **Marketplace commerciale** selezionare **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **ordini**.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).
 
 ## <a name="orders-dashboard"></a>Dashboard Ordini
 
@@ -70,8 +70,8 @@ Il grafico a linee **Order by per postazione e basato su sito** rappresenta la m
 Le offerte SaaS possono usare uno dei due modelli di determinazione prezzi con ogni piano: tariffa fissa (basata sul sito) o per utente (basata su postazione).
 
 - **Tariffa** fissa: consentire l'accesso all'offerta con un singolo prezzo tariffario mensile o annuale. Questo approccio è a volte noto come prezzo basato sul sito.
-- **Per utente** : consentire l'accesso all'offerta con un prezzo basato sul numero di utenti che possono accedere all'offerta o occupare le postazioni. Con questo modello basato sull'utilizzo, è possibile impostare il numero minimo e massimo di utenti supportati dal piano. È possibile creare più piani per configurare punti di prezzo diversi in base al numero di utenti. Questi campi sono facoltativi. Se viene lasciato deselezionato, il numero di utenti verrà interpretato come non avente un limite (minimo 1 e massimo di quanti ne può supportare il servizio). Questi campi possono essere modificati come parte di un aggiornamento del piano.
-- **Fatturazione a consumo** : oltre ai prezzi forfettari. Con questo modello di determinazione dei prezzi, è possibile definire facoltativamente piani a consumo che usano l'API del servizio di misurazione del Marketplace per addebitare ai clienti l'utilizzo non coperto dalla tariffa fissa.
+- **Per utente**: consentire l'accesso all'offerta con un prezzo basato sul numero di utenti che possono accedere all'offerta o occupare le postazioni. Con questo modello basato sull'utilizzo, è possibile impostare il numero minimo e massimo di utenti supportati dal piano. È possibile creare più piani per configurare punti di prezzo diversi in base al numero di utenti. Questi campi sono facoltativi. Se viene lasciato deselezionato, il numero di utenti verrà interpretato come non avente un limite (minimo 1 e massimo di quanti ne può supportare il servizio). Questi campi possono essere modificati come parte di un aggiornamento del piano.
+- **Fatturazione a consumo**: oltre ai prezzi forfettari. Con questo modello di determinazione dei prezzi, è possibile definire facoltativamente piani a consumo che usano l'API del servizio di misurazione del Marketplace per addebitare ai clienti l'utilizzo non coperto dalla tariffa fissa.
 
 Per altri dettagli sulla fatturazione basata su sede, sito e misurazione, vedere [How to plan an Saas offer for the Commercial Marketplace](plan-saas-offer.md).
 
@@ -135,7 +135,7 @@ Nella tabella Order Details viene visualizzato un elenco numerato dei 1.000 ordi
 | Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. |
 | Trial End Date | Trial End Date | Data di scadenza del periodo di valutazione per questo ordine. |
 | Customer Id | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. |
-| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappa _ *ID account di fatturazione* * a **CustomerID** per connettere il report delle transazioni di pagamento con i report relativi a clienti, ordini e utilizzo. |
+| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappa _ *ID account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento con i report relativi a clienti, ordini e utilizzo. |
 | AssetCount | Conteggio asset | Numero di asset associati all'ID dell'ordine. |
 ||||
 
@@ -154,4 +154,4 @@ I filtri della pagina **Orders** vengono applicati a livello di pagina Orders. �
 - Per le metriche di fatturazione a consumo e di utilizzo delle offerte di macchine virtuali, vedere [Dashboard di utilizzo nell'analisi per il marketplace commerciale](./usage-dashboard.md).
 - Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./partner-center-portal/downloads-dashboard.md).
 - Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere la pagina relativa alle [classificazioni & il dashboard di analisi nel centro per i partner](./partner-center-portal/ratings-reviews.md).
-- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).

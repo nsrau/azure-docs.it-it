@@ -1,6 +1,6 @@
 ---
-title: Connettersi a SSMS
-description: Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query in un pool SQL dedicato in Azure sinapsi Analytics.
+title: Connettersi a un pool SQL dedicato (in precedenza SQL DW) con SSMS
+description: Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query in un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325320"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450475"
 ---
-# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Connettersi a un pool SQL dedicato in Azure sinapsi Analytics con SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Connettersi a un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics con SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -28,17 +28,17 @@ ms.locfileid: "93325320"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query su un data warehouse all'interno di sinapsi di Azure.
+Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query in un pool SQL dedicato (in precedenza SQL DW).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questa esercitazione, è necessario:
 
-* Un pool SQL dedicato esistente. Per crearne uno, vedere [creare un pool SQL dedicato](create-data-warehouse-portal.md).
+* Un pool SQL dedicato esistente. Per crearne uno, vedere [creare un pool SQL dedicato (in precedenza SQL DW)](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) installato. [Scaricare SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) gratuitamente se non è già disponibile.
-* Il nome completo dell'istanza di SQL Server. Per trovare queste informazioni, vedere [connettersi a un pool SQL dedicato](sql-data-warehouse-connect-overview.md).
+* Il nome completo dell'istanza di SQL Server. Per trovare queste informazioni, vedere [pool SQL dedicato (in precedenza SQL DW)](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. connettersi al pool SQL dedicato
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. connettersi al pool SQL dedicato (in precedenza SQL DW)
 
 1. Aprire SSMS.
 2. Aprire Esplora oggetti selezionando **File**  >  **Esplora oggetti file Connetti**.

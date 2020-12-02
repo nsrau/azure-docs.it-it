@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357947"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450795"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
@@ -27,7 +27,7 @@ Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di acce
 
 > [!IMPORTANT]
 
-> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se è abilitata l' [eliminazione](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) temporanea per la Key Vault, questo articolo fornisce istruzioni per l'aggiornamento delle credenziali. Se si annulla la registrazione dell'archivio dati e si tenta di registrarlo di nuovo con lo stesso nome, l'operazione avrà esito negativo. Per informazioni sull'abilitazione dell'eliminazione temporanea in questo scenario, vedere [attivare l'eliminazione temporanea per un]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) insieme di credenziali delle chiavi esistente.
+> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se è abilitata l' [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea per la Key Vault, questo articolo fornisce istruzioni per l'aggiornamento delle credenziali. Se si annulla la registrazione dell'archivio dati e si tenta di registrarlo di nuovo con lo stesso nome, l'operazione avrà esito negativo. Per informazioni sull'abilitazione dell'eliminazione temporanea in questo scenario, vedere [attivare l'eliminazione temporanea per un]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) insieme di credenziali delle chiavi esistente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -111,7 +111,7 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
         Questo comando Sincronizza automaticamente le nuove chiavi per l'account di archiviazione di Azure usato dall'area di lavoro.
 
 1. È possibile registrare nuovamente gli archivi dati che usano l'account di archiviazione tramite l'SDK o [il Azure Machine Learning Studio](https://ml.azure.com).
-    1. **Per registrare di nuovo gli archivi dati tramite Python SDK** , usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente. 
+    1. **Per registrare di nuovo gli archivi dati tramite Python SDK**, usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente. 
     
         Poiché `overwrite=True` è specificato, questo codice sovrascrive la registrazione esistente e la Aggiorna per l'uso della nuova chiave.
     
@@ -133,12 +133,12 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
         
         ```
     
-    1. **Per registrare di nuovo gli archivi dati tramite lo studio** , selezionare **archivi dati** dal riquadro sinistro di studio. 
+    1. **Per registrare di nuovo gli archivi dati tramite lo studio**, selezionare **archivi dati** dal riquadro sinistro di studio. 
         1. Selezionare l'archivio dati che si desidera aggiornare.
         1. Selezionare il pulsante **Aggiorna credenziali** in alto a sinistra. 
         1. Usare la nuova chiave di accesso del passaggio 1 per popolare il modulo e fare clic su **Salva**.
         
-            Se si aggiornano le credenziali per l' **archivio dati predefinito** , completare questo passaggio e ripetere il passaggio 2b per risincronizzare la nuova chiave con l'archivio dati predefinito dell'area di lavoro. 
+            Se si aggiornano le credenziali per l' **archivio dati predefinito**, completare questo passaggio e ripetere il passaggio 2b per risincronizzare la nuova chiave con l'archivio dati predefinito dell'area di lavoro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

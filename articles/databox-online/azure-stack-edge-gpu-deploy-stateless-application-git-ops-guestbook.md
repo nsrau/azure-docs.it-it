@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8637b33ebc4b697ee6f498acb84ee33718c53f6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535946"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448851"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure Stack Edge
 
@@ -25,7 +25,7 @@ Questo articolo illustra come creare e distribuire una semplice applicazione Web
 
 La distribuzione viene eseguita usando GitOps nel cluster Kubernetes con Arc abilitato nel dispositivo Azure Stack Edge Pro. 
 
-Questa procedura è destinata agli utenti che hanno esaminato i [carichi di lavoro Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e hanno familiarità con i concetti di [Azure Arc Enabled Kubernetes (anteprima)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Questa procedura è destinata agli utenti che hanno esaminato i [carichi di lavoro Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e hanno familiarità con i concetti di [Azure Arc Enabled Kubernetes (anteprima)](../azure-arc/kubernetes/overview.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -44,7 +44,7 @@ Prima di poter distribuire l'applicazione senza stato, verificare di aver comple
 
 1. Si dispone di un sistema client Windows che verrà usato per accedere al dispositivo Azure Stack Edge Pro.
   
-    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - È possibile avere anche un altro client con un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Questo articolo descrive la procedura quando si usa un client Windows. 
     

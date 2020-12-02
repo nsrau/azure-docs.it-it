@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449523"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integrazione di Azure Key Vault con Azure Stack Edge 
 
@@ -49,7 +49,7 @@ Viene creato un insieme di credenziali delle chiavi per la risorsa Azure Stack E
 
 - Per evitare l'eliminazione accidentale, un blocco di risorsa è abilitato nell'insieme di credenziali delle chiavi. Nell'insieme di credenziali delle chiavi è abilitata anche un'eliminazione temporanea che consente il ripristino dell'insieme di credenziali delle chiavi entro 90 giorni, se si verifica un'eliminazione accidentale. Per altre informazioni, vedere [Panoramica di Azure Key Vault soft-delete](../key-vault/general/soft-delete-overview.md)
 
-    Se l'insieme di credenziali delle chiavi viene eliminato accidentalmente e la durata di ripulitura di 90 giorni non è trascorsa, seguire questa procedura per [ripristinare l'](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)insieme di credenziali delle chiavi. 
+    Se l'insieme di credenziali delle chiavi viene eliminato accidentalmente e la durata di ripulitura di 90 giorni non è trascorsa, seguire questa procedura per [ripristinare l'](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates)insieme di credenziali delle chiavi. 
 
 - Se si dispone di una risorsa Azure Stack Edge esistente prima che la Azure Key Vault sia stata integrata con la risorsa Azure Stack Edge, non si avrà alcun effetto. È possibile continuare a usare la risorsa Azure Stack Edge esistente. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su come [generare la chiave di attivazione](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
-

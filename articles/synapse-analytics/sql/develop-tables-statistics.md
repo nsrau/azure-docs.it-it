@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638853"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451801"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiche in Synapse SQL
 
-In questo articolo vengono forniti consigli ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query tramite le risorse SQL di sinapsi: pool SQL dedicato e pool SQL senza server (anteprima).
+In questo articolo vengono forniti consigli ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query tramite le risorse SQL di sinapsi: pool SQL dedicato e pool SQL senza server.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Statistiche nel pool SQL dedicato
 
@@ -74,7 +74,7 @@ Per evitare una riduzione delle prestazioni, verificare che le statistiche siano
 > [!NOTE]
 > La creazione di statistiche viene registrata in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in un contesto utente diverso.
 
-Le statistiche automatiche create sono nel formato: _WA_Sys_ <id colonna a 8 cifre in hex>_<id tabella a 8 cifre in hex>. È possibile visualizzare le statistiche già create con il comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+Le statistiche automatiche create sono nel formato: _WA_Sys_<id colonna a 8 cifre in hex>_<id tabella a 8 cifre in hex>. È possibile visualizzare le statistiche già create con il comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Per creare un oggetto statistiche a più colonne, usare gli esempi precedenti, s
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category* :
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category* , un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
+Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category*, un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Creare statistiche su tutte le colonne in una tabella
 
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Non è supportato l'errore personalizzato 2767.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Statistiche nel pool SQL senza server (anteprima)
+## <a name="statistics-in-serverless-sql-pool"></a>Statistiche nel pool SQL senza server
 
 Le statistiche vengono create per una determinata colonna in un determinato set di dati (percorso di archiviazione).
 
@@ -566,7 +566,7 @@ Le statistiche vengono create per una determinata colonna in un determinato set 
 
 ### <a name="why-use-statistics"></a>Perché usare le statistiche?
 
-Il maggior numero di pool SQL senza server (anteprima) conosce i dati, più velocemente è possibile eseguire query su di esso. Raccogliere le statistiche sui dati è una delle prime attività da compiere per ottimizzare le query. 
+Il pool SQL senza server è in grado di riconoscere i dati, più velocemente è possibile eseguire query su di esso. Raccogliere le statistiche sui dati è una delle prime attività da compiere per ottimizzare le query. 
 
 Il Query Optimizer del pool SQL senza server è un ottimizzatore basato sui costi. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente. 
 

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323615"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449706"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Linee guida per la progettazione di tabelle distribuite usando un pool SQL dedicato in Azure sinapsi Analytics
 
@@ -44,7 +44,7 @@ Una tabella con distribuzione hash distribuisce le righe della tabella nei vari 
 
 ![Tabella distribuita](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabella distribuita")  
 
-Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. Nel pool SQL dedicato queste informazioni vengono usate per ridurre al minimo lo spostamento dei dati durante le query, migliorando così le prestazioni delle query.
+Poiché i valori identici vengono sempre sottoposti a hashing nella stessa distribuzione, SQL Analytics include informazioni predefinite sui percorsi delle righe. Nel pool SQL dedicato queste informazioni vengono usate per ridurre al minimo lo spostamento dei dati durante le query, migliorando così le prestazioni delle query.
 
 Le tabelle con distribuzione hash sono particolarmente indicate per le tabelle dei fatti di grandi dimensioni in uno schema star. Possono contenere un numero molto elevato di righe e conseguire comunque prestazioni elevate. È necessario, ovviamente, considerare anche alcuni aspetti di progettazione per ottenere le prestazioni che il sistema distribuito è in grado di offrire. Uno di questi riguarda la scelta di una colonna di distribuzione appropriata, illustrata in questo articolo.
 

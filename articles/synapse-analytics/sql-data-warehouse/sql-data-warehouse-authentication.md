@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: Informazioni su come eseguire l'autenticazione in Azure Synapse Analytics con Azure Active Directory (Azure AD) o SQL Server.
+title: Autenticazione per il pool SQL dedicato (in precedenza SQL DW)
+description: Informazioni su come eseguire l'autenticazione in un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics usando Azure Active Directory (Azure AD) o l'autenticazione di SQL Server.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206731"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451959"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Eseguire l'autenticazione in Azure Synapse Analytics
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Eseguire l'autenticazione a un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
-Informazioni su come eseguire l'autenticazione in Synapse SQL in Azure Synapse con Azure Active Directory (Azure AD) o SQL Server.
+Informazioni su come eseguire l'autenticazione in un pool SQL dedicato (in precedenza SQL DW) in sinapsi di Azure usando Azure Active Directory (Azure AD) o l'autenticazione di SQL Server.
 
-Per connettersi a un pool SQL, è necessario passare le credenziali di sicurezza a scopo di autenticazione. Al momento di stabilire una connessione, alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.  
+Per connettersi a un pool SQL dedicato (in precedenza SQL DW), è necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione, alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.  
 
-Per altre informazioni sulla sicurezza e su come abilitare le connessioni al data warehouse, vedere la [documentazione sulla protezione dei database](sql-data-warehouse-overview-manage-security.md).
+Per ulteriori informazioni sulla sicurezza e su come abilitare le connessioni al pool SQL dedicato (in precedenza SQL DW), vedere [la pagina relativa alla protezione di un database](sql-data-warehouse-overview-manage-security.md).
 
 ## <a name="sql-authentication"></a>Autenticazione SQL
 
-Per connettersi a un pool SQL, è necessario fornire le informazioni seguenti:
+Per connettersi a un pool SQL dedicato (in precedenza SQL DW), è necessario fornire le seguenti informazioni:
 
 * Nome del server completo
 * Specificare l'autenticazione di SQL
@@ -45,9 +45,9 @@ Per impostazione predefinita, la connessione viene stabilita con il database *ma
 > [!NOTE]
 > L'istruzione Transact-SQL **USE MyDatabase;** non è supportata per la modifica del database per una connessione. Per informazioni sulla connessione a un pool SQL con SSDT, vedere l'articolo [Eseguire query con Visual Studio](sql-data-warehouse-query-visual-studio.md).
 
-## <a name="azure-active-directory-aad-authentication"></a>Autenticazione di Azure Active Directory (AAD)
+## <a name="azure-active-directory-authentication"></a>Autenticazione di Azure Active Directory
 
-L'autenticazione di [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) è un meccanismo di connessione a un pool SQL tramite identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di Azure Synapse da un unico punto e semplifica la gestione delle autorizzazioni.
+L'autenticazione di [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) è un meccanismo di connessione a un pool SQL tramite identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. Central ID Management consente di gestire un pool SQL dedicato (in precedenza SQL DW) e semplifica la gestione delle autorizzazioni.
 
 ### <a name="benefits"></a>Vantaggi
 
@@ -57,7 +57,7 @@ I vantaggi di Azure Active Directory includono i seguenti:
 * Contribuisce ad arrestare la proliferazione delle identità utente nei server.
 * Consente la rotazione delle password in un'unica posizione.
 * Consente di gestire le autorizzazioni del database tramite gruppi di Azure AD esterni.
-* Elimina l'archiviazione delle password abilitando l'autenticazione integrata di Windows e o le forme di autenticazione supportate da Azure Active Directory.
+* Consente di eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 * Usa gli utenti di database indipendente per autenticare le identità a livello di database.
 * Supporta l'autenticazione basata su token per le applicazioni che si connettono al pool SQL.
 * Supporta l'autenticazione a più fattori tramite Autenticazione universale di Active Directory per vari strumenti, tra cui [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

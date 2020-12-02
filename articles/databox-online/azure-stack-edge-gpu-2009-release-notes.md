@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4aa25024273d62fe5b292d329f6470a828b952a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047302"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449533"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Note sulla versione di Azure Stack Edge Pro con disponibilità generale GPU
 
@@ -35,10 +35,10 @@ Nella versione di Azure Stack Edge 2010 sono disponibili le nuove funzionalità 
 
 La tabella seguente fornisce un riepilogo dei problemi noti relativi al dispositivo Azure Stack Edge Pro.
 
-| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| No. | Feature | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 |**1.**|Funzionalità di anteprima |Per questa versione GA, le funzionalità seguenti: Azure Resource Manager locali, VM, Kubernetes, Azure Arc Enabled Kubernetes, servizio multiprocesso (MP) per GPU-sono tutte disponibili in anteprima per il dispositivo Pro Azure Stack Edge.  |Queste funzionalità saranno disponibili a livello generale in una versione successiva. |
-| **2.** |Azure Stack Edge Pro e Azure SQL | Per la creazione del database SQL è necessario l'accesso amministratore.   |Eseguire i passaggi seguenti anziché i passaggi 1-2 in [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>Nell'interfaccia utente locale del dispositivo abilitare l'interfaccia di calcolo. Selezionare **calcolo > porta # > Abilita per calcolo > applica.**</li><li>Scarica `sqlcmd` dal computer client da https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Connettersi all'indirizzo IP dell'interfaccia di calcolo (la porta abilitata), aggiungendo ", 1401" alla fine dell'indirizzo.</li><li>Il comando finale sarà simile al seguente: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd ".</li>Al termine di questa operazione, i passaggi 3-4 dalla documentazione corrente devono essere identici. </li></ul> |
+| **2.** |Azure Stack Edge Pro e Azure SQL | Per la creazione del database SQL è necessario l'accesso amministratore.   |Eseguire i passaggi seguenti anziché i passaggi 1-2 in [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database) . <ul><li>Nell'interfaccia utente locale del dispositivo abilitare l'interfaccia di calcolo. Selezionare **calcolo > porta # > Abilita per calcolo > applica.**</li><li>Scarica `sqlcmd` dal computer client da https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Connettersi all'indirizzo IP dell'interfaccia di calcolo (la porta abilitata), aggiungendo ", 1401" alla fine dell'indirizzo.</li><li>Il comando finale sarà simile al seguente: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd ".</li>Al termine di questa operazione, i passaggi 3-4 dalla documentazione corrente devono essere identici. </li></ul> |
 | **3.** |Aggiorna| Le modifiche incrementali apportate ai BLOB ripristinati tramite l' **aggiornamento** non sono supportate |Per gli endpoint BLOB, gli aggiornamenti parziali dei BLOB dopo un aggiornamento possono comportare il caricamento degli aggiornamenti nel cloud. Ad esempio, sequenza di azioni come:<ul><li>Creare un BLOB nel cloud. O eliminare un BLOB caricato in precedenza dal dispositivo.</li><li>Aggiornare il BLOB dal cloud al dispositivo usando la funzionalità di aggiornamento.</li><li>Aggiornare solo una parte del BLOB usando le API REST di Azure SDK.</li></ul>Queste azioni possono comportare l'aggiornamento delle sezioni aggiornate del BLOB nel cloud. <br>**Soluzione alternativa**: usare strumenti come Robocopy o una normale copia di file tramite Esplora risorse o la riga di comando per sostituire i BLOB interi.|
 |**4.**|Limitazione|Durante la limitazione, se nel dispositivo non sono consentite nuove scritture, le scritture eseguite dal client NFS avranno esito negativo con l'errore "autorizzazione negata".| L'errore verrà visualizzato come riportato di seguito:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: non è possibile creare la directory ' test ': autorizzazione negata|
 |**5.**|Inserimento di archiviazione BLOB|Quando si usa AzCopy versione 10 per l'inserimento dell'archiviazione BLOB, eseguire AzCopy con l'argomento seguente: `Azcopy <other arguments> --cap-mbps 2000`| Se questi limiti non vengono forniti per AzCopy, potrebbe inviare un numero elevato di richieste al dispositivo e causare problemi con il servizio.|
@@ -66,4 +66,3 @@ La tabella seguente fornisce un riepilogo dei problemi noti relativi al disposit
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Preparare la distribuzione di Azure Stack dispositivo Edge Pro con GPU](azure-stack-edge-gpu-deploy-prep.md)
-

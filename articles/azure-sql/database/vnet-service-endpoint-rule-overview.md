@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020283"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450241"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il server per i database e i pool elastici nel [database SQL di Azure](sql-database-paas-overview.md) o per i database in una [sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega perché la funzionalità della regola della rete virtuale è talvolta la scelta migliore per consentire in modo sicuro la comunicazione con il database nel database SQL di Azure e in Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il server per i database e i pool elastici nel [database SQL di Azure](sql-database-paas-overview.md) o per i database in una [sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega perché la funzionalità della regola della rete virtuale è talvolta la scelta migliore per consentire in modo sicuro la comunicazione con il database nel database SQL di Azure e in Azure sinapsi Analytics.
 
 > [!NOTE]
 > Questo articolo si applica sia al database SQL di Azure che a Azure sinapsi Analytics. Per semplicità, il termine 'database' fa riferimento a entrambi i database nel database SQL di Azure e in Azure Synapse Analytics. Analogamente, tutti i riferimenti a 'server' indicano il [server SQL logico](logical-servers.md) che ospita il database SQL di Azure e Azure Synapse Analytics.

@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451074"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usare gli endpoint del servizio rete virtuale e le regole per database di Azure per PostgreSQL-server singolo
 
@@ -106,7 +106,7 @@ Per Database di Azure per PostgreSQL, la funzionalità delle regole di rete virt
 
 - Le regole di rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
-- L'attivazione degli endpoint di servizio della rete virtuale nel database di Azure per PostgreSQL tramite il tag del servizio **Microsoft. SQL** Abilita anche gli endpoint per tutti i servizi di database di Azure: database di Azure per MySQL, database di Azure per PostgreSQL, database SQL di Azure e Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+- L'attivazione degli endpoint di servizio della rete virtuale nel database di Azure per PostgreSQL usando il tag del servizio **Microsoft. SQL** Abilita anche gli endpoint per tutti i servizi di database di Azure: database di Azure per MySQL, database di Azure per PostgreSQL, database SQL di Azure e analisi delle sinapsi di Azure.
 
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 

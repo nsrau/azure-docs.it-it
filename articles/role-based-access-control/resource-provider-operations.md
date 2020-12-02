@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 8225d50e9991ff632fb831c63e194551dbe02b31
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980916"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451878"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -40,7 +40,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | [Microsoft.Cdn](#microsoftcdn) |
 | [Microsoft.ClassicNetwork](#microsoftclassicnetwork) |
 | [Microsoft.Network](#microsoftnetwork) |
-| **Archiviazione** |
+| **Storage** |
 | [Microsoft.ClassicStorage](#microsoftclassicstorage) |
 | [Microsoft.DataBox](#microsoftdatabox) |
 | [Microsoft.ImportExport](#microsoftimportexport) |
@@ -3862,7 +3862,7 @@ Servizio di Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Servizio di Azure: [database SQL di Azure](../azure-sql/database/index.yml), [istanza gestita SQL di Azure](../azure-sql/managed-instance/index.yml), [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
+Servizio di Azure: [database SQL di Azure](../azure-sql/database/index.yml), [istanza gestita SQL](../azure-sql/managed-instance/index.yml)di Azure, [Azure sinapsi Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -4320,7 +4320,7 @@ Servizio di Azure: [SQL Server in macchine virtuali di Azure](../azure-sql/virtu
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Crea una nuova proprietà o modifica le proprietà della macchina virtuale SQL esistente |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Elimina macchina virtuale SQL esistente |
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 ### <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -6395,7 +6395,7 @@ Servizio di Azure: [bus di servizio](../service-bus-messaging/index.yml)
 > | Microsoft. ServiceBus/Namespaces/messages/Send/Action | Inviare messaggi |
 > | Microsoft. ServiceBus/Namespaces/messages/Receive/Action | Ricevere messaggi |
 
-## <a name="identity"></a>identità
+## <a name="identity"></a>Identità
 
 ### <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -6555,7 +6555,7 @@ Servizio di Azure: [identità gestite per le risorse di Azure](../active-directo
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Elimina l'identità assegnata a un utente esistente |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | Azione di controllo degli accessi in base al ruolo per l'assegnazione dell'identità assegnata di un utente esistente a una risorsa |
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -9734,7 +9734,7 @@ Servizio di Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Eliminazione di un'impostazione di diagnostica |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Lettura delle categorie di un'impostazione di diagnostica |
 
-## <a name="other"></a>Altri
+## <a name="other"></a>Altro
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 

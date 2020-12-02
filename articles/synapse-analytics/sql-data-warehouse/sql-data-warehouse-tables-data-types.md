@@ -1,6 +1,6 @@
 ---
-title: Tipi di dati di tabella nel pool SQL dedicato
-description: Suggerimenti per la definizione di tipi di dati di tabella in un pool SQL dedicato.
+title: Tipi di dati di tabella in un pool SQL dedicato (in precedenza SQL DW)
+description: Suggerimenti per la definizione di tipi di dati di tabella per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 01/06/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5bb1d10978171b93ee697b37ee9ac0702d3f898c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6526ae2c15bd53af69854309632c83fa65af8d85
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313072"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449693"
 ---
-# <a name="table-data-types-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tipi di dati di tabella per il pool SQL dedicato in Azure sinapsi Analytics 
+# <a name="table-data-types-for-dedicated-sql-pool-formerly--sql-dw-in-azure-synapse-analytics"></a>Tipi di dati di tabella per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
 
 Sono incluse in questo articolo consigli per la definizione di tipi di dati di tabella in un pool SQL dedicato.
 
 ## <a name="supported-data-types"></a>Tipi di dati supportati
 
-Il pool SQL dedicato supporta i tipi di dati usati più di frequente. Per un elenco dei tipi di dati supportati, vedere [tipi di dati](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) nell'istruzione CREATE TABLE.
+Il pool SQL dedicato (in precedenza SQL DW) supporta i tipi di dati utilizzati più di frequente. Per un elenco dei tipi di dati supportati, vedere [tipi di dati](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) nell'istruzione CREATE TABLE.
 
 ## <a name="minimize-row-length"></a>Ridurre al minimo la lunghezza di riga
 
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>Alternative per i tipi di dati non supportati
 
-L'elenco seguente mostra i tipi di dati che il pool SQL dedicato non supporta e fornisce alternative utili per i tipi di dati non supportati.
+Nell'elenco seguente sono indicati i tipi di dati che il pool SQL dedicato (denominato in precedenza SQL DW) non supporta e fornisce alternative utili per i tipi di dati non supportati.
 
 | Tipo di dati non supportati | Soluzione alternativa |
 | --- | --- |
