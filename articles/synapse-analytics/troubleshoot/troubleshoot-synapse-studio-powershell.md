@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di connettività di sinapsi Studio
+title: Risolvere i problemi di connettività di Synapse Studio
 description: Risolvere i problemi di connettività di Azure sinapsi studio con PowerShell
 author: saveenr
 ms.service: synapse-analytics
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5e433fd857f638c1c13e4545c19e0b6314ee62e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 5f0dc73877d7742d4fc6a0c5b9bcf0529d475e0a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146507"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445267"
 ---
 # <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Risolvere i problemi di connettività di sinapsi studio con PowerShell
 
-Azure sinapsi Studio (anteprima) dipende da un set di endpoint dell'API Web per funzionare correttamente. Questa guida consente di identificare le cause dei problemi di connettività quando si è:
+Azure sinapsi Studio dipende da un set di endpoint dell'API Web per il corretto funzionamento. Questa guida consente di identificare le cause dei problemi di connettività quando si è:
 - configurazione della rete locale, ad esempio rete dietro un firewall aziendale, per l'accesso ad Azure sinapsi Studio.
 - si verificano problemi di connettività con Azure sinapsi Studio.
 

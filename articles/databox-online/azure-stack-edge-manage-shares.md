@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777208"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444595"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni in Azure Stack Edge Pro
 
@@ -54,7 +54,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 5. Dall'elenco a discesa scegliere il **servizio di archiviazione** da BLOB in blocchi, BLOB di pagine o file. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. Ad esempio, in questo caso, si vuole che i dati si trovino come BLOB in blocchi in Azure, quindi si seleziona **BLOB in blocchi**. Se si sceglie il **BLOB di pagine**, è necessario assicurarsi che i dati siano allineati a 512 byte. Usare il **BLOB di pagine** per i dischi rigidi virtuali o VHDX sempre allineati a 512 byte.
 
    > [!IMPORTANT]
-   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
    - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
@@ -68,7 +68,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 7. Per accedere facilmente alle condivisioni dai moduli di calcolo Edge, usare il punto di montaggio locale. Selezionare **Usa la condivisione con il calcolo Edge** per montare automaticamente la condivisione dopo che è stata creata. Quando questa opzione è selezionata, inoltre, il modulo Edge può usare il calcolo con il punto di montaggio locale.
 
-8. Fare clic su **Crea** per creare la condivisione. Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
+8. Fare clic su **Crea** per creare la condivisione. Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo la creazione della condivisione con le impostazioni specificate, il pannello **condivisioni** viene aggiornato per riflettere la nuova condivisione.
 
 ## <a name="add-a-local-share"></a>Aggiungere una condivisione locale
 
@@ -88,11 +88,11 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 6. Nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**.
 
-7. Selezionare **Crea**. 
+7. Selezionare **Create** (Crea). 
 
    ![Creare una condivisione locale](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
-    Viene visualizzata una notifica per indicare che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
+    Viene visualizzata una notifica per indicare che la creazione della condivisione è in corso. Dopo la creazione della condivisione con le impostazioni specificate, il pannello **condivisioni** viene aggiornato per riflettere la nuova condivisione.
 
    ![Visualizzare gli aggiornamenti del pannello Condivisioni](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     

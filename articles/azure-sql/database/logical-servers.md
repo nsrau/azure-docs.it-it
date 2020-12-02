@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782893"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445368"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Che cos'è un server SQL logico nel database SQL di Azure e in una sinapsi di Azure?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ Nel database SQL di Azure e in Azure sinapsi Analytics un server è un costrutto
 
 Questo server è diverso da un'istanza di SQL Server con cui è possibile avere familiarità nel mondo locale. In particolare, non sono previste garanzie relative alla posizione dei database o data warehouse database in relazione al server che li gestisce. Inoltre, né il database SQL di Azure né la sinapsi di Azure espongono funzionalità o accessi a livello di istanza. Al contrario, i database dell'istanza in un'istanza gestita sono tutti con percorso fisico, nello stesso modo in cui si ha familiarità con SQL Server nell'ambiente locale o nella macchina virtuale.
 
-Quando si crea un server, è necessario specificare un account di accesso al server e una password con diritti amministrativi per il database master nel server e tutti i database creati in tale server. Questo account iniziale è un account di accesso SQL. Il database SQL di Azure e l'analisi sinapsi supportano l'autenticazione SQL e l'autenticazione Azure Active Directory per l'autenticazione. Per informazioni su account di accesso e autenticazione, vedere [Gestione di database e account di accesso nel database SQL di Azure](logins-create-manage.md). L'autenticazione Windows non è supportata.
+Quando si crea un server, è necessario specificare un account di accesso al server e una password con diritti amministrativi per il database master nel server e tutti i database creati in tale server. Questo account iniziale è un account di accesso SQL. Il database SQL di Azure e l'analisi delle sinapsi di Azure supportano l'autenticazione SQL e l'autenticazione Azure Active Directory per l'autenticazione. Per informazioni su account di accesso e autenticazione, vedere [Gestione di database e account di accesso nel database SQL di Azure](logins-create-manage.md). L'autenticazione Windows non è supportata.
 
 Un server nel database SQL e in una sinapsi di Azure:
 

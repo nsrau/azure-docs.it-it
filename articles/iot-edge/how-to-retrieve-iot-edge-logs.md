@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: ad990f10c611c5ca5bb8a8d053ee4d59b6f05c83
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: dccb734ef4eaa9f22b70488918f14ad94f723453
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326999"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437134"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
 
@@ -33,7 +33,7 @@ Sebbene non sia necessario, per una migliore compatibilità con questa funzional
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` deve seguire il [formato del livello di gravità syslog](https://wikipedia.org/wiki/Syslog#Severity_lnevel) e `{Timestamp}` deve essere formattato come `yyyy-mm-dd hh:mm:ss.fff zzz` .
+`{Log Level}` deve seguire il [formato del livello di gravità syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve essere formattato come `yyyy-mm-dd hh:mm:ss.fff zzz` .
 
 La [classe logger in IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) funge da implementazione canonica.
 

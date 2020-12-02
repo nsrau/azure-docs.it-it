@@ -3,16 +3,16 @@ title: Tipi di classe di esempio in Azure Lab Services | Microsoft Docs
 description: Fornisce alcuni tipi di classe per cui è possibile configurare lab con Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1c2caac35125c3f69c2257750bac417971af5dbd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490985"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436403"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Panoramica dei tipi di classi - Azure Lab Services
 
-Azure Lab Services consente di configurare rapidamente ambienti di lab per le classi nel cloud. Gli articoli di questa sezione forniscono indicazioni su come configurare diversi tipi di lab in aula usando Azure Lab Services.
+Azure Lab Services consente di configurare rapidamente ambienti di lab per le classi nel cloud. Negli articoli di questa sezione vengono fornite indicazioni su come impostare diversi tipi di Lab utilizzando Azure Lab Services.
 
 ## <a name="big-data-analytics"></a>Analisi dei Big Data
 È possibile configurare un Lab GPU per insegnare una classe Big Data Analytics. Con questo tipo di classe, gli studenti imparano a gestire volumi elevati di dati e applicano algoritmi di apprendimento statistico e del computer per derivare informazioni dettagliate sui dati. Uno degli obiettivi principali per gli studenti consiste nell'imparare a usare gli strumenti di analisi dei dati, ad esempio il pacchetto software open source di Apache Hadoop, che fornisce strumenti per l'archiviazione, la gestione e l'elaborazione di Big Data. 

@@ -1,16 +1,16 @@
 ---
 title: Reimpostare le password per le macchine virtuali del Lab della classe in Azure Lab Services | Microsoft Docs
-description: Informazioni su come reimpostare le password per le macchine virtuali (VM) in laboratori della classe Azure Lab Services.
+description: Informazioni su come reimpostare le password per le macchine virtuali (VM) in Labs of Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d63d14da8859c12fa797a04fa9a3c3230219adab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445339"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436811"
 ---
-# <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Impostare o reimpostare la password per le macchine virtuali in laboratori della classe (studenti)
+# <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>Impostare o reimpostare la password per le macchine virtuali in Labs (studenti)
 Questo articolo illustra in che modo gli studenti possono impostare o reimpostare la password per le proprie macchine virtuali. 
 
 ## <a name="enable-resetting-of-passwords"></a>Abilitare la reimpostazione delle password

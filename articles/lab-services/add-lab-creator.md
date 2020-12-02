@@ -3,15 +3,15 @@ title: Aggiungere un utente come creatore del Lab in Azure Lab Services
 description: Questo articolo illustra come aggiungere un utente al ruolo Lab Creator per un account Lab in Azure Lab Services. Gli autori del Lab possono creare Lab all'interno di questo account Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399483"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435961"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Aggiungi Lab Creators a un account Lab in Azure Lab Services
-Questo articolo illustra come aggiungere utenti come autori di Lab a un account Lab in Azure Lab Services. Questi usi possono quindi creare Lab in aula nell'account Lab. 
+Questo articolo illustra come aggiungere utenti come autori di Lab a un account Lab in Azure Lab Services. Questi usi possono quindi creare Lab nell'account Lab. 
 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Aggiungere un account utente Microsoft al ruolo di autore del Lab
 Per configurare un lab per le classi in un account del lab, l'utente deve essere un membro del ruolo **Autore di laboratori** nell'account del lab. L'account usato per creare l'account del lab viene automaticamente aggiunto a questo ruolo. Se si prevede di usare lo stesso account utente per creare un lab per le classi, è possibile ignorare questo passaggio. Per usare un altro account utente per creare un lab per le classi, procedere come segue: 
@@ -66,4 +66,4 @@ Vedere gli articoli seguenti:
 - [Creare e gestire lab come proprietario](how-to-manage-classroom-labs.md)
 - [Configurare e pubblicare modelli come proprietario](how-to-create-manage-template.md)
 - [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
-- [Come utente di lab, accedere ai lab per le classi](how-to-use-classroom-lab.md)
+- [Come utente del Lab, Access Labs](how-to-use-classroom-lab.md)

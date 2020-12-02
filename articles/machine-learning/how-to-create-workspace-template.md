@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013036"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445180"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 ## <a name="limitations"></a>Limitazioni
 
-* Quando si crea una nuova area di lavoro, è possibile consentire all'area di lavoro di creare i servizi di Azure richiesti automaticamente o fornire servizi esistenti. Quando si forniscono servizi esistenti, questi servizi devono trovarsi nella stessa sottoscrizione di Azure dell'area di lavoro.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>Modello di Gestione risorse dell'area di lavoro
 

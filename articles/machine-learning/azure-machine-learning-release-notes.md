@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012272"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444541"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -43,7 +43,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Documentazione migliorata per `OutputDatasetConfig.register_on_complete` includere il comportamento di ciò che accade quando il nome esiste già.
     + Se si specificano i nomi di input e output del set di dati che possono entrare in conflitto con le variabili di ambiente comuni, verrà generato un avviso
     + Parametro riutilizzabile `grant_workspace_access` durante la registrazione di archivi dati. Impostarla su `True` per accedere ai dati dietro la rete virtuale da Machine Learning Studio.
-      [Scopri di più](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Altre informazioni](./how-to-enable-studio-virtual-network.md)
     + L'API del servizio collegato è stata perfezionata. Anziché fornire l'ID risorsa, sono disponibili 3 parametri distinti sub_id, RG e Name definiti nella configurazione.
     + Per consentire ai clienti di risolvere automaticamente i problemi di danneggiamento dei token, abilitare la sincronizzazione dei token dell'area di lavoro come metodo pubblico.
     + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param
@@ -109,8 +109,8 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di ottobre)
 + **Nuove funzionalità**
-  + [Supporto completo per la rete virtuale](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Modalità messa a fuoco](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Supporto completo per la rete virtuale](./how-to-enable-studio-virtual-network.md)
+  + [Modalità messa a fuoco](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Salva notebook CTRL + S
   + Numeri di riga
 

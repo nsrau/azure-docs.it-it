@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: d37c362da484a2a7e400da8f87dd0a37f0f80d3a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636385"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436726"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -53,7 +53,7 @@ Entrambi sono descritti di seguito.
 
 - **SQL Server** locale: se la SQL Server è ospitata in un computer Windows locale senza Azure Arc, sono disponibili due opzioni per la connessione ad Azure:
     
-    - **Distribuire Azure Arc** : è possibile connettere qualsiasi computer Windows al centro sicurezza. Azure Arc fornisce tuttavia una maggiore integrazione in *tutti* gli ambienti di Azure. Se si configura Azure Arc, viene visualizzata la pagina **SQL Server-Azure Arc** nel portale e gli avvisi di sicurezza verranno visualizzati in una scheda **sicurezza** dedicata in tale pagina. Quindi, la prima opzione consigliata consiste nell' [impostare Azure Arc nell'host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) e seguire le istruzioni per **SQL Server in Azure Arc** , sopra.
+    - **Distribuire Azure Arc** : è possibile connettere qualsiasi computer Windows al centro sicurezza. Azure Arc fornisce tuttavia una maggiore integrazione in *tutti* gli ambienti di Azure. Se si configura Azure Arc, viene visualizzata la pagina **SQL Server-Azure Arc** nel portale e gli avvisi di sicurezza verranno visualizzati in una scheda **sicurezza** dedicata in tale pagina. Quindi, la prima opzione consigliata consiste nell' [impostare Azure Arc nell'host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) e seguire le istruzioni per **SQL Server in Azure Arc**, sopra.
         
     - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](../azure-monitor/platform/agent-windows.md).
 
@@ -64,7 +64,7 @@ Entrambi sono descritti di seguito.
 
     - Se si usa l' **area di lavoro predefinita del Centro sicurezza di Azure** , denominata "defaultWorkspace-[ID sottoscrizione]-[area]", selezionare la **sottoscrizione** pertinente.
 
-    - Se si usa **un'area di lavoro non predefinita** , selezionare l' **area di lavoro** pertinente (immettere il nome dell'area di lavoro nel filtro se necessario):
+    - Se si usa **un'area di lavoro non predefinita**, selezionare l' **area di lavoro** pertinente (immettere il nome dell'area di lavoro nel filtro se necessario):
 
         ![Ricerca dell'area di lavoro non predefinita in base al titolo](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
@@ -105,14 +105,14 @@ Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei 
 
     * Per una panoramica delle vulnerabilità raggruppate in base a un database SQL specifico, selezionare il database di interesse.
 
-    In ogni visualizzazione, i controlli di sicurezza sono ordinati in base alla **gravità**. Fare clic su un controllo di sicurezza specifico per visualizzare un riquadro dei dettagli con una **Descrizione** , **come risolverlo e altre** informazioni correlate, ad esempio **Impact** o **benchmark**.
+    In ogni visualizzazione, i controlli di sicurezza sono ordinati in base alla **gravità**. Fare clic su un controllo di sicurezza specifico per visualizzare un riquadro dei dettagli con una **Descrizione**, **come risolverlo e altre** informazioni correlate, ad esempio **Impact** o **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Avvisi di Azure Defender per SQL
 Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accedere o sfruttare le macchine virtuali SQL. Questi eventi possono attivare gli avvisi mostrati nella [sezione avvisi per database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) della pagina di riferimento per gli avvisi](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Esplorare ed esaminare gli avvisi di sicurezza
 
-Gli avvisi di Azure Defender sono disponibili nella pagina degli avvisi del Centro sicurezza, nella scheda sicurezza della risorsa, nel [dashboard di Azure Defender](azure-defender-dashboard.md)o tramite il collegamento diretto nei messaggi di posta elettronica di avviso.
+Gli avvisi di Azure Defender per SQL sono disponibili nella pagina degli avvisi del Centro sicurezza, nella scheda sicurezza della risorsa, nel [dashboard di Azure Defender](azure-defender-dashboard.md)o tramite il collegamento diretto nei messaggi di posta elettronica di avviso.
 
 1. Per visualizzare gli avvisi, selezionare **avvisi di sicurezza** dal menu del Centro sicurezza e selezionare un avviso.
 

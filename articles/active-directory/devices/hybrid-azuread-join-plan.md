@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097304"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435758"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -106,6 +106,8 @@ Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](ove
 
 - A partire dalla versione di Windows 10 1903, TPMs 1,2 non vengono usati con il join ibrido Azure AD e i dispositivi con tali TPMs verranno considerati come se non avessero un TPM.
 
+- Le modifiche UPN sono supportate solo a partire dall'aggiornamento di Windows 10 2004. Per i dispositivi precedenti all'aggiornamento di Windows 10 2004, gli utenti avrebbero problemi di accesso condizionale e SSO nei propri dispositivi. Per risolvere questo problema, è necessario separare il dispositivo dal Azure AD (eseguire "dsregcmd/Leave" con privilegi elevati) e riunirlo (si verifica automaticamente). che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business.
+
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Verifica la convalida controllata del join Azure AD ibrido
 
 Quando tutti i prerequisiti sono soddisfatti, i dispositivi Windows verranno registrati automaticamente come dispositivi nel tenant del Azure AD. Lo stato di queste identità del dispositivo in Azure AD viene definito ibrido Azure AD join. Altre informazioni sui concetti trattati in questo articolo sono disponibili nell'articolo [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](overview.md).
@@ -162,12 +164,12 @@ In alcuni casi, gli utenti AD locali UPN potrebbero essere diversi dalla Azure A
 
 La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10
 
-| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | Description |
+| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | Descrizione |
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestiti | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestiti | Non supportate | |
+| Instradabile | Gestita | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Gestita | Non supportate | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

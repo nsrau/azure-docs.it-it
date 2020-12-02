@@ -2,17 +2,17 @@
 title: Metriche di monitoraggio di Azure per il gateway applicazione
 description: Informazioni su come usare le metriche per monitorare le prestazioni del gateway applicazione
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397740"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437066"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -40,7 +40,7 @@ Il gateway applicazione offre diverse metriche temporali predefinite relative al
 
   Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione del primo byte dell'intestazione della risposta. 
 
-  In questo modo si approssimano la somma del *tempo di connessione back-end* , il tempo impiegato dalla richiesta per raggiungere il back-end dal gateway applicazione, il tempo impiegato dall'applicazione back-end per rispondere (il tempo impiegato dal server per generare il contenuto, potenzialmente recuperare le query di database) e il tempo impiegato dal primo byte della risposta per raggiungere il gateway applicazione dal back-end.
+  In questo modo si approssimano la somma del *tempo di connessione back-end*, il tempo impiegato dalla richiesta per raggiungere il back-end dal gateway applicazione, il tempo impiegato dall'applicazione back-end per rispondere (il tempo impiegato dal server per generare il contenuto, potenzialmente recuperare le query di database) e il tempo impiegato dal primo byte della risposta per raggiungere il gateway applicazione dal back-end.
 
 - **Tempo di risposta ultimo byte back-end**
 
@@ -52,7 +52,7 @@ Il gateway applicazione offre diverse metriche temporali predefinite relative al
 
   Tempo medio necessario per la ricezione, l'elaborazione e la risposta della richiesta da inviare. 
 
-  Si tratta dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP al momento in cui l'ultimo byte di risposta è stato inviato al client. Questo include il tempo di elaborazione impiegato dal gateway applicazione, il *tempo di risposta ultimo byte back-end* , il tempo impiegato dal gateway applicazione per inviare tutte le risposte e il RTT del *client*.
+  Si tratta dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP al momento in cui l'ultimo byte di risposta è stato inviato al client. Questo include il tempo di elaborazione impiegato dal gateway applicazione, il *tempo di risposta ultimo byte back-end*, il tempo impiegato dal gateway applicazione per inviare tutte le risposte e il RTT del *client*.
 
 - **Client RTT (Scrittura in tempo reale client)**
 
@@ -62,7 +62,7 @@ Il gateway applicazione offre diverse metriche temporali predefinite relative al
 
 Queste metriche possono essere usate per determinare se il rallentamento osservato è dovuto alla rete client, alle prestazioni del gateway applicazione, alla rete di back-end e al server back-end, alla saturazione dello stack TCP, alle prestazioni dell'applicazione back-end o alle dimensioni del file di grandi dimensioni.
 
-Se, ad esempio, si verifica un picco nella tendenza del *tempo di risposta del primo byte di back* -end, ma la tendenza del tempo di *connessione back* -end è stabile, è possibile dedurre che il gateway applicazione alla latenza del back-end e il tempo necessario per stabilire la connessione siano stabili e il picco è causato da un aumento del tempo di risposta dell'applicazione back-end. D'altra parte, se il picco nel *tempo di risposta del primo byte di back-end* è associato a un picco corrispondente nel tempo di *connessione back-end* , è possibile dedurre che la rete tra il gateway applicazione e il server back-end o lo stack TCP del server back-end è satura. 
+Se, ad esempio, si verifica un picco nella tendenza del *tempo di risposta del primo byte di back* -end, ma la tendenza del tempo di *connessione back* -end è stabile, è possibile dedurre che il gateway applicazione alla latenza del back-end e il tempo necessario per stabilire la connessione siano stabili e il picco è causato da un aumento del tempo di risposta dell'applicazione back-end. D'altra parte, se il picco nel *tempo di risposta del primo byte di back-end* è associato a un picco corrispondente nel tempo di *connessione back-end*, è possibile dedurre che la rete tra il gateway applicazione e il server back-end o lo stack TCP del server back-end è satura. 
 
 Se si nota un picco nel *tempo di risposta dell'ultimo byte del back-end* , ma il *tempo di risposta del primo byte back-end* è stabile, è possibile dedurre che il picco è dovuto a un file più grande richiesto.
 
@@ -162,7 +162,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Richieste non riuscite**
 
-  Numero di richieste gestite dal gateway applicazione con i codici di errore del server 5xx. Sono inclusi i codici 5xx generati dal gateway applicazione, nonché i codici 5xx generati dal back-end. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
+  Numero di richieste non riuscite a causa di problemi di connessione. Questo numero include le richieste non riuscite a causa del superamento dell'impostazione HTTP "Timeout richieste" e delle richieste non riuscite a causa di problemi di connessione tra il gateway applicazione e il back-end. Questo conteggio non include errori perché non è disponibile un back-end integro. anche le risposte 4xx e 5xx dal back-end non vengono considerate come parte di questa metrica.
 
 - **Stato della risposta**
 
@@ -214,11 +214,11 @@ L'esempio seguente illustra la creazione di una regola di avviso per l'invio di 
 
 2. Nella pagina **Aggiungi regola** , compilare le sezioni nome, condizione e notifica, quindi selezionare **OK**.
 
-   * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di** , **Maggiore di o uguale a** , **Minore di** o **Minore o uguale a**.
+   * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di**, **Maggiore di o uguale a**, **Minore di** o **Minore o uguale a**.
 
    * Nel selettore **Periodo** selezionare un periodo compreso tra cinque minuti e sei ore.
 
-   * Se si seleziona **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** , il messaggio di posta elettronica può essere dinamico basato sugli utenti che hanno accesso alla risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
+   * Se si seleziona **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**, il messaggio di posta elettronica può essere dinamico basato sugli utenti che hanno accesso alla risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
 
    ![Pagina Aggiungi regola][7]
 

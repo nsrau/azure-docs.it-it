@@ -1,24 +1,27 @@
 ---
 title: Power BI e pool SQL senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi
-description: Informazioni su come creare un database sinapsi SQL senza server e visualizzazioni sul collegamento sinapsi per Azure Cosmos DB, eseguire query sui contenitori di Azure Cosmos DB e quindi compilare un modello con Power BI su tali visualizzazioni.
+description: Informazioni su come creare un database del pool SQL senza server e visualizzazioni sul collegamento sinapsi per Azure Cosmos DB, eseguire query sui contenitori di Azure Cosmos DB e quindi compilare un modello con Power BI su tali viste.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342250"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444512"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usare Power BI e il pool SQL sinapsi senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi (anteprima) 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Usare Power BI e il pool SQL sinapsi senza server (anteprima) per analizzare i dati Azure Cosmos DB con il collegamento sinapsi 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 In questo articolo si apprenderà come creare un database del pool SQL senza server e le visualizzazioni sul collegamento sinapsi per Azure Cosmos DB. Si eseguirà una query sui contenitori di Azure Cosmos DB e quindi si compilerà un modello con Power BI su tali viste per riflettere tale query.
 
 In questo scenario si utilizzeranno dati fittizi sulle vendite di prodotti Surface in un negozio di vendita al dettaglio partner. Si analizzeranno i ricavi per ogni negozio in base alla vicinanza a famiglie di grandi dimensioni e all'effetto della pubblicità per una settimana specifica. In questo articolo vengono create due visualizzazioni denominate **RetailSales** e **StoreDemographics** e una query tra di esse. È possibile ottenere i dati del prodotto di esempio da questo repository [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
+
+> [!IMPORTANT]
+> Il supporto del pool SQL senza server di sinapsi per il collegamento a sinapsi di Azure per Azure Cosmos DB è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +49,7 @@ Ogni area di lavoro viene fornita con un endpoint SQL senza server. Dopo aver cr
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Abilitare lo script SQL per l'uso dell'endpoint SQL senza server nell'area di lavoro":::
 
-Creare un nuovo database, denominato **RetailCosmosDB** , e una vista SQL sui contenitori abilitati per il collegamento sinapsi. Il seguente comando Mostra come creare un database:
+Creare un nuovo database, denominato **RetailCosmosDB**, e una vista SQL sui contenitori abilitati per il collegamento sinapsi. Il seguente comando Mostra come creare un database:
 
 ```sql
 -- Create database
@@ -55,7 +58,7 @@ Create database RetailCosmosDB
 
 Successivamente, creare più viste tra i contenitori di Azure Cosmos abilitati per il collegamento sinapsi diversi. Le visualizzazioni consentiranno di usare T-SQL per aggiungere ed eseguire query Azure Cosmos DB dati che si siedono in contenitori diversi.  Quando si creano le visualizzazioni, assicurarsi di selezionare il database **RetailCosmosDB** .
 
-Negli script seguenti viene illustrato come creare visualizzazioni in ogni contenitore. Per semplicità, si userà la funzionalità di [inferenza dello schema automatica](analytical-store-introduction.md#analytical-schema) dei contenitori di sinapsi SQL senza server abilitati al collegamento sinapsi:
+Negli script seguenti viene illustrato come creare visualizzazioni in ogni contenitore. Per semplicità, si userà la funzionalità di [inferenza dello schema automatica](analytical-store-introduction.md#analytical-schema) del pool SQL senza server tramite i contenitori abilitati per il collegamento sinapsi:
 
 
 ### <a name="retailsales-view"></a>Visualizzazione RetailSales:
@@ -118,7 +121,7 @@ Aprire quindi il desktop Power BI e connettersi all'endpoint SQL senza server at
 
 1. Selezionare il metodo di autenticazione preferito, ad esempio Azure AD.
 
-1. Selezionare il database **RetailCosmosDB** e le visualizzazioni **RetailSales** , **StoreDemographics** .
+1. Selezionare il database **RetailCosmosDB** e le visualizzazioni **RetailSales**, **StoreDemographics** .
 
 1. Selezionare **carica** per caricare le due visualizzazioni in modalità query diretta.
 

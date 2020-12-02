@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015044"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445494"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
 
@@ -117,7 +117,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello e ottenere il `.env` file risultante. Si noti la distribuzione `hub name` della `PCS_IOTHUBREACT_HUB_NAME` variabile nel file risultante `.env` .
 
-2. Registrare e avviare un gateway di IoT Edge [Linux](../iot-edge/how-to-install-iot-edge-linux.md) o [Windows](../iot-edge/how-to-install-iot-edge-windows.md) e prendere nota del relativo `device id` .
+2. Registrare e avviare un gateway di IoT Edge [Linux](../iot-edge/how-to-install-iot-edge.md) o [Windows](../iot-edge/how-to-install-iot-edge.md) e prendere nota del relativo `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Eseguire la distribuzione in un dispositivo perimetrale
 

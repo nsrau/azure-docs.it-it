@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371567"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435689"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Abilitare e richiedere l'accesso just-in-time per le applicazioni gestite di Azure
 
@@ -72,7 +72,7 @@ Quando si crea l'offerta nel centro per i partner, assicurarsi di abilitare l'ac
 
 1. Accedere al portale del Marketplace commerciale nel centro per i [partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Per istruzioni sulla creazione di una nuova applicazione gestita, seguire la procedura descritta in [creare un'offerta di applicazione Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+1. Per istruzioni sulla creazione di una nuova applicazione gestita, seguire la procedura descritta in [creare un'offerta di applicazione Azure](../../marketplace/create-new-azure-apps-offer.md).
 
 1. Nella pagina **configurazione tecnica** selezionare la casella **di controllo Abilita accesso just-in-time (JIT)** .
 
@@ -88,7 +88,7 @@ Per inviare una richiesta di accesso JIT:
 
 1. Selezionare **accesso JIT** per l'applicazione gestita a cui è necessario accedere.
 
-1. Selezionare **ruoli idonei**e selezionare **attiva** nella colonna azione per il ruolo desiderato.
+1. Selezionare **ruoli idonei** e selezionare **attiva** nella colonna azione per il ruolo desiderato.
 
    ![Attivare la richiesta di accesso](./media/request-just-in-time-access/send-request.png)
 

@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340907"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436624"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -159,7 +159,7 @@ Per aggiungere l'accesso in lettura dell'account Azure Cosmos DB al proprio acco
 
 1. Aprire il portale di Azure e selezionare l'account Azure Cosmos DB.
 2. Fare clic sulla scheda **Controllo di accesso (IAM)** e quindi su **+ Aggiungi assegnazione di ruolo**.
-3. Nel riquadro **Aggiungi assegnazione di ruolo** , nella casella **Ruolo** , selezionare **Ruolo Lettore dell'account Cosmos DB**.
+3. Nel riquadro **Aggiungi assegnazione di ruolo**, nella casella **Ruolo**, selezionare **Ruolo Lettore dell'account Cosmos DB**.
 4. Nella **casella assegna accesso a** selezionare **Azure ad utente, gruppo o applicazione**.
 5. Selezionare l'utente, il gruppo o l'applicazione nella directory a cui si vuole concedere l'accesso.  È possibile eseguire ricerche nella directory in base al nome visualizzato, all'indirizzo di posta elettronica o all'identificatore dell'oggetto.
     L'applicazione, il gruppo o l'utente selezionato viene visualizzato nell'elenco dei membri selezionati.
@@ -169,7 +169,7 @@ L'entità può ora leggere le risorse di Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Eliminare o esportare i dati utente
 
-Azure Cosmos DB consente di eseguire la ricerca, selezionare, modificare ed eliminare tutti i dati personali che si trovano nel database o nelle raccolte. Azure Cosmos DB offre API per trovare ed eliminare i dati personali; tuttavia, è necessario usare le API e definire la logica necessaria per cancellare i dati personali. Ogni API multimodello (SQL, MongoDB, Gremlin, Cassandra, Tabella) fornisce SDK per linguaggi diversi che contengono metodi per cercare ed eliminare i dati personali. È inoltre possibile abilitare la funzionalità [time-to live (TTL)](time-to-live.md) per eliminare automaticamente i dati dopo un periodo specificato, senza incorrere in costi aggiuntivi.
+Come servizio di database, Azure Cosmos DB consente di cercare, selezionare, modificare ed eliminare tutti i dati presenti nel database o nei contenitori. È tuttavia responsabilità dell'utente utilizzare le API fornite e definire la logica necessaria per trovare e cancellare eventuali dati personali, se necessario. Ogni API multimodello (SQL, MongoDB, Gremlin, Cassandra, tabella) fornisce SDK di linguaggio diversi che contengono metodi per la ricerca e l'eliminazione di dati in base a predicati personalizzati. È inoltre possibile abilitare la funzionalità [time-to live (TTL)](time-to-live.md) per eliminare automaticamente i dati dopo un periodo specificato, senza incorrere in costi aggiuntivi.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

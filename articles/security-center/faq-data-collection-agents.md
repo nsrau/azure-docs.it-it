@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638815"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444528"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -86,12 +86,12 @@ La località dell'area di lavoro predefinita dipende dall'area di Azure:
 - Per le macchine virtuali in Australia, la località dell'area di lavoro è Australia
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quali dati vengono raccolti dall'agente di Log Analytics?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Quali eventi di sicurezza vengono raccolti dall'agente di Log Analytics?
 
-Per un elenco completo delle applicazioni e dei servizi monitorati dall'agente, vedere [elementi monitorati da monitoraggio di Azure](../azure-monitor/monitor-reference.md#azure-services).
+Per un elenco completo degli eventi di sicurezza raccolti dall'agente, vedere [quali tipi di eventi vengono archiviati per le impostazioni degli eventi di sicurezza "comuni" e "minime"?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
-> Si noti che per alcuni servizi, ad esempio Azure firewall, se è stata abilitata la registrazione e si è scelta una risorsa loquace da registrare, ad esempio impostando il log su *verbose* , è possibile che si verifichino effetti significativi sulle esigenze di archiviazione dell'area di lavoro log Analytics. 
+> Si noti che per alcuni servizi, ad esempio Azure firewall, se è stata abilitata la registrazione e si è scelta una risorsa loquace da registrare, ad esempio impostando il log su *verbose*, è possibile che si verifichino effetti significativi sulle esigenze di archiviazione dell'area di lavoro log Analytics. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>È possibile eliminare le aree di lavoro predefinite create dal Centro sicurezza?
@@ -129,7 +129,7 @@ Per selezionare l'area di lavoro Log Analytics esistente:
     - Selezionare **Sì** se si desidera che le nuove impostazioni dell'area di lavoro si **applichino a tutte le macchine virtuali**. In aggiunta, ogni macchina virtuale connessa a un'area di lavoro creata dal Centro sicurezza viene ricollegata alla nuova area di lavoro di destinazione.
 
     > [!NOTE]
-    > Se si seleziona **Sì** , non eliminare aree di lavoro create dal Centro sicurezza finché tutte le macchine virtuali non vengono ricollegate alla nuova area di lavoro di destinazione. Questa operazione non riesce se un'area di lavoro viene eliminata troppo presto.
+    > Se si seleziona **Sì**, non eliminare aree di lavoro create dal Centro sicurezza finché tutte le macchine virtuali non vengono ricollegate alla nuova area di lavoro di destinazione. Questa operazione non riesce se un'area di lavoro viene eliminata troppo presto.
 
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Cosa accade se l'agente di Log Analytics è già stato installato come estensione nella macchina virtuale?<a name="mmaextensioninstalled"></a>
@@ -250,7 +250,7 @@ Se è stata abilitata, ma ora si vuole disabilitarla:
 
 ## <a name="how-do-i-enable-data-collection"></a>Come si abilita la raccolta dati?
 
-È possibile abilitare la raccolta dei dati per la sottoscrizione nei criteri di sicurezza. Per abilitare la raccolta di dati. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia** , quindi **Centro sicurezza** e infine **Criteri di sicurezza**. Selezionare la sottoscrizione per cui si desidera abilitare il provisioning automatico. Quando si seleziona una sottoscrizione, si apre **Criteri di sicurezza - Raccolta dati**. In **Auto provisioning** , (Provisioning automatico) selezionare **On**.
+È possibile abilitare la raccolta dei dati per la sottoscrizione nei criteri di sicurezza. Per abilitare la raccolta di dati. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, quindi **Centro sicurezza** e infine **Criteri di sicurezza**. Selezionare la sottoscrizione per cui si desidera abilitare il provisioning automatico. Quando si seleziona una sottoscrizione, si apre **Criteri di sicurezza - Raccolta dati**. In **Auto provisioning**, (Provisioning automatico) selezionare **On**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Cosa accade quando si abilita la raccolta dati?

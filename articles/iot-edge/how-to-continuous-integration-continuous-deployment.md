@@ -1,19 +1,19 @@
 ---
 title: Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge-Azure IoT Edge
 description: Configurare l'integrazione continua e la distribuzione continua usando YAML-Azure IoT Edge con Azure DevOps, Azure Pipelines
-author: shizn
+author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57031d4ccdfdba73b8b36c8dc943280a8280ffcc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 444ab8ccfe5a8441a4fd7d280e33d8e929d9387d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048526"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435892"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge
 
@@ -32,15 +32,15 @@ Questo articolo illustra come usare le [attività di Azure IOT Edge](/azure/devo
 
 Se non diversamente specificato, le procedure descritte in questo articolo non consentono di esplorare tutte le funzionalità disponibili tramite i parametri dell'attività. Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Versione attività](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Versione attività](/azure/devops/pipelines/process/tasks?tabs=yaml#task-versions)
 * **Avanzate** : se applicabile, specificare i moduli che non si desidera compilati.
-* [Opzioni di controllo](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Variabili di ambiente](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Variabili di output](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Opzioni di controllo](/azure/devops/pipelines/process/tasks?tabs=yaml#task-control-options)
+* [Variabili di ambiente](/azure/devops/pipelines/process/variables?tabs=yaml#environment-variables)
+* [Variabili di output](/azure/devops/pipelines/process/variables?tabs=yaml#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un repository Azure Repos. Se non se ne ha uno, è possibile [creare un nuovo repository Git nel progetto](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**.
+* Un repository Azure Repos. Se non se ne ha uno, è possibile [creare un nuovo repository Git nel progetto](/azure/devops/repos/git/create-new-repo). Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**.
 * Una soluzione IoT Edge di cui sia stato eseguito il commit e il push nel repository. Se si vuole creare una nuova soluzione di esempio per testare le procedure di questo articolo, seguire i passaggi descritti in [Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug](how-to-vs-code-develop-module.md) oppure [Usare Visual Studio 2017 per sviluppare ed eseguire il debug di moduli C# per Azure IoT Edge](./how-to-visual-studio-develop-module.md). Per questo articolo è stata creata una soluzione nel repository denominata **IoTEdgeSolution**, che contiene il codice per un modulo denominato **FilterModule**.
 
    Per questo articolo, tutto quello che serve è la cartella della soluzione creata dai modelli IoT Edge in Visual Studio Code o Visual Studio. Non è necessario compilare, eseguire il push, distribuire o eseguire il debug di questo codice prima di procedere. Questi processi verranno configurati in Azure Pipelines.
@@ -50,7 +50,7 @@ Se non diversamente specificato, le procedure descritte in questo articolo non c
 * Un registro contenitori in cui eseguire il push delle immagini dei moduli. È possibile usare il [Registro Azure Container](../container-registry/index.yml) o un registro di terze parti.
 * Un [Hub](../iot-hub/iot-hub-create-through-portal.md) Azure tutto attivo con almeno due dispositivi IOT Edge per testare le fasi di distribuzione di test e produzione separate. È possibile seguire gli articoli di avvio rapido per creare un dispositivo IoT Edge in [Linux](quickstart-linux.md) o [Windows](quickstart.md)
 
-Per altre informazioni sull'uso di Azure Repos, vedere [Condividere il codice con Visual Studio e Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
+Per altre informazioni sull'uso di Azure Repos, vedere [Condividere il codice con Visual Studio e Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs)
 
 ## <a name="create-a-build-pipeline-for-continuous-integration"></a>Creare una pipeline di compilazione per l'integrazione continua
 
@@ -64,7 +64,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
 
     ![Creare una nuova pipeline di compilazione usando il pulsante nuova pipeline](./media/how-to-continuous-integration-continuous-deployment/add-new-pipeline.png)
 
-3. Nella pagina **dove si trova il codice** selezionare **Azure Repos git `YAML` **. Se si vuole usare l'editor classico per creare le pipeline di compilazione del progetto, vedere la [Guida dell'editor classico](how-to-continuous-integration-continuous-deployment-classic.md).
+3. Nella pagina **dove si trova il codice** selezionare **Azure Repos git `YAML`**. Se si vuole usare l'editor classico per creare le pipeline di compilazione del progetto, vedere la [Guida dell'editor classico](how-to-continuous-integration-continuous-deployment-classic.md).
 
 4. Selezionare il repository per cui si sta creando una pipeline.
 
@@ -112,13 +112,13 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
        | --- | --- |
        | Cartella di origine | Cartella di origine da cui eseguire la copia. Empty è la radice del repository. Usare le variabili se i file non sono presenti nel repository. Esempio: `$(agent.builddirectory)`.
        | Contenuto | Aggiungere due righe: `deployment.template.json` e `**/module.json` . |
-       | Cartella di destinazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) per informazioni sulla descrizione. |
+       | Cartella di destinazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](/azure/devops/pipelines/build/variables?tabs=yaml#build-variables) per informazioni sulla descrizione. |
 
    * Attività: **pubblicare artefatti di compilazione**
 
        | Parametro | Descrizione |
        | --- | --- |
-       | Percorso per la pubblicazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) per informazioni sulla descrizione. |
+       | Percorso per la pubblicazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](/azure/devops/pipelines/build/variables?tabs=yaml#build-variables) per informazioni sulla descrizione. |
        | Nome dell'artefatto | Specificare il nome predefinito: `drop` |
        | Percorso di pubblicazione artefatto | Usa il percorso predefinito: `Azure Pipelines` |
 

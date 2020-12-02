@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141500"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444815"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
@@ -60,8 +60,8 @@ La tabella seguente elenca gli URL di base per gli endpoint di Azure AD usati pe
 
 Le richieste agli endpoint di autorizzazione o token di Azure AD possono essere create usando l'URL di base specifico dell'area appropriato. Ad esempio, per Azure Germania:
 
-  - L'endpoint comune di autorizzazione è `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
-  - L'endpoint comune di token è `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
+- L'endpoint comune di autorizzazione è `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+- L'endpoint comune di token è `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 Per le applicazioni a tenant singolo, sostituire "common" negli URL precedenti con l'ID o il nome del tenant. Un esempio è `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Per informazioni su come creare un'applicazione usando Microsoft Identity Platfo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su:
+Informazioni su come usare [Microsoft Authentication Library (MSAL) in un ambiente cloud nazionale](msal-national-cloud.md).
+
+Documentazione sul cloud nazionale:
 
 - [Azure per enti pubblici](../../azure-government/index.yml)
 - [Azure Cina (21Vianet)](/azure/china/)
 - [Azure Germania](../../germany/index.yml)
-- [Nozioni di base sull'autenticazione di Azure AD](./authentication-vs-authorization.md)

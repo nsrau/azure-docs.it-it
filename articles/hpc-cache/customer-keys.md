@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340530"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444574"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "92340530"
 > [!NOTE]
 > Tutti i dati archiviati in Azure, inclusi i dischi della cache, vengono crittografati a riposo usando chiavi gestite da Microsoft per impostazione predefinita. Se si vogliono gestire le chiavi usate per crittografare i dati, è necessario seguire la procedura descritta in questo articolo.
 
-La cache HPC di Azure è anche protetta dalla [crittografia dell'host delle macchine virtuali](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) nei dischi gestiti che contengono i dati memorizzati nella cache, anche se si aggiunge una chiave cliente per i dischi della cache. L'aggiunta di una chiave gestita dal cliente per la crittografia doppia offre un livello di sicurezza aggiuntivo per i clienti con esigenze di sicurezza elevate. Per informazioni dettagliate, leggere la [crittografia lato server dell'archiviazione su disco di Azure](../virtual-machines/linux/disk-encryption.md) .
+La cache HPC di Azure è anche protetta dalla [crittografia dell'host delle macchine virtuali](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) nei dischi gestiti che contengono i dati memorizzati nella cache, anche se si aggiunge una chiave cliente per i dischi della cache. L'aggiunta di una chiave gestita dal cliente per la crittografia doppia offre un livello di sicurezza aggiuntivo per i clienti con esigenze di sicurezza elevate. Per informazioni dettagliate, leggere la [crittografia lato server dell'archiviazione su disco di Azure](../virtual-machines/disk-encryption.md) .
 
 Questa funzionalità è disponibile solo in alcune aree di Azure in cui è disponibile cache HPC di Azure. Per informazioni dettagliate, vedere l'elenco di [disponibilità dell'area](hpc-cache-overview.md#region-availability) .
 
@@ -144,7 +144,7 @@ Dopo aver scelto i nuovi valori della chiave di crittografia, fare clic su **Sel
 Questi articoli illustrano come usare Azure Key Vault e chiavi gestite dal cliente per crittografare i dati in Azure:
 
 * [Panoramica della crittografia di archiviazione di Azure](../storage/common/storage-service-encryption.md)
-* [Crittografia del disco con chiavi gestite dal cliente](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) : documentazione per l'uso di Azure Key Vault con Managed disks, che è uno scenario analogo alla cache HPC di Azure
+* [Crittografia del disco con chiavi gestite dal cliente](../virtual-machines/disk-encryption.md#customer-managed-keys) : documentazione per l'uso di Azure Key Vault con Managed disks, che è uno scenario analogo alla cache HPC di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 

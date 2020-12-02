@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999876"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436692"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -32,7 +32,7 @@ L'attribuzione dell'utilizzo da parte dei clienti supporta tre opzioni di distri
 >
 >- L'attribuzione dell'utilizzo da parte dei clienti riguarda le nuove distribuzioni e NON supporta l'assegnazione di tag alle risorse esistenti già distribuite.
 >
->- L'attribuzione dell'utilizzo da parte dei clienti è necessaria per le offerte di [applicazioni di Azure](./partner-center-portal/create-new-azure-apps-offer.md) pubblicate in Azure Marketplace.
+>- L'attribuzione dell'utilizzo da parte dei clienti è necessaria per le offerte di [applicazioni di Azure](./create-new-azure-apps-offer.md) pubblicate in Azure Marketplace.
 >
 >- Non tutti i servizi di Azure sono compatibili con l'attribuzione dell'utilizzo del cliente. I servizi di Azure Kubernetes (AKS) e i set di scalabilità di macchine virtuali presentano attualmente problemi noti che provocano la segnalazione dell'utilizzo.
 
@@ -64,7 +64,7 @@ I GUID devono essere registrati nel Centro per i partner per consentire l'attrib
 Dopo avere aggiunto il GUID al modello o nell'agente utente e avere registrato il GUID nel Centro per i partner, vengono monitorate le distribuzioni future.
 
 > [!NOTE]
-> Se si pubblica l'offerta [applicazione Azure](./partner-center-portal/create-new-azure-apps-offer.md) in Azure Marketplace tramite il centro per i partner, qualsiasi nuovo GUID usato nel modello verrà automaticamente registrato nel profilo del centro per i partner quando il modello viene caricato.  
+> Se si pubblica l'offerta [applicazione Azure](./create-new-azure-apps-offer.md) in Azure Marketplace tramite il centro per i partner, qualsiasi nuovo GUID usato nel modello verrà automaticamente registrato nel profilo del centro per i partner quando il modello viene caricato.  
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard).
 
@@ -90,7 +90,7 @@ Molte soluzioni dei partner vengono distribuite usando i modelli di Azure Resour
 > [!NOTE]
 > Per altre informazioni sulla creazione e sulla pubblicazione di modelli di soluzione, vedere
 > * [Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
->* [Offerta di applicazione Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+>* [Offerta di applicazione Azure](./create-new-azure-apps-offer.md).
 >* Video: [creazione di modelli di soluzioni e applicazioni gestite per Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

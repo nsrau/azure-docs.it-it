@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554802"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437117"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Ripetere il training dei modelli con Azure Machine Learning Designer
 
@@ -47,7 +47,11 @@ La pipeline usata in questo articolo è una versione modificata di una stima del
 
 ## <a name="create-a-pipeline-parameter"></a>Creare un parametro della pipeline
 
-Creare i parametri della pipeline per impostare dinamicamente le variabili durante il runtime. Per questo esempio, il percorso dei dati di training verrà modificato da un valore fisso a un parametro in modo che sia possibile ripetere il training del modello con dati diversi.
+I parametri della pipeline vengono usati per creare pipeline versatili che possono essere inviate nuovamente in un secondo momento con valori di parametro variabili. Alcuni scenari comuni sono l'aggiornamento di set di impostazioni o alcuni parametri ipertestuali per la ripetizione del training. Creare i parametri della pipeline per impostare dinamicamente le variabili durante il runtime. 
+
+I parametri della pipeline possono essere aggiunti ai parametri delle origini dati o dei moduli in una pipeline. Quando la pipeline viene inviata nuovamente, è possibile specificare i valori di questi parametri.
+
+Per questo esempio, il percorso dei dati di training verrà modificato da un valore fisso a un parametro in modo che sia possibile ripetere il training del modello con dati diversi. È anche possibile aggiungere altri parametri del modulo come parametri della pipeline in base al caso d'uso.
 
 1. Selezionare il modulo **Import Data** (Importare dati).
 
@@ -60,31 +64,22 @@ Creare i parametri della pipeline per impostare dinamicamente le variabili duran
 
 1. Passare il mouse sul campo **Path** (Percorso) e selezionare i tre punti visualizzati sopra il campo **Path** (Percorso).
 
-    ![Screenshot che illustra come creare un parametro della pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Selezionare **Add to pipeline parameter** (Aggiungi a parametro pipeline).
 
 1. Specificare un nome di parametro e un valore predefinito.
 
-   > [!NOTE]
-   > È possibile esaminare e modificare i parametri della pipeline selezionando l'icona a forma di ingranaggio **Settings** (Impostazioni) accanto al titolo della bozza della pipeline. 
+   ![Screenshot che illustra come creare un parametro della pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Selezionare **Salva**.
 
+   > [!NOTE]
+   > È anche possibile scollegare un parametro module dal parametro pipeline nel riquadro dei dettagli del modulo, in modo analogo all'aggiunta di parametri della pipeline.
+   >
+   > È possibile esaminare e modificare i parametri della pipeline selezionando l'icona a forma di ingranaggio **Settings** (Impostazioni) accanto al titolo della bozza della pipeline. 
+   >    - Dopo lo scollegamento, è possibile eliminare il parametro della pipeline nel riquadro **setings** .
+   >    - È anche possibile aggiungere un parametro della pipeline nel riquadro **Impostazioni** e quindi applicarlo a un parametro del modulo.
+
 1. Avviare l'esecuzione della pipeline.
-
-## <a name="find-a-trained-model"></a>Trovare un modello di cui è stato eseguito il training
-
-La finestra di progettazione salva tutti gli output della pipeline, inclusi i modelli di cui è stato eseguito il training, nell'account di archiviazione predefinito dell'area di lavoro. È anche possibile accedere ai modelli di cui è stato eseguito il training direttamente nella finestra di progettazione:
-
-1. Attendere il completamento dell'esecuzione della pipeline.
-1. Selezionare il modulo **Train Model**.
-1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare **Outputs + logs** (Output + log).
-1. È possibile trovare il modello in **Other outputs** (Altri output) insieme ai log di esecuzione.
-1. In alternativa, selezionare l'icona **View output** (Visualizza output). Da qui è possibile seguire le istruzioni nella finestra di dialogo per passare direttamente all'archivio dati. 
-
-> [!div class="mx-imgBorder"]
-> ![Schermata che illustra come scaricare il modello di cui è stato eseguito il training](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Pubblicare una pipeline di training
 

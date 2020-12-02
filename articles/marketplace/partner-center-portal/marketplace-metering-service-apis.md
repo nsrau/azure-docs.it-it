@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674626"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436063"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API di fatturazione a consumo del Marketplace
 
@@ -20,7 +20,7 @@ Le API di fatturazione a consumo devono essere usate quando l'editore crea dimen
 
 Per altre informazioni sulla creazione di dimensioni di misurazione personalizzate per SaaS, vedere [fatturazione a consumo Saas](saas-metered-billing.md).
 
-Per altre informazioni sulla creazione di dimensioni di misurazione personalizzate per un'offerta di applicazione Azure con un piano di app gestite, vedere la [sezione relativa alla configurazione tecnica di creare una nuova offerta di app di Azure](create-new-azure-apps-offer.md#technical-configuration).
+Per altre informazioni sulla creazione di dimensioni di misurazione personalizzate per un'offerta di applicazione Azure con un piano di app gestite, vedere [configurare i dettagli dell'installazione dell'applicazione Azure](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Applicazione della nota TLS 1,2
 
@@ -34,7 +34,7 @@ L'API dell'evento Usage deve essere chiamata dal server di pubblicazione per gen
 
 È possibile emettere un solo evento di utilizzo per ogni ora di un giorno del calendario per ogni risorsa. Se più unità vengono utilizzate in un'ora, accumulare tutte le unità utilizzate nell'ora e quindi generarle in un singolo evento. Gli eventi di utilizzo possono essere emessi solo per le ultime 24 ore. Se si genera un evento di utilizzo in qualsiasi momento compreso tra 8:00 e 8:59:59 (e viene accettato) e si invia un evento aggiuntivo per lo stesso giorno tra 8:00 e 8:59:59, questo verrà rifiutato come duplicato.
 
-**PUBBLICAZIONE** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**PUBBLICAZIONE**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -147,7 +147,7 @@ Esempio di payload di risposta:
 
 L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per più di una risorsa acquistata in una sola volta. Consente inoltre di generare diversi eventi di utilizzo per la stessa risorsa purché siano destinati a diverse ore di calendario. Il numero massimo di eventi in un singolo batch è 25.
 
-**PUBBLICAZIONE** : `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**PUBBLICAZIONE**: `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046010"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435944"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge (Editor classico)
 
@@ -32,15 +32,15 @@ Questo articolo illustra come usare le [attività di Azure IOT Edge](/azure/devo
 
 Se non diversamente specificato, le procedure descritte in questo articolo non consentono di esplorare tutte le funzionalità disponibili tramite i parametri dell'attività. Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Versione attività](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Versione attività](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Avanzate** : se applicabile, specificare i moduli che non si desidera compilati.
-* [Opzioni di controllo](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Variabili di ambiente](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Variabili di output](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Opzioni di controllo](/azure/devops/pipelines/process/tasks?tabs=classic#task-control-options)
+* [Variabili di ambiente](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
+* [Variabili di output](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un repository Azure Repos. Se non se ne ha uno, è possibile [creare un nuovo repository Git nel progetto](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**.
+* Un repository Azure Repos. Se non se ne ha uno, è possibile [creare un nuovo repository Git nel progetto](/azure/devops/repos/git/create-new-repo). Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**.
 * Una soluzione IoT Edge di cui sia stato eseguito il commit e il push nel repository. Se si vuole creare una nuova soluzione di esempio per testare le procedure di questo articolo, seguire i passaggi descritti in [Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug](how-to-vs-code-develop-module.md) oppure [Usare Visual Studio 2017 per sviluppare ed eseguire il debug di moduli C# per Azure IoT Edge](./how-to-visual-studio-develop-module.md). Per questo articolo è stata creata una soluzione nel repository denominata **IoTEdgeSolution**, che contiene il codice per un modulo denominato **FilterModule**.
 
    Per questo articolo, tutto quello che serve è la cartella della soluzione creata dai modelli IoT Edge in Visual Studio Code o Visual Studio. Non è necessario compilare, eseguire il push, distribuire o eseguire il debug di questo codice prima di procedere. Questi processi verranno configurati in Azure Pipelines.
@@ -84,7 +84,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
 
    * Se si desidera compilare i moduli in piattaforma AMD64 per i contenitori Linux, scegliere **Ubuntu-16,04**
 
-   * Se si desidera compilare i moduli nella piattaforma amd64 per i contenitori Windows 1809, è necessario [configurare un agente auto-ospitato in Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Se si desidera compilare i moduli nella piattaforma amd64 per i contenitori Windows 1809, è necessario [configurare un agente auto-ospitato in Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Se si vuole compilare i moduli nella piattaforma arm32v7 o arm64 per i contenitori Linux, è necessario [configurare l'agente self-hosted in Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -136,14 +136,14 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
     | Nome visualizzato | Usare il nome predefinito o personalizzare |
     | Cartella di origine | Cartella contenente i file da copiare. |
     | Contenuto | Aggiungere due righe: `deployment.template.json` e `**/module.json` . Questi due file vengono usati come input per generare il manifesto di distribuzione di IoT Edge. |
-    | Cartella di destinazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) per informazioni sulla descrizione. |
+    | Cartella di destinazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](/azure/devops/pipelines/build/variables#build-variables) per informazioni sulla descrizione. |
 
 10. Selezionare l'attività **Pubblica artefatti di compilazione** per modificarla. Fornire il percorso della directory di gestione temporanea dell'artefatto all'attività in modo che sia possibile pubblicare il percorso nella pipeline di rilascio.
 
     | Parametro | Descrizione |
     | --- | --- |
     | Nome visualizzato | Usare il nome predefinito o personalizzare. |
-    | Percorso per la pubblicazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Per altre informazioni, vedere [variabili di compilazione](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) . |
+    | Percorso per la pubblicazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Per altre informazioni, vedere [variabili di compilazione](/azure/devops/pipelines/build/variables#build-variables) . |
     | Nome dell'artefatto | Usa il nome predefinito: **Drop** |
     | Percorso di pubblicazione artefatto | Usa il percorso predefinito: **Azure Pipelines** |
 

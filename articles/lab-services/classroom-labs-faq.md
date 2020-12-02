@@ -1,17 +1,17 @@
 ---
-title: Lab per le classi in Azure Lab Services - Domande frequenti | Microsoft Docs
-description: Questo articolo fornisce le risposte alle domande frequenti sui lab per le classi in Azure Lab Services.
+title: Laboratori in Azure Lab Services-domande frequenti | Microsoft Docs
+description: Questo articolo fornisce le risposte alle domande frequenti sui Lab in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443299"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437185"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab per le classi in Azure Lab Services - Domande frequenti
-Trovare le risposte ad alcune domande frequenti sui lab per le classi in Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab in Azure Lab Services-domande frequenti
+Risposte ad alcune delle domande più comuni sui Lab in Azure Lab Services. 
 
 ## <a name="quotas"></a>Quote
 
@@ -29,13 +29,14 @@ No. Non, non tutte le VM, ma solo quelle assegnate agli utenti in base a una pia
 ## <a name="lab-accounts"></a>Account lab
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Perché non è possibile creare un lab a causa della mancata disponibilità dell'intervallo di indirizzi? 
-I lab per le classi possono creare VM all'interno di un intervallo di indirizzi IP specificato durante la creazione dell'account lab nel portale di Azure. Quando viene fornito un intervallo di indirizzi, a ogni lab creato in seguito vengono assegnati 512 indirizzi IP per le relative VM. L'intervallo di indirizzi per l'account lab deve essere sufficientemente grande da supportare tutti i lab che si intende creare al suo interno. 
+
+Labs può creare VM Lab all'interno di un intervallo di indirizzi IP specificato durante la creazione dell'account Lab nel portale di Azure. Quando viene fornito un intervallo di indirizzi, a ogni lab creato in seguito vengono assegnati 512 indirizzi IP per le relative VM. L'intervallo di indirizzi per l'account lab deve essere sufficientemente grande da supportare tutti i lab che si intende creare al suo interno. 
 
 Se ad esempio si ha un blocco /19-10.0.0.0/19, questo intervallo di indirizzi supporta 8192 indirizzi IP e 16 Lab (8192/512 = 16 lab). In questo caso, la creazione del diciassettesimo lab non riesce.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quali intervalli di porte è necessario aprire nell'impostazione del firewall dell'organizzazione per connettersi alle macchine virtuali del lab tramite RDP/SSH?
 
-Le porte sono comprese nell'intervallo 49152–65535. I lab per le classi si trovano dietro a un servizio di bilanciamento del carico. Ogni lab ha un singolo indirizzo IP pubblico e ogni macchina virtuale al suo interno ha una porta univoca. 
+Le porte sono comprese nell'intervallo 49152–65535. I Lab si trovano dietro un servizio di bilanciamento del carico. Ogni lab ha un singolo indirizzo IP pubblico e ogni macchina virtuale al suo interno ha una porta univoca. 
 
 È anche possibile vedere l'indirizzo IP privato di ogni macchina virtuale nella scheda **Pool di macchine virtuali** della home page del lab nel portale di Azure. Se si ripubblica un lab, il relativo indirizzo IP pubblico non cambierà, mentre l'indirizzo IP privato e il numero di porta di ogni macchina virtuale nel lab possono cambiare. Per altre informazioni, vedere l'articolo [Impostazioni del firewall per Azure Lab Services](how-to-configure-firewall-settings.md).
 

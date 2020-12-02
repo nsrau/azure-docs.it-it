@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 030a69c7eca70c081a1d9392bfa527f3386d7c2b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150610"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436709"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Esercitazione: usare gli arricchimenti di messaggi dell'hub Azure.
 
@@ -38,13 +38,13 @@ Ecco le attività da eseguire per completare questa esercitazione:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-* Installare [Visual Studio](https://www.visualstudio.com/).
+- È necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Installare [Visual Studio](https://www.visualstudio.com/).
 
+- Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="retrieve-the-iot-c-samples-repository"></a>Recuperare il repository degli esempi C#
 
@@ -77,7 +77,7 @@ Se non è già stato fatto, aprire una [finestra di cloud Shell](https://shell.a
 
 Di seguito sono riportate le risorse create dallo script. *Arricchito* significa che la risorsa è destinata ai messaggi con arricchimenti. *Originale* significa che la risorsa è per i messaggi che non sono arricchiti.
 
-| Nome | Valore |
+| Nome | valore |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome del contenitore | originale  |
@@ -253,20 +253,20 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
    ![Selezionare il routing del messaggio](./media/tutorial-message-enrichments/select-iot-hub.png)
 
-   Il riquadro routing messaggi include tre schede con etichetta **Route**, **endpoint personalizzati**e **arricchimento messaggi**. Sfogliare le prime due schede per visualizzare la configurazione configurata dallo script. Utilizzare la terza scheda per aggiungere gli arricchimenti dei messaggi. Verranno ora arricchiti i messaggi inviati all'endpoint per il contenitore di archiviazione denominato **arricchito**. Immettere il nome e il valore, quindi selezionare l'endpoint **ContosoStorageEndpointEnriched** nell'elenco a discesa. Di seguito è riportato un esempio di come configurare un arricchimento che aggiunge il nome dell'hub Internet al messaggio:
+   Il riquadro routing messaggi include tre schede con etichetta **Route**, **endpoint personalizzati** e **arricchimento messaggi**. Sfogliare le prime due schede per visualizzare la configurazione configurata dallo script. Utilizzare la terza scheda per aggiungere gli arricchimenti dei messaggi. Verranno ora arricchiti i messaggi inviati all'endpoint per il contenitore di archiviazione denominato **arricchito**. Immettere il nome e il valore, quindi selezionare l'endpoint **ContosoStorageEndpointEnriched** nell'elenco a discesa. Di seguito è riportato un esempio di come configurare un arricchimento che aggiunge il nome dell'hub Internet al messaggio:
 
    ![Aggiungi primo arricchimento](./media/tutorial-message-enrichments/add-message-enrichments.png)
 
 2. Aggiungere questi valori all'elenco per l'endpoint ContosoStorageEndpointEnriched.
 
-   | Chiave | Valore | Endpoint (elenco a discesa) |
+   | Chiave | valore | Endpoint (elenco a discesa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin. Tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
    |customerID | 6ce345b8-1e4a-411E-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
-   > Se il dispositivo non ha un gemello, il valore inserito qui verrà timbrato come stringa per il valore negli arricchimenti dei messaggi. Per visualizzare le informazioni sul dispositivo gemello, passare all'hub nel portale e selezionare **dispositivi**Internet. Selezionare il dispositivo e quindi selezionare **dispositivo gemello** nella parte superiore della pagina.
+   > Se il dispositivo non ha un gemello, il valore inserito qui verrà timbrato come stringa per il valore negli arricchimenti dei messaggi. Per visualizzare le informazioni sul dispositivo gemello, passare all'hub nel portale e selezionare **dispositivi** Internet. Selezionare il dispositivo e quindi selezionare **dispositivo gemello** nella parte superiore della pagina.
    >
    > È possibile modificare le informazioni del dispositivo gemello per aggiungere tag, ad esempio location, e impostarlo su un valore specifico. Per altre informazioni, vedere [Comprendere e usare dispositivi gemelli nell'hub IoT](iot-hub-devguide-device-twins.md).
 
@@ -279,7 +279,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Creare e configurare usando un modello di Gestione risorse
 È possibile utilizzare un modello di Gestione risorse per creare e configurare le risorse, il routing dei messaggi e gli arricchimenti dei messaggi.
 
-1. Accedere al portale di Azure. Selezionare **+ Crea una risorsa** per visualizzare una casella di ricerca. Immettere la *distribuzione del modello*e cercarla. Nel riquadro dei risultati selezionare **distribuzione modelli (Distribuisci usando un modello personalizzato)**.
+1. Accedere al portale di Azure. Selezionare **+ Crea una risorsa** per visualizzare una casella di ricerca. Immettere la *distribuzione del modello* e cercarla. Nel riquadro dei risultati selezionare **distribuzione modelli (Distribuisci usando un modello personalizzato)**.
 
    ![Distribuzione modelli nella portale di Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -297,7 +297,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
    Di seguito sono riportate le risorse create caricando il modello. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti. Questi sono gli stessi valori usati nello script dell'interfaccia della riga di comando di Azure.
 
-   | Nome | Valore |
+   | Nome | valore |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome del contenitore | originale  |
@@ -356,7 +356,7 @@ L'app invia un nuovo messaggio da dispositivo a cloud all'hub IoT ogni secondo. 
 
 Dopo l'invio di diversi messaggi di archiviazione, visualizzare i dati.
 
-1. Selezionare **gruppi di risorse**. Trovare il gruppo di risorse, **ContosoResourcesMsgEn**, e selezionarlo.
+1. Selezionare **Gruppi di risorse**. Trovare il gruppo di risorse, **ContosoResourcesMsgEn**, e selezionarlo.
 
 2. Selezionare l'account di archiviazione, ovvero **contosostorage**. Quindi selezionare **Storage Explorer (anteprima)** nel riquadro sinistro.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095673"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436386"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Gestione dei feedback di revisione per offerte app di Azure
 
-Questo articolo illustra come accedere ai feedback del team di revisione di Microsoft Azure Marketplace in [Azure DevOps](https://azure.microsoft.com/services/devops/). Se vengono rilevati problemi critici nell'offerta di applicazione Azure durante il passaggio di **revisione Microsoft** , è possibile accedere a questo sistema per visualizzare informazioni dettagliate su questi problemi (feedback della revisione). Dopo avere risolto tutti i problemi, è necessario inviare di nuovo l'offerta per continuare a pubblicarla in Azure Marketplace. Il diagramma seguente illustra come questo processo di commenti e suggerimenti è correlato a quello di pubblicazione.
+Questo articolo illustra come accedere ai feedback del team di revisione di Microsoft Azure Marketplace in [Azure DevOps](https://azure.microsoft.com/services/devops/). Se vengono rilevati problemi critici nell'offerta di applicazione Azure durante il passaggio di **revisione Microsoft**, è possibile accedere a questo sistema per visualizzare informazioni dettagliate su questi problemi (feedback della revisione). Dopo avere risolto tutti i problemi, è necessario inviare di nuovo l'offerta per continuare a pubblicarla in Azure Marketplace. Il diagramma seguente illustra come questo processo di commenti e suggerimenti è correlato a quello di pubblicazione.
 
 ![Rivedere il processo di feedback](./media/review-feedback-process.png)
 
@@ -39,7 +39,7 @@ Usare la procedura seguente per esaminare i problemi documentati nella richiesta
     [![Home page della richiesta pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Fare clic sull'immagine per ingrandirla.*
 
-1. (Facoltativo) Sul lato destro della finestra, nella sezione **Criteri** , selezionare il messaggio relativo al problema (in questo esempio: **Policy Validation failed** (Errore nella convalida dei criteri)) per esaminare i dettagli specifici del problema, inclusi i file di log associati. Gli errori vengono in genere visualizzati nella parte inferiore dei file di log.
+1. (Facoltativo) Sul lato destro della finestra, nella sezione **Criteri**, selezionare il messaggio relativo al problema (in questo esempio: **Policy Validation failed** (Errore nella convalida dei criteri)) per esaminare i dettagli specifici del problema, inclusi i file di log associati. Gli errori vengono in genere visualizzati nella parte inferiore dei file di log.
 
 1. Nel menu sul lato sinistro della home page selezionare **Files** (File) per visualizzare i file dell'elenco che includono gli asset tecnici per l'offerta. I revisori Microsoft dovrebbero aver aggiunto commenti che descrivono i problemi critici individuati. Nell'esempio seguente sono stati individuati due problemi.
 
@@ -57,4 +57,4 @@ Usare la procedura seguente per esaminare i problemi documentati nella richiesta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver corretto i problemi critici documentati nelle richieste di pull della revisione, è necessario [ripubblicare l'offerta di app Azure](./create-new-azure-apps-offer.md#publish).
+Dopo aver corretto i problemi critici documentati nelle richieste di pull della revisione, è necessario [ripubblicare l'offerta di app Azure](../create-new-azure-apps-offer.md).
