@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ca167a2ae313c29581d40fe921a8742b9b6b61fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 983b1a5e024a44733fab418a67375f232e66cfe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686056"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457172"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -46,7 +46,7 @@ Un ClusterRole concede le autorizzazioni alle risorse nello stesso modo, ma può
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBinding e ClusterRoleBinding
 
-Dopo aver definito i ruoli per concedere le autorizzazioni alle risorse, si assegnano tali autorizzazioni di controllo degli accessi in base al ruolo di Kubernetes con un *RoleBinding*. Se il cluster AKS si [integra con Azure Active Directory](#azure-active-directory-integration), le associazioni rappresentano il modo in cui gli utenti Azure ad vengono concesse le autorizzazioni per eseguire azioni all'interno del cluster, vedere come [controllare l'accesso alle risorse del cluster usando il controllo degli accessi in base al ruolo di Kubernetes e le identità di Azure Active Directory](azure-ad-rbac.md).
+Dopo aver definito i ruoli per concedere le autorizzazioni alle risorse, si assegnano tali autorizzazioni di controllo degli accessi in base al ruolo di Kubernetes con un *RoleBinding*. Se il cluster AKS si [integra con Azure Active Directory (Azure ad)](#azure-active-directory-integration), le associazioni rappresentano il modo in cui gli utenti Azure ad ricevono le autorizzazioni per eseguire azioni all'interno del cluster, vedere come [controllare l'accesso alle risorse del cluster usando il controllo degli accessi in base al ruolo di Kubernetes e le identità di Azure Active Directory](azure-ad-rbac.md).
 
 Le associazioni dei ruoli vengono usate per assegnare i ruoli per un determinato spazio dei nomi. Questo approccio consente di separare logicamente un singolo cluster del servizio Azure Kubernetes e gli utenti potranno accedere solo alle risorse dell'applicazione nello spazio dei nomi assegnato. Se è necessario associare i ruoli nell'intero cluster o alle risorse cluster all'esterno di un determinato spazio dei nomi, è invece possibile usare i *ClusterRoleBinding*.
 
@@ -144,6 +144,22 @@ AKS fornisce i quattro ruoli predefiniti seguenti. Sono simili ai [ruoli predefi
 | Amministrazione del cluster RBAC del servizio Kubernetes di Azure  | Consente l'accesso con privilegi avanzati per eseguire qualsiasi azione su qualsiasi risorsa. Fornisce il controllo completo su tutte le risorse nel cluster e in tutti gli spazi dei nomi. |
 
 **Per informazioni su come abilitare RBAC di Azure per l'autorizzazione Kubernetes, [vedere qui](manage-azure-rbac.md).**
+
+## <a name="summary"></a>Riepilogo
+
+Questa tabella riepiloga i modi in cui gli utenti possono eseguire l'autenticazione a Kubernetes quando è abilitata l'integrazione Azure AD.  In tutti i casi, la sequenza di comandi dell'utente è:
+1. Eseguire `az login` per l'autenticazione in Azure.
+1. Eseguire `az aks get-credentials` per scaricare le credenziali del cluster in `.kube/config` .
+1. Eseguire `kubectl` i comandi, il primo dei quali può attivare l'autenticazione basata su browser per l'autenticazione nel cluster, come descritto nella tabella seguente.
+
+La concessione di ruolo a cui si fa riferimento nella seconda colonna è la concessione del ruolo **controllo degli accessi** in base al ruolo di Azure visualizzata nella scheda controllo di accesso nel portale di Azure. Il gruppo Amministrazione cluster Azure AD viene visualizzato nella scheda **configurazione** del portale (o con il nome del parametro `--aad-admin-group-object-ids` nell'interfaccia della riga di comando di Azure).
+
+| Descrizione        | Concessione ruolo obbligatoria| Gruppo/i Azure AD amministrazione cluster | Utilizzo |
+| -------------------|------------|----------------------------|-------------|
+| Accesso amministratore legacy con certificato client| **Ruolo di amministratore di Azure Kubernetes**. Questo ruolo consente `az aks get-credentials` di usare con il `--admin` flag, che Scarica un [certificato di amministrazione del cluster legacy (non Azure ad)](control-kubeconfig-access.md) negli utenti `.kube/config` . Si tratta dell'unico scopo del ruolo di amministratore di Azure Kubernetes.|n/d|Se non si dispone dell'accesso a un gruppo di Azure AD valido con accesso al cluster.| 
+| Azure AD con RoleBindings manuale (cluster)| **Ruolo utente di Azure Kubernetes**. Il ruolo "User" consente `az aks get-credentials` di usare senza il `--admin` flag. (Questo è l'unico scopo del "ruolo utente di Azure Kubernetes"). Il risultato, in un cluster abilitato per Azure AD, è il download di [una voce vuota](control-kubeconfig-access.md) in `.kube/config` , che attiva l'autenticazione basata su browser quando viene usata per la prima volta da `kubectl` .| L'utente non si trova in nessuno di questi gruppi. Poiché l'utente non è presente in alcun gruppo di amministratori del cluster, i relativi diritti verranno controllati interamente da qualsiasi RoleBindings o ClusterRoleBindings impostati dagli amministratori del cluster. Il RoleBindings (cluster) [designa Azure ad utenti o gruppi di Azure ad](azure-ad-rbac.md) come `subjects` . Se non sono state configurate associazioni di questo tipo, l'utente non sarà in grado di excute alcun `kubectl` comando.|Se si vuole un controllo di accesso con granularità fine e non si usa il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes. Si noti che l'utente che imposta i binding deve accedere da uno degli altri metodi elencati in questa tabella.|
+| Azure AD dal membro del gruppo di amministratori| Vedere sopra.|L'utente è un membro di uno dei gruppi elencati di seguito. AKS genera automaticamente un ClusterRoleBinding che associa tutti i gruppi elencati al `cluster-admin` ruolo Kubernetes. In modo che gli utenti di questi gruppi possano eseguire tutti i `kubectl` comandi come `cluster-admin` .|Se si desidera concedere agli utenti i diritti di amministratore completi e _non_ si usa il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes.|
+| Azure AD con l'autorizzazione RBAC di Azure per Kubernetes|Due ruoli: primo, **ruolo utente Azure Kubernetes** (come sopra). In secondo luogo, uno dei "servizi **RBAC** di Azure Kubernetes..." ruoli elencati sopra o un'alternativa personalizzata.|Il campo ruoli di amministratore nella scheda configurazione è irrilevante quando è abilitata l'autorizzazione RBAC di Azure per Kubernetes.|Si usa RBAC di Azure per l'autorizzazione Kubernetes. Questo approccio offre un controllo con granularità fine, senza la necessità di configurare RoleBindings o ClusterRoleBindings.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

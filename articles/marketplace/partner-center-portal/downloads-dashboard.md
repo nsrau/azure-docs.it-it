@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f426b0466046b366655c183a9372b2468937565b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d36043d74da1aa75b32867d4efeebc9729f4a119
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750269"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457757"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Scarica il dashboard in Commercial Marketplace Analytics
 
@@ -21,7 +21,7 @@ Questo articolo fornisce informazioni sul dashboard Downloads nel centro per i p
 Per accedere al dashboard dei download, aprire il dashboard di **[analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** nel Marketplace commerciale.
 
 >[!NOTE]
-> Per definizioni dettagliate della terminologia di analisi, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).
+> Per definizioni dettagliate della terminologia di analisi, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](../analytics-faq.md).
 
 ## <a name="downloads-dashboard"></a>Dashboard Download
 
@@ -54,9 +54,9 @@ Un utente può pianificare i download asincroni dei report dalla sezione Downloa
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere [Analisi per il marketplace commerciale nel Centro per i partner](./analytics.md).
-- Per i grafici, le tendenze e i valori dei dati aggregati che riassumono l'attività del marketplace per l'offerta, vedere [Dashboard di riepilogo nell'analisi per il marketplace commerciale](./summary-dashboard.md).
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard degli ordini nell'analisi per il marketplace commerciale](./orders-dashboard.md).
-- Per informazioni sull'utilizzo di offerte con macchine virtuali (VM) e sull'analisi della fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi per il marketplace commerciale](./usage-dashboard.md).
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi per il marketplace commerciale](./customer-dashboard.md).
+- Per i grafici, le tendenze e i valori dei dati aggregati che riassumono l'attività del marketplace per l'offerta, vedere [Dashboard di riepilogo nell'analisi per il marketplace commerciale](../summary-dashboard.md).
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard degli ordini nell'analisi per il marketplace commerciale](../orders-dashboard.md).
+- Per informazioni sull'utilizzo di offerte con macchine virtuali (VM) e sull'analisi della fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi per il marketplace commerciale](../usage-dashboard.md).
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi per il marketplace commerciale](../customer-dashboard.md).
 - Per una visualizzazione consolidata del feedback dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard di valutazioni e recensioni nell'analisi per il marketplace commerciale](./ratings-reviews.md).
-- Per le domande frequenti sull'analisi del marketplace commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).
+- Per le domande frequenti sull'analisi del marketplace commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](../analytics-faq.md).

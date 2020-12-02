@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 003bf5241611df450fa6d0ecadff264c4d5de243
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 891366060cddaf2a046de36fa9300432977ec903
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842856"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457726"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Baseline della sicurezza di Azure per l'hub Azure
 
@@ -33,7 +33,7 @@ Si consiglia di limitare la connettività alle risorse di Azure (incluso l'hub d
 Per evitare l'accesso indesiderato, è necessario lasciare le porte hardware aperte nei dispositivi. Inoltre, i meccanismi di compilazione per prevenire o rilevare manomissioni fisiche del dispositivo.
 
 - [Supporto reti virtuali Internet](virtual-network-support.md)
-- [procedura consigliata per la rete molto](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
+- [procedura consigliata per la rete molto](../iot-fundamentals/security-recommendations.md?context=azure%2fiot-hub%2frc%2frc#networking)
 - [Panoramica del collegamento privato di Azure](../private-link/private-link-overview.md)
 - [Gruppo di sicurezza di rete di Azure](../virtual-network/network-security-groups-overview.md)
 
@@ -73,7 +73,7 @@ Protezione DDoS di Azure Basic è già abilitata e disponibile senza costi aggiu
 
 - [Centro sicurezza di Azure per la comunicazione degli indirizzi IP sospetti](../defender-for-iot/concept-security-alerts.md)
 
-- [Gestire la protezione DDoS di Azure Basic](../virtual-network/ddos-protection-overview.md)
+- [Gestire la protezione DDoS di Azure Basic](../ddos-protection/ddos-protection-overview.md)
 
 - [Protezione dalle minacce nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
@@ -220,7 +220,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 - [Monitorare l'integrità di Azure](monitor-iot-hub.md)
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
    
 - [ Come eseguire query personalizzate in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -377,7 +377,7 @@ Per l'accesso ai dispositivi e ai servizi, l'hub Internet usa i token di sicurez
 Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
 - [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
-- [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
+- [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 - [Distribuire Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -517,7 +517,7 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 - [Crittografia dei dati inattivi con chiavi gestite dal cliente per l'hub Internet](iot-hub-customer-managed-keys.md)
 
-- [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -1027,11 +1027,11 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
+**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia di Microsoft e le attività di red team e i test di penetrazione di siti live nell'infrastruttura cloud, nei servizi e nelle applicazioni gestiti da Microsoft.
 
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 

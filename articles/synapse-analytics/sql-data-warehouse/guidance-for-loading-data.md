@@ -1,30 +1,30 @@
 ---
-title: Procedure consigliate per il caricamento dei dati per il pool SQL sinapsi
-description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati tramite il pool di SQL sinapsi.
+title: Procedure consigliate per il caricamento dei dati per i pool SQL dedicati
+description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati con pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441222"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456302"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedure consigliate per il caricamento di dati tramite il pool di sinapsi SQL
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati con pool SQL dedicati in Azure sinapsi Analytics
 
-In questo articolo verranno illustrate le raccomandazioni e le ottimizzazioni delle prestazioni per il caricamento dei dati tramite il pool SQL.
+In questo articolo verranno illustrate le raccomandazioni e le ottimizzazioni delle prestazioni per il caricamento di dati tramite un pool SQL dedicato.
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparazione dei dati in Archiviazione di Azure
 
-Per ridurre al minimo la latenza, colocare il livello di archiviazione e il pool SQL.
+Per ridurre al minimo la latenza, colocare il livello di archiviazione e il pool SQL dedicato.
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
 
@@ -34,7 +34,7 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 ## <a name="running-loads-with-enough-compute"></a>Esecuzione di carichi con risorse di calcolo sufficienti
 
-Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se ciò non è possibile, eseguire un numero minimo di caricamenti simultaneamente. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
+Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se ciò non è possibile, eseguire un numero minimo di caricamenti simultaneamente. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL dedicato prima del caricamento.
 
 Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Classificare ogni utente di caricamento in un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il carico viene eseguito con il gruppo del carico di lavoro dell'utente.  
 
@@ -47,10 +47,10 @@ In questo esempio viene creato un utente di caricamento Classificato in un grupp
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connettersi al pool SQL e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
+Connettersi al pool SQL dedicato e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Per eseguire un caricamento con risorse per il gruppo del carico di lavoro di ca
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Consentire il caricamento di più utenti (polibase)
 
-Spesso è necessario che più utenti carichino i dati in un pool SQL. Il caricamento con il [create table come Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (polibase) richiede autorizzazioni Control per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi.
+Spesso è necessario che più utenti carichino i dati in un pool SQL dedicato. Il caricamento con il [create table come Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (polibase) richiede autorizzazioni Control per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi.
 
 È consigliabile che non tutti gli utenti che eseguono caricamenti abbiano il controllo degli accessi a tutti gli schemi. Per limitare le autorizzazioni, usare l'istruzione DENY CONTROL.
 
@@ -91,9 +91,9 @@ User_A e user_B sono ora bloccati dallo schema dell'altro reparto.
 
 ## <a name="loading-to-a-staging-table"></a>Caricamento in una tabella di staging
 
-Per ottenere la velocità di caricamento più veloce per lo stato di avanzamento dei dati in una tabella del pool SQL, caricare i dati in una tabella di staging.  Definire la tabella di staging come heap e usare round robin per l'opzione di distribuzione.
+Per ottenere la velocità di caricamento più veloce per lo stato di avanzamento dei dati in una tabella del pool SQL dedicata, caricare i dati in una tabella di staging.  Definire la tabella di staging come heap e usare round robin per l'opzione di distribuzione.
 
-Si tenga presente che il caricamento è in genere un processo in due passaggi in cui viene innanzitutto caricato in una tabella di staging e quindi i dati vengono inseriti in una tabella del pool SQL di produzione. Se la tabella di produzione usa una distribuzione hash, il tempo totale necessario per il caricamento e l'inserimento può essere ridotto se si definisce una tabella di staging con la distribuzione hash.
+Si tenga presente che il caricamento è in genere un processo in due passaggi in cui viene innanzitutto caricato in una tabella di staging e quindi i dati vengono inseriti in una tabella del pool SQL dedicata alla produzione. Se la tabella di produzione usa una distribuzione hash, il tempo totale necessario per il caricamento e l'inserimento può essere ridotto se si definisce una tabella di staging con la distribuzione hash.
 
 Il caricamento nella tabella di staging richiede più tempo, ma il secondo passaggio di inserimento delle righe nella tabella di produzione non comporta lo spostamento dei dati tra le distribuzioni.
 
@@ -111,7 +111,7 @@ In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riusci
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SqLBulkCopy o BCP
 
-Il caricamento con l'istruzione COPY fornirà la massima velocità effettiva con il pool SQL. Se non è possibile usare la copia per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
+Il caricamento con l'istruzione COPY fornirà la massima velocità effettiva con i pool SQL dedicati. Se non è possibile usare la copia per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
 
 > [!TIP]
 > Una dimensione di batch compresa tra 100 e 1 milione di righe è la linea di base consigliata per determinare la capacità ottimale per le dimensioni del batch.

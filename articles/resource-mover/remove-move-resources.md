@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/30/2020
 ms.author: raynew
-ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945944"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459280"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Gestire le raccolte di spostamento e i gruppi di risorse
 
@@ -22,11 +22,11 @@ Questo articolo descrive come rimuovere risorse da una raccolta di spostamento o
 
 È possibile rimuovere le risorse in una raccolta di spostamento, nel portale di Resource Mover, come indicato di seguito:
 
-1. In **aree diverse**selezionare tutte le risorse che si desidera rimuovere dalla raccolta e selezionare **Rimuovi**. 
+1. In **aree diverse** selezionare tutte le risorse che si desidera rimuovere dalla raccolta e selezionare **Rimuovi**. 
 
     ![Pulsante da rimuovere](./media/remove-move-resources/portal-select-resources.png)
 
-2. In **Rimuovi risorse**fare clic su **Rimuovi**.
+2. In **Rimuovi risorse** fare clic su **Rimuovi**.
 
     ![Pulsante per selezionare la rimozione delle risorse da una raccolta di spostamento](./media/remove-move-resources/remove-portal.png)
 
@@ -43,12 +43,11 @@ Rimuovere una risorsa (in questo esempio i computer PSDemoVM) da una raccolta us
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
 ```
-**Output previsto** 
- ![ Testo di output dopo la rimozione di una risorsa da una raccolta di spostamento](./media/remove-move-resources/remove-resource.png)
+**Output previsto**
 
-
+![Testo di output dopo la rimozione di una risorsa da una raccolta di spostamento](./media/remove-move-resources/remove-resource.png)
 
 ## <a name="remove-a-collection-powershell"></a>Rimuovere una raccolta (PowerShell)
 
@@ -59,9 +58,11 @@ Rimuovere un'intera raccolta di spostamento usando PowerShell, come indicato di 
 
     ```azurepowershell-interactive
     # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
     ```
-    **Output previsto** ![ Testo di output dopo la rimozione di una raccolta di spostamento](./media/remove-move-resources/remove-collection.png)
+    **Output previsto**
+    
+    ![Testo di output dopo la rimozione di una raccolta di spostamento](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Stato delle risorse della macchina virtuale dopo la rimozione
 

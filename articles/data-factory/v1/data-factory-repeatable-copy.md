@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441630"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456833"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia ripetibile in Azure Data Factory
 
@@ -104,7 +104,7 @@ L'attività di copia ha eseguito lo script di pulizia per eliminare i dati corri
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Meccanismo 2: uso di sliceIdentifierColumnName
 > [!IMPORTANT]
-> Attualmente, sliceIdentifierColumnName non è supportato per l'analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse). 
+> Attualmente, sliceIdentifierColumnName non è supportato per l'analisi delle sinapsi di Azure. 
 
 Il secondo meccanismo per ottenere la ripetibilità prevede la disponibilità di una colonna dedicata (sliceIdentifierColumnName) nella tabella di destinazione. Questa colonna viene usata da Data factory di Azure per garantire che l'origine e la destinazione rimangano sincronizzate. Questo approccio può essere usato solo quando è disponibile una certa flessibilità nella modifica o nella definizione dello schema della tabella SQL di destinazione. 
 

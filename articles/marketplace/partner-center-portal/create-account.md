@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542287"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458111"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -114,7 +114,7 @@ A questo punto è stato creato un account Marketplace commerciale nel centro per
 >
 >Gli account singoli sono destinati agli sviluppatori che lavorano autonomamente. Gli account aziendali sono destinati a organizzazioni e aziende. Gli account aziendali consentono di inviare app con funzionalità aggiuntive.
 >
-> Per verificare che l'utente sia autorizzato a configurare l'account per l'azienda, è necessaria una verifica aggiuntiva degli account aziendali dopo la registrazione. Questa verifica può richiedere da alcuni giorni a un paio di settimane e spesso include una telefonata all'azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per ulteriori informazioni, vedere [tipi di account, località e tariffe](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> Per verificare che l'utente sia autorizzato a configurare l'account per l'azienda, è necessaria una verifica aggiuntiva degli account aziendali dopo la registrazione. Questa verifica può richiedere da alcuni giorni a un paio di settimane e spesso include una telefonata all'azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per ulteriori informazioni, vedere [tipi di account, località e tariffe](/windows/uwp/publish/account-types-locations-and-fees).
 
 Quando si esegue la registrazione per il programma commerciale Marketplace con lo stesso account del programma per sviluppatori, è possibile visualizzare tutte le registrazioni dei programmi esistenti nel riquadro sinistro del centro per i partner.
 

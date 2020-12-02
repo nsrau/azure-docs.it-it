@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3d12e60e2aeee667b89d56589870d53366772014
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322603"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459032"
 ---
-# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Funzionalità supportate da Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
+# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Funzionalità supportate da Collegamento ad Azure Synapse per Azure Cosmos DB
 
 Questo articolo descrive le funzionalità attualmente supportate in Collegamento ad Azure Synapse per Azure Cosmos DB.
 
@@ -31,9 +31,9 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 
 È possibile connettersi a un contenitore Azure Cosmos DB senza abilitare il collegamento sinapsi. In questo scenario, è possibile leggere/scrivere solo nell'archivio transazionale. Di seguito è riportato un elenco delle funzionalità attualmente supportate nel collegamento sinapsi per Azure Cosmos DB. 
 
-| Category              | Descrizione |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Category              | Descrizione |[Pool di Apache Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Pool SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Supporto di runtime** |Runtime di Azure sinapsi supportato per accedere a Azure Cosmos DB| ✓ | ✓ |
+| **Supporto di runtime** |Runtime di Azure sinapsi supportato per accedere a Azure Cosmos DB| ✓ | Anteprima |
 | **Supporto dell'API di Azure Cosmos DB** | Tipo di API Azure Cosmos DB supportato | SQL/MongoDB | SQL/MongoDB |
 | **Object**  |Oggetti, ad esempio una tabella che è possibile creare, che puntano direttamente al contenitore Azure Cosmos DB| Dataframe, vista, tabella | Visualizzazione |
 | **Lettura**    | Tipo di contenitore di Azure Cosmos DB che è possibile leggere | OLTP/HTAP | HTAP  |
@@ -53,12 +53,12 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 | **Scrittura di un dataframe in streaming in un contenitore** |Streaming dei dati con il feed di modifiche di Azure Cosmos DB|✓| ✓ |
 
 
-## <a name="supported-code-generated-actions-for-sql-serverless"></a>Azioni generate dal codice per SQL serverless
+## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>Azioni generate dal codice supportate per il pool SQL senza server
 
 | Movimento              | Descrizione |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Esplorare i dati** |Esplorare i dati da un contenitore con la nota sintassi T-SQL e l'inferenza automatica dello schema|X| ✓ |
-| **Creazione di visualizzazioni e creazione di report di Business Intelligence** |Creare una vista SQL per avere accesso diretto a un contenitore per la Business Intelligence tramite la sinapsi SQL senza server |X| ✓ |
+| **Creazione di visualizzazioni e creazione di report di Business Intelligence** |Creare una vista SQL per accedere direttamente a un contenitore per BI tramite un pool SQL senza server |X| ✓ |
 | **Join di origini dati diversi insieme ai dati di Cosmos DB** | Archiviare i risultati delle query che leggono i dati da contenitori di Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage tramite CETAS |X| ✓ |
 
 ## <a name="next-steps"></a>Passaggi successivi

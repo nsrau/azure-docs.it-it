@@ -1,5 +1,5 @@
 ---
-title: Visualizza dati con Apache Spark
+title: Visualizzare dati con Apache Spark
 description: Creare visualizzazioni di dati avanzate usando i notebook di Apache Spark e Azure sinapsi Analytics
 services: synapse-analytics
 author: midesa
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919741"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458775"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analizzare i dati con Apache Spark
 
@@ -99,7 +99,7 @@ Oltre alle opzioni predefinite per la creazione di grafici dei notebook, è anch
 
 > [!Note]
 > 
-> Per impostazione predefinita, ogni pool di Apache Spark di Azure sinapsi Analytics contiene un set di librerie predefinite e di uso comune. È possibile visualizzare l'elenco completo delle librerie nel [runtime della sinapsi di Azure](../spark/apache-spark-version-support.md). online. Inoltre, per rendere disponibile per le applicazioni di terze parti o codice compilato localmente, è possibile [installare una libreria](../spark/apache-spark-azure-portal-add-libraries.md) in uno dei pool Spark (anteprima).
+> Per impostazione predefinita, ogni pool di Apache Spark di Azure sinapsi Analytics contiene un set di librerie predefinite e di uso comune. È possibile visualizzare l'elenco completo delle librerie nel [runtime della sinapsi di Azure](../spark/apache-spark-version-support.md). online. Inoltre, per rendere disponibile per le applicazioni di terze parti o codice compilato localmente, è possibile [installare una libreria](../spark/apache-spark-azure-portal-add-libraries.md) in uno dei pool Spark.
 >
 
 1. Per rendere più semplice e meno costoso lo sviluppo, viene sottocampionato il set di dati. Si utilizzerà la funzionalità di campionamento Apache Spark incorporata. Inoltre, Seaborn e matplotlib richiedono un dataframe Pandas o una matrice numpy. Per ottenere un dataframe Pandas, si userà il ```toPandas()``` comando per convertire il frame di dataframe.

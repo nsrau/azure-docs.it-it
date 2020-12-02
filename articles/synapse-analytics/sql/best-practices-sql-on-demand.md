@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per il pool SQL senza server (anteprima)
-description: Suggerimenti e procedure consigliate per l'utilizzo di pool SQL senza server (anteprima).
+title: Procedure consigliate per il pool SQL serverless
+description: Suggerimenti e procedure consigliate per l'utilizzo di un pool SQL senza server.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638870"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457895"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server (anteprima) in Azure sinapsi Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server in Azure sinapsi Analytics
 
-In questo articolo è presente una raccolta di procedure consigliate per l'uso del pool SQL senza server (anteprima). Il pool SQL senza server è una risorsa in Azure sinapsi Analytics.
+In questo articolo è presente una raccolta di procedure consigliate per l'uso di un pool SQL senza server. Il pool SQL senza server è una risorsa in Azure sinapsi Analytics.
 
 ## <a name="general-considerations"></a>Considerazioni generali
 
@@ -61,7 +61,7 @@ I tipi di dati usati nella query influiscono sulle prestazioni. Per migliorare l
 - Usare le dimensioni di dati minime che supportano il valore massimo possibile.
   - Se la lunghezza massima del valore in caratteri è 30, usare un tipo di dati carattere di lunghezza 30.
   - Se tutti i valori delle colonne carattere sono di dimensioni fisse, usare **char** o **nchar**. In caso contrario, usare **varchar** o **nvarchar**.
-  - Se il valore massimo di una colonna di numeri interi è 500, usare **smallint** , perché è il tipo di caratteri più piccolo in grado di supportare questo valore. Per informazioni sugli intervalli dei tipi di dati di numeri interi, vedere [questo articolo](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+  - Se il valore massimo di una colonna di numeri interi è 500, usare **smallint**, perché è il tipo di caratteri più piccolo in grado di supportare questo valore. Per informazioni sugli intervalli dei tipi di dati di numeri interi, vedere [questo articolo](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - Se possibile, usare **varchar** e **char** invece di **nvarchar** e **nchar**.
 - Se possibile, usare tipi di dati basati su integer. Le operazioni SORT, JOIN e GROUP BY vengono completate più velocemente su numeri interi che non su dati di tipo carattere.
 - Se si usa l'inferenza dello schema, [controllare i tipi di dati dedotti](#check-inferred-data-types).
@@ -129,7 +129,7 @@ Quando si eseguono query su file CSV, è possibile usare un parser ottimizzato p
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Creare manualmente le statistiche per i file CSV
 
-Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Per informazioni dettagliate, controllare le [statistiche nel pool SQL senza server](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) .
+Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Controllare [statistiche nel pool SQL senza server] (develop-Tables-Statistics. MD # Statistics-in-server senza server-SQL-pool per informazioni dettagliate.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Usare CETAS per ottimizzare le prestazioni e i join delle query
 

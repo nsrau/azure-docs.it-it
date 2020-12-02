@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014721"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458998"
 ---
-# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concedere le autorizzazioni per l'identità gestita dell'area di lavoro (anteprima)
+# <a name="grant-permissions-to-workspace-managed-identity"></a>Concedere autorizzazioni all'identità gestita dell'area di lavoro
 
 Questo articolo illustra come concedere le autorizzazioni per l'identità gestita nell'area di lavoro di sinapsi di Azure. Le autorizzazioni consentono, a loro volta, di accedere ai pool SQL dedicati nell'area di lavoro e ADLS Gen2 account di archiviazione tramite la portale di Azure.
 

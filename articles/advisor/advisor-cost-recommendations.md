@@ -3,16 +3,16 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075910"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458509"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
-Azure Advisor consente di ottimizzare e ridurre la spesa complessiva di Azure identificando le risorse inattive e sottoutilizzate.È possibile ottenere consigli sui costi nella scheda **Costo** del dashboard di Advisor.
+Azure Advisor consente di ottimizzare e ridurre la spesa complessiva di Azure identificando le risorse inattive e sottoutilizzate. È possibile ottenere consigli sui costi nella scheda **Costo** del dashboard di Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Ottimizzare la spesa correlata alle macchine virtuali ridimensionando o arrestando le istanze sottoutilizzate 
 
@@ -71,7 +71,7 @@ Advisor analizza l'archiviazione BLOB di Azure e Azure Data Lake l'utilizzo dell
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>Capacità riservata di MariaDB, MySQL e PostgreSQL
 Advisor analizza i modelli di utilizzo per database di Azure per MariaDB, database di Azure per MySQL e database di Azure per PostgreSQL negli ultimi 30 giorni. Si consiglia quindi di acquistare la capacità riservata per ottimizzare i costi. Usando la capacità riservata, puoi acquistare in anticipo MariaDB, MySQL e l'utilizzo orario di PostgreSQL e risparmiare sui costi attuali. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio.
 
-### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Capacità riservata di Azure sinapsi Analytics (in precedenza SQL Data Warehouse)
+### <a name="azure-synapse-analytics-reserved-capacity"></a>Capacità riservata di analisi delle sinapsi di Azure
 Advisor analizza i modelli di utilizzo di Azure sinapsi Analytics negli ultimi 30 giorni e consiglia gli acquisti di capacità riservata che ottimizzano i costi. Con la capacità riservata è possibile acquistare in anticipo l'utilizzo orario di sinapsi Analytics e risparmiare sui costi su richiesta. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminare gli indirizzi IP pubblici non associati per risparmiare denaro

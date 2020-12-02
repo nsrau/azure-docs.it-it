@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
-ms.openlocfilehash: 30f9eac0a0e88092a243b4d9421d2a4f33b07841
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759001"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459332"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Preparare le risorse tecniche del contenitore di Azure
 
@@ -20,7 +20,7 @@ Questo articolo fornisce risorse tecniche e consigli per la creazione di un'offe
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per Avvio rapido, esercitazioni ed esempi, vedere la [documentazione su Istanze di Azure Container](/azure/container-instances/).
+Per Avvio rapido, esercitazioni ed esempi, vedere la [documentazione su Istanze di Azure Container](../container-instances/index.yml).
 
 ## <a name="fundamental-technical-knowledge"></a>Conoscenze tecniche fondamentali
 
@@ -43,7 +43,7 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 È consigliabile aggiungere questi strumenti all'ambiente di sviluppo:
 
-- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +55,9 @@ Esaminare gli strumenti disponibili nella pagina [Strumenti di sviluppo di Azure
 
 Non è possibile distribuire un'immagine in istanze di contenitore di Azure da un registro locale.
 
-- Se si dispone già di un contenitore funzionante nel registro di sistema locale, creare un registro di sistema di Azure e caricare l'immagine del contenitore nel Container Registry di Azure. Per altre informazioni, vedere [esercitazione: compilare e distribuire immagini del contenitore nel cloud con le attività di container Registry di Azure](/azure/container-registry/container-registry-tutorial-quick-task.md).
+- Se si dispone già di un contenitore funzionante nel registro di sistema locale, creare un registro di sistema di Azure e caricare l'immagine del contenitore nel Container Registry di Azure. Per altre informazioni, vedere [esercitazione: compilare e distribuire immagini del contenitore nel cloud con le attività di container Registry di Azure](../container-registry/container-registry-tutorial-quick-task.md).
 
-- Se non si ha ancora un'immagine del contenitore ed è necessario distribuire l'applicazione esistente o creare una nuova applicazione basata su contenitori, clonare il codice sorgente dell'applicazione da GitHub, creare un'immagine del contenitore dall'origine dell'applicazione e testare l'immagine in un ambiente Docker locale. Per altre informazioni, vedere [esercitazione: creare un'immagine del contenitore per la distribuzione in istanze di contenitore di Azure](/azure/container-instances/container-instances-tutorial-prepare-app.md).
+- Se non si ha ancora un'immagine del contenitore ed è necessario distribuire l'applicazione esistente o creare una nuova applicazione basata su contenitori, clonare il codice sorgente dell'applicazione da GitHub, creare un'immagine del contenitore dall'origine dell'applicazione e testare l'immagine in un ambiente Docker locale. Per altre informazioni, vedere [esercitazione: creare un'immagine del contenitore per la distribuzione in istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

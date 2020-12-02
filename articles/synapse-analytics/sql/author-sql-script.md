@@ -1,6 +1,6 @@
 ---
-title: Script SQL in Azure sinapsi Studio (anteprima)
-description: Introduzione agli script SQL di Azure sinapsi Studio (anteprima)
+title: Script SQL in sinapsi Studio
+description: Introduzione agli script SQL di sinapsi studio in Azure sinapsi Analytics.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635290"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458009"
 ---
-# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Uso di script SQL in Azure sinapsi Studio (anteprima)
+# <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Script SQL di sinapsi studio in Azure sinapsi Analytics 
 
-Azure sinapsi Studio (anteprima) offre un'interfaccia Web per script SQL per la creazione di query SQL. È possibile connettersi al pool SQL (anteprima). 
+Sinapsi Studio fornisce un'interfaccia Web per script SQL per la creazione di query SQL. 
 
 ## <a name="begin-authoring-in-sql-script"></a>Inizia la creazione nello script SQL 
 

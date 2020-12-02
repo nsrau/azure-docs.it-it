@@ -2,13 +2,13 @@
 title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in un gruppo di risorse
 description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: ace1fb6bf3944df539ec8f7301357e67d2b315a9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/01/2020
+ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184077"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456316"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -20,6 +20,7 @@ Non sono ancora supportati gli scenari seguenti:
 
 * Non è possibile spostare i set di scalabilità di macchine virtuali con SKU standard Load Balancer o IP pubblico dello SKU standard.
 * Non è possibile spostare le macchine virtuali in una rete virtuale esistente in una nuova sottoscrizione quando non si spostano tutte le risorse nella rete virtuale.
+* Le macchine virtuali create dalle risorse del Marketplace con i piani collegati non possono essere spostate tra le sottoscrizioni. Per una possibile soluzione alternativa, vedere [macchine virtuali con piani di Marketplace](#virtual-machines-with-marketplace-plans).
 * Le macchine virtuali con priorità bassa e i set di scalabilità di macchine virtuali con priorità bassa non possono essere spostati tra gruppi di risorse o sottoscrizioni.
 * Non è possibile spostare le macchine virtuali in un set di disponibilità singolarmente.
 

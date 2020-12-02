@@ -1,30 +1,30 @@
 ---
 title: Assegna variabili
-description: In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL nel pool SQL.
+description: In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL per i pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 87448ea737c11af13a52632e5bf4f67dc54d9ae3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213330"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459223"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Assegnare variabili nel pool SQL sinapsi
+# <a name="assign-variables-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Assegnare variabili per i pool SQL dedicati in Azure sinapsi Analytics
 
-In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL nel pool SQL.
+In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL in un pool SQL dedicato.
 
 ## <a name="set-variables-with-declare"></a>Imposta variabili con dichiara
 
-Le variabili nel pool SQL vengono impostate tramite l' `DECLARE` istruzione o l' `SET` istruzione. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
+Le variabili nel pool SQL dedicato vengono impostate tramite l' `DECLARE` istruzione o l' `SET` istruzione. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
 
 ```sql
 DECLARE @v  int = 0

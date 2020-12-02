@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353749"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458392"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
@@ -45,7 +45,7 @@ Per provare il modulo del servizio di fatturazione di riconoscimento, passare al
 
 ## <a name="the-analyze-invoice-operation"></a>Operazione di analisi della fattura
 
-L'operazione [Analyze fattura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync) accetta un'immagine o un PDF di una fattura come input ed estrae i valori di interesse. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
+L'operazione [Analyze fattura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291) accetta un'immagine o un PDF di una fattura come input ed estrae i valori di interesse. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
 
 |Intestazione risposta| URL risultato |
 |:-----|:----|
@@ -53,7 +53,7 @@ L'operazione [Analyze fattura](https://westcentralus.dev.cognitive.microsoft.com
 
 ## <a name="the-get-analyze-invoice-result-operation"></a>Operazione Get Analyze result result
 
-Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di analisi della fattura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
+Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di analisi della fattura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
 |Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|

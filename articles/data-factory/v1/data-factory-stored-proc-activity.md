@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 55c884375372b3fea2ff3153aa936893cf668903
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e73381ef0e646f697f5195cb3df7f4c2733cccaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359986"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456908"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359986"
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Attività di esecuzione batch Azure Machine Learning Studio (classica)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Attività della risorsa di aggiornamento Azure Machine Learning Studio (classica)](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività di esecuzione batch di Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di aggiornamento risorse di Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
@@ -41,7 +41,7 @@ Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pi
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure:
 
 - database SQL di Azure
-- Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+- Azure Synapse Analytics
 - Database di SQL Server. Se si usa SQL Server, è necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Gateway di gestione dati è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per informazioni dettagliate, vedere [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway di gestione dati).
 
 > [!IMPORTANT]
@@ -127,7 +127,7 @@ Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che
 ### <a name="create-an-output-dataset"></a>Creare un set di dati di output
 È necessario specificare un set di dati di output per un'attività stored procedure, anche se questa non produce alcun dato. È il set di dati di output, infatti, che determina la pianificazione dell'attività (la frequenza con cui l'attività viene eseguita: ogni ora, ogni settimana e così via). Il set di dati di output deve usare un **servizio collegato** che fa riferimento a un database SQL di Azure o a un'analisi di sinapsi di Azure o a un database SQL Server in cui si vuole eseguire l'stored procedure. Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. In alcuni casi, il set di dati di output può essere un **set di dati fittizio** (un set di dati che punta a una tabella che in realtà non contiene alcun output della stored procedure). Il set di dati fittizio viene usato solo per specificare la pianificazione di esecuzione dell'attività stored procedure.
 
-1. Fare clic su **... Altre informazioni** sulla barra degli strumenti, fare clic su **nuovo set di dati**e quindi su **Azure SQL**. **Nuovo set di dati** sulla barra dei comandi e selezionare **Azure SQL**.
+1. Fare clic su **... Altre informazioni** sulla barra degli strumenti, fare clic su **nuovo set di dati** e quindi su **Azure SQL**. **Nuovo set di dati** sulla barra dei comandi e selezionare **Azure SQL**.
 
     ![visualizzazione albero con servizio collegato 2](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copiare e incollare il seguente script JSON nell'editor JSON.
@@ -201,7 +201,7 @@ Tenere presenti le proprietà seguenti:
 1. Fare clic su **X** per chiudere i pannelli dell'editor di Data Factory, tornare al pannello Data Factory e quindi fare clic su **Diagramma**.
 
     ![riquadro diagramma 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
-2. In **Vista diagramma**saranno visualizzati una panoramica delle pipeline e i set di dati usati in questa esercitazione.
+2. In **Vista diagramma** saranno visualizzati una panoramica delle pipeline e i set di dati usati in questa esercitazione.
 
     ![riquadro diagramma 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. Nella vista Diagramma fare doppio clic sul set di dati `sprocsampleout`. Verranno visualizzate le sezioni con stato pronto. Dovrebbero essere presenti cinque sezioni perché dal JSON viene generata una sezione ogni ora tra l'ora di inizio e l'ora di fine.
@@ -308,8 +308,8 @@ La tabella seguente illustra queste proprietà JSON:
 | name | Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
 | type | Deve essere impostato su: **SqlServerStoredProcedure** | Sì |
-| input | Facoltativa. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
-| outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che fa riferimento a un database SQL di Azure o a un'analisi di sinapsi di Azure o a un database SQL Server in cui si vuole eseguire l'stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
+| input | facoltativo. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
+| outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che fa riferimento a un database SQL di Azure o a un'analisi di sinapsi di Azure o a un database SQL Server in cui si vuole eseguire l'stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio** che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
 | storedProcedureName |Specificare il nome del stored procedure nel database SQL di Azure, Azure sinapsi Analytics o SQL Server rappresentato dal servizio collegato usato dalla tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
 

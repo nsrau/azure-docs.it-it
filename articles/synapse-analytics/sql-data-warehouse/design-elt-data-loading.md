@@ -1,37 +1,37 @@
 ---
 title: Progettare un processo ELT anziché ETL
-description: Implementare strategie flessibili di caricamento dei dati per il pool Synapse SQL in Azure Synapse Analytics
+description: Implementare strategie di caricamento dei dati flessibili per i pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/13/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8b75345743bb398458752d03f853738df713b4f9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92507804"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456436"
 ---
-# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie di caricamento dei dati per il pool Synapse SQL
+# <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Strategie di caricamento dei dati per il pool SQL dedicato in Azure sinapsi Analytics
 
-I pool SQL SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL, Extract, Transform, Load) per il caricamento dei dati. Sinapsi SQL, all'interno di Azure sinapsi Analytics, usa l'architettura di elaborazione delle query distribuite che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione.
+I pool SQL dedicati a SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. Sinapsi SQL, all'interno di Azure sinapsi Analytics, usa l'architettura di elaborazione delle query distribuite che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione.
 
 L'uso di un processo di estrazione, caricamento e trasformazione (ELT) sfrutta le funzionalità di elaborazione delle query distribuite predefinite ed Elimina le risorse necessarie per la trasformazione dei dati prima del caricamento.
 
-Sebbene il pool SQL supporti molti metodi di caricamento, tra cui le opzioni di SQL Server più diffuse, ad esempio [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e l' [API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), il modo più rapido e scalabile per caricare i dati è tramite le tabelle esterne di base e l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Sebbene i pool SQL dedicati supportino molti metodi di caricamento, tra cui le opzioni di SQL Server più diffuse, ad esempio [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e l' [API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), il modo più rapido e scalabile per caricare i dati è tramite le tabelle esterne di base e l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Con PolyBase e l'istruzione COPY, è possibile accedere ai dati archiviati esterni in Archiviazione BLOB di Azure o Azure Data Lake Store tramite il linguaggio T-SQL. Per la massima flessibilità durante il caricamento, è consigliabile usare l'istruzione COPY.
 
 
 ## <a name="what-is-elt"></a>Definizione di ELT
 
-ELT è un processo mediante il quale i dati vengono estratti da un sistema di origine, caricati in un pool SQL e quindi trasformati.
+Estrazione, caricamento e trasformazione (ELT) è un processo mediante il quale i dati vengono estratti da un sistema di origine, caricati in un pool SQL dedicato e quindi trasformati.
 
 I passaggi di base per l'implementazione del processo ELT sono:
 
@@ -62,7 +62,7 @@ Strumenti e servizi che è possibile usare per spostare i dati in Archiviazione 
 
 - Il servizio [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) migliora la velocità effettiva della rete, le prestazioni e la prevedibilità. ExpressRoute è un servizio che instrada i dati tramite una connessione privata dedicata ad Azure. Le connessioni ExpressRoute non instradano i dati attraverso la rete Internet pubblica. Queste connessioni offrono maggiore affidabilità, velocità più elevate, latenze minori e sicurezza superiore rispetto alle tipiche connessioni tramite la rete Internet pubblica.
 - L'[utilità AZCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sposta i dati in Archiviazione di Azure tramite la rete Internet pubblica. Si tratta di un'opzione appropriata se le dimensioni dei dati sono inferiori a 10 TB. Per eseguire regolarmente caricamenti con AZCopy, assicurasi che la velocità di rete sia accettabile.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure. Per usare Data Factory con il pool SQL, vedere [Caricamento dei dati per il pool SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure. Per usare Data Factory con i pool SQL dedicati, vedere [caricamento di dati per pool SQL dedicati](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparare i dati per il caricamento
 
@@ -70,9 +70,9 @@ Potrebbe essere necessario preparare e pulire i dati nell'account di archiviazio
 
 ### <a name="define-the-tables"></a>Definire le tabelle
 
-Quando si utilizza l'istruzione COPY, è necessario innanzitutto definire le tabelle in cui si esegue il caricamento nel pool SQL.
+Quando si usa l'istruzione COPY, è necessario innanzitutto definire le tabelle in cui si esegue il caricamento nel pool SQL dedicato.
 
-Se si usa PolyBase, è necessario definire tabelle esterne nel pool SQL prima del caricamento. PolyBase usa le tabelle esterne per definire i dati e accedervi in Archiviazione di Azure. Una tabella esterna è simile a una vista di database. La tabella esterna contiene lo schema di tabella e punta a dati archiviati all'esterno del pool SQL.
+Se si usa la polibase, è necessario definire le tabelle esterne nel pool SQL dedicato prima del caricamento. PolyBase usa le tabelle esterne per definire i dati e accedervi in Archiviazione di Azure. Una tabella esterna è simile a una vista di database. La tabella esterna contiene lo schema della tabella e punta ai dati archiviati all'esterno del pool SQL dedicato.
 
 La definizione di tabelle esterne include la specifica dell'origine dati, del formato dei file di testo e delle definizioni delle tabelle. Gli articoli di riferimento per la sintassi T-SQL che saranno necessari sono:
 
@@ -113,7 +113,7 @@ Usare il mapping dei tipi di dati SQL seguente durante il caricamento di file pa
 |                            INT64                             |            INT(64, true)            |      bigint      |
 |                            INT64                             |           INT(64, false)            |  decimal(20,0)   |
 |                            INT64                             |                DECIMAL                |     decimal      |
-|                            INT64                             |         TEMPO (MILLIS)                 |       time       |
+|                            INT64                             |         TIME (MILLIS)                 |       time       |
 |                            INT64                             | TIMESTAMP (MILLIS)                  |    datetime2     |
 | [Tipo complesso](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 INSERZIONE                  |   ntext   |
 | [Tipo complesso](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   ntext   |
@@ -130,12 +130,12 @@ Se si usa PolyBase, per gli oggetti esterni definiti è necessario allineare le 
 Per formattare i file di testo:
 
 - Se i dati provengono da un'origine non relazionale, è necessario trasformarli in righe e colonne. Sia che i dati provengano da un'origine relazionale o non relazionale, devono essere trasformati per allinearli alle definizioni di colonna per la tabella in cui si prevede di caricare i dati.
-- Formattare i dati nel file di testo per allinearli alle colonne e ai tipi di dati nella tabella di destinazione. In caso di non allineamento dei tipi di dati nei file di testo esterni e nella tabella del pool SQL, le righe verranno rifiutate durante il caricamento.
+- Formattare i dati nel file di testo per allinearli alle colonne e ai tipi di dati nella tabella di destinazione. Il mancato allineamento tra i tipi di dati nei file di testo esterni e nella tabella del pool SQL dedicata comporta il rifiuto delle righe durante il caricamento.
 - Separare i campi nel file di testo con un carattere di terminazione.  Assicurarsi di usare un carattere o una sequenza di caratteri non inclusi nei dati di origine. Usare il carattere di terminazione specificato con [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Caricare i dati usando PolyBase o l'istruzione COPY
 
-È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre inoltre la possibilità di usare l'architettura di elaborazione parallela del pool SQL per le trasformazioni dei dati prima di inserire i dati nelle tabelle di produzione.
+È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre inoltre la possibilità di usare l'architettura di elaborazione parallela del pool SQL dedicata per le trasformazioni dei dati prima di inserire i dati nelle tabelle di produzione.
 
 ### <a name="options-for-loading"></a>Opzioni per il caricamento
 

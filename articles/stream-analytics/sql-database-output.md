@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459241"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Output del database SQL di Azure da analisi di flusso di Azure
 
@@ -35,11 +35,11 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 |Eredita schema di partizione| Opzione che consente di ereditare lo schema di partizionamento del passaggio di query precedente, per abilitare la topologia perfettamente parallela con più writer nella tabella. Per altre informazioni, consultare [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md).|
 |Numero massimo di batch| Limite massimo consigliato rispetto al numero di record inviati con ogni transazione di inserimento bulk.|
 
-Sono disponibili due adattatori che consentono l'output da Analisi di flusso di Azure ad Azure Synapse Analytics (in precedenza SQL Data Warehouse): Database SQL e Azure Synapse. Si consiglia di scegliere la scheda di analisi delle sinapsi di Azure anziché l'adattatore del database SQL se si verifica una delle condizioni seguenti:
+Sono disponibili due schede che consentono l'output da analisi di flusso di Azure ad analisi sinapsi di Azure: database SQL e sinapsi di Azure. Si consiglia di scegliere la scheda di analisi delle sinapsi di Azure anziché l'adattatore del database SQL se si verifica una delle condizioni seguenti:
 
-* **Velocità effettiva** : se la velocità effettiva prevista ora o in futuro è superiore a 10 MB/sec, usare l'opzione di output di Azure Synapse per ottenere prestazioni migliori.
+* **Velocità effettiva**: se la velocità effettiva prevista ora o in futuro è superiore a 10 MB/sec, usare l'opzione di output di Azure Synapse per ottenere prestazioni migliori.
 
-* **Partizioni di input** : se si dispone di otto o più partizioni di input, usare l'opzione di output di Azure Synapse per aumentare il numero di istanze.
+* **Partizioni di input**: se si dispone di otto o più partizioni di input, usare l'opzione di output di Azure Synapse per aumentare il numero di istanze.
 
 ## <a name="partitioning"></a>Partizionamento
 
@@ -47,7 +47,7 @@ Il partizionamento deve essere abilitato ed è basato sulla clausola PARTITION B
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 
-È possibile configurare la dimensione massima del messaggio usando il **numero massimo di batch** . Il valore massimo predefinito è 10.000 e il valore minimo predefinito è 100 righe per singolo inserimento bulk. Per altre informazioni, vedere [limiti di SQL Azure](../azure-sql/database/resource-limits-logical-server.md). Per ogni batch viene inizialmente eseguito l'inserimento bulk con il numero massimo di batch. Il batch può essere diviso a metà (fino al numero minimo di batch) in base a errori SQL non irreversibili.
+È possibile configurare la dimensione massima del messaggio usando il **numero massimo di batch**. Il valore massimo predefinito è 10.000 e il valore minimo predefinito è 100 righe per singolo inserimento bulk. Per altre informazioni, vedere [limiti di SQL Azure](../azure-sql/database/resource-limits-logical-server.md). Per ogni batch viene inizialmente eseguito l'inserimento bulk con il numero massimo di batch. Il batch può essere diviso a metà (fino al numero minimo di batch) in base a errori SQL non irreversibili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

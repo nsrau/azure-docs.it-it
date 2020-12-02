@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45150e00db1885a4ca4d083a8a54cbfd4da0bb10
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440729"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456930"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Set di impostazioni in Azure Data Factory (versione 1)
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -32,9 +32,9 @@ In questo articolo vengono descritti i set di dati, la procedura di definizione 
 > Se non si ha dimestichezza con Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md). Se non si ha esperienza diretta nella creazione di data factory, vedere l'[esercitazione sulla trasformazione dei dati](data-factory-build-your-first-pipeline.md) e [quella sullo spostamento dei dati](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per comprendere meglio questi argomenti.
 
 ## <a name="overview"></a>Panoramica
-Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un database di SQL Server nell'archiviazione BLOB di Azure. Quindi, si può usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare i dati dall'archiviazione BLOB per produrre dati di output. Infine, è possibile usare una seconda attività di copia per copiare i dati di output in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), oltre a cui vengono compilate le soluzioni di creazione di report di business intelligence (BI). Per ulteriori informazioni sulle pipeline e le attività, vedere [pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md).
+Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un database di SQL Server nell'archiviazione BLOB di Azure. Quindi, si può usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare i dati dall'archiviazione BLOB per produrre dati di output. Infine, è possibile usare una seconda attività di copia per copiare i dati di output in Azure sinapsi Analytics, oltre a cui vengono compilate le soluzioni di creazione di report business intelligence (BI). Per ulteriori informazioni sulle pipeline e le attività, vedere [pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md).
 
-Un'attività può assumere zero o più **set**di dati di input e generare uno o più set di dati di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archiviazione BLOB da cui la pipeline dovrà leggere i dati.
+Un'attività può assumere zero o più **set** di dati di input e generare uno o più set di dati di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archiviazione BLOB da cui la pipeline dovrà leggere i dati.
 
 Prima di creare un set di dati, creare un **servizio collegato** per collegare l'archivio dati alla data factory. I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti di SQL. Il servizio collegato Archiviazione di Azure,ad esempio, collega l'account di archiviazione alla data factory. Un set di dati BLOB di Azure rappresenta il contenitore e la cartella BLOB che contengono i BLOB di input da elaborare.
 
@@ -77,7 +77,7 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
 | name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |N/D |
 | type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [tipo di set di dati](#Type). |Sì |N/D |
@@ -231,7 +231,7 @@ Viene prodotto il set di dati di output ogni ora entro gli orari di inizio e fin
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione availability:
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |N/D |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |N/D |
@@ -278,10 +278,10 @@ Il seguente set di dati è mensile e viene generato il giorno 3 di ogni mese all
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare.
 
 ### <a name="validation-policies"></a>Criteri di convalida
-| Nome criteri | Descrizione | Applicato a | Obbligatoria | Predefinito |
+| Nome criteri | Descrizione | Applicato a | Necessario | Predefinito |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archiviazione BLOB di Azure |No |N/D |
-| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>database SQL di Azure</li><li>Tabella di Azure</li></ul> |No |N/D |
+| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> |No |N/D |
 
 #### <a name="examples"></a>Esempi
 **minimumSizeMB:**

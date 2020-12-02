@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 10/28/2020
-ms.openlocfilehash: 2a648b4f4c614fc64fa7817102215720e51abe7f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d303a5d5b9779a2003b12d063c97c36a90576dd3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456630"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
@@ -83,10 +83,10 @@ Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivendi
 
 È anche possibile esportare l'elenco di contatti di un'offerta esistente e quindi apportare modifiche a tale file.
 
-* *Nome (obbligatorio)* : nome del contatto.
-* *Indirizzo di posta elettronica (obbligatorio)* : indirizzo di posta elettronica del contatto.
-* *Titolo processo (obbligatorio)* : titolo processo.
-* *Role (obbligatorio)* : usare uno dei ruoli seguenti.
+* *Nome (obbligatorio)*: nome del contatto.
+* *Indirizzo di posta elettronica (obbligatorio)*: indirizzo di posta elettronica del contatto.
+* *Titolo processo (obbligatorio)*: titolo processo.
+* *Role (obbligatorio)*: usare uno dei ruoli seguenti.
 
     | **Ruolo**    | **Descrizione**  |
     | :------------------- | :-------------------|
@@ -108,7 +108,7 @@ Il diagramma dell'architettura di riferimento è un modello che rappresenta l'in
 
 Il documento può essere creato tramite più strumenti. Si consiglia Microsoft Visio, in quanto dispone di più stencil che illustrano i modelli di architettura di Azure.
 
-Un punto di partenza utile per la creazione di diagrammi di architettura di riferimento è quello di sfruttare i [modelli di architettura di Azure](https://docs.microsoft.com/azure/architecture/browse/).
+Un punto di partenza utile per la creazione di diagrammi di architettura di riferimento è quello di sfruttare i [modelli di architettura di Azure](/azure/architecture/browse/).
 
 ### <a name="typical-components-of-a-reference-architecture-diagram"></a>Componenti tipici di un diagramma dell'architettura di riferimento
 - Servizi cloud che ospitano e interagiscono con l'offerta, inclusi quelli che generano il consumo di Azure

@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2f8379447edbe6ce7d74780e2f87b79cf77c72b7
-  ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+  ms.openlocfilehash: aeb75bcfb25fdfb23e559b3f07f33c23c5f927de
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/24/2020
-  ms.locfileid: "95527038"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96458169"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -320,11 +320,11 @@ productDirectory:
     - iot
     url: stream-analytics/index.yml
   - title: Azure Synapse Analytics
-    summary: Servizio di analisi illimitato per ricavare più rapidamente informazioni significative dai dati (in precedenza SQL Data Warehouse)
+    summary: Servizio di analisi senza limiti per velocizzare i tempi di approfondimento
     imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
     azureCategories:
     - analytics
-    url: synapse-analytics/sql-data-warehouse/index.yml
+    url: synapse-analytics/index.yml
   - title: Data Catalog
     summary: Realizzare valore maggiore dagli asset di dati aziendali
     imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
@@ -501,7 +501,7 @@ productDirectory:
     azureCategories:
     - compute
     - databases
-    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json
+    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - title: App Web statiche (anteprima)
     summary: Un servizio app Web moderno che offre uno sviluppo semplificato di stack completi dal codice sorgente alla disponibilità elevata globale
     imageSrc: ./media/index/static-apps.svg
@@ -611,7 +611,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: database SQL di Azure
+  - title: Database SQL di Azure
     summary: Database SQL intelligente gestito nel cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:

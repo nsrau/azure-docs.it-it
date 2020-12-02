@@ -1,6 +1,6 @@
 ---
-title: Gestire e monitorare la priorità del carico di lavoro
-description: Informazioni su come gestire e monitorare l'importanza del livello di richiesta in Azure sinapsi Analytics.
+title: Gestire e monitorare l'importanza del carico di lavoro nel pool SQL dedicato
+description: Informazioni su come gestire e monitorare l'importanza del livello di richiesta pool SQL dedicato per l'analisi delle sinapsi di Azure.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211970"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459203"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gestire e monitorare l'importanza del carico di lavoro in Azure sinapsi Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Gestire e monitorare l'importanza del carico di lavoro nel pool SQL dedicato per analisi sinapsi di Azure
 
-Gestire e monitorare l'importanza del livello di richiesta SQL di sinapsi nella sinapsi di Azure con DMV e viste del catalogo.
+Gestire e monitorare l'importanza del livello di richiesta del pool SQL dedicato nella sinapsi di Azure con DMV e viste del catalogo.
 
 ## <a name="monitor-importance"></a>Importanza del monitoraggio
 

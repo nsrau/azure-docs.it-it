@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Fivetran e data warehouse'
-description: Introduzione a Fivetran e ai data warehouse di Azure Synapse Analytics.
+title: 'Guida introduttiva: Fivetran e pool SQL dedicato (in precedenza SQL DW)'
+description: Introduzione a Fivetran e al pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f332c3b0bd53d80d4a8471f53c56ecab611787c1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001848"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456363"
 ---
-# <a name="quickstart-fivetran-with-data-warehouse"></a>Guida introduttiva: Fivetran con data warehouse 
+# <a name="quickstart-fivetran-with-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Guida introduttiva: Fivetran con pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
 
-Questo modulo di avvio rapido descrive come configurare un nuovo utente Fivetran per lavorare con un data warehouse di Azure Synapse Analytics in cui è stato effettuato il provisioning di un pool SQL. L'articolo presuppone che si disponga di un data warehouse esistente.
+Questa Guida introduttiva descrive come configurare un nuovo utente Fivetran per lavorare con un pool SQL dedicato (in precedenza SQL DW). L'articolo presuppone che si disponga di un pool SQL dedicato esistente (in precedenza SQL DW).
 
 ## <a name="set-up-a-connection"></a>Configurare una connessione
 
-1. Trovare il nome completo del server e del database da usare per la connessione al data warehouse.
+1. Trovare il nome completo del server e il nome del database usato per connettersi al pool SQL dedicato (in precedenza SQL DW).
     
-    Se occorre assistenza per trovare queste informazioni, vedere [Connettersi al data warehouse](../sql/connect-overview.md).
+    Per assistenza nella ricerca di queste informazioni, vedere [connettersi al pool SQL dedicato (in precedenza SQL DW)](sql-data-warehouse-connection-strings.md).
 
 2. Durante la procedura guidata di installazione, decidere se ci si vuole connettere al database direttamente o tramite un tunnel SSH.
 
@@ -34,13 +34,13 @@ Questo modulo di avvio rapido descrive come configurare un nuovo utente Fivetran
 
    Se si sceglie di connettersi tramite un tunnel SSH, Fivetran si connette a un server separato sulla rete. Il server fornisce un tunnel SSH al database. È necessario usare questo metodo se il database si trova in una subnet inaccessibile in una rete virtuale.
 
-3. Aggiungere l'indirizzo IP **52.0.2.4** nel firewall a livello di server per consentire le connessioni in ingresso all'istanza del data warehouse da Fivetran.
+3. Aggiungere l'indirizzo IP **52.0.2.4** al firewall a livello di server per consentire le connessioni in ingresso all'istanza del pool SQL dedicato (in precedenza SQL DW) da Fivetran.
 
    Per altre informazioni, vedere [Creare una regola di firewall a livello di server](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## <a name="set-up-user-credentials"></a>Configurare le credenziali utente
 
-1. Connettersi al data warehouse con SQL Server Management Studio (SSMS) o lo strumento che si preferisce. Accedere come utente amministratore del server. Quindi, eseguire i comandi SQL seguenti per creare un utente per Fivetran:
+1. Connettersi al pool SQL dedicato (in precedenza SQL DW) usando SQL Server Management Studio (SSMS) o lo strumento preferito. Accedere come utente amministratore del server. Quindi, eseguire i comandi SQL seguenti per creare un utente per Fivetran:
 
     - Nel database master: 
     
@@ -48,7 +48,7 @@ Questo modulo di avvio rapido descrive come configurare un nuovo utente Fivetran
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - Nel database del data warehouse:
+    - Nel database del pool SQL dedicato (in precedenza SQL DW):
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -56,7 +56,7 @@ Questo modulo di avvio rapido descrive come configurare un nuovo utente Fivetran
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. Concedere all'utente Fivetran le autorizzazioni seguenti per il data warehouse:
+2. Concedere all'utente Fivetran le autorizzazioni seguenti per il pool SQL dedicato (in precedenza SQL DW):
 
     ```sql
     GRANT CONTROL to fivetran;
@@ -77,7 +77,7 @@ Questo modulo di avvio rapido descrive come configurare un nuovo utente Fivetran
 
 ## <a name="connect-from-fivetran"></a>Connettersi da Fivetran
 
-Per connettersi al data warehouse dall'account Fivetran, immettere le credenziali usate per accedere al data warehouse: 
+Per connettersi al pool SQL dedicato (in precedenza SQL DW) dall'account Fivetran, immettere le credenziali usate per accedere al pool SQL dedicato (in precedenza SQL DW): 
 
 * Host (nome del server).
 * Porta.

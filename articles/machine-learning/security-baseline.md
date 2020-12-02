@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62bc309bf20186654cb32fb84fb1a07667405ab0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f3f66209b2d0a1bae18364e38790c237952e729f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950806"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458259"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -241,7 +241,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -419,7 +419,7 @@ Usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per
 
 - [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
+- [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Distribuire Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -462,7 +462,7 @@ Usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per
 
 **Responsabilità**: non applicabile
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
@@ -494,7 +494,7 @@ Usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per
 
 **Indicazioni**: usare una soluzione di terze parti da Azure Marketplace in perimetri di rete per monitorare il trasferimento non autorizzato di informazioni riservate e bloccare tali trasferimenti mentre si inviano avvisi ai professionisti della sicurezza delle informazioni. 
 
-Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati. 
+Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e li protegge dalla perdita e dall'esposizione. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati. 
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -553,7 +553,7 @@ Microsoft gestisce l'infrastruttura sottostante per Machine Learning e ha implem
 
 - [Crittografia dei dati inattivi Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest)
 
-- [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md)
 
 - [Come configurare le chiavi di crittografia gestite dal cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -1098,7 +1098,7 @@ Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per pr
  
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
-- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Eliminazione temporanea per archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
@@ -1186,11 +1186,11 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
+**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia di Microsoft e le attività di red team e i test di penetrazione di siti live nell'infrastruttura cloud, nei servizi e nelle applicazioni gestiti da Microsoft.
 
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 

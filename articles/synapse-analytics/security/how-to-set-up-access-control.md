@@ -1,5 +1,5 @@
 ---
-title: Proteggere l'area di lavoro Synapse (anteprima)
+title: Proteggere l'area di lavoro Synapse
 description: L'articolo illustra come usare i ruoli e il controllo di accesso per controllare le attività e accedere ai dati nell'area di lavoro Synapse.
 services: synapse-analytics
 author: matt1883
@@ -9,20 +9,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556030"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458709"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima) 
+# <a name="secure-your-synapse-workspace"></a>Proteggere l'area di lavoro Synapse 
 
 L'articolo illustra come usare i ruoli e il controllo di accesso per controllare le attività e accedere ai dati. Attenendosi alle istruzioni seguenti, il controllo di accesso in Azure Synapse Analytics risulta semplificato. È sufficiente aggiungere e rimuovere gli utenti in uno dei tre gruppi di sicurezza.
 
 ## <a name="overview"></a>Panoramica
 
-Per proteggere un'area di lavoro Synapse (anteprima) è necessario seguire uno schema per la configurazione degli elementi seguenti:
+Per proteggere un'area di lavoro sinapsi, si seguirà un modello di configurazione degli elementi seguenti:
 
 - Ruoli di Azure (ad esempio quelli predefiniti come Proprietario, Collaboratore ecc.)
 - Ruoli di Synapse: questi ruoli sono unici di Synapse e non si basano sui ruoli di Azure. Sono disponibili tre ruoli di questo tipo:
@@ -48,9 +48,9 @@ Per semplificare le istruzioni, in questa documentazione vengono usati nomi stan
 
 Creare e popolare tre gruppi di sicurezza per l'area di lavoro:
 
-- **WS1\_WSAdmins** : per gli utenti che necessitano del controllo completo sull'area di lavoro
-- **WS1\_SparkAdmins** : per gli utenti che necessitano del controllo completo sugli aspetti Spark dell'area di lavoro
-- **WS1\_SQLAdmins** : per gli utenti che necessitano del controllo completo sugli aspetti SQL dell'area di lavoro
+- **WS1\_WSAdmins**: per gli utenti che necessitano del controllo completo sull'area di lavoro
+- **WS1\_SparkAdmins**: per gli utenti che necessitano del controllo completo sugli aspetti Spark dell'area di lavoro
+- **WS1\_SQLAdmins**: per gli utenti che necessitano del controllo completo sugli aspetti SQL dell'area di lavoro
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSAGGIO 2: preparare l'account Data Lake Storage Gen2
 

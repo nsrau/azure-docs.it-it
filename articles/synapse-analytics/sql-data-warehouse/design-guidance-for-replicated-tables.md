@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181336"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456497"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Linee guida di progettazione per l'uso di tabelle replicate nel pool Synapse SQL
 
@@ -26,9 +26,9 @@ Questo articolo offre alcuni consigli per la progettazione di tabelle replicate 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati nel pool SQL.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md).
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati nel pool SQL.    Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md).
 
-Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
+Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.    Ad esempio, considerare queste domande:
 
 - Quali sono le dimensioni della tabella?
 - Quanto spesso viene aggiornata la tabella?
@@ -38,7 +38,7 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 
 Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.  2 GB non è un limite rigido.  Se i dati sono statici e non cambiano, è possibile replicare tabelle di dimensioni maggiori.
 
-Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. Nel pool SQL la tabella replicata viene interamente copiata in un database di distribuzione in ogni nodo di calcolo.
+Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. Nel pool SQL la tabella replicata viene copiata completamente in un database di distribuzione in ogni nodo di calcolo.
 
 ![Tabella replicata](./media/design-guidance-for-replicated-tables/replicated-table.png "Tabella replicata")  
 
@@ -51,8 +51,8 @@ Provare a usare una tabella replicata nei casi seguenti:
 
 Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
-- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Le operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
-- Il database del pool SQL viene ridimensionato di frequente. Il ridimensionamento di un database del pool SQL cambia il numero di nodi di calcolo. Questo comporta la ricompilazione della tabella replicata.
+- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione.  Le operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata.  La ricompilazione causa spesso un rallentamento delle prestazioni.
+- Il pool SQL viene ridimensionato di frequente. Il ridimensionamento di un pool SQL cambia il numero di nodi di calcolo, che comporta la ricompilazione della tabella replicata.
 - La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, il pool SQL sposta solo i dati per le colonne richieste.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usare tabelle replicate con predicati di query semplici
@@ -174,8 +174,8 @@ Questa query usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-d
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208270"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457607"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Raccomandazioni sulla sicurezza per la distribuzione di Azure Internet delle cose
 
@@ -40,7 +40,7 @@ Alcune raccomandazioni presenti in questo articolo possono essere monitorate aut
 
 | Recommendation | Commenti | Supportato da ASC |
 |-|----|--|
-| Definire il controllo di accesso per l'hub | [Comprendere e definire il tipo di accesso](iot-security-deployment.md#securing-the-cloud) che ogni componente avrà nella soluzione hub Internet, in base alle funzionalità. Le autorizzazioni consentite sono il *Registro di sistema read*, *RegistryReadWrite*, *ServiceConnect*e *DeviceConnect*. I [criteri di accesso condiviso predefiniti nell'hub Internet](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) possono anche definire le autorizzazioni per ogni componente in base al ruolo. | - |
+| Definire il controllo di accesso per l'hub | [Comprendere e definire il tipo di accesso](iot-security-deployment.md#securing-the-cloud) che ogni componente avrà nella soluzione hub Internet, in base alle funzionalità. Le autorizzazioni consentite sono il *Registro di sistema read*, *RegistryReadWrite*, *ServiceConnect* e *DeviceConnect*. I [criteri di accesso condiviso predefiniti nell'hub Internet](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) possono anche definire le autorizzazioni per ogni componente in base al ruolo. | - |
 | Definire il controllo di accesso per i servizi back-end | I dati inseriti dalla soluzione hub Internet possono essere usati da altri servizi di Azure, ad [esempio Cosmos DB](../cosmos-db/index.yml), [analisi di flusso](../stream-analytics/index.yml), [servizio app](../app-service/index.yml), app per la [logica](../logic-apps/index.yml)e [archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md). Assicurarsi di comprendere e consentire le autorizzazioni di accesso appropriate, come documentato per questi servizi. | - |
 
 ## <a name="data-protection"></a>Protezione dei dati
@@ -63,8 +63,8 @@ Alcune raccomandazioni presenti in questo articolo possono essere monitorate aut
 | Recommendation | Commenti | Supportato da ASC |
 |-|----|--|
 | Monitorare l'accesso non autorizzato ai dispositivi |  Usare la funzionalità di registrazione del sistema operativo del dispositivo per monitorare eventuali violazioni della sicurezza o manomissioni fisiche del dispositivo o delle relative porte. | - |
-| Monitora la tua soluzione Internet delle cose dal cloud | Monitorare l'integrità complessiva della soluzione dell'hub Internet delle cose usando le [metriche in monitoraggio di Azure](../iot-hub/iot-hub-metrics.md). | - |
-| Configurare la diagnostica | Osservare attentamente le operazioni registrando gli eventi nella soluzione e quindi inviando i log di diagnostica a monitoraggio di Azure per ottenere la visibilità delle prestazioni. Per altre informazioni, vedere [monitorare e diagnosticare i problemi nell'hub](../iot-hub/iot-hub-monitor-resource-health.md) Internet. | - |
+| Monitora la tua soluzione Internet delle cose dal cloud | Monitorare l'integrità complessiva della soluzione dell'hub Internet delle cose usando le [metriche in monitoraggio di Azure](../iot-hub/monitor-iot-hub.md). | - |
+| Configurare la diagnostica | Osservare attentamente le operazioni registrando gli eventi nella soluzione e quindi inviando i log di diagnostica a monitoraggio di Azure per ottenere la visibilità delle prestazioni. Per altre informazioni, vedere [monitorare e diagnosticare i problemi nell'hub](../iot-hub/monitor-iot-hub.md) Internet. | - |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
