@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547810"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518788"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
 
@@ -32,13 +32,13 @@ Nelle sezioni seguenti vengono illustrati gli indirizzi IP specifici che devono 
 
 ## <a name="azure-dns-service"></a>Servizio DNS di Azure
 
-Se si usa il servizio DNS fornito da Azure, consentire l'accesso da __168.63.129.16__ sulla porta 53. Per ulteriori informazioni, vedere il documento [risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se si usa il DNS personalizzato, ignorare questo passaggio.
+Se si usa il servizio DNS fornito da Azure, consentire l'accesso a __168.63.129.16__ sulla porta 53 sia per TCP che per UDP. Per ulteriori informazioni, vedere il documento [risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se si usa il DNS personalizzato, ignorare questo passaggio.
 
 ## <a name="health-and-management-services-all-regions"></a>Servizi di integrità e gestione: tutte le aree
 
 Consentire il traffico dagli indirizzi IP seguenti per i servizi di gestione e integrità di Azure HDInsight, che si applicano a tutte le aree di Azure:
 
-| Indirizzo IP di origine | Destination  | Direzione |
+| Indirizzo IP di origine | Destinazione  | Direzione |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | In ingresso |
 | 23.99.5.239 | \*: 443 | In ingresso |

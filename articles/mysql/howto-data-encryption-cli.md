@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435825"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519043"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Crittografia dei dati per database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure
 
@@ -24,7 +24,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
 * Creare un insieme di credenziali delle chiavi e una chiave da usare per una chiave gestita dal cliente. Abilitare anche l'eliminazione della protezione e l'eliminazione temporanea nell'insieme di credenziali delle chiavi.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * Nel Azure Key Vault creato creare la chiave che verrà usata per la crittografia dei dati del database di Azure per MySQL.
@@ -55,7 +55,8 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
   * Nessuna data di scadenza
   * Non disabilitato
   * Eseguire operazioni **Get**, **Wrap** e **Unwrap**
-  * attributo recoverylevel impostato su **reversibile**.
+  * attributo recoverylevel impostato su **reversibile** . questa operazione richiede l'eliminazione temporanea abilitata con il periodo di memorizzazione impostato su 90 giorni.
+  * Ripulisci protezione abilitata
 
 È possibile verificare gli attributi precedenti della chiave usando il comando seguente:
 

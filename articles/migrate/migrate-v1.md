@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317213"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494699"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -31,7 +31,7 @@ Sono disponibili due versioni del servizio Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Aggiornamento della versione
 
-Non è possibile aggiornare i progetti o i componenti della versione precedente alla nuova versione. È necessario [creare un nuovo progetto di Azure Migrate](create-manage-projects.md) e [aggiungervi strumenti di valutazione e migrazione](how-to-add-tool-first-time.md). Usare le esercitazioni per comprendere come usare gli strumenti di valutazione e migrazione disponibili. Se si dispone di un'area di lavoro Log Analytics collegata a un progetto classico, è possibile collegarla a un progetto di versione corrente dopo aver eliminato il progetto classico.
+Non è possibile aggiornare i progetti o i componenti della versione precedente alla nuova versione. È necessario [creare un nuovo progetto di Azure Migrate](create-manage-projects.md) e [aggiungervi strumenti di valutazione e migrazione](./create-manage-projects.md). Usare le esercitazioni per comprendere come usare gli strumenti di valutazione e migrazione disponibili. Se si dispone di un'area di lavoro Log Analytics collegata a un progetto classico, è possibile collegarla a un progetto di versione corrente dopo aver eliminato il progetto classico.
 
 ## <a name="find-projects-from-previous-version"></a>Trovare progetti dalla versione precedente
 
@@ -308,7 +308,7 @@ Per eseguire le query Kusto:
 4. Scrivere la query per raccogliere dati sulle dipendenze usando i log di Monitoraggio di Azure. Nella sezione successiva sono disponibili query di esempio.
 5. Eseguire la query facendo clic su Esegui. 
 
-[Vedere altre informazioni](../azure-monitor/log-query/get-started-portal.md) su come scrivere query Kusto. 
+[Vedere altre informazioni](../azure-monitor/log-query/log-analytics-tutorial.md) su come scrivere query Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Query di esempio sui log di Monitoraggio di Azure
 

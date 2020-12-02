@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698897"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498983"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure con JavaScript SDK
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "94698897"
 > * [REST](search-get-started-rest.md)
 
 
-Usare [Javascript/Typscript SDK per Ricerca cognitiva di Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) per creare un'applicazione Node.js in JavaScript che crea, carica ed esegue query su un indice di ricerca.
+Usare [Javascript/Typscript SDK per Ricerca cognitiva di Azure](/javascript/api/overview/azure/search-documents-readme) per creare un'applicazione Node.js in JavaScript che crea, carica ed esegue query su un indice di ricerca.
 
 Questo articolo descrive in modo dettagliato come creare l'applicazione. In alternativa, è possibile [scaricare il codice sorgente e i dati](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) ed eseguire l'applicazione dalla riga di comando.
 
@@ -80,7 +80,7 @@ Per iniziare, aprire VS Code e il relativo [terminale integrato](https://code.vi
     ```
      Accettare i valori predefiniti, ad eccezione della licenza (license), che deve essere impostata su "MIT". 
 
-3. Installare `@azure/search-documents`, ossia [Javascript/Typscript SDK per Ricerca cognitiva di Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
+3. Installare `@azure/search-documents`, ossia [Javascript/Typscript SDK per Ricerca cognitiva di Azure](/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -599,7 +599,7 @@ Eseguire il programma con `node index.js`. A questo punto, in aggiunta ai passag
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. Le risorse che rimangono in esecuzione hanno un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 

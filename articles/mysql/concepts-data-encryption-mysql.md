@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492693"
+ms.locfileid: "96518805"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
@@ -61,7 +61,7 @@ Se il server è configurato per l'uso della chiave gestita dal cliente archiviat
 Di seguito sono illustrati i requisiti per la configurazione di Key Vault:
 
 * Key Vault e Database di Azure per MySQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Per lo stato di trasferimento Key Vault risorsa è quindi necessario riconfigurare la crittografia dei dati.
-* Abilitare [soft-delete] ((.. /Key-Vault/General/soft-delete-Overview.MD) nell'insieme di credenziali delle chiavi con periodo di conservazione impostato su **90 giorni**, per evitare la perdita di dati in caso di eliminazione di una chiave accidentale (o Key Vault). Per impostazione predefinita, le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che il periodo di memorizzazione non venga impostato in modo esplicito su <= 90 giorni. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
+* Abilitare la funzionalità di [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea nell'insieme di credenziali delle chiavi con il periodo di memorizzazione impostato su **90 giorni**, in modo da evitare la perdita di dati in caso di eliminazione accidentale di chiavi (o Key Vault). Per impostazione predefinita, le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che il periodo di memorizzazione non venga impostato in modo esplicito su <= 90 giorni. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
 * Abilitare la funzionalità di [ripulitura della protezione](../key-vault/general/soft-delete-overview.md#purge-protection) nell'insieme di credenziali delle chiavi con il periodo di memorizzazione impostato su **90 giorni**. La protezione ripulitura può essere abilitata solo quando l'eliminazione temporanea è abilitata. È possibile attivarla tramite l'interfaccia della riga di comando di Azure o PowerShell. Quando la protezione ripulisce è attiva, un insieme di credenziali o un oggetto nello stato eliminato non può essere eliminato fino a quando non viene superato il periodo di conservazione. Gli insiemi di credenziali e gli oggetti eliminati temporaneamente possono comunque essere ripristinati, garantendo che i criteri di conservazione vengano seguiti. 
 * Concedere a Database di Azure per MySQL l'accesso all'insieme di credenziali delle chiavi con le autorizzazioni get, wrapKey e unwrapKey usando l'identità gestita univoca. Nel portale di Azure, l'identità' servizio ' univoca viene creata automaticamente quando la crittografia dei dati è abilitata in MySQL. Per istruzioni dettagliate nel caso in cui si usi il portale di Azure, vedere [Configurare la crittografia dei dati per MySQL](howto-data-encryption-portal.md).
 
@@ -70,8 +70,8 @@ Di seguito sono illustrati i requisiti per la configurazione della chiave gestit
 * La chiave gestita dal cliente da usare per la crittografia della chiave DEK può essere solo di tipo RSA 2048 e asimmetrica.
 * La data di attivazione della chiave (se impostata) deve essere una data/ora nel passato. Data di scadenza non impostata.
 * La chiave deve avere lo stato *Abilitato*.
-* La chiave deve avere l' [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea con il periodo di memorizzazione impostato su **90 giorni**.
-* Per Kay deve essere [abilitata la protezione ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection).
+* La chiave deve avere l' [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea con il periodo di memorizzazione impostato su **90 giorni**. Viene impostato in modo implicito l'attributo chiave obbligatorio recoveryLevel: "reversibile". Se il periodo di conservazione è impostato su < 90 giorni, recoveryLevel: "CustomizedRecoverable", che non è il requisito, assicurarsi di impostare il periodo di conservazione su **90 giorni**.
+* Per la chiave deve essere [abilitata la protezione ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection).
 * Se si sta [importando una chiave esistente](/rest/api/keyvault/ImportKey/ImportKey) nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Consigli

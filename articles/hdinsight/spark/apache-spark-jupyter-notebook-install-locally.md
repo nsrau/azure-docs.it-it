@@ -1,6 +1,6 @@
 ---
 title: Installare Jupyter localmente e connetterlo a Spark in Azure HDInsight
-description: Informazioni su come installare il notebook di Jupyter in locale nel computer e su come connetterlo a un cluster Apache Spark.
+description: Informazioni su come installare Jupyter Notebook localmente nel computer e connetterlo a un cluster di Apache Spark.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518924"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installare un notebook di Jupyter in locale e connetterlo ad Apache Spark in HDInsight
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installare Jupyter Notebook nel computer e connettersi a Apache Spark su HDInsight
 
-Questo articolo illustra come installare Jupyter notebook con i kernel PySpark (per Python) e Apache Spark (per scala) personalizzati con Magic Spark. Si connette quindi il notebook a un cluster HDInsight.
+Questo articolo illustra come installare Jupyter Notebook con i kernel PySpark (per Python) e Apache Spark (per scala) personalizzati con Magic Spark. Si connette quindi il notebook a un cluster HDInsight.
 
 Sono necessari quattro passaggi principali per l'installazione di Jupyter e la connessione a Apache Spark in HDInsight.
 
@@ -150,7 +150,7 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
 
     a. Creare un nuovo notebook. Nell'angolo destro selezionare **nuovo**. Verranno visualizzati il kernel predefinito **Python 2** o **Python 3** e i kernel installati. I valori effettivi possono variare a seconda delle scelte di installazione.  Selezionare **PySpark**.
 
-    ![Kernel disponibili in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernel nel notebook di Jupyter")
+    ![Kernel disponibili in Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernel in Jupyter Notebook")
 
     > [!IMPORTANT]  
     > Dopo aver selezionato **nuovo** verificare la Shell per individuare eventuali errori.  Se viene visualizzato l'errore `TypeError: __init__() got an unexpected keyword argument 'io_loop'` è possibile che si verifichi un problema noto con determinate versioni di tornado.  In tal caso, arrestare il kernel e quindi eseguire il downgrade dell'installazione di Tornado con il comando seguente: `pip install tornado==4.5.3` .
@@ -170,7 +170,7 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
 
 Motivi per installare Jupyter nel computer e quindi connetterlo a un cluster Apache Spark in HDInsight:
 
-* Offre la possibilità di creare i notebook in locale, testare l'applicazione in un cluster in esecuzione e quindi caricare i notebook nel cluster. Per caricare i notebook nel cluster, è possibile caricarli usando il notebook di Jupyter che esegue o il cluster o salvarli `/HdiNotebooks` nella cartella dell'account di archiviazione associato al cluster. Per altre informazioni sul modo in cui i notebook vengono archiviati nel cluster, vedere la sezione [Dove sono archiviati i notebook?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Offre la possibilità di creare i notebook in locale, testare l'applicazione in un cluster in esecuzione e quindi caricare i notebook nel cluster. Per caricare i notebook nel cluster, è possibile caricarli usando il Jupyter Notebook che esegue o il cluster o salvarli `/HdiNotebooks` nella cartella dell'account di archiviazione associato al cluster. Per ulteriori informazioni sulla modalità di archiviazione dei notebook nel cluster, vedere [dove vengono archiviati i notebook Jupyter](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
 * Con i notebook disponibili in locale è possibile connettersi a cluster Spark diversi in base alle esigenze dell'applicazione.
 * È possibile usare GitHub per implementare un sistema di controllo del codice sorgente e usare il controllo della versione per il notebook. È anche possibile avere a disposizione un ambiente di collaborazione in cui più utenti possono lavorare allo stesso notebook.
 * È possibile lavorare con i notebook in locale anche senza avere un cluster. È necessario avere un cluster solo per eseguire i test dei notebook, non per gestire manualmente i notebook o un ambiente di sviluppo.
@@ -182,5 +182,5 @@ Motivi per installare Jupyter nel computer e quindi connetterlo a un cluster Apa
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
-* [Kernel per il notebook di Jupyter in Apache Spark](apache-spark-jupyter-notebook-kernels.md)
+* [Kernel per Jupyter Notebook in Apache Spark](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con notebook di Jupyter in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

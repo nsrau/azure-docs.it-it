@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560792"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518975"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
@@ -22,9 +22,6 @@ Web Application Firewall (WAF) di Azure nel gateway applicazione di Azure offre 
 WAF in gateway applicazione basa sullo standard [CRS (Core Rule Set)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 o 2.2.9 dell'OWASP (Open Web Application Security Project). WAF si aggiorna automaticamente per includere la protezione contro le nuove vulnerabilità, senza alcuna configurazione aggiuntiva. 
 
 Tutte le funzionalità di WAF elencate di seguito sono disponibili all'interno di un criterio di WAF. È possibile creare più criteri, che possono essere associati a un gateway applicazione, a singoli listener o a regole di routing basate su percorso in un gateway applicazione. In questo modo, se necessario, è possibile avere criteri distinti per ogni sito dietro il gateway applicazione. Per altre informazioni sui criteri di WAF, vedere [Creare un criterio di WAF](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > I criteri di WAF per URI sono disponibili in anteprima pubblica. Questa funzionalità è quindi soggetta alle condizioni per l'utilizzo supplementari di Microsoft. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagramma di WAF nel gateway applicazione](../media/ag-overview/waf1.png)
 
@@ -122,8 +119,8 @@ Se la protezione dai bot è abilitata, le richieste in ingresso che corrispondon
 
 WAF nel gateway applicazione può essere configurato per l'esecuzione nelle due modalità seguenti:
 
-* **Modalità di rilevamento** : monitora e registra tutti gli avvisi sulle minacce. Attivare la registrazione diagnostica per il gateway applicazione usando la sezione **Diagnostica**. È anche necessario assicurarsi che il log di WAF sia selezionato e attivato. Quando viene eseguito in modalità di rilevamento, Web Application Firewall non blocca le richieste in ingresso.
-* **Modalità di prevenzione** : blocca le intrusioni e gli attacchi rilevati dalle regole. L'autore dell'attacco riceve un'eccezione di "accesso non autorizzato 403" e la connessione viene chiusa. La modalità di prevenzione registra tali attacchi nei log di WAF.
+* **Modalità di rilevamento**: monitora e registra tutti gli avvisi sulle minacce. Attivare la registrazione diagnostica per il gateway applicazione usando la sezione **Diagnostica**. È anche necessario assicurarsi che il log di WAF sia selezionato e attivato. Quando viene eseguito in modalità di rilevamento, Web Application Firewall non blocca le richieste in ingresso.
+* **Modalità di prevenzione**: blocca le intrusioni e gli attacchi rilevati dalle regole. L'autore dell'attacco riceve un'eccezione di "accesso non autorizzato 403" e la connessione viene chiusa. La modalità di prevenzione registra tali attacchi nei log di WAF.
 
 > [!NOTE]
 > Negli ambienti di produzione è consigliabile eseguire una nuova distribuzione di WAF in modalità di rilevamento per un breve periodo di tempo. In questo modo è possibile ottenere i [log del firewall](../../application-gateway/application-gateway-diagnostics.md#firewall-log) e aggiornare eventuali eccezioni o [regole personalizzate](./custom-waf-rules-overview.md) prima della transizione alla modalità di prevenzione. Ciò consente di ridurre la possibilità che il traffico venga bloccato in modo imprevisto.
@@ -132,9 +129,9 @@ WAF nel gateway applicazione può essere configurato per l'esecuzione nelle due 
 
 OWASP prevede due modalità per decidere se bloccare o meno il traffico: la modalità tradizionale e la modalità di assegnazione di punteggi di anomalia.
 
-In modalità tradizionale, il traffico che corrisponde a qualsiasi regola viene considerato in modo indipendente da qualsiasi altra regola corrispondente. Questa modalità è facile da comprendere. Ma la mancanza di informazioni sul numero di regole che corrispondono a una specifica richiesta costituisce una limitazione. Per questo motivo, è stata introdotta la modalità di assegnazione di punteggi di anomalia. Si tratta dell'impostazione predefinita per OWASP 3. *x*.
+In modalità tradizionale, il traffico che corrisponde a qualsiasi regola viene considerato in modo indipendente da qualsiasi altra regola corrispondente. Questa modalità è facile da comprendere. Ma la mancanza di informazioni sul numero di regole che corrispondono a una specifica richiesta costituisce una limitazione. Per questo motivo, è stata introdotta la modalità di assegnazione di punteggi di anomalia. Si tratta dell'impostazione predefinita per OWASP 3.*x*.
 
-In questa modalità, il traffico che corrisponde a qualsiasi regola non viene immediatamente bloccato se il firewall è in modalità di prevenzione. Le regole hanno uno specifico livello di gravità: *critico* , *errore* , *avviso* o *notifica*. Questo livello determina un valore numerico per la richiesta, ossia il punteggio di anomalia. Ad esempio, una regola di tipo *avviso* aggiunge 3 al punteggio. Una regola di livello *critico* aggiunge 5.
+In questa modalità, il traffico che corrisponde a qualsiasi regola non viene immediatamente bloccato se il firewall è in modalità di prevenzione. Le regole hanno uno specifico livello di gravità: *critico*, *errore*, *avviso* o *notifica*. Questo livello determina un valore numerico per la richiesta, ossia il punteggio di anomalia. Ad esempio, una regola di tipo *avviso* aggiunge 3 al punteggio. Una regola di livello *critico* aggiunge 5.
 
 |Gravità  |valore  |
 |---------|---------|

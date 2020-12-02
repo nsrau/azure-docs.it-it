@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9de4a4534551c4a41b2c81c1d10fecf6118ff868
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434516"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519060"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Crittografia dei dati per database di Azure per MySQL usando il portale di Azure
 
@@ -44,7 +44,8 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
   * Nessuna data di scadenza
   * Non disabilitato
   * Eseguire operazioni **Get**, **Wrap** e **Unwrap**
-  * attributo recoverylevel impostato su **reversibile**.
+  * attributo recoverylevel impostato su **reversibile** . questa operazione richiede l'eliminazione temporanea abilitata con il periodo di memorizzazione impostato su 90 giorni.
+  * Ripulisci protezione abilitata
 
 È possibile verificare gli attributi precedenti della chiave usando il comando seguente:
 

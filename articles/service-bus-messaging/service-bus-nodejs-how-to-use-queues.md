@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: ec5bb299bed5545c3935b2f0ae28a50de9d79c45
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 3f37fcc6d58eb1c206aef6db15c7826cfdcda274
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808888"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489429"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Inviare e ricevere messaggi dalle code del bus di servizio di Azure (JavaScript)
 Questa esercitazione illustra come usare il pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) in un programma JavaScript per inviare e ricevere messaggi da una coda del bus di servizio.
@@ -207,4 +207,4 @@ Vedere la documentazione e gli esempi seguenti:
 
 - [Libreria client del bus di servizio di Azure per Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). La cartella **javascript** contiene esempi in JavaScript e la cartella **typescript** esempi in TypeScript. 
-- [Documentazione di riferimento di azure-servicebus](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [Documentazione di riferimento di azure-servicebus](/javascript/api/overview/azure/service-bus)

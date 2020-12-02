@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452901"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519114"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -29,7 +29,7 @@ In alternativa, è anche possibile gestire gli endpoint e le route con la [porta
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-cli.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Resource group
+    - Gruppo di risorse
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -90,47 +90,59 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**.
 
-Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: route degli eventi*](concepts-route-events.md#dead-letter-events).
+Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: route degli eventi*](concepts-route-events.md#dead-letter-events). Per istruzioni su come configurare un endpoint con messaggi non recapitabili, continuare con la parte restante di questa sezione.
 
 #### <a name="set-up-storage-resources"></a>Configurare le risorse di archiviazione
 
-Prima di impostare il percorso dei messaggi non recapitabili, è necessario avere un [account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal) con un [contenitore](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurato nell'account Azure. Si fornirà l'URL per questo contenitore durante la creazione dell'endpoint in un secondo momento.
-Il messaggio non recapitabile viene fornito come URL del contenitore con un [token](../storage/common/storage-sas-overview.md)di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Prima di impostare il percorso dei messaggi non recapitabili, è necessario avere un [account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal) con un [contenitore](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurato nell'account Azure. 
+
+Si fornirà l'URL per questo contenitore durante la creazione dell'endpoint in un secondo momento. La posizione dei messaggi non recapitabili verrà fornita all'endpoint come URL del contenitore con un [token](../storage/common/storage-sas-overview.md)di firma di accesso condiviso. Il token necessita `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
 
 Attenersi alla procedura seguente per configurare queste risorse di archiviazione nell'account di Azure, per preparare la configurazione della connessione dell'endpoint nella sezione successiva.
 
-1. Seguire [questo articolo](../storage/common/storage-account-create.md?tabs=azure-portal) per creare un account di archiviazione e salvare il nome dell'account di archiviazione per usarlo in un secondo momento.
-2. Creare un contenitore usando [questo articolo](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) e salvare il nome del contenitore per usarlo in un secondo momento, quando si configura la connessione tra il contenitore e l'endpoint.
-3. Successivamente, creare un token SAS per l'account di archiviazione. Per iniziare, passare all'account di archiviazione nel [portale di Azure](https://ms.portal.azure.com/#home) (è possibile trovarlo in base al nome con la barra di ricerca del portale).
-4. Nella pagina account di archiviazione scegliere collegamento _firma di accesso condiviso_ nella barra di spostamento a sinistra per selezionare le autorizzazioni corrette per generare un token SAS.
-5. Per i _Servizi consentiti_ e i _tipi di risorse consentiti_, selezionare le impostazioni desiderate. È necessario selezionare almeno una casella in ogni categoria. Per le autorizzazioni consentite, scegliere **Write** (è anche possibile selezionare altre autorizzazioni se lo si desidera).
-Impostare le altre impostazioni come desiderato.
-6. Quindi, selezionare il pulsante _genera SAS e stringa di connessione_ per generare il token SAS. Questa operazione genererà diversi valori della stringa di connessione e di firma di accesso condiviso nella parte inferiore della stessa pagina, sotto le selezioni delle impostazioni. Scorrere verso il basso per visualizzare i valori e usare l'icona copia negli Appunti per copiare il valore del **token SAS** . Salvarlo per usarlo in seguito.
+1. Seguire i passaggi descritti in [*creare un account di archiviazione*](../storage/common/storage-account-create.md?tabs=azure-portal) per creare un **account di archiviazione** nella sottoscrizione di Azure. Prendere nota del nome dell'account di archiviazione per usarlo in un secondo momento.
+2. Seguire i passaggi descritti in [*creare un contenitore*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) per creare un **contenitore** all'interno del nuovo account di archiviazione. Prendere nota del nome del contenitore per usarlo in un secondo momento.
+3. Successivamente, creare un **token** di firma di accesso condiviso per l'account di archiviazione che l'endpoint può usare per accedervi. Per iniziare, passare all'account di archiviazione nel [portale di Azure](https://ms.portal.azure.com/#home) (è possibile trovarlo in base al nome con la barra di ricerca del portale).
+4. Nella pagina account di archiviazione scegliere il collegamento _firma di accesso condiviso_ nella barra di spostamento a sinistra per avviare la configurazione del token SAS.
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Pagina account di archiviazione nell'portale di Azure che Mostra tutte le impostazioni selezionate per generare un token SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Pagina account di archiviazione nell'portale di Azure" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiare il token SAS da usare nel segreto dei messaggi non recapitabili." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+1. Nella *pagina firma di accesso condiviso*, in *Servizi consentiti* e *tipi di risorse consentiti*, selezionare tutte le impostazioni desiderate. È necessario selezionare almeno una casella in ogni categoria. In *autorizzazioni consentite* scegliere **scrittura** (è anche possibile selezionare altre autorizzazioni se lo si desidera).
+1. Impostare tutti i valori desiderati per le impostazioni rimanenti.
+1. Al termine, selezionare il pulsante _genera SAS e stringa di connessione_ per generare il token SAS. 
 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Pagina account di archiviazione nell'portale di Azure che Mostra tutte le impostazioni selezionate per generare un token di firma di accesso condiviso ed evidenziando il pulsante &quot;genera SAS e stringa di connessione&quot;" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+
+1. Questa operazione genererà diversi valori della stringa di connessione e di firma di accesso condiviso nella parte inferiore della stessa pagina, sotto le selezioni delle impostazioni. Scorrere verso il basso per visualizzare i valori e usare l'icona *copia negli Appunti* per copiare il valore del **token SAS** . Salvarlo per usarlo in seguito.
+
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiare il token SAS da usare nel segreto dei messaggi non recapitabili." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    
 #### <a name="configure-the-endpoint"></a>Configurare l'endpoint
 
-Gli endpoint dei messaggi non recapitabili vengono creati usando le API Azure Resource Manager. Quando si crea un endpoint, usare la [documentazione delle api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per inserire i parametri richiesti della richiesta. Aggiungere anche all' `deadLetterSecret` oggetto Properties nel **corpo** della richiesta, che contiene un URL del contenitore e un token di firma di accesso condiviso per l'account di archiviazione.
+Per creare un endpoint con messaggi non recapitabili abilitati, è necessario creare l'endpoint usando le API Azure Resource Manager. 
+
+1. Per prima cosa, usare la [documentazione delle api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per configurare una richiesta di creazione di un endpoint e compilare i parametri richiesti della richiesta. 
+
+1. Successivamente, aggiungere un `deadLetterSecret` campo all'oggetto Properties nel **corpo** della richiesta. Impostare questo valore in base al modello riportato di seguito, che esegue l'artigianato di un URL in base al nome dell'account di archiviazione, al nome del contenitore e al valore del token di firma di accesso condiviso raccolti nella [sezione precedente](#set-up-storage-resources).
       
-```json
-{
-  "properties": {
-    "endpointType": "EventGrid",
-    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-    "accessKey1": "xxxxxxxxxxx",
-    "accessKey2": "xxxxxxxxxxx",
-    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-  }
-}
-```
+    ```json
+    {
+      "properties": {
+        "endpointType": "EventGrid",
+        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+        "accessKey1": "xxxxxxxxxxx",
+        "accessKey2": "xxxxxxxxxxx",
+        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+      }
+    }
+    ```
+1. Inviare la richiesta per creare l'endpoint.
+
 Per altre informazioni sulla strutturazione di questa richiesta, vedere la documentazione dell'API REST di Azure Digital gemelli: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Schema di archiviazione messaggi
 
-I messaggi non recapitabili verranno archiviati nel formato seguente nell'account di archiviazione:
+Una volta configurato l'endpoint con i messaggi non recapitabili, i messaggi non recapitabili verranno archiviati nel formato seguente nell'account di archiviazione:
 
 `{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
 

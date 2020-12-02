@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 56bed63a9030135966a208dd1ad9b4c45cde328d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811705"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498694"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Avvio rapido: Argomenti e sottoscrizioni del bus di servizio con Node.js e pacchetto azure/service-bus
 Questa esercitazione illustra come usare il pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) in un programma JavaScript per inviare messaggi a un argomento del bus di servizi e ricevere messaggi da una sottoscrizione del bus di servizio di tale argomento.
@@ -208,4 +208,4 @@ Vedere la documentazione e gli esempi seguenti:
 
 - [Libreria client del bus di servizio di Azure per Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). La cartella **javascript** contiene esempi in JavaScript e la cartella **typescript** esempi in TypeScript. 
-- [Documentazione di riferimento di azure-servicebus](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [Documentazione di riferimento di azure-servicebus](/javascript/api/overview/azure/service-bus)

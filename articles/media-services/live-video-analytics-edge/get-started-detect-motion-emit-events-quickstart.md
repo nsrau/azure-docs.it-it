@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2d426952e92951185c43b68266196a6764f4f601
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e67c717a4476ab9191471483d9aa8e8f222cd750
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125014"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498269"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -39,7 +39,7 @@ Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 * Hub IoT
 * Account di archiviazione
 * Account Servizi multimediali di Azure
-* Una VM Linux in Azure, con il [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) installato
+* Una VM Linux in Azure, con il [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge.md) installato
 
 Per questo argomento di avvio rapido è consigliabile usare lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) per distribuire le risorse necessarie nella sottoscrizione di Azure. A questo scopo, attenersi alla procedura seguente:
 
@@ -48,7 +48,11 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
 1. Nel menu a discesa sul lato sinistro della finestra di Cloud Shell selezionare **Bash** come ambiente.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Analisi di video live basata su un rilevamento del movimento"
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Selezione dell'ambiente":::
+1. Eseguire il comando seguente.
+
+    ```
+    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
 Se lo script viene completato correttamente, verranno visualizzate tutte le risorse necessarie nella sottoscrizione. Nell'output dello script una tabella di risorse include il nome dell'hub IoT. Cercare il tipo di risorsa `Microsoft.Devices/IotHubs` e prendere nota del nome. Servirà nel passaggio successivo. 
@@ -77,19 +81,20 @@ A questo punto i moduli sono distribuiti ma non sono disponibili grafi multimedi
 Seguire queste istruzioni per connettersi all'hub IoT usando l'estensione Azure IoT Tools.
 
 1. In Visual Studio Code aprire la scheda **Estensioni** (oppure premere CTRL+MAIUSC+X) e cercare Hub IoT di Azure.
-1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione** .
+1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Analisi di video live basata su un rilevamento del movimento" (Visualizza messaggio dettagliato).
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Impostazioni estensione":::
+1. Cercare e abilitare "Show Verbose Message" (Visualizza messaggio dettagliato).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Analisi di video live basata su un rilevamento del movimento":::
-1. Selezionare **Visualizza** > **Explorer** . Oppure premere CTRL+MAIUSC+E.
-1. Nell'angolo in basso a sinistra della scheda **Explorer** selezionare **Hub IoT di Azure** .
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Selezionare **Visualizza** > **Explorer**. Oppure premere CTRL+MAIUSC+E.
+1. Nell'angolo in basso a sinistra della scheda **Explorer** selezionare **Hub IoT di Azure**.
 1. Selezionare l'icona **Altre opzioni** icona per visualizzare il menu di scelta rapida. Quindi scegliere **Set IoT Hub Connection String** (Imposta la stringa di connessione dell'hub IoT).
-1. Quando viene visualizzata una casella di input, immettere la stringa di connessione dell'hub IoT. In Cloud Shell è possibile ottenere la stringa di connessione da *~/clouddrive/lva-sample/appsettings.json* .
+1. Quando viene visualizzata una casella di input, immettere la stringa di connessione dell'hub IoT. In Cloud Shell è possibile ottenere la stringa di connessione da *~/clouddrive/lva-sample/appsettings.json*.
 
-Se la connessione riesce, viene visualizzato l'elenco di dispositivi Edge. Si dovrebbe vedere almeno un dispositivo denominato **lva-sample-device** . È ora possibile gestire i dispositivi IoT Edge e interagire con l'hub IoT di Azure tramite il menu di scelta rapida. Per visualizzare i moduli distribuiti nel dispositivo Edge, espandere il nodo **Moduli** sotto **lva-sample-device** .
+Se la connessione riesce, viene visualizzato l'elenco di dispositivi Edge. Si dovrebbe vedere almeno un dispositivo denominato **lva-sample-device**. È ora possibile gestire i dispositivi IoT Edge e interagire con l'hub IoT di Azure tramite il menu di scelta rapida. Per visualizzare i moduli distribuiti nel dispositivo Edge, espandere il nodo **Moduli** sotto **lva-sample-device**.
 
 ![nodo lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
 
@@ -105,7 +110,7 @@ Se la connessione riesce, viene visualizzato l'elenco di dispositivi Edge. Si do
 Per enumerare tutte le [topologie del grafo](media-graph-concept.md#media-graph-topologies-and-instances) presenti nel modulo:
 
 1. In Visual Studio Code fare clic con il pulsante destro del mouse sul modulo **lvaEdge** e scegliere **Invoke Module Direct Method** (Richiama metodo diretto del modulo).
-1. Nella casella che viene visualizzata immettere *GraphTopologyList* .
+1. Nella casella che viene visualizzata immettere *GraphTopologyList*.
 1. Incollare il payload JSON seguente e quindi incollarlo nella casella. Quindi premere INVIO.
 
     ```
@@ -523,9 +528,9 @@ L'istanza del grafo creata e attivata in precedenza usa il nodo del processore d
 
 Per osservare i risultati, seguire questi passaggi.
 
-1. In Visual Studio Code aprire il riquadro **Explorer** . Nell'angolo in basso a sinistra cercare **Hub IoT di Azure** .
-2. Espandere il nodo **Dispositivi** .
-3. Fare clic con il pulsante destro del mouse su **lva-sample-device** e scegliere **Avvia monitoraggio endpoint eventi predefinito** .
+1. In Visual Studio Code aprire il riquadro **Explorer**. Nell'angolo in basso a sinistra cercare **Hub IoT di Azure**.
+2. Espandere il nodo **Dispositivi**.
+3. Fare clic con il pulsante destro del mouse su **lva-sample-device** e scegliere **Avvia monitoraggio endpoint eventi predefinito**.
 
     ![Avviare il monitoraggio degli eventi dell'hub IoT](./media/quickstarts/start-monitoring-iothub-events.png)
     

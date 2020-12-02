@@ -4,16 +4,16 @@ description: In questa guida di avvio rapido verrà illustrato come usare la lib
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 09/10/2020
+ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: dc8df24c1ad20aa3380009fe4c0abb29e31823e8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021725"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501125"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Guida introduttiva: Gestire i BLOB con Java v12 SDK
 
@@ -45,13 +45,29 @@ Creare un'applicazione Java denominata *blob-quickstart-v12*.
 
 1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven *per creare una nuova app console con il nome* blob-quickstart-v12. Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
 
-   ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart \
-                          -DartifactId=blob-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
-   ```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    mvn archetype:generate `
+        --define interactiveMode=n `
+        --define groupId=com.blobs.quickstart `
+        --define artifactId=blob-quickstart-v12 `
+        --define archetypeArtifactId=maven-archetype-quickstart `
+        --define archetypeVersion=1.4
+    ```
+
+    # <a name="bash"></a>[Bash](#tab/bash)
+
+    ```bash
+    mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.blobs.quickstart \
+        --define artifactId=blob-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+    ```
+
+    ---
 
 1. L'output della generazione del progetto avrà un aspetto simile al seguente:
 
@@ -159,9 +175,9 @@ Il diagramma seguente mostra la relazione tra queste risorse.
 
 Per interagire con queste risorse, usare le classi Java seguenti:
 
-* la classe [ consente di modificare le risorse di Archiviazione di Azure e i contenitori BLOB. L'account di archiviazione rappresenta lo spazio dei nomi di primo livello per il servizio BLOB.
+* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): la classe `BlobServiceClient` consente di modificare le risorse di Archiviazione di Azure e i contenitori BLOB. L'account di archiviazione rappresenta lo spazio dei nomi di primo livello per il servizio BLOB.
 * la classe [ offre un'API del generatore per la configurazione e la creazione di istanze di oggetti ](/java/api/com.azure.storage.blob.blobserviceclientbuilder).
-* la classe [ consente di modificare i contenitori di Archiviazione di Azure e i relativi oggetti BLOB.
+* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): la classe `BlobContainerClient` consente di modificare i contenitori di Archiviazione di Azure e i relativi oggetti BLOB.
 * la classe [ consente di modificare gli oggetti BLOB di Archiviazione di Azure.
 * [BlobItem](/java/api/com.azure.storage.blob.models.blobitem): la classe `BlobItem` rappresenta singoli BLOB restituiti da una chiamata a [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs).
 

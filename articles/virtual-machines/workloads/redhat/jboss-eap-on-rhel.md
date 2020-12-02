@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: ce07a0667b1fd4b439f061966e4ee0b1112578c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413208"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500190"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Distribuire applicazioni aziendali Java in Azure con JBoss EAP su Red Hat Enterprise Linux
 
@@ -31,7 +31,7 @@ JBoss EAP e RHEL includono tutto il necessario per compilare, eseguire, distribu
 
   Se non si ha un entitlement EAP, ottenere una [sottoscrizione di valutazione di JBoss EAP](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) prima di iniziare. Per creare una nuova sottoscrizione di Red Hat, passare a [Red Hat Customer Portal](https://access.redhat.com/) e configurare un account.
 
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
+* [Interfaccia della riga di comando di Azure](/cli/azure/overview).
 
 * Opzioni di RHEL. Scegliere tra l'opzione con pagamento in base al consumo e BYOS (Bring Your Own Subscription). Con l'opzione BYOS, è necessario attivare l'immagine Gold di [Red Hat Cloud Access](https://access.redhat.com/) per RHEL prima di distribuire il modello di avvio rapido.
 
@@ -164,9 +164,9 @@ Per usare BYOS per il sistema operativo RHEL, è necessaria una sottoscrizione d
 
    1. Attendere che le immagini Gold di Red Hat siano disponibili nella sottoscrizione di Azure. In genere occorrono circa tre ore dall'invio.
     
-3. Accettare le condizioni per l'utilizzo di Azure Marketplace per le immagini RHEL con modello BYOS. È possibile completare questo processo eseguendo i comandi seguenti dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la documentazione sulle [immagini Gold di tipo BYOS di RHEL in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos). È importante eseguire la versione più recente dell'interfaccia della riga di comando di Azure.
+3. Accettare le condizioni per l'utilizzo di Azure Marketplace per le immagini RHEL con modello BYOS. È possibile completare questo processo eseguendo i comandi seguenti dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la documentazione sulle [immagini Gold di tipo BYOS di RHEL in Azure](./byos.md). È importante eseguire la versione più recente dell'interfaccia della riga di comando di Azure.
 
-   1. Aprire una sessione dell'interfaccia della riga di comando di Azure ed eseguire l'autenticazione con l'account Azure. Per assistenza, vedere [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+   1. Aprire una sessione dell'interfaccia della riga di comando di Azure ed eseguire l'autenticazione con l'account Azure. Per assistenza, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
    1. Verificare che le immagini RHEL con modello BYOS siano disponibili nella sottoscrizione eseguendo il comando seguente dell'interfaccia della riga di comando. Se non vengono restituiti risultati, verificare che la sottoscrizione di Azure sia attivata per le immagini RHEL con modello BYOS.
    
@@ -203,7 +203,7 @@ JBoss EAP è disponibile in Azure solo tramite il modello BYOS. Durante la distr
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
   ```
  
-  Per informazioni sull'installazione e la configurazione di Azure PowerShell, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/azure/).  
+  Per informazioni sull'installazione e la configurazione di Azure PowerShell, vedere la [documentazione di PowerShell](/powershell/azure/).  
 
 - **Interfaccia della riga di comando di Azure**. Distribuire il modello eseguendo i comandi seguenti:
 
@@ -215,7 +215,7 @@ JBoss EAP è disponibile in Azure solo tramite il modello BYOS. Durante la distr
   az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
-  Per informazioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+  Per informazioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 - **Portale di Azure**. È possibile eseguire la distribuzione nel portale di Azure usando i modelli di avvio rapido di Azure come indicato nella sezione seguente. Nel modello di avvio rapido selezionare il pulsante **Distribuisci in Azure** o **Esplora in GitHub**.
 
@@ -231,10 +231,10 @@ JBoss EAP è disponibile in Azure solo tramite il modello BYOS. Durante la distr
 
 ## <a name="resource-links"></a>Collegamenti alle risorse
 
-* [Vantaggio Azure Hybrid](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
-* [Configurare un'app Java per il servizio app di Azure](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Vantaggio Azure Hybrid](../../windows/hybrid-use-benefit-licensing.md)
+* [Configurare un'app Java per il servizio app di Azure](../../../app-service/configure-language-java.md)
 * [JBoss EAP su Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* [JBoss EAP nel servizio app di Azure per Linux](https://docs.microsoft.com/azure/app-service/quickstart-java)
+* [JBoss EAP nel servizio app di Azure per Linux](../../../app-service/quickstart-java.md)
 * [Distribuire JBoss EAP nel servizio app di Azure](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -242,6 +242,6 @@ JBoss EAP è disponibile in Azure solo tramite il modello BYOS. Durante la distr
 * Altre informazioni su [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
 * Altre informazioni su [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
 * Altre informazioni su [Red Hat Subscription Management](https://access.redhat.com/products/red-hat-subscription-management).
-* Informazioni sui [carichi di lavoro Red Hat in Azure](https://aka.ms/rhel-docs).
+* Informazioni sui [carichi di lavoro Red Hat in Azure](./overview.md).
 * Distribuire [JBoss EAP su una VM o un set di scalabilità di macchine virtuali RHEL da Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).
 * Distribuire [JBoss EAP su una VM o un set di scalabilità di macchine virtuali RHEL dai modelli di avvio rapido di Azure](https://aka.ms/Quickstart-JBoss-EAP).

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542253"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492608"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Avvio rapido: Creare un database di Azure per il server MySQL con il portale di Azure
 
@@ -45,7 +45,7 @@ Database di Azure per MySQL è un servizio gestito che consente di eseguire, ges
    Nome server | **mydemoserver** | Immettere un nome univoco. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere da 3 a 63 caratteri.
    Origine dati |**Nessuno** | Selezionare **Nessuno** per creare un nuovo server da zero. Selezionare **Backup** solo se viene eseguito il ripristino di un backup geografico di un server esistente.
    Location |La posizione desiderata | Selezionare una posizione nell'elenco.
-   Versione | La versione principale più recente| Usare la versione principale più recente. Vedere [tutte le versioni supportate](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+   Versione | La versione principale più recente| Usare la versione principale più recente. Vedere [tutte le versioni supportate](../postgresql/concepts-supported-versions.md).
    Calcolo e archiviazione | Usare i valori predefiniti| Il piano tariffario predefinito è **Utilizzo generico** con **4 vCore** e **100 GB** di spazio di archiviazione. La conservazione dei backup è impostata su **7 giorni** con l'opzione di backup **Con ridondanza geografica**.<br/>Esaminare la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/mysql/) e aggiornare le impostazioni predefinite, se necessario.
    Nome utente amministratore | **mydemoadmin** | Immettere il nome utente dell'amministratore del server. Non è possibile usare **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public** come nome utente dell'amministratore.
    Password | Una password | Una nuova password per l'utente amministratore del server. La lunghezza della password deve essere compresa tra 8 e 128 caratteri e deve contenere una combinazione di lettere maiuscole o minuscole, numeri e caratteri non alfanumerici (!, $, #, %, e così via).
@@ -67,7 +67,7 @@ Database di Azure per MySQL è un servizio gestito che consente di eseguire, ges
 
 Per impostazione predefinita, il nuovo server è protetto con un firewall. Per connettersi, è necessario fornire l'accesso all'indirizzo IP completando i passaggi seguenti:
 
-1. Passare a **Sicurezza delle connessioni** dal riquadro sinistro per la risorsa server. Se non si è certi di come trovare una risorsa, vedere [Come aprire una risorsa](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+1. Passare a **Sicurezza delle connessioni** dal riquadro sinistro per la risorsa server. Se non si è certi di come trovare una risorsa, vedere [Come aprire una risorsa](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Screenshot che mostra la pagina Sicurezza delle connessioni > Regole del firewall.":::
@@ -151,9 +151,9 @@ Per eliminare il server, è possibile selezionare **Elimina** nella pagina **Pan
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
->[Creare un'app PHP in Windows con MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Creare un'app PHP in Windows con MySQL](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[Creare un'app PHP in Linux con MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Creare un'app PHP in Linux con MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [Le informazioni cercate non sono disponibili? Segnalarli](https://aka.ms/mysql-doc-feedback).

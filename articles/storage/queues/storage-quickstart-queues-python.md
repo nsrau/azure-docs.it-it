@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a19b7bc448e9a03afd122dab749352dfa21eaa5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345721"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491894"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per Python
 
@@ -34,7 +34,7 @@ Risorse aggiuntive:
 - [Documentazione di riferimento delle API](/python/api/azure-storage-queue/index)
 - [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 - [Pacchetto (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
-- [Esempi](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Esempi](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -268,7 +268,7 @@ Aggiungere questo codice alla fine del blocco `try` e salvare il file:
 
 Questa app crea e aggiunge tre messaggi a una coda di Azure. Il codice elenca i messaggi nella coda, quindi li recupera e li elimina, prima di eliminare definitivamente la coda.
 
-Nella finestra della console passare alla directory contenente il file *queues-quickstart-v12.py* , quindi usare il comando `python` seguente per eseguire l'app.
+Nella finestra della console passare alla directory contenente il file *queues-quickstart-v12.py*, quindi usare il comando `python` seguente per eseguire l'app.
 
 ```console
 python queues-quickstart-v12.py

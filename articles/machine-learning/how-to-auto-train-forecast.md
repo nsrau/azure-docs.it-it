@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 605e8cd57ab5863c1011082f0f2dbd93d078980b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444480"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518941"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 
@@ -286,19 +286,19 @@ Visualizzare un esempio di codice Python sfruttando la [funzionalità di aggrega
 
 ### <a name="short-series-handling"></a>Gestione di serie brevi
 
-Automatizzato ML considera una serie temporale una **serie breve** se non sono presenti punti dati sufficienti per condurre le fasi di training e convalida dello sviluppo del modello. Il numero di punti dati varia per ogni esperimento e dipende dalla max_horizon, dal numero di divisioni della convalida incrociata e dalla lunghezza del modello Lookback, che è il massimo della cronologia necessario per costruire le funzionalità della serie temporale. Per il calcolo esatto, vedere la [documentazione di riferimento short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+Automatizzato ML considera una serie temporale una **serie breve** se non sono presenti punti dati sufficienti per condurre le fasi di training e convalida dello sviluppo del modello. Il numero di punti dati varia per ogni esperimento e dipende dalla max_horizon, dal numero di divisioni della convalida incrociata e dalla lunghezza del modello Lookback, che è il massimo della cronologia necessario per costruire le funzionalità della serie temporale. Per il calcolo esatto, vedere la [documentazione di riferimento short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
 
-Machine Learning Machine Learning offre una gestione delle serie brevi per impostazione predefinita con il `short_series_handling_config` parametro nell' `ForecastingParameters` oggetto. 
+Machine Learning Machine Learning offre una gestione delle serie brevi per impostazione predefinita con il `short_series_handling_configuration` parametro nell' `ForecastingParameters` oggetto. 
 
-Per abilitare la gestione delle serie brevi, `freq` è necessario definire anche il parametro. Per modificare il comportamento predefinito, `short_series_handling_config = auto` aggiornare il `short_series_handling_config` parametro nell' `ForecastingParameter` oggetto.  
+Per abilitare la gestione delle serie brevi, `freq` è necessario definire anche il parametro. Per definire una frequenza oraria, si imposterà `freq='H'` . Visualizzare le opzioni della stringa di frequenza [qui](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Per modificare il comportamento predefinito, `short_series_handling_configuration = 'auto'` aggiornare il `short_series_handling_configuration` parametro nell' `ForecastingParameter` oggetto.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = '7',
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 Nella tabella seguente sono riepilogate le impostazioni disponibili per `short_series_handling_config` .
@@ -306,7 +306,7 @@ Nella tabella seguente sono riepilogate le impostazioni disponibili per `short_s
 |Impostazione|Descrizione
 |---|---
 |`auto`| Di seguito è riportato il comportamento predefinito per la gestione delle serie brevi <li> *Se tutte le serie sono brevi*, riempire i dati. <br> <li> *Se non tutte le serie sono brevi*, eliminare la serie breve. 
-|`pad`| Se `short_series_handling_config = pad` , Machine Learning automatico aggiunge valori fittizi a ogni serie breve trovata. Di seguito sono elencati i tipi di colonna e gli elementi con cui vengono aggiunti: <li>Colonne oggetto con NaNs <li> Colonne numeriche con 0 <li> Colonne booleane/logiche con false <li> La colonna di destinazione viene riempita con valori casuali con una media di zero e una deviazione standard pari a 1. 
+|`pad`| Se `short_series_handling_config = pad` , Machine Learning automatico aggiunge valori casuali a ogni serie breve rilevata. Di seguito sono elencati i tipi di colonna e gli elementi con cui vengono aggiunti: <li>Colonne oggetto con NaNs <li> Colonne numeriche con 0 <li> Colonne booleane/logiche con false <li> La colonna di destinazione viene riempita con valori casuali con una media di zero e una deviazione standard pari a 1. 
 |`drop`| Se `short_series_handling_config = drop` , machine learning elimina la serie breve e non verrà usato per il training o la stima. Le stime per queste serie restituiranno NaN.
 |`None`| Nessuna serie viene riempita o eliminata
 

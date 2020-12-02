@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 3ac0540856d8cb8ccba6f1d176292d634d2dc80f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc15c8deb7aea3256cc0077fbdc3ce1a2492b1b2
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519026"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurare i criteri WAF per sito usando Azure PowerShell
 
@@ -28,7 +28,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 * Configurare la rete
 * Creare un criterio WAF
 * Creare un gateway applicazione con WAF abilitato
-* Applicare i criteri di WAF a livello globale, per sito e per URI (anteprima)
+* Applicare i criteri WAF a livello globale, per sito e per URI 
 * Creare un set di scalabilità di macchine virtuali
 * Creare un account di archiviazione e configurare la diagnostica
 * Testare il gateway applicazione
@@ -249,7 +249,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy-preview"></a>Applicare un criterio per URI (anteprima)
+### <a name="apply-a-per-uri-policy"></a>Applicare un criterio per URI
 
 Per applicare un criterio per URI, è sufficiente creare un nuovo criterio e applicarlo alla configurazione della regola del percorso. 
 

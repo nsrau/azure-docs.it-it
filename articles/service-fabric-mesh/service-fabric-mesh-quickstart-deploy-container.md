@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0c6bb8ba680612acbd497598b3e56efa5c28244a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c81b53b68c689f4b890d2ff628f38b734aea63dc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146246"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499884"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Guida introduttiva: Distribuire Hello World in Service Fabric Mesh
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 >[!NOTE]
 > A partire dal 2 novembre 2020, i [limiti della frequenza di download si applicano](https://docs.docker.com/docker-hub/download-rate-limit/) a richieste anonime e autenticate inviate a Docker Hub da account con il piano Docker Free vengono imposti in base all'indirizzo IP. 
 > 
-> Questi modelli usano le immagini pubbliche di Docker Hub. Si noti che è possibile che la frequenza sia limitata. Per altre informazioni, vedere [Eseguire l'autenticazione con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Questi modelli usano le immagini pubbliche di Docker Hub. Si noti che è possibile che la frequenza sia limitata. Per altre informazioni, vedere [Eseguire l'autenticazione con Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Creare l'applicazione nel gruppo di risorse usando il comando `az mesh deployment create`.  Eseguire questo comando:
 

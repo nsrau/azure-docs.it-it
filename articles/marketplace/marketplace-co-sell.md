@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
-ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/2/2020
+ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016334"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518536"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -24,7 +24,7 @@ Il programma di co-selling è disponibile per il **software compilato con la pro
 
     ![Diagramma che illustra il modo in cui la co-selling si verifica quando i lead di vendita vengono condivisi, accettati e vinti dai clienti gestiti da Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **Co-selling incentivate** Le soluzioni IP possono ottenere incentivi per i venditori di settore Microsoft quando vengono venduti in collaborazione con i team di vendita Microsoft, oltre ai vantaggi del Marketplace elencati di seguito.</li></ul>
+- **Co-selling incentivate** Le offerte IP possono ottenere incentivi per i venditori di settore Microsoft quando vengono venduti in collaborazione con i team di vendita Microsoft, oltre ai vantaggi del Marketplace elencati di seguito.</li></ul>
 
 ## <a name="marketplace-benefits-for-incentivized-offers"></a>Vantaggi del Marketplace per le offerte incentivate
 
@@ -67,7 +67,7 @@ Avviare il percorso di co-selling direttamente nel centro per i partner seguendo
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Questa immagine mostra la sezione relativa all'elenco della scheda co-selling.":::  
 
-1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta. (*Obbligatorio: cliente One-pager e Customer Presentation Deck).*
+1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta. *(Obbligatorio: soluzione/offerta un solo cercapersone e soluzione/piattaforma pitch. Obbligatorio per ottenere lo stato di incentivate di co-selling IP di Azure: diagramma dell'architettura di riferimento.*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Questa immagine mostra la sezione documenti nella scheda co-selling.":::
 

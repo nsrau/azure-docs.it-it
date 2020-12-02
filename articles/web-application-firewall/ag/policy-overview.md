@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990126"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518737"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Panoramica dei criteri di Web Application Firewall (WAF) di Azure
 
 I criteri del Web Application Firewall contengono tutte le configurazioni e le impostazioni di WAF. Sono incluse le esclusioni, le regole personalizzate, le regole gestite e così via. Questi criteri vengono quindi associati a un gateway applicazione (globale), a un listener (per sito) o a una regola basata sul percorso (per URI) per rendere effettive.
-
-> [!NOTE]
-> I criteri per URI del Web Application Firewall (WAF) di Azure sono disponibili in anteprima pubblica.
-> 
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Non esiste alcun limite al numero di criteri che è possibile creare. Quando si crea un criterio, è necessario associarlo a un gateway applicazione per renderlo effettivo. Può essere associato a qualsiasi combinazione di gateway applicazione, listener e regole basate sul percorso.
 

@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: b1ce076befc325fef7717c0404b31dadff952af6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433292"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518244"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -75,7 +75,7 @@ I token JWT (token JSON Web) sono divisi in tre parti:
 
 Ogni parte è separata da un punto (`.`) e a ogni parte viene applicata separatamente la codifica Base64.
 
-Le attestazioni sono presenti solo se c'è un valore da inserire. L'app non deve assumere una dipendenza da un'attestazione presente. Gli esempi includono `pwd_exp` (non tutti i tenant richiedono la scadenza delle password) e `family_name` ([le credenziali client] (v2-OAuth2-client-creds-Grant-Flow.MD) i flussi sono per conto di applicazioni che non hanno nomi). Le attestazioni usate per la convalida dei token di accesso sono sempre presenti.
+Le attestazioni sono presenti solo se c'è un valore da inserire. L'app non deve assumere una dipendenza da un'attestazione presente. Gli esempi includono `pwd_exp` (non ogni tenant richiede la scadenza delle password) e `family_name` (i flussi delle[credenziali client](v2-oauth2-client-creds-grant-flow.md) sono per conto di applicazioni che non hanno nomi). Le attestazioni usate per la convalida dei token di accesso sono sempre presenti.
 
 Alcune attestazioni vengono usate per proteggere i token in Azure AD in caso di riutilizzo. In questo caso vengono descritte come "opache" per indicare che non sono destinate all'uso pubblico. Queste attestazioni possono o meno essere presenti in un token e possono venirne aggiunte di nuove senza preavviso.
 

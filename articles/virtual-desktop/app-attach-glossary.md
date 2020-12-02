@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674953"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518669"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossario per il fissaggio dell'app MSIX
 
@@ -108,7 +108,19 @@ La degestione temporanea notifica al sistema operativo che un'applicazione o un 
 
 ## <a name="cim"></a>CIM
 
-. CIM è una nuova estensione di file associata a composite image file System (CimFS). Il montaggio e lo smontaggio dei file CIM sono più veloci dei file VHD. CIM usa anche meno CPU e memoria rispetto al disco rigido virtuale.
+CIM è una nuova estensione di file associata a composite image file System (CimFS). Il montaggio e lo smontaggio dei file CIM sono più veloci dei file VHD. CIM usa anche meno CPU e memoria rispetto al disco rigido virtuale.
+
+Un file CIM è un file con un. Estensione CIM che contiene i metadati e almeno sei file aggiuntivi che contengono dati effettivi. I file all'interno del file CIM non hanno estensioni. Nella tabella seguente è riportato un elenco di file di esempio disponibili all'interno di un CIM:
+
+| Nome file | Estensione | Dimensione |
+|-----------|-----------|------|
+| VSC | CIM | 1 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | N/D | 27 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | N/D | 20 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | N/D | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | N/D | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | N/D | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | N/D | 264.132 KB |
 
 La tabella seguente rappresenta un confronto delle prestazioni tra VHD e CimFS. Questi numeri sono il risultato di un'esecuzione dei test con file di 500 300 MB in ogni formato eseguito in un computer DSv4.
 

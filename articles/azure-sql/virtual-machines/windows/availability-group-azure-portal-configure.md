@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 9ecac482c138447a3a9dc99193fb131b688993e4
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 28bacb923578fa0c631aa7b5092e0d11f98b1dcf
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556608"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518414"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Usare portale di Azure per configurare un gruppo di disponibilità (anteprima) per SQL Server nella macchina virtuale di Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,9 +100,6 @@ A questo scopo, attenersi alla procedura seguente:
 1. Esaminare le impostazioni per il cluster. 
 1. Selezionare **applica** per caricare il cluster e quindi selezionare **Sì** al prompt per continuare.
 
-
-
-
 ## <a name="create-availability-group"></a>Creare un gruppo di disponibilità
 
 Dopo la creazione o l'onboarding del cluster, creare il gruppo di disponibilità usando il portale di Azure. A questo scopo, attenersi alla procedura seguente:
@@ -146,7 +143,7 @@ Per aggiungere database al gruppo di disponibilità tramite SQL Server Managemen
 1. Aprire SQL Server Management Studio (SSMS).
 1. Connettersi all'istanza di SQL Server. 
 1. Espandere **Always on disponibilità elevata** in **Esplora oggetti**.
-1. Espandere **gruppi di disponibilità** , fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Aggiungi database..**..
+1. Espandere **gruppi di disponibilità**, fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Aggiungi database..**..
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Fare clic con il pulsante destro del mouse sul gruppo di disponibilità in Esplora oggetti e scegliere Aggiungi database":::
 
@@ -207,7 +204,7 @@ Rimuovere quindi i metadati del cluster dall'estensione SQL IaaS Agent:
 # Remove the cluster from the SQL VM RP metadata
 # example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
 
-az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+az sql vm group delete --name <cluster name> --resource-group <resource group name>
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -235,7 +232,7 @@ Rimuovere quindi i metadati del cluster dall'estensione SQL IaaS Agent:
 # Remove the cluster metadata
 # example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
 
-Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name>"
 ```
 
 ---
