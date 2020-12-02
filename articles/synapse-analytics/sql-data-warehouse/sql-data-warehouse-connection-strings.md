@@ -10,19 +10,19 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: 637078cf67a2880e452ff02be63f3908bd601158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: c7377ea82ed4e36daeb2347fa3e9b1931acdbfa9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462823"
 ---
-# <a name="connection-strings-for-synapse-sql-pool"></a>Stringhe di connessione per il pool SQL sinapsi
+# <a name="connection-strings-for-sql-pools-in-azure-synapse"></a>Stringhe di connessione per i pool SQL in sinapsi di Azure
 
-È possibile connettersi al pool SQL con diversi protocolli applicativi, ad esempio, [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo.  Per impostare la stringa di connessione, è anche possibile usare il portale di Azure.  
+È possibile connettersi a un pool SQL in sinapsi di Azure con diversi protocolli applicativi, ad esempio, [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo.  Per impostare la stringa di connessione, è anche possibile usare il portale di Azure.  
 
-Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
+Per compilare la stringa di connessione usando il portale di Azure, passare al pannello del pool SQL, in *Essentials* fare clic su *Mostra stringhe di connessione del database*.
 
 ## <a name="sample-adonet-connection-string"></a>Stringa di connessione ADO.NET di esempio
 

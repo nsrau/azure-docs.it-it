@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340176"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463126"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Collegamento ad Azure Synapse per Azure Cosmos DB: casi d'uso dell'analisi quasi in tempo reale
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ In base all'architettura precedente, è possibile ottenere i casi d'uso seguenti
 
   Collegamento a Synapse per Azure Cosmos DB rende possibili scenari avanzati di business intelligence (BI) e creazione di report:
 
-  * Eseguire query sui dati operativi da Azure Cosmos DB archivio analitico usando l'integrazione nativa con la sinapsi SQL senza server e l'espressività completa del linguaggio T-SQL.
+  * Eseguire query sui dati operativi da Azure Cosmos DB archivio analitico usando l'integrazione nativa con il pool SQL senza server e l'espressività completa del linguaggio T-SQL.
 
-  * Modellare e pubblicare i dashboard di Business Intelligence per l'aggiornamento automatico tramite la Azure Cosmos DB tramite la sinapsi supporto SQL senza server per gli strumenti di business intelligence noti. ad esempio Azure Analysis Services, Power BI Premium e così via.
+  * Modellare e pubblicare i dashboard di Business Intelligence per l'aggiornamento automatico tramite Azure Cosmos DB tramite il supporto del pool SQL senza server per gli strumenti di business intelligence noti. ad esempio Azure Analysis Services, Power BI Premium e così via.
 
 Di seguito sono riportate alcune indicazioni per l'integrazione dei dati in batch e in streaming in Azure Cosmos DB:
 
@@ -143,4 +143,4 @@ Per altre informazioni, vedere la documentazione seguente:
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Supporto del runtime di SQL Server in Azure sinapsi Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Supporto del runtime del pool SQL senza server in Azure sinapsi Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

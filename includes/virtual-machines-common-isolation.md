@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: styli365
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410591"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477288"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente. Le dimensioni isolate si trovano in un ambiente di generazione hardware specifico e verranno deprecate quando la generazione dell'hardware viene ritirata.
 
@@ -25,10 +25,13 @@ Inoltre, poiché le macchine virtuali di dimensioni isolate sono di grandi dimen
 Le offerte di macchine virtuali con piano Isolato correnti includono:
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
 * Standard_F72s_v2
+
 
 > [!NOTE]
 > Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Per informazioni dettagliate, vedere di seguito.
@@ -47,24 +50,24 @@ Poiché le dimensioni delle VM isolate sono dimensioni associate a hardware, Azu
 
 ## <a name="faq"></a>Domande frequenti
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>D: la dimensione verrà ritirata o solo la funzionalità "isolamento" è?
-**R** : se le dimensioni della macchina virtuale non hanno l'indice "i", verrà ritirata solo la funzionalità di "isolamento". Se l'isolamento non è necessario, non viene eseguita alcuna azione e la macchina virtuale continuerà a funzionare come previsto. Alcuni esempi sono Standard_DS15_v2, Standard_D15_v2, Standard_M128ms e così via. Se le dimensioni della macchina virtuale includono pedice "i", le dimensioni verranno ritirate.
+**R**: se le dimensioni della macchina virtuale non hanno l'indice "i", verrà ritirata solo la funzionalità di "isolamento". Se l'isolamento non è necessario, non viene eseguita alcuna azione e la macchina virtuale continuerà a funzionare come previsto. Alcuni esempi sono Standard_DS15_v2, Standard_D15_v2, Standard_M128ms e così via. Se le dimensioni della macchina virtuale includono pedice "i", le dimensioni verranno ritirate.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>D: si verifica un tempo di inattività quando la macchina virtuale si trova in un hardware non isolato?
-**R** : se non è necessario l'isolamento, non è necessaria alcuna azione e non si verifica alcun tempo di inattività.
+**R**: se non è necessario l'isolamento, non è necessaria alcuna azione e non si verifica alcun tempo di inattività.
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>D: esiste una Delta di costo per il passaggio a una macchina virtuale non isolata?
-**R** : No
+**R**: No
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>D: quando le altre dimensioni isolate verranno ritirate?
-**R** : verranno forniti promemoria 12 mesi prima della deprecazione ufficiale della dimensione isolata.
+**R**: verranno forniti promemoria 12 mesi prima della deprecazione ufficiale della dimensione isolata.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>D: sono un cliente di Azure Service Fabric che si basa sui livelli di durabilità Silver o Gold. Questa modifica ha effetto?
-**R** : No. Le garanzie fornite dai livelli di [durabilità](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) di Service Fabric continueranno a funzionare anche dopo questa modifica. Se è necessario un isolamento hardware fisico per altri motivi, potrebbe essere comunque necessario eseguire una delle azioni descritte in precedenza. 
+**R**: No. Le garanzie fornite dai livelli di [durabilità](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) di Service Fabric continueranno a funzionare anche dopo questa modifica. Se è necessario un isolamento hardware fisico per altri motivi, potrebbe essere comunque necessario eseguire una delle azioni descritte in precedenza. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>D: quali sono le attività cardine per D15_v2 o DS15_v2 il ritiro dell'isolamento? 
-**A** : 
+**A**: 
  
-| Data | Action |
+| Data | Azione |
 |---|---| 
 | 18 novembre 2019 | Disponibilità di D/DS15i_v2 (PAYG, 1 anno RI) | 
 | 14 maggio 2020 | Ultimo giorno per l'acquisto di D/DS15i_v2 1 anno RI | 

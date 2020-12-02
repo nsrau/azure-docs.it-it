@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630125"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463025"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire le pipeline di Machine Learning con Azure Machine Learning SDK
 
@@ -24,7 +24,7 @@ ms.locfileid: "94630125"
 
 In questo articolo viene illustrato come creare ed eseguire una pipeline di [Machine Learning](concept-ml-pipelines.md) usando il [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Usare le **pipeline di ml** per creare un flusso di lavoro che unisce varie fasi di machine learning. Pubblicare quindi la pipeline per l'accesso successivo o la condivisione con altri utenti. Tenere traccia delle pipeline di ML per vedere le prestazioni del modello nel mondo reale e per rilevare la tendenza ai dati. Le pipeline di ML sono ideali per gli scenari di assegnazione dei punteggi in batch, l'uso di diversi calcoli, il riutilizzo dei passaggi anziché la loro esecuzione, nonché la condivisione di flussi di lavoro ML con altri utenti.
 
-Sebbene sia possibile usare un tipo diverso di pipeline denominato [pipeline di Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context&preserve-view=true&tabs=yaml&view=azure-devops) per l'automazione ci/CD di attività di Machine Learning, questo tipo di pipeline non è archiviato nell'area di lavoro. [Confrontare queste diverse pipeline](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Sebbene sia possibile usare un tipo diverso di pipeline denominato [pipeline di Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&preserve-view=true&tabs=yaml&view=azure-devops) per l'automazione ci/CD di attività di Machine Learning, questo tipo di pipeline non è archiviato nell'area di lavoro. [Confrontare queste diverse pipeline](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Le pipeline di ML create sono visibili ai membri dell' [area di lavoro](how-to-manage-workspace.md)Azure Machine Learning. 
 
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 ## <a name="set-up-a-compute-target"></a>Configurare una destinazione di calcolo
 
 
-In Azure Machine Learning il termine __ambiente di calcolo__ (o __destinazione di calcolo__ ) si riferisce ai computer o ai cluster che eseguono i passaggi di calcolo nella pipeline di Machine Learning.   Vedere [destinazioni di calcolo per il training del modello](concept-compute-target.md#train) per un elenco completo delle destinazioni di calcolo e [creare destinazioni di calcolo](how-to-create-attach-compute-studio.md) per la creazione e la connessione all'area di lavoro.   Il processo per la creazione e la connessione di una destinazione di calcolo è lo stesso sia per il training di un modello che per l'esecuzione di un passaggio della pipeline. Dopo aver creato e collegato la destinazione di calcolo, usare l'oggetto `ComputeTarget` nel [passaggio pipeline](#steps).
+In Azure Machine Learning il termine __ambiente di calcolo__ (o __destinazione di calcolo__) si riferisce ai computer o ai cluster che eseguono i passaggi di calcolo nella pipeline di Machine Learning.   Vedere [destinazioni di calcolo per il training del modello](concept-compute-target.md#train) per un elenco completo delle destinazioni di calcolo e [creare destinazioni di calcolo](how-to-create-attach-compute-studio.md) per la creazione e la connessione all'area di lavoro.   Il processo per la creazione e la connessione di una destinazione di calcolo è lo stesso sia per il training di un modello che per l'esecuzione di un passaggio della pipeline. Dopo aver creato e collegato la destinazione di calcolo, usare l'oggetto `ComputeTarget` nel [passaggio pipeline](#steps).
 
 > [!IMPORTANT]
 > L'esecuzione di operazioni di gestione su destinazioni di calcolo non è supportata all'interno di processi remoti. Poiché le pipeline di Machine Learning vengono inviate come processo remoto, non usare le operazioni di gestione in destinazioni di calcolo all'interno della pipeline.

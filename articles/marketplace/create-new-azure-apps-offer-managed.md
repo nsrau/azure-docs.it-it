@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579488"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463109"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configurare un piano di applicazione gestita
 
@@ -67,7 +67,7 @@ Per impostare prezzi personalizzati in un singolo mercato, esportare, modificare
 
    Per poter aggiornare il file, potrebbe essere necessario abilitare la modifica in Excel.
 
-1. Nella scheda **prezzi e disponibilità** , in **prezzi** , selezionare il collegamento **Importa dati prezzi** .
+1. Nella scheda **prezzi e disponibilità** , in **prezzi**, selezionare il collegamento **Importa dati prezzi** .
 1. Nella finestra di dialogo visualizzata fare clic su **Sì**.
 1. Selezionare il file exportedPrice.xlsx aggiornato e quindi fare clic su **Apri**.
 
@@ -101,7 +101,7 @@ In **visibilità piano** eseguire una delle operazioni seguenti:
 1. Facoltativamente, immettere una descrizione per ogni gruppo di destinatari nella colonna **Descrizione** .
 1. Aggiungere "SubscriptionId" nella colonna **Type** per ogni riga con un ID sottoscrizione.
 1. Salvare il. File CSV.
-1. Nella scheda **disponibilità** , in **visibilità piano** , selezionare il collegamento **Importa destinatari (CSV)** .
+1. Nella scheda **disponibilità** , in **visibilità piano**, selezionare il collegamento **Importa destinatari (CSV)** .
 1. Nella finestra di dialogo visualizzata selezionare **Sì**.
 1. Selezionare il. File CSV, quindi selezionare **Apri**. Viene visualizzato un messaggio che indica che il. Importazione del file CSV completata.
 
@@ -114,7 +114,7 @@ Nella scheda **configurazione tecnica** verrà caricato il pacchetto di distribu
 
 ### <a name="assign-a-version-number-for-the-package"></a>Assegnare un numero di versione per il pacchetto
 
-Nella casella **versione** specificare la versione corrente della configurazione tecnica. Incrementare questa versione ogni volta che si pubblica una modifica in questa pagina. Il numero di versione deve essere nel formato: integer. Integer. Integer. Ad esempio, `1.0.2`
+Nella casella **versione** specificare la versione corrente della configurazione tecnica. Incrementare questa versione ogni volta che si pubblica una modifica in questa pagina. Il numero di versione deve essere nel formato: integer. Integer. Integer. Ad esempio: `1.0.2`.
 
 ### <a name="upload-a-package-file"></a>Carica un file di pacchetto
 
@@ -135,10 +135,10 @@ Per abilitare l'accesso JIT per questo piano, selezionare la casella di controll
 
 Selezionare la modalità di distribuzione **completa** o **incrementale** .
 
-- In modalità **completa** , una ridistribuzione dell'applicazione da parte del cliente comporterà la rimozione delle risorse nel gruppo di risorse gestite se le risorse non sono definite nel [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
+- In modalità **completa** , una ridistribuzione dell'applicazione da parte del cliente comporterà la rimozione delle risorse nel gruppo di risorse gestite se le risorse non sono definite nel [mainTemplate.js](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template).
 - In modalità **incrementale** , una ridistribuzione dell'applicazione lascia invariate le risorse esistenti.
 
-Per altre informazioni sulle modalità di distribuzione, vedere [Modalità di distribuzione di Azure Resource Manager](/azure/azure-resource-manager/deployment-modes).
+Per altre informazioni sulle modalità di distribuzione, vedere [Modalità di distribuzione di Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Fornire un URL dell'endpoint di notifica
 
@@ -175,14 +175,14 @@ Completare la procedura seguente per Azure globale e il cloud di Azure per enti 
 
 ## <a name="view-your-plans"></a>Visualizzare i piani
 
-- Selezionare **Salva bozza** , quindi in alto a sinistra nella pagina selezionare **panoramica piano** per tornare alla pagina **panoramica piano** .
+- Selezionare **Salva bozza**, quindi in alto a sinistra nella pagina selezionare **panoramica piano** per tornare alla pagina **panoramica piano** .
 
 Dopo aver creato uno o più piani, verranno visualizzati il nome del piano, l'ID del piano, il tipo di piano, la disponibilità (pubblica o privata), lo stato di pubblicazione corrente e tutte le azioni disponibili nella scheda **panoramica piano** .
 
 Le azioni disponibili nella colonna **azione** della scheda **panoramica piano** variano a seconda dello stato del piano e possono includere quanto segue:
 
-- Se lo stato del piano è **bozza** , il collegamento nella colonna **azione** indicherà **Elimina bozza**.
-- Se lo stato del piano è **Live** , il collegamento nella colonna **azione** verrà interrotto a **vendere piano** o **sincronizzare i destinatari privati**. Il collegamento per i **destinatari privati della sincronizzazione** pubblicherà solo le modifiche apportate ai destinatari privati, senza pubblicare altri aggiornamenti che potrebbero essere stati apportati all'offerta.
+- Se lo stato del piano è **bozza**, il collegamento nella colonna **azione** indicherà **Elimina bozza**.
+- Se lo stato del piano è **Live**, il collegamento nella colonna **azione** verrà interrotto a **vendere piano** o **sincronizzare i destinatari privati**. Il collegamento per i **destinatari privati della sincronizzazione** pubblicherà solo le modifiche apportate ai destinatari privati, senza pubblicare altri aggiornamenti che potrebbero essere stati apportati all'offerta.
 - Per creare un altro piano per questa offerta, nella parte superiore della scheda **panoramica piano** selezionare **+ Crea nuovo piano**. Ripetere quindi i passaggi in [come creare piani per l'offerta di applicazione Azure](create-new-azure-apps-offer-plans.md). In caso contrario, se si è terminato di creare i piani, passare alla sezione successiva: passaggi successivi.
 
 ## <a name="next-steps"></a>Passaggi successivi

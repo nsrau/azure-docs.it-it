@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345354"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463241"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -57,7 +57,7 @@ Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure 
 
 Quando EventGrid riceve un errore per il tentativo di recapito di un evento, EventGrid decide se ritentare il recapito o i messaggi non recapitabili oppure eliminare l'evento in base al tipo di errore. 
 
-Se l'errore restituito dall'endpoint sottoscritto è un errore correlato alla configurazione che non può essere risolto con nuovi tentativi (ad esempio, se l'endpoint viene eliminato), EventGrid esegue l'evento di messaggi non recapitabili o Elimina l'evento se non è configurata la lettera non recapitabile.
+Se l'errore restituito dall'endpoint sottoscritto è un errore correlato alla configurazione che non può essere risolto con nuovi tentativi (ad esempio, se l'endpoint viene eliminato), EventGrid eseguirà l'evento come messaggio non recapitabile o eliminerà l'evento se non è configurata la lettera non recapitabile.
 
 Di seguito sono riportati i tipi di endpoint per i quali non si verifica alcun nuovo tentativo:
 
@@ -119,7 +119,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="event-grid-schema"></a>Schema di Griglia di eventi
 
-#### <a name="event"></a>Evento 
+#### <a name="event"></a>Event 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -178,7 +178,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="cloudevents-10-schema"></a>Schema CloudEvents 1,0
 
-#### <a name="event"></a>Evento
+#### <a name="event"></a>Event
 
 ```json
 {
@@ -219,7 +219,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="custom-schema"></a>Schema personalizzato
 
-#### <a name="event"></a>Evento
+#### <a name="event"></a>Event
 
 ```json
 {

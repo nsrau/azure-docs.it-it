@@ -1,30 +1,30 @@
 ---
 title: Utilizzo di opzioni Group by
-description: Suggerimenti per l'implementazione di opzioni Group by nel pool di SQL sinapsi.
+description: Suggerimenti per l'implementazione delle opzioni Group by per i pool SQL dedicati in Azure sinapsi Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: cdac3b1e502a203c272db75eb4345446b0f7c0c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213449"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462770"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Opzioni Group by nel pool SQL sinapsi
+# <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Opzioni di raggruppamento per i pool SQL dedicati in Azure sinapsi Analytics
 
-In questo articolo sono disponibili suggerimenti per l'implementazione di opzioni Group by nel pool SQL.
+In questo articolo sono disponibili suggerimenti per l'implementazione di opzioni Group by in pool SQL dedicati.
 
 ## <a name="what-does-group-by-do"></a>Qual è la funzione di GROUP BY?
 
-La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) viene usata per aggregare i dati in un set di righe di riepilogo. Per GROUP BY sono disponibili alcune opzioni che non sono supportate dal pool SQL. Per queste opzioni sono disponibili soluzioni alternative, come indicato di seguito:
+La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) viene usata per aggregare i dati in un set di righe di riepilogo. Per GROUP BY sono disponibili alcune opzioni che non sono supportate dal pool SQL dedicato. Per queste opzioni sono disponibili soluzioni alternative, come indicato di seguito:
 
 * GROUP BY con ROLLUP
 * GROUPING SETS

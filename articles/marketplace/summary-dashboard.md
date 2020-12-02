@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 6b59da408ae7c88aaf8b9e7423fe955a861edf0f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c02ba12c790d745904d241f121e269aac3ed12f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565518"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462979"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di riepilogo nell'analisi per il marketplace commerciale
 
@@ -21,7 +21,7 @@ Questo articolo fornisce informazioni sul dashboard di riepilogo nel Centro per 
 Per accedere al dashboard di riepilogo in centro per i partner, in **Marketplace commerciale** selezionare **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Riepilogo**.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).
 
 ## <a name="summary-dashboard"></a>Dashboard Riepilogo
 
@@ -109,4 +109,4 @@ Tenere presente quanto segue:
 - Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi per il marketplace commerciale](customer-dashboard.md).
 - Per un elenco delle richieste di download degli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./partner-center-portal/downloads-dashboard.md).
 - Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere la pagina relativa alle [classificazioni & il dashboard di analisi nel centro per i partner](./partner-center-portal/ratings-reviews.md).
-- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).

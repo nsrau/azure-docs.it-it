@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999298"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463089"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -74,7 +74,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sul percorso dei dati nell'archivio. La sezione **typeProperties** per un set di dati di tipo **RelationalTable**, che include il set di dati Amazon Redshift, ha le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | **tableName** |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -84,7 +84,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | **query** | Usare la query personalizzata per leggere i dati. |No (se è specificata la proprietà **tableName** di un set di dati) |
 | **redshiftUnloadSettings** | Contiene il gruppo di proprietà quando si usa il comando **UNLOAD** di Redshift. | No |
@@ -93,7 +93,7 @@ Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, 
 
 In alternativa, è possibile usare il tipo **RelationalSource**, che include Amazon Redshift, con la proprietà seguente nella sezione **typeProperties**. Si noti che questo tipo di origine non supporta il comando **UNLOAD** di Redshift.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. | No (se è specificata la proprietà **tableName** di un set di dati) |
 
@@ -101,7 +101,7 @@ In alternativa, è possibile usare il tipo **RelationalSource**, che include Ama
 
 Il comando [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) di Amazon Redshift scarica i risultati di una query in uno o più file su Amazon S3. Questo comando è consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
 
-**Esempio: copiare dati da Amazon lo spostamento in Azure sinapsi Analytics (in precedenza SQL Data Warehouse)**
+**Esempio: copiare dati da Amazon lo spostamento in Azure sinapsi Analytics**
 
 Questo esempio copia i dati da Amazon lo spostamento in Azure sinapsi Analytics. L'esempio usa il comando **UNLOAD** di Redshift, i dati della copia di staging e Microsoft PolyBase.
 

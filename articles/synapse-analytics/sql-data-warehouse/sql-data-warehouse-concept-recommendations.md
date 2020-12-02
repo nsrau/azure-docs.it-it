@@ -1,5 +1,5 @@
 ---
-title: Raccomandazioni di Synapse SQL
+title: Consigli Azure Advisor del pool SQL dedicato
 description: Informazioni sulle raccomandazioni di Synapse SQL e su come vengono generate
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482854"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462859"
 ---
-# <a name="synapse-sql-recommendations"></a>Raccomandazioni di Synapse SQL
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Advisor raccomandazioni per il pool SQL dedicato in Azure sinapsi Analytics
 
-Questo articolo descrive le raccomandazioni presentate da Synapse SQL tramite Azure Advisor.  
+Questo articolo descrive le raccomandazioni del pool SQL dedicato disponibili in Azure Advisor.  
 
-Synapse SQL offre raccomandazioni per garantire che le prestazioni del carico di lavoro del data warehouse vengano costantemente ottimizzate. Grazie alla stretta integrazione con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), le procedure consigliate vengono presentate direttamente nel [portale di Azure](https://aka.ms/Azureadvisor). Synapse SQL raccoglie dati di telemetria e raccomandazioni riguardanti le superfici per il carico di lavoro attivo con cadenza giornaliera. Di seguito vengono descritti gli scenari per i quali è supportata la presentazione di raccomandazioni e viene illustrato come applicare le azioni consigliate.
+Il pool SQL dedicato fornisce consigli per garantire che il carico di lavoro data warehouse sia costantemente ottimizzato per le prestazioni. Grazie alla stretta integrazione con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), le procedure consigliate vengono presentate direttamente nel [portale di Azure](https://aka.ms/Azureadvisor). Il pool SQL dedicato raccoglie i dati di telemetria e i consigli relativi alle superfici per il carico di lavoro attivo a cadenza giornaliera. Di seguito vengono descritti gli scenari per i quali è supportata la presentazione di raccomandazioni e viene illustrato come applicare le azioni consigliate.
 
 È possibile [verificare la disponibilità di raccomandazioni](https://aka.ms/Azureadvisor) oggi stesso. 
 
@@ -73,4 +73,4 @@ Quando si verifica un conflitto di tempdb significativo, le prestazioni delle qu
 
 ## <a name="data-loading-misconfiguration"></a>Configurazione errata del caricamento dei dati
 
-È necessario caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL per ridurre al minimo la latenza. Usare l' [istruzione Copy per l'inserimento di dati con velocità effettiva elevata](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e suddividere i file di gestione temporanea nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o BCP con una dimensione di batch elevata per una migliore velocità effettiva. Per informazioni aggiuntive sul caricamento dei dati, vedere la [documentazione](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)seguente. 
+È necessario caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL dedicato per ridurre al minimo la latenza. Usare l' [istruzione Copy per l'inserimento di dati con velocità effettiva elevata](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e suddividere i file di gestione temporanea nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o BCP con una dimensione di batch elevata per una migliore velocità effettiva. Per informazioni aggiuntive sul caricamento dei dati, vedere la [documentazione](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)seguente. 

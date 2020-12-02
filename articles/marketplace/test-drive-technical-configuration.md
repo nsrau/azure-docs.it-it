@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751114"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462902"
 ---
 # <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
@@ -38,9 +38,9 @@ Microsoft può rimuovere la complessità della configurazione di un test drive o
 
 - **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nel test drive di Dynamics 365 personalizzato, che verrà assegnato all'utente durante il test drive (ad esempio, test-drive-role).
 
-Per informazioni su come configurare l'ambiente Dynamics 365 per test drive e concedere l'autorizzazione AppSource per il provisioning e il deprovisioning di test drive utenti nel tenant, seguire [queste istruzioni](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+Per informazioni su come configurare l'ambiente Dynamics 365 per test drive e concedere l'autorizzazione AppSource per il provisioning e il deprovisioning di test drive utenti nel tenant, seguire [queste istruzioni](./test-drive-azure-subscription-setup.md).
 
-Per istruzioni dettagliate su come elencare e configurare la unità di test ospitata, vedere la pagina relativa alla [configurazione dettagliata per test drive ospitata](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
+Per istruzioni dettagliate su come elencare e configurare la unità di test ospitata, vedere la pagina relativa alla [configurazione dettagliata per test drive ospitata](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="logic-app-test-drive"></a>test drive app per la logica
 
@@ -95,7 +95,7 @@ L'opzione per gli **elenchi di test drive** disponibile nella scheda **test driv
 
 Se si sta creando il test drive nel centro per i partner, selezionare **Salva bozza** prima di continuare.
 
-Per istruzioni dettagliate su come elencare e configurare la unità di test ospitata, vedere la pagina relativa alla [configurazione dettagliata per test drive ospitata](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
+Per istruzioni dettagliate su come elencare e configurare la unità di test ospitata, vedere la pagina relativa alla [configurazione dettagliata per test drive ospitata](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

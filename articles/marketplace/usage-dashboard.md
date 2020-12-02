@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565539"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462935"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale
 
@@ -21,7 +21,7 @@ Questo articolo fornisce informazioni sul dashboard Usage (utilizzo) nel centro 
 Per accedere al dashboard Usage in centro per i partner, in **Marketplace commerciale** selezionare **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **utilizzo**.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+> Per le definizioni dettagliate della terminologia di analisi, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).
 
 ## <a name="usage-dashboard"></a>Dashboard Utilizzo
 
@@ -175,9 +175,9 @@ La scheda **utilizzo** a consumo Visualizza le informazioni sull'utilizzo per i 
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="Illustra il grafico di utilizzo normalizzato della macchina virtuale nel dashboard Usage.":::
 
-- **Tendenza in eccedenza per SKU** : rappresenta la tendenza della quantità di utilizzo della dimensione del contatore selezionata per SKU/piani. Vengono visualizzati i primi cinque piani con la quantità di utilizzo più elevata per l'offerta selezionata.
+- **Tendenza in eccedenza per SKU**: rappresenta la tendenza della quantità di utilizzo della dimensione del contatore selezionata per SKU/piani. Vengono visualizzati i primi cinque piani con la quantità di utilizzo più elevata per l'offerta selezionata.
 
-- **Tendenza in eccedenza da parte dei clienti** : la lavagna del cliente rappresenta un elenco in pila dei clienti con le ore di utilizzo più elevate e vengono visualizzate in una _bacheca_ , classificate in base all'utilizzo più elevato del contatore personalizzato. Selezionare un cliente nella lavagna principale per visualizzare la tendenza di utilizzo in eccedenza di una dimensione del contatore selezionata.
+- **Tendenza in eccedenza da parte dei clienti**: la lavagna del cliente rappresenta un elenco in pila dei clienti con le ore di utilizzo più elevate e vengono visualizzate in una _bacheca_, classificate in base all'utilizzo più elevato del contatore personalizzato. Selezionare un cliente nella lavagna principale per visualizzare la tendenza di utilizzo in eccedenza di una dimensione del contatore selezionata.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="Illustra il grafico sull'utilizzo a consumo da parte dei clienti nel dashboard Usage.":::
 
@@ -194,4 +194,4 @@ Se sono disponibili più offerte che usano contatori personalizzati, il report s
 - Per la macchina virtuale (VM) offre metriche di fatturazione di utilizzo e a consumo, vedere [dashboard di utilizzo in analisi del Marketplace commerciale](usage-dashboard.md).
 - Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./partner-center-portal/downloads-dashboard.md).
 - Per una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e Microsoft AppSource, vedere la pagina relativa al [dashboard di analisi & revisioni in Partner Center](./partner-center-portal/ratings-reviews.md).
-- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./partner-center-portal/faq-terminology.md).
+- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [terminologia di analisi del Marketplace commerciale e domande frequenti](./analytics-faq.md).

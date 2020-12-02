@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per il pool di Synapse SQL in Azure Synapse Analytics (in precedenza SQL Data Warehouse)
-description: Raccomandazioni e procedure consigliate per lo sviluppo di soluzioni per il pool SQL in Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+title: Procedure consigliate per il pool SQL dedicato (in precedenza SQL DW)
+description: Suggerimenti e procedure consigliate per lo sviluppo di soluzioni per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489643"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462885"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Procedure consigliate per il pool di Synapse SQL in Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
-Questo articolo contiene una raccolta di procedure consigliate che consentono di ottenere prestazioni ottimali dalla distribuzione dei [pool SQL](sql-data-warehouse-overview-what-is.md).  Lo scopo di questo articolo è fornire materiali sussidiari di base ed evidenziare importanti aree di interesse.  
+Questo articolo è una raccolta di procedure consigliate che consentono di ottenere prestazioni ottimali dalla distribuzione del [pool SQL dedicato (in precedenza SQL DW)](sql-data-warehouse-overview-what-is.md) .  Lo scopo di questo articolo è fornire materiali sussidiari di base ed evidenziare importanti aree di interesse.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Ridurre i costi con sospensione e scalabilità
 
@@ -27,7 +27,7 @@ Per altre informazioni sulla riduzione dei costi tramite sospensione e scalabili
 
 ## <a name="maintain-statistics"></a>Gestire le statistiche
 
-Il pool SQL può essere configurato per rilevare e creare automaticamente statistiche sulle colonne.  La qualità dei piani di query creati dall'utilità di ottimizzazione dipende dalla qualità delle statistiche disponibili.  
+Il pool SQL dedicato (noto in precedenza come SQL DW) può essere configurato per rilevare e creare automaticamente statistiche sulle colonne.  La qualità dei piani di query creati dall'utilità di ottimizzazione dipende dalla qualità delle statistiche disponibili.  
 
 È consigliabile abilitare AUTO_CREATE_STATISTICS per i database e mantenere aggiornate le statistiche ogni giorno o dopo ogni carico per garantire che le statistiche sulle colonne usate nelle query siano sempre aggiornate.
 
@@ -40,7 +40,7 @@ Vedere anche [Gestire le statistiche delle tabelle](sql-data-warehouse-tables-st
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Utilizzare DMV per monitorare e ottimizzare le query
 
-I pool SQL dispongono di diversi DMV che possono essere usati per monitorare l'esecuzione di query.  L'articolo "Monitoraggio del carico di lavoro mediante DMV" fornisce istruzioni dettagliate su come esaminare i dati di una query in esecuzione.  
+Pool SQL dedicato (in precedenza SQL DW) dispone di diversi DMV che possono essere utilizzati per monitorare l'esecuzione delle query.  Il [monitoraggio del carico di lavoro usando DMV](sql-data-warehouse-manage-monitor.md) istruzioni dettagliate per esaminare i dettagli di una query in esecuzione.  
 
 Per trovare rapidamente le query in queste DMV, può essere utile usare l'opzione LABEL con le query.
 
@@ -62,7 +62,7 @@ Vedere anche [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synap
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Utilizzare PolyBase per caricare ed esportare rapidamente i dati
 
-Il pool SQL supporta il caricamento e l'esportazione dei dati attraverso diversi strumenti, tra cui Azure Data Factory, PolyBase e BCP.  Per piccole quantità di dati in cui le prestazioni non sono fondamentali, qualsiasi strumento può essere adeguato per soddisfare le esigenze.  Quando tuttavia si caricano o si esportano grandi volumi di dati oppure sono necessarie prestazioni elevate, PolyBase è la scelta migliore.  
+Il pool SQL dedicato (in precedenza SQL DW) supporta il caricamento e l'esportazione di dati tramite diversi strumenti, tra cui Azure Data Factory, polibase e BCP.  Per piccole quantità di dati in cui le prestazioni non sono fondamentali, qualsiasi strumento può essere adeguato per soddisfare le esigenze.  Quando tuttavia si caricano o si esportano grandi volumi di dati oppure sono necessarie prestazioni elevate, PolyBase è la scelta migliore.  
 
 La funzione polibase è progettata per sfruttare la natura distribuita del sistema e caricherà ed Esporta grandezze di dati più velocemente rispetto a qualsiasi altro strumento.  Le operazioni di caricamento di PolyBase possono essere eseguite usando CTAS o INSERT INTO.   
 
@@ -74,13 +74,13 @@ Azure Data Factory supporta anche il caricamento PolyBase e può raggiungere pre
 > [!NOTE]
 > Per aumentare al massimo la velocità effettiva quando si usano file di testo con estensione gzip, suddividere i file in 60 o più file per ottimizzare il parallelismo del caricamento.  Per una velocità effettiva totale maggiore, prendere in considerazione il caricamento simultaneo dei dati.
 
-Vedere anche [Caricare i dati](design-elt-data-loading.md), [Guida per l'uso di PolyBase](guidance-for-loading-data.md), [Strategie e criteri di caricamento di pool SQL](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Caricare dati con Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Spostare dati con Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Create Table As Select (CTAS)](sql-data-warehouse-develop-ctas.md).
+Vedere anche [caricare i dati](design-elt-data-loading.md), [Guida per l'uso di polibase](guidance-for-loading-data.md), [modelli e strategie di caricamento del pool SQL dedicati](https://blogs.msdn.microsoft.com/sqlcat/20../../), [caricare dati con Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [spostare dati con Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [creare un formato di file esterno](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [creare table As Select (CTAs)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Caricare ed eseguire query su tabelle esterne
 
 PolyBase, tecnologia nota anche per le tabelle esterne, può rappresentare il modo più rapido per caricare i dati, ma non il migliore per eseguire query. Le tabelle Polybase attualmente supportano solo file BLOB di Azure e l'archivio Azure Data Lake. Questi file non sono supportati da alcuna risorsa di calcolo.  
 
-Di conseguenza, il pool SQL non può ripartire il lavoro e pertanto deve leggere l'intero file, caricandolo su tempdb per leggere i dati.  Pertanto, in presenza di numerose query relative a questi dati, è consigliabile caricare i dati una volta ed eseguire le query tramite la tabella locale.
+Di conseguenza, il pool SQL dedicato non può eseguire l'offload di questo lavoro ed è quindi necessario leggere l'intero file caricando il file in tempdb per leggere i dati.  Pertanto, in presenza di numerose query relative a questi dati, è consigliabile caricare i dati una volta ed eseguire le query tramite la tabella locale.
 
 Vedere anche [Guida per l'uso di PolyBase](guidance-for-loading-data.md).
 
@@ -101,9 +101,9 @@ Vedere anche [Panoramica sulle tabelle](sql-data-warehouse-tables-overview.md), 
 
 ## <a name="do-not-over-partition"></a>Non creare un numero eccessivo di partizioni
 
-Anche se il partizionamento dei dati può essere efficace per la gestione dei dati tramite il cambio di partizione o l'ottimizzazione delle analisi con l'eliminazione delle partizioni, un numero eccessivo di partizioni può rallentare le query.  Spesso una strategia di partizionamento che prevede una granularità molto elevata, che potrebbe funzionare bene in SQL Server, potrebbe non essere ideale in pool SQL.  
+Anche se il partizionamento dei dati può essere efficace per la gestione dei dati tramite il cambio di partizione o l'ottimizzazione delle analisi con l'eliminazione delle partizioni, un numero eccessivo di partizioni può rallentare le query.  Spesso si tratta di una strategia di partizionamento ad alta granularità, che può funzionare correttamente in SQL Server potrebbe non funzionare correttamente nel pool SQL dedicato (in precedenza SQL DW).  
 
-Un numero eccessivo di partizioni può anche ridurre l'efficacia degli indici columnstore cluster se ogni partizione contiene meno di 1 milione di righe.  Tenere presente che in background il pool SQL partiziona automaticamente i dati in 60 database, quindi se si crea una tabella con 100 partizioni, in realtà si formano 6000 partizioni.  
+Un numero eccessivo di partizioni può anche ridurre l'efficacia degli indici columnstore cluster se ogni partizione contiene meno di 1 milione di righe.  Tenere presente che, dietro le quinte, il pool SQL dedicato esegue il partizionamento dei dati in un database di 60, pertanto se si crea una tabella con 100 partizioni, ciò comporta in realtà 6000 partizioni.  
 
 Ogni carico di lavoro è diverso, quindi la cosa migliore da fare è sperimentare diversi tipi di partizionamento per capire qual è la soluzione migliore per il carico di lavoro specifico.  Prendere in considerazione una granularità inferiore rispetto a quella considerata appropriata in SQL Server.  Prendere ad esempio in considerazione l'uso di partizioni settimanali o mensili invece che giornaliere.
 
@@ -145,13 +145,13 @@ Vedere anche [Tabelle temporanee](sql-data-warehouse-tables-temporary.md), [CREA
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Ottimizzare le tabelle columnstore cluster
 
-Gli indici columnstore in cluster rappresentano uno dei modi più efficienti per archiviare i dati nel pool SQL.  Per impostazione predefinita, le tabelle nel pool SQL vengono create come tabelle columnstore in cluster.  Per ottenere prestazioni ottimali per le query sulle tabelle columnstore è importante che la qualità dei segmenti sia buona.  
+Gli indici columnstore cluster rappresentano uno dei modi più efficienti per archiviare i dati in un pool SQL dedicato.  Per impostazione predefinita, le tabelle nel pool SQL dedicato vengono create come cluster columnstore.  Per ottenere prestazioni ottimali per le query sulle tabelle columnstore è importante che la qualità dei segmenti sia buona.  
 
 Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La qualità del segmento può essere misurata in base al numero di righe in un gruppo di righe compresso.  Per istruzioni dettagliate su come rilevare e migliorare la qualità dei segmenti per le tabelle columnstore cluster, vedere la sezione [Possibili cause di una qualità scadente dell'indice columnstore](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) nell'articolo [Indicizzazione delle tabelle](sql-data-warehouse-tables-index.md).  
 
 Poiché l'elevata qualità dei segmenti columnstore è importante, è consigliabile usare ID utente della classe di risorse media o grande per caricare i dati. L'uso di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) inferiori implica l'intenzione di assegnare una classe di risorse di dimensioni superiori all'utente incaricato del caricamento.
 
-Poiché le tabelle columnstore in genere non effettuano il push dei dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione di righe per tabella e ogni tabella del pool SQL è suddivisa in 60 tabelle, come regola generale le tabelle columnstore non risultano vantaggiose per una query a meno che non contengano più di 60 milioni di righe.  Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile,  ma potrebbe anche non avere effetti negativi.  
+Poiché le tabelle columnstore in genere non eseguono il push dei dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione righe per tabella e ogni tabella del pool SQL dedicata viene partizionata in 60 tabelle, come regola empirica, le tabelle columnstore non trarranno vantaggio da una query a meno che la tabella non contenga più di 60 milioni righe.  Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile,  ma potrebbe anche non avere effetti negativi.  
 
 Inoltre, se si partizionano i dati, tenere presente che ogni partizione dovrà contenere 1 milione di righe per trarre vantaggio da un indice columnstore cluster.  Se una tabella è divisa in 100 partizioni, per poter sfruttare i vantaggi di un archivio colonne cluster deve contenere almeno 6 miliardi di righe, ovvero 60 distribuzioni *100 partizioni* 1 milione di righe.  
 
@@ -164,7 +164,7 @@ Vedere anche gli argomenti sull'[indicizzazione di tabelle](sql-data-warehouse-t
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Utilizzare una classe di risorse più grande per migliorare le prestazioni delle query
 
-Il pool SQL usa i gruppi di risorse come modo per allocare memoria alle query.  Per impostazione predefinita, tutti gli utenti vengono assegnati alla classe di risorse piccola, che garantisce 100 MB di memoria per distribuzione.  Poiché ci sono sempre 60 distribuzioni e a ogni distribuzione viene assegnato un minimo di 100 MB, l'allocazione di memoria totale a livello di sistema è di 6.000 MB o poco meno di 6 GB.  
+Il pool SQL dedicato usa i gruppi di risorse come metodo per allocare memoria alle query.  Per impostazione predefinita, tutti gli utenti vengono assegnati alla classe di risorse piccola, che garantisce 100 MB di memoria per distribuzione.  Poiché ci sono sempre 60 distribuzioni e a ogni distribuzione viene assegnato un minimo di 100 MB, l'allocazione di memoria totale a livello di sistema è di 6.000 MB o poco meno di 6 GB.  
 
 Alcune query, ad esempio i join di grandi dimensioni oppure le operazioni di caricamento in tabelle columnstore cluster, risultano avvantaggiate da allocazioni di una quantità maggiore di memoria.  Alcune query, come le operazioni di sola analisi, non offrono alcun vantaggio.  Tuttavia, l'uso di classi di risorse più grandi riduce la concorrenza, quindi sarà necessario tenere in considerazione questo impatto prima di spostare tutti gli utenti in una classe di risorse di grandi dimensioni.
 

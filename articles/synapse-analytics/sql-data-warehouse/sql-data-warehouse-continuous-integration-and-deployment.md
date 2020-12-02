@@ -1,6 +1,6 @@
 ---
-title: Integrazione e distribuzione continua
-description: Esperienza DevOps di database di livello aziendale per il data warehousing con supporto incorporato per l'integrazione e la distribuzione continue con Azure Pipelines.
+title: Integrazione e distribuzione continue per il pool SQL dedicato
+description: Esperienza DevOps di database di livello aziendale per il pool SQL dedicato in Azure sinapsi Analytics con supporto incorporato per l'integrazione e la distribuzione continue con Azure Pipelines.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480531"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462807"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integrazione e distribuzione continue per il data warehousing
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integrazione e distribuzione continue per il pool SQL dedicato in Azure sinapsi Analytics
 
 Questa semplice esercitazione illustra come integrare il progetto di database di SQL Server Data Tools (SSDT) con Azure DevOps e sfruttare Azure Pipelines per configurare l'integrazione e la distribuzione continue. Questa esercitazione rappresenta il secondo passaggio per la creazione della pipeline di integrazione e distribuzione continua per il data warehousing.
 
@@ -60,7 +60,7 @@ A questo punto, si avrà un ambiente semplice in cui qualsiasi archiviazione nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esplorare l' [architettura del pool SQL sinapsi](massively-parallel-processing-mpp-architecture.md)
-- [Creare un pool SQL](create-data-warehouse-portal.md) rapidamente
+- Esplora l' [architettura del pool SQL dedicato (in precedenza SQL DW)](massively-parallel-processing-mpp-architecture.md)
+- [Creare rapidamente un pool SQL dedicato (in precedenza SQL DW)](create-data-warehouse-portal.md)
 - [Caricare dati di esempio](load-data-from-azure-blob-storage-using-polybase.md)
 - Esplorare i [video](sql-data-warehouse-videos.md)
