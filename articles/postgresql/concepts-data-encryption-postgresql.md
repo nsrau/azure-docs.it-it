@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242416"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493784"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati per server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -47,9 +47,9 @@ Le chiavi DEK, crittografate con chiavi KEK, vengono archiviate separatamente. S
 
 Affinché un server PostgreSQL usi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave DEK, un amministratore di Key Vault concede al server i diritti di accesso seguenti:
 
-* **get** : per recuperare la parte pubblica e le proprietà della chiave nell'insieme di credenziali delle chiavi.
-* **wrapKey** : per poter crittografare la chiave DEK. La crittografia crittografata è archiviata nel database di Azure per PostgreSQL.
-* **unwrapKey** : per essere in grado di decrittografare la chiave DEK. Per crittografare/decrittografare i dati, il database di Azure per PostgreSQL necessita della crittografia decrittografata
+* **get**: per recuperare la parte pubblica e le proprietà della chiave nell'insieme di credenziali delle chiavi.
+* **wrapKey**: per poter crittografare la chiave DEK. La crittografia crittografata è archiviata nel database di Azure per PostgreSQL.
+* **unwrapKey**: per essere in grado di decrittografare la chiave DEK. Per crittografare/decrittografare i dati, il database di Azure per PostgreSQL necessita della crittografia decrittografata
 
 L'amministratore dell'insieme di credenziali delle chiavi può anche [abilitare la registrazione degli eventi di controllo di Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), in modo che possano essere controllati in un secondo momento.
 
@@ -93,9 +93,9 @@ Quando si configura la crittografia dei dati con una chiave gestita dal cliente 
 
 * Se si crea un server di ripristino temporizzato per il server singolo di Database di Azure per PostgreSQL, per cui è abilitata la crittografia dei dati, il server appena creato avrà lo stato *Inaccessibile*. È possibile correggere lo stato del server tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Se si crea una replica in lettura per il server singolo di Database di Azure per PostgreSQL, per cui è abilitata la crittografia dei dati, il server di replica avrà lo stato *Inaccessibile*. È possibile correggere lo stato del server tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Se si elimina l'istanza di KeyVault, il server singolo di Database di Azure per PostgreSQL non potrà accedere alla chiave e passerà allo stato *Inaccessibile*. Recuperare [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
-* Se si elimina la chiave da KeyVault, il server singolo di Database di Azure per PostgreSQL non potrà accedere alla chiave e passerà allo stato *Inaccessibile*. Recuperare la [chiave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
-* Se la chiave archiviata in Azure KeyVault scade, diventa non valida e il server singolo di Database di Azure per PostgreSQL passerà allo stato *Inaccessibile*. Estendere la data di scadenza della chiave usando l' [interfaccia della riga di comando](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se si elimina l'istanza di KeyVault, il server singolo di Database di Azure per PostgreSQL non potrà accedere alla chiave e passerà allo stato *Inaccessibile*. Recuperare [Key Vault](../key-vault/general/key-vault-recovery.md) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se si elimina la chiave da KeyVault, il server singolo di Database di Azure per PostgreSQL non potrà accedere alla chiave e passerà allo stato *Inaccessibile*. Recuperare la [chiave](../key-vault/general/key-vault-recovery.md) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se la chiave archiviata in Azure KeyVault scade, diventa non valida e il server singolo di Database di Azure per PostgreSQL passerà allo stato *Inaccessibile*. Estendere la data di scadenza della chiave usando l'[interfaccia della riga di comando](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revoca accidentale dell'accesso alla chiave da Key Vault
 
