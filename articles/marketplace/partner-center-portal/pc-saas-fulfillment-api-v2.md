@@ -177,7 +177,7 @@ Quando un cliente viene reindirizzato all'URL della pagina di destinazione del p
 
 La chiamata all'API Resolve restituirà i dettagli e lo stato della sottoscrizione per le sottoscrizioni SaaS in tutti gli stati supportati.
 
-##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Inserisci `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -255,7 +255,7 @@ Codice: 500 errore interno del server.  Ripetere la chiamata API.  Se l'errore �
 
 Dopo aver configurato l'account SaaS per un utente finale, è necessario che il server di pubblicazione chiami l'API di attivazione della sottoscrizione sul lato Microsoft.  Il cliente non verrà fatturato, a meno che questa chiamata API abbia esito positivo.
 
-##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Inserisci `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -730,7 +730,7 @@ Ottiene l'elenco delle operazioni in sospeso per la sottoscrizione SaaS specific
 
 Attualmente solo **le operazioni di reintegro** vengono restituite come risposta per questa chiamata API.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Ottieni `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -791,7 +791,7 @@ Questa API consente al server di pubblicazione di tenere traccia dello stato del
 
 `operationId`Per questa chiamata API può essere recuperato dal valore restituito da **Operation-location**, dalla chiamata dell'API get pending Operations o dal `<id>` valore del parametro ricevuto in una chiamata al webhook.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ottieni `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
