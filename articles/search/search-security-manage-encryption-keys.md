@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499612"
+ms.locfileid: "96530885"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
 
-Azure ricerca cognitiva crittografa automaticamente il contenuto indicizzato inattivo con le [chiavi gestite dal servizio](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Se è necessaria una maggiore protezione, è possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando le chiavi create e gestite in Azure Key Vault. Questo articolo illustra i passaggi per la configurazione della crittografia CMK.
+Azure ricerca cognitiva crittografa automaticamente il contenuto indicizzato inattivo con le [chiavi gestite dal servizio](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Se è necessaria una maggiore protezione, è possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando le chiavi create e gestite in Azure Key Vault. Questo articolo illustra i passaggi per configurare la crittografia delle chiavi gestita dal cliente.
 
-La crittografia CMK dipende dalla [Azure Key Vault](../key-vault/general/overview.md). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault, è anche possibile controllare l'utilizzo della chiave se si [Abilita la registrazione](../key-vault/general/logging.md).  
+La crittografia della chiave gestita dal cliente dipende dalla [Azure Key Vault](../key-vault/general/overview.md). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault, è anche possibile controllare l'utilizzo della chiave se si [Abilita la registrazione](../key-vault/general/logging.md).  
 
 La crittografia con chiavi gestite dal cliente viene applicata a singoli indici o mappe sinonimi quando tali oggetti vengono creati e non è specificato nel livello di servizio di ricerca stesso. È possibile crittografare solo nuovi oggetti. Non è possibile crittografare il contenuto già esistente.
 
@@ -31,7 +31,7 @@ Non è necessario che tutte le chiavi si trovino nello stesso insieme di credenz
 
 ## <a name="double-encryption"></a>Crittografia doppia
 
-Per i servizi creati dopo il 1 ° agosto 2020 e in aree specifiche, l'ambito della crittografia CMK include dischi temporanei che raggiungono la [crittografia completa](search-security-overview.md#double-encryption), attualmente disponibile nelle aree geografiche seguenti: 
+Per i servizi creati dopo il 1 ° agosto 2020 e in aree specifiche, l'ambito della crittografia della chiave gestita dal cliente include dischi temporanei che raggiungono la [crittografia completa a doppia](search-security-overview.md#double-encryption), attualmente disponibile nelle aree geografiche seguenti: 
 
 + West US 2
 + Stati Uniti orientali
@@ -39,13 +39,13 @@ Per i servizi creati dopo il 1 ° agosto 2020 e in aree specifiche, l'ambito del
 + US Gov Virginia
 + US Gov Arizona
 
-Se si usa un'area diversa o un servizio creato prima del 1 ° agosto, la crittografia CMK è limitata solo al disco dati, esclusi i dischi temporanei utilizzati dal servizio.
+Se si utilizza un'area diversa o un servizio creato prima del 1 ° agosto, la crittografia a chiave gestita è limitata solo al disco dati, esclusi i dischi temporanei utilizzati dal servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 In questo scenario vengono usati gli strumenti e i servizi seguenti.
 
-+ [Azure ricerca cognitiva](search-create-service-portal.md) su un [livello fatturabile](search-sku-tier.md#tiers) (Basic o superiore, in qualsiasi area).
++ [Azure ricerca cognitiva](search-create-service-portal.md) su un [livello fatturabile](search-sku-tier.md#tier-descriptions) (Basic o superiore, in qualsiasi area).
 + [Azure Key Vault](../key-vault/general/overview.md)è possibile creare un insieme di credenziali delle chiavi usando [portale di Azure](../key-vault//general/quick-create-portal.md), l'interfaccia della riga di comando di [Azure](../key-vault//general/quick-create-cli.md)o [Azure PowerShell](../key-vault//general/quick-create-powershell.md). nella stessa sottoscrizione di Azure ricerca cognitiva. Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** .
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Se non si dispone di un [nuovo tenant, configurare un nuovo tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -56,7 +56,7 @@ In questo scenario vengono usati gli strumenti e i servizi seguenti.
 
 ## <a name="1---enable-key-recovery"></a>1-Abilita ripristino chiavi
 
-A causa della natura della crittografia con chiavi gestite dal cliente, nessuno può recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è necessario abilitare la protezione di eliminazione temporanea e ripulitura nell'insieme di credenziali delle chiavi. L'eliminazione temporanea è abilitata per impostazione predefinita, pertanto si verificheranno problemi solo se lo si disabilita intenzionalmente. Il ripulitura della protezione non è abilitata per impostazione predefinita, ma è necessaria per la crittografia CMK di Azure ricerca cognitiva. Per ulteriori informazioni, vedere la panoramica sulla protezione con [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea e [ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection) .
+A causa della natura della crittografia con chiavi gestite dal cliente, nessuno può recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è necessario abilitare la protezione di eliminazione temporanea e ripulitura nell'insieme di credenziali delle chiavi. L'eliminazione temporanea è abilitata per impostazione predefinita, pertanto si verificheranno problemi solo se lo si disabilita intenzionalmente. L'eliminazione della protezione non è abilitata per impostazione predefinita, ma è necessaria per la crittografia delle chiavi gestita dal cliente in ricerca cognitiva. Per ulteriori informazioni, vedere la panoramica sulla protezione con [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea e [ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection) .
 
 È possibile impostare entrambe le proprietà usando il portale, PowerShell o i comandi dell'interfaccia della riga di comando di Azure.
 
@@ -377,7 +377,7 @@ Le condizioni che impediscono l'adozione di questo approccio semplificato includ
 
 ## <a name="work-with-encrypted-content"></a>Usare il contenuto crittografato
 
-Con la crittografia CMK si noterà la latenza per l'indicizzazione e le query a causa del lavoro di crittografia/decrittografia aggiuntivo. Azure ricerca cognitiva non registra l'attività di crittografia, ma è possibile monitorare l'accesso alle chiavi tramite la registrazione di Key Vault. Si consiglia di [abilitare la registrazione](../key-vault/general/logging.md) come parte della configurazione di Key Vault.
+Con la crittografia delle chiavi gestita dal cliente si noterà la latenza per l'indicizzazione e le query a causa del lavoro aggiuntivo di crittografia/decrittografia. Azure ricerca cognitiva non registra l'attività di crittografia, ma è possibile monitorare l'accesso alle chiavi tramite la registrazione di Key Vault. Si consiglia di [abilitare la registrazione](../key-vault/general/logging.md) come parte della configurazione di Key Vault.
 
 La rotazione della chiave dovrebbe verificarsi nel tempo. Ogni volta che si ruotano le chiavi, è importante seguire questa sequenza:
 

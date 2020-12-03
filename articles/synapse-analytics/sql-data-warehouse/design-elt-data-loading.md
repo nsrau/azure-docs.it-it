@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8b75345743bb398458752d03f853738df713b4f9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456436"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531574"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Strategie di caricamento dei dati per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -119,8 +119,9 @@ Usare il mapping dei tipi di dati SQL seguente durante il caricamento di file pa
 | [Tipo complesso](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   ntext   |
 
 >[!IMPORTANT] 
-> - I pool dedicati SQL attualmente non supportano i tipi di dati parquet con la precisione di micro e NANO. 
-> - È possibile che si verifichi l'errore seguente se i tipi non corrispondono tra parquet e SQL o se sono presenti tipi di dati parquet non supportati:  **"HdfsBridge:: recordReaderFillBuffer-errore imprevisto durante il caricamento del buffer del lettore di record: ClassCastException:..."**
+>- I pool dedicati SQL attualmente non supportano i tipi di dati parquet con la precisione di micro e NANO. 
+>- È possibile che si verifichi l'errore seguente se i tipi non corrispondono tra parquet e SQL o se sono presenti tipi di dati parquet non supportati: **"HdfsBridge:: recordReaderFillBuffer-errore imprevisto durante il caricamento del buffer del lettore di record: ClassCastException:..."**
+>- Il caricamento di un valore non compreso nell'intervallo 0-127 in una colonna tinyint per il formato di file parquet e ORC non è supportato.
 
 Per un esempio di creazione di oggetti esterni, vedere [creare tabelle esterne](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 

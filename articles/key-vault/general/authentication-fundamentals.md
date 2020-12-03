@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565824"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530919"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Nozioni fondamentali sull'autenticazione di Key Vault
 
@@ -116,8 +116,6 @@ Key Vault le assegnazioni di ruolo sono un set di assegnazioni di ruolo predefin
 * È possibile gestire le autorizzazioni RBAC di Azure su larga scala consentendo agli utenti di assegnare questi ruoli a una sottoscrizione, a un gruppo di risorse o a un singolo livello dell'insieme di credenziali delle chiavi. Un utente disporrà delle autorizzazioni del piano dati per tutti gli insiemi di credenziali delle chiavi nell'ambito dell'assegnazione RBAC di Azure. In questo modo si elimina la necessità di assegnare le autorizzazioni dei singoli criteri di accesso per utente/applicazione per ogni insieme di credenziali delle chiavi.
 
 * Le autorizzazioni RBAC di Azure sono compatibili con Privileged Identity Management o PIM. In questo modo è possibile configurare i controlli di accesso just-in-time per i ruoli con privilegi come amministratore Key Vault. Si tratta di una procedura di sicurezza consigliata che segue il principale dei privilegi minimi eliminando l'accesso permanente agli insiemi di credenziali delle chiavi.
-
-* Le autorizzazioni controllo degli accessi in base al ruolo di Azure sono compatibili con le autorizzazioni granulari per oggetto, quindi è possibile impedire a un utente di eseguire solo operazioni su alcuni oggetti dell'insieme di credenziali delle chiavi. Questo consente a più applicazioni di condividere un singolo insieme di credenziali delle chiavi, ma di isolare l'accesso tra le applicazioni.
 
 Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure per Key Vault, vedere i documenti seguenti:
 

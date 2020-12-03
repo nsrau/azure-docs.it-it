@@ -7,19 +7,43 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/01/2020
+ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101274"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530494"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
-Quando si crea un servizio ricerca cognitiva di Azure, [viene creata una risorsa](search-create-service-portal.md) a un piano tariffario fisso per la durata del servizio. I livelli includono gratuito, Basic, standard e con ottimizzazione per l'archiviazione. Sono disponibili standard e ottimizzati per l'archiviazione con diverse configurazioni e capacità.
+Quando si [Crea un servizio di ricerca](search-create-service-portal.md), è necessario scegliere un piano tariffario fisso per la durata del servizio. Il livello selezionato determina:
 
-La maggior parte dei clienti inizia con il livello gratuito, in modo da poter valutare il servizio. Dopo la valutazione, è comune creare un secondo servizio in uno dei livelli superiori per le distribuzioni di sviluppo e produzione.
++ Quantità di indici e altri oggetti (limiti massimi)
++ Dimensione e velocità delle partizioni (archiviazione fisica)
++ Velocità fatturabile, un costo fisso che si flette anche per il numero di partizioni e repliche in uso
+
+Inoltre, alcune [funzionalità Premium](#premium-features) sono caratterizzate da requisiti di livello.
+
+## <a name="tier-descriptions"></a>Descrizioni dei livelli
+
+I livelli includono **gratuito**, **Basic**, **standard** e con **ottimizzazione** per l'archiviazione. Sono disponibili standard e ottimizzati per l'archiviazione con diverse configurazioni e capacità.
+
+Lo screenshot seguente di portale di Azure Mostra i livelli disponibili, meno i prezzi (che è possibile trovare nel portale e nella pagina dei [prezzi](https://azure.microsoft.com/pricing/details/search/). 
+
+![Piani tariffari di Azure ricerca cognitiva](media/search-sku-tier/tiers.png "Piani tariffari di Azure ricerca cognitiva")
+
+**Gratuito** consente di creare un servizio di ricerca limitato per progetti più piccoli, come l'esecuzione di esercitazioni ed esempi di codice. Internamente, le repliche e le partizioni vengono condivise tra più Sottoscrittori. Non è possibile ridimensionare un servizio gratuito o eseguire carichi di lavoro significativi.
+
+**Basic** e **standard** sono i livelli fatturabili più comunemente usati, con l'impostazione predefinita **standard** . Con le risorse dedicate sotto il controllo, è possibile distribuire progetti di dimensioni maggiori, ottimizzare le prestazioni e aumentare la capacità.
+
+Alcuni livelli sono ottimizzati per determinati tipi di lavoro. Ad esempio, **standard 3 High Density (S3 HD)** è una *modalità di hosting* per S3, in cui l'hardware sottostante è ottimizzato per un numero elevato di indici più piccoli ed è destinato a scenari di multi-tenant. S3 HD ha lo stesso addebito per unità come S3, ma l'hardware è ottimizzato per le letture di file veloci su un numero elevato di indici più piccoli.
+
+I livelli **ottimizzati** per l'archiviazione offrono una capacità di archiviazione superiore a un prezzo inferiore per TB rispetto ai livelli standard. Il compromesso principale è la latenza delle query più elevata, che è necessario convalidare per i requisiti specifici dell'applicazione. Per ulteriori informazioni sulle considerazioni sulle prestazioni di questo livello, vedere [considerazioni sulle prestazioni e sull'ottimizzazione](search-performance-optimization.md).
+
+Per ulteriori informazioni sui vari [livelli, vedere l'articolo](https://azure.microsoft.com/pricing/details/search/)relativo ai [limiti del servizio in Azure ricerca cognitiva](search-limits-quotas-capacity.md) e nella pagina del portale quando si esegue il provisioning di un servizio.
+
+<a name="premium-features"></a>
 
 ## <a name="feature-availability-by-tier"></a>Disponibilità delle funzionalità per livello
 
@@ -35,34 +59,13 @@ Nella tabella seguente vengono descritti i vincoli di funzionalità correlati al
 
 La maggior parte delle funzionalità è disponibile in ogni livello, incluso gratuito, ma le funzionalità che richiedono un utilizzo intensivo delle risorse potrebbero non funzionare correttamente a meno che non si fornisca una capacità sufficiente. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
 
-## <a name="tiers"></a>Livelli
-
-I livelli sono differenziati per:
-
-+ Quantità di indici e indicizzatori (limiti massimi)
-+ Dimensione e velocità delle partizioni (archiviazione fisica)
-
-Il livello selezionato determina la velocità fatturabile. Lo screenshot seguente di portale di Azure Mostra i livelli disponibili, meno i prezzi (che è possibile trovare nel portale e nella pagina dei [prezzi](https://azure.microsoft.com/pricing/details/search/). I livelli **gratuito**, **Basic**e **standard** sono i più comuni.
-
-**Gratuito** consente di creare un servizio di ricerca limitato per progetti più piccoli, incluse guide introduttive ed esercitazioni. Internamente, le repliche e le partizioni vengono condivise tra più Sottoscrittori. Non è possibile ridimensionare un servizio gratuito o eseguire carichi di lavoro significativi.
-
-**Basic** e **standard** sono i livelli fatturabili più comunemente usati, con l'impostazione predefinita **standard** . Con le risorse dedicate sotto il controllo, è possibile distribuire progetti di dimensioni maggiori, ottimizzare le prestazioni e impostare la capacità.
-
-![Piani tariffari di Azure ricerca cognitiva](media/search-sku-tier/tiers.png "Piani tariffari di Azure ricerca cognitiva")
-
-Alcuni livelli sono ottimizzati per determinati tipi di lavoro. Ad esempio, **standard 3 High Density (S3 HD)** è una *modalità di hosting* per S3, in cui l'hardware sottostante è ottimizzato per un numero elevato di indici più piccoli ed è destinato a scenari di multi-tenant. S3 HD ha lo stesso addebito per unità come S3, ma l'hardware è ottimizzato per le letture di file veloci su un numero elevato di indici più piccoli.
-
-I livelli **ottimizzati** per l'archiviazione offrono una capacità di archiviazione superiore a un prezzo inferiore per TB rispetto ai livelli standard. Il compromesso principale è la latenza delle query più elevata, che è necessario convalidare per i requisiti specifici dell'applicazione.  Per ulteriori informazioni sulle considerazioni sulle prestazioni di questo livello, vedere [considerazioni sulle prestazioni e sull'ottimizzazione](search-performance-optimization.md).
-
-Per ulteriori informazioni sui vari [livelli, vedere l'articolo](https://azure.microsoft.com/pricing/details/search/)relativo ai [limiti del servizio in Azure ricerca cognitiva](search-limits-quotas-capacity.md) e nella pagina del portale quando si esegue il provisioning di un servizio.
-
 ## <a name="billable-events"></a>Eventi fatturabili
 
 Una soluzione basata su ricerca cognitiva di Azure può comportare costi nei modi seguenti:
 
-+ Costo del servizio stesso, in esecuzione 24x7, alla configurazione minima (una partizione e una replica)
++ [Costo del servizio](#service-costs) stesso, in esecuzione 24x7, con configurazione minima (una partizione e una replica), alla tariffa di base
 
-+ Aggiunta di capacità (repliche o partizioni)
++ Aggiunta di capacità (repliche o partizioni), in cui i costi aumentano a incrementi della velocità fatturabile
 
 + Addebiti per la larghezza di banda (trasferimento dati in uscita)
 
@@ -87,7 +90,7 @@ Quando si stima il costo di una soluzione di ricerca, tenere presente che i prez
 L'uso degli [indicizzatori](search-indexer-overview.md) può influire sulla fatturazione, a seconda della posizione dei servizi. È possibile eliminare completamente i dati in uscita se si crea il servizio ricerca cognitiva di Azure nella stessa area dei dati. Di seguito sono riportate alcune informazioni della [pagina dei prezzi della larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft non prevede alcun addebito per i dati in ingresso per alcun servizio in Azure o per tutti i dati in uscita da Azure ricerca cognitiva.
-+ Nelle soluzioni multiservizio non viene addebitato alcun costo per i dati che attraversano la rete quando tutti i servizi si trovano nella stessa area.
++ Nelle soluzioni multiservizio non viene addebitato alcun costo per i dati in transito quando tutti i servizi si trovano nella stessa area.
 
 Gli addebiti si applicano ai dati in uscita se i servizi si trovano in aree diverse. Questi costi non sono in realtà parte della fattura di Azure ricerca cognitiva. Sono citati qui perché se si usano dati o indicizzatori arricchiti con intelligenza artificiale per eseguire il pull dei dati da diverse aree, si noterà che i costi sono riportati nella fattura complessiva.
 
@@ -97,7 +100,7 @@ Per l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intr
 
 | Operazione | Impatto della fatturazione |
 |-----------|----------------|
-| Cracking del documento, estrazione del testo | Gratuito |
+| Cracking del documento, estrazione del testo | Livello gratuito |
 | Cracking di documenti, estrazione di immagini | Fatturato in base al numero di immagini estratte dai documenti. In una [configurazione dell'indicizzatore](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** è il parametro che attiva l'estrazione dell'immagine. Se **imageAction** è impostato su "None" (impostazione predefinita), non verrà addebitato l'estrazione dell'immagine. La velocità di estrazione delle immagini è documentata nella pagina dei [Dettagli dei prezzi](https://azure.microsoft.com/pricing/details/search/) per Azure ricerca cognitiva.|
 | [Competenze cognitive predefinite](cognitive-search-predefined-skills.md) | Fatturato alla stessa tariffa di se l'attività è stata eseguita usando direttamente servizi cognitivi. |
 | Competenze personalizzate | Una competenza personalizzata è la funzionalità fornita dall'utente. Il costo dell'utilizzo di un'abilità personalizzata dipende interamente dal fatto che il codice personalizzato chiami altri servizi a consumo. |
@@ -149,7 +152,7 @@ In Azure ricerca cognitiva la capacità è strutturata come *repliche* e *partiz
 
 ### <a name="evaluating-capacity"></a>Valutazione della capacità
 
-La capacità e i costi per l'esecuzione del servizio sono disponibili. I livelli impongono limiti su due livelli: archiviazione e risorse. È necessario considerare entrambi i motivi perché il limite raggiunto per primo è il limite effettivo.
+La capacità e i costi per l'esecuzione del servizio sono disponibili. I livelli impongono limiti su due livelli: archiviazione e contenuto (ad esempio, numero di indici). È necessario considerare entrambi i motivi perché il limite raggiunto per primo è il limite effettivo.
 
 I requisiti aziendali in genere impongono il numero di indici necessari. Potrebbe essere necessario, ad esempio, un indice globale per un repository di documenti di grandi dimensioni. In alternativa, potrebbero essere necessari più indici basati su area, applicazione o nicchia aziendale.
 

@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186508"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531225"
 ---
 # <a name="azure-monitor-logs-overview"></a>Panoramica dei log di Monitoraggio di Azure
-Log di monitoraggio di Azure è una funzionalità di monitoraggio di Azure che raccoglie e organizza i dati di log e delle prestazioni dalle [risorse monitorate](../monitor-reference.md). I dati provenienti da origini diverse, ad esempio i [log della piattaforma](platform-logs-overview.md) dei servizi di Azure, i dati di log e delle prestazioni dagli [agenti delle macchine virtuali](agents-overview.md)e i dati di utilizzo e prestazioni delle [applicazioni](../app/app-insights-overview.md) possono essere consolidati in un'unica area di lavoro in modo da poter essere analizzati insieme usando un linguaggio di query sofisticato in grado di analizzare rapidamente milioni di record. È possibile eseguire una query semplice che recupera solo un set specifico di record o esegue un'analisi sofisticata dei dati per identificare i modelli critici nei dati di monitoraggio. Usare le query di log e i relativi risultati in modo interattivo usando Log Analytics, usarli in una regola di avviso per inviare notifiche in modo proattivo ai problemi o visualizzare i risultati in una cartella di lavoro o in un dashboard.
+Log di monitoraggio di Azure è una funzionalità di monitoraggio di Azure che raccoglie e organizza i dati di log e delle prestazioni dalle [risorse monitorate](../monitor-reference.md). I dati provenienti da origini diverse, ad esempio i [log della piattaforma](platform-logs-overview.md) dei servizi di Azure, i dati di log e delle prestazioni dagli [agenti delle macchine virtuali](agents-overview.md)e i dati di utilizzo e prestazioni delle [applicazioni](../app/app-insights-overview.md) possono essere consolidati in un'unica area di lavoro in modo da poter essere analizzati insieme usando un linguaggio di query sofisticato in grado di analizzare rapidamente milioni di record. È possibile eseguire una query semplice che recupera solo un set specifico di record o esegue un'analisi sofisticata dei dati per identificare i modelli critici nei dati di monitoraggio. Usare query di log e i relativi risultati in modo interattivo usando Log Analytics, usarli in una regola di avviso per ricevere notifiche proattive dei problemi o visualizzare i risultati in una cartella di lavoro o in un dashboard.
 
 > [!NOTE]
 > Log di monitoraggio di Azure è una metà della piattaforma dati che supporta monitoraggio di Azure. L'altra è la [metrica di monitoraggio di Azure](data-platform-metrics.md) che archivia dati numerici in un database di serie temporali. Questo rende i dati più leggeri dei log di monitoraggio di Azure e in grado di supportare scenari quasi in tempo reale, rendendoli particolarmente utili per gli avvisi e il rilevamento rapido dei problemi. Le metriche possono tuttavia archiviare solo dati numerici in una determinata struttura, mentre i log possono archiviare una varietà di tipi di dati diversi ognuno con la propria struttura. È anche possibile eseguire un'analisi complessa sui dati dei log usando query di log che non possono essere usati per l'analisi dei dati di metrica.

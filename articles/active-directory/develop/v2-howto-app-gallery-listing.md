@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173380"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530751"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -168,14 +168,25 @@ Per altre informazioni sulle WS-Fed in ASP.NET Core, vedere [autenticare gli ute
 
 Creare un'applicazione Web con una pagina di accesso HTML. Assicurarsi che l'applicazione supporti l'autenticazione basata su form, Single Sign-On in modo che l'insieme di credenziali delle password possa essere eseguito come previsto.
 
+## <a name="step-3---implement-scim-user-provisioning-in-your-app"></a>Passaggio 3: implementare il provisioning utenti di SCIM nell'app
+Il supporto del provisioning di [scim](https://aka.ms/scimoverview) è un passaggio facoltativo, ma altamente consigliato, per la compilazione dell'applicazione. Il supporto dello standard SCIM è semplice e consente ai clienti di creare e aggiornare automaticamente gli account utente nell'app, senza basarsi su processi manuali come il caricamento di file CSV. Inoltre, i clienti possono automatizzare la rimozione degli utenti e mantenere sincronizzate le appartenenze ai gruppi, operazione che non può essere eseguita con una soluzione come SAML JIT. 
 
-## <a name="step-3---create-your-azure-tenant-and-test-your-app"></a>Passaggio 3: creare il tenant di Azure e testare l'app
+### <a name="learn-about-scim"></a>Informazioni su SCIM
+Per altre informazioni sugli standard SCIM e sui vantaggi per i clienti, vedere [provisioning con SCIM-Getting Started](https://aka.ms/scimoverview).
+
+### <a name="understand-the-azure-ad-scim-implementation"></a>Informazioni sull'implementazione di Azure AD SCIM
+Per altre informazioni sull'implementazione di Azure AD SCIM, vedere [creare un endpoint scim e configurare il provisioning degli utenti con Azure ad](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+
+### <a name="implement-scim"></a>Implementare SCIM
+Azure AD fornisce il [codice di riferimento](https://aka.ms/scimoverview) per facilitare la compilazione di un endpoint SCIM. Sono disponibili anche molti riferimenti e librerie di terze parti che è possibile trovare su GitHub.  
+
+## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Passaggio 4: creare il tenant di Azure e testare l'app
 
 Per poter testare l'app, è necessario un tenant di Azure AD. Per configurare l'ambiente di sviluppo, vedere [Guida introduttiva: configurare un tenant](quickstart-create-new-tenant.md).
 
 In alternativa, un tenant Azure AD viene incluso in ogni sottoscrizione di Microsoft 365. Per configurare un ambiente di sviluppo Microsoft 365 gratuito, vedere [partecipare al programma Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Quando si dispone di un tenant, è necessario abilitare e testare l'accesso Single Sign-on. 
+Dopo aver creato un tenant, è necessario testare l'accesso Single Sign-on e il [provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Per le applicazioni OIDC o giuramento**, [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
 
@@ -184,7 +195,7 @@ Quando si dispone di un tenant, è necessario abilitare e testare l'accesso Sing
 Se necessario, è anche possibile [convertire un'applicazione a tenant singolo in multi-tenant](howto-convert-app-to-be-multi-tenant.md) .
 
 
-## <a name="step-4---create-and-publish-documentation"></a>Passaggio 4: creare e pubblicare la documentazione
+## <a name="step-5---create-and-publish-documentation"></a>Passaggio 5: creare e pubblicare la documentazione
 
 ### <a name="documentation-on-your-site"></a>Documentazione sul sito
 
@@ -206,13 +217,14 @@ La facilità di adozione è un fattore significativo nelle decisioni relative al
 * Passaggi di test per gli utenti pilota
 * Informazioni sulla risoluzione dei problemi, inclusi codici e messaggi di errore
 * Meccanismi di supporto per i clienti
+* Dettagli sull'endpoint SCIM, incluse le risorse e gli attributi supportati
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentazione sul sito Microsoft
 
 Quando l'applicazione viene elencata con la raccolta di applicazioni di Azure Active Directory, che pubblica anche l'applicazione in Azure Marketplace, Microsoft genererà la documentazione per i clienti reciproci che spiegano il processo dettagliato. È possibile vedere un esempio [qui](../saas-apps/tutorial-list.md). Questa documentazione viene creata in base all'invio alla raccolta ed è possibile aggiornarla facilmente se si apportano modifiche all'applicazione con l'account GitHub.
 
 
-## <a name="step-5---submit-your-app"></a>Passaggio 5: inviare l'app
+## <a name="step-6---submit-your-app"></a>Passaggio 6: inviare l'app
 
 Dopo aver verificato che l'integrazione dell'applicazione funzioni con Azure AD, inviare la richiesta dell'applicazione nel [portale di rete delle applicazioni Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -262,7 +274,7 @@ Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO bas
 
 ![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se si sta implementando un endpoint [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. 
+Se si sta implementando un endpoint [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. Quando si specifica lo schema nella richiesta di onboarding, seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) per scaricare lo schema. Si userà lo schema configurato durante il test dell'applicazione non della raccolta per compilare l'applicazione della raccolta. 
 
    ![Richiesta di provisioning utenti](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -301,7 +313,7 @@ La sequenza temporale per il processo di visualizzazione di un'applicazione Open
 Per le escalation, inviare un messaggio di posta elettronica al [team di integrazione di Azure ad SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com)e risponderemo appena possibile.
 
 
-## <a name="step-6---join-the-microsoft-partner-network"></a>Passaggio 6: partecipare al Microsoft Partner Network
+## <a name="step-7---join-the-microsoft-partner-network"></a>Passaggio 7: partecipare al Microsoft Partner Network
 Il Microsoft Partner Network fornisce l'accesso immediato a risorse, programmi, strumenti e connessioni esclusivi. Per entrare in contatto con la rete e creare il piano di marketing, vedere [REACH commercial customers](https://partner.microsoft.com/explore/commercial#gtm).
 
 

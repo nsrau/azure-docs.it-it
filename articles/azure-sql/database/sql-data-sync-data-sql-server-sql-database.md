@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736477"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531140"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -63,12 +63,10 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 | Ripristino di emergenza | [Backup con ridondanza geografica di Azure](automated-backups-overview.md) |
 | Scalabilità in lettura | [Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)](read-scale-out.md) |
 | ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
-| Migrazione da SQL Server al database SQL di Azure | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
+| Migrazione da SQL Server al database SQL di Azure. Tuttavia, sincronizzazione dati SQL possibile utilizzare una volta completata la migrazione, per garantire che l'origine e la destinazione siano mantenute sincronizzate.  | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 
-
-
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 - **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
 - **Sincronizzazione dei dati:** La sincronizzazione dei dati è progettata in un modello hub e spoke. L'hub viene sincronizzato con ogni membro singolarmente. Le modifiche dall'hub vengono scaricate nel membro e le modifiche apportate dal membro vengono caricate nell'hub.
@@ -250,7 +248,7 @@ La funzionalità Bring your own database di Dynamics 365 consente agli amministr
 - [Automatizzare la replica delle modifiche dello schema con sincronizzazione dati SQL in Azure](./sql-data-sync-update-sync-schema.md)
 - [Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Monitorare e risolvere i problemi
+### <a name="monitor-and-troubleshoot"></a>Monitoraggio e risoluzione dei problemi
 
 Il sincronizzazione dati SQL è come previsto? Per monitorare l'attività e risolvere i problemi, vedere gli articoli seguenti:
 

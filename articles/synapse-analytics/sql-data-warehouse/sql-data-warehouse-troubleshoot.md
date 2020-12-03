@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447847"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530715"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Risoluzione dei problemi relativi al pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
@@ -45,6 +45,7 @@ Questo articolo elenca i problemi comuni di risoluzione dei problemi nel pool SQ
 | Problema                                                        | Risoluzione                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | L'esportazione di stringhe vuote tramite CETAS comporterà valori NULL nei file parquet e ORC. Si noti che se si esportano stringhe vuote da colonne con vincoli NOT NULL, CETAS comporterà la reiezione dei record e l'esportazione potrà potenzialmente avere esito negativo. | Rimuovere le stringhe vuote o la colonna che causa il danneggiamento nell'istruzione SELECT del CETAS. |
+| Il caricamento di un valore non compreso nell'intervallo 0-127 in una colonna tinyint per il formato di file parquet e ORC non è supportato. | Specificare un tipo di dati più grande per la colonna di destinazione.           |
 
 ## <a name="performance"></a>Prestazioni
 

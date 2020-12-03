@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55a1255ffa82aec8ea7b9e1ec2bbc6746b9b0636
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523505"
+ms.locfileid: "96531599"
 ---
 # <a name="synapse-rbac-roles"></a>Ruoli di controllo delle sinapsi
 
@@ -28,12 +28,11 @@ Per gli utenti che hanno familiarità con i ruoli di controllo degli accessi in 
 - Sono stati introdotti **nuovi ambiti di livello inferiore** per diversi ruoli.  Questi ambiti consentono di limitare i ruoli a risorse o oggetti specifici.
 
 >[!Note]
->- I nuovi ruoli e gli ambiti di livello inferiore sono attualmente in anteprima.  
->- I ruoli amministratore Apache Spark e amministratore SQL saranno deprecati in una versione futura a favore dei nuovi ruoli di controllo degli accessi in base al ruolo.  Si consiglia di adottare i nuovi ruoli di anteprima, completamente supportati, e di fornire commenti e suggerimenti sul loro utilizzo.
+>- I **nuovi ruoli e gli ambiti di livello inferiore sono attualmente in anteprima**.  Si consiglia di usare questi nuovi ruoli e ambiti, che sono completamente supportati, e di fornire commenti e suggerimenti sul loro utilizzo.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Ambiti e ruoli RBAC predefiniti per le sinapsi
 
-Nella tabella seguente vengono descritti tutti i ruoli predefiniti e gli ambiti in cui è possibile utilizzare questi ruoli.
+Nella tabella seguente vengono descritti i ruoli predefiniti e gli ambiti in cui possono essere utilizzati.
 
 >[!Note]
 > Gli utenti con un ruolo di controllo degli accessi in base al ruolo sinapsi in qualsiasi ambito hanno automaticamente il ruolo utente sinapsi nell'ambito dell'area 
