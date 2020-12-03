@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 533d4a83ea73b98e26a57febc077a607bcb25465
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012613"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532304"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Raccogli origini dati per le prestazioni di Windows e Linux con Log Analytics Agent
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure è in grado di raccogliere i contatori delle prestazioni dagli agenti Log Analytics a intervalli frequenti per l'analisi di quasi in tempo reale (NRT) oltre ad aggregare i dati sulle prestazioni per l'analisi a lungo termine e la creazione di report
@@ -50,15 +50,14 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Win
 
 ### <a name="linux-performance-counters"></a>Contatori delle prestazioni di Linux
 
-![Configurare i contatori delle prestazioni di Linux](media/data-sources-performance-counters/configure-linux.png)
+![Configurare i contatori delle prestazioni di Linux](media/data-sources-performance-counters/configure-linux-1.png)
 
 Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Linux da raccogliere.
 
-1. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti.  Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.  Per modificare questo file manualmente in ogni agente Linux, deselezionare la casella *Apply below configuration to my Linux machines* (Applica la configurazione seguente alle macchine Linux) e attenersi alle istruzioni seguenti.
-2. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  
-3. Fare clic **+** o premere **invio** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
-4. Tutti i contatori per un oggetto usano lo stesso **intervallo di campionamento**.  Il valore predefinito è 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
-5. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
+1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  
+1. Fare clic **+** o premere **invio** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
+1. Tutti i contatori per un oggetto usano lo stesso **intervallo di campionamento**.  Il valore predefinito è 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
+1. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurare i contatori delle prestazioni di Linux nel file di configurazione
 Anziché usare il portale di Azure per configurare i contatori delle prestazioni di Linux, è possibile modificare i file di configurazione direttamente nell'agente di Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/Microsoft/omsagent/Workspace \<workspace id\> /conf/omsagent.conf**.
@@ -124,10 +123,10 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Physical Disk | Avg. Disk sec/Transfer |
 | Physical Disk | Avg. Disk sec/Write |
 | Physical Disk | Physical Disk Bytes/sec |
-| Processo | Pct Privileged Time |
-| Processo | Pct User Time |
-| Processo | Used Memory kBytes |
-| Processo | Virtual Shared Memory |
+| Process | Pct Privileged Time |
+| Process | Pct User Time |
+| Process | Used Memory kBytes |
+| Process | Virtual Shared Memory |
 | Processore | % DPC Time |
 | Processore | % Idle Time |
 | Processore | % Interrupt Time |

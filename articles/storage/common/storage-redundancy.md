@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658571"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531784"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
-Archiviazione di Azure archivia sempre più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e forti calamità naturali. La ridondanza garantisce che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori.
+Archiviazione di Azure archivia sempre più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e forti calamità naturali. La ridondanza garantisce che l'account di archiviazione soddisfi gli obiettivi di disponibilità e durabilità anche in caso di errori.
 
-Quando si decide quale opzione di ridondanza è più adatta allo scenario in uso, considerare il rapporto tra costi inferiori, maggiore disponibilità e durabilità. Ecco i fattori che consentono di determinare l'opzione di ridondanza da scegliere:  
+Quando si decide quale opzione di ridondanza è migliore per lo scenario in uso, considerare i compromessi tra i costi più bassi e la disponibilità più elevata. Ecco i fattori che consentono di determinare l'opzione di ridondanza da scegliere:  
 
 - Modalità di replica dei dati nell'area primaria
 - Se i dati vengono replicati in una seconda area geograficamente distante rispetto all'area primaria, per la protezione da emergenze a livello di area
@@ -51,7 +51,7 @@ L'archiviazione con ridondanza locale è una scelta ottimale per gli scenari seg
 
 L'archiviazione con ridondanza della zona (ZRS) replica i dati di Archiviazione di Azure in modo sincrono in tre zone di disponibilità di Azure nell'area primaria. Ogni zona di disponibilità è una posizione fisica separata con alimentazione, raffreddamento e rete indipendenti. L'archiviazione con ridondanza della zona offre almeno il 99,9999999999% (12 nove) di durabilità degli oggetti di Archiviazione di Azure nell'arco di un anno specifico.
 
-Con l'archiviazione con ridondanza della zona i dati sono ancora accessibili per le operazioni di lettura e scrittura anche se una zona non è più disponibile. Se una zona non è più disponibile, Azure sottomette gli aggiornamenti di rete, ad esempio il reindirizzamento DNS. Questi aggiornamenti possono interessare l'applicazione se l'utente accede ai dati prima che gli aggiornamenti siano stati completati. Quando si progettano le applicazioni per l'archiviazione con ridondanza della zona, è consigliabile seguire le procedure per la gestione degli errori temporanei, tra cui l'implementazione dei criteri di ripetizione con backoff esponenziale.
+Con l'archiviazione con ridondanza della zona i dati sono ancora accessibili per le operazioni di lettura e scrittura anche se una zona non è più disponibile. Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad esempio la modifica del puntamento DNS. Questi aggiornamenti possono interessare l'applicazione se l'utente accede ai dati prima che gli aggiornamenti siano stati completati. Quando si progettano le applicazioni per l'archiviazione con ridondanza della zona, è consigliabile seguire le procedure per la gestione degli errori temporanei, tra cui l'implementazione dei criteri di ripetizione con backoff esponenziale.
 
 Una richiesta di scrittura in un account di archiviazione che usa l'archiviazione con ridondanza della zona viene eseguita in modo sincrono. L'operazione di scrittura viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche nelle tre zone di disponibilità.
 
@@ -153,11 +153,9 @@ La tabella seguente descrive i principali parametri per ogni opzione di ridondan
 
 | Parametro | Archiviazione con ridondanza locale | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Percentuale di durabilità degli oggetti nel corso di un determinato anno<sup>1</sup> | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
-| Contratto di servizio relativo alla disponibilità per le richieste di lettura<sup>1</sup> | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) per GRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GRS | Almeno 99,9% (99% per livello di accesso sporadico) per GZRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GZRS |
-| Contratto di servizio relativo alla disponibilità per le richieste di scrittura<sup>1</sup> | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
-
-[1](https://azure.microsoft.com/support/legal/sla/storage/)Per informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure, vedere il <sup>Contratto di servizio di Archiviazione di Azure</sup>.
+| Percentuale di durabilità degli oggetti nel corso di un determinato anno | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
+| Disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) per GRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GRS | Almeno 99,9% (99% per livello di accesso sporadico) per GZRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GZRS |
+| Disponibilità per le richieste di scrittura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilità e disponibilità in base allo scenario di interruzione
 

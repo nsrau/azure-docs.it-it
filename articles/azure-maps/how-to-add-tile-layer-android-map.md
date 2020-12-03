@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello sezione a Maps Android | Mappe Microsoft Azure
-description: Informazioni su come aggiungere un livello sezione a una mappa. Vedere un esempio che usa le mappe di Azure Android SDK per aggiungere una sovrapposizione di radar meteorologici a una mappa.
+title: Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
+description: Informazioni su come aggiungere un livello sezione a una mappa. Vedere un esempio che usa il Microsoft Azure Maps Android SDK per aggiungere una sovrapposizione di radar meteorologici a una mappa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897093"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532677"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
 

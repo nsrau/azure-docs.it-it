@@ -1,5 +1,5 @@
 ---
-title: Maschera dati dinamica
+title: Dynamic Data Masking
 description: La maschera dati dinamica limita l'esposizione dei dati sensibili mediante la maschera a utenti senza privilegi per il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -12,14 +12,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781448"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532245"
 ---
-# <a name="dynamic-data-masking"></a>Maschera dati dinamica 
+# <a name="dynamic-data-masking"></a>Dynamic Data Masking 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics supportano la maschera dati dinamica. La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli agli utenti senza privilegi. 
@@ -30,7 +30,7 @@ Ad esempio, un addetto all'assistenza in un call center può identificare i chia
 
 ## <a name="dynamic-data-masking-basics"></a>Nozioni di base sulla maschera dati dinamica
 
-È possibile configurare un criterio di maschera dati dinamica nel portale di Azure selezionando il pannello **Dynamic Data Masking** in **sicurezza** nel riquadro Configurazione del database SQL. Non è possibile impostare questa funzionalità usando il portale per le sinapsi di Azure (usare PowerShell o l'API REST) o SQL Istanza gestita. Per altre informazioni, vedere [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+È possibile configurare un criterio di maschera dati dinamica nel portale di Azure selezionando il pannello **Dynamic Data Masking** in **sicurezza** nel riquadro Configurazione del database SQL. Non è possibile impostare questa funzionalità usando il portale per SQL Istanza gestita (usare PowerShell o l'API REST). Per altre informazioni, vedere [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorizzazioni per il mascheramento dei dati dinamici
 
@@ -39,14 +39,14 @@ Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministrat
 ### <a name="dynamic-data-masking-policy"></a>Criteri di mascheramento dei dati dinamici
 
 * **Utenti SQL esclusi dalla maschera** : set di utenti SQL o identità Azure ad che ottengono dati senza maschera nei risultati della query SQL. Gli utenti con privilegi di amministratore sono sempre esclusi dalla maschera e possono visualizzare i dati originali senza maschera.
-* **Regole di maschera** : set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
+* **Regole di maschera**: set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
 * **Funzioni maschera** : set di metodi che consentono di controllare l'esposizione dei dati per scenari diversi.
 
 | Funzione maschera | Logica di mascheramento |
 | --- | --- |
 | **Default** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Usare XXXX o un numero minore di X se la dimensione del campo è inferiore a 4 caratteri per i tipi di dati di stringa (nchar, ntext, nvarchar).<br/>• Usare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Usare 01-01-1900 per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per sql_variant viene usato il valore predefinito del tipo corrente.<br/>• Per XML viene usato il documento \<masked/>.<br/>• Usare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Carta di credito** |**Metodo di mascheramento che espone le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di carta di credito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Indirizzo di posta elettronica** |**Metodo di mascheramento che espone la prima lettera e sostituisce il dominio con xxx.com** usando un prefisso di stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
+| **Posta elettronica** |**Metodo di mascheramento che espone la prima lettera e sostituisce il dominio con xxx.com** usando un prefisso di stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
 | **Numero casuale** |**Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera è un numero costante.<br/><br/>![Screenshot che mostra il metodo di mascheramento per la generazione di un numero casuale.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
 | **Testo personalizzato** |**Metodo di mascheramento che espone il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, viene usata solo la stringa di riempimento. <br/>prefisso[riempimento]suffisso<br/><br/>![Riquadro di spostamento](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 

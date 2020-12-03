@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a0e0f61da52ce00fb2eb4b4a7d95ab74082f9472
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3eb9df0a0fde5d99bbeb3c2da182b5957fdea1e3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541709"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532925"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -35,13 +35,13 @@ Quando si esegue il training dei modelli di Machine Learning, usare i cluster di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'analisi dei costi supporta diversi tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](../cost-management-billing/costs/understand-cost-mgt-data.md). Per visualizzare i dati relativi ai costi, è necessario disporre almeno dell''accesso in lettura per l''account Azure. 
+L'analisi dei costi supporta diversi tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Per visualizzare i dati relativi ai costi, è necessario disporre almeno dell''accesso in lettura per l''account Azure. 
 
-Per informazioni sull'assegnazione dell'accesso ai dati di Gestione costi di Azure, vedere [Assegnare l'accesso ai dati](../cost-management-billing/costs/assign-access-acm-data.md).
+Per informazioni sull'assegnazione dell'accesso ai dati di Gestione costi di Azure, vedere [Assegnare l'accesso ai dati](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## <a name="estimate-costs"></a>Stimare i costi
+## <a name="estimate-costs-before-using-azure-machine-learning"></a>Stimare i costi prima di usare Azure Machine Learning
 
-Usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per stimare i costi prima di creare le risorse in un account Azure Machine Learning. A sinistra selezionare **ai + Machine Learning** , quindi selezionare **Azure Machine Learning** per iniziare.  
+Usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) per stimare i costi prima di creare le risorse in un account Azure Machine Learning. A sinistra selezionare **ai + Machine Learning**, quindi selezionare **Azure Machine Learning** per iniziare.  
 
 Lo screenshot seguente mostra la stima dei costi tramite il calcolatore:
 
@@ -49,23 +49,58 @@ Lo screenshot seguente mostra la stima dei costi tramite il calcolatore:
 
 Quando si aggiungono nuove risorse all'area di lavoro, tornare al calcolatore e aggiungere la stessa risorsa qui per aggiornare le stime dei costi.
 
-Per ulteriori informazioni, vedere [Azure Machine Learning prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).
+Per ulteriori informazioni, vedere [Azure Machine Learning prezzi](https://azure.microsoft.com/pricing/details/machine-learning?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## <a name="get-cost-alerts"></a>Ottenere gli avvisi relativi ai costi
+## <a name="understand-the-full-billing-model-for-azure-machine-learning"></a>Informazioni sul modello di fatturazione completo per Azure Machine Learning
 
-È possibile creare [budget](../cost-management-billing/costs/tutorial-acm-create-budgets.md) per gestire i costi e creare [avvisi](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) che notificano automaticamente agli stakeholder le anomalie di spesa e i rischi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. Tuttavia, i budget e gli avvisi possono avere funzionalità limitate per gestire i singoli costi dei servizi di Azure, perché sono progettati per tenere traccia dei costi a un livello superiore.
+Azure Machine Learning viene eseguito nell'infrastruttura di Azure che accumula i costi insieme ai Azure Machine Learning quando si distribuisce la nuova risorsa. È importante comprendere che l'infrastruttura aggiuntiva potrebbe accumulare costi. È necessario gestire questo costo quando si apportano modifiche alle risorse distribuite. 
 
-## <a name="monitor-costs"></a>Monitorare i costi
+### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Costi che in genere si accumulano con Azure Machine Learning
 
-Quando si usano le risorse con Azure Machine Learning, si incorrono i costi. I costi delle unità di utilizzo delle risorse di Azure variano in base a intervalli di tempo (secondi, minuti, ore e giorni) o in base all'utilizzo delle unità richiesta. Non appena viene avviato l'utilizzo di Azure Machine Learning, i costi sono sostenuti. Per visualizzare questi costi, nel riquadro [analisi costi](../cost-management-billing/costs/quick-acm-cost-analysis.md) del portale di Azure.
+Quando si creano risorse per un'area di lavoro di Azure Machine Learning, vengono create anche le risorse per altri servizi di Azure. ovvero:
 
-È possibile visualizzare i costi in grafici e tabelle per intervalli di tempo diversi. È anche possibile visualizzare i costi rispetto ai budget e ai costi previsti. Passando a visualizzazioni più lunghe nel tempo è possibile identificare le tendenze di spesa e vedere dove si è verificata la sovraspesa. Se sono stati creati budget, vedere dove sono stati superati.  
+* [Container Registry di Azure](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Account di base
+* [Archiviazione BLOB in blocchi di Azure](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (utilizzo generico V1)
+* [Insieme di credenziali di chiave](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+ 
+### <a name="costs-might-accrue-after-resource-deletion"></a>Potrebbero maturare costi dopo l'eliminazione delle risorse
 
-Non verrà visualizzata un'area di servizio separata per Machine Learning.  Verranno invece visualizzate le varie risorse aggiunte alle aree di lavoro Machine Learning. 
+Quando si elimina un'area di lavoro Azure Machine Learning nell'portale di Azure o con l'interfaccia della riga di comando di Azure, le risorse seguenti continuano a esistere. Continuano a accumulare costi fino a quando non vengono eliminati.
 
-Si noti che anche se l'area di lavoro Machine Learning non dispone di costi diretti, verranno addebitate le risorse di calcolo gestite. Pertanto, se sono stati aggiunti tag alle aree di lavoro, poiché non è presente alcun costo diretto, il riquadro analisi costi rifletterà questa operazione per l'area di lavoro. Per una gestione dei costi accurata tramite tag, sarà necessario contrassegnare le risorse di calcolo associate.  
+* Registro Azure Container
+* Archiviazione BLOB in blocchi di Azure
+* Key Vault
+* Application Insights
 
-## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Usare Azure Machine Learning cluster di calcolo (AmlCompute)
+Per eliminare l'area di lavoro insieme a queste risorse dipendenti, usare l'SDK:
+
+```python
+ws.delete(delete_dependent_resources=True)
+```
+
+Se si crea il servizio Azure Kubernetes (AKS) nell'area di lavoro o se si alleghino risorse di calcolo all'area di lavoro, è necessario eliminarle separatamente in [portale di Azure](https://portal.azure.com).
+
+### <a name="using-monetary-credit-with-azure-machine-learning"></a>Uso del credito monetario con Azure Machine Learning
+
+È possibile pagare Azure Machine Learning addebiti con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+
+
+## <a name="create-budgets"></a>Creare i budget
+
+È possibile creare [budget](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) per gestire i costi e creare [avvisi](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) che notificano automaticamente agli stakeholder le anomalie di spesa e i rischi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. 
+
+I budget possono essere creati con filtri per risorse o servizi specifici in Azure se si vuole una maggiore granularità nel monitoraggio. I filtri consentono di evitare di creare accidentalmente nuove risorse che costano denaro aggiuntivo. Per ulteriori informazioni sulle opzioni di filtro quando si crea un budget, vedere [Opzioni di raggruppamento e filtro](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+## <a name="export-cost-data"></a>Esportare i dati relativi ai costi
+
+È anche possibile [esportare i dati sui costi](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) in un account di archiviazione. Questa operazione è utile quando sono necessari o altri utenti per eseguire ulteriori analisi dei dati per i costi. Ad esempio, i team finanziari possono analizzare i dati usando Excel o Power BI. È possibile esportare i costi in base a una pianificazione giornaliera, settimanale o mensile e impostare un intervallo di date personalizzato. L'esportazione dei dati sui costi è la modalità consigliata per recuperare i set di dati di costo.
+
+## <a name="other-ways-to-manage-and-reduce-costs-for-azure-machine-learning"></a>Altri modi per gestire e ridurre i costi per Azure Machine Learning
+
+Usare questi suggerimenti per contenere i costi per le risorse di calcolo di machine learning.
+
+### <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Usare Azure Machine Learning cluster di calcolo (AmlCompute)
 
 Con i dati che cambiano continuamente, è necessario un training del modello veloce e semplificato e una ripetizione del training per mantenere modelli accurati. Tuttavia, il training continuo comporta un costo, soprattutto per i modelli di apprendimento avanzato sulle GPU. 
 
@@ -73,7 +108,7 @@ Azure Machine Learning utenti possono usare il cluster di calcolo Azure Machine 
 
 Poiché questi pool di calcolo si trovano all'interno dell'infrastruttura IaaS di Azure, è possibile distribuire, ridimensionare e gestire la formazione con gli stessi requisiti di sicurezza e conformità del resto dell'infrastruttura.  Queste distribuzioni si verificano nella sottoscrizione e rispettano le regole di governance. Altre informazioni sulle [Azure Machine Learning di calcolo](how-to-create-attach-compute-cluster.md).
 
-## <a name="configure-training-clusters-for-autoscaling"></a>Configurare i cluster di training per la scalabilità automatica
+### <a name="configure-training-clusters-for-autoscaling"></a>Configurare i cluster di training per la scalabilità automatica
 
 I cluster con scalabilità automatica in base ai requisiti del carico di lavoro consentono di ridurre i costi, in modo da usare solo gli elementi necessari.
 
@@ -92,7 +127,7 @@ I cluster AmlCompute possono essere configurati per i requisiti di carico di lav
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
 ```
 
-## <a name="set-quotas-on-resources"></a>Impostare le quote sulle risorse
+### <a name="set-quotas-on-resources"></a>Impostare le quote sulle risorse
 
 AmlCompute viene fornita con una [configurazione di quota (o limite)](how-to-manage-quotas.md#azure-machine-learning-compute). Questa quota è per famiglia di VM (ad esempio, serie dv2, serie NCv3) e varia in base all'area per ogni sottoscrizione. Le sottoscrizioni iniziano con impostazioni predefinite minime, ma è possibile usare questa impostazione per controllare la quantità di risorse Amlcompute disponibili per la creazione di una sottoscrizione. 
 
@@ -100,7 +135,7 @@ Configurare anche la [quota a livello di area di lavoro per famiglia di VM](how-
 
 Per impostare le quote a livello di area di lavoro, iniziare dall' [portale di Azure](https://portal.azure.com).  Selezionare un'area di lavoro nella sottoscrizione e selezionare **utilizzi + quote** nel riquadro sinistro. Selezionare quindi la scheda **Configura quote** per visualizzare le quote. Per impostare la quota, è necessario disporre dei privilegi nell'ambito della sottoscrizione, poiché si tratta di un'impostazione che interessa più aree di lavoro.
 
-## <a name="set-run-autotermination-policies"></a>Imposta criteri esecuzione autoterminazione 
+### <a name="set-run-autotermination-policies"></a>Imposta criteri esecuzione autoterminazione 
 
 In alcuni casi, è necessario configurare le esecuzioni di training per limitarne la durata o terminarle in anticipo. Ad esempio, quando si usa l'ottimizzazione predefinita dell'iperparametro Azure Machine Learning o l'apprendimento automatico automatico.
 
@@ -109,7 +144,7 @@ Ecco alcune opzioni:
 * Per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md#early-termination), definire un criterio di terminazione anticipato da un criterio bandito, un criterio di arresto medio o un criterio di selezione troncamento. Per controllare ulteriormente le sweep di iperparametri, usare parametri come `max_total_runs` o `max_duration_minutes` .
 * Per [Machine Learning automatizzato](how-to-configure-auto-train.md#exit), impostare criteri di terminazione simili usando il  `enable_early_stopping` flag. Usare anche proprietà quali `iteration_timeout_minutes` e `experiment_timeout_minutes` per controllare la durata massima di un'esecuzione o per l'intero esperimento.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Usare macchine virtuali con priorità bassa
+### <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Usare macchine virtuali con priorità bassa
 
 Azure ti permette di usare capacità inutilizzate in eccesso come Low-Priority macchine virtuali tra set di scalabilità di macchine virtuali, batch e il servizio Machine Learning. Queste allocazioni sono pre-emptible, ma hanno un prezzo ridotto rispetto alle VM dedicate. In generale, è consigliabile usare Low-Priority VM per i carichi di lavoro batch. È consigliabile usarli anche per recuperare le interruzioni tramite i reinvii (per l'inferenza del batch) o i riavvii (per un training di apprendimento approfondito con Checkpoint).
 
@@ -117,7 +152,7 @@ Low-Priority VM hanno una singola quota separata dal valore della quota dedicata
 
  Le macchine virtuali Low-Priority non funzionano per le istanze di calcolo, perché devono supportare esperienze interattive dei notebook.
 
-## <a name="use-reserved-instances"></a>Usare le istanze riservate
+### <a name="use-reserved-instances"></a>Usare le istanze riservate
 
 Un altro modo per risparmiare denaro sulle risorse di calcolo è l'istanza di macchina virtuale riservata di Azure. Con questa offerta, si esegue il commit di un anno o di tre anni. Questi sconti variano fino al 72% dei prezzi con pagamento in base al consumo e vengono applicati direttamente alla fattura mensile di Azure.
 
@@ -126,7 +161,7 @@ Azure Machine Learning calcolo supporta le istanze riservate intrinsecamente. Se
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su:
-* [Gestire e aumentare le quote di risorse](how-to-manage-quotas.md)
-* [Gestione dei costi con l'analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Creare Azure Machine Learning calcolo con [SDK](how-to-create-attach-compute-cluster.md) o in [Studio](how-to-create-attach-compute-studio.md#amlcompute).
+- Informazioni [su come ottimizzare l'investimento nel cloud con gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Altre informazioni sulla gestione dei costi con l' [analisi dei costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Informazioni su come [evitare costi imprevisti](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Segui il corso di apprendimento guidato per [Gestione costi](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) .

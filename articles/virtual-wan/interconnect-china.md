@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 169477ffdf6fd593f1b6f01469c7303f8bd3a488
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510736"
+ms.locfileid: "96531838"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconnettersi con la Cina tramite l'hub sicuro e la rete WAN virtuale di Azure
 
@@ -20,7 +20,7 @@ Quando si esaminano le aziende comuni di settore automobilistico, manifatturiero
 
 Nella maggior parte dei casi, i clienti riscontrano difficoltà relative a latenze elevate, larghezza di banda ridotta, connessione instabile e costi elevati per la connessione dalla Cina verso l'esterno, ad esempio l'Europa o gli Stati Uniti.
 
-Uno dei motivi di queste difficoltà è dato dal "Grande Firewall cinese", che protegge la parte cinese di Internet e filtra il traffico verso la Cina. Quasi tutto il traffico dalla Cina continentale verso l'esterno, ad eccezione delle zone di amministrazione speciali come Hong Kong e Macao, passa attraverso il Grande Firewall. Il traffico che passa attraverso Hong Kong e Macao non tocca direttamente il Grande Firewall, ma viene gestito da un subset di tale firewall.
+Uno dei motivi di queste difficoltà è dato dal "Grande Firewall cinese", che protegge la parte cinese di Internet e filtra il traffico verso la Cina. Quasi tutto il traffico eseguito dalla Repubblica popolare cinese all'esterno della Cina, eccetto le zone di amministrazione speciali come Hong Kong e Macao, passa il grande firewall. Il traffico che passa attraverso Hong Kong e Macao non tocca direttamente il Grande Firewall, ma viene gestito da un subset di tale firewall.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="Il diagramma mostra l'interconnessione del provider.":::
 
@@ -71,13 +71,13 @@ L'elenco seguente include gli Internet Exchange possibili a Hong Kong:
 
 Quando si usa questa connessione, l'hop BGP successivo per i servizi Microsoft deve essere Microsoft Autonomous System Number (AS#) 8075. Se si usa una soluzione con singolo sito o SDWAN, questa sarebbe la connessione da preferire.
 
-Con le modifiche attuali riguardanti le interconnessioni tra la Cina continentale e Hong Kong, la maggior parte di questi provider di rete crea un Bridge MPLS tra la Cina continentale e Hong Kong.
+Con le modifiche attuali riguardanti le interconnessioni tra Cina e Hong Kong SAR, la maggior parte di questi provider di rete crea un Bridge MPLS tra la Cina e la RAS di Hong Kong.
 
 È possibile osservare che le connessioni VPN da sito a sito in Cina sono consentite e sono per lo più stabili. Lo stesso vale per le connessioni da sito a sito tra i rami nel resto del mondo. I provider ora creano un'aggregazione VPN/SDWAN su entrambi i lati e Bridge tramite MPLS tra di essi.
 
 :::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="Il diagramma mostra il Bridge MPLS Cina.":::
 
-In entrambi i casi, è comunque consigliabile avere un secondo e un normale Internet breakout in Cina continentale. Questo consente di suddividere il traffico tra il traffico aziendale e i servizi cloud come Microsoft 365 e Azure e il traffico Internet regolamentato per legge.
+In entrambi i casi, è comunque consigliabile avere un secondo e un normale breakout Internet in Cina. Questo consente di suddividere il traffico tra il traffico aziendale e i servizi cloud come Microsoft 365 e Azure e il traffico Internet regolamentato per legge.
 
 Un'architettura di rete conforme ai requisiti delle autorità cinesi potrebbe avere un aspetto simile al seguente:
 

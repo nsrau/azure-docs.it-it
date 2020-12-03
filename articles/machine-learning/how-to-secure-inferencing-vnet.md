@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: fcaf8f62dcdc43a48ff2ae7ff790ac14ab42e8b6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873812"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532891"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di inferenza di Azure Machine Learning con reti virtuali
 
@@ -252,7 +252,9 @@ aks_target.wait_for_completion(show_output = True)
 Le Istanze di Azure Container vengono create dinamicamente quando si distribuisce un modello. Per abilitare Azure Machine Learning per la creazione di Istanze di Azure Container all'interno della rete virtuale, è necessario abilitare la __delega subnet__ per la subnet usata dalla distribuzione.
 
 > [!WARNING]
-> Quando si usano istanze di contenitore di Azure in una rete virtuale, la rete virtuale deve trovarsi nello stesso gruppo di risorse dell'area di lavoro Azure Machine Learning.
+> Quando si usano istanze di contenitore di Azure in una rete virtuale, la rete virtuale deve essere:
+> * Nello stesso gruppo di risorse dell'area di lavoro Azure Machine Learning.
+> * Se l'area di lavoro ha un __endpoint privato__, la rete virtuale usata per le istanze di contenitore di Azure deve corrispondere a quella usata dall'endpoint privato dell'area di lavoro.
 >
 > Quando si usano istanze di contenitore di Azure all'interno della rete virtuale, il Container Registry di Azure (ACR) per l'area di lavoro non può trovarsi anche nella rete virtuale.
 
@@ -265,7 +267,7 @@ Per usare Istanze di Azure Container all'area di lavoro, seguire questa procedur
 
 2. Distribuire il modello usando [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), usare i parametri `vnet_name` e `subnet_name`. Impostare questi parametri sul nome e sulla subnet della rete virtuale in cui è stata abilitata la delega.
 
-## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitare la connettività in uscita dalla rete virtuale
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Limitare la connettività in uscita dalla rete virtuale
 
 Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'accesso in uscita della rete virtuale, è necessario consentire l'accesso ad Azure Container Registry. Ad esempio, assicurarsi che i gruppi di sicurezza di rete (NSG) contengano una regola che consente l'accesso al tag del servizio __AzureContainerRegistry. RegionName__ , dove ' {RegionName} è il nome di un'area di Azure.
 

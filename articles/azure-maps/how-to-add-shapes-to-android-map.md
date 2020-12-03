@@ -1,19 +1,19 @@
 ---
-title: Aggiungere forme ad Android Maps | Mappe Microsoft Azure
-description: Informazioni su come aggiungere forme a maps. Vedere gli esempi di codice che usano Azure Maps Android SDK per aggiungere una linea e un poligono a una mappa.
+title: Aggiungere una forma a una mappa usando Azure Maps Android SDK
+description: Informazioni su come aggiungere forme a maps. Vedere gli esempi di codice che usano il Microsoft Azure Maps Android SDK per aggiungere una linea e un poligono a una mappa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 9ef6e1910803cc18f03347e08abc4f0d836b3c0a
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897127"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532772"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere una forma a una mappa usando Azure Maps Android SDK
 
@@ -21,24 +21,24 @@ Questo articolo illustra come eseguire il rendering di forme su una mappa usando
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) per caricare una mappa.
-
+1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
+3. Scaricare e installare il [Android SDK mappe di Azure](./how-to-use-android-map-control-library.md).
 
 ## <a name="add-a-line-to-the-map"></a>Aggiungere una riga alla mappa
 
-È possibile aggiungere una linea alla mappa utilizzando un **livello linea** , attenersi alla procedura seguente per aggiungere una riga sulla mappa.
+Attenersi alla procedura seguente per usare il **livello linea** per aggiungere una riga sulla mappa.
 
-1. Modificare il **layout res > > activity_main.xml** in modo che sia simile a quello riportato di seguito:
+1. Modificare `res > layout > activity_main.xml` per avere un aspetto simile al codice seguente:
 
     ```XML
-    <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    
+
         <com.microsoft.azure.maps.mapcontrol.MapControl
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
@@ -47,11 +47,13 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
             app:mapcontrol_centerLng="-74.004420"
             app:mapcontrol_zoom="12"
             />
-    
     </FrameLayout>
     ```
 
-2. Copiare il seguente frammento di codice nel metodo **OnCreate ()** della `MainActivity.java` classe.
+2. Copiare il frammento di codice seguente nel metodo **OnCreate ()** della `MainActivity.java` classe.
+
+    >[!WARNING]
+    >È possibile che Android Studio non abbia importato le classi obbligatorie.  Di conseguenza, il codice avrà alcuni riferimenti a irrisolvibile. Per importare le classi obbligatorie, è sufficiente passare il puntatore del mouse su ogni riferimento non risolto e premere `Alt + Enter` (opzione + Restituisci su un Mac).
 
     ```Java
     mapControl.onReady(map -> {
@@ -59,7 +61,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
         //Create a data source and add it to the map.
         DataSource dataSource = new DataSource();
         map.sources.add(dataSource);
-    
+
         //Create a list of points.
         List<Point> points = Arrays.asList(
             Point.fromLngLat(-73.972340, 40.743270),
@@ -75,11 +77,10 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
     });
 
     ```
+    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps nel metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Viene quindi creato un elenco di oggetti **punto** . Un **LineString** viene creato dall'elenco di punti e aggiunto all'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati sulla mappa. Viene quindi creato un livello linea a cui viene aggiunta l'origine dati.
     
-    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Viene quindi creato un elenco di oggetti **punto** . Un **LineString** viene creato dall'elenco di punti e aggiunto all'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati sulla mappa. Viene quindi creato un livello linea a cui viene aggiunta l'origine dati.
-
     Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
-    
+
     ```Java
     package com.example.myapplication;
 
@@ -174,11 +175,9 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
     }
     ```
 
-Se si esegue ora l'applicazione, viene visualizzata una riga sulla mappa come illustrato di seguito:
+Quando si esegue l'applicazione, viene visualizzata una riga sulla mappa come illustrato di seguito:
 
-<center>
-
-![Riga sottoposta a rendering in una mappa Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![Riga sottoposta a rendering in una mappa Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</
 
 
 ## <a name="add-a-polygon-to-the-map"></a>Aggiungere un poligono alla mappa
@@ -237,9 +236,7 @@ Il **livello poligono** consente di eseguire il rendering dell'area del poligono
             strokeWidth(2f)));
     });
     ```
-
-    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Un oggetto **poligono** viene quindi creato da un elenco di oggetti **Point**  e viene aggiunto all'origine dati. Un **livello poligono** esegue il rendering dei dati incapsulati nell'origine dati sulla mappa. Viene quindi creato un livello poligono per eseguire il rendering dell'area del poligono e viene aggiunta l'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati. L'ultima parte del frammento di codice crea un livello linea per il rendering del contorno del poligono e l'aggiunta dell'origine dati.
-
+    
     Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
 
     ```Java
@@ -346,12 +343,9 @@ Il **livello poligono** consente di eseguire il rendering dell'area del poligono
     }
     ```
 
-Se l'applicazione viene eseguita adesso, nella mappa dovrebbe essere visualizzato un poligono, come illustrato di seguito:
+Quando si esegue l'applicazione, viene visualizzato un poligono sulla mappa come illustrato di seguito:
 
-<center>
-
-![Un poligono sottoposto a rendering in una mappa Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
-
+![Un poligono sottoposto a rendering in una mappa Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</
 
 ## <a name="next-steps"></a>Passaggi successivi
 
