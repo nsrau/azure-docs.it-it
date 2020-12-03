@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441614"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350212"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Distribuire siti Web Next.js con rendering statico in App Web statiche di Azure (anteprima)
 
@@ -29,9 +29,9 @@ Questa esercitazione descrive come distribuire un sito Web statico generato da [
 
 Invece di usare l'interfaccia della riga di comando di Next.js per creare un'app, è possibile usare un repository di avvio che include un'app Next.js esistente. In questo repository è presente un'app Next.js con route dinamiche, che evidenzia un problema di distribuzione comune. Per le route dinamiche è necessaria una configurazione di distribuzione aggiuntiva che verrà illustrata tra qualche istante.
 
-Per iniziare, creare un nuovo repository da un repository di modelli nell'account GitHub. 
+Per iniziare, creare un nuovo repository da un repository di modelli nell'account GitHub.
 
-1. Passare a <http://github.com/staticwebdev/nextjs-starter/generate>.
+1. Passare a [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Assegnare al repository il nome **nextjs-starter**
 1. Clonare quindi il nuovo repository nel computer. Assicurarsi di sostituire `<YOUR_GITHUB_ACCOUNT_NAME>` con il nome dell'account.
 

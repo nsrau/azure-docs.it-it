@@ -5,7 +5,7 @@
   items:
     - name: Informazioni su File di Azure
       href: storage-files-introduction.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare/usare condivisioni file - Windows
       href: storage-files-quick-create-use-windows.md
@@ -39,8 +39,6 @@
           href: storage-snapshots-files.md
         - name: Sviluppo
           items:
-            - name: Gestire la concorrenza
-              href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Autenticazione della chiave condivisa
               href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
             - name: Firme di accesso condiviso

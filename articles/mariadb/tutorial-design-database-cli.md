@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542508"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436658"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure
 
@@ -30,11 +30,9 @@ Database di Azure per MariaDB è un servizio di database relazionale in Microsof
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-È possibile usare Azure Cloud Shell nel browser o [installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli) nel computer in uso per eseguire i blocchi di codice di questa esercitazione.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+- Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
 Se si dispone di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui la risorsa esiste o per cui è configurata. Selezionare un ID di sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -85,7 +83,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin**.
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -174,10 +172,10 @@ Si supponga di aver eliminato accidentalmente questa tabella. Si tratta di un el
 
 Per il ripristino sono necessarie le informazioni seguenti:
 
-- Punto di ripristino: selezionare un punto nel tempo precedente la modifica del server. Il punto deve essere maggiore o equivalente al valore del backup meno recente del database di origine.
-- Server di destinazione: specificare il nome del nuovo server in cui eseguire il ripristino
-- Server di origine: specificare il nome del server da cui eseguire il ripristino
-- Percorso: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+- Punto di ripristino: selezionare un punto nel tempo precedente alla modifica del server. Il punto deve essere maggiore o equivalente al valore del backup meno recente del database di origine.
+- Server di destinazione: fornire un nuovo nome del server che si desidera ripristinare.
+- Server di origine: fornire il nome del server che si desidera ripristinare
+- Posizione: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

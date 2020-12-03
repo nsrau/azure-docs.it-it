@@ -5,7 +5,7 @@
   items:
     - name: Cos'è Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Avvii rapidi
+- name: Guide introduttive
   expanded: true
   items:
     - name: Avviare la prima app
@@ -25,10 +25,6 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Esercitazioni
   items:
-    - name: Dimensionare manualmente un'app
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Dimensionare automaticamente un'app
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Avvisi e gruppi di azioni
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Circuit Breaker Dashboard
@@ -83,6 +79,12 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Usare l'archiviazione permanente
           href: spring-cloud-howto-persistent-storage.md
+    - name: Scalabilità
+      items:
+        - name: Dimensionare manualmente un'app
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Dimensionare automaticamente un'app
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identificare gli indirizzi IP pubblici in uscita
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitorare
@@ -132,7 +134,19 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+- name: Distribuzione di DevOps
+  items:
+    - name: CI/CD con DevOps di Azure
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD con GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Autenticazione con Key Vault in GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Risolvere problemi
+  items:
+    - name: Guida per la risoluzione dei problemi
+      href: spring-cloud-troubleshoot.md
 - name: Informazioni di riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure
