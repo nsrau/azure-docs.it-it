@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 394bad6623eeb4ce4b43cadd9bef53934ed7e852
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dc4ec31a307d559fad84392522e6847aab1e3873
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311538"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986969"
 ---
 |Nome |Descrizione |Criteri |Versione |
 |---|---|---|---|
@@ -18,7 +18,7 @@ ms.locfileid: "92311538"
 |[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di raccomandazioni per Azure Security Benchmark. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/azsecbm](https://aka.ms/azsecbm). |136 |6.1.0-preview |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Canada Federal PBMM. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |Questa iniziativa include criteri di controllo per un subset di raccomandazioni per CIS Microsoft Azure Foundations Benchmark. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint). |87 |7.1.0 |
-|[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli FedRAMP H. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |72 |3.0.0 |
+|[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli FedRAMP H. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |72 |3.0.1 |
 |[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli FedRAMP M. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint). |62 |3.0.0 |
 |[HITRUST/HIPAA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli HITRUST/HIPAA. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/hipaa-blueprint](https://aka.ms/hipaa-blueprint). |121 |4.1.0 |
 |[IRS1075 September 2016](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRS1075_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli IRS1075 September 2016. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/irs1075-blueprint](https://aka.ms/irs1075-blueprint). |62 |3.0.0 |
