@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378993"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182020"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con l'applicazione Workday per dispositivi mobili
 
@@ -33,13 +33,13 @@ Questa esercitazione illustra come integrare Azure Active Directory (Azure AD), 
 Attività iniziali
 
 * Integrare Workday con Azure AD.
-* Read [Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Read [Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workday](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 Questa esercitazione illustra come configurare e testare i criteri di accesso condizionale di Azure AD e Intune con l'applicazione Workday per dispositivi mobili.
 
-Per abilitare l'accesso Single Sign-On (SSO), è possibile configurare l'applicazione Workday Federated con Azure AD. Per altre informazioni, vedere [Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+Per abilitare l'accesso Single Sign-On (SSO), è possibile configurare l'applicazione Workday Federated con Azure AD. Per altre informazioni, vedere [Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday non supporta i criteri di protezione delle app di Intune. Per sfruttare l'accesso condizionale, è necessario usare il software per la gestione di dispositivi mobili.
@@ -182,4 +182,3 @@ Per assicurarsi che i dispositivi iOS siano in grado di accedere solo tramite Wo
 6. In **Piattaforma** scegliere **Android**.
 7. In **App associata** scegliere l'app Workday per Android aggiunta.
 8. Selezionare **Impostazioni di configurazione**. In **Formato delle impostazioni di configurazione** selezionare **Immettere i dati JSON**.
-
