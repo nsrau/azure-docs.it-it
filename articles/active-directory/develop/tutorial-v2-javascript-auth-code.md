@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 79fe821e2da494ab8c9e4cb407e2c2b025f75568
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980219"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169104"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a pagina singola JavaScript usando il flusso del codice di autenticazione
 
@@ -351,7 +351,7 @@ Modificare i valori nella sezione `graphConfig` come descritto di seguito:
 
 - `Enter_the_Graph_Endpoint_Here` è l'istanza dell'API Microsoft Graph con cui l'applicazione dovrà comunicare.
   - Per l'endpoint API Microsoft Graph **globale**, sostituire entrambe le istanze di questa stringa con `https://graph.microsoft.com`.
-  - Per gli endpoint delle distribuzioni di cloud **nazionali**, vedere [Distribuzioni di cloud nazionali](https://docs.microsoft.com/graph/deployments) nella documentazione di Microsoft Graph.
+  - Per gli endpoint delle distribuzioni di cloud **nazionali**, vedere [Distribuzioni di cloud nazionali](/graph/deployments) nella documentazione di Microsoft Graph.
 
 Se si usa l'endpoint globale, i valori `graphMeEndpoint` e `graphMailEndpoint` nel file *graphConfig.js* dovranno essere simili ai seguenti:
 

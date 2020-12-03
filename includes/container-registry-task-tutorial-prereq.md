@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67133560"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029991"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -21,7 +21,7 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un Registro Azure Container. Se è necessario un registro, vedere l'[esercitazione precedente](../articles/container-registry/container-registry-tutorial-quick-task.md) oppure [Guida introduttiva: Creare un registro contenitori con l'interfaccia della riga di comando di Azure](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
-## <a name="create-a-github-personal-access-token"></a>Creare un token di accesso personale GitHub
+### <a name="create-a-github-personal-access-token"></a>Creare un token di accesso personale GitHub
 
 Per attivare una compilazione in caso di commit in un repository Git, Attività del Registro Azure Container richiede un token di accesso personale per accedere al repository. Se non si ha già un token di accesso personale, completare questi passaggi per generarne uno in GitHub:
 

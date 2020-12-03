@@ -11,18 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6a9f3b864bd8aba2140c7d32d4b5474ff7b95f88
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953101"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171229"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure AD B2C
 
 Questa esercitazione illustra come usare Azure Active Directory B2C (Azure AD B2C) per l'iscrizione e l'accesso degli utenti in un'applicazione a pagina singola usando:
-* [Flusso del codice di autorizzazione OAuth 2.0](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (con [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [Flusso di concessione implicita OAuth 2.0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (con [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+* [Flusso del codice di autorizzazione OAuth 2.0](./authorization-code-flow.md) (con [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [Flusso di concessione implicita OAuth 2.0](./implicit-flow-single-page-application.md) (con [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 In questa esercitazione, che è la prima di una serie in due parti, verrà descritto come:
 
@@ -51,7 +51,7 @@ In più, nell'ambiente di sviluppo locale devono anche essere installati gli ele
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
 
-Nella [seconda esercitazione](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) completata come parte dei prerequisiti è stata registrata un'applicazione a pagina singola in Azure AD B2C. Per consentire la comunicazione con l'esempio in questa esercitazione, aggiungere un URL di risposta (anche noto come URI di reindirizzamento) alla registrazione dell'applicazione.
+Nella [seconda esercitazione](./tutorial-register-spa.md) completata come parte dei prerequisiti è stata registrata un'applicazione a pagina singola in Azure AD B2C. Per consentire la comunicazione con l'esempio in questa esercitazione, aggiungere un URL di risposta (anche noto come URI di reindirizzamento) alla registrazione dell'applicazione.
 
 Per aggiornare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](./app-registrations-training-guide.md).
 

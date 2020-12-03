@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55b545471cbe45fe35e28879270e4340cf9d3834
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180077"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027331"
 ---
 Durante la distribuzione delle risorse in Azure, è possibile avere una notevole flessibilità al momento di decidere quali tipi di risorse distribuire, dove posizionarle e come configurarle. Tuttavia, tale flessibilità potrebbe rendere disponibili più opzioni rispetto a quelle che devono essere consentite nell'organizzazione. Quando si valuta la distribuzione delle risorse in Azure, ci si potrebbe chiedere:
 
@@ -30,4 +30,4 @@ In questo articolo vengono illustrate le risposte a tali domande. In particolare
 > * Bloccare le risorse di importanza critica per il sistema.
 > * Aggiungere tag alle risorse in modo da tenerne traccia tramite valori significativi per l'organizzazione.
 
-Questo articolo è incentrato sulle attività da eseguire per implementare la governance. Per una discussione più ampia dei concetti, vedere [Governance in Azure](../articles/security/governance-in-azure.md). 
+Questo articolo è incentrato sulle attività da eseguire per implementare la governance. Per una discussione più ampia dei concetti, vedere [Governance in Azure](../articles/governance/index.yml).
