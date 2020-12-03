@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: a544d0c5fafbdaf9d272fed552fb38eda613292f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522142"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484805"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Esercitazione: Connettersi a un account Azure Cosmos con un endpoint privato di Azure
 
@@ -248,7 +248,7 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
 
     Per il nome dell'account Cosmos DB viene restituito l'indirizzo IP privato **10.1.0.5**.  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
 
-9. Installare [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) nella macchina virtuale.
+9. Installare [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nella macchina virtuale.
 
 10. Selezionare **Fine** dopo aver installato **Microsoft Azure Storage Explorer**.  Lasciare selezionata la casella per aprire l'applicazione.
 

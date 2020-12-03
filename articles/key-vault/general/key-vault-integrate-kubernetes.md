@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488644"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452742"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -362,4 +362,4 @@ Verificare che il contenuto del segreto sia visualizzato.
 
 Per assicurarsi che l'istanza di Key Vault sia recuperabile, vedere:
 > [!div class="nextstepaction"]
-> [Abilitare l'eliminazione temporanea](./soft-delete-cli.md)
+> [Abilitare l'eliminazione temporanea](./key-vault-recovery.md)

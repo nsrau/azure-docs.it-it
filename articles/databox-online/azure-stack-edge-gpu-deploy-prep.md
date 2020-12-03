@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: cdfd012d5015e156439a1afa89e818bf82b64dc6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426980"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449336"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro con GPU 
 
@@ -66,7 +66,7 @@ Di seguito sono indicati i prerequisiti di configurazione per la risorsa Azure S
 
 Prima di iniziare, verificare che:
 
-- La sottoscrizione di Microsoft Azure sia abilitata per una risorsa Azure Stack Edge. Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Le sottoscrizioni con pagamento in base al consumo non sono supportate. Per identificare il tipo di sottoscrizione di Azure disponibile, vedere [Che cos'è un'offerta di Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
+- La sottoscrizione di Microsoft Azure sia abilitata per una risorsa Azure Stack Edge. Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp) o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Le sottoscrizioni con pagamento in base al consumo non sono supportate. Per identificare il tipo di sottoscrizione di Azure disponibile, vedere [Che cos'è un'offerta di Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Azure Stack Edge Pro/Data Box Gateway, hub IoT e Archiviazione di Azure.
 
     - Per creare qualsiasi risorsa Azure Stack Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. 
@@ -74,7 +74,7 @@ Prima di iniziare, verificare che:
         - Per registrare un provider di risorse, nel portale di Azure passare a **Home > Sottoscrizioni > Sottoscrizione personale > Provider di risorse**. 
         - Cercare il provider di risorse specifico, ad esempio `Microsoft.DataBoxEdge`, e registrarlo. 
     - Per creare una risorsa account di archiviazione, è ugualmente necessario l'accesso di tipo Collaboratore o superiore con ambito a livello di gruppo di risorse. Archiviazione di Azure è un provider di risorse registrato per impostazione predefinita.
-- Si ha accesso amministratore o utente all'API Graph di Azure Active Directory per generare operazioni relative a credenziali o chiavi di attivazione, ad esempio la creazione della condivisione che usa un account di archiviazione. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Si ha accesso amministratore o utente all'API Graph di Azure Active Directory per generare operazioni relative a credenziali o chiavi di attivazione, ad esempio la creazione della condivisione che usa un account di archiviazione. Per altre informazioni, vedere [API Graph di Azure Active Directory](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Per il dispositivo Azure Stack Edge Pro
@@ -126,7 +126,7 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
     |Impostazione  |Valore  |
     |---------|---------|
     |Subscription    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
-    |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Immettere o selezionare quanto segue in **Dettagli istanza**.
 
@@ -207,6 +207,3 @@ Passare all'esercitazione successiva per informazioni su come installare Azure S
 
 > [!div class="nextstepaction"]
 > [Installare Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

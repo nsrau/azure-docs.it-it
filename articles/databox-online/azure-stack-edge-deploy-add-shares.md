@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883468"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350314"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasferire i dati con Azure Stack Edge Pro
 
@@ -62,7 +62,7 @@ Per creare una condivisione, eseguire la procedura seguente:
     c. Specificare l'account di archiviazione in cui risiederà la condivisione. 
 
     > [!IMPORTANT]
-    > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. Nell'elenco a discesa **Servizio di archiviazione**, selezionare **BLOB in blocchi**, **BLOB di pagine** o **File**.  
     Il tipo di servizio selezionato dipende dal formato che si vuole applicare ai dati da usare in Azure. In questo esempio si seleziona **BLOB in blocchi** perché si vogliono archiviare i dati come BLOB in blocchi in Azure. Se si seleziona **BLOB di pagine**, verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
@@ -162,5 +162,3 @@ Per informazioni su come trasformare i dati con Azure Stack Edge Pro, passare al
 
 > [!div class="nextstepaction"]
 > [Trasformare i dati con Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

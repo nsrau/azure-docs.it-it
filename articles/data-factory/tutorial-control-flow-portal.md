@@ -2,8 +2,8 @@
 title: Diramazione e concatenamento delle attività in una pipeline tramite il portale di Azure
 description: Informazioni su come controllare il flusso dei dati nella pipeline di Azure Data Factory usando il portale di Azure.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568541"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497436"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Diramazione e concatenamento delle attività in una pipeline di Azure Data Factory con il portale di Azure
 
@@ -144,8 +144,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
 
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
+      - Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+      - Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.   
          
         Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 4. Selezionare **V2** per **version**.

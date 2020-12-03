@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dce41f979a46ae2bda568b5db79f0e0304705dd8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670161"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447045"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
@@ -50,25 +50,19 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Selezionare **Crea un nuovo tenant Azure AD B2C**.
 
     ![Opzione Crea un nuovo tenant di Azure AD B2C selezionata nel portale di Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
-    
-1. Immettere i valori per **Nome organizzazione** e **Nome di dominio iniziale**. Selezionare il **paese o l'area geografica** (non si può cambiare in seguito) e quindi selezionare **Crea**.
 
-    Il nome di dominio viene usato come parte del nome di dominio del tenant. In questo esempio il nome del tenant è *contosob2c.onmicrosoft.com* :
+1. Nella pagina **Crea una directory** immettere le informazioni seguenti:
 
-1. Una volta completata la creazione del tenant, selezionare il collegamento **Creare un nuovo tenant B2C o collegarne uno esistente** nella parte superiore della pagina.
+   - **Nome organizzazione**: immettere un nome per il tenant di Azure AD B2C.
+   - **Nome di dominio iniziale**: immettere un nome di dominio per il tenant di Azure AD B2C.
+   - **Paese o area geografica**: selezionare il paese o l'area geografica dall'elenco. Non sarà possibile modificare questa selezione in seguito.
+   - **Sottoscrizione**: selezionare la sottoscrizione dall'elenco.
+   - **Gruppo di risorse**: selezionare il gruppo di risorse che conterrà il tenant. In alternativa, selezionare **Crea nuovo**, immettere un **Nome** per il gruppo di risorse, selezionare un valore in **Località del gruppo di risorse** e infine fare clic su **OK**.
 
-    ![Collegamento per creare o collegare un tenant evidenziato nel portale di Azure](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
+    ![Modulo di creazione tenant con valori di esempio nel portale di Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Selezionare **Collegare un tenant di Azure AD B2C esistente alla sottoscrizione di Azure**. Per eseguire questo passaggio, è necessario aver eseguito l'accesso con il ruolo di proprietario.
-
-   ![Selezione del collegamento di una sottoscrizione esistente nel portale di Azure](media/tutorial-create-tenant/portal-05-link-subscription.png)
-
-1. Selezionare il **tenant di Azure AD B2C** creato, quindi selezionare la **sottoscrizione**.
-
-    Per **Gruppo di risorse** selezionare **Crea nuovo**. Immettere un valore in **Nome** per il gruppo di risorse che conterrà il tenant, effettuare una selezione in **Località del gruppo di risorse** e quindi selezionare **Crea**.
-
-    ![Modulo di impostazioni per collegare la sottoscrizione nel portale di Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
+1. Selezionare **Rivedi e crea**.
+1. Esaminare le impostazioni della directory. Selezionare quindi **Crea**.
 
 È possibile collegare più tenant di Azure AD B2C a una singola sottoscrizione di Azure ai fini della fatturazione. Per collegare un tenant, è necessario essere un amministratore nel tenant di Azure AD B2C a cui è stato assegnato almeno un ruolo di Collaboratore nella sottoscrizione di Azure. Vedere [Collegare un tenant di Azure AD B2C a una sottoscrizione](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
@@ -92,8 +86,8 @@ Anziché cercare *Azure AD B2C* in **Tutti i servizi** ogni volta che si vuole u
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel menu del portale di Azure selezionare **Tutti i servizi**.
-1. Nella casella di ricerca **Tutti i servizi** cercare **Azure AD B2C** , passare il puntatore del mouse sul risultato della ricerca e quindi selezionare l'icona a forma di stella nella descrizione comando. A questo punto, **Azure AD B2C** verrà visualizzato nella sezione **Preferiti** del portale di Azure.
-1. Per modificare la posizione del nuovo preferito, passare al menu del portale di Azure, selezionare **Azure AD B2C** , quindi trascinarlo verso l'alto o verso il basso nella posizione desiderata.
+1. Nella casella di ricerca **Tutti i servizi** cercare **Azure AD B2C**, passare il puntatore del mouse sul risultato della ricerca e quindi selezionare l'icona a forma di stella nella descrizione comando. A questo punto, **Azure AD B2C** verrà visualizzato nella sezione **Preferiti** del portale di Azure.
+1. Per modificare la posizione del nuovo preferito, passare al menu del portale di Azure, selezionare **Azure AD B2C**, quindi trascinarlo verso l'alto o verso il basso nella posizione desiderata.
 
     ![Azure AD B2C, menu Preferiti, portale di Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 

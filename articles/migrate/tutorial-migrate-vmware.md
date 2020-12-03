@@ -4,12 +4,12 @@ description: Informazioni su come eseguire una migrazione senza agente di macchi
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 202886bc0a7738f8211cfea6d90a380c7bac82b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310624"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492948"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -38,24 +38,8 @@ Prima di iniziare questa esercitazione, è necessario:
 
 1. [Completare la prima esercitazione](./tutorial-discover-vmware.md) per preparare Azure e VMware per la migrazione.
 2. È consigliabile, anche se non necessario, completare la seconda esercitazione per [valutare le macchine virtuali VMware](./tutorial-assess-vmware-azure-vm.md) prima di eseguirne la migrazione ad Azure. 
-
-
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Aggiungere lo strumento Migrazione server di Azure Migrate
-
-Se non è stato ancora configurato un progetto Azure Migrate, [farlo](how-to-add-tool-first-time.md) prima di aggiungere lo strumento. Se è già stato configurato un progetto, seguire queste istruzioni per aggiungere lo strumento:
-
-1. Nel progetto di Azure Migrate fare clic su **Panoramica**. 
-2. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server**.
-
-     ![Valutare ed eseguire la migrazione dei server](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. In **Strumenti di migrazione** selezionare **Fare clic qui per aggiungere uno strumento di migrazione quando si è pronti per la migrazione**.
-
-    ![Selezionare uno strumento](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. Nell'elenco di strumenti selezionare **Azure Migrate: Migrazione server** > **Aggiungi strumento**
-
-    ![Strumento Migrazione server](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. Passare al progetto già creato o [crearne uno nuovo](./create-manage-projects.md)
+4. Verificare le autorizzazioni dell'account Azure. L'account Azure deve avere le autorizzazioni per creare una VM e scrivere in un disco gestito di Azure.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurare l'appliance di Azure Migrate
 

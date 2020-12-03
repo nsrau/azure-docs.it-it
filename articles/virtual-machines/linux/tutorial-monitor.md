@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a21df6e5f8d437415bb5376969d56d26153b5c5f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740301"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500462"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale Linux in Azure
 
@@ -46,7 +46,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-vm"></a>Creare una macchina virtuale
 
-Per visualizzare la diagnostica e le metriche in azione, è necessaria una macchina virtuale. Creare prima un gruppo di risorse con [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupMonitor* nella località *eastus* .
+Per visualizzare la diagnostica e le metriche in azione, è necessaria una macchina virtuale. Creare prima un gruppo di risorse con [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupMonitor* nella località *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
@@ -118,8 +118,8 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 Una macchina virtuale Linux è un host dedicato in Azure con cui interagisce. Le metriche per l'host vengono raccolte automaticamente e possono essere visualizzate nel portale di Azure come indicato di seguito:
 
-1. Nel portale di Azure selezionare **Gruppi di risorse** , scegliere **myResourceGroupMonitor** , quindi selezionare **myVM** nell'elenco delle risorse.
-1. Per visualizzare le prestazioni della macchina virtuale host, selezionare **Metriche** nella finestra della macchina virtuale, quindi selezionare una qualsiasi metrica *[Host]* in **Metriche disponibili** .
+1. Nel portale di Azure selezionare **Gruppi di risorse**, scegliere **myResourceGroupMonitor**, quindi selezionare **myVM** nell'elenco delle risorse.
+1. Per visualizzare le prestazioni della macchina virtuale host, selezionare **Metriche** nella finestra della macchina virtuale, quindi selezionare una qualsiasi metrica *[Host]* in **Metriche disponibili**.
 
     ![Visualizzare le metriche host](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -127,11 +127,11 @@ Una macchina virtuale Linux è un host dedicato in Azure con cui interagisce. Le
 
 Per abilitare il monitoraggio della macchina virtuale di Azure con Monitoraggio di Azure per le macchine virtuali:
 
-1. Nel portale di Azure, fare clic su **Gruppi di risorse** selezionare **myResourceGroupMonitor** , quindi selezionare **myVM** nell'elenco delle risorse.
+1. Nel portale di Azure, fare clic su **Gruppi di risorse** selezionare **myResourceGroupMonitor**, quindi selezionare **myVM** nell'elenco delle risorse.
 
 2. Nella sezione **Monitoraggio** della pagina della macchina virtuale selezionare **Insights (anteprima)** .
 
-3. Nella pagina **Insights (anteprima)** selezionare **Prova adesso** .
+3. Nella pagina **Insights (anteprima)** selezionare **Prova adesso**.
 
     ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
@@ -150,11 +150,11 @@ Dopo aver abilitato il monitoraggio, potrebbe essere necessario attendere alcuni
 
 Monitoraggio di Azure per le macchine virtuali include un set di grafici delle prestazioni che rappresentano diversi indicatori di prestazioni chiave (KPI) per stabilire l'efficacia delle prestazioni di una macchina virtuale. Per accedere alla macchina virtuale, seguire questa procedura.
 
-1. Nel portale di Azure, fare clic su **Gruppi di risorse** selezionare **myResourceGroupMonitor** , quindi selezionare **myVM** nell'elenco delle risorse.
+1. Nel portale di Azure, fare clic su **Gruppi di risorse** selezionare **myResourceGroupMonitor**, quindi selezionare **myVM** nell'elenco delle risorse.
 
 2. Nella sezione **Monitoraggio** della pagina della macchina virtuale selezionare **Insights (anteprima)** .
 
-3. Selezionare la scheda **Prestazioni** .
+3. Selezionare la scheda **Prestazioni**.
 
 Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche una tabella che mostra capacità, utilizzo e media totale di ogni disco logico individuato per ogni misura.
 
@@ -164,9 +164,9 @@ Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche
 
 L'esempio seguente crea un avviso per l'uso medio della CPU.
 
-1. Nel portale di Azure, fare clic su **Gruppi di risorse** selezionare **myResourceGroupMonitor** , quindi selezionare **myVM** nell'elenco delle risorse.
+1. Nel portale di Azure, fare clic su **Gruppi di risorse** selezionare **myResourceGroupMonitor**, quindi selezionare **myVM** nell'elenco delle risorse.
 
-2. Nel pannello della macchina virtuale fare clic su **Regole di avviso** , quindi fare clic su **Aggiungi avviso per la metrica** nella parte superiore del pannello degli avvisi.
+2. Nel pannello della macchina virtuale fare clic su **Regole di avviso**, quindi fare clic su **Aggiungi avviso per la metrica** nella parte superiore del pannello degli avvisi.
 
 3. Inserire un **Nome** per l'avviso, ad esempio *myAlertRule*
 
@@ -192,4 +192,4 @@ In questa esercitazione sono state configurate e visualizzate le prestazioni del
 Passare all'esercitazione successiva per informazioni sul Centro sicurezza di Azure.
 
 > [!div class="nextstepaction"]
-> [Gestire la sicurezza delle VM](tutorial-azure-security.md)
+> [Gestire la sicurezza delle VM](../tutorial-azure-security.md)

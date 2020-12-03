@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317209"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451246"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Esercitazione: Creare un grafico delle metriche in Monitoraggio di Azure
 Esplora metriche è una funzionalità di Monitoraggio di Azure nel portale di Azure che consente di creare grafici dai valori delle metriche, correlare le tendenze a livello visivo ed esaminare picchi e flessioni nei valori delle metriche. Usare Esplora metriche per esaminare l'integrità e l'utilizzo delle risorse di Azure o per tracciare grafici dalle metriche personalizzate. 
@@ -85,5 +85,5 @@ Vedere gli [esempi dei grafici](../platform/metric-chart-samples.md) a cui sono 
 Dopo aver appreso a usare le metriche in Monitoraggio di Azure, si potrà imparare a usare le metriche per inviare avvisi proattivi.
 
 > [!div class="nextstepaction"]
-> [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../platform/alerts-metric.md)
+> [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../platform/metrics-charts.md#create-alert-rules)
 

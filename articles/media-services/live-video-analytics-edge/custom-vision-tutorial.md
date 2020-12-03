@@ -4,12 +4,12 @@ description: Informazioni su come usare Visione personalizzata di Azure per crea
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4d9f82d99542bde216f0eaa1459d0f6c1a52659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358263"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498337"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Esercitazione: Analizzare video live con Analisi video live in IoT Edge e Visione personalizzata di Azure
 
@@ -62,7 +62,7 @@ Prima di iniziare, leggere gli articoli seguenti:
 ## <a name="review-the-sample-video"></a>Esaminare il video di esempio
 
 
-Questa esercitazione usa un file [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per simulare un flusso live. È possibile esaminare il video tramite un'applicazione come il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere **CTRL+N** , quindi incollare un collegamento al [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per avviare la riproduzione. Si noti che, in corrispondenza del trentaseiesimo secondo della riproduzione, nel video compare un camion giocattolo. Il modello personalizzato è stato sottoposto a training per rilevare questo camion giocattolo specifico. In questa esercitazione si userà Analisi video live in IoT Edge per rilevare il camion giocattolo e pubblicare gli eventi di inferenza associati nell'hub IoT Edge.
+Questa esercitazione usa un file [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per simulare un flusso live. È possibile esaminare il video tramite un'applicazione come il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere **CTRL+N**, quindi incollare un collegamento al [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per avviare la riproduzione. Si noti che, in corrispondenza del trentaseiesimo secondo della riproduzione, nel video compare un camion giocattolo. Il modello personalizzato è stato sottoposto a training per rilevare questo camion giocattolo specifico. In questa esercitazione si userà Analisi video live in IoT Edge per rilevare il camion giocattolo e pubblicare gli eventi di inferenza associati nell'hub IoT Edge.
 
 ## <a name="overview"></a>Panoramica
 
@@ -194,7 +194,7 @@ Fare clic con il pulsante destro del mouse sul dispositivo di Analisi video live
 
 Se si apre la topologia del grafo per questa esercitazione in un browser, si vedrà che il valore di `inferencingUrl` è stato impostato su `http://cv:80/image`. Questa impostazione indica che il server di inferenza restituirà i risultati dopo aver rilevato i camion giocattolo, se presenti, nel video live.
 
-1. In Visual Studio Code aprire la scheda **Estensioni** (oppure premere **CTRL+MAIUSC+X** ) e cercare Hub IoT di Azure.
+1. In Visual Studio Code aprire la scheda **Estensioni** (oppure premere **CTRL+MAIUSC+X**) e cercare Hub IoT di Azure.
 1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
     > [!div class="mx-imgBorder"]
@@ -391,6 +391,6 @@ Se si prevede di provare le altre esercitazioni o guide di avvio rapido, conserv
 Esaminare altri problemi per utenti avanzati:
 
 * Usare una [videocamera IP](https://en.wikipedia.org/wiki/IP_camera) con supporto per RTSP invece del simulatore RTSP. È possibile cercare videocamere IP che supportano RTSP nella pagina dei prodotti [conformi a ONVIF](https://www.onvif.org/conformant-products/). Cercare dispositivi conformi ai profili G, S o T.
-* Usare un dispositivo Linux AMD64 o x64 invece di una VM Linux di Azure. Il dispositivo deve trovarsi nella stessa rete della videocamera IP. È possibile seguire le istruzioni riportate in [Installare il runtime Azure IoT Edge in Linux](../../iot-edge/how-to-install-iot-edge-linux.md).
+* Usare un dispositivo Linux AMD64 o x64 invece di una VM Linux di Azure. Il dispositivo deve trovarsi nella stessa rete della videocamera IP. È possibile seguire le istruzioni riportate in [Installare il runtime Azure IoT Edge in Linux](../../iot-edge/how-to-install-iot-edge.md).
 
 Quindi seguire il dispositivo con l'hub IoT di Azure seguendo le istruzioni riportate in [Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale](../../iot-edge/quickstart-linux.md).

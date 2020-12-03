@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440290"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447562"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Esercitazione: Trasferire dati tramite condivisioni con Azure Stack Edge Pro con GPU
 
@@ -66,7 +66,7 @@ Per creare una condivisione, eseguire la procedura seguente:
     Il tipo di servizio selezionato dipende dal formato che si vuole applicare ai dati da usare in Azure. In questo esempio si seleziona **BLOB in blocchi** perché si vogliono archiviare i dati come BLOB in blocchi in Azure. Se si seleziona **BLOB di pagine**, verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
 
    > [!IMPORTANT]
-   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Creare un nuovo contenitore BLOB o usarne uno esistente nell'elenco a discesa. Se si crea un contenitore BLOB, specificarne il nome. Se non esiste già un contenitore, viene creato nell'account di archiviazione con il nome della condivisione appena creato.
    
@@ -198,5 +198,3 @@ Per informazioni su come trasformare i dati con Azure Stack Edge Pro, passare al
 
 > [!div class="nextstepaction"]
 > [Trasformare i dati con Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

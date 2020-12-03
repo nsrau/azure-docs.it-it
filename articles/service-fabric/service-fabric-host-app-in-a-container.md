@@ -3,12 +3,12 @@ title: Distribuire un'applicazione .NET in un contenitore in Azure Service Fabri
 description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un Registro Azure Container e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8be9de495fa6bc5689a2dba5384f5df3112cbb38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889936"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485536"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -47,7 +47,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 2. Se richiesto, fare clic su **Sì** per impostare adesso Docker sui contenitori Windows.
 
-   Nella soluzione viene creato un nuovo progetto di applicazione di Service Fabric **FabrikamFiber.CallCenterApplication**.  Viene aggiunto un Dockerfile al progetto **FabrikamFiber.Web** esistente.  Viene anche aggiunta una directory **PackageRoot** al progetto **FabrikamFiber.Web** , che contiene il manifesto del servizio e le impostazioni per il nuovo servizio FabrikamFiber.Web.
+   Nella soluzione viene creato un nuovo progetto di applicazione di Service Fabric **FabrikamFiber.CallCenterApplication**.  Viene aggiunto un Dockerfile al progetto **FabrikamFiber.Web** esistente.  Viene anche aggiunta una directory **PackageRoot** al progetto **FabrikamFiber.Web**, che contiene il manifesto del servizio e le impostazioni per il nuovo servizio FabrikamFiber.Web.
 
    Il contenitore è ora pronto per la compilazione e l'inserimento come pacchetto in un'applicazione di Service Fabric. Dopo aver creato l'immagine del contenitore sul computer, è possibile eseguirne il push in qualsiasi registro contenitori e quindi estrarla in qualsiasi host per l'esecuzione.
 
@@ -118,7 +118,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 ```
 
 >[!NOTE]
->Per il debug locale è possibile usare un'istanza di SQL Server a scelta, a condizione che sia raggiungibile dall'host. **localdb** , tuttavia, non supporta la comunicazione `container -> host`. Se si vuole usare un database SQL diverso durante la creazione di una compilazione di rilascio dell'applicazione Web, aggiungere un'altra stringa di connessione al file *web.release.config*.
+>Per il debug locale è possibile usare un'istanza di SQL Server a scelta, a condizione che sia raggiungibile dall'host. **localdb**, tuttavia, non supporta la comunicazione `container -> host`. Se si vuole usare un database SQL diverso durante la creazione di una compilazione di rilascio dell'applicazione Web, aggiungere un'altra stringa di connessione al file *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Eseguire l'applicazione in un contenitore in locale
 
@@ -160,7 +160,7 @@ Durante la creazione del cluster:
 3. Nell'elenco a discesa per **Endpoint connessione** selezionare l'opzione **Crea nuovo cluster**.
 4. Nella finestra di dialogo **Crea cluster** modificare le impostazioni seguenti:
 
-    a. Specificare il nome del cluster nel campo **Nome del cluster** , nonché la sottoscrizione e la località da usare. Prendere nota del nome del gruppo di risorse cluster.
+    a. Specificare il nome del cluster nel campo **Nome del cluster**, nonché la sottoscrizione e la località da usare. Prendere nota del nome del gruppo di risorse cluster.
 
     b. Facoltativo: è possibile modificare il numero di nodi. Per impostazione predefinita vengono usati tre nodi, il numero minimo necessario per testare gli scenari di Service Fabric.
 
@@ -169,7 +169,7 @@ Durante la creazione del cluster:
     d. Selezionare la scheda **Dettagli macchina virtuale**. Specificare la password che si vuole usare per le macchine virtuali (VM) che costituiscono il cluster. Il nome utente e la password possono essere usati per la connessione remota alle VM. Si deve anche selezionare una dimensione di macchina virtuale ed è possibile modificare l'immagine di VM, se necessario.
 
     > [!IMPORTANT]
-    > Scegliere uno SKU che supporta l'esecuzione dei contenitori. Il sistema operativo Windows Server nei nodi del cluster deve essere compatibile con il sistema operativo Windows Server del contenitore. Per altre informazioni, vedere [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host). Per impostazione predefinita, questa esercitazione consente di creare un'immagine Docker basata su Windows Server 2016 LTSC. I contenitori basati su questa immagine verranno eseguiti nei cluster creati con Windows Server 2016 Datacenter con Contenitori. Tuttavia, se si crea un cluster o si usa un cluster esistente basato su una versione diversa di Windows Server, è necessario cambiare l'immagine del sistema operativo su cui è basato il contenitore. Aprire il **dockerfile** nel progetto **FabrikamFiber.Web** , impostare come commento le eventuali istruzioni `FROM` esistenti basate su una versione precedente di Windows Server e aggiungere un'istruzione `FROM` basata sul tag della versione desiderata dalla [pagina DockerHub di Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore). Per altre informazioni sulle versioni rilasciate, la disponibilità del supporto e il controllo delle versioni di Windows Server Core, vedere [Informazioni sulle versioni di Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info). 
+    > Scegliere uno SKU che supporta l'esecuzione dei contenitori. Il sistema operativo Windows Server nei nodi del cluster deve essere compatibile con il sistema operativo Windows Server del contenitore. Per altre informazioni, vedere [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host). Per impostazione predefinita, questa esercitazione consente di creare un'immagine Docker basata su Windows Server 2016 LTSC. I contenitori basati su questa immagine verranno eseguiti nei cluster creati con Windows Server 2016 Datacenter con Contenitori. Tuttavia, se si crea un cluster o si usa un cluster esistente basato su una versione diversa di Windows Server, è necessario cambiare l'immagine del sistema operativo su cui è basato il contenitore. Aprire il **dockerfile** nel progetto **FabrikamFiber.Web**, impostare come commento le eventuali istruzioni `FROM` esistenti basate su una versione precedente di Windows Server e aggiungere un'istruzione `FROM` basata sul tag della versione desiderata dalla [pagina DockerHub di Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore). Per altre informazioni sulle versioni rilasciate, la disponibilità del supporto e il controllo delle versioni di Windows Server Core, vedere [Informazioni sulle versioni di Windows Server](/windows-server/get-started/windows-server-release-info). 
 
     e. Nella scheda **Avanzate** elencare la porta dell'applicazione per aprirla nel servizio di bilanciamento del carico quando si distribuisce il cluster. Questa è la porta di cui si è preso nota prima di avviare la creazione del cluster. È anche possibile aggiungere una chiave di Application Insights esistente a cui indirizzare i file di log dell'applicazione.
 

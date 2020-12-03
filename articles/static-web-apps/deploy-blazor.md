@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024229"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350229"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Esercitazione: Creazione di un'app Web statica con Blazor in App Web statiche di Azure
 
@@ -64,7 +64,7 @@ La configurazione precedente garantisce che le richieste inviate a qualsiasi rou
 In questo articolo si usa un repository di modelli GitHub per semplificare le operazioni. Il modello include un'app di avvio distribuita in App Web statiche di Azure.
 
 1. Assicurarsi di aver effettuato l'accesso a GitHub e passare alla posizione seguente per creare un nuovo repository:
-    - https://github.com/staticwebdev/blazor-starter/generate
+    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Assegnare al repository il nome **my-first-static-blazor-app**
 
 ## <a name="create-a-static-web-app"></a>Creare un'app Web statica

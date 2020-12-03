@@ -2,8 +2,8 @@
 title: Diramazione in una pipeline di Azure Data Factory
 description: Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637701"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496943"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -148,7 +148,7 @@ Creare un'applicazione console .NET in C#:
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Aggiungere un metodo `CreateOrUpdateDataFactory` al file *Program.cs* :
+1. Aggiungere un metodo `CreateOrUpdateDataFactory` al file *Program.cs*:
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -181,7 +181,7 @@ Creare un'applicazione console .NET in C#:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Creare un servizio collegato Archiviazione di Azure
 
-1. Aggiungere un metodo `StorageLinkedServiceDefinition` al file *Program.cs* :
+1. Aggiungere un metodo `StorageLinkedServiceDefinition` al file *Program.cs*:
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -213,7 +213,7 @@ In questa sezione si creano due set di dati: uno per l'origine e uno per il sink
 
 Aggiungere un metodo per creare un *set di dati del BLOB di Azure*. Per altre informazioni sulle proprietà supportate e i dettagli, vedere [Proprietà del set di dati del BLOB di Azure](connector-azure-blob-storage.md#dataset-properties).
 
-Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs* :
+Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs*:
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -240,7 +240,7 @@ Si noti l'uso dei parametri per *FolderPath*. `sourceBlobContainer` è il nome d
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Creare un set di dati per un BLOB di Azure sink
 
-1. Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs* :
+1. Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs*:
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -597,7 +597,7 @@ Compilare ed eseguire il programma per attivare un'esecuzione della pipeline.
 
 Compilare e avviare l'applicazione, quindi verificare l'esecuzione della pipeline.
 
-L'applicazione visualizza lo stato di avanzamento della creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Controlla quindi lo stato di esecuzione della pipeline. Attendere fino a quando non vengono visualizzati i dettagli sull'esecuzione dell'attività di copia con le dimensioni dei dati letti/scritti. Usare quindi strumenti come Azure Storage Explorer per verificare che il BLOB sia stato copiato da *inputBlobPath* a *outputBlobPath* , come specificato nelle variabili.
+L'applicazione visualizza lo stato di avanzamento della creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Controlla quindi lo stato di esecuzione della pipeline. Attendere fino a quando non vengono visualizzati i dettagli sull'esecuzione dell'attività di copia con le dimensioni dei dati letti/scritti. Usare quindi strumenti come Azure Storage Explorer per verificare che il BLOB sia stato copiato da *inputBlobPath* a *outputBlobPath*, come specificato nelle variabili.
 
 L'output sarà simile all'esempio seguente:
 

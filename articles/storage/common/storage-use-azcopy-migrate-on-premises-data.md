@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791189"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498167"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Esercitazione: Eseguire la migrazione dei dati locali in una risorsa di archiviazione nel cloud con AzCopy
 
@@ -176,7 +176,7 @@ Per verificare che l'attività pianificata o il processo cron venga eseguito cor
 
 Per altre informazioni sulle modalità disponibili per spostare dati locali in Archiviazione di Azure e viceversa, vedere l'articolo seguente:
 
-* [Spostamento dei dati da e verso Archiviazione di Azure](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Spostamento dei dati da e verso Archiviazione di Azure](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Per altre informazioni su AzCopy, vedere gli articoli seguenti:
 
