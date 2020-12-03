@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 43359c47b4d2c1b8895938271c74dab03f7731f7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9721ffa807c9adbeb50839113bc64fd23d8eb13f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541777"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533724"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Categorizzare le immagini in base al soggetto
 
@@ -64,8 +64,7 @@ La tabella seguente illustra una serie di immagini tipiche e la categoria restit
 
 La funzionalità di categorizzazione fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Categories` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"categories"` sezione.
 
-* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale API REST o librerie client](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013746"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532993"
 ---
 # <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
@@ -61,7 +61,7 @@ La [chiamata Read](https://westcentralus.dev.cognitive.microsoft.com/docs/servic
 
 Il secondo passaggio consiste nel chiamare [Get Read results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) Operation. Questa operazione accetta come input l'ID operazione creato dall'operazione di lettura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 1 a 2 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione non è stata avviata. |
 | |  | Running: l'operazione è in corso di elaborazione. |
@@ -133,7 +133,7 @@ Vedere l'esempio seguente di una risposta JSON riuscita:
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Read 3,2 Preview aggiunge lo stile della linea di testo (solo lingue latine)
 L' [API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) restituisce un oggetto **aspetto** che classifica se ogni riga di testo è di tipo stampa o grafia, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine.
 
-Per iniziare a integrare le funzionalità OCR nelle applicazioni, iniziare a usare le [guide introduttive](./quickstarts-sdk/client-library.md) per l'SDK di OCR e leggere le guide introduttive sull' [API REST](./QuickStarts/CSharp-hand-text.md) di visione artificiale.
+Introduzione all' [API REST di visione artificiale o alle guide introduttive della libreria client](./quickstarts-sdk/client-library.md) per iniziare a integrare le funzionalità OCR nelle applicazioni.
 
 ## <a name="supported-languages-for-print-text"></a>Lingue supportate per il testo di stampa
 L' [API Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) supporta l'estrazione di testo stampato in lingua inglese, spagnolo, tedesco, francese, italiano, portoghese e olandese.
@@ -197,7 +197,6 @@ Come per tutti i servizi cognitivi, gli sviluppatori che usano i servizi di lett
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Inizia a usare le [guide introduttive di visione artificiale leggere SDK](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript o Python.
-- Per informazioni su come usare le API REST, [vedere Guide introduttive sull'API REST](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript o Python.
+- Introduzione all' [API REST di visione artificiale o alle guide introduttive della libreria client](./quickstarts-sdk/client-library.md).
 - Informazioni sull' [API REST di lettura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Informazioni sull' [API REST di lettura 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) con aggiunta del supporto per il cinese semplificato e il giapponese.

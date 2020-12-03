@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 18f8df90cd59a1fb32024ec93674fed7eb49519a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451986"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534047"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Pool SQL dedicato (noto in precedenza come SQL DW) nelle note sulla versione di Azure sinapsi Analytics
 
@@ -39,6 +39,13 @@ Per i miglioramenti agli strumenti, verificare che sia installata la versione co
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="dec-2020"></a>2020 dicembre
+
+| Miglioramenti al servizio | Dettagli |
+| --- | --- |
+|**Sp_rename stored procedure per le colonne (anteprima)**|La ridenominazione di una colonna senza [CTAs](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) è diventata semplicemente più semplice. Azure sinapsi SQL ora è stato aggiunto il supporto per il sistema stored procedure sp_rename (anteprima) per rinominare una colonna non di distribuzione in una tabella utente. Questa funzionalità è attualmente disponibile in anteprima e sarà supportata negli strumenti di GA. Per informazioni dettagliate, vedere [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Parametro aggiuntivo per la stima T-SQL**|Con questa nuova versione, viene aggiunto un parametro aggiuntivo obbligatorio denominato ' RUNTIME ' per l'istruzione T-SQL PREDICT esistente. Per aggiornare gli script esistenti, vedere esempi in [T-SQL Predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="oct-2020"></a>2020 ottobre
 

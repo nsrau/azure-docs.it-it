@@ -4,12 +4,12 @@ description: Creare la prima applicazione contenitore Linux in Azure Service Fab
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004229"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534081"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Compilare l'immagine
-Eseguire il comando `docker build` per creare l'immagine che esegue l'applicazione Web. Aprire una finestra di PowerShell e passare a *c:\temp\helloworldapp*. Eseguire il comando seguente:
+## <a name="login-to-docker-and-build-the-image"></a>Accedere a Docker e compilare l'immagine
 
-```bash
+Successivamente, verrà creata l'immagine che esegue l'applicazione Web. Quando si effettua il pull di immagini pubbliche da Docker, ad esempio `python:2.7-slim` in Dockerfile, è consigliabile eseguire l'autenticazione con l'account dell'hub Docker anziché eseguire una richiesta pull anonima.
+
+> [!NOTE]
+> Quando si eseguono richieste pull anonime frequenti, è possibile che vengano visualizzati errori di Docker simili `ERROR: toomanyrequests: Too Many Requests.` o che `You have reached your pull rate limit.` eseguono l'autenticazione all'hub Docker per evitare questi errori. Per altre informazioni, vedere [gestire il contenuto pubblico con Azure container Registry](../container-registry/buffer-gate-public-content.md) .
+
+Aprire una finestra di PowerShell e passare alla directory contenente il Dockerfile. Eseguire quindi i comandi seguenti:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 

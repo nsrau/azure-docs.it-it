@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313981"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533877"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB
 
@@ -53,9 +53,9 @@ Non consentire l'accesso pubblico per l'account di archiviazione impedisce l'acc
 
 Per consentire o impedire l'accesso pubblico per un account di archiviazione, configurare la proprietà **AllowBlobPublicAccess** dell'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni, vedere [Panoramica dell'account di archiviazione](../common/storage-account-overview.md).
 
-Per impostazione predefinita, la proprietà **AllowBlobPublicAccess** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente l'accesso pubblico quando il valore della proprietà è **null** o **true**.
+Per impostazione predefinita, la proprietà **AllowBlobPublicAccess** non è impostata per un account di archiviazione e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente l'accesso pubblico quando il valore della proprietà è **null** o **true**.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per consentire o impedire l'accesso pubblico per un account di archiviazione nel portale di Azure, attenersi alla procedura seguente:
 
@@ -132,8 +132,8 @@ az storage account show \
 Per consentire o impedire l'accesso pubblico per un account di archiviazione con un modello, creare un modello con la proprietà **AllowBlobPublicAccess** impostata su **true** o **false**. Nei passaggi seguenti viene descritto come creare un modello nel portale di Azure.
 
 1. Nella portale di Azure scegliere **Crea una risorsa**.
-1. In **Cerca nel Marketplace** Digitare **distribuzione modello** , quindi premere **invio**.
-1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)** , scegliere Crea, quindi **creare** **un modello personalizzato nell'editor**.
+1. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
+1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)**, scegliere Crea, quindi **creare** **un modello personalizzato nell'editor**.
 1. Nell'editor dei modelli incollare il codice JSON seguente per creare un nuovo account e impostare la proprietà **AllowBlobPublicAccess** su **true** o **false**. Ricordarsi di sostituire i segnaposto tra parentesi angolari con valori personalizzati.
 
     ```json
@@ -190,7 +190,7 @@ Quando è consentito l'accesso pubblico per un account di archiviazione, è poss
 
 Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. Il livello di accesso pubblico è impostato solo a livello di contenitore. È possibile impostare il livello di accesso pubblico del contenitore quando si crea il contenitore oppure è possibile aggiornare l'impostazione in un contenitore esistente.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per aggiornare il livello di accesso pubblico per uno o più contenitori esistenti nel portale di Azure, attenersi alla procedura seguente:
 

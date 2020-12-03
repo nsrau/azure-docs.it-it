@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492234"
+ms.locfileid: "96533860"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Baseline della sicurezza di Azure per Site Recovery
 
@@ -164,9 +164,9 @@ Visualizzare ed eseguire query sui risultati dei log e configurare gli avvisi pe
 
 **Linee guida**: nessun ruolo è assegnato per impostazione predefinita. Devono essere assegnati in modo esplicito in base alle esigenze aziendali. È possibile controllare le assegnazioni di ruolo con l'interfaccia della riga di comando di PowerShell o Azure Active Directory (Azure AD) per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -224,7 +224,7 @@ Creare un processo per tenere traccia delle identità e del controllo degli acce
 
 - [Workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -308,7 +308,7 @@ Usare le funzionalità di protezione delle identità di Azure AD per il rilevame
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -431,7 +431,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Comprendere come creare e gestire i criteri in Azure è importante per assicurar
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per l'insieme di credenziali di servizi di ripristino con criteri di Azure. 
 
 Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. RecoveryServices" per creare criteri personalizzati da controllare o applicare la configurazione delle risorse dell'insieme di credenziali dei servizi di ripristino del servizio Site Recovery.
-- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. RecoverySe
 
 **Linee guida**: scegliere Azure Repos per archiviare e gestire in modo sicuro il codice se si usano definizioni di criteri di Azure personalizzate per gli insiemi di credenziali dei servizi di ripristino e le risorse correlate.
 
-- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentazione di Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -656,7 +656,7 @@ Tutte le risorse di archiviazione usate dai metadati di Site Recovery Services c
 
 Questa operazione non rientra nell'ambito dei clienti e Site Recovery Team si occupa internamente. Il cliente può eseguire il backup di chiavi di Key Vault in Azure.
 
-- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -666,7 +666,7 @@ Questa operazione non rientra nell'ambito dei clienti e Site Recovery Team si oc
 
 **Linee guida**: testare periodicamente i ripristini delle chiavi gestite dal cliente sottoposte a backup.
 
-- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/2/2020
+ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129729"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533609"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
@@ -37,7 +37,7 @@ I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella c
 
 ### <a name="configure-blob-reference-data"></a>Configurare i dati di riferimento BLOB
 
-Per configurare i dati di riferimento, è prima di tutto necessario creare un input che sia di tipo **Dati di riferimento** . La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione:
+Per configurare i dati di riferimento, è prima di tutto necessario creare un input che sia di tipo **Dati di riferimento**. La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione:
 
 |**Nome proprietà**  |**Descrizione**  |
 |---------|---------|
@@ -94,7 +94,7 @@ Con l'opzione della query delta, Analisi di flusso esegue la query snapshot all'
 
 ### <a name="configure-sql-database-reference"></a>Configurare il riferimento del database SQL
 
-Per configurare i dati di riferimento del database SQL, è prima di tutto necessario creare un input **Dati di riferimento** . La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
+Per configurare i dati di riferimento del database SQL, è prima di tutto necessario creare un input **Dati di riferimento**. La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
 
 È possibile usare [istanza gestita SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) come input di dati di riferimento. È necessario [configurare l'endpoint pubblico in SQL istanza gestita](../azure-sql/managed-instance/public-endpoint-configure.md) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
 
@@ -111,13 +111,13 @@ Per configurare i dati di riferimento del database SQL, è prima di tutto necess
 
 ## <a name="size-limitation"></a>Limitazione delle dimensioni
 
-Per ottenere prestazioni ottimali, è consigliabile usare set di impostazioni di riferimento inferiori a 300 MB. L'utilizzo dei dati di riferimento maggiori di 300 MB è supportato nei processi con 6 o più unità di streaming. Questa funzionalità è in anteprima e non deve essere usata nell'ambiente di produzione. L'uso di dati di riferimento di grandi dimensioni può influito sulle prestazioni del processo. Man mano che aumenta la complessità della query per includere l'elaborazione con informazioni sullo stato, ad esempio aggregazioni finestra, join temporali e funzioni di analisi temporale, è previsto che la dimensione massima supportata dei dati di riferimento diminuisca. Se Analisi di flusso di Azure non può caricare i dati di riferimento ed eseguire operazioni complesse, il processo esaurisce la memoria e ha esito negativo. In questi casi, la metrica di utilizzo in percentuale dell'unità di streaming raggiungerà il 100%.    
+Per ottenere prestazioni ottimali, è consigliabile usare set di impostazioni di riferimento inferiori a 300 MB. I set di informazioni di riferimento 5 GB o inferiore sono supportati nei processi con 6 o più unità di streaming. L'uso di dati di riferimento di grandi dimensioni può influisca sulla latenza end-to-end del processo. Man mano che aumenta la complessità della query per includere l'elaborazione con informazioni sullo stato, ad esempio aggregazioni finestra, join temporali e funzioni di analisi temporale, è previsto che la dimensione massima supportata dei dati di riferimento diminuisca. Se Analisi di flusso di Azure non può caricare i dati di riferimento ed eseguire operazioni complesse, il processo esaurisce la memoria e ha esito negativo. In questi casi, la metrica di utilizzo in percentuale dell'unità di streaming raggiungerà il 100%.    
 
 |**Numero di unità di streaming**  |**Dimensioni consigliate**  |
 |---------|---------|
 |1   |50 MB o inferiore   |
 |3   |150 MB o inferiore   |
-|6 e oltre   |300 MB o inferiore. L'uso di dati di riferimento maggiori di 300 MB è supportato in anteprima e può influito sulle prestazioni del processo.    |
+|6 e oltre   |5 GB o inferiore.    |
 
 Il supporto per la compressione non è disponibile per i dati di riferimento.
 

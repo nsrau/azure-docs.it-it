@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301257"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533197"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi dei connettori di Azure Data Factory
 
@@ -205,7 +205,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 - **Soluzione**: Eseguire di nuovo l'attività di copia dopo alcuni minuti.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure sinapsi Analytics (in precedenza SQL Data Warehouse)/Azure database SQL/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Analisi delle sinapsi di Azure/database SQL di Azure/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Codice errore:  SqlFailedToConnect
 
@@ -488,7 +488,28 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
 - **Raccomandazione**:  Eseguire di nuovo la pipeline. Se il problema persiste, provare a ridurre il parallelismo. Se l'errore persiste ancora, contattare il supporto tecnico di Dynamics.
 
+## <a name="excel-format"></a>Formato Excel
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Timeout o rallentamento delle prestazioni durante l'analisi di file di Excel di grandi dimensioni
+
+- **Sintomi**:
+
+    1. Quando si crea un set di dati di Excel e si importa lo schema da connessione/archivio, Anteprima dati, elenco o aggiorna fogli di lavoro, è possibile che si verifichi un errore di timeout se le dimensioni del file di Excel sono elevate.
+    2. Quando si usa l'attività di copia per copiare i dati da un file di Excel di grandi dimensioni (>= 100 MB) in un altro archivio dati, è possibile che si verifichi un problema di prestazioni insufficienti.
+
+- **Causa**: 
+
+    1. Per operazioni come l'importazione dello schema, la visualizzazione in anteprima dei dati e l'elenco dei fogli di lavoro nel set di dati di Excel, il timeout è centinaia e static. Per il file di Excel di grandi dimensioni, queste operazioni potrebbero non terminare entro il valore di timeout.
+
+    2. L'attività di copia ADF legge l'intero file di Excel in memoria e quindi individua le celle e il foglio di lavoro specificati per leggere i dati. Questo comportamento è dovuto all'utilizzo dell'ADF SDK sottostante.
+
+- **Risoluzione**: 
+
+    1. Per l'importazione dello schema, è possibile generare un file di esempio più piccolo, ovvero un subset del file originale, e scegliere "Importa schema da file di esempio" anziché "Importa schema da connessione/archivio".
+
+    2. Per l'elenco di workseet, nell'elenco a discesa del foglio di testo è possibile fare clic su "modifica" e immettere il nome o l'indice del foglio.
+
+    3. Per copiare un file di Excel di grandi dimensioni (>100 MB) in un altro archivio, è possibile usare l'origine Excel del flusso di dati, che consente di leggere e migliorare le prestazioni.
 
 ## <a name="json-format"></a>Formato JSON
 

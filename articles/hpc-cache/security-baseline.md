@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e7f6cf905613866041e72433328ea742706a8c49
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 036cab033e5b70a8940a488c07374e9092d52b33
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453869"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533656"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Baseline della sicurezza di Azure per la cache HPC di Azure
 
@@ -814,7 +814,7 @@ Usare il controllo degli accessi in base al ruolo in backup di Azure, Azure Key 
 
 - [Crittografia dei dati di backup tramite chiavi gestite dal cliente](../backup/encryption-at-rest-with-cmk.md)  
 
-- [Come eseguire il backup di chiavi di Key Vault in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-5.1.0)
+- [Come eseguire il backup di chiavi di Key Vault in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -824,7 +824,7 @@ Usare il controllo degli accessi in base al ruolo in backup di Azure, Azure Key 
 
 **Linee guida**: verificare periodicamente che sia possibile ripristinare le chiavi gestite dal cliente di cui è stato eseguito il backup.
 
-- [Come ripristinare chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-5.1.0)
+- [Come ripristinare chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -867,11 +867,11 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 -   Standard crittografici appropriati
 
 Per altre informazioni, vedere i riferimenti seguenti:
-- [Raccomandazione sull'architettura della sicurezza di Azure - Archiviazione, dati e crittografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Raccomandazione sull'architettura della sicurezza di Azure - Archiviazione, dati e crittografia](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Nozioni fondamentali sulla sicurezza di Azure - Sicurezza, crittografia e archiviazione dei dati di Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Gestione degli asset](/azure/security/benchmarks/security-controls-v2-asset-management)
 

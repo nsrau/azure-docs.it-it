@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660293"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533044"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Modificare la capacità di un servizio ricerca cognitiva di Azure
 
 Prima di eseguire il [provisioning di un servizio di ricerca](search-create-service-portal.md) e il blocco in un piano tariffario specifico, è necessario attendere alcuni minuti per comprendere il funzionamento della capacità e come modificare le repliche e le partizioni per gestire la fluttuazione del carico di lavoro.
 
-La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli determinano le caratteristiche hardware) e la combinazione di replica e partizione necessaria per i carichi di lavoro proiettati. È possibile aumentare o ridurre il numero di repliche o partizioni singolarmente. A seconda del livello e della dimensione della regolazione, l'aggiunta o la riduzione della capacità può richiedere da 15 minuti a diverse ore.
+La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli determinano le caratteristiche hardware) e la combinazione di replica e partizione necessaria per i carichi di lavoro proiettati. Una volta creato un servizio, è possibile aumentare o ridurre il numero di repliche o partizioni in modo indipendente. I costi verranno applicati a ogni risorsa fisica aggiuntiva, ma una volta completati i carichi di lavoro di grandi dimensioni, è possibile ridurre la scalabilità per abbassare la fattura. A seconda del livello e della dimensione della regolazione, l'aggiunta o la riduzione della capacità può richiedere da 15 minuti a diverse ore.
 
 Quando si modifica l'allocazione delle repliche e delle partizioni, è consigliabile usare la portale di Azure. Il portale impone limiti per le combinazioni consentite che sono inferiori ai limiti massimi di un livello. Tuttavia, se è necessario un approccio di provisioning basato su script o basato su codice, l' [Azure PowerShell](search-manage-powershell.md) o l' [API REST di gestione](/rest/api/searchmanagement/services) sono soluzioni alternative.
 
@@ -36,7 +36,7 @@ La capacità è espressa *in unità di ricerca* che possono essere allocate in c
 
 Il diagramma seguente illustra la relazione tra le repliche, le partizioni, le partizioni e le unità di ricerca. Viene illustrato un esempio di come un singolo indice viene esteso in quattro unità di ricerca in un servizio con due repliche e due partizioni. Ognuna delle quattro unità di ricerca archivia solo la metà delle partizioni dell'indice. Le unità di ricerca nella colonna a sinistra archiviano la prima metà delle partizioni, che comprendono la prima partizione, mentre quelle nella colonna destra archiviano la seconda metà delle partizioni, che comprende la seconda partizione. Poiché sono presenti due repliche, sono presenti due copie di ogni partizione dell'indice. Le unità di ricerca nella parte superiore archiviano una copia, che comprende la prima replica, mentre quelle nella riga inferiore archiviano un'altra copia, che comprende la seconda replica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Gli indici di ricerca sono partizionati tra le partizioni.&quot;:::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Gli indici di ricerca sono partizionati tra le partizioni.":::
 
 Il diagramma precedente è solo un esempio. Sono possibili molte combinazioni di partizioni e repliche, fino a un massimo di 36 unità di ricerca totali.
 
@@ -44,7 +44,7 @@ In ricerca cognitiva, la gestione delle partizioni è un dettaglio di implementa
 
 + Anomalie di classificazione: i punteggi di ricerca vengono calcolati a livello di partizione prima e quindi aggregati in un unico set di risultati. A seconda delle caratteristiche del contenuto della partizione, le corrispondenze di una partizione possono essere classificate in un livello superiore rispetto alle corrispondenze in un altro. Se si notano classificazioni non intuitive nei risultati della ricerca, è molto probabile che si verifichino gli effetti del partizionamento orizzontale, soprattutto se gli indici sono di dimensioni ridotte. È possibile evitare queste anomalie di rango scegliendo di [calcolare i punteggi a livello globale nell'intero indice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), ma in questo modo si ridurrà una riduzione delle prestazioni.
 
-+ Anomalie di completamento automatico: le query con completamento automatico, in cui vengono eseguite corrispondenze sui primi caratteri di un termine parzialmente immesso, accettano un parametro fuzzy che perdona le piccole deviazioni nell'ortografia. Per il completamento automatico, la corrispondenza fuzzy è vincolata a termini all'interno della partizione corrente. Se, ad esempio, una partizione contiene &quot;Microsoft&quot; e viene immesso un termine parziale di &quot;micor&quot;, il motore di ricerca corrisponderà a &quot;Microsoft" nella partizione, ma non in altre partizioni che contengono le parti rimanenti dell'indice.
++ Anomalie di completamento automatico: le query con completamento automatico, in cui vengono eseguite corrispondenze sui primi caratteri di un termine parzialmente immesso, accettano un parametro fuzzy che perdona le piccole deviazioni nell'ortografia. Per il completamento automatico, la corrispondenza fuzzy è vincolata a termini all'interno della partizione corrente. Se, ad esempio, una partizione contiene "Microsoft" e viene immesso un termine parziale di "micor", il motore di ricerca corrisponderà a "Microsoft" nella partizione, ma non in altre partizioni che contengono le parti rimanenti dell'indice.
 
 ## <a name="when-to-add-nodes"></a>Quando aggiungere nodi
 
@@ -61,7 +61,7 @@ Come regola generale, le applicazioni di ricerca tendono a avere più repliche r
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il servizio di ricerca.
 
-1. In **Impostazioni**aprire la pagina **scala** per modificare le repliche e le partizioni. 
+1. In **Impostazioni** aprire la pagina **scala** per modificare le repliche e le partizioni. 
 
    Lo screenshot seguente mostra un servizio standard di cui è stato effettuato il provisioning con una replica e una partizione. La formula nella parte inferiore indica il numero di unità di ricerca utilizzate (1). Se il prezzo unitario è $100 (non un prezzo reale), il costo mensile per l'esecuzione di questo servizio sarà in media pari a $100.
 

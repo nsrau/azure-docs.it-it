@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538385"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533945"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il proprio account del marketplace commerciale nel Centro per i partner
 
@@ -293,7 +293,7 @@ Se l'applicazione Azure AD legge e scrive i dati in Microsoft Azure AD, sarà ne
 Agli utenti della società è possibile assegnare i seguenti ruoli e autorizzazioni per il programma Commercial Marketplace nel centro per i partner:
 
 - **Proprietario**
-  - "Questa è la persona che ha creato l'account e ha l'accesso completo, inclusa la possibilità di creare e modificare tutti gli utenti dell'account e di modificare tutte le impostazioni finanziarie e degli account. Un account ha in genere un solo proprietario. "
+  - Si tratta della persona che ha creato l'account e ha l'accesso completo, inclusa la possibilità di creare e modificare tutti gli utenti dell'account e di modificare tutte le impostazioni finanziarie e degli account. Un account ha in genere un solo proprietario.
 - **Responsabile**
   - Può accedere a tutte le funzionalità dell'account Microsoft a eccezione delle impostazioni di imposte e pagamenti
   - Può gestire utenti, ruoli e account aziendali (tenant)

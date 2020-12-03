@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913777"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533749"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
@@ -166,6 +166,8 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 Per controllare l'impostazione di accesso pubblico in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](../../governance/resource-graph/first-query-portal.md).
 
+Per impostazione predefinita, la proprietà **AllowBlobPublicAccess** non è impostata per un account di archiviazione e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente l'accesso pubblico quando il valore della proprietà è **null** o **true**.
+
 L'esecuzione della query seguente in Resource Graph Explorer restituisce un elenco di account di archiviazione e visualizza le impostazioni di accesso pubblico per ogni account:
 
 ```kusto
@@ -174,6 +176,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+Nell'immagine seguente vengono illustrati i risultati di una query in una sottoscrizione. Si noti che per gli account di archiviazione in cui la proprietà **AllowBlobPublicAccess** è stata impostata in modo esplicito, viene visualizzato nei risultati come **true** o **false**. Se la proprietà **AllowBlobPublicAccess** non è stata impostata per un account di archiviazione, viene visualizzata come vuota (o null) nei risultati della query.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot che mostra i risultati delle query per l'impostazione di accesso pubblico tra gli account di archiviazione":::
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Usare i criteri di Azure per controllare la conformità
 

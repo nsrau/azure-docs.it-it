@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015414"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533061"
 ---
 # <a name="long-audio-api-preview"></a>API Long audio (anteprima)
 
@@ -265,7 +265,7 @@ La tabella seguente illustra in dettaglio i messaggi e i codici di risposta HTTP
 
 | API | Codice di stato HTTP | Descrizione | Soluzione |
 |-----|------------------|-------------|----------|
-| Crea | 400 | La sintesi vocale non è abilitata in questa area. | Modificare la chiave di sottoscrizione vocale con un'area supportata. |
+| Create | 400 | La sintesi vocale non è abilitata in questa area. | Modificare la chiave di sottoscrizione vocale con un'area supportata. |
 |        | 400 | Per questa area è valida solo la sottoscrizione vocale **standard** . | Modificare la chiave di sottoscrizione vocale nel piano tariffario "standard". |
 |        | 400 | Superare il limite di richieste 20.000 per l'account Azure. Rimuovere alcune richieste prima di inviarne di nuove. | Il server manterrà fino a 20.000 richieste per ogni account Azure. Eliminare alcune richieste prima di inviarne di nuove. |
 |        | 400 | Non è possibile usare questo modello nella sintesi vocale: {modelID}. | Verificare che lo stato di {modelID} sia corretto. |
@@ -278,7 +278,7 @@ La tabella seguente illustra in dettaglio i messaggi e i codici di risposta HTTP
 |        | 404 | Il modello dichiarato nella definizione di sintesi vocale non è stato trovato: {modelID}. | Assicurarsi che {modelID} sia corretto. |
 |        | 429 | Superare il limite di sintesi vocale attiva. Attendere il completamento di alcune richieste. | Il server può eseguire e accodare fino a 120 richieste per ogni account Azure. Attendere ed evitare di inviare nuove richieste finché alcune richieste non vengono completate. |
 | Tutti       | 429 | Troppe richieste. | Il client può inviare fino a 5 richieste al server al secondo per ogni account Azure. Ridurre il numero di richieste al secondo. |
-| Elimina    | 400 | L'attività di sintesi vocale è ancora in uso. | È possibile eliminare solo le richieste **completate** o **non riuscite**. |
+| Delete    | 400 | L'attività di sintesi vocale è ancora in uso. | È possibile eliminare solo le richieste **completate** o **non riuscite**. |
 | GetByID   | 404 | Impossibile trovare l'entità specificata. | Verificare che l'ID di sintesi sia corretto. |
 
 ## <a name="regions-and-endpoints"></a>Aree ed endpoint
@@ -287,15 +287,11 @@ L'API Long audio è disponibile in più aree con endpoint univoci.
 
 | Region | Endpoint |
 |--------|----------|
-| Australia orientale | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| Canada centrale | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | Stati Uniti orientali | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India centrale | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| Stati Uniti centro-meridionali | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Asia sud-orientale | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | Regno Unito meridionale | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Europa occidentale | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| Stati Uniti occidentali 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formati di output audio
 

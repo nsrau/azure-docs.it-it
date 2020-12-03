@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 86f687bd4fd8be93efbf77c883c723046c2c96d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bfe077a99a3e89efe5fe4257a646484fb3810da
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016132"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96536914"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 
@@ -31,9 +31,11 @@ Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per
 
 I driver della griglia ridistribuiti da Azure non funzionano con macchine virtuali serie non NV come le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2.
 
-| Distribuzione | Driver |
+|Distribuzione|Driver|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 a 7,8, 8,0, 8,1<br/><br/>Basato su CentOS 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11,1, driver Branch [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 a 7,8, 8,0, 8,1<br/><br/>Basato su CentOS 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11,2, driver Branch [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
+
+Visitare [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) per l'elenco completo di tutti i collegamenti precedenti di NVIDIA Grid driver.
 
 > [!WARNING] 
 > L'installazione di software di terze parti in prodotti Red Hat può influenzare i termini di supporto di Red Hat. Vedere l'[articolo della Knowledge base di Red Hat](https://access.redhat.com/articles/1067).

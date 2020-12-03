@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: e00079190371b3ae0e318aaadd8cf724d9d339d0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512622"
+ms.locfileid: "96533996"
 ---
 # <a name="media-services-architectures"></a>Architetture di servizi multimediali
 
@@ -30,12 +30,6 @@ Una soluzione di streaming live ti permette di acquisire video in tempo reale e 
 Questa soluzione si basa sui servizi gestiti di Azure: Servizi multimediali e rete per la distribuzione di contenuti. Questi servizi vengono eseguiti in un ambiente a disponibilità elevata, con patch e supportati, consentendo di concentrarsi sulla soluzione anziché sull'ambiente in cui vengono eseguiti.
 
 Vedere [Live streaming Digital Media](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) nel centro architetture di Azure.
-
-## <a name="instant-broadcasting-on-serverless-architecture"></a>Trasmissione immediata in un'architettura senza server
-
-Semplifica la comunicazione e gli aggiornamenti in tempo reale da uno a molti utilizzando codice senza server. Questa architettura usa funzioni di Azure, il servizio SignalR, un account di archiviazione e un database SQL.
-
-Vedere [broadcast immediato su un'architettura senza server](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) nel centro architetture di Azure.
 
 ## <a name="video-on-demand-digital-media"></a>Servizi multimediali digitali di video su richiesta
 
