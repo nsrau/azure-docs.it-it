@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454187"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179287"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ekarda
 
@@ -49,15 +49,15 @@ Per configurare l'integrazione di ekarda in Azure AD, aggiungere ekarda dalla ra
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 
-1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **ekarda** nella casella di ricerca.
 1. Selezionare **ekarda** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-ekarda"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per ekarda
 
-Configurare e testare l'accesso SSO di Azure AD con ekarda usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ekarda.
+Configurare e testare l'accesso SSO di Azure AD con ekarda usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ekarda.
 
 Per configurare e testare l'accesso SSO di Azure AD con ekarda, seguire questa procedura:
 
@@ -74,15 +74,15 @@ Per configurare e testare l'accesso SSO di Azure AD con ekarda, seguire questa p
 Per abilitare l'accesso Single Sign-On di Azure AD, seguire questa procedura nel portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Nella pagina di integrazione dell'applicazione **ekarda** individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base** .
+1. Nella pagina di integrazione dell'applicazione **ekarda** individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Screenshot della pagina Configura l'accesso Single Sign-On con SAML, in cui è evidenziata l'icona della matita.](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** , se viene visualizzato un **file di metadati di un provider di servizi** , seguire questa procedura:
-    1. Selezionare **Carica il file di metadati** .
-    1. Per selezionare il file di metadati, selezionare l'icona della cartella e quindi **Carica** .
+1. Nella sezione **Configurazione SAML di base**, se viene visualizzato un **file di metadati di un provider di servizi**, seguire questa procedura:
+    1. Selezionare **Carica il file di metadati**.
+    1. Per selezionare il file di metadati, selezionare l'icona della cartella e quindi **Carica**.
     1. Dopo aver caricato il file di metadati, i valori di **Identificatore** e **URL di risposta** vengono visualizzati automaticamente nella casella di testo della sezione relativa a ekarda.
 
     > [!Note]
@@ -112,32 +112,32 @@ Per abilitare l'accesso Single Sign-On di Azure AD, seguire questa procedura nel
 
 In questa sezione verrà usato il portale di Azure per creare un utente di test di nome B.Simon.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
 
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Immettere ad esempio `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e prendere nota del valore visualizzato nella casella **Password** .
-   1. Selezionare **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e prendere nota del valore visualizzato nella casella **Password**.
+   1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ekarda.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **ekarda** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **ekarda**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Screenshot della sezione Gestione con Utenti e gruppi evidenziato.](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Screenshot della sezione Utenti e gruppi con il pulsante Aggiungi utente evidenziato.](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco degli utenti. Scegliere quindi **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede di usare un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere quindi **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ## <a name="configure-ekarda-sso"></a>Configurare l'accesso Single Sign-On di ekarda
 
@@ -158,7 +158,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     1. Nella casella **IDP Logout URL** (URL di disconnessione IDP) incollare il valore di **URL di disconnessione** copiato in precedenza dal portale di Azure.
     1. Nel Blocco note aprire il file del **certificato (Base64)** scaricato dal portale di Azure. Incollarne il contenuto nella casella di testo **IDP x509 Certificate** (Certificato x509 IDP).
     1. Selezionare la casella di testo **Enable SLO** (Abilita SLO) nella sezione **OPTIONS** (OPZIONI).
-    1. Selezionare **Aggiorna** .
+    1. Selezionare **Aggiorna**.
 
 ### <a name="create-an-ekarda-test-user"></a>Creare un utente di test di ekarda
 

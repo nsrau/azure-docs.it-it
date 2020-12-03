@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675029"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185641"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Esercitazione: Creare utenti Azure AD con applicazioni di Azure AD
 
@@ -95,7 +95,7 @@ Per concedere questa autorizzazione obbligatoria, eseguire lo script seguente.
 > [!NOTE] 
 > Questo script deve essere eseguito da un utente `Global Administrator` o `Privileged Roles Administrator` di Azure AD.
 >
-> Nell' **anteprima pubblica** è possibile assegnare il ruolo `Directory Readers` a un gruppo in Azure AD. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando così la necessità di un `Global Administrator` o `Privileged Roles Administrator` che conceda il ruolo `Directory Readers`. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
+> Nell'**anteprima pubblica** è possibile assegnare il ruolo `Directory Readers` a un gruppo in Azure AD. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando così la necessità di un `Global Administrator` o `Privileged Roles Administrator` che conceda il ruolo `Directory Readers`. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Sostituire `<TenantId>` con il valore `TenantId` raccolto in precedenza.
 - Sostituire `<server name>` con il nome del server logico SQL. Se il nome del server è `myserver.database.windows.net`, sostituire `<server name>` con `myserver`.
@@ -169,9 +169,9 @@ Per un approccio simile per l'impostazione dell'autorizzazione **Ruoli con autor
 
 2. Sarà anche necessario creare un segreto client per l'accesso. Seguire le indicazioni fornite qui per [caricare un certificato o creare un segreto per l'accesso](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
-3. Registrare quanto segue dalla registrazione dell'applicazione. Dovrebbe essere disponibile nel riquadro **Panoramica** :
+3. Registrare quanto segue dalla registrazione dell'applicazione. Dovrebbe essere disponibile nel riquadro **Panoramica**:
     - **ID applicazione**
-    - **ID tenant** : deve essere come quello precedente
+    - **ID tenant**: deve essere come quello precedente
 
 In questa esercitazione si useranno *AppSP* come entità servizio principale e *myapp* come secondo utente entità servizio che verrà creato in Azure SQL da *AppSP*. Sarà necessario creare due applicazioni, *AppSP* e *myapp*.
 
@@ -179,7 +179,7 @@ Per altre informazioni su come creare un'applicazione di Azure AD, vedere l'arti
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Autorizzazioni necessarie per impostare o annullare l'impostazione dell'amministratore di Azure AD
 
-Per impostare o annullare l'impostazione di un amministratore di Azure AD per Azure SQL, l'entità servizio deve avere un'autorizzazione API aggiuntiva. L'autorizzazione per [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) per l'API delle applicazioni dovrà essere aggiunta all'applicazione in Azure AD.
+Per impostare o annullare l'impostazione di un amministratore di Azure AD per Azure SQL, l'entità servizio deve avere un'autorizzazione API aggiuntiva. L'autorizzazione per [Directory.Read.All](/graph/permissions-reference#application-permissions-18) per l'API delle applicazioni dovrà essere aggiunta all'applicazione in Azure AD.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Autorizzazioni Directory.Reader.All in Azure AD":::
 

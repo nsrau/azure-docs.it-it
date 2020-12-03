@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024382"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186712"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure
 
 > [!NOTE]
-> È possibile eseguire questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l'[ambiente Demo](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), che include numerosi dati di esempio.  Se si ha già familiarità con l'esecuzione di query in KQL e si deve solo creare rapidamente query utili basate sui tipi di risorse, vedere il [riquadro query di esempio salvate](saved-queries.md).
+> È possibile eseguire questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l'[ambiente Demo](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), che include numerosi dati di esempio.  Se si ha già familiarità con l'esecuzione di query in KQL e si deve solo creare rapidamente query utili basate sui tipi di risorse, vedere il [riquadro query di esempio salvate](./example-queries.md).
 
 In questa esercitazione si apprenderà come scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come scrivere query di log in Monitoraggi
 - Definire e usare campi personalizzati
 - Aggregare e raggruppare i risultati
 
-Per un'esercitazione sull'uso di Log Analytics nel portale di Azure, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md).<br>
+Per un'esercitazione sull'uso di Log Analytics nel portale di Azure, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](./log-analytics-tutorial.md).<br>
 Per altri dettagli sulle query di log in Monitoraggio di Azure, vedere [Panoramica delle query di log in Monitoraggio di Azure](log-query-overview.md).
 
 Di seguito è disponibile una versione video di questa esercitazione:

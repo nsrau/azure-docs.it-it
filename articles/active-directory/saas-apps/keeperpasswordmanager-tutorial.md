@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984465"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Esercitazione: Integrazione di Azure Active Directory con Keeper Password Manager & Digital Vault
 
@@ -157,7 +157,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * È possibile passare direttamente all'URL di accesso per l'applicazione e avviare l'accesso da lì.
 
-* È possibile usare il Pannello di accesso Microsoft. Quando si seleziona il riquadro **Keeper Password Manager & Digital Vault** nel pannello di accesso, verrà eseguito il reindirizzamento all'URL di accesso per l'applicazione. Per altre informazioni sul pannello di accesso, vedere [Accedere e avviare app dal portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare il Pannello di accesso Microsoft. Quando si seleziona il riquadro **Keeper Password Manager & Digital Vault** nel pannello di accesso, verrà eseguito il reindirizzamento all'URL di accesso per l'applicazione. Per altre informazioni sul pannello di accesso, vedere [Accedere e avviare app dal portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

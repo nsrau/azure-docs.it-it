@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880d173c6eef9d267e8860ebad805e071706de42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927369"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186151"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 
@@ -57,7 +57,7 @@ Quando si crea un dashboard, per impostazione predefinita il dashboard è privat
 Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards**(dashboard).  Verificare la sottoscrizione selezionata e quindi fare clic su **Pubblica**.  L'accesso alle informazioni visualizzate nel dashboard è controllato con il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualizzare una query di log
-[Log Analytics](../log-query/get-started-portal.md) è un portale dedicato usato per lavorare con le query di log e i relativi risultati. Le funzionalità includono la possibilità di modificare una query su più righe, eseguire codice in modo selettivo, Intellisense sensibile al contesto e analisi intelligente. In questa esercitazione si userà Log Analytics per creare una visualizzazione delle prestazioni sotto forma di grafico, salvarla per query future e aggiungerla al dashboard condiviso creato in precedenza.
+[Log Analytics](../log-query/log-analytics-tutorial.md) è un portale dedicato usato per lavorare con le query di log e i relativi risultati. Le funzionalità includono la possibilità di modificare una query su più righe, eseguire codice in modo selettivo, Intellisense sensibile al contesto e analisi intelligente. In questa esercitazione si userà Log Analytics per creare una visualizzazione delle prestazioni sotto forma di grafico, salvarla per query future e aggiungerla al dashboard condiviso creato in precedenza.
 
 Aprire Log Analytics scegliendo **Log** dal menu Monitoraggio di Azure. Viene visualizzata una nuova query vuota.
 

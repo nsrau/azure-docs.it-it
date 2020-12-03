@@ -12,11 +12,11 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651446"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187273"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Esercitazione: Esportare i dati da Azure IoT Central e visualizzare le informazioni dettagliate in Power BI
 
@@ -100,7 +100,7 @@ L'esportazione dei dati potrebbe richiedere alcuni minuti prima di iniziare a in
 Nel dashboard Power BI vengono visualizzati i dati dell'applicazione di monitoraggio delle vendite al dettaglio. In questa soluzione si usano i set di dati di streaming Power BI come origine dati per il dashboard di Power BI. In questa sezione si definisce lo schema dei set di dati di streaming in modo che l'app per la logica possa inviare i dati dall'hub eventi. I passaggi seguenti illustrano come creare due set di dati di streaming per i sensori ambientali e un set di dati di streaming per il sensore di occupazione:
 
 1. Accedere all'account **Power BI**.
-1. Selezionare **Aree di lavoro**e quindi **Crea un'area di lavoro**.
+1. Selezionare **Aree di lavoro** e quindi **Crea un'area di lavoro**.
 1. Nella pagina **Crea un'area di lavoro**, immettere _Analisi punti vendita - Pagamento_ come **Nome area di lavoro**.
 1. Scorrere fino alla fine della pagina **Benvenuti nell'area di lavoro Analisi punti vendita - Pagamento** e selezionare **Ignora**.
 1. Nella pagina dell'area di lavoro selezionare **Crea > Set di dati di streaming**.
@@ -177,7 +177,7 @@ La procedura seguente illustra come creare l'app per la logica nel portale di Az
 1. Selezionare il criterio **RootManageSharedAccess** e quindi **Crea**.
 1. Nell'azione **Quando sono disponibili eventi nell'hub eventi**:
     * In **Nome Hub eventi** selezionare **store-telemetry**.
-    * In **Tipo contenuto**selezionare **application/json**.
+    * In **Tipo contenuto** selezionare **application/json**.
     * Impostare l'**intervallo** su tre e la **frequenza** in secondi
 1. Selezionare **Salva** per salvare l'app per la logica.
 
@@ -417,7 +417,7 @@ Per aggiungere la logica alla progettazione dell'app per la logica, selezionare 
     * Selezionare **Analisi punti vendita - Pagamento** come area di lavoro.
     * Selezionare **Sensore di occupazione** come set di dati.
     * Selezionare **RealTimeData** come tabella.
-    * Selezionare **Aggiungi nuovo parametro** e quindi i campi **Timestamp**, **Lunghezza coda 1**e **Lunghezza coda 2**.
+    * Selezionare **Aggiungi nuovo parametro** e quindi i campi **Timestamp**, **Lunghezza coda 1** e **Lunghezza coda 2**.
     * Selezionare il campo **Timestamp** e quindi **x-opt-enqueuedtime** dall'elenco **Contenuto dinamico**.
     * Selezionare il campo **Lunghezza coda 1** e quindi **Mostra dettagli** accanto ad **Analizza dati di telemetria**. Selezionare quindi **count1**.
     * Selezionare il campo **Lunghezza coda 2** e quindi **Mostra dettagli** accanto ad **Analizza dati di telemetria**. Selezionare quindi **count2**.

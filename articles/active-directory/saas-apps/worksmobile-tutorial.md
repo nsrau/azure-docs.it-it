@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: dbc8d126cabae249db8b5e5be5e311d232395c83
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a8b344cd9e4428c3508534edaec4fd98fb67d832
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Esercitazione: Integrazione di Azure Active Directory con LINE WORKS
 
@@ -64,7 +64,7 @@ Per configurare e testare l'accesso SSO di Azure AD con LINE WORKS, seguire ques
     * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
     * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso SSO di LINE WORKS SSO](#configure-line-works-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare un utente di test di LINE WORKS](#create-line-works-test-user)** : per avere una controparte di Britta Simon in LINE WORKS collegata alla rappresentazione di Azure AD dell'utente.
+    * **[Creare un utente di test di LINE WORKS](#create-line-works-test-user)**: per avere una controparte di Britta Simon in LINE WORKS collegata alla rappresentazione di Azure AD dell'utente.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -86,7 +86,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con i valori effettivi di URL di accesso e URL di risposta. Per ottenere i valori, contattare il [team di supporto di LINE WORKS](https://line.worksmobile.com/jp/en/contactus/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -98,7 +98,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -120,7 +120,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-line-works-sso"></a>Configurare l'accesso SSO per LINE WORKS
 
-Per configurare l'accesso Single Sign-On sul lato **LINE WORKS** , leggere i [documenti di LINE WORKS relativi a SSO](https://developers.worksmobile.com/jp/document/1001080101) e configurare un'impostazione di LINE WORKS.
+Per configurare l'accesso Single Sign-On sul lato **LINE WORKS**, leggere i [documenti di LINE WORKS relativi a SSO](https://developers.worksmobile.com/jp/document/1001080101) e configurare un'impostazione di LINE WORKS.
 
 > [!NOTE]
 > È necessario convertire il file di certificato scaricato con estensione cert in un file con estensione pem.
@@ -138,9 +138,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 2. Passare direttamente all'URL di accesso di LINE WORKS e avviare il flusso di accesso.
 
-3. È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di LINE WORKS nel pannello di accesso, si verrà reindirizzati all'URL di accesso di LINE WORKS. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di LINE WORKS nel pannello di accesso, si verrà reindirizzati all'URL di accesso di LINE WORKS. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato LINE WORKS, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+Dopo aver configurato LINE WORKS, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

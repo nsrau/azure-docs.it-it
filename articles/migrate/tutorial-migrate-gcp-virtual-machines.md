@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di VM GCP ad A
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 2caebb5dda87a34d003f7f2bd208fff427c98431
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0093bb453131eb87172021a976b8019a23e445f1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315879"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302593"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Individuare, valutare ed eseguire la migrazione di VM GCP (Google Cloud Platform) ad Azure
 
@@ -44,12 +44,12 @@ Configurare una valutazione nel modo seguente:
         - Per i computer Linux:
             1. Accedere a ogni computer Linux.
             2. Aprire il file sshd_config: vi /etc/ssh/sshd_config
-            3. Nel file individuare la riga **PasswordAuthentication** e impostare il valore su **yes** .
+            3. Nel file individuare la riga **PasswordAuthentication** e impostare il valore su **yes**.
             4. Salvare il file e chiuderlo. Riavviare il servizio ssh.
     - Se si usa un utente root per individuare le macchine virtuali Linux, assicurarsi che l'accesso root sia consentito nelle macchine virtuali.
         1. Accedere a ogni computer Linux
         2. Aprire il file sshd_config: vi /etc/ssh/sshd_config
-        3. Nel file individuare la riga **PermitRootLogin** e impostare il valore su **yes** .
+        3. Nel file individuare la riga **PermitRootLogin** e impostare il valore su **yes**.
         4. Salvare il file e chiuderlo. Riavviare il servizio ssh.
 
 2. Quindi, seguire questa [esercitazione](./tutorial-assess-gcp.md) per configurare un progetto e un'appliance di Azure Migrate per individuare e valutare le VM GCP.
@@ -74,14 +74,14 @@ Preparare Azure per la migrazione con lo strumento Azure Migrate: Migrazione del
 
 **Attività** | **Dettagli**
 --- | ---
-**Creare un progetto di Azure Migrate** | Per creare un progetto, è necessario che l'account Azure abbia autorizzazioni di Collaboratore o Proprietario.
+**Creare un progetto di Azure Migrate** | Per [creare un nuovo progetto](https://docs.microsoft.com/azure/migrate/create-manage-projects), l'account Azure deve avere autorizzazioni di Collaboratore o Proprietario.
 **Verificare le autorizzazioni per l'account Azure** | L'account Azure necessita delle autorizzazioni per creare una macchina virtuale ed eseguire la scrittura su un disco gestito di Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
 
 1. Nel portale di Azure aprire la sottoscrizione e selezionare **Controllo di accesso (IAM)** .
 2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.
-3. È necessario avere le autorizzazioni di **Collaboratore** o **Proprietario** .
+3. È necessario avere le autorizzazioni di **Collaboratore** o **Proprietario**.
     - Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione.
     - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
 
@@ -105,7 +105,7 @@ Prima della migrazione da GCP ad Azure, è necessario preparare e distribuire un
 
 Lo strumento Azure Migrate: Migrazione del server usa un'appliance di replica per replicare i computer in Azure. L'appliance di replica esegue i componenti seguenti.
 
-- **Server di configurazione** : il server di configurazione coordina le comunicazioni tra le VM GCP e Azure, oltre a gestire la replica dei dati.
+- **Server di configurazione**: il server di configurazione coordina le comunicazioni tra le VM GCP e Azure, oltre a gestire la replica dei dati.
 - **Server di elaborazione** Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione della cache in Azure.
 
 Preparare la distribuzione dell'appliance come indicato di seguito:
@@ -123,66 +123,42 @@ Preparare la distribuzione dell'appliance come indicato di seguito:
 - L'appliance di replica usa MySQL. Esaminare le [opzioni](migrate-replication-appliance.md#mysql-installation) per l'installazione di MySQL nell'appliance.
 - Esaminare gli URL di Azure necessari all'appliance di replica per accedere ai cloud [pubblico](migrate-replication-appliance.md#url-access) e per [enti pubblici](migrate-replication-appliance.md#azure-government-url-access).
 
-## <a name="add-the-server-migration-tool"></a>Aggiungere lo strumento Migrazione server
-
-Configurare un progetto di Azure Migrate e quindi aggiungervi lo strumento Migrazione server.
-
-1. Nel portale di Azure selezionare **Tutti i servizi** e cercare **Azure Migrate** .
-2. In **Servizi** selezionare **Azure Migrate** .
-3. In **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server** .
-4. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server** .
-
-    ![Individuare e valutare i server](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Aggiungi strumenti** .
-6. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.
-7. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare e quindi fare clic su **Avanti** . Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
-    - L'area geografica del progetto viene usata solo per archiviare i metadati raccolti dalle macchine virtuali GCP.
-    - Per la migrazione è possibile selezionare qualsiasi area di destinazione.
-
-    ![Creare un progetto di Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. In **Selezionare lo strumento di valutazione** selezionare **Ignora l'aggiunta di uno strumento di valutazione per adesso** > **Avanti** .
-9. In **Selezionare lo strumento di migrazione** selezionare **Azure Migrate: Migrazione server** > **Avanti** .
-10. In **Rivedi e aggiungi strumenti** rivedere le impostazioni e fare clic su **Aggiungi strumenti**
-11. Dopo l'aggiunta, lo strumento viene visualizzato nel progetto di Azure Migrate > **Server** > **Strumenti di migrazione** .
-
 ## <a name="set-up-the-replication-appliance"></a>Configurare l'appliance di replica
 
 La prima fase del processo di migrazione è la configurazione dell'appliance di replica. Per configurare l'appliance per la migrazione delle VM GCP, è necessario scaricare il file del programma di installazione e quindi eseguirlo nella [VM preparata](#prepare-a-machine-for-the-replication-appliance).
 
 ### <a name="download-the-replication-appliance-installer"></a>Scaricare il programma di installazione dell'appliance di replica
 
-1. Nel progetto di Azure Migrate selezionare **Server** , quindi in **Azure Migrate: Migrazione server** fare clic su **Individua** .
+1. Nel progetto di Azure Migrate selezionare **Server**, quindi in **Azure Migrate: Migrazione server** fare clic su **Individua**.
 
     ![Individuare le VM](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V** .
+2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
 3. In **Area di destinazione** selezionare l'area di Azure in cui eseguire la migrazione delle macchine virtuali.
 4. Selezionare **Confermare che l'area di destinazione della migrazione è <nome area>** .
-5. Fare clic su **Crea risorse** . Verrà creato un insieme di credenziali di Azure Site Recovery in background.
+5. Fare clic su **Crea risorse**. Verrà creato un insieme di credenziali di Azure Site Recovery in background.
     - Se è già stata configurata la migrazione con Migrazione server di Azure Migrate, l'opzione della destinazione non può essere configurata, perché le risorse sono state configurate in precedenza.
     - Dopo aver fatto clic su questo pulsante non è più possibile cambiare l'area di destinazione di questo progetto.
     - Per eseguire la migrazione delle VM in un'area diversa, è necessario creare un progetto di Azure Migrate nuovo o diverso.
 
-6. In **Installare una nuova appliance di replica o aumentare le prestazioni della configurazione esistente?** selezionare **Installare un'appliance di replica** .
+6. In **Installare una nuova appliance di replica o aumentare le prestazioni della configurazione esistente?** selezionare **Installare un'appliance di replica**.
 7. In **Scaricare e installare il software dell'appliance di replica** scaricare il programma di installazione dell'appliance e la chiave di registrazione. La chiave è necessaria per registrare l'appliance. È valida per cinque giorni dal momento in cui viene scaricata.
 
     ![Scaricare il provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 8. Copiare il file di installazione e il file della chiave nella VM Windows Server 2016 o Windows Server 2012 GCP creata per l'appliance di replica.
 9. Eseguire il file di installazione dell'appliance di replica, come descritto nella procedura seguente.  
-    9.1. In **Prima di iniziare** selezionare **Install the configuration server and process server** (Installare il server di configurazione e il server di elaborazione) e quindi selezionare **Avanti** .   
-    9.2 In **Third-Party Software License** (Licenza software di terze parti) selezionare **Accetto le condizioni di licenza di terze parti** e quindi selezionare **Avanti** .   
-    9.3 In **Registrazione** selezionare **Sfoglia** e passare al percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali. Selezionare **Avanti** .  
-    9.4 In **Impostazioni Internet** selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy** e quindi selezionare **Avanti** .  
-    9.5 Nella pagina **Controllo dei prerequisiti** vengono eseguiti i controlli di diversi elementi. Al termine, fare clic su **Avanti** .  
-    9.6 In **Configurazione di MySQL** specificare una password per il database MySQL e quindi selezionare **Avanti** .  
-    9.7 In **Dettagli ambiente** selezionare **No** . Non è necessario proteggere le VM. Quindi selezionare **Avanti** .  
+    9.1. In **Prima di iniziare** selezionare **Install the configuration server and process server** (Installare il server di configurazione e il server di elaborazione) e quindi selezionare **Avanti**.   
+    9.2 In **Third-Party Software License** (Licenza software di terze parti) selezionare **Accetto le condizioni di licenza di terze parti** e quindi selezionare **Avanti**.   
+    9.3 In **Registrazione** selezionare **Sfoglia** e passare al percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali. Selezionare **Avanti**.  
+    9.4 In **Impostazioni Internet** selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy** e quindi selezionare **Avanti**.  
+    9.5 Nella pagina **Controllo dei prerequisiti** vengono eseguiti i controlli di diversi elementi. Al termine, fare clic su **Avanti**.  
+    9.6 In **Configurazione di MySQL** specificare una password per il database MySQL e quindi selezionare **Avanti**.  
+    9.7 In **Dettagli ambiente** selezionare **No**. Non è necessario proteggere le VM. Quindi selezionare **Avanti**.  
     9.8 In **Percorso di installazione** selezionare **Avanti** per accettare il valore predefinito.  
     9.9 In **Selezione rete** selezionare **Avanti** per accettare il valore predefinito.  
-    9.10 In **Riepilogo** selezionare **Installa** .   
-    9.11 **Stato dell'installazione** visualizza informazioni sullo stato del processo di installazione. Al termine, selezionare **Fine** . Viene visualizzata una finestra di messaggio per il riavvio. Selezionare **OK** .   
+    9.10 In **Riepilogo** selezionare **Installa**.   
+    9.11 **Stato dell'installazione** visualizza informazioni sullo stato del processo di installazione. Al termine, selezionare **Fine**. Viene visualizzata una finestra di messaggio per il riavvio. Selezionare **OK**.   
     9.12 Viene poi visualizzata una finestra con un messaggio sulla passphrase di connessione al server di configurazione. Copiare la passphrase negli Appunti e salvarla in un file di testo temporaneo nelle VM di origine. Servirà in un secondo momento, durante il processo di installazione del servizio di mobilità.
 10. Al termine dell'installazione, verrà avviata automaticamente la procedura guidata di configurazione dell'appliance (è anche possibile avviare la procedura guidata manualmente usando il collegamento cspsconfigtool creato sul desktop dell'appliance). Usare la scheda Gestisci account della procedura guidata per aggiungere i dettagli dell'account da usare per l'installazione push del servizio di mobilità. In questa esercitazione verrà installato manualmente il servizio di mobilità nelle VM da replicare, quindi occorre creare un account fittizio in questo passaggio e prima di procedere. È possibile specificare i dettagli seguenti per la creazione dell'account fittizio, usando "guest" come nome descrittivo, "username" come nome utente e "password" come password per l'account. Questo account fittizio verrà usato nella fase di abilitazione della replica. 
 11. Una volta completata l'installazione e dopo il riavvio dell'appliance, in **Individua macchine virtuali** selezionare la nuova appliance in **Selezionare il server di configurazione** e fare clic su **Finalize registration** (Finalizza registrazione). Con la finalizzazione della registrazione vengono eseguite un paio di attività finali per preparare l'appliance di replica.
@@ -194,7 +170,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 Nelle VM GCP di cui eseguire la migrazione deve essere installato un agente del servizio di mobilità. I programmi di installazione degli agenti sono disponibili nell'appliance di replica. Individuare quello corretto e installare l'agente in ogni computer di cui eseguire la migrazione. Seguire questa procedura:
 
 1. Accedere all'appliance di replica.
-2. Passare a **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** .
+2. Passare a **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
 3. Trovare il programma di installazione per il sistema operativo e la versione delle VM GCP di origine. Verificare i [sistemi operativi supportati](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
 4. Copiare il file del programma di installazione nella VM GCP di origine di cui eseguire la migrazione.
 5. Assicurarsi di avere il file di testo in cui è stata salvata la passphrase creata durante l'installazione dell'appliance di replica.
@@ -246,18 +222,18 @@ Nelle VM GCP di cui eseguire la migrazione deve essere installato un agente del 
 > [!NOTE]
 > Tramite il portale è possibile aggiungere fino a 10 VM contemporaneamente per la replica. Per replicare più VM contemporaneamente, è possibile aggiungerle in batch di 10.
 
-1. Nel progetto di Azure Migrate selezionare **Server** , **Azure Migrate: Migrazione server** , quindi **Replica** .
+1. Nel progetto di Azure Migrate selezionare **Server**, **Azure Migrate: Migrazione server**, quindi **Replica**.
 
     ![Replicare le VM](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Non virtualizzato/Altro** .
+2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Non virtualizzato/Altro**.
 3. In **Appliance locale** selezionare il nome dell'appliance di Azure Migrate configurata.
 4. In **Server di elaborazione** selezionare il nome dell'appliance di replica. 
-5. In **Credenziali guest** selezionare l'account fittizio creato in precedenza durante la [configurazione del programma di installazione della replica](#download-the-replication-appliance-installer) per installare manualmente il servizio di mobilità (l'installazione push non è supportata). Fare quindi clic su **Avanti: Macchine virtuali** .   
+5. In **Credenziali guest** selezionare l'account fittizio creato in precedenza durante la [configurazione del programma di installazione della replica](#download-the-replication-appliance-installer) per installare manualmente il servizio di mobilità (l'installazione push non è supportata). Fare quindi clic su **Avanti: Macchine virtuali**.   
  
     ![Impostazioni di replica](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
-6. In **Macchine virtuali** , in **Importare le impostazioni di migrazione da una valutazione?** , lasciare l'impostazione predefinita **No, specificherò le impostazioni di migrazione manualmente** .
-7. Selezionare ogni macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **Avanti: Impostazioni di destinazione** .
+6. In **Macchine virtuali**, in **Importare le impostazioni di migrazione da una valutazione?** , lasciare l'impostazione predefinita **No, specificherò le impostazioni di migrazione manualmente**.
+7. Selezionare ogni macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **Avanti: Impostazioni di destinazione**.
 
     ![Selezionare le VM](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
@@ -267,22 +243,22 @@ Nelle VM GCP di cui eseguire la migrazione deve essere installato un agente del 
     -  Zona di disponibilità per aggiungere la macchina migrata a una zona di disponibilità specifica nell'area. Usare questa opzione per distribuire i server che formano un livello applicazione a più nodi tra zone di disponibilità. Se si seleziona questa opzione, sarà necessario specificare la zona di disponibilità da usare per ogni macchina selezionata nella scheda Calcolo. Questa opzione è disponibile solo se l'area di destinazione selezionata per la migrazione supporta le zone di disponibilità
     -  Set di disponibilità per inserire la macchina migrata in un set di disponibilità. Per usare questa opzione, il gruppo di risorse di destinazione selezionato deve avere uno o più set di disponibilità.
     - L'opzione La ridondanza dell'infrastruttura non è richiesta se non è necessaria una di queste configurazioni di disponibilità per le macchine migrate.
-11. In **Vantaggio Azure Hybrid** :
-    - Selezionare **No** se non si vuole applicare Vantaggio Azure Hybrid. Quindi fare clic su **Next** .
-    - Selezionare **Sì** se si hanno computer Windows Server con copertura Software Assurance o sottoscrizioni di Windows Server attive e si vuole applicare il vantaggio alle VM di cui si sta eseguendo la migrazione. Quindi fare clic su **Next** .
+11. In **Vantaggio Azure Hybrid**:
+    - Selezionare **No** se non si vuole applicare Vantaggio Azure Hybrid. Quindi fare clic su **Next**.
+    - Selezionare **Sì** se si hanno computer Windows Server con copertura Software Assurance o sottoscrizioni di Windows Server attive e si vuole applicare il vantaggio alle VM di cui si sta eseguendo la migrazione. Quindi fare clic su **Next**.
 
     ![Impostazioni di destinazione](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
 12. In **Calcolo** controllare il nome della macchina virtuale, le dimensioni, il tipo di disco del sistema operativo e la configurazione della disponibilità, se selezionata nel passaggio precedente. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
-    - **Dimensioni macchina virtuale** : se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale mostra le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure** .
-    - **Disco del sistema operativo** : specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo.
-    - **Zona di disponibilità** : specificare la zona di disponibilità da usare.
-    - **Set di disponibilità** : specificare il set di disponibilità da usare.
+    - **Dimensioni macchina virtuale**: se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale mostra le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**.
+    - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo.
+    - **Zona di disponibilità**: specificare la zona di disponibilità da usare.
+    - **Set di disponibilità**: specificare il set di disponibilità da usare.
 
 ![Impostazioni calcolo](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. In **Dischi** specificare se i dischi delle VM devono essere replicati in Azure e selezionare il tipo di disco in Azure (dischi gestiti Premium o SSD/HDD Standard). Quindi fare clic su **Next** .
+13. In **Dischi** specificare se i dischi delle VM devono essere replicati in Azure e selezionare il tipo di disco in Azure (dischi gestiti Premium o SSD/HDD Standard). Quindi fare clic su **Next**.
     - È possibile escludere dischi dalla replica.
     - I dischi esclusi non saranno presenti nella VM di Azure dopo la migrazione. 
 
@@ -291,7 +267,7 @@ Nelle VM GCP di cui eseguire la migrazione deve essere installato un agente del 
 14. In **Rivedi e avvia replica** verificare le impostazioni e fare clic su **Replica** per avviare la replica iniziale dei server.
 
 > [!NOTE]
-> È possibile aggiornare le impostazioni di replica in qualsiasi momento prima dell'avvio della replica, selezionando **Gestisci** > **Replica delle macchine virtuali** . Le impostazioni non possono essere modificate dopo l'avvio della replica.
+> È possibile aggiornare le impostazioni di replica in qualsiasi momento prima dell'avvio della replica, selezionando **Gestisci** > **Replica delle macchine virtuali**. Le impostazioni non possono essere modificate dopo l'avvio della replica.
 
 ## <a name="track-and-monitor-replication-status"></a>Rilevare e monitorare lo stato della replica
 
@@ -301,7 +277,7 @@ Nelle VM GCP di cui eseguire la migrazione deve essere installato un agente del 
 
 È possibile tenere traccia dello stato del processo nelle notifiche del portale.
 
-È possibile monitorare lo stato della replica facendo clic su **Replica dei server** in **Azure Migrate: Migrazione server** .  
+È possibile monitorare lo stato della replica facendo clic su **Replica dei server** in **Azure Migrate: Migrazione server**.  
 
 ![Monitorare la replica](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
@@ -315,18 +291,18 @@ All'avvio della replica differenziale, è possibile eseguire una migrazione di t
 
 Per eseguire una migrazione di test, seguire questa procedura:
 
-1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata** .
+1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata**.
 
      ![Testare i server con migrazione completata](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
-2. Fare clic con il pulsante destro del mouse sulla VM da testare e scegliere **Migrazione di test** .
+2. Fare clic con il pulsante destro del mouse sulla VM da testare e scegliere **Migrazione di test**.
 
     ![Migrazione di test](./media/tutorial-migrate-physical-virtual-machines/test-migrate.png)
 
 3. In **Migrazione di test** selezionare la rete virtuale di Azure in cui verrà inserita la VM di Azure dopo la migrazione. È consigliabile usare una rete virtuale non di produzione.
-4. Verrà avviato il processo **Migrazione di test** . Monitorare il processo nelle notifiche del portale.
-5. Al termine della migrazione, visualizzare la VM di Azure di cui è stata eseguita la migrazione in **Macchine virtuali** nel portale di Azure. Il nome della macchina virtuale ha il suffisso **-Test** .
-6. Al termine del test, fare clic con il pulsante destro del mouse sulla macchina virtuale di Azure in **Replica delle macchine virtuali** e scegliere **Pulisci migrazione di test** .
+4. Verrà avviato il processo **Migrazione di test**. Monitorare il processo nelle notifiche del portale.
+5. Al termine della migrazione, visualizzare la VM di Azure di cui è stata eseguita la migrazione in **Macchine virtuali** nel portale di Azure. Il nome della macchina virtuale ha il suffisso **-Test**.
+6. Al termine del test, fare clic con il pulsante destro del mouse sulla macchina virtuale di Azure in **Replica delle macchine virtuali** e scegliere **Pulisci migrazione di test**.
 
     ![Eseguire la pulizia della migrazione](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
@@ -335,19 +311,19 @@ Per eseguire una migrazione di test, seguire questa procedura:
 
 Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è possibile procedere con la migrazione delle VM GCP.
 
-1. Nel progetto di Azure Migrate selezionare **Server** > **Azure Migrate: Migrazione server** e fare clic su **Replica dei server** .
+1. Nel progetto di Azure Migrate selezionare **Server** > **Azure Migrate: Migrazione server** e fare clic su **Replica dei server**.
 
     ![Replica dei server](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. In **Replica delle macchine virtuali** fare clic con il pulsante destro del mouse sulla VM e scegliere **Esegui la migrazione** .
-3. In **Esegui la migrazione** > **Spegnere le macchine virtuali ed eseguire una migrazione pianificata senza perdita di dati** selezionare **Sì** > **OK** .
-    - Se non si vuole arrestare la VM, selezionare **No** .
+2. In **Replica delle macchine virtuali** fare clic con il pulsante destro del mouse sulla VM e scegliere **Esegui la migrazione**.
+3. In **Esegui la migrazione** > **Spegnere le macchine virtuali ed eseguire una migrazione pianificata senza perdita di dati** selezionare **Sì** > **OK**.
+    - Se non si vuole arrestare la VM, selezionare **No**.
 4. Verrà avviato un processo di migrazione per la VM. È possibile visualizzare lo stato del processo facendo clic sull'icona a forma di campana della notifica nella parte superiore destra della pagina del portale o passando alla pagina Processi dello strumento Migrazione del server (fare clic su Panoramica nel riquadro dello strumento e selezionare Processi dal menu a sinistra).
 5. Al termine del processo, è possibile visualizzare e gestire la VM dalla pagina Macchine virtuali.
 
 ### <a name="complete-the-migration"></a>Completare la migrazione
 
-1. Al termine della migrazione fare clic con il pulsante destro del mouse sulla VM e scegliere **Arresta migrazione** . Vengono eseguite le operazioni seguenti:
+1. Al termine della migrazione fare clic con il pulsante destro del mouse sulla VM e scegliere **Arresta migrazione**. Vengono eseguite le operazioni seguenti:
     - La replica per la VM GCP viene arrestata.
     - La VM GCP viene rimossa dal conteggio indicato in **Server in fase di replica** in Azure Migrate: Server Migration.
     - Esegue la pulizia delle informazioni sullo stato di replica per la macchina virtuale.

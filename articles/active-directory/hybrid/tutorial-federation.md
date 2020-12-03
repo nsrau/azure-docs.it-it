@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826520"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176291"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Esercitazione: Attuare la federazione di un ambiente con singola foresta di AD sul cloud
 
@@ -237,7 +237,7 @@ Ora che si hanno un tenant e un amministratore globale, è necessario aggiungere
 A questo punto è possibile scaricare e installare Azure AD Connect.  Dopo averlo installato, si passerà all'installazione rapida.  Eseguire le operazioni seguenti:
 
 1. Scaricare [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
-2. Trovare il file **AzureADConnect.msi**e farvi doppio clic.
+2. Trovare il file **AzureADConnect.msi** e farvi doppio clic.
 3. Nella schermata iniziale, selezionare la casella che consente di accettare le condizioni di licenza e fare clic su **Continua**.  
 4. Nella schermata Impostazioni rapide fare clic su **Personalizza**.  
 5. Selezionare la schermata Installazione dei componenti necessari. Fare clic su **Installa**.  

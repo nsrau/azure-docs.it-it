@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579131"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182505"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Esercitazione: Stabilire l'accesso privato al sito per Funzioni di Azure
 
@@ -113,7 +113,7 @@ Il primo passaggio di questa esercitazione consiste nel creare una nuova macchin
     | _Subnet_ | AzureBastionSubnet | Subnet della rete virtuale in cui verrà distribuita la nuova risorsa host Bastion. È necessario creare una subnet usando il nome **AzureBastionSubnet**. Questo valore indica ad Azure la subnet in cui devono essere distribuite le risorse Bastion. È necessario usare una subnet almeno con prefisso **/27** o superiore (/27, /26 e così via). |
 
     > [!NOTE]
-    > Per una guida dettagliata per la creazione di una risorsa Azure Bastion, vedere l'esercitazione [Creare un host Azure Bastion](../bastion/bastion-create-host-portal.md).
+    > Per una guida dettagliata per la creazione di una risorsa Azure Bastion, vedere l'esercitazione [Creare un host Azure Bastion](../bastion/tutorial-create-host-portal.md).
 
 1. Creare una subnet in cui Azure potrà effettuare il provisioning dell'host Azure Bastion. Scegliendo **Gestisci configurazione subnet** verrà visualizzato un nuovo riquadro in cui è possibile definire una nuova subnet.  Scegliere **+ Subnet** per creare una nuova subnet.
 1. Alla subnet deve essere assegnato il nome **AzureBastionSubnet** e il prefisso deve essere almeno **/27**.  Selezionare **OK** per creare la subnet.
@@ -194,9 +194,9 @@ Il passaggio successivo di questa esercitazione consiste nel creare una funzione
 
 1. Seguire una di queste guide di avvio rapido per creare e distribuire l'app Funzioni di Azure:
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Riga di comando](./functions-create-first-azure-function-azure-cli.md)
+    * [Riga di comando](./create-first-function-cli-csharp.md)
     * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Quando si pubblica il progetto Funzioni di Azure, scegliere la risorsa app per le funzioni creata in precedenza in questa esercitazione.
